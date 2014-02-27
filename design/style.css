@@ -1,0 +1,356 @@
+@import url('reset.css');
+
+/*
+    WEB FONTS
+*/
+
+@font-face {
+    /* DIN1451 */
+    font-family: din;
+    src: 
+        url('fonts/din/din1451.eot') format('embedded-opentype');
+    src: 
+        url('fonts/din/din1451.woff') format('woff'),
+        url('fonts/din/din1451.ttf') format('truetype'),
+        url('fonts/din/din1451.svg') format('svg');
+}
+
+@font-face {
+    /* Bebas Neue */
+    font-family: bebas;
+    src: 
+        url('fonts/bebas/bebas.eot');
+    src: 
+        url('fonts/bebas/bebas.woff'),
+        url('fonts/bebas/bebas.ttf'),
+        url('fonts/bebas/bebas.svg');
+}
+
+@font-face {
+    /* Source Code Pro Regular */
+    font-family: scp;
+    src: 
+        url('fonts/din/scp-r.eot');
+    src:
+        url('fonts/din/scp-r.woff'),
+        url('fonts/din/scp-r.otf'),
+        url('fonts/din/scp-r.ttf'),
+        url('fonts/din/scp-r.svg');
+}
+
+/*
+    CONTAINERS
+*/
+
+#site-col { 
+    min-width: 1000px;
+    overflow: auto; 
+    width: 100%;
+}
+
+#site-col-0 {
+    background-color: #343537;
+    float: left;
+    padding: 40px 0 0 0;
+    width: 18%;
+}
+
+#site-col-1 {
+    background-color: #fff;
+    float: right;
+    padding: 60px 0 20px 0;
+    width: 82%;
+}
+
+#content {
+    margin: 0 auto;
+    overflow: auto;
+    width: 700px;
+}
+
+#content-0 {
+    float: left;
+    width: 600px;
+}
+
+#content-1 {
+    float: right;
+    min-height: 300px;
+    width: 90px;
+}
+
+/* 
+    GLOBAL ELEMENT RULES
+*/
+
+a { color: #ba3434; font: inherit; font-family: inherit; font-size: inherit; }
+blockquote { border-left: 1px solid rgba(0,0,0,0.3); }
+del { text-decoration: line-through; }
+em { font-style: italic; }
+html { background-color: #343537; }
+object { outline: 0; }
+strong { font-weight: bold; }
+sup { font-size: 50%; vertical-align: super; }
+sub { font-size: 50%; vertical-align: sub; }
+
+
+blockquote, code, li, p, pre, option, select { 
+    color: #343537;
+    font-family: sans-serif, "Trebuchet MS", Helvetica;
+    font-size: 0.83em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+code, pre { font-family: "Source Code Pro", scp, "Courier New", Courier, monospace; }
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: din, bebas, impact;
+    letter-spacing: 1px;
+    margin-bottom: -8px;
+}
+
+h1 { font-size: 3em; text-transform: uppercase; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+
+/*
+    LEFT COLUMN: HEADER AND SIDEBAR
+*/
+
+#site-col-0 h1,
+#site-col-0 h2, 
+#site-col-0 h3, 
+#site-col-0 h4,
+#site-col-0 h5, 
+#site-col-0 h6 { 
+    color: #9fa5b1;
+    text-align: left;
+}
+
+#site-col-0 p {
+    color: #fff;
+} 
+
+/* 
+    HEADER 
+*/
+
+header {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 95%;
+}
+
+header a { color: #fff; }
+header a:hover { color: #9fa5b1; }
+
+header ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+header li {
+    color: #fff;
+    font-size: 4.5em;
+    font-family: din, bebas, impact;
+    line-height: 1.27em;
+    margin: -30px 0 -30px 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.header-title-inset {
+    margin-left: 30px;
+}
+
+/*
+    SIDEBAR
+*/
+
+#sidebar {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 0;
+    width: 90%;
+}
+
+#sidebar a:hover { border-bottom: 1px dotted #fd4242;}
+#sidebar p { margin-bottom: 10px; }
+
+#sidebar form {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 100%;
+}
+
+/*
+    WEBSITE SEARCH
+*/
+
+#sidebar input[type=search] {
+    border: none;
+    border-radius: 5px;
+    float: left;
+    height: 30px;
+    padding: 0 0 0 6px;
+    text-align: left;
+    vertical-align: top;
+    width: 83%;
+}
+
+#sidebar input[type=submit] {
+    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    float: right;
+    height: 30px;
+    width: 30px;
+}
+
+#sidebar input[type=submit]:hover {
+    background-color: #ba3434;
+    outline: 0;
+}
+
+#sidebar select {
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/*
+    WEBSITE CREDITS
+*/
+
+footer {
+    width: 100%;
+}
+
+footer p {
+    color: #fff;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+/*
+    RIGHT COLUMN: POSTS AND COMMENTS
+*/
+
+#content h1, 
+#content h2,
+#content h3,
+#content h4,
+#content h5,
+#content h6 {
+    color: #343537 !important;
+    line-height: 1em;
+    text-align: left;
+}
+
+#content h1 a:hover {
+    color: #9fa5b1;
+}
+
+#content blockquote,
+#content ol,
+#content ul {
+    padding-left: 2.5%;
+    margin-bottom: 10px;
+}
+
+/*
+    ARTICLE STYLING
+*/
+
+article { margin-bottom: 32px; }
+article li { margin-bottom: 0; }
+article iframe { margin-bottom: 10px; }
+article iframe, article img { border: 1px solid rgba(0,0,0,0.3); border-radius: 5px; }
+
+article pre {
+    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
+    font-size: 0.83em;
+    line-height: 1.1em;
+    margin-bottom: 10px;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+article blockquote a:hover,
+article li a:hover,
+article p a:hover {
+    border-bottom: 1px dotted #000;
+}
+
+/*
+    POST META
+*/
+
+#content-1 p {
+    font-size: 0.7em;
+}
+
+
+/*
+    POST COMMENTS
+*/
+
+.comment { margin-bottom: 20px; }
+.comment h5 { margin-bottom: -5px !important; }
+.comment h5 a:hover { color: #9fa5b1; }
+
+#comment-header {
+    margin-bottom: 10px !important;
+}
+
+.comment-meta {
+    border: solid rgba(0,0,0,0.3);
+    border-width: 1px 0 1px 0;
+    margin: 5px 0 3px 0;  
+    padding-bottom: 2px;
+    width: 100%;
+}
+
+.comment-meta p {
+    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
+    font-size: 0.75em;
+    text-align: left;
+}
+
+/* 
+    INTRA-SITE NAVIGATION
+*/
+
+#site-nav {
+    margin: 0 auto;
+    overflow: auto;
+    width: 83px;
+}
+
+#site-nav a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#site-nav-0 { background: #4284fd url('img/chevron_20_left.png') no-repeat center center; float: left; }
+#site-nav-1 { background: #4284fd url('img/chevron_20_right.png') no-repeat center center; float: right; } 
+
+#site-nav-0,
+#site-nav-1 {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+#site-nav-0:hover,
+#site-nav-1:hover {
+    background-color: #ba3434;
+}
