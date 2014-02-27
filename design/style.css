@@ -19,23 +19,35 @@
     /* Bebas Neue */
     font-family: bebas;
     src: 
-        url('fonts/bebas/bebas.eot');
+        url('fonts/bebas/bebas.eot') format('embedded-opentype');
     src: 
-        url('fonts/bebas/bebas.woff'),
-        url('fonts/bebas/bebas.ttf'),
-        url('fonts/bebas/bebas.svg');
+        url('fonts/bebas/bebas.woff') format('woff'),
+        url('fonts/bebas/bebas.ttf') format('truetype'),
+        url('fonts/bebas/bebas.svg') format('svg');
 }
 
 @font-face {
     /* Source Code Pro Regular */
     font-family: scp;
     src: 
-        url('fonts/din/scp-r.eot');
+        url('fonts/din/scp-r.eot') format('embedded-opentype');
     src:
-        url('fonts/din/scp-r.woff'),
-        url('fonts/din/scp-r.otf'),
-        url('fonts/din/scp-r.ttf'),
-        url('fonts/din/scp-r.svg');
+        url('fonts/din/scp-r.woff') format('woff'),
+        url('fonts/din/scp-r.otf') format('opentype'),
+        url('fonts/din/scp-r.ttf') format('truetype'),
+        url('fonts/din/scp-r.svg') format('svg');
+}
+
+@font-face {
+    /* Source Sans Pro Regular */
+    font-family: ssp;
+    src: 
+        url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
+    src:
+        url('fonts/ssp/ssp-r.woff') format('woff'),
+        url('fonts/ssp/ssp-r.otf') format('opentype'),
+        url('fonts/ssp/ssp-r.ttf') format('truetype'),
+        url('fonts/ssp/ssp-r.svg') format('svg');
 }
 
 /*
@@ -64,7 +76,6 @@
 
 #content {
     margin: 0 auto;
-    overflow: auto;
     width: 600px;
 }
 
@@ -85,7 +96,7 @@ sub { font-size: 50%; vertical-align: sub; }
 
 blockquote, code, li, p, pre, option, select { 
     color: #343537;
-    font-family: "Source Sans Pro",sans-serif, "Trebuchet MS", Helvetica;
+    font-family: "Source Sans Pro", ssp, sans-serif, "Trebuchet MS", Helvetica;
     font-size: 0.83em;
     line-height: 1.3em;
     margin-bottom: 10px;
