@@ -8,10 +8,14 @@ function ColZeroSize() {
 } 
 
 function ColOneSize() {
+    // Right column set to window width - 300px.
+    // There's a set min-width of 1000px.
     $(b).css('width', $(window).width() - $(a).width());
 } 
 
 function SidebarSearchWidth() {
+    // Sidebar search widget width. 
+    // Added extra padding, because Internet Explorer.
 	$('form [name=search').css('width', $('#sidebar').width() - 40);
 }
 

@@ -65,18 +65,7 @@
 #content {
     margin: 0 auto;
     overflow: auto;
-    width: 700px;
-}
-
-#content-0 {
-    float: left;
     width: 600px;
-}
-
-#content-1 {
-    float: right;
-    min-height: 300px;
-    width: 90px;
 }
 
 /* 
@@ -96,7 +85,7 @@ sub { font-size: 50%; vertical-align: sub; }
 
 blockquote, code, li, p, pre, option, select { 
     color: #343537;
-    font-family: sans-serif, "Trebuchet MS", Helvetica;
+    font-family: "Source Sans Pro",sans-serif, "Trebuchet MS", Helvetica;
     font-size: 0.83em;
     line-height: 1.3em;
     margin-bottom: 10px;
@@ -180,6 +169,7 @@ header li {
 }
 
 #sidebar a:hover { border-bottom: 1px dotted #fd4242;}
+#sidebar h6 { margin-bottom: -2px }
 #sidebar p { margin-bottom: 10px; }
 
 #sidebar form {
@@ -269,7 +259,6 @@ footer p {
     ARTICLE STYLING
 */
 
-article { margin-bottom: 32px; }
 article li { margin-bottom: 0; }
 article iframe { margin-bottom: 10px; }
 article iframe, article img { border: 1px solid rgba(0,0,0,0.3); border-radius: 5px; }
@@ -293,7 +282,7 @@ article p a:hover {
     POST META
 */
 
-#content-1 p {
+.post-meta {
     font-size: 0.7em;
 }
 
