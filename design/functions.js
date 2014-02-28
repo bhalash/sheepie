@@ -12,13 +12,6 @@ function ColOneSize() {
     // Right column set to window width - 300px.
     // There's a set min-width of 1000px.
     $(b).css('width', $(window).width() - $(a).width());
-} 
-
-function SocialWidgetSizes() {
-    // Sets the widths for the sidebar social widgets. 
-    var w = '#sidebar-social li';
-    $(w).css('width', ($('#sidebar').width() / 4) - 5);
-    $(w).css('height', $(w).width());
 }
 
 function CommentFormSizes() {
@@ -39,7 +32,6 @@ $(document).ready(
         ColOneSize();
         CommentFormSizes();
 	    SidebarSearchWidth();
-        SocialWidgetSizes();
     }
 );
 
@@ -49,6 +41,5 @@ $(window).on('resize',
         ColOneSize();
         CommentFormSizes();
 	    SidebarSearchWidth();
-        SocialWidgetSizes();
     }
 );    

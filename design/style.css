@@ -191,7 +191,7 @@ header li {
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 0;
-    width: 90%;
+    width: 95%;
 }
 
 #sidebar a:hover { border-bottom: 1px dotted #fd4242;}
@@ -209,45 +209,42 @@ header li {
 */
 
 #sidebar-social {
-    overflow: auto;
-    padding: 5px 0 0 0;
-    width: 100%;
-}
-
-#sidebar-social ul {
-    display: table;
-    list-style-type: none;
-    margin: 0 auto;
-    width: 100%;
+    list-style: none;
+    margin: 0 0 10px 0;
+    text-align: center;
 }
 
 #sidebar-social li {
-    background: #fff;
-    display: table-cell;
-    border-radius: 50%;
-    height: 10;
-    width: 25%;
+    display: inline;
 }
 
 #sidebar-social a {
-    display: block;
-    height: 100%;
-    width: 100%;
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px !important;
+    width: 23%;
 }
 
 #sidebar-social a:hover {
-    border-bottom: none !important;
-    text-decoration: none !important;
+    border: none !important;
 }
 
-.facebook {}
-.github {}
-.instagram {}
-.twitter {}
+.facebook { background: #9fa5b1 url('img/facebook_logo.png') no-repeat center center; background-size: 60px 60px; }
+.facebook:hover { background-color: #3B5998; }
+.github { background: #9fa5b1 url('img/github_logo.png') no-repeat center center; background-size: 60px 60px; }
+.github:hover { background-color: #fd4242; }
+.instagram { background: #9fa5b1 url('img/instagram_logo.png') no-repeat center center; background-size: 60px 60px; }
+.instagram:hover { background-color: #3f729b; }
+.twitter { background: #9fa5b1 url('img/twitter_logo.png') no-repeat center center; background-size: 60px 60px; }
+.twitter:hover { background-color: #00aced; }
 
 /*
     WEBSITE SEARCH
 */
+
+#sidebbar-search {
+    margin-bottom: 10px;
+}
 
 #sidebar input[type=text] {
     border: none;
@@ -387,8 +384,7 @@ article p a:hover {
 */
 
 #comment-entry h3 { margin-bottom: 5px; }
-#comment-entry p { margin-bottom: 0; }
-
+#comment-entry p { margin-bottom: 5px; }
 #comment { font-family: "Source Code Pro", scp, "Courier New", Courier, monospace; }
 
 #comment-entry input[type=text] {
