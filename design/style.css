@@ -6,7 +6,7 @@
 
 @font-face {
     /* DIN1451 */
-    font-family: din;
+    font-family: 'din';
     src: 
         url('fonts/din/din1451.eot') format('embedded-opentype');
     src: 
@@ -17,7 +17,7 @@
 
 @font-face {
     /* Bebas Neue */
-    font-family: bebas;
+    font-family: 'bebas';
     src: 
         url('fonts/bebas/bebas.eot') format('embedded-opentype');
     src: 
@@ -28,7 +28,7 @@
 
 @font-face {
     /* Source Code Pro Regular */
-    font-family: scp;
+    font-family: 'scp';
     src: 
         url('fonts/din/scp-r.eot') format('embedded-opentype');
     src:
@@ -40,7 +40,7 @@
 
 @font-face {
     /* Source Sans Pro Regular */
-    font-family: ssp;
+    font-family: 'ssp';
     src: 
         url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
     src:
@@ -340,9 +340,10 @@ article p a:hover {
     COMMENT ENTRY FORM
 */
 
-#comment-entry h3 {
-    margin-bottom: 5px;
-}
+#comment-entry h3 { margin-bottom: 5px; }
+#comment-entry p { margin-bottom: 0; }
+
+#comment { font-family: "Source Code Pro", scp, "Courier New", Courier, monospace; }
 
 #comment-entry input[type=text] {
     border: 1px solid rgba(0,0,0,0.3);
@@ -360,10 +361,8 @@ article p a:hover {
 #coment-entry textarea {
     border-radius: 5px;
     display: block;
-}
-
-#comment {
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
+    margin: 0 auto;
+    padding: 0;
 }
 
 input[type=submit] {
