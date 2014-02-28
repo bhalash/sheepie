@@ -83,15 +83,20 @@
     GLOBAL ELEMENT RULES
 */
 
-a { color: #ba3434; font: inherit; font-family: inherit; font-size: inherit; }
+a, del, em, strong, sup, sub, time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+a { color: #ba3434; font: inherit; font-size: inherit; }
 blockquote { border-left: 1px solid rgba(0,0,0,0.3); }
 del { text-decoration: line-through; }
 em { font-style: italic; }
 html { background-color: #343537; }
 object { outline: 0; }
-strong { font-weight: bold; }
-sup { font-size: 50%; vertical-align: super; }
-sub { font-size: 50%; vertical-align: sub; }
+strong { font-family: inherit; font-weight: bold; }
+sup { font-size: 75%; vertical-align: super; }
+sub { font-size: 75%; vertical-align: sub; }
 
 blockquote, li, p, option, select { 
     color: #343537;
@@ -198,6 +203,47 @@ header li {
     overflow: auto;
     width: 100%;
 }
+
+/*
+    SIDEBAR SOCIAL ICONS
+*/
+
+#sidebar-social {
+    overflow: auto;
+    padding: 5px 0 0 0;
+    width: 100%;
+}
+
+#sidebar-social ul {
+    display: table;
+    list-style-type: none;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#sidebar-social li {
+    background: #fff;
+    display: table-cell;
+    border-radius: 50%;
+    height: 10;
+    width: 25%;
+}
+
+#sidebar-social a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#sidebar-social a:hover {
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
+.facebook {}
+.github {}
+.instagram {}
+.twitter {}
 
 /*
     WEBSITE SEARCH
@@ -359,6 +405,8 @@ article p a:hover {
 }
 
 #coment-entry textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     border-radius: 5px;
     display: block;
     margin: 0 auto;

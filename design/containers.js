@@ -14,6 +14,13 @@ function ColOneSize() {
     $(b).css('width', $(window).width() - $(a).width());
 } 
 
+function SocialWidgetSizes() {
+    // Sets the widths for the sidebar social widgets. 
+    var w = '#sidebar-social li';
+    $(w).css('width', ($('#sidebar').width() / 4) - 5);
+    $(w).css('height', $(w).width());
+}
+
 function CommentFormSizes() {
     // Sets the sizes for search form elements.
     $('#comment-entry textarea').css('width', $(c).width() - 8);
@@ -32,6 +39,7 @@ $(document).ready(
         ColOneSize();
         CommentFormSizes();
 	    SidebarSearchWidth();
+        SocialWidgetSizes();
     }
 );
 
@@ -41,5 +49,6 @@ $(window).on('resize',
         ColOneSize();
         CommentFormSizes();
 	    SidebarSearchWidth();
+        SocialWidgetSizes();
     }
 );    
