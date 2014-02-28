@@ -1,5 +1,6 @@
 a = '#site-col-0';
 b = '#site-col-1';
+c = '#content';
 
 function ColZeroSize() {
     // Sets sidebar width @ 250px.
@@ -13,6 +14,12 @@ function ColOneSize() {
     $(b).css('width', $(window).width() - $(a).width());
 } 
 
+function CommentFormSizes() {
+    // Sets the sizes for search form elements.
+    $('#comment-entry textarea').css('width', $(c).width() - 8);
+    $('#comment-entry textarea').attr('rows', 10);
+}
+
 function SidebarSearchWidth() {
     // Sidebar search widget width. 
     // Added extra padding, because Internet Explorer.
@@ -21,10 +28,9 @@ function SidebarSearchWidth() {
 
 $(document).ready(
     function() {
-       $('.post-meta').css('margin-top', 41);        
-
 	    ColZeroSize();
         ColOneSize();
+        CommentFormSizes();
 	    SidebarSearchWidth();
     }
 );
@@ -33,6 +39,7 @@ $(window).on('resize',
     function() {
         ColZeroSize();
         ColOneSize();
+        CommentFormSizes();
 	    SidebarSearchWidth();
     }
 );    

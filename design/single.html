@@ -19,8 +19,8 @@
             </header>
             <div id="sidebar"> 
                 <form id="sidebar-search">
-                    <p><input type="search" name="search" value="yolo fixme" />
-                    <input type="submit" value="!" /></p>
+                    <p><input type="text" name="search" id="search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search R.M.W.B.'; }" tabindex="1" value="Search R.M.W.B." />
+                    <input type="submit" id="search-submit" value="" /></p>
                 </form>
                 <h6>Send Feeback:</h6>
                 <p>This site is <strong>BETA</strong>. See weird behaviour? Send a report to <a title="Send feedback for the Helix Fossil!" href="mailto@feedback@bhalash.com">feedback@bhalash.com</a>!
@@ -40,14 +40,29 @@
         <div id="site-col-1">
             <div id="content">
                 <article class="post">
-                    <h1 class="goo-boo"><a href="#">jQuery and design :D</a></h1>
+                    <h1><a href="#">Lorem ipsum dolor sit amet!</a></h1>
                     <hr>
-                    <p><a href="#">Okay, wow.</a> This was <em>fun</em>. <strong>I want to either</strong> change the blog&#8217;s appearance-new name, new theme-or build an entirely separate portfolio website for my graphic and whatever <del>else work for the purpose of work</del>. I&#8217;ve interviewed for a few jobs both here in Galway and elsewhere around the country, and a consistent request is for a portfolio. Why not, I reason, just build one myself? I have the skills, I am (reasonably) intelligent, and I know how to learn in a self-directed manner.</p>
+                    <p><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
                     <p>This paragraph has superset text: E = MC<sup>2</sup>.</p>
                     <p>This paragraph has subset text: When you have different base numbering systems together, it is common to differentiate them by appending a subset number with the base, e.g. <code>24<sub>10</sub> = 0000 1110<sub>2</sub></code>.</p>
                     <p>These two paragraphs have <code>&#60;pre&#62;</code> text:</p>
+                    <pre>
+using System;
+
+public Class Miley {
+    static void Main(string[] args) {
+        while (true)
+            TwerkLikeMiley();
+    }
+
+    static void TwerkLikeMiley() {
+        Console.WriteLine("*twerk*");
+    }
+}
+                    </pre>
                     <pre>“It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.”</pre>
-                    <blockquote>I <a href="#">sat down Saturday</a> and, on the advice of Alanna and others, jumped right into jQuery, and immediately I began to be impressed by quality of the framework. I had been afraid to touch JavaScript. Everyone seemed verbose, and the amount of work needed high. jQuery was pithy and fast.</blockquote>
+                    <blockquote><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
                     <p>This is a <code>&#60;code&#62;</code> block:</p>
                     <p>
                         <code>
@@ -61,7 +76,7 @@
                     done
                         </code>
                     </p>
-                    <p>The first task I set myself was to build the container framework for the mocked-up landing page. I wanted:</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat:</p>
                     <ol>
                         <li>Four CSS content columns of even width.</li>
                         <li>Each <a href="#">column separated by</a> an even margin.</li>
@@ -74,9 +89,8 @@
                         <li>The parent container in turn separated from the viewport sides by the same margin.</li>
                         <li>These margins should be constant no matter how the page is resized.</li>
                     </ul>
-                    <p>I didn&#8217;t care too much about vertical margins as the overflow would be hidden. </p>
-                    <p>Three hours work to learn jQuery through some throwaway scripts, another three to correctly express the end I wanted programmatically, and then one hour to clean and reduce code. </p>
-                    <p><a title="Redesign Photoshop mockup" href="post1/3.jpg"><img src="post1/m/3.jpg" alt="Redesign Photoshop mockup" /></a><br />
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a><br />
                 </article>
                 <p class="post-meta">
                     <strong>Posted:</strong> <time><a href="#">Monday February 24, 2014</a></time><br />
@@ -88,7 +102,7 @@
                     <strong>Admin:</strong> <a href="#">Edit post</a>
                 </p>
                 <div id="post-comments">
-                    <h3 id="comment-header">3 comments on "jQuery and design :D"</h3>
+                    <h3 id="comment-header">3 comments on "Lorem ipsum dolor sit amet!"</h3>
                     <div class="post-break"></div>
                     <div class="comment">
                         <h5><a href="#">Mark Grealish</a></h5>
@@ -107,7 +121,17 @@
                     </div>
                 </div>
                 <div id="comment-entry">
-                    <!-- Form will go here. -->
+                    <h3>Say something witty:</h3>
+                    <p>Your email address will not be published. Required fields are marked *:</p>
+                    <form id="commentform">
+                        <p>
+                        <input name="author" id="author" type="text" onblur="if (this.value == '') { this.value='Name*'; };" onfocus="if (this.value == 'Name*') { this.value = ''; }" value="Name*">
+                        <input name="email" id="email" onblur="if (this.value == '') { this.value='Email*'; };" onfocus="if (this.value == 'Email*') { this.value = ''; }" type="text" value="Email*">
+                        <input id="website" name="website" onblur="if (this.value == '') { this.value='Website'; };" onfocus="if (this.value == 'Website') { this.value = ''; }" type="text" value="Website">
+                        <textarea id="comment" name="comment"></textarea><br />
+                        <input type="submit" id="search-submit" value="Post Comment" /></p>
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
