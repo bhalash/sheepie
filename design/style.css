@@ -285,7 +285,6 @@ header li {
     background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
     border: none;
     border-radius: 5px;
-    color: #fff;
     display: block;
     height: 25px;
     margin-left: 87%;
@@ -296,7 +295,7 @@ header li {
     z-index: 300;
 }
 
-#sidebar input[type=search-submit]:hover {
+#sidebar input[id=search-submit]:hover {
     background-color: #ba3434;
     outline: 0;
 }
