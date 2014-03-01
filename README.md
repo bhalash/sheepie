@@ -1,13 +1,13 @@
 # About RMWB
 RMWB is the HTML / CSS design layout, and associated Wordpress and (TODO) Ghost theme templates.
 
+## Documentation
+None such as of this time. Email mark@bhalash.com if you have any questions.
+
 ## License
 This code project is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This project is Copyright 2014 Mark Grealish (mark@bhalash.com), except for the included fonts:
-
-## Documentation
-None such as of this time. Email mark@bhalash.com if you have any questions.
 
 #### Din 1451 EngSchrift 
 Din 1451 EngSchrift (http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html) is copyright of Linotype. The font was created and is sold under a proprietary license, and is therefore not included for redistribution in this repository.
