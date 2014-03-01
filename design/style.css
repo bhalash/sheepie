@@ -175,7 +175,7 @@ h6 { font-size: 1.25em; }
 
 header {
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 95%;
 }
 
@@ -281,18 +281,19 @@ header li {
     width: 97%;
 }
 
-#sidebar input[name=search-submit] {
+#sidebar input[id=search-submit] {
     background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
     border: none;
     border-radius: 5px;
     color: #fff;
-    display: none;
+    display: block;
     height: 25px;
     margin-left: 87%;
-    margin-top: -27px;
+    margin-top: -27.5px;
     position: relative;
     width: 25px;
-    z-index: 3;
+    /* THIS. IS. SPARTA. */
+    z-index: 300;
 }
 
 #sidebar input[type=search-submit]:hover {
@@ -378,7 +379,6 @@ article p a:hover {
     font-size: 0.7em;
     margin-bottom: 20px;
 }
-
 
 /*
     POST COMMENTS

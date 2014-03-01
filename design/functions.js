@@ -22,13 +22,14 @@ function commentTextarea() {
 }
 
 function socialWidgetHeight() {
-    var wid = $('#sidebar-social a *');
-    wid.css('width', wid.height());
+    // Social link height, to keep them perfectly circular.
+    var wid = $('#sidebar-social a');
+    wid.css('height', wid.width());
 }
 
 function clearSearch(obj) {
-    var string = 'Search R.M.W.B.';
-    var button = $('form [name=search-submit]');
+    // Toggles text in the search side bar. 
+    var string = 'Search RMWB';
 
     if (obj.value == string) {
         obj.value = '';
@@ -36,17 +37,38 @@ function clearSearch(obj) {
     else if (obj.value == '') {
         obj.value = string;
     }
+}
 
-    if (button.hasClass('hidden')) {
-        button.removeClass('hidden');
-        button.addClass('shown');
-        button.fadeIn(1000);
+function clearComName(obj) {
+    var string = 'Name*';
+
+    if (obj.value == string) {
+        obj.value = '';
     }
+    else if (obj.value == '') {
+        obj.value = string;
+    }
+}
 
-    else if (button.hasClass('shown')) {
-        button.removeClass('shown');
-        button.addClass('hidden');
-        button.fadeOut(1000);
+function clearComEmail(obj) {
+    var string = 'Email*';
+
+    if (obj.value == string) {
+        obj.value = '';
+    }
+    else if (obj.value == '') {
+        obj.value = string;
+    }
+}
+
+function clearComWeb(obj) {
+    var string = 'Website';
+
+    if (obj.value == string) {
+        obj.value = '';
+    }
+    else if (obj.value == '') {
+        obj.value = string;
     }
 }
 

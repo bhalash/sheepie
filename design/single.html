@@ -26,7 +26,7 @@
                 </ul>
                 <form id="sidebar-search">
                     <p>
-                        <input name="search-input" type="text" name="search-input" id="search" onfocus="clearSearch(this)" onblur="clearSearch(this)" tabindex="1" value="Search R.M.W.B." />
+                        <input name="search-input" type="text" name="search-input" id="search" onfocus="clearSearch(this)" onblur="clearSearch(this)" tabindex="1" value="Search RMWB" />
                         <input name="search-submit" type="submit" id="search-submit" value="" />
                     </p>
                 </form>
@@ -133,9 +133,9 @@ public Class Miley {
                     <p>Your email address will not be published. Required fields are marked *:</p>
                     <form id="commentform">
                         <p>
-                            <input name="author" id="author" type="text" onblur="if (this.value == '') { this.value='Name*'; };" onfocus="if (this.value == 'Name*') { this.value = ''; }" value="Name*">
-                            <input name="email" id="email" onblur="if (this.value == '') { this.value='Email*'; };" onfocus="if (this.value == 'Email*') { this.value = ''; }" type="text" value="Email*">
-                            <input id="website" name="website" onblur="if (this.value == '') { this.value='Website'; };" onfocus="if (this.value == 'Website') { this.value = ''; }" type="text" value="Website">
+                            <input id="author" name="author" onblur="clearComName(this)" onfocus="clearComName(this)" type="text" value="Name*">
+                            <input id="email" name="email" onblur="clearComEmail(this)" onfocus="clearComEmail(this)" type="text" value="Email*">
+                            <input id="website" name="website" onblur="clearComWeb(this)" onfocus="clearComWeb(this)" type="text" value="Website">
                             <textarea id="comment" name="comment"></textarea>
                         </p>
                         <input type="submit" id="search-submit" value="Post Comment" /></p>
