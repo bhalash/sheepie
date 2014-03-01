@@ -64,14 +64,12 @@
     background-color: #343537;
     float: left;
     padding: 40px 0 0 0;
-    width: 18%;
 }
 
 #site-col-1 {
     background-color: #fff;
     float: right;
     padding: 60px 0 60px 0;
-    width: 82%;
 }
 
 #content {
@@ -191,7 +189,7 @@ header li {
     margin: 0 auto;
     margin-bottom: 10px;
     padding: 0;
-    width: 95%;
+    width: 90%;
 }
 
 #sidebar a:hover { border-bottom: 1px dotted #fd4242;}
@@ -212,6 +210,7 @@ header li {
     list-style: none;
     margin: 0 0 10px 0;
     text-align: center;
+    width: 100%;
 }
 
 #sidebar-social li {
@@ -221,8 +220,7 @@ header li {
 #sidebar-social a {
     border-radius: 50%;
     display: inline-block;
-    height: 50px !important;
-    width: 23%;
+    width: 22.5%;
 }
 
 #sidebar-social a:hover {
@@ -246,30 +244,38 @@ header li {
     margin-bottom: 10px;
 }
 
-#sidebar input[type=text] {
+#sidebar-search p {
+    overflow: auto;
+    position: relative;
+}
+
+#sidebar input[name=search-input] {
     border: none;
     border-radius: 5px;
-    float: left;
     font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
     height: 30px;
-    margin: 5px 0 0 0;
+    margin: 0 auto;
     padding: 0 0 0 6px;
-    text-align: left;
+    position: relative;
     vertical-align: top;
-    width: 83%;
+    width: 97%;
 }
 
-#sidebar input[type=submit] {
+#sidebar input[name=search-submit] {
     background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
     color: #fff;
-    float: right;
-    height: 30px;
-    width: 30px;
+    display: none;
+    height: 25px;
+    margin-left: 87%;
+    margin-top: -27px;
+    position: relative;
+    width: 25px;
+    z-index: 3;
 }
 
-#sidebar input[type=submit]:hover {
+#sidebar input[type=search-submit]:hover {
     background-color: #ba3434;
     outline: 0;
 }
@@ -448,7 +454,7 @@ input[type=submit]:hover {
 
 #site-nav-0,
 #site-nav-1 {
-    border-radius: 50%;
+    border-radius: 5%;
     height: 40px;
     width: 40px;
 }
