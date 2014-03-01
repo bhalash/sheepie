@@ -5,7 +5,12 @@
 */
 
 @font-face {
-    /* DIN1451 */
+    /* 
+        Name: DIN 1451 EngSchrift
+        Creator: Linotype Design Studio
+        URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
+        License: Proprietary / All Rights Reserved / Not for Redistribution 
+    */
     font-family: 'din';
     src: 
         url('fonts/din/din1451.eot') format('embedded-opentype');
@@ -16,7 +21,12 @@
 }
 
 @font-face {
-    /* Bebas Neue */
+    /*
+        Name: Bebas Neue
+        Creator: Dharma Type
+        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
+        License: SIL Open Font License 1.1
+    */ 
     font-family: 'bebas';
     src: 
         url('fonts/bebas/bebas.eot') format('embedded-opentype');
@@ -27,7 +37,12 @@
 }
 
 @font-face {
-    /* Source Code Pro Regular */
+    /* 
+        Name: Source Code Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+        License: SIL Open Font License 1.1
+    */
     font-family: 'scp';
     src: 
         url('fonts/din/scp-r.eot') format('embedded-opentype');
@@ -39,7 +54,12 @@
 }
 
 @font-face {
-    /* Source Sans Pro Regular */
+    /* 
+        Name: Source Sans Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcesans.adobe/
+        License: SIL Open Font License 1.1
+    */
     font-family: 'ssp';
     src: 
         url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
