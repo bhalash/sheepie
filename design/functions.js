@@ -1,17 +1,20 @@
-function leftContainerSize() {
-    // Sets sidebar width @ 250px.
-    var a = $('#site-col-0');
-    var b = $('#site-col-1');
-    a.css('width', 250);
-    a.css('height', b.height()); 
-} 
+widthBreak = 830;
 
-function rightContainerSize() {
-    // Right column set to window width - 300px.
-    // There's a set min-width of 1000px.
-    var a = $('#site-col-0');
-    var b = $('#site-col-1');
-    b.css('width', $(window).width() - a.width());
+function containerSizes() {
+    var a = $('.content-left-exterior');
+    var b = $('.content-right-exterior');
+
+    if ($(window).width < widthBreak) {
+        a.css('width', '100%');
+        b.css('width', '100%');
+    } else {
+        a.css('width', '250px');
+        b.css('width', $(window).width() - a.width());
+    }
+
+    // a.css('min-height', $(window).height() + 'px');
+    b.css('width', ($(window).width() - a.width()) + 'px');
+
 }
 
 function commentTextarea() {
@@ -23,96 +26,35 @@ function commentTextarea() {
 }
 
 function socialWidgetHeight() {
-    // Social link height, to keep them perfectly circular.
-    var wid = $('#sidebar-social a');
-    wid.css('height', wid.width());
+    // Widget width is proportional to div and div container size. 
+    // Height = width.
+    var soc = $('.social a');
+    soc.css('height', soc.width() + 'px'); 
 }
 
-function clearInput(obj) {
-    // Clears the default value from inputs.
-    var inputStr = [
-        'Search RMWB',
-        'Name*',
-        'Email*',
-        'Website'
-    ]
+function clearSearch(obj) {
+    // Clears and restores the default value from the search input.
+    var str = 'Search RMWB';
 
-    switch (obj.value) {
-        case inputStr[0]: 
-            clearValue(obj);
-            break;
-        case inputStr[1]:
-            clearValue(obj);
-            break;
-        case inputStr[2]: 
-            clearValue(obj);
-            break;
-        case inputStr[3]: 
-            clearValue(obj);
-            break;
-        default:
-            break;
+    if (obj.value == str) {
+        obj.value = '';
+    } else if (obj.value == '') {
+        obj.value = str;
     }
-}
-
-function clearValue(obj) {
-    obj.value = '';
-}
-
-function restoreInput(obj) {
-    // Restore the default value to inputs if they are empty.
-    var inputName = [
-        'search-input',
-        'name-input',
-        'email-input',
-        'website-input'
-    ];
-
-    var inputStr = [
-        'Search RMWB',
-        'Name*',
-        'Email*',
-        'Website'
-    ]
-
-    if (obj.value == '') {
-        switch (obj.name) {
-            case inputName[0]: 
-                restoreValue(obj,inputStr[0]);
-                break;
-            case inputName[1]: 
-                restoreValue(obj,inputStr[1]);
-                break;
-            case inputName[2]: 
-                restoreValue(obj,inputStr[2]);
-                break;
-            case inputName[3]: 
-                restoreValue(obj,inputStr[3]);
-                break;
-            default:
-                break;
-        }
-    }
-}
-
-function restoreValue(obj, str) {
-    obj.value = str;
 }
 
 $(document).ready(
     function() {
-        commentTextarea();
-        leftContainerSize();
-        rightContainerSize();
+        // commentTextarea();
+        containerSizes();
         socialWidgetHeight();
     }
 );
 
 $(window).on('resize',
     function() {
-        commentTextarea();
-        leftContainerSize();
-        rightContainerSize();
+        // commentTextarea();
+        containerSizes();
         socialWidgetHeight();
     }
 );    

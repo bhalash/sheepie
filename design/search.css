@@ -1,0 +1,46 @@
+/*
+    WEBSITE SEARCH
+*/
+
+.sidebbar-search {
+    margin-bottom: 10px;
+}
+
+.sidebar-search p {
+    overflow: auto;
+}
+
+input[class=search-input] {
+    border: none;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    height: 30px;
+    margin: 0 auto;
+    padding: 0 0 0 6px;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[class=search-submit] {
+    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    height: 25px;
+    margin-top: -27.5px;
+    margin-right: 5px;
+    position: relative;
+    width: 25px;
+    /* THIS. IS. SPARTA. */
+    z-index: 300;
+}
+
+input[class=search-submit]:hover {
+    background-color: #ba3434;
+    outline: 0;
+}

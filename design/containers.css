@@ -1,0 +1,60 @@
+/*
+    CONTAINERS
+*/
+
+html { 
+    background-color: #343537;
+}
+
+.site-container { 
+    overflow: auto; 
+    width: 100%;
+}
+
+.content-left-exterior,
+.content-right-exterior {
+    padding: 40px 0 0 0;
+}
+
+.content-left-exterior {
+    background: #343537;
+    float: left;
+    padding-bottom: 1px;
+    width: 20%;
+}
+
+.content-right-exterior {
+    background-color: #fff;
+    float: right;
+    width: 80%;
+}
+
+.content-left {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.content-right {
+    margin: 0 auto;
+    min-width: 500px;
+    width: 70%;
+}
+
+/*@media screen and (max-width: 900px) {
+    html {
+        background: #fff;
+    }
+
+    .content-left-exterior,
+    .content-right-exterior {
+        float: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .content-left,
+    .content-right {
+        width: 95%;
+    }
+}
+*/

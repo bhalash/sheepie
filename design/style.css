@@ -1,315 +1,16 @@
-@import url('reset.css');
 
 /*
-    WEB FONTS
+    FOOTER
 */
 
-@font-face {
-    /* 
-        Name: DIN 1451 EngSchrift
-        Creator: Linotype Design Studio
-        URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
-        License: Proprietary / All Rights Reserved / Not for Redistribution 
-    */
-    font-family: 'din';
-    src: 
-        url('fonts/din/din1451.eot') format('embedded-opentype');
-    src: 
-        url('fonts/din/din1451.woff') format('woff'),
-        url('fonts/din/din1451.ttf') format('truetype'),
-        url('fonts/din/din1451.svg') format('svg');
-}
-
-@font-face {
-    /*
-        Name: Bebas Neue
-        Creator: Dharma Type
-        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
-        License: SIL Open Font License 1.1
-    */ 
-    font-family: 'bebas';
-    src: 
-        url('fonts/bebas/bebas.eot') format('embedded-opentype');
-    src: 
-        url('fonts/bebas/bebas.woff') format('woff'),
-        url('fonts/bebas/bebas.ttf') format('truetype'),
-        url('fonts/bebas/bebas.svg') format('svg');
-}
-
-@font-face {
-    /* 
-        Name: Source Code Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
-        License: SIL Open Font License 1.1
-    */
-    font-family: 'scp';
-    src: 
-        url('fonts/din/scp-r.eot') format('embedded-opentype');
-    src:
-        url('fonts/din/scp-r.woff') format('woff'),
-        url('fonts/din/scp-r.otf') format('opentype'),
-        url('fonts/din/scp-r.ttf') format('truetype'),
-        url('fonts/din/scp-r.svg') format('svg');
-}
-
-@font-face {
-    /* 
-        Name: Source Sans Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcesans.adobe/
-        License: SIL Open Font License 1.1
-    */
-    font-family: 'ssp';
-    src: 
-        url('fonts/ssp/scp-r.eot') format('embedded-opentype');;
-    src:
-        url('fonts/ssp/ssp-r.woff') format('woff'),
-        url('fonts/ssp/ssp-r.otf') format('opentype'),
-        url('fonts/ssp/ssp-r.ttf') format('truetype'),
-        url('fonts/ssp/ssp-r.svg') format('svg');
-}
-
-/*
-    CONTAINERS
-*/
-
-#site-col { 
-    min-width: 1000px;
-    overflow: auto; 
-    width: 100%;
-}
-
-#site-col-0 {
-    background-color: #343537;
-    float: left;
-    padding: 40px 0 0 0;
-}
-
-#site-col-1 {
-    background-color: #fff;
-    float: right;
-    padding: 60px 0 60px 0;
-}
-
-#content {
-    margin: 0 auto;
-    width: 600px;
-}
-
-/* 
-    GLOBAL ELEMENT RULES
-*/
-
-a, del, em, strong, sup, sub, time {
-    font-family: inherit;
-    font-size: inherit;
-}
-
-a { color: #ba3434; font: inherit; font-size: inherit; }
-blockquote { border-left: 1px solid rgba(0,0,0,0.3); }
-del { text-decoration: line-through; }
-em { font-style: italic; }
-html { background-color: #343537; }
-object { outline: 0; }
-strong { font-family: inherit; font-weight: bold; }
-sup { font-size: 75%; vertical-align: super; }
-sub { font-size: 75%; vertical-align: sub; }
-
-blockquote, li, p, option, select { 
-    color: #343537;
-    font-family: "Source Sans Pro", ssp, sans-serif, "Trebuchet MS", Helvetica;
-    font-size: 0.83em;
-    line-height: 1.3em;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-code, pre { 
-    line-height: 1.3em;
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace; 
-    font-size: 0.88;
-    line-height: 1.3em;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-font-smoothing: antialiased !important;
-}
-
-pre {
-    margin-bottom: 10px;
-}
-
-h1, h2, h3, h4, h5, h6 { 
-    font-family: din, bebas, impact;
-    letter-spacing: 1px;
-    margin-bottom: -8px;
-}
-
-h1 { font-size: 3em; text-transform: uppercase; }
-h2 { font-size: 2.5em; }
-h3 { font-size: 2em; }
-h4 { font-size: 1.75em; }
-h5 { font-size: 1.5em; }
-h6 { font-size: 1.25em; }
-
-/*
-    LEFT COLUMN: HEADER AND SIDEBAR
-*/
-
-#site-col-0 h1,
-#site-col-0 h2, 
-#site-col-0 h3, 
-#site-col-0 h4,
-#site-col-0 h5, 
-#site-col-0 h6 { 
-    color: #9fa5b1;
-    text-align: left;
-}
-
-#site-col-0 p {
-    color: #fff;
-} 
-
-/* 
-    HEADER 
-*/
-
-header {
-    margin: 0 auto;
-    margin-bottom: 10px;
-    width: 95%;
-}
-
-header a { color: #fff; }
-header a:hover { color: #9fa5b1; }
-
-header ul {
-    display: inline-block;
-    list-style-type: none;
-}
-
-header li {
-    color: #fff;
-    font-size: 4.5em;
-    font-family: din, bebas, impact;
-    line-height: 1.27em;
-    margin: -30px 0 -30px 0;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-.header-title-inset {
-    margin-left: 30px;
-}
-
-/*
-    SIDEBAR
-*/
-
-#sidebar {
-    margin: 0 auto;
-    margin-bottom: 10px;
-    padding: 0;
-    width: 90%;
-}
-
-#sidebar a:hover { border-bottom: 1px dotted #fd4242;}
-#sidebar h6 { margin-bottom: -2px }
-
-#sidebar form {
-    margin: 0 auto;
+.post-meta {
+    font-size: 0.7em;
     margin-bottom: 20px;
-    overflow: auto;
-    width: 100%;
 }
 
-/*
-    SIDEBAR SOCIAL ICONS
-*/
+.post-title a:hover {
 
-#sidebar-social {
-    list-style: none;
-    margin: 0 0 10px 0;
-    text-align: center;
-    width: 100%;
 }
-
-#sidebar-social li {
-    display: inline;
-}
-
-#sidebar-social a {
-    border-radius: 50%;
-    display: inline-block;
-    width: 22.5%;
-}
-
-#sidebar-social a:hover {
-    border: none !important;
-}
-
-.facebook { background: #9fa5b1 url('img/facebook_logo.png') no-repeat center center; background-size: 60px 60px; }
-.facebook:hover { background-color: #3B5998; }
-.github { background: #9fa5b1 url('img/github_logo.png') no-repeat center center; background-size: 60px 60px; }
-.github:hover { background-color: #fd4242; }
-.instagram { background: #9fa5b1 url('img/instagram_logo.png') no-repeat center center; background-size: 60px 60px; }
-.instagram:hover { background-color: #3f729b; }
-.twitter { background: #9fa5b1 url('img/twitter_logo.png') no-repeat center center; background-size: 60px 60px; }
-.twitter:hover { background-color: #00aced; }
-
-/*
-    WEBSITE SEARCH
-*/
-
-#sidebbar-search {
-    margin-bottom: 10px;
-}
-
-#sidebar-search p {
-    overflow: auto;
-    position: relative;
-}
-
-#sidebar input[name=search-input] {
-    border: none;
-    border-radius: 5px;
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    height: 30px;
-    margin: 0 auto;
-    padding: 0 0 0 6px;
-    position: relative;
-    vertical-align: top;
-    width: 97%;
-}
-
-#sidebar input[id=search-submit] {
-    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
-    border: none;
-    border-radius: 5px;
-    display: block;
-    height: 25px;
-    margin-left: 87%;
-    margin-top: -27.5px;
-    position: relative;
-    width: 25px;
-    /* THIS. IS. SPARTA. */
-    z-index: 300;
-}
-
-#sidebar input[id=search-submit]:hover {
-    background-color: #ba3434;
-    outline: 0;
-}
-
-#sidebar select {
-    border-radius: 5px;
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    margin-top: 5px;
-    width: 100%;
-}
-
-/*
-    WEBSITE CREDITS
-*/
 
 footer {
     width: 100%;
@@ -322,46 +23,29 @@ footer p {
 }
 
 /*
-    RIGHT COLUMN: POSTS AND COMMENTS
-*/
-
-#content h1, 
-#content h2,
-#content h3,
-#content h4,
-#content h5,
-#content h6 {
-    color: #343537 !important;
-    line-height: 1em;
-    text-align: left;
-}
-
-#content h1 a:hover {
-    color: #9fa5b1;
-}
-
-#content blockquote,
-#content ol,
-#content ul {
-    padding-left: 2.5%;
-    margin-bottom: 10px;
-}
-
-/*
     ARTICLE STYLING
 */
 
-article { margin-bottom: 30px; }
-article li { margin-bottom: 0; }
-article iframe { margin-bottom: 10px; }
-article iframe, article img { border: 1px solid rgba(0,0,0,0.3); border-radius: 5px; }
+article { 
+    margin-bottom: 30px;
+}
 
-article pre {
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    font-size: 0.83em;
-    line-height: 1.1em;
-    text-align: left;
-    white-space: pre-wrap;
+article li {
+    margin-bottom: 0;
+}
+
+article iframe {
+    margin-bottom: 10px;
+}
+
+article iframe, 
+article img { 
+    /* IE fallback. */
+    border: 1px solid #000;
+    border: 1px solid rgba(0,0,0,0.3); 
+    border-radius: 5px; 
+    height: auto;
+    max-width: 100%;
 }
 
 article blockquote a:hover,
@@ -371,114 +55,16 @@ article p a:hover {
 }
 
 /*
+    LEFT SIDE CONTENT
+*/
+
+.content-right form {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 100%;
+}
+
+/*
     POST META
 */
-
-.post-meta {
-    font-size: 0.7em;
-    margin-bottom: 20px;
-}
-
-/*
-    POST COMMENTS
-*/
-
-.comment h5 { margin-bottom: -5px !important; }
-.comment h5 a:hover { color: #9fa5b1; }
-
-#comment-header {
-    margin-bottom: 10px !important;
-}
-
-.comment-meta {
-    border: solid rgba(0,0,0,0.3);
-    border-width: 1px 0 1px 0;
-    margin: 5px 0 3px 0;  
-    padding-bottom: 2px;
-    width: 100%;
-}
-
-.comment-meta p {
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    font-size: 0.75em;
-    text-align: left;
-}
-
-/*
-    COMMENT ENTRY FORM
-*/
-
-#comment-entry h3 { margin-bottom: 5px; }
-#comment-entry p { margin-bottom: 5px; }
-#comment { font-family: "Source Code Pro", scp, "Courier New", Courier, monospace; }
-
-#comment-entry input[type=text] {
-    border: 1px solid rgba(0,0,0,0.3);
-    border-radius: 5px;
-    float: left;
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    height: 25px;
-    margin: 0 3px 3px 0;
-    padding: 0 0 0 6px;
-    text-align: left;
-    vertical-align: top;
-    width: 31.5%;
-}
-
-#coment-entry textarea {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    display: block;
-    margin: 0 auto;
-    padding: 0;
-}
-
-input[type=submit] {
-    background: #4284fd url('img/chevron_15_right.png') no-repeat 95% center;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    float: left;
-    font-family: "Source Code Pro", scp, "Courier New", Courier, monospace;
-    height: 30px;
-    margin-top: 5px;
-    text-align: left;
-    width: 129px;
-}
-
-input[type=submit]:hover {
-    background-color: #ba3434;
-    outline: 0;
-}
-
-/* 
-    INTRA-SITE NAVIGATION
-*/
-
-#site-nav {
-    margin: 0 auto;
-    overflow: auto;
-    width: 83px;
-}
-
-#site-nav a {
-    display: block;
-    height: 100%;
-    width: 100%;
-}
-
-#site-nav-0 { background: #4284fd url('img/chevron_20_left.png') no-repeat center center; float: left; }
-#site-nav-1 { background: #4284fd url('img/chevron_20_right.png') no-repeat center center; float: right; } 
-
-#site-nav-0,
-#site-nav-1 {
-    border-radius: 5%;
-    height: 40px;
-    width: 40px;
-}
-
-#site-nav-0:hover,
-#site-nav-1:hover {
-    background-color: #ba3434;
-}

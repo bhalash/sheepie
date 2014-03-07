@@ -1,0 +1,77 @@
+/*
+    SOCIAL ICONS
+*/
+
+.social {
+    list-style: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.social li {
+    display: inline;
+    text-align: center;
+}
+
+.social a {
+    border-radius: 50%;
+    display: inline-block;
+    width: 20%;
+}
+
+.social a:hover {
+    border: none !important;
+}
+
+@media screen and (max-width: 900px) {
+    .social {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .social {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .social {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .social {
+        width: 85%;
+    }
+}
+
+/* Email */
+.email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
+.email:hover { background-color: #ec4724; }
+/* Facebook */
+.facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
+.facebook:hover { background-color: #3B5998; }
+/* Github */
+.github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
+.github:hover { background-color: #171516; }
+/* Google+ */
+.google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
+.google:hover { background-color: #db5442; }
+/* Instagram */
+.instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+.instagram:hover { background-color: #3f729b; }
+/* LinkedIn */
+.linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
+.linkedin:hover { background-color: #0274b3; }
+/* Pinterest */
+.pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+.pinterest:hover { background-color: #cb2027; }
+/* RSS */
+.rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
+.rss:hover { background-color: #FF6600; }
+/* Twitter */
+.twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
+.twitter:hover { background-color: #00aced; }

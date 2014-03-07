@@ -1,0 +1,37 @@
+/* 
+    INTRA-SITE NAVIGATION
+*/
+
+.site-nav {
+    margin: 0 auto;
+    overflow: auto;
+    width: 83px;
+}
+
+.site-nav a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-left,
+.nav-right {
+    border-radius: 5%;
+    height: 40px;
+    width: 40px;
+}
+
+.nav-left:hover,
+.nav-right:hover {
+    background-color: #ba3434;
+}
+
+.nav-left { 
+    background: #4284fd url('img/chevron_20_left.png') no-repeat center center;
+    float: left;
+}
+
+.nav-right {
+    background: #4284fd url('img/chevron_20_right.png') no-repeat center center;
+    float: right; 
+} 

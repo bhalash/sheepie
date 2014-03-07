@@ -3,50 +3,49 @@
 <head>
 <!-- Bless the Maker and His water. Bless the coming and going of Him. May His passage cleanse the world. May He keep the world for His people. -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Men Wear Beards</title>
+<!-- Temporary measure. Stylesheets split in order to debug. -->
+<link rel="stylesheet" type="text/css" href="reset.css" />
+<link rel="stylesheet" type="text/css" href="webfonts.css" />
+<link rel="stylesheet" type="text/css" href="globals.css" />
+<link rel="stylesheet" type="text/css" href="containers.css" />
+<link rel="stylesheet" type="text/css" href="header.css" />
+<link rel="stylesheet" type="text/css" href="search.css" />
+<link rel="stylesheet" type="text/css" href="social.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <div id="site-container">
-        <div id="site-col-0">
-            <header>
-                <ul>
-                    <li class="header-title-inset"><a href="#">Real</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li class="header-title-inset"><a href="#">Wear</a></li>
-                    <li><a href="#">Beards</a></li>
+    <div class="site-container">
+        <div class="content-left-exterior">
+            <div class="content-left">
+                <header>
+                    <ul>
+                        <li class="header-title-inset"><a href="#">Real</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li class="header-title-inset"><a href="#">Wear</a></li>
+                        <li><a href="#">Beards</a></li>
+                    </ul>
+                </header>
+                <ul class="social">
+                    <li><a class="twitter social-widget" title="Follow @bhalash on Twitter" href="http://www.twitter.com/bhalash"></a></li>
+                    <li><a class="facebook social-widget" title="Contact Mark on Facebook" href="http://www.facebook.com/bhalash"></a></li>
+                    <li><a class="instagram social-widget" title="Follow @bhalash on Instagram" href="http://www.instagram.com/bhalash"></a></li>
+                    <li><a class="github social-widget" title="Friend Bhalash on GitHub" href="http://www.github.com/bhalash"></a></li>
                 </ul>
-            </header>
-            <div id="sidebar"> 
-                <ul id="sidebar-social">
-                    <li><a class="facebook" title="Contact me on Facebook" href="http://www.facebook.com/bhalash"></a></li>
-                    <li><a class="github" title="Subscribe to Bhalash on Github" href="http://www.github.com/bhalash"></a></li>
-                    <li><a class="instagram" title="Follow @bhalash on Instagram" href="http://www.instagram.com/bhalash"></a></li>
-                    <li><a class="twitter" title="Follow @bhalash on Twitter" href="http://www.twitter.com/bhalash"></a></li>
-                </ul>
-                <form id="sidebar-search">
+                <form class="sidebar-search">
                     <p>
-                        <input name="search-input" type="text" name="search-input" id="search" onfocus="clearInput(this)" onblur="restoreInput(this)" tabindex="1" value="Search RMWB" />
-                        <input name="search-submit" type="submit" id="search-submit" value="" />
+                        <input class="search-input" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search RMWB" />
+                        <input class="search-submit" name="search-submit" type="submit" value="" />
                     </p>
                 </form>
-                <h6>Send Feeback:</h6>
-                <p>This site is in <strong>active development</strong>. See weird behaviour? Send a report to <a title="Send feedback for the Helix Fossil!" href="mailto:feedback@bhalash.com?subject=Feedback on RMWB">feedback@bhalash.com</a>!
-                <h6>Browse my archives:</h6>
-                <select name="archive-dropdown">
-                    <option value="">Select Month</option>
-                    <option value='http://www.bhalash.com/archives/date/2014/02'> February 2014 &nbsp;(40)</option>
-                    <option value='http://www.bhalash.com/archives/date/2014/01'> January 2014 &nbsp;(14)</option>
-                    <option value='http://www.bhalash.com/archives/date/2013/12'> December 2013 &nbsp;(5)</option>
-                    <option value='http://www.bhalash.com/archives/date/2013/11'> November 2013 &nbsp;(4)</option>
-                </select>
+                <div class="sidebar">
+                    <!-- Wordpress sidebar widgets go here. -->
+                </div>
             </div>
-            <footer>
-                <p>Site and content © 2014 <a href="mailto:mark@bhalash.com">Mark</a>.</p>
-            </footer>
-        </div>
-        <div id="site-col-1">
-            <div id="content">
+        </div> 
+        <div class="content-right-exterior">
+            <div class="content-right">
                 <article class="post">
                     <h1><a href="single.html">Lorem ipsum dolor sit amet!</a></h1>
                     <hr>
@@ -100,20 +99,9 @@ public Class Miley {
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                     <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a><br />
                 </article>
-                <article class="post">
-                    <h1><a href="single.html">Sed ut perspiciatis unde omnis iste natus error sit</a></h1>
-                    <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/2.jpg" alt="Lorem Ipsum" /></a><br />
-                </article>
-                <div id="site-nav">
-                    <div id="site-nav-0"><a href="#"></a></div>
-                    <div id="site-nav-1"><a href="#"></a></div>
-                </div>
             </div>
         </div>
     </div>
-    <script src="jquery.js"></script>
+    <script src="jquery-2.1.0.min.js"></script>
     <script src="functions.js"></script>
 </body>
-</html>
