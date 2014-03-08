@@ -1,3 +1,356 @@
+/*
+    WEB FONTS
+*/
+
+@font-face {
+    /* 
+        Name: DIN 1451 EngSchrift
+        Creator: Linotype Design Studio
+        URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
+        License: Proprietary / All Rights Reserved / Not for Redistribution 
+    */
+    font-family: 'DIN 1451';
+    src: 
+        url('fonts/din/din1451.eot?') format('embedded-opentype'), 
+        url('fonts/din/din1451.woff') format('woff'),
+        url('fonts/din/din1451.ttf') format('truetype'),
+        url('fonts/din/din1451.svg') format('svg');
+}
+
+@font-face {
+    /*
+        Name: Bebas Neue
+        Creator: Dharma Type
+        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
+        License: SIL Open Font License 1.1
+    */ 
+    font-family: 'Bebas Neue';
+    src: 
+        url('fonts/bebas/bebas.eot?') format('embedded-opentype'),
+        url('fonts/bebas/bebas.woff') format('woff'),
+        url('fonts/bebas/bebas.ttf') format('truetype'),
+        url('fonts/bebas/bebas.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Code Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'Source Code Pro Regular';
+    src: 
+        url('fonts/din/scp-r.eot?') format('embedded-opentype'),
+        url('fonts/din/scp-r.woff') format('woff'),
+        url('fonts/din/scp-r.otf') format('opentype'),
+        url('fonts/din/scp-r.ttf') format('truetype'),
+        url('fonts/din/scp-r.svg') format('svg');
+}
+
+@font-face {
+    /* 
+        Name: Source Sans Pro Regular
+        Creator: Adobe Systems
+        URL: http://sourceforge.net/projects/sourcesans.adobe/
+        License: SIL Open Font License 1.1
+    */
+    font-family: 'Source Sans Pro Regular';
+    src: 
+        url('fonts/ssp/scp-r.eot?') format('embedded-opentype'),
+        url('fonts/ssp/clacon.woff') format('woff'),
+        url('fonts/ssp/clacon.otf') format('opentype'),
+        url('fonts/ssp/clacon.ttf') format('truetype'),
+        url('fonts/ssp/clacon.svg') format('svg');
+}
+
+/* 
+    GLOBAL ELEMENT RULES
+*/
+
+a,
+del,
+em,
+span,
+strong,
+sub,
+sup,
+time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+a { 
+    color: #ba3434;
+    font: inherit; 
+    font-size: inherit;
+}
+
+blockquote { 
+    /* IE fallback. */
+    padding-left: 10px;
+    border-left: 1px solid #000;
+    border-left: 1px solid rgba(0,0,0,0.3); 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+blockquote,
+code,
+input,
+li,
+option,
+p,
+pre,
+select { 
+    color: #343537;
+    font-family: 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
+    font-size: 0.83em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+code,
+pre { 
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-font-smoothing: antialiased;
+}
+
+del { 
+    text-decoration: line-through;
+}
+
+em { 
+    font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5, 
+h6 { 
+    color: #9fa5b1;
+    font-family: 'DIN 1451', 'Bebas Neue', impact;
+    letter-spacing: 1px;
+    margin-bottom: -8px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+
+ol,
+ul {
+    margin-bottom: 10px;
+    padding-left: 15px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+pre {
+    /* IE fallback. */
+    background: #9fa5b1; 
+    background: rgba(159,165,177,0.3);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 0 6px 0 6px;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+strong { 
+    font-weight: bold; 
+}
+
+sub, 
+sup {
+    font-size: 75%;
+}
+
+sup { 
+    vertical-align: super;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+/*
+    CONTAINERS
+*/
+
+html { 
+    background-color: #343537;
+}
+
+.site-container { 
+    overflow: auto; 
+    width: 100%;
+}
+
+.content-left,
+.content-right {
+    padding: 40px 0 0 0;
+}
+
+.content-left {
+    background: #343537;
+    float: left;
+    padding-bottom: 1px;
+    width: 20%;
+}
+
+.content-right {
+    background-color: #fff;
+    float: right;
+    width: 80%;
+}
+
+.content-left-interior,
+.content-right-interior {
+    margin: 0 auto;
+}
+
+.content-left-interior {
+    width: 90%;
+}
+
+.content-right-interior {
+    max-width: 1200px;
+    min-width: 600px;
+    width: 90%;
+}
+
+@media screen and (max-width: 860px) {
+    html {
+        background: #fff;
+    }
+
+    .content-left,
+    .content-right {
+        float: none;
+        width: 100%;
+    }
+
+    .content-left-interior,
+    .content-right-interior {
+        width: 95%;
+    }
+
+    .content-right-interior {
+        min-width: 0;
+    }
+}
+
+/* 
+    HEADER 
+*/
+
+header {
+    margin: 0 auto;
+    /*margin-bottom: 10px;*/
+}
+
+header a { 
+    color: #fff;
+}
+
+header a:hover { 
+    color: #9fa5b1; 
+}
+
+header ul {
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+header li {
+    color: #fff;
+    font-size: 4.5em;
+    font-family: 'DIN 1451', 'Bebas Neue', impact;
+    line-height: 1.27em;
+    margin: -30px 0 -30px 0;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+header li a:hover {
+    border: none;
+    text-decoration: none;
+}
+
+.header-title-inset {
+    margin-left: 15%;
+}
+
+@media screen and (max-width: 1000px) {
+    header li {
+        font-size: 3.5em;
+    }
+}
+
+/*
+    WEBSITE SEARCH
+*/
+
+.sidebbar-search {
+    margin-bottom: 10px;
+}
+
+.sidebar-search p {
+    overflow: auto;
+}
+
+input[class=search-input] {
+    border: none;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    height: 30px;
+    margin: 0 auto;
+    padding: 0 0 0 6px;
+    position: relative;
+    vertical-align: top;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[class=search-submit] {
+    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    height: 25px;
+    margin-top: -27.5px;
+    margin-right: 5px;
+    position: relative;
+    width: 25px;
+    /* THIS. IS. SPARTA. */
+    z-index: 300;
+}
+
+input[class=search-submit]:hover {
+    background-color: #ba3434;
+    outline: 0;
+}
 
 /*
     FOOTER
@@ -68,3 +421,201 @@ article p a:hover {
 /*
     POST META
 */
+
+/* 
+    INTRA-SITE NAVIGATION
+*/
+
+.site-nav {
+    margin: 0 auto;
+    overflow: auto;
+    width: 83px;
+}
+
+.site-nav a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-left,
+.nav-right {
+    border-radius: 5%;
+    height: 40px;
+    width: 40px;
+}
+
+.nav-left:hover,
+.nav-right:hover {
+    background-color: #ba3434;
+}
+
+.nav-left { 
+    background: #4284fd url('img/chevron_20_left.png') no-repeat center center;
+    float: left;
+}
+
+.nav-right {
+    background: #4284fd url('img/chevron_20_right.png') no-repeat center center;
+    float: right; 
+} 
+
+
+/*
+    POST COMMENTS
+*/
+
+.comment h5 { margin-bottom: -5px !important; }
+.comment h5 a:hover { color: #9fa5b1; }
+
+.comment-header {
+    margin-bottom: 10px !important;
+}
+
+.comment-meta {
+    border: solid rgba(0,0,0,0.3);
+    border-width: 1px 0 1px 0;
+    margin: 5px 0 3px 0;  
+    padding-bottom: 2px;
+    width: 100%;
+}
+
+.comment-meta p {
+    font-size: 0.75em;
+    text-align: left;
+}
+
+/*
+    COMMENT ENTRY FORM
+*/
+
+.comment { 
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+}
+
+.comment-entry h3 {
+    margin-bottom: 5px;
+}
+
+.comment-entry p {
+    margin-bottom: 5px;
+}
+
+.comment-entry input[type=text] {
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    float: left;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    height: 25px;
+    margin: 0 3px 3px 0;
+    padding: 0 0 0 6px;
+    text-align: left;
+    vertical-align: top;
+    width: 31.5%;
+}
+
+#coment-entry textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*input[type=submit] {
+    background: #4284fd url('img/chevron_15_right.png') no-repeat 95% center;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    float: left;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    height: 30px;
+    margin-top: 5px;
+    text-align: left;
+    width: 129px;
+}
+
+input[type=submit]:hover {
+    background-color: #ba3434;
+    outline: 0;
+}
+*/
+
+/*
+    SOCIAL ICONS
+*/
+
+.social {
+    list-style: none;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.social li {
+    display: inline;
+    text-align: center;
+}
+
+.social a {
+    border-radius: 50%;
+    display: inline-block;
+    width: 20%;
+}
+
+.social a:hover {
+    border: none !important;
+}
+
+@media screen and (max-width: 900px) {
+    .social {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .social {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .social {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .social {
+        width: 85%;
+    }
+}
+
+/* Email */
+.email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
+.email:hover { background-color: #ec4724; }
+/* Facebook */
+.facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
+.facebook:hover { background-color: #3B5998; }
+/* Github */
+.github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
+.github:hover { background-color: #171516; }
+/* Google+ */
+.google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
+.google:hover { background-color: #db5442; }
+/* Instagram */
+.instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+.instagram:hover { background-color: #3f729b; }
+/* LinkedIn */
+.linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
+.linkedin:hover { background-color: #0274b3; }
+/* Pinterest */
+.pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+.pinterest:hover { background-color: #cb2027; }
+/* RSS */
+.rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
+.rss:hover { background-color: #FF6600; }
+/* Twitter */
+.twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
+.twitter:hover { background-color: #00aced; }

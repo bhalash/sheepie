@@ -5,20 +5,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Men Wear Beards</title>
-<!-- Temporary measure. Stylesheets split in order to debug. -->
 <link rel="stylesheet" type="text/css" href="reset.css" />
-<link rel="stylesheet" type="text/css" href="webfonts.css" />
-<link rel="stylesheet" type="text/css" href="globals.css" />
-<link rel="stylesheet" type="text/css" href="containers.css" />
-<link rel="stylesheet" type="text/css" href="header.css" />
-<link rel="stylesheet" type="text/css" href="search.css" />
-<link rel="stylesheet" type="text/css" href="social.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
     <div class="site-container">
-        <div class="content-left-exterior">
-            <div class="content-left">
+        <div class="content-left">
+            <div class="content-left-interior">
                 <header>
                     <ul>
                         <li class="header-title-inset"><a href="#">Real</a></li>
@@ -35,7 +28,7 @@
                 </ul>
                 <form class="sidebar-search">
                     <p>
-                        <input class="search-input" name="search-input" onblur="clearSearch(this)" onfocus="clearSearch(this)" tabindex="1" type="text" value="Search RMWB" />
+                        <input class="search-input" name="search-input" placeholder="Search RMWB" tabindex="1" type="text" />
                         <input class="search-submit" name="search-submit" type="submit" value="" />
                     </p>
                 </form>
@@ -44,8 +37,8 @@
                 </div>
             </div>
         </div> 
-        <div class="content-right-exterior">
-            <div class="content-right">
+        <div class="content-right">
+            <div class="content-right-interior">
                 <article class="post">
                     <h1><a href="single.html">Lorem ipsum dolor sit amet!</a></h1>
                     <hr>
@@ -102,6 +95,6 @@ public Class Miley {
             </div>
         </div>
     </div>
-    <script src="jquery-2.1.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="functions.js"></script>
 </body>
