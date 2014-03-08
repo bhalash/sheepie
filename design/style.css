@@ -87,13 +87,15 @@ a {
 }
 
 blockquote { 
-    /* IE fallback. */
-    padding-left: 10px;
-    border-left: 1px solid #000;
-    border-left: 1px solid rgba(0,0,0,0.3); 
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    /* IE fallback. */
+    padding: 0 0 0 10px;
+    border-left: 1px solid #000;
+    border-left: 1px solid rgba(0,0,0,0.3); 
+    margin: 0 auto;
+    width: 96%;
 }
 
 blockquote,
@@ -150,14 +152,19 @@ h6 { font-size: 1.25em; }
 
 ol,
 ul {
-    margin-bottom: 10px;
-    padding-left: 15px;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 0 0 0 15px;
+    width: 96%;
 }
 
 pre {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     /* IE fallback. */
     background: #9fa5b1; 
     background: rgba(159,165,177,0.3);
@@ -168,9 +175,6 @@ pre {
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 strong { 
@@ -203,15 +207,10 @@ html {
     width: 100%;
 }
 
-.content-left,
-.content-right {
-    padding: 40px 0 0 0;
-}
-
 .content-left {
     background: #343537;
     float: left;
-    padding-bottom: 1px;
+    padding: 0 0 1px 0;
     width: 20%;
 }
 
@@ -228,12 +227,14 @@ html {
 }
 
 .content-left-interior {
+    padding: 40px 0 0 0;
     width: 90%;
 }
 
 .content-right-interior {
     max-width: 1200px;
     min-width: 600px;
+    padding: 30px 0 30px 0;
     width: 90%;
 }
 
@@ -250,7 +251,7 @@ html {
 
     .content-left-interior,
     .content-right-interior {
-        width: 95%;
+        width: 93%;
     }
 
     .content-right-interior {
@@ -261,11 +262,6 @@ html {
 /* 
     HEADER 
 */
-
-header {
-    margin: 0 auto;
-    /*margin-bottom: 10px;*/
-}
 
 header a { 
     color: #fff;
@@ -278,7 +274,8 @@ header a:hover {
 header ul {
     display: inline-block;
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
+    width: auto;
 }
 
 header li {
@@ -286,7 +283,7 @@ header li {
     font-size: 4.5em;
     font-family: 'DIN 1451', 'Bebas Neue', impact;
     line-height: 1.27em;
-    margin: -30px 0 -30px 0;
+    margin: -29px 0 -29px 0;
     text-align: left;
     text-transform: uppercase;
 }
@@ -298,18 +295,6 @@ header li a:hover {
 
 .header-title-inset {
     margin-left: 15%;
-}
-
-@media screen and (max-width: 1000px) {
-    header li {
-        font-size: 4em;
-    }
-}
-
-@media screen and (max-width: 950px) {
-    header li {
-        font-size: 3.75em;
-    }
 }
 
 /*
@@ -356,21 +341,11 @@ input[class=search-submit] {
 
 input[class=search-submit]:hover {
     background-color: #ba3434;
-    outline: 0;
 }
 
 /*
     FOOTER
 */
-
-.post-meta {
-    font-size: 0.7em;
-    margin-bottom: 20px;
-}
-
-.post-title a:hover {
-    color: #9fa5b1; 
-}
 
 footer {
     width: 100%;
@@ -391,6 +366,7 @@ article {
 }
 
 article li {
+
     margin-bottom: 0;
 }
 
@@ -405,7 +381,7 @@ article img {
     border: 1px solid rgba(0,0,0,0.3); 
     border-radius: 5px; 
     height: auto;
-    max-width: 100%;
+    max-width: 96%;
 }
 
 article blockquote a:hover,
@@ -425,10 +401,6 @@ article p a:hover {
     width: 100%;
 }
 
-/*
-    POST META
-*/
-
 /* 
     INTRA-SITE NAVIGATION
 */
@@ -436,12 +408,13 @@ article p a:hover {
 .site-nav {
     margin: 0 auto;
     overflow: auto;
-    width: 83px;
+    width: 86px;
 }
 
 .site-nav a {
     display: block;
     height: 100%;
+    overflow: hidden;
     width: 100%;
 }
 
@@ -467,23 +440,33 @@ article p a:hover {
     float: right; 
 } 
 
+/*
+    POST META
+*/
+
+.post-meta {
+    margin-bottom: 20px;
+}
+
+.post-title a:hover {
+    color: #9fa5b1; 
+}
 
 /*
     POST COMMENTS
 */
 
-.comment h5 { margin-bottom: -5px !important; }
-.comment h5 a:hover { color: #9fa5b1; }
-
 .comment-header {
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
 }
 
 .comment-meta {
+    /* Fallback. */
+    border: 1px solid #000;
     border: solid rgba(0,0,0,0.3);
     border-width: 1px 0 1px 0;
     margin: 5px 0 3px 0;  
-    padding-bottom: 2px;
+    padding: 0 0 2px 0;
     width: 100%;
 }
 
@@ -500,8 +483,8 @@ article p a:hover {
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
 }
 
-.comment-entry h3 {
-    margin-bottom: 5px;
+.comment-author-info {
+    margin: 0 auto;
 }
 
 .comment-entry p {
@@ -509,6 +492,10 @@ article p a:hover {
 }
 
 .comment-entry input[type=text] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Fallback. */
+    border: 1px solid #000;
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 5px;
     float: left;
@@ -518,10 +505,10 @@ article p a:hover {
     padding: 0 0 0 6px;
     text-align: left;
     vertical-align: top;
-    width: 31.5%;
+    width: 33%;
 }
 
-#coment-entry textarea {
+.coment-entry textarea {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -530,7 +517,16 @@ article p a:hover {
     padding: 0;
 }
 
-/*input[type=submit] {
+.commentform textarea {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 3px;
+    width: 100%;
+}
+
+input[class=comment-submit] {
     background: #4284fd url('img/chevron_15_right.png') no-repeat 95% center;
     border: none;
     border-radius: 5px;
@@ -538,16 +534,25 @@ article p a:hover {
     float: left;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
     height: 30px;
-    margin-top: 5px;
     text-align: left;
     width: 129px;
 }
 
-input[type=submit]:hover {
+input[class=comment-submit]:hover {
     background-color: #ba3434;
-    outline: 0;
 }
-*/
+
+@media screen and (max-width: 860px) {
+    .comment-entry input[type=text] {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float: none;
+        margin: 0 auto;
+        margin-bottom: 3px;
+        width: 100%;
+    }
+}
 
 /*
     SOCIAL ICONS
@@ -573,7 +578,7 @@ input[type=submit]:hover {
 }
 
 .social a:hover {
-    border: none !important;
+    border: none;
 }
 
 /* Email */

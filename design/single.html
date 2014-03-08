@@ -3,60 +3,51 @@
 <head>
 <!-- Bless the Maker and His water. Bless the coming and going of Him. May His passage cleanse the world. May He keep the world for His people. -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Real Men Wear Beards</title>
+<link rel="stylesheet" type="text/css" href="reset.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <div id="site-container">
-        <div id="site-col-0">
-            <header>
-                <ul>
-                    <li class="header-title-inset"><a href="#">Real</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li class="header-title-inset"><a href="#">Wear</a></li>
-                    <li><a href="#">Beards</a></li>
+    <div class="site-container">
+        <div class="content-left">
+            <div class="content-left-interior">
+                <header>
+                    <ul>
+                        <li class="header-title-inset"><a href="#">Real</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li class="header-title-inset"><a href="#">Wear</a></li>
+                        <li><a href="#">Beards</a></li>
+                    </ul>
+                </header>
+                <ul class="social">
+                    <li><a class="twitter social-widget" title="Follow @bhalash on Twitter" href="http://www.twitter.com/bhalash"></a></li>
+                    <li><a class="facebook social-widget" title="Contact Mark on Facebook" href="http://www.facebook.com/bhalash"></a></li>
+                    <li><a class="instagram social-widget" title="Follow @bhalash on Instagram" href="http://www.instagram.com/bhalash"></a></li>
+                    <li><a class="github social-widget" title="Friend Bhalash on GitHub" href="http://www.github.com/bhalash"></a></li>
                 </ul>
-            </header>
-            <div id="sidebar"> 
-                <ul id="sidebar-social">
-                    <li><a class="facebook" title="Contact me on Facebook" href="http://www.facebook.com/bhalash"></a></li>
-                    <li><a class="github" title="Subscribe to Bhalash on Github" href="http://www.github.com/bhalash"></a></li>
-                    <li><a class="instagram" title="Follow @bhalash on Instagram" href="http://www.instagram.com/bhalash"></a></li>
-                    <li><a class="twitter" title="Follow @bhalash on Twitter" href="http://www.twitter.com/bhalash"></a></li>
-                </ul>
-                <form id="sidebar-search">
+                <form class="sidebar-search">
                     <p>
-                        <input name="search-input" type="text" name="search-input" id="search" onfocus="clearInput(this)" onblur="restoreInput(this)" tabindex="1" value="Search RMWB" />
-                        <input name="search-submit" type="submit" id="search-submit" value="" />
+                        <input class="search-input" name="search-input" placeholder="Search RMWB" tabindex="1" type="text" />
+                        <input class="search-submit" name="search-submit" type="submit" value="" />
                     </p>
                 </form>
-                <h6>Send Feeback:</h6>
-                <p>This site is in <strong>active development</strong>. See weird behaviour? Send a report to <a title="Send feedback for the Helix Fossil!" href="mailto:feedback@bhalash.com?subject=Feedback on RMWB">feedback@bhalash.com</a>!
-                <h6>Browse my archives:</h6>
-                <select name="archive-dropdown">
-                    <option value="">Select Month</option>
-                    <option value='http://www.bhalash.com/archives/date/2014/02'> February 2014 &nbsp;(40)</option>
-                    <option value='http://www.bhalash.com/archives/date/2014/01'> January 2014 &nbsp;(14)</option>
-                    <option value='http://www.bhalash.com/archives/date/2013/12'> December 2013 &nbsp;(5)</option>
-                    <option value='http://www.bhalash.com/archives/date/2013/11'> November 2013 &nbsp;(4)</option>
-                </select>
+                <div class="sidebar">
+                    <!-- Wordpress sidebar widgets go here. -->
+                </div>
             </div>
-            <footer>
-                <p>Site and content © 2014 <a href="mailto:mark@bhalash.com">Mark</a>.</p>
-            </footer>
-        </div>
-        <div id="site-col-1">
-            <div id="content">
+        </div> 
+       <div class="content-right">
+            <div class="content-right-interior">
                 <article class="post">
-                    <h1><a href="#">Lorem ipsum dolor sit amet!</a></h1>
+                    <h1 class="post-title"><a href="single.html">Lorem ipsum dolor sit amet!</a></h1>
                     <hr>
                     <p><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     <p>This paragraph has superset text: E = MC<sup>2</sup>.</p>
                     <p>This paragraph has subset text: When you have different base numbering systems together, it is common to differentiate them by appending a subset number with the base, e.g. <code>24<sub>10</sub> = 0000 1110<sub>2</sub></code>.</p>
                     <p>These two paragraphs have <code>&#60;pre&#62;</code> text:</p>
-                    <pre>
-using System;
+<pre>using System;
 
 public Class Miley {
     static void Main(string[] args) {
@@ -67,21 +58,20 @@ public Class Miley {
     static void TwerkLikeMiley() {
         Console.WriteLine("*twerk*");
     }
-}
-                    </pre>
+}</pre>
                     <pre>“It's a dangerous business, Frodo, going out your door. You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to.”</pre>
                     <blockquote><a href="#">Lorem ipsum dolor</a> sit amet, <em>consectetur adipisicing elit</em>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam</strong>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit <del>in voluptate velit esse</del> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
                     <p>This is a <code>&#60;code&#62;</code> block:</p>
                     <p>
                         <code>
-                    #!/bin/bash <br /><br />
-                    TwerkLikeMiley() { <br />
-                    &nbsp;&nbsp;echo "*twerk*"<br />
-                    }<br /><br />
+                        #!/bin/bash <br /><br />
+                        TwerkLikeMiley() { <br />
+                        &nbsp;&nbsp;echo "*twerk*"<br />
+                        }<br /><br />
 
-                    while [[ 0 ]]; do<br />
-                    &nbsp;&nbsp;TwerkLikeMiley<br />
-                    done
+                        while [[ 0 ]]; do<br />
+                        &nbsp;&nbsp;TwerkLikeMiley<br />
+                        done
                         </code>
                     </p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat:</p>
@@ -100,6 +90,7 @@ public Class Miley {
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                     <p><a title="Lorem Ipsum" href="posts/1.jpg"><img src="posts/m/1.jpg" alt="Lorem Ipsum" /></a><br />
                 </article>
+                <!-- Post Junk -->
                 <p class="post-meta">
                     <strong>Posted:</strong> <time><a href="#">Monday February 24, 2014</a></time><br />
                     <strong>Author:</strong> <a href="mailto:mark@bhalash.com">Mark</a><br />
@@ -109,8 +100,8 @@ public Class Miley {
                     <br />
                     <strong>Admin:</strong> <a href="#">Edit post</a>
                 </p>
-                <div id="post-comments">
-                    <h3 id="comment-header">3 comments on "Lorem ipsum dolor sit amet!"</h3>
+                <div class="post-comments">
+                    <h3 class="comment-header">3 comments on "Lorem ipsum dolor sit amet!"</h3>
                     <div class="post-break"></div>
                     <div class="comment">
                         <h5><a href="#">Mark Grealish</a></h5>
@@ -133,18 +124,21 @@ public Class Miley {
                     <p>Your email address will not be published. Required fields are marked *:</p>
                     <form class="commentform">
                         <p>
-                            <input id="name" name="name-input" onblur="restoreInput(this)" onfocus="clearInput(this)" type="text" value="Name*">
-                            <input id="email" name="email-input" onblur="restoreInput(this)" onfocus="clearInput(this)" type="text" value="Email*">
-                            <input id="website" name="website-input" onblur="restoreInput(this)" onfocus="clearInput(this)" type="text" value="Website">
-                            <textarea id="comment" name="comment"></textarea>
+                            <div class="comment-author-info">
+                                <input class="comment-name" name="comment-name" placeholder="Name*" type="text">
+                                <input class="comment-email" name="comment-email" placeholder="Email*" type="text">
+                                <input class="website" name="comment-website" placeholder="Website" type="text">
+                            </div>
+                            <textarea class="comment-text" name="comment-text" rows="10"></textarea><br />
+                            <input class="comment-submit" type="submit" value="Post Comment" /></p>
                         </p>
-                        <input type="submit" id="search-submit" value="Post Comment" /></p>
                     </form>
                 </div>
+                <!-- End Post Junk -->
             </div>
         </div>
     </div>
-    <script src="jquery-2.1.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="functions.js"></script>
 </body>
 </html>
