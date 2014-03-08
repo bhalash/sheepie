@@ -163,7 +163,7 @@ pre {
     background: rgba(159,165,177,0.3);
     border-radius: 5px;
     margin-bottom: 10px;
-    padding: 0 6px 0 6px;
+    padding: 6px;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
@@ -224,6 +224,7 @@ html {
 .content-left-interior,
 .content-right-interior {
     margin: 0 auto;
+    overflow: auto;
 }
 
 .content-left-interior {
@@ -301,7 +302,13 @@ header li a:hover {
 
 @media screen and (max-width: 1000px) {
     header li {
-        font-size: 3.5em;
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    header li {
+        font-size: 3.75em;
     }
 }
 
@@ -362,7 +369,7 @@ input[class=search-submit]:hover {
 }
 
 .post-title a:hover {
-
+    color: #9fa5b1; 
 }
 
 footer {
@@ -550,6 +557,7 @@ input[type=submit]:hover {
     list-style: none;
     margin: 0 auto;
     margin-bottom: 10px;
+    max-width: 350px;
     text-align: center;
 }
 
@@ -566,30 +574,6 @@ input[type=submit]:hover {
 
 .social a:hover {
     border: none !important;
-}
-
-@media screen and (max-width: 900px) {
-    .social {
-        width: 40%;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .social {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .social {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .social {
-        width: 85%;
-    }
 }
 
 /* Email */
