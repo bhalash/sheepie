@@ -1,13 +1,3 @@
-/*
-Theme Name: RMWB
-Description: New theme for bhalash.com
-Author: Mark
-Version: 0.1
-Tags: black, white, light, one-column, two-columns, fixed-width, custom-background, sticky-post, threaded-comments
-License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
-
 /* 
     RESET
 */
@@ -179,7 +169,6 @@ h6 {
     letter-spacing: 1px;
     margin-bottom: -8px;
     text-align: left;
-    text-transform: uppercase;
 }
 
 h1 { font-size: 3em; }
@@ -273,8 +262,14 @@ html {
 .content-right-interior {
     max-width: 1200px;
     min-width: 600px;
-    padding: 30px 0 30px 0;
+    padding: 0 0 30px 0;
     width: 90%;
+}
+
+@media screen and (max-width: 1600px) {
+    .content-right-interior {
+        max-width: 600px !important;
+    }
 }
 
 @media screen and (max-width: 860px) {
@@ -404,7 +399,7 @@ footer p {
 */
 
 article { 
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 article li {
@@ -423,13 +418,21 @@ article img {
     border: 1px solid rgba(0,0,0,0.3); 
     border-radius: 5px; 
     height: auto;
-    max-width: 96%;
+    max-width: 99%;
 }
 
 article blockquote a:hover,
 article li a:hover,
 article p a:hover {
     border-bottom: 1px dotted #000;
+}
+
+@media screen and (max-width: 860px) {
+    article iframe,
+    article img { 
+        margin: 0 auto;
+        max-width: 96%;
+    }
 }
 
 /*
@@ -449,6 +452,7 @@ article p a:hover {
 
 .site-nav {
     margin: 0 auto;
+    margin-top: 30px;
     overflow: auto;
     width: 86px;
 }
@@ -486,8 +490,16 @@ article p a:hover {
     POST META
 */
 
-.post-meta {
+.post-meta-top {
+    margin-bottom: 0;
+}
+
+.post-meta-bottom {
     margin-bottom: 20px;
+}
+
+.post-title {
+    margin-bottom: -2px;
 }
 
 .post-title a:hover {
@@ -498,8 +510,24 @@ article p a:hover {
     POST COMMENTS
 */
 
+.post-comments ul {
+    margin: 0;
+    padding: 0;
+}
+
+.post-comments ul li ul {
+    margin-left: 15px; 
+}
+
+.post-comments li {
+    list-style-type: none;  
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
 .comment-header {
-    margin-bottom: 10px;
+    color: #ba3434;
 }
 
 .comment-meta {
@@ -512,28 +540,33 @@ article p a:hover {
     width: 100%;
 }
 
-.comment-meta p {
+.comment-meta li {
     font-size: 0.75em;
     text-align: left;
+}
+
+.comment { 
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
 }
 
 /*
     COMMENT ENTRY FORM
 */
 
-.comment { 
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
-}
-
 .comment-author-info {
     margin: 0 auto;
+}
+
+.comment-entry {
+    margin: 0 auto;
+    max-width: 603px;
 }
 
 .comment-entry p {
     margin-bottom: 5px;
 }
 
-.comment-entry input[type=text] {
+.commentform input[type=text] {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* Fallback. */
