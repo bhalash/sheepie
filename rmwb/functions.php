@@ -16,6 +16,9 @@
             Commented <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?>.
             <?php edit_comment_link(__('edit'),'  ',''); ?>
         </p>
+        <?php if ($comment->comment_approved == '0') : ?>
+            <p><?php _e('Your comment has been held for moderation.') ?></p>
+        <?php endif; ?>
         <?php comment_text() ?>
 <?php } ?>
 
