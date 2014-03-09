@@ -1,3 +1,15 @@
+/*
+Theme Name: Real Men Wear Beards
+Theme URI: https://github.com/bhalash/RMWB
+Author: Mark Grealish
+Author URI: http://www.bhalash.com/
+Description: TODO
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
+*/
+
 /* 
     RESET
 */
@@ -368,8 +380,8 @@ input[class=search-submit] {
     display: block;
     float: right;
     height: 25px;
-    margin-top: -27.5px;
-    margin-right: 5px;
+    margin-top: -28.5px;
+    margin-right: 3px;
     position: relative;
     width: 25px;
     /* THIS. IS. SPARTA. */
@@ -510,24 +522,18 @@ article p a:hover {
     POST COMMENTS
 */
 
+.comment-author cite a {
+    text-align: left;
+}
+
 .post-comments ul {
     margin: 0;
     padding: 0;
 }
 
-.post-comments ul li ul {
-    margin-left: 15px; 
-}
-
-.post-comments li {
-    list-style-type: none;  
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
 .comment-header {
     color: #ba3434;
+    margin-bottom: -2px;
 }
 
 .comment-meta {
@@ -559,6 +565,7 @@ article p a:hover {
 
 .comment-entry {
     margin: 0 auto;
+    margin-top: 20px;
     max-width: 603px;
 }
 
@@ -566,7 +573,8 @@ article p a:hover {
     margin-bottom: 5px;
 }
 
-.commentform input[type=text] {
+.commentform input {
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* Fallback. */
@@ -576,11 +584,11 @@ article p a:hover {
     float: left;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
     height: 25px;
-    margin: 0 3px 3px 0;
+    margin: 0 3px 3px 3px;
     padding: 0 0 0 6px;
     text-align: left;
     vertical-align: top;
-    width: 33%;
+    width: 32.3%;
 }
 
 .coment-entry textarea {
@@ -618,7 +626,7 @@ input[class=comment-submit]:hover {
 }
 
 @media screen and (max-width: 860px) {
-    .comment-entry input[type=text] {
+    .comment-entry input {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
