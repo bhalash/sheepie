@@ -191,6 +191,12 @@ h4 { font-size: 1.75em; }
 h5 { font-size: 1.5em; }
 h6 { font-size: 1.25em; }
 
+hr {
+   background: #343537; 
+   border: 0;
+   height: 1px;
+}
+
 label { 
     display: block; 
 }
@@ -283,7 +289,7 @@ html {
 
 @media screen and (max-width: 1600px) {
     .content-right-interior {
-        max-width: 600px !important;
+        max-width: 600px;
     }
 }
 
@@ -426,7 +432,7 @@ footer {
 }
 
 footer p {
-    color: #000;
+    color: #343537;
     font-size: 0.7em;
     text-align: center;
 }
@@ -452,8 +458,8 @@ article iframe {
 article iframe, 
 article img { 
     /* IE fallback. */
-    border: 1px solid #000;
-    border: 1px solid rgba(0,0,0,0.3); 
+    border: 1px solid #343537;
+    border: 1px solid rgba(52,53,55,0.3); 
     border-radius: 5px; 
     height: auto;
     max-width: 99%;
@@ -462,12 +468,13 @@ article img {
 article blockquote a:hover,
 article li a:hover,
 article p a:hover {
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted #343537;
 }
 
 @media screen and (max-width: 860px) {
     article iframe,
     article img { 
+        display: inline-block;
         margin: 0 auto;
         max-width: 96%;
     }
@@ -532,7 +539,7 @@ article p a:hover {
 .post-meta-top,
 .post-meta-bottom,
 .comment-meta {
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace !important;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
     font-size: 0.75em;
 }
 
@@ -567,18 +574,19 @@ article p a:hover {
 
 .comment-reply-title {
     color: #ba3434;
-    margin-bottom: -2px;
+    margin-bottom: 10px;
 }
 
 .comment-meta {
-    border-bottom: 1px solid #000;
-    margin: 5px 0 3px 0;  
+    margin-bottom: 5px;  
     padding: 0 0 2px 0;
     width: 100%;
 }
 
 .comment { 
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    border-bottom: 1px solid #343537;
+    margin-bottom: 10px;
 }
 
 /*
@@ -618,8 +626,8 @@ input[class=comment-form-url] {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* Fallback. */
-    border: 1px solid #000;
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid #343537;
+    border: 1px solid rgba(52,53,55,0.3);
     border-radius: 5px;
     float: left;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
