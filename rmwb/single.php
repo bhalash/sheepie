@@ -20,7 +20,10 @@
                 </p>
             </article>
         <?php endwhile; else: ?>
-            <p>Sorry, no posts match your criteria!</p>
+            <article> 
+                <h3>No joy, sorry</h3>
+                <p>Sorry, no posts were found that match your criteria!</p>
+            </article>
         <?php endif; ?>
     <?php comments_template(); ?> 
     <?php get_footer(); ?>
