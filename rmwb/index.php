@@ -17,7 +17,7 @@
             <p>Sorry, no posts match your criteria!</p>
         <?php endif; ?>
     <div class="site-nav">
-        <div class="nav-left"><a href="#prev"></a></div>
-        <div class="nav-right"><a href="#next"></a></div>
+        <div class="nav-left"><?php previous_posts_link(''); ?></li></div>
+        <div class="nav-right"><?php next_posts_link(''); ?></li></div>
     </div>
     <?php get_footer(); ?>

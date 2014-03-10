@@ -3,8 +3,8 @@ Theme Name: Real Men Wear Beards
 Theme URI: https://github.com/bhalash/RMWB
 Author: Mark Grealish
 Author URI: http://www.bhalash.com/
-Description: TODO
-Version: 0.1
+Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
+Version: 0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
@@ -205,10 +205,8 @@ pre {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    /* IE fallback. */
-    background: #9fa5b1; 
-    background: rgba(159,165,177,0.3);
     border-radius: 5px;
+    font-size: 0.75em;
     margin-bottom: 10px;
     padding: 6px;
     white-space: pre-wrap;
@@ -489,12 +487,14 @@ article p a:hover {
 }
 
 .nav-left { 
-    background: #4284fd url('img/chevron_20_left.png') no-repeat center center;
+    background: #4284fd url('img/chevron_40_up.png') no-repeat center center;
+    background-size: 80% auto;
     float: left;
 }
 
 .nav-right {
-    background: #4284fd url('img/chevron_20_right.png') no-repeat center center;
+    background: #4284fd url('img/chevron_40_down.png') no-repeat center center;
+    background-size: 80% auto;
     float: right; 
 } 
 
@@ -531,7 +531,7 @@ article p a:hover {
     padding: 0;
 }
 
-.comment-header {
+.comment-reply-title {
     color: #ba3434;
     margin-bottom: -2px;
 }
@@ -573,7 +573,7 @@ article p a:hover {
     margin-bottom: 5px;
 }
 
-.commentform input {
+.comment-form input {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -600,7 +600,7 @@ article p a:hover {
     padding: 0;
 }
 
-.commentform textarea {
+.comment-form textarea {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -609,7 +609,7 @@ article p a:hover {
     width: 100%;
 }
 
-input[class=comment-submit] {
+input[id=submit] {
     background: #4284fd url('img/chevron_15_right.png') no-repeat 95% center;
     border: none;
     border-radius: 5px;
@@ -626,6 +626,10 @@ input[class=comment-submit]:hover {
 }
 
 @media screen and (max-width: 860px) {
+    .form-allowed-tags {
+        display: none;
+    }
+
     .comment-entry input {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -634,6 +638,10 @@ input[class=comment-submit]:hover {
         margin: 0 auto;
         margin-bottom: 3px;
         width: 100%;
+    }
+
+    .comment-entry input[id=submit] {
+        width: 40% !important;
     }
 }
 
