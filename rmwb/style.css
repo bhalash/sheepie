@@ -312,6 +312,10 @@ html {
     HEADER 
 */
 
+header {
+    margin-bottom: 10px;
+}
+
 header a { 
     color: #fff;
 }
