@@ -31,7 +31,7 @@
     comment_form( 
         array (
             'title_reply' => 'Say something witty:',
-            'comment_field' => '<p><textarea aria-requires="true" class="comment-form-comment" id="comment" name="comment" rows="10"></textarea></p>',
+            'comment_field' => '<p><textarea aria-required="true" class="comment-form-comment" id="comment" name="comment" rows="10"></textarea></p>',
             'fields' => $comment_form_fields
         )
     ); ?>
