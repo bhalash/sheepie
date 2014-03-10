@@ -23,16 +23,15 @@
 <div class="comment-entry">
     <?php 
     $comment_form_fields = array (
-        'author' => '<input class="comment-author" name="comment-author" placeholder="Name*" type="text">',
-        'email' => '<input class="comment-email" name="comment-email" placeholder="Email*" type="email">',
-        'url' => '<input class="website" name="comment-website" placeholder="Website" type="url">'
+        'author' => '<input aria-required="true" class="comment-form-author" id=author" name="author" placeholder="Name*" type="text">',
+        'email' => '<input aria-required="true" class="comment-form-email" id="email" name="email" placeholder="Email*" type="email">',
+        'url' => '<input aria-required="true" class="comment-form-url" id="url" name="url" placeholder="Website" type="url">'
         );
 
     comment_form( 
         array (
             'title_reply' => 'Say something witty:',
-            'comment_field' => '<textarea class="comment-text" name="comment-text" rows="10"></textarea><br />',
-            'label_submit' => 'Post Comment',
+            'comment_field' => '<p><textarea aria-requires="true" class="comment-form-comment" id="comment" name="comment" rows="10"></textarea></p>',
             'fields' => $comment_form_fields
         )
     ); ?>

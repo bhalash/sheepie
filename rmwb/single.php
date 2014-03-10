@@ -12,15 +12,13 @@
                     on <time><?php the_time(get_option('date_format')) ?>.</time> <?php comments_popup_link('', '1 Comment.', '% Comments.'); ?>
                     <?php edit_post_link('Edit post.', ' ', ''); ?>
                 </p>
-                <hr>
                 <?php the_content('Read the rest of this post &raquo;'); ?>
+                <p class="post-meta-bottom">
+                    <strong>Tagged:</strong> <?php the_tags('', ', ' ,  ''); ?><br />
+                    <strong>Categorized:</strong> <?php the_category(', '); ?><br />
+                    <strong>Admin:</strong> <?php edit_post_link('edit post', ' ', ''); ?>
+                </p>
             </article>
-            <hr>
-            <p class="post-meta-bottom">
-                <strong>Tagged:</strong> <?php the_tags('', ', ' ,  ''); ?><br />
-                <strong>Categorized:</strong> <?php the_category(', '); ?><br />
-                <strong>Admin:</strong> <?php edit_post_link('edit post', ' ', ''); ?>
-            </p>
         <?php endwhile; else: ?>
             <p>Sorry, no posts match your criteria!</p>
         <?php endif; ?>

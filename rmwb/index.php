@@ -10,9 +10,9 @@
                     on <time><?php the_time(get_option('date_format')) ?>.</time> <?php comments_popup_link('No comments.', '1 Comment.', '% Comments.'); ?>
                     <?php edit_post_link('Edit post.', ' ', ''); ?>
                 </p>
-                <hr>
                 <?php the_content('Read the rest of this post &raquo;'); ?>
             </article>
+            <hr>
         <?php endwhile; else: ?>
             <p>Sorry, no posts match your criteria!</p>
         <?php endif; ?>

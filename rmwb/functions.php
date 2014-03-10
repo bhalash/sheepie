@@ -5,9 +5,8 @@
 
     // HTML5 support.
     current_theme_supports('html5');
-?>
 
-<?php function rmwb_comments($comment, $args, $depth) {
+function rmwb_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment; ?>
     <div class="comment <?php comment_class(); ?>" id="li-comment-<?php comment_ID() ?>">
         <h5><?php echo get_comment_author_link(); ?></h5>
