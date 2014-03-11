@@ -276,7 +276,6 @@ html {
 }
 
 .content-left-interior {
-    padding: 40px 0 0 0;
     width: 90%;
 }
 
@@ -319,7 +318,7 @@ html {
 */
 
 header {
-    margin-bottom: 10px;
+    margin: 20px 0 10px 0;
 }
 
 header a { 
@@ -344,6 +343,12 @@ header li {
     line-height: 1.27em;
     margin: -29px 0 -29px 0;
     text-transform: uppercase;
+}
+
+header li:first-child {
+    /* Compensates for the negative li margin. 
+    Otherwise vertical placement is pooched. */
+    margin-top: 0;
 }
 
 header li a {
