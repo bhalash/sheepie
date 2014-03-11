@@ -8,10 +8,9 @@ function socialWidgetHeight() {
 $('.social-widget').hover(
     // Sets the on-and-off hover times and colours for the social widgets. 
     function() {
-        var classes = $(this).attr('id');
         var wCol = '#fff';
 
-        switch (classes) {
+        switch ($(this).attr('id')) {
             case 'email':       wCol = '#ec4724'; break;
             case 'facebook':    wCol = '#3B5998'; break;
             case 'github':      wCol = '#171516'; break;

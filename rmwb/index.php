@@ -19,8 +19,12 @@
                 <p>Sorry, no posts were found that match your criteria!</p>
             </article>
         <?php endif; ?>
-    <div class="site-nav">
-        <div class="nav-left"><?php previous_posts_link(''); ?></li></div>
-        <div class="nav-right"><?php next_posts_link(''); ?></li></div>
-    </div>
-    <?php get_footer(); ?>
+        <div class="site-nav">
+            <div class="nav-left">
+                <?php previous_posts_link(); ?>
+            </div>
+            <div class="nav-right">
+                <?php next_posts_link(); ?>
+            </div>
+        </div>
+        <?php get_footer(); ?>

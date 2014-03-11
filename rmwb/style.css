@@ -452,7 +452,6 @@ article {
 }
 
 article li {
-
     margin-bottom: 0;
 }
 
@@ -503,39 +502,53 @@ article p a:hover {
     margin: 0 auto;
     margin-top: 30px;
     overflow: auto;
-    width: 86px;
+    width: 100%;
 }
 
 .site-nav a {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #343537;
+    border-radius: 5px;
+    color: #fff;
     display: block;
-    height: 100%;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-size: 0.88em;
+    font-variant: small-caps;
+    height: 30px;
+    line-height: 15px;
+    padding: 6px 8px 6px 8px;
+    text-align: center;
     overflow: hidden;
-    width: 100%;
+    min-width: 150px;
+}
+
+.site-nav a:hover {
+    background: #9fa5b1;
 }
 
 .nav-left,
 .nav-right {
-    border-radius: 5%;
-    height: 40px;
-    width: 40px;
-}
-
-.nav-left:hover,
-.nav-right:hover {
-    background-color: #ba3434;
+    overflow: auto;
+    width: 49.5%;
 }
 
 .nav-left { 
-    background: #4284fd url('img/chevron_40_up.png') no-repeat center center;
-    background-size: 80% auto;
     float: left;
 }
 
 .nav-right {
-    background: #4284fd url('img/chevron_40_down.png') no-repeat center center;
-    background-size: 80% auto;
     float: right; 
 } 
+
+.nav-left a {
+    float: right;
+}
+
+.nav-right a {
+    float: left;
+}
 
 /*
     POST META
@@ -730,15 +743,3 @@ input[class=comment-submit]:hover {
 #pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
 #rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
 #twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
-
-/*
-.email:hover { background-color: #ec4724; }
-.facebook:hover { background-color: #3B5998; }
-.github:hover { background-color: #171516; }
-.google:hover { background-color: #db5442; }
-.instagram:hover { background-color: #3f729b; }
-.linkedin:hover { background-color: #0274b3; }
-.pinterest:hover { background-color: #cb2027; }
-.rss:hover { background-color: #FF6600; }
-.twitter:hover { background-color: #00aced; }
-*/
