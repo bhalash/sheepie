@@ -21,10 +21,10 @@
         <?php endif; ?>
         <div class="site-nav">
             <div class="nav-left">
-                <?php previous_posts_link(); ?>
+                <?php previous_posts_link('Previous Page'); ?>
             </div>
             <div class="nav-right">
-                <?php next_posts_link(); ?>
+                <?php next_posts_link('Next Page'); ?>
             </div>
         </div>
         <?php get_footer(); ?>
