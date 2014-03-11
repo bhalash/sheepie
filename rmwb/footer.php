@@ -3,6 +3,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/social.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/functions.js"></script>
 <script>
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-2156640-5']);

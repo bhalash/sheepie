@@ -286,13 +286,13 @@ html {
     width: 90%;
 }
 
-@media screen and (max-width: 1600px) {
+@media (max-width: 1600px) {
     .content-right-interior {
         max-width: 600px;
     }
 }
 
-@media screen and (max-width: 860px) {
+@media (max-width: 860px) {
     html {
         background: #fff;
     }
@@ -376,7 +376,7 @@ header li a:hover {
     margin-bottom: 0;
 }
 
-@media screen and (max-width: 860px) {
+@media (max-width: 860px) {
     .sidebar {
         display: none;
     }
@@ -475,7 +475,7 @@ article p a:hover {
     border-bottom: 1px dotted #343537;
 }
 
-@media screen and (max-width: 860px) {
+@media (max-width: 860px) {
     article iframe,
     article img { 
         display: inline-block;
@@ -521,7 +521,6 @@ article p a:hover {
     padding: 6px 8px 6px 8px;
     text-align: center;
     overflow: hidden;
-    min-width: 150px;
 }
 
 .site-nav a:hover {
@@ -548,6 +547,12 @@ article p a:hover {
 
 .nav-right a {
     float: left;
+}
+
+@media (max-width: 860px) {
+    .site-nav a {
+
+    }
 }
 
 /*
@@ -691,7 +696,7 @@ input[class=comment-submit]:hover {
     background-color: #ba3434;
 }
 
-@media screen and (max-width: 860px) {
+@media (max-width: 860px) {
     .form-allowed-tags {
         display: none;
     }
