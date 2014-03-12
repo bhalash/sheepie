@@ -264,7 +264,7 @@ html {
 }
 
 .content-right {
-    background-color: #fff;
+    background: #fff;
     float: right;
     width: 80%;
 }
@@ -524,10 +524,10 @@ article p a:hover {
     overflow: hidden;
 }
 
-.site-nav a:hover {
+/*.site-nav a:hover {
     background: #9fa5b1;
 }
-
+*/
 .nav-left,
 .nav-right {
     overflow: auto;
@@ -536,8 +536,6 @@ article p a:hover {
 
 .nav-left { 
     float: left;
-    /* Fallback width. */
-    width: 116px;
 }
 
 .nav-right {
