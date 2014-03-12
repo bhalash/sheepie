@@ -410,7 +410,8 @@ input[class=search-input] {
 }
 
 input[class=search-submit] {
-    background: #4284fd url('img/chevron_15_right.png') no-repeat center center;
+    background: #4284fd url('img/chevron_right.png') no-repeat center center;
+    background-size: 75% auto;
     border: none;
     border-radius: 5px;
     display: block;
@@ -535,6 +536,8 @@ article p a:hover {
 
 .nav-left { 
     float: left;
+    /* Fallback width. */
+    width: 116px;
 }
 
 .nav-right {

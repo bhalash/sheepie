@@ -4,7 +4,9 @@
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
             <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-                <h3 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+                <h3 class="post-title">
+                    <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                </h3>
                 <p class="post-meta-top">
                     Posted by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a> 
                     on <time><?php the_time(get_option('date_format')) ?>.</time> <?php comments_popup_link('No comments.', '1 Comment.', '% Comments.'); ?>
