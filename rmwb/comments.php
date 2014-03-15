@@ -1,9 +1,9 @@
 <div class="post-comments">
     <?php if (post_password_required()) : ?>
-        <h3 class="comment-reply-title">This post is password protected. Enter the password to view comments.</h3>
+        <h3 class="post-title">This post is password protected. Enter the password to view comments.</h3>
     <?php return; endif; ?>
     <?php if (have_comments()) : ?>
-        <h3 class="comment-reply-title"><?php comments_number('No Comments:', '1 Comment:', '% Comments:');?></h3>
+        <h3><?php comments_number('No Comments:', '1 Comment:', '% Comments:');?></h3>
         <?php wp_list_comments(
             array ( 
                 'callback' => 'rmwb_comments',
@@ -15,7 +15,7 @@
         <?php if (comments_open()) : ?>
             <?php else : ?>
                 <?php if(!is_page()) : ?>
-                    <h3 class="comment-reply-title">Comments are closed.</h3>
+                    <h3>Comments are closed.</h3>
                 <?php endif; ?>
         <?php endif; ?>
     <?php endif; ?>

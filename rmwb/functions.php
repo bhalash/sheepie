@@ -6,7 +6,7 @@
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
 
-    function arphabet_widgets_init() {
+    function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
         register_sidebar(
             array(
@@ -20,7 +20,7 @@
         );
     }
 
-    add_action( 'widgets_init', 'arphabet_widgets_init' );
+    add_action( 'widgets_init', 'sidebar_widgets_init' );
 
     function rmwb_comments($comment, $args, $depth) {
         // Custom comment output.

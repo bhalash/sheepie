@@ -142,7 +142,7 @@ blockquote {
     box-sizing: border-box;
     /* IE fallback. */
     padding: 0 0 0 10px;
-    border-left: 1px solid #343537;
+    border-left: 1px solid #;
     border-left: 1px solid rgba(0,0,0,0.3); 
     margin: 0 auto;
     width: 96%;
@@ -377,12 +377,17 @@ header li a:hover {
     WEBSITE SIDEBAR 
 */
 
+.sidebar {
+    margin-bottom: 15px;
+}
+
 .sidebar a:hover {
     /*text-decoration: underline; */
     border-bottom: 1px dotted #ba3434;
 }
 
 .sidebar li {
+    color: #fff;
     margin-bottom: 0;
     text-align: left;
 }
@@ -398,12 +403,13 @@ header li a:hover {
     width: 100%;
 }
 
-.sidebar ul {
-    padding-left: 0;
+.sidebar ul,
+.sidebar ol {
+    /*padding-left: 0;*/
 }
 
 .sidebar-title {
-    color: #fff;
+    /*color: #fff;*/
     /* Compensates for negative margin. */
     margin-bottom: 0;
 }
@@ -427,11 +433,29 @@ header li a:hover {
     margin-bottom: 10px;
 }
 
-.sidebar-search p {
+.sidebar-search p a {
     overflow: auto;
 }
 
+/* Search input. */
+::-webkit-input-placeholder {
+    color: #343537;
+}
+
+:-moz-placeholder {
+    color: #343537;
+}
+
+:-moz-placeholder {
+    color: #343537;
+}
+
+:-ms-input-placeholder {
+    color: #343537;
+}
+
 input[class=search-input] {
+    background: #fff url('img/doge_15_wrap_xy.png');
     border: none;
     border-radius: 5px;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
@@ -462,10 +486,10 @@ input[class=search-submit] {
     z-index: 300;
 }
 
-input[class=search-submit]:hover {
+/*input[class=search-submit]:hover {
     background-color: #ba3434;
 }
-
+*/
 /*
     FOOTER
 */
@@ -547,7 +571,7 @@ article p a:hover {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background: #343537;
+    background: #4284fd;
     border-radius: 5px;
     color: #fff;
     display: block;
@@ -561,10 +585,6 @@ article p a:hover {
     overflow: hidden;
 }
 
-/*.site-nav a:hover {
-    background: #9fa5b1;
-}
-*/
 .nav-left,
 .nav-right {
     overflow: auto;
@@ -612,7 +632,8 @@ article p a:hover {
     margin-bottom: 20px;
 }
 
-.post-title {
+.post-title,
+#reply-title {
     margin-bottom: -2px;
 }
 
@@ -631,11 +652,6 @@ article p a:hover {
 .post-comments ul {
     margin: 0;
     padding: 0;
-}
-
-.comment-reply-title {
-    color: #ba3434;
-    margin-bottom: 10px;
 }
 
 .comment-meta {
@@ -719,7 +735,8 @@ input[class=comment-form-url] {
 }
 
 .comment-form input[id=submit] {
-    background: #4284fd url('img/chevron_15_right.png') no-repeat 95% center;
+    background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
+    background-size: auto 75%;
     border: none;
     border-radius: 5px;
     color: #fff;

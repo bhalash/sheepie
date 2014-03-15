@@ -1,31 +1,37 @@
+var currentBGPos = 0;
+
+function dogeScroll() {
+    currentBGPos--;
+    $('input[class=search-input]').css('background-position', '0 ' + currentBGPos + 'px');
+}
+
 function navigationPrevWidth() {
     // The left nav will always be longer than the right.
     // Because the text is longer.
     // This function equalizes them.
-    var navL = $('.nav-left a');
-    var navR = $('.nav-right a');
+    var left = $('.nav-left a');
+    var right = $('.nav-right a');
 
-    navR.css('width', navL.outerWidth() + 'px');    
+    right.css('width', left.outerWidth() + 'px');    
 }
 
 function rightMinHeight() {
     // Page height - article bottom-margin.
-    var rCol = $('.content-right-interior');
-    rCol.css('min-height', ($(window).innerHeight() - 30) + 'px');
+    var leftCon = $('.content-left').height();
+    var rightCon = $('.content-right');
+
+    rightCon.css('min-height', leftCon + 'px');
 }
 
 $(function() {
-    // Page navigation colours. Red down, blue up.
-    var nla = $('.nav-left a, .nav-right a' );
-    var wid = nla.outerWidth();
+    // Animates button colours.
+    var button = $('.nav-left a, .nav-right a, .search-submit, #submit');
 
-    nla.hover( 
+    button.hover( 
         function() {
-            $(this).animate({'width' : wid * 1.2}, 100);
-            // $(this).stop().animate({backgroundColor: '#fff'}, 300);
+            $(this).stop().animate({backgroundColor: '#ba3434'}, 300);
         }, function() {
-            $(this).animate({'width' : wid}, 100);
-            // $(this).stop().animate({backgroundColor: '#000'}, 300);
+            $(this).stop().animate({backgroundColor: '#4284fd'}, 300);
     })
 });
 
@@ -33,6 +39,7 @@ $(document).ready(
     function() {
         navigationPrevWidth();
         rightMinHeight();
+        setInterval('dogeScroll()', 80);
     }
 );
 
