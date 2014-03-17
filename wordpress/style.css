@@ -63,8 +63,8 @@ time, mark, audio, video {
     src: 
         url('fonts/din/din1451.eot?') format('embedded-opentype'), 
         url('fonts/din/din1451.woff') format('woff'),
-        url('fonts/din/din1451.ttf') format('truetype'),
-        url('fonts/din/din1451.svg') format('svg');
+        url('fonts/din/din1451.ttf')  format('truetype'),
+        url('fonts/din/din1451.svg')  format('svg');
 }
 
 @font-face {
@@ -78,8 +78,8 @@ time, mark, audio, video {
     src: 
         url('fonts/bebas/bebas.eot?') format('embedded-opentype'),
         url('fonts/bebas/bebas.woff') format('woff'),
-        url('fonts/bebas/bebas.ttf') format('truetype'),
-        url('fonts/bebas/bebas.svg') format('svg');
+        url('fonts/bebas/bebas.ttf')  format('truetype'),
+        url('fonts/bebas/bebas.svg')  format('svg');
 }
 
 @font-face {
@@ -93,9 +93,9 @@ time, mark, audio, video {
     src: 
         url('fonts/din/scp-r.eot?') format('embedded-opentype'),
         url('fonts/din/scp-r.woff') format('woff'),
-        url('fonts/din/scp-r.otf') format('opentype'),
-        url('fonts/din/scp-r.ttf') format('truetype'),
-        url('fonts/din/scp-r.svg') format('svg');
+        url('fonts/din/scp-r.otf')  format('opentype'),
+        url('fonts/din/scp-r.ttf')  format('truetype'),
+        url('fonts/din/scp-r.svg')  format('svg');
 }
 
 @font-face {
@@ -107,11 +107,11 @@ time, mark, audio, video {
     */
     font-family: 'Source Sans Pro Regular';
     src: 
-        url('fonts/ssp/scp-r.eot?') format('embedded-opentype'),
+        url('fonts/ssp/scp-r.eot?')  format('embedded-opentype'),
         url('fonts/ssp/clacon.woff') format('woff'),
-        url('fonts/ssp/clacon.otf') format('opentype'),
-        url('fonts/ssp/clacon.ttf') format('truetype'),
-        url('fonts/ssp/clacon.svg') format('svg');
+        url('fonts/ssp/clacon.otf')  format('opentype'),
+        url('fonts/ssp/clacon.ttf')  format('truetype'),
+        url('fonts/ssp/clacon.svg')  format('svg');
 }
 
 /* 
@@ -794,12 +794,14 @@ input[class=comment-submit]:hover {
     border: none;
 }
 
-#email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
-#facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
-#github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
-#google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
-#instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
-#linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
-#pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
-#rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
-#twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
+#email      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
+#facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
+#flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
+#github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
+#google     { background: url('img/social/google.png')    no-repeat center center; background-size: 100% auto; }
+#instagram  { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+#linkedin   { background: url('img/social/linkedin.png')  no-repeat center center; background-size: 100% auto; }
+#pinterest  { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+#rss        { background: url('img/social/rss.png')       no-repeat center center; background-size: 100% auto; }
+#twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
+#tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }

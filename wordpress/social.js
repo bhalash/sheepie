@@ -13,6 +13,7 @@ $('.social-widget').hover(
         switch ($(this).attr('id')) {
             case 'email':       wCol = '#ec4724'; break;
             case 'facebook':    wCol = '#3B5998'; break;
+            case 'flickr':      wCol = '#0063db'; break;
             case 'github':      wCol = '#171516'; break;
             case 'google':      wCol = '#db5442'; break;
             case 'instagram':   wCol = '#3f729b'; break;
@@ -20,6 +21,7 @@ $('.social-widget').hover(
             case 'pinterest':   wCol = '#cb2027'; break;
             case 'rss':         wCol = '#FF6600'; break;
             case 'twitter':     wCol = '#00aced'; break;
+            case 'tumblr':      wCol = '#3d5a70'; break;
             default: break;
         }
 
@@ -29,11 +31,9 @@ $('.social-widget').hover(
     }
 );
 
-$(document).ready(
-    function() {
-        socialWidgetHeight();
-    }
-);
+$(function() {
+    socialWidgetHeight();
+});
 
 $(window).on('resize',
     function() {
