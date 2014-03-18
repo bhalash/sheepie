@@ -3,7 +3,7 @@
         <h3 class="post-title">This post is password protected. Enter the password to view comments.</h3>
     <?php return; endif; ?>
     <?php if (have_comments()) : ?>
-        <h3><?php comments_number('No Comments:', '1 Comment:', '% Comments:');?></h3>
+        <h3 class="comment-title"><?php comments_number('No Comments:', '1 Comment:', '% Comments:');?></h3>
         <?php wp_list_comments(
             array ( 
                 'callback' => 'rmwb_comments',
