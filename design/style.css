@@ -63,8 +63,8 @@ time, mark, audio, video {
     src: 
         url('fonts/din/din1451.eot?') format('embedded-opentype'), 
         url('fonts/din/din1451.woff') format('woff'),
-        url('fonts/din/din1451.ttf') format('truetype'),
-        url('fonts/din/din1451.svg') format('svg');
+        url('fonts/din/din1451.ttf')  format('truetype'),
+        url('fonts/din/din1451.svg')  format('svg');
 }
 
 @font-face {
@@ -78,8 +78,8 @@ time, mark, audio, video {
     src: 
         url('fonts/bebas/bebas.eot?') format('embedded-opentype'),
         url('fonts/bebas/bebas.woff') format('woff'),
-        url('fonts/bebas/bebas.ttf') format('truetype'),
-        url('fonts/bebas/bebas.svg') format('svg');
+        url('fonts/bebas/bebas.ttf')  format('truetype'),
+        url('fonts/bebas/bebas.svg')  format('svg');
 }
 
 @font-face {
@@ -93,9 +93,9 @@ time, mark, audio, video {
     src: 
         url('fonts/din/scp-r.eot?') format('embedded-opentype'),
         url('fonts/din/scp-r.woff') format('woff'),
-        url('fonts/din/scp-r.otf') format('opentype'),
-        url('fonts/din/scp-r.ttf') format('truetype'),
-        url('fonts/din/scp-r.svg') format('svg');
+        url('fonts/din/scp-r.otf')  format('opentype'),
+        url('fonts/din/scp-r.ttf')  format('truetype'),
+        url('fonts/din/scp-r.svg')  format('svg');
 }
 
 @font-face {
@@ -107,11 +107,11 @@ time, mark, audio, video {
     */
     font-family: 'Source Sans Pro Regular';
     src: 
-        url('fonts/ssp/scp-r.eot?') format('embedded-opentype'),
+        url('fonts/ssp/scp-r.eot?')  format('embedded-opentype'),
         url('fonts/ssp/clacon.woff') format('woff'),
-        url('fonts/ssp/clacon.otf') format('opentype'),
-        url('fonts/ssp/clacon.ttf') format('truetype'),
-        url('fonts/ssp/clacon.svg') format('svg');
+        url('fonts/ssp/clacon.otf')  format('opentype'),
+        url('fonts/ssp/clacon.ttf')  format('truetype'),
+        url('fonts/ssp/clacon.svg')  format('svg');
 }
 
 /* 
@@ -455,6 +455,9 @@ header li a:hover {
 }
 
 input[class=search-input] {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     background: #fff url('img/doge_15_wrap_xy.png');
     border: none;
     border-radius: 5px;
@@ -465,9 +468,6 @@ input[class=search-input] {
     position: relative;
     vertical-align: top;
     width: 100%;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 input[class=search-submit] {
@@ -486,10 +486,6 @@ input[class=search-submit] {
     z-index: 300;
 }
 
-/*input[class=search-submit]:hover {
-    background-color: #ba3434;
-}
-*/
 /*
     FOOTER
 */
@@ -591,27 +587,15 @@ article p a:hover {
     width: 49.5%;
 }
 
-.nav-left { 
+.nav-left,
+.nav-right a { 
     float: left;
 }
 
-.nav-right {
+.nav-right,
+.nav-left a {
     float: right; 
 } 
-
-.nav-left a {
-    float: right;
-}
-
-.nav-right a {
-    float: left;
-}
-
-@media (max-width: 860px) {
-    .site-nav a {
-
-    }
-}
 
 /*
     POST META
@@ -634,7 +618,7 @@ article p a:hover {
 
 .post-title,
 #reply-title {
-    margin-bottom: -2px;
+    margin-bottom: -4px;
 }
 
 .post-title a:hover {
@@ -654,16 +638,15 @@ article p a:hover {
     padding: 0;
 }
 
-.comment-meta {
-    margin-bottom: 5px;  
-    padding: 0 0 2px 0;
-    width: 100%;
-}
-
 .comment { 
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
     border-bottom: 1px solid #343537;
     margin-bottom: 10px;
+}
+
+.comment-meta,
+.comment-title {
+    margin-bottom: 1px;
 }
 
 /*
@@ -747,10 +730,6 @@ input[class=comment-form-url] {
     width: 129px;
 }
 
-input[class=comment-submit]:hover {
-    background-color: #ba3434;
-}
-
 @media (max-width: 860px) {
     .form-allowed-tags {
         display: none;
@@ -784,6 +763,14 @@ input[class=comment-submit]:hover {
     text-align: center;
 }
 
+.social a,
+.social a:hover {
+    transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out; 
+    -o-transition: background-color .3s ease-in-out; 
+}
+
 .social a {
     border-radius: 50%;
     display: inline-block;
@@ -794,14 +781,49 @@ input[class=comment-submit]:hover {
     border: none;
 }
 
-#email { background: url('img/social/email.png') no-repeat center center; background-size: 100% auto; }
-#facebook { background: url('img/social/facebook.png') no-repeat center center; background-size: 100% auto; }
-#flickr { background: url('img/social/flickr.png') no-repeat center center; background-size: 100% auto; }
-#github { background: url('img/social/github.png') no-repeat center center; background-size: 100% auto; }
-#google { background: url('img/social/google.png') no-repeat center center; background-size: 100% auto; }
-#instagram { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
-#linkedin { background: url('img/social/linkedin.png') no-repeat center center; background-size: 100% auto; }
-#pinterest { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
-#rss { background: url('img/social/rss.png') no-repeat center center; background-size: 100% auto; }
-#twitter { background: url('img/social/twitter.png') no-repeat center center; background-size: 100% auto; }
-#tumblr { background: url('img/social/tumblr.png') no-repeat center center; background-size: 100% auto; }
+#emails      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
+#facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
+#flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
+#github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
+#google     { background: url('img/social/google.png')    no-repeat center center; background-size: 100% auto; }
+#instagram  { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
+#linkedin   { background: url('img/social/linkedin.png')  no-repeat center center; background-size: 100% auto; }
+#pinterest  { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
+#rss        { background: url('img/social/rss.png')       no-repeat center center; background-size: 100% auto; }
+#twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
+#tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }
+
+#emails:hover      { background-color: #ec4724; }
+#facebook:hover   { background-color: #3b5998; }
+#flickr:hover     { background-color: #0063db; }
+#github:hover     { background-color: #171516; }
+#google:hover     { background-color: #db5442; }
+#instagram:hover  { background-color: #3f729b; }
+#linkedin:hover   { background-color: #0274b3; }
+#pinterest:hover  { background-color: #cb2027; }
+#rss:hover        { background-color: #ff6600; }
+#twitter:hover    { background-color: #00aced; }
+#tumblr:hover     { background-color: #3d5a70; }
+
+/*
+    BUTTON ANIMATIONS
+*/
+
+.site-nav a,
+input[class=search-submit],
+input[id=submit] {
+    background-color: #4284fd;
+    transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out; 
+    -o-transition: background-color .3s ease-in-out; 
+}
+.site-nav a:hover,
+input[class=search-submit]:hover,
+input[id=submit]:hover {
+    background-color: #ba3434;
+    transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out; 
+    -o-transition: background-color .3s ease-in-out; 
+}

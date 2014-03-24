@@ -1,11 +1,4 @@
-var currentBGPos = 0;
-
-function dogeScroll() {
-    currentBGPos--;
-    $('input[class=search-input]').css('background-position', '0 ' + currentBGPos + 'px');
-}
-
-function navigationPrevWidth() {
+function navigationWidth() {
     // The left nav will always be longer than the right.
     // Because the text is longer.
     // This function equalizes them.
@@ -15,37 +8,38 @@ function navigationPrevWidth() {
     right.css('width', left.outerWidth() + 'px');    
 }
 
-function rightMinHeight() {
+function contentHeight() {
     // Page height - article bottom-margin.
-    var leftCon = $('.content-left').height();
-    var rightCon = $('.content-right');
+    var left   = $('.content-left');
+    var right  = $('.content-right');
 
-    rightCon.css('min-height', leftCon + 'px');
+    if (left.height() > right.height()) {
+        right.css('min-height', left.height() + 'px');
+    } else {
+        right.css('min-height', $(window).height() + 'px');
+    }
 }
 
 $(function() {
-    // Animates button colours.
-    var button = $('.nav-left a, .nav-right a, .search-submit, #submit');
-
-    button.hover( 
-        function() {
-            $(this).stop().animate({backgroundColor: '#ba3434'}, 300);
-        }, function() {
-            $(this).stop().animate({backgroundColor: '#4284fd'}, 300);
-    })
+    // Widget width is dynamic and proportional to the div container size. 
+    // Height = width.
+    var soc = $('.social a');
+    soc.css('height', soc.width() + 'px'); 
 });
 
-$(document).ready(
-    function() {
-        navigationPrevWidth();
-        rightMinHeight();
-        setInterval('dogeScroll()', 80);
-    }
-);
+var currentBGPos = 0;
+setInterval(function() {
+    // Scrolling background in search input.
+    currentBGPos--;
+    $('input[class=search-input]').css('background-position', '0 ' + currentBGPos + 'px');
+}, 80);
 
-$(window).on('resize',
-    function() {
-        navigationPrevWidth();
-        rightMinHeight();
-    }
-);
+$(function() {
+    contentHeight();
+    navigationWidth();
+});
+
+$(window).resize(function() {
+    contentHeight();
+    navigationWidth();
+});

@@ -781,7 +781,7 @@ input[class=comment-form-url] {
     border: none;
 }
 
-#email      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
+#emails      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
 #facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
 #flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
 #github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
@@ -793,7 +793,7 @@ input[class=comment-form-url] {
 #twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
 #tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }
 
-#email:hover      { background-color: #ec4724; }
+#emails:hover      { background-color: #ec4724; }
 #facebook:hover   { background-color: #3b5998; }
 #flickr:hover     { background-color: #0063db; }
 #github:hover     { background-color: #171516; }
