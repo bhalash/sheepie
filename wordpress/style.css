@@ -11,17 +11,16 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
 */
 
 /*
-    Some notes for anyone who forks this: 
-
-        * The breakpoint for a switch to the responsive view is 860 pixels. I based this on the fixed-minimum width for blog content.
-        * Some heights are set via JS. See functions.js for more information.
-        * The social widgets are designed to be modular and removable. You can pull, alter, and and even more the widget. See the CSS file
-          and social.js for more information.
-*/
+ * Some notes for anyone who forks this: 
+ * The breakpoint for a switch to the responsive view is 860 pixels. I based this on the fixed-minimum width for blog content.
+ * Some heights are set via JS. See functions.js for more information.
+ * The social widgets are designed to be modular and removable. You can pull, alter, and and even more the widget. See the CSS file
+ * and social.js for more information.
+ */
 
 /* 
-    RESET
-*/
+ * CSS Reset
+ */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -49,16 +48,17 @@ time, mark, audio, video {
 }
 
 /*
-    WEB FONTS
+ * Web Fonts
+*/
+
+/* 
+ * Name: DIN 1451 EngSchrift
+ * Creator: Linotype Design Studio
+ * URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
+ * License: Proprietary / All Rights Reserved / Not for Redistribution 
 */
 
 @font-face {
-    /* 
-        Name: DIN 1451 EngSchrift
-        Creator: Linotype Design Studio
-        URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
-        License: Proprietary / All Rights Reserved / Not for Redistribution 
-    */
     font-family: 'DIN 1451';
     src: 
         url('fonts/din/din1451.eot?') format('embedded-opentype'), 
@@ -67,13 +67,14 @@ time, mark, audio, video {
         url('fonts/din/din1451.svg')  format('svg');
 }
 
+/*
+ * Name: Bebas Neue
+ * Creator: Dharma Type
+ * URL: http://dharmatype.com/dharma-type/bebas-neue.html 
+ * License: SIL Open Font License 1.1
+*/ 
+
 @font-face {
-    /*
-        Name: Bebas Neue
-        Creator: Dharma Type
-        URL: http://dharmatype.com/dharma-type/bebas-neue.html 
-        License: SIL Open Font License 1.1
-    */ 
     font-family: 'Bebas Neue';
     src: 
         url('fonts/bebas/bebas.eot?') format('embedded-opentype'),
@@ -82,13 +83,14 @@ time, mark, audio, video {
         url('fonts/bebas/bebas.svg')  format('svg');
 }
 
+/* 
+ * Name: Source Code Pro Regular
+ * Creator: Adobe Systems
+ * URL: http://sourceforge.net/projects/sourcecodepro.adobe/
+ * License: SIL Open Font License 1.1
+ */
+
 @font-face {
-    /* 
-        Name: Source Code Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcecodepro.adobe/
-        License: SIL Open Font License 1.1
-    */
     font-family: 'Source Code Pro Regular';
     src: 
         url('fonts/din/scp-r.eot?') format('embedded-opentype'),
@@ -98,13 +100,14 @@ time, mark, audio, video {
         url('fonts/din/scp-r.svg')  format('svg');
 }
 
+/* 
+ * Name: Source Sans Pro Regular
+ * Creator: Adobe Systems
+ * URL: http://sourceforge.net/projects/sourcesans.adobe/
+ * License: SIL Open Font License 1.1
+*/
+
 @font-face {
-    /* 
-        Name: Source Sans Pro Regular
-        Creator: Adobe Systems
-        URL: http://sourceforge.net/projects/sourcesans.adobe/
-        License: SIL Open Font License 1.1
-    */
     font-family: 'Source Sans Pro Regular';
     src: 
         url('fonts/ssp/scp-r.eot?')  format('embedded-opentype'),
@@ -115,8 +118,8 @@ time, mark, audio, video {
 }
 
 /* 
-    GLOBAL ELEMENT RULES
-*/
+ * Global Element Rules
+ */
 
 a,
 del,
@@ -253,8 +256,8 @@ sub {
 }
 
 /*
-    CONTAINERS
-*/
+ * Containers
+ */
 
 html { 
     background-color: #343537;
@@ -323,7 +326,7 @@ html {
 }
 
 /* 
-    HEADER 
+ * Header 
 */
 
 header {
@@ -354,9 +357,12 @@ header li {
     text-transform: uppercase;
 }
 
+/* 
+ * Compensates for the negative li margin. 
+ * Otherwise vertical placement in the sidebar is pooched.
+ */
+
 header li:first-child {
-    /* Compensates for the negative li margin. 
-    Otherwise vertical placement in the sidebar is pooched. */
     margin-top: 0;
 }
 
@@ -374,15 +380,14 @@ header li a:hover {
 }
 
 /*
-    WEBSITE SIDEBAR 
-*/
+ * Website Sidebar 
+ */
 
 .sidebar {
     margin-bottom: 15px;
 }
 
 .sidebar a:hover {
-    /*text-decoration: underline; */
     border-bottom: 1px dotted #ba3434;
 }
 
@@ -403,13 +408,7 @@ header li a:hover {
     width: 100%;
 }
 
-.sidebar ul,
-.sidebar ol {
-    /*padding-left: 0;*/
-}
-
 .sidebar-title {
-    /*color: #fff;*/
     /* Compensates for negative margin. */
     margin-bottom: 0;
 }
@@ -426,8 +425,8 @@ header li a:hover {
 }
 
 /*
-    WEBSITE SEARCH
-*/
+ * Website Search
+ */
 
 .sidebbar-search {
     margin-bottom: 10px;
@@ -488,8 +487,8 @@ input[class=search-submit] {
 }
 
 /*
-    FOOTER
-*/
+ * Footer
+ */
 
 footer {
     width: 100%;
@@ -502,8 +501,8 @@ footer p {
 }
 
 /*
-    ARTICLE STYLING
-*/
+ * Article Styling
+ */
 
 article { 
     margin-bottom: 40px;
@@ -554,8 +553,8 @@ article p a:hover {
 }
 
 /*
-    LEFT SIDE CONTENT
-*/
+ * Main Container Form 
+ */
 
 .content-right form {
     margin: 0 auto;
@@ -565,8 +564,9 @@ article p a:hover {
 }
 
 /* 
-    INTRA-SITE NAVIGATION
-*/
+ * Intra-site Navigation
+ */
+
 .site-nav {
     margin: 0 auto;
     margin-top: 30px;
@@ -609,8 +609,8 @@ article p a:hover {
 } 
 
 /*
-    POST META
-*/
+ * Post Meta Information
+ */
 
 .post-meta-top,
 .post-meta-bottom,
@@ -637,8 +637,8 @@ article p a:hover {
 }
 
 /*
-    POST COMMENTS
-*/
+ * Post Comments
+ */
 
 .comment-author cite a {
     text-align: left;
@@ -661,8 +661,8 @@ article p a:hover {
 }
 
 /*
-    COMMENT ENTRY FORM
-*/
+ * Comment Entry Form
+ */
 
 .comment-author-info {
     margin: 0 auto;
@@ -758,8 +758,8 @@ input[class=comment-form-url] {
 }
 
 /*
-    SOCIAL ICONS
-*/
+ * Social Icons
+ */
 
 .social {
     list-style: none;
@@ -792,7 +792,7 @@ input[class=comment-form-url] {
     border: none;
 }
 
-#emails      { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
+#emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
 #facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
 #flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
 #github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
@@ -804,7 +804,7 @@ input[class=comment-form-url] {
 #twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
 #tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }
 
-#emails:hover      { background-color: #ec4724; }
+#emails:hover     { background-color: #ec4724; }
 #facebook:hover   { background-color: #3b5998; }
 #flickr:hover     { background-color: #0063db; }
 #github:hover     { background-color: #171516; }
@@ -817,8 +817,8 @@ input[class=comment-form-url] {
 #tumblr:hover     { background-color: #3d5a70; }
 
 /*
-    BUTTON ANIMATIONS
-*/
+ * Button Animation
+ */
 
 .site-nav a,
 input[class=search-submit],
