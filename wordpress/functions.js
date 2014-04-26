@@ -5,14 +5,7 @@ function navigationWidth() {
 
 function contentHeight() {
     // Page height - article bottom-margin.
-    var left   = $('.content-left');
-    var right  = $('.content-right');
-
-    if (left.height() >= right.height()) {
-        right.css('min-height', left.height() + 'px');
-    } else {
-        right.css('min-height', $(window).height() + 'px');
-    }
+    $('.content-right').css('min-height', $(window).height() + 'px');
 }
 
 $(function() {
