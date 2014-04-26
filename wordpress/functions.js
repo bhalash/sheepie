@@ -27,12 +27,12 @@ $(function() {
     soc.css('height', soc.width() + 'px'); 
 });
 
-var currentBGPos = 0;
-setInterval(function() {
-    // Scrolling background in search input.
-    currentBGPos--;
-    $('input[class=search-input]').css('background-position', '0 ' + currentBGPos + 'px');
-}, 80);
+// var currentBGPos = 0;
+// setInterval(function() {
+//     // Scrolling background in search input.
+//     currentBGPos--;
+//     $('input[class=search-input]').css('background-position', '0 ' + currentBGPos + 'px');
+// }, 80);
 
 $(function() {
     contentHeight();

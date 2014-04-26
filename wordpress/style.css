@@ -458,7 +458,8 @@ input[class=search-input] {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background: #fff url('img/doge_15_wrap_xy.png');
+    /*background: #fff url('img/doge_15_wrap_xy.png');*/
+    background: #fff;
     border: none;
     border-radius: 5px;
     font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
@@ -511,6 +512,16 @@ article {
 
 article li {
     margin-bottom: 0;
+}
+
+article li ul,
+article li ol {
+    margin-top: 3px;
+}
+
+article li ul li,
+article li ol li {
+    font-size: 0.95em;
 }
 
 article iframe {
