@@ -61,26 +61,10 @@ time, mark, audio, video {
 @font-face {
     font-family: 'DIN 1451';
     src: 
-        url('fonts/din/din1451.eot?') format('embedded-opentype'), 
-        url('fonts/din/din1451.woff') format('woff'),
-        url('fonts/din/din1451.ttf')  format('truetype'),
-        url('fonts/din/din1451.svg')  format('svg');
-}
-
-/*
- * Name: Bebas Neue
- * Creator: Dharma Type
- * URL: http://dharmatype.com/dharma-type/bebas-neue.html 
- * License: SIL Open Font License 1.1
-*/ 
-
-@font-face {
-    font-family: 'Bebas Neue';
-    src: 
-        url('fonts/bebas/bebas.eot?') format('embedded-opentype'),
-        url('fonts/bebas/bebas.woff') format('woff'),
-        url('fonts/bebas/bebas.ttf')  format('truetype'),
-        url('fonts/bebas/bebas.svg')  format('svg');
+        url('fonts/din_1451/din1451.eot?') format('embedded-opentype'), 
+        url('fonts/din_1451/din1451.woff') format('woff'),
+        url('fonts/din_1451/din1451.ttf')  format('truetype'),
+        url('fonts/din_1451/din1451.svg')  format('svg');
 }
 
 /* 
@@ -93,11 +77,11 @@ time, mark, audio, video {
 @font-face {
     font-family: 'Source Code Pro Regular';
     src: 
-        url('fonts/din/scp-r.eot?') format('embedded-opentype'),
-        url('fonts/din/scp-r.woff') format('woff'),
-        url('fonts/din/scp-r.otf')  format('opentype'),
-        url('fonts/din/scp-r.ttf')  format('truetype'),
-        url('fonts/din/scp-r.svg')  format('svg');
+        url('fonts/source_code_pro/scp-r.eot?') format('embedded-opentype'),
+        url('fonts/source_code_pro/scp-r.woff') format('woff'),
+        url('fonts/source_code_pro/scp-r.otf')  format('opentype'),
+        url('fonts/source_code_pro/scp-r.ttf')  format('truetype'),
+        url('fonts/source_code_pro/scp-r.svg')  format('svg');
 }
 
 /* 
@@ -110,11 +94,11 @@ time, mark, audio, video {
 @font-face {
     font-family: 'Source Sans Pro Regular';
     src: 
-        url('fonts/ssp/scp-r.eot?')  format('embedded-opentype'),
-        url('fonts/ssp/clacon.woff') format('woff'),
-        url('fonts/ssp/clacon.otf')  format('opentype'),
-        url('fonts/ssp/clacon.ttf')  format('truetype'),
-        url('fonts/ssp/clacon.svg')  format('svg');
+        url('fonts/source_sans_pro/ssp-r.eot?')  format('embedded-opentype'),
+        url('fonts/source_sans_pro/ssp-r.woff') format('woff'),
+        url('fonts/source_sans_pro/ssp-r.otf')  format('opentype'),
+        url('fonts/source_sans_pro/ssp-r.ttf')  format('truetype'),
+        url('fonts/source_sans_pro/ssp-r.svg')  format('svg');
 }
 
 /* 
