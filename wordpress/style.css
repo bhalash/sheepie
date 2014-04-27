@@ -174,7 +174,7 @@ h4,
 h5, 
 h6 { 
     color: #9fa5b1;
-    font-family: 'DIN 1451', 'Bebas Neue', impact;
+    font-family: 'DIN 1451', impact;
     letter-spacing: 1px;
     margin-bottom: -8px;
     text-align: left;
@@ -334,7 +334,7 @@ header ul {
 
 header li {
     color: #fff;
-    font-family: 'DIN 1451', 'Bebas Neue', impact;
+    font-family: 'DIN 1451', impact;
     font-size: 4.5em;
     line-height: 1.27em;
     margin: -29px 0 -29px 0;
