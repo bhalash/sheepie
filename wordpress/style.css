@@ -256,6 +256,7 @@ html {
     background: #343537;
     float: left;
     padding: 0 0 1px 0;
+    position: fixed;
     width: 20%;
 }
 
@@ -291,6 +292,10 @@ html {
 @media (max-width: 860px) {
     html {
         background: #fff;
+    }
+
+    .content-left {
+        position: static;
     }
 
     .content-left,
