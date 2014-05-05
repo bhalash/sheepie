@@ -12,7 +12,7 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
 
 /*
  * Some notes for anyone who forks this: 
- * The breakpoint for a switch to the responsive view is 860 pixels. I based this on the fixed-minimum width for blog content.
+ * The breakpoint for a switch to the responsive view is 1000 pixels. I based this on the fixed-minimum width for blog content.
  * Some heights are set via JS. See functions.js for more information.
  * The social widgets are designed to be modular and removable. You can pull, alter, and and even more the widget. See the CSS file
  * and social.js for more information.
@@ -289,7 +289,7 @@ html {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
     html {
         background: #fff;
     }
@@ -307,6 +307,10 @@ html {
     .content-left-interior,
     .content-right-interior {
         width: 93%;
+    }
+
+    .content-left-interior {
+        max-width: 600px;
     }
 
     .content-right-interior {
@@ -406,7 +410,7 @@ header li a:hover {
     overflow: auto;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
     .sidebar {
         /* Change this line if you want to see sidebar widgets in the mobile view. */
         display: none;
@@ -532,7 +536,7 @@ article p a:hover {
     border-bottom: 1px dotted #343537;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
     article iframe,
     article img { 
         display: inline-block;
@@ -730,7 +734,7 @@ input[class=comment-form-url] {
     width: 129px;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
     .form-allowed-tags {
         display: none;
     }
