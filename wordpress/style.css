@@ -502,6 +502,10 @@ article {
     margin-top: 40px;
 }
 
+article blockquote {
+    font-size: 0.95em;
+}
+
 article li {
     margin-bottom: 0;
 }
