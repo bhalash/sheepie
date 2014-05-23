@@ -637,6 +637,12 @@ article p a:hover {
  * Post Comments
  */
 
+.comment { 
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    border-bottom: 1px solid #343537;
+    margin-bottom: 10px;
+}
+
 .comment-author {
     margin-bottom: -2px;
 }
@@ -648,12 +654,6 @@ article p a:hover {
 .post-comments ul {
     margin: 0;
     padding: 0;
-}
-
-.comment { 
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
-    border-bottom: 1px solid #343537;
-    margin-bottom: 10px;
 }
 
 .comment-meta,
@@ -711,21 +711,17 @@ input[class=comment-form-url] {
     width: 32.3%;
 }
 
-.coment-form textarea {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    display: block;
-    margin: 0 auto;
-    padding: 0;
-}
-
 .comment-form textarea {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     display: inline-block;
+    margin: 0 auto;
     margin-bottom: 3px;
+    padding: 0;
     width: 100%;
 }
 
