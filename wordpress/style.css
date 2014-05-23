@@ -665,18 +665,22 @@ article p a:hover {
  * Comment Entry Form
  */
 
-.comment-author-info {
-    margin: 0 auto;
-}
-
 .comment-entry {
     margin: 0 auto;
     margin-top: 20px;
     max-width: 603px;
 }
 
+.comment-author-info {
+    margin: 0 auto;
+}
+
 .form-submit {
     margin-bottom: 50px;
+}
+
+.form-submit input {
+    width: 100%;
 }
 
 .comment-subscription-form {
@@ -685,10 +689,6 @@ article p a:hover {
 
 .comment-subscription-form label {
     vertical-align: text-top;
-}
-
-.form-submit input {
-    width: 100%;
 }
 
 input[class=comment-form-author],

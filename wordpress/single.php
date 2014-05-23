@@ -1,4 +1,4 @@
-<?php get_header();  ?>
+<?php get_header(); ?>
 <div class="content-right">
     <div class="content-right-interior">
     <?php if (have_posts()) : ?>
