@@ -28,12 +28,7 @@
                     <li><a class="social-widget" id="instagram" title="Follow @bhalash on Instagram" href="http://www.instagram.com/bhalash"></a></li>
                     <li><a class="social-widget" id="github" title="Friend Bhalash on GitHub" href="http://www.github.com/bhalash"></a></li>
                 </ul>
-                <form action="<?php echo get_site_url(); ?>" class="sidebar-search" method="get">
-                    <p>
-                        <input class="search-input" id="s" name="s" placeholder="Search RMWB" tabindex="1" type="text" />
-                        <input class="search-submit" type="submit" value="" />
-                    </p>
-                </form>
+                <?php get_search_form(); ?>
                 <?php get_sidebar(); ?>
             </div>
         </div> 
