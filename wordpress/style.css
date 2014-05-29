@@ -52,19 +52,19 @@ time, mark, audio, video {
 */
 
 /* 
- * Name: DIN 1451 EngSchrift
- * Creator: Linotype Design Studio
- * URL: http://www.linotype.com/en/44734/DIN1451EngSchrift-product.html 
- * License: Proprietary / All Rights Reserved / Not for Redistribution 
-*/
+ * Name: OSP-DIN
+ * Creator: Open Font Library
+ * URL: http://openfontlibrary.org/font/osp-din
+ * License: SIL Open Font License 1.1
+ */
 
 @font-face {
-    font-family: 'DIN 1451';
+    font-family: 'OSP-DIN';
     src: 
-        url('fonts/din_1451/din1451.eot?') format('embedded-opentype'), 
-        url('fonts/din_1451/din1451.woff') format('woff'),
-        url('fonts/din_1451/din1451.ttf')  format('truetype'),
-        url('fonts/din_1451/din1451.svg')  format('svg');
+        url('fonts/osp-din/osp-din.eot?') format('embedded-opentype'), 
+        url('fonts/osp-din/osp-din.woff') format('woff'),
+        url('fonts/osp-din/osp-din.ttf')  format('truetype'),
+        url('fonts/osp-din/osp-din.svg')  format('svg');
 }
 
 /* 
@@ -174,7 +174,7 @@ h4,
 h5, 
 h6 { 
     color: #9fa5b1;
-    font-family: 'DIN 1451', impact;
+    font-family: 'OSP-DIN', impact;
     letter-spacing: 1px;
     margin-bottom: -8px;
     text-align: left;
@@ -413,7 +413,7 @@ header ul {
 
 header li {
     color: #fff;
-    font-family: 'DIN 1451', impact;
+    font-family: 'OSP-DIN', impact;
     font-size: 4.5em;
     line-height: 1.27em;
     margin: -29px 0 -29px 0;
