@@ -239,6 +239,76 @@ sub {
     vertical-align: sub;
 }
 
+
+/*
+ * Form inputs
+ */
+
+::-webkit-input-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+    color: #343537;
+}
+
+input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #343537;
+    border: 1px solid rgba(52,53,55,0.3);
+    border-radius: 5px;
+    float: left;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    height: 25px;
+    margin: 0 3px 3px 3px;
+    padding: 0 0 0 6px;
+    text-align: left;
+    vertical-align: top;
+    width: 32.3%;
+}
+
+textarea {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 0 3px 0;
+    padding: 0;
+    width: 100%;
+}
+
+input[type=submit] {
+    background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
+    background-size: auto 75%;
+    border: none;
+    color: #fff;
+    height: 30px;
+    width: 129px;
+}
+
+@media (max-width: 1024px) {
+    .form-allowed-tags {
+        display: none;
+    }
+
+    input {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float: none;
+        margin: 0 auto;
+        margin-bottom: 3px;
+        width: 100%;
+    }
+
+    input[type=submit] {
+        width: 129px;
+    }
+}
+
 /*
  * Containers
  */
@@ -283,13 +353,13 @@ html {
     width: 90%;
 }
 
-@media (max-width: 1600px) {
+@media screen and (max-width: 1600px) {
     .content-right-interior {
         max-width: 600px;
     }
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
     html {
         background: #fff;
     }
@@ -410,7 +480,7 @@ header li a:hover {
     overflow: auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .sidebar {
         /* Change this line if you want to see sidebar widgets in the mobile view. */
         display: none;
@@ -430,21 +500,6 @@ header li a:hover {
 }
 
 /* Search input. */
-::-webkit-input-placeholder {
-    color: #343537;
-}
-
-:-moz-placeholder {
-    color: #343537;
-}
-
-:-moz-placeholder {
-    color: #343537;
-}
-
-:-ms-input-placeholder {
-    color: #343537;
-}
 
 input[class=search-input] {
     -moz-box-sizing: border-box;
@@ -540,7 +595,7 @@ article p a:hover {
     border-bottom: 1px dotted #343537;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     article iframe,
     article img { 
         display: inline-block;
@@ -679,79 +734,12 @@ article p a:hover {
     margin-bottom: 50px;
 }
 
-.form-submit input {
-    width: 100%;
-}
-
 .comment-subscription-form {
     margin-bottom: 0;
 }
 
 .comment-subscription-form label {
     vertical-align: text-top;
-}
-
-input[class=comment-form-author],
-input[class=comment-form-email],
-input[class=comment-form-url] {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    /* Fallback. */
-    border: 1px solid #343537;
-    border: 1px solid rgba(52,53,55,0.3);
-    border-radius: 5px;
-    float: left;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-    height: 25px;
-    margin: 0 3px 3px 3px;
-    padding: 0 0 0 6px;
-    text-align: left;
-    vertical-align: top;
-    width: 32.3%;
-}
-
-.comment-form textarea {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    display: inline-block;
-    margin: 0 auto;
-    margin-bottom: 3px;
-    padding: 0;
-    width: 100%;
-}
-
-.comment-form input[id=submit] {
-    background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
-    background-size: auto 75%;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    float: left;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
-    height: 30px;
-    text-align: left;
-    width: 129px;
-}
-
-@media (max-width: 1000px) {
-    .form-allowed-tags {
-        display: none;
-    }
-
-    .comment-entry input {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        float: none;
-        margin: 0 auto;
-        margin-bottom: 3px;
-        width: 100%;
-    }
 }
 
 /*
@@ -826,6 +814,7 @@ input[id=submit] {
     -webkit-transition: background-color .3s ease-in-out; 
     -o-transition: background-color .3s ease-in-out; 
 }
+
 .site-nav a:hover,
 input[class=search-submit]:hover,
 input[id=submit]:hover {

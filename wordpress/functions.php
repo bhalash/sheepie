@@ -22,6 +22,10 @@
 
     add_action( 'widgets_init', 'sidebar_widgets_init' );
 
+    function split_title($title) {
+        
+    }
+
     function rmwb_comments($comment, $args, $depth) {
         // Custom comment output.
         $GLOBALS['comment'] = $comment; ?>
