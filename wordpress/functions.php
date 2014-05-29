@@ -23,7 +23,22 @@
     add_action( 'widgets_init', 'sidebar_widgets_init' );
 
     function split_title($title) {
-        
+        // Splits the site title into alternating words.
+        $n      = 1;
+        $class  = '<li class="header-title-inset">';
+        $anchor = '<a href="' . get_home_url() . '">';
+        $close  = '</a></li>'; 
+        $words  = explode(' ', $title);
+
+        foreach ($words as $word) {
+            if ($n % 2 != 0) {
+                echo $class . $anchor . $word . $close;
+            } else {
+                echo '<li>' . $anchor . $word . $close;
+            }
+
+            $n++;
+        }
     }
 
     function rmwb_comments($comment, $args, $depth) {

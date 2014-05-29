@@ -16,10 +16,7 @@
             <div class="content-left-interior">
                 <header>
                     <ul>
-                        <li class="header-title-inset"><a href="<?php echo home_url(); ?>/">Real</a></li>
-                        <li><a href="<?php echo home_url(); ?>/">Men</a></li>
-                        <li class="header-title-inset"><a href="<?php echo home_url(); ?>/">Wear</a></li>
-                        <li><a href="<?php echo home_url(); ?>/">Beards</a></li>
+                        <?php split_title(get_bloginfo('name')); ?>
                     </ul>
                 </header>
                 <ul class="social">
