@@ -4,7 +4,7 @@ Theme URI: https://github.com/bhalash/RMWB
 Author: Mark Grealish
 Author URI: http://www.bhalash.com/
 Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
-Version: 0.6
+Version: 1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
@@ -12,7 +12,7 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
 
 /*
  * Some notes for anyone who forks this: 
- * The breakpoint for a switch to the responsive view is 1000 pixels. I based this on the fixed-minimum width for blog content.
+ * The breakpoint for a switch to the responsive view is 1024 pixels. I based this on the fixed-minimum width for blog content.
  * Some heights are set via JS. See functions.js for more information.
  * The social widgets are designed to be modular and removable. You can pull, alter, and and even more the widget. See the CSS file
  * and social.js for more information.
