@@ -2,9 +2,30 @@
     // Wordpress repeatedly inserted emoticons. No more, ever.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
-
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
+    // Social bar options.
+    add_action('admin_menu', 'rmwb_options');
+    // Sidebar.
+    add_action( 'widgets_init', 'sidebar_widgets_init' );
+
+    if (!isset($content_width)) {
+        $content_width = 600;
+    }
+
+    function rmwb_options() {
+        add_theme_page(
+            // $page_title,
+            'RMWB Options',
+            // $menu_title,
+            'Social Options',
+            // $capability,
+            'edit_theme_options',
+            // $menu_slug,
+            'social_options'
+            // $function
+        );
+    }
 
     function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
@@ -19,8 +40,6 @@
             )
         );
     }
-
-    add_action( 'widgets_init', 'sidebar_widgets_init' );
 
     function split_title($title) {
         // Splits the site title into alternating words.

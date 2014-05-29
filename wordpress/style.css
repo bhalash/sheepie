@@ -552,6 +552,15 @@ footer p {
  * Article Styling
  */
 
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+    height: auto;
+    max-width: 100%;
+}
+
 article { 
     margin-bottom: 40px;
     margin-top: 40px;
