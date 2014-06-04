@@ -566,7 +566,8 @@ article {
     margin-top: 40px;
 }
 
-article blockquote {
+article blockquote,
+article li li {
     font-size: 0.95em;
 }
 
@@ -577,11 +578,6 @@ article li {
 article li ul,
 article li ol {
     margin-top: 3px;
-}
-
-article li ul li,
-article li ol li {
-    font-size: 0.95em;
 }
 
 article iframe {

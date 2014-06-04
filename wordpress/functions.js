@@ -8,17 +8,19 @@ function contentHeight() {
     $('.content-right').css('min-height', $(window).height() + 'px');
 }
 
-$(function() {
+function widgetHeight() {
     // Widget width is dynamic and proportional to the div container size. 
     $('.social a').css('height', $('.social a').width() + 'px'); 
-});
+}
 
 $(function() {
     contentHeight();
     navigationWidth();
+    widgetHeight();
 });
 
 $(window).resize(function() {
     contentHeight();
     navigationWidth();
+    widgetHeight();
 });

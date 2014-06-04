@@ -26,7 +26,7 @@
             // $function
         );
     }
-
+    
     function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
         register_sidebar(
