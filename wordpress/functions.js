@@ -17,6 +17,14 @@ $(function() {
     contentHeight();
     navigationWidth();
     widgetHeight();
+
+    $('p > a').each(function() {
+        if ($(this).children('img').length > 0) {
+            $(this).hover(function() {
+                $(this).css('border-style', 'none');
+            });
+        }
+    });
 });
 
 $(window).resize(function() {
