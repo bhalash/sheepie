@@ -18,6 +18,7 @@ $(function() {
     navigationWidth();
     widgetHeight();
 
+    // Remove underline from hyperlink images. 
     $('p > a').each(function() {
         if ($(this).children('img').length > 0) {
             $(this).hover(function() {
@@ -32,3 +33,10 @@ $(window).resize(function() {
     navigationWidth();
     widgetHeight();
 });
+
+// Sidebar debug.
+$(function() {
+    $('.content-left-interior').children().each(function() {
+        console.log($(this).attr('class') + ':\n' + $(this).height());
+    });
+})

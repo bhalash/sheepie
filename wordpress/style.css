@@ -327,6 +327,7 @@ html {
     float: left;
     padding: 0 0 1px 0;
     position: fixed;
+    overflow: auto;
     width: 20%;
 }
 
@@ -448,6 +449,9 @@ header li a:hover {
 
 .sidebar {
     margin-bottom: 15px;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 .sidebar a:hover {
@@ -477,6 +481,7 @@ header li a:hover {
 }
 
 .sidebar-widget {
+    margin-top: 10px;
     overflow: auto;
 }
 
@@ -500,7 +505,6 @@ header li a:hover {
 }
 
 /* Search input. */
-
 input[class=search-input] {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
