@@ -450,7 +450,6 @@ header li a:hover {
 .sidebar {
     margin-bottom: 15px;
     height: 100%;
-    overflow: hidden;
     width: 100%;
 }
 
@@ -481,8 +480,9 @@ header li a:hover {
 }
 
 .sidebar-widget {
-    margin-top: 10px;
-    overflow: auto;
+    height: 100%;
+    margin-top: 20px;
+    width: 100%;
 }
 
 @media (max-width: 1024px) {
@@ -496,7 +496,8 @@ header li a:hover {
  * Website Search
  */
 
-.sidebbar-search {
+.sidebar-search {
+    height: 30px;
     margin-bottom: 10px;
 }
 

@@ -33,10 +33,3 @@ $(window).resize(function() {
     navigationWidth();
     widgetHeight();
 });
-
-// Sidebar debug.
-$(function() {
-    $('.content-left-interior').children().each(function() {
-        console.log($(this).attr('class') + ':\n' + $(this).height());
-    });
-})
