@@ -31,9 +31,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
+article, aside, canvas, details, embed figure, figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     border: 0;
     color: inherit;
@@ -61,10 +59,10 @@ time, mark, audio, video {
 @font-face {
     font-family: 'OSP-DIN';
     src: 
-        url('fonts/osp-din/osp-din.eot?') format('embedded-opentype'), 
+        url('fonts/osp-din/osp-din.eot?') format('embedded-opentype'),
         url('fonts/osp-din/osp-din.woff') format('woff'),
-        url('fonts/osp-din/osp-din.ttf')  format('truetype'),
-        url('fonts/osp-din/osp-din.svg')  format('svg');
+        url('fonts/osp-din/osp-din.ttf') format('truetype'),
+        url('fonts/osp-din/osp-din.svg') format('svg');
 }
 
 /* 
@@ -102,89 +100,40 @@ time, mark, audio, video {
  * Font Selection
  */
 
-code,
-input,
-input[class=search-input],
-pre,
-.comment,
-.sidebar select,
-.site-nav a,
-.post-meta-top,
-.post-meta-bottom,
-.comment-meta {
+a, button, del, em, input, span, strong, sub, sup, time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+code, input, pre .comment, .sidebar select, .site-nav a, .post-meta-top, .post-meta-bottom, .comment-meta {
     font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
-blockquote,
-code,
-input,
-label,
-li,
-option,
-p,
-pre,
-select { 
+blockquote, code, input, label, li, option, p, pre, select { 
     font: 0.88em 'Source Sans Pro Regular', 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
-blockquote p {
-    /* Wordpress inserts <p> inside <blockquote> */
-    font-size: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+h1, h2, h3, h4, h5, h6,
 header li {
     font: 4.5em 'OSP-DIN', impact;
 }
 
-a,
-del,
-em,
-span,
-strong,
-sub,
-sup,
-time {
-    font-family: inherit;
-    font-size: inherit;
+input[type=submit],
+blockquote p {
+    /* Override for instances where Wordpress overrides styling. */
+    font-size: 100%;
 }
 
 /*
  * Default Bottom Margins
  */
 
-blockquote,
-code,
-embed,
-header,
-img,
-iframe,
-input,
-label,
-ol,
-option,
-p,
-pre,
-select,
-ul,
-.comment,
-.post-meta-top,
-.sidebar-search,
-.social {
+blockquote, code, embed, header, img, iframe, input, label, ol, option, p, pre, select, ul,
+.comment, .post-meta-top, .sidebar-search, .social {
     margin-bottom: 10px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5, 
-h6 { 
+h1, h2, h3, h4, h5, h6 { 
     margin-bottom: -8px;
 }
 
@@ -192,9 +141,7 @@ h6 {
  * img, iframe, embed
  */
 
-embed,
-iframe,
-img { 
+embed, iframe, img { 
     display: inline-block;
     height: auto;
     margin: 0 auto;
@@ -221,15 +168,7 @@ blockquote {
     width: 96%;
 }
 
-blockquote,
-code,
-input,
-label,
-li,
-option,
-p,
-pre,
-select { 
+blockquote, code, input, label, li, option, p, pre, select { 
     color: #343537;
     line-height: 1.3em;
     text-align: left;
@@ -239,12 +178,7 @@ select {
  * Headlines
  */
 
-h1,
-h2,
-h3,
-h4,
-h5, 
-h6 { 
+h1, h2, h3, h4, h5,  h6 { 
     color: #9fa5b1;
     letter-spacing: 1px;
     text-align: left;
@@ -267,8 +201,7 @@ hr {
  * Lists
  */
 
-ol,
-ul {
+ol, ul {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0 0 0 15px;
@@ -279,8 +212,7 @@ ul {
  * Code Blocks
  */
 
-code,
-pre { 
+code, pre { 
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     -webkit-font-smoothing: antialiased;
 }
@@ -371,9 +303,7 @@ input[type=submit] {
  * Containers
  */
 
-html { 
-    background-color: #343537;
-}
+html { background-color: #343537; }
 
 .site-container { 
     overflow: auto; 
@@ -433,18 +363,9 @@ html {
         width: 100%;
     }
 
-    .content-left-interior,
-    .content-right-interior {
-        width: 93%;
-    }
-
-    .content-left-interior {
-        max-width: 600px;
-    }
-
-    .content-right-interior {
-        min-width: 0;
-    }
+    .content-left-interior, .content-right-interior { width: 93%; }
+    .content-left-interior { max-width: 600px; }
+    .content-right-interior { min-width: 0; }
 }
 
 /* 
@@ -607,11 +528,7 @@ footer p {
  * Article Styling
  */
 
-.size-auto, 
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
+.size-auto .size-full, .size-large, .size-medium, .size-thumbnail {
     height: auto;
     max-width: 100%;
 }
@@ -634,8 +551,7 @@ article li ol {
     margin-top: 3px;
 }
 
-article iframe, 
-article img { 
+article iframe article img { 
     /* IE fallback. */
     border: 1px solid #343537;
     border: 1px solid rgba(52,53,55,0.3); 
@@ -644,9 +560,7 @@ article img {
     max-width: 99%;
 }
 
-blockquote a:hover,
-li a:hover,
-p a:hover {
+blockquote a:hover, li a:hover, p a:hover {
     border-bottom: 1px dotted #343537;
 }
 
@@ -692,34 +606,23 @@ p a:hover {
     overflow: hidden;
 }
 
-.nav-left,
-.nav-right {
+.nav-left, .nav-right {
     overflow: auto;
     width: 49.5%;
 }
 
-.nav-left,
-.nav-right a { 
-    float: left;
-}
-
-.nav-right,
-.nav-left a {
-    float: right; 
-} 
+.nav-left, .nav-right a { float: left; }
+.nav-right, .nav-left a { float: right; } 
 
 /*
  * Post Meta Information
  */
 
-.post-title,
-#reply-title {
+.post-title, #reply-title {
     margin-bottom: -1px;
 }
 
-.post-meta-top,
-.post-meta-bottom,
-.comment-meta {
+.post-meta-top, .post-meta-bottom, .comment-meta {
     font-size: 0.75em;
 }
 
@@ -733,15 +636,11 @@ p a:hover {
 .comment { border-bottom: 1px solid #343537; }
 .comment-author { margin-bottom: -2px; }
 .comment-author cite a { text-align: left; }
+.comment-meta, .comment-title { margin-bottom: 1px; }
 
 .post-comments ul {
     margin: 0;
     padding: 0;
-}
-
-.comment-meta,
-.comment-title {
-    margin-bottom: 1px;
 }
 
 /*
@@ -814,15 +713,11 @@ p a:hover {
  * Button Animation
  */
 
-.site-nav a,
-input[class=search-submit],
-input[id=submit] {
+.site-nav a, input[class=search-submit], input[id=submit] {
     background-color: #4284fd;
     transition: background-color .3s ease-in-out;
 }
 
-.site-nav a:hover,
-input[class=search-submit]:hover,
-input[id=submit]:hover {
+.site-nav a:hover, input[class=search-submit]:hover, input[id=submit]:hover {
     background-color: #ba3434;
 }
