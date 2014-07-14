@@ -77,11 +77,9 @@ time, mark, audio, video {
 @font-face {
     font-family: 'Source Code Pro Regular';
     src: 
-        url('fonts/source_code_pro/scp-r.eot?') format('embedded-opentype'),
-        url('fonts/source_code_pro/scp-r.woff') format('woff'),
-        url('fonts/source_code_pro/scp-r.otf')  format('opentype'),
-        url('fonts/source_code_pro/scp-r.ttf')  format('truetype'),
-        url('fonts/source_code_pro/scp-r.svg')  format('svg');
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.eot?') format('embedded-opentype'),
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.ttf.woff') format('woff'),
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.svg') format('svg'),
 }
 
 /* 
@@ -94,11 +92,10 @@ time, mark, audio, video {
 @font-face {
     font-family: 'Source Sans Pro Regular';
     src: 
-        url('fonts/source_sans_pro/ssp-r.eot?')  format('embedded-opentype'),
-        url('fonts/source_sans_pro/ssp-r.woff') format('woff'),
-        url('fonts/source_sans_pro/ssp-r.otf')  format('opentype'),
-        url('fonts/source_sans_pro/ssp-r.ttf')  format('truetype'),
-        url('fonts/source_sans_pro/ssp-r.svg')  format('svg');
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.eot?') format('embedded-opentype'),
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.ttf.woff') format('woff'),
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.otf') format('opentype'),
+        url('fonts/source_sans_pro/regular/SourceSansPro-Regular.ttf') format('truetype')
 }
 
 /* 
@@ -145,7 +142,7 @@ p,
 pre,
 select { 
     color: #343537;
-    font-family: 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
+    font-family: 'Source Sans Pro Regular', 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
     font-size: 0.83em;
     line-height: 1.3em;
     margin-bottom: 10px;
@@ -154,7 +151,7 @@ select {
 
 code,
 pre { 
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace; 
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     -webkit-font-smoothing: antialiased;
 }
@@ -258,7 +255,7 @@ input {
     border: 1px solid rgba(52,53,55,0.3);
     border-radius: 5px;
     float: left;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace;
     height: 25px;
     margin: 0 3px 3px 3px;
     padding: 0 0 0 6px;
@@ -470,7 +467,7 @@ header li a:hover {
 .sidebar select {
     background: #fff;
     border-radius: 5px;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace; 
     width: 100%;
 }
 
@@ -514,7 +511,7 @@ input[class=search-input] {
     background: #fff;
     border: none;
     border-radius: 5px;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace;
     height: 30px;
     margin: 0 auto;
     padding: 0 0 0 6px;
@@ -644,7 +641,7 @@ article p a:hover {
     border-radius: 5px;
     color: #fff;
     display: block;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace; 
     font-size: 0.88em;
     font-variant: small-caps;
     height: 30px;
@@ -677,7 +674,7 @@ article p a:hover {
 .post-meta-top,
 .post-meta-bottom,
 .comment-meta {
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro Regular', 'Source Code Pro', 'Courier New', Courier, monospace;
     font-size: 0.75em;
 }
 
@@ -703,7 +700,7 @@ article p a:hover {
  */
 
 .comment { 
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    font-family: 'Source Sans Pro Regular', 'Source Sans Pro','Source Code Pro', 'Courier New', Courier, monospace; 
     border-bottom: 1px solid #343537;
     margin-bottom: 10px;
 }
