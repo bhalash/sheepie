@@ -74,12 +74,12 @@ a, button, del, em, input, span, strong, sub, sup, time {
     font-size: inherit;
 }
 
-code, input, pre .comment, .sidebar select, .site-nav a, .post-meta-top, .post-meta-bottom, .comment-meta {
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+blockquote, code, input, label, li, option, p, pre, select { 
+    font: 0.84em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
-blockquote, code, input, label, li, option, p, pre, select { 
-    font: 0.88em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
+code, input, pre .comment, .sidebar select, .site-nav a, .post-meta-top, .post-meta-bottom, .comment-meta {
+    font: 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
 h1, h2, h3, h4, h5, h6,
