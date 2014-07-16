@@ -520,7 +520,7 @@ article li ol {
     margin-top: 3px;
 }
 
-article iframe article img { 
+article iframe, article img { 
     /* IE fallback. */
     border: 1px solid #343537;
     border: 1px solid rgba(52,53,55,0.3); 
