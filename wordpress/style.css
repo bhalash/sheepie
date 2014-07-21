@@ -98,7 +98,7 @@ blockquote p {
  */
 
 blockquote, code, embed, header, img, iframe, input, label, ol, option, p, pre, select, ul,
-.comment, .post-meta-top, .sidebar-search, .social {
+.comment, .post-meta-top, .site-search, .social {
     margin-bottom: 10px;
 }
 
@@ -424,7 +424,7 @@ header li a:hover {
 }
 
 header .social,
-.sidebar-search,
+.site-search,
 .sidebar {
     margin-top: 20px;
 }
@@ -440,11 +440,11 @@ header .social,
  * Website Search
  */
 
-.sidebar-search {
+.site-search {
     height: 30px;
 }
 
-.sidebar-search p a {
+.site-search p a {
     overflow: auto;
 }
 
