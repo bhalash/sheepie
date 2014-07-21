@@ -4,29 +4,37 @@
     remove_filter('the_excerpt', 'convert_smilies');
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
-    // Social bar options.
-    add_action('admin_menu', 'rmwb_options');
     // Sidebar.
-    add_action( 'widgets_init', 'sidebar_widgets_init' );
+    add_action('widgets_init', 'sidebar_widgets_init');
+
+    // Add your social networks here. Set network and user name.
+    // Available networks: 
+    // 
+    // emails (<-- note the 's'!)
+    // facebook
+    // flickr
+    // github
+    // google (google+)
+    // instagram
+    // linkedin
+    // pinterest
+    // twitter
+    // tumblr
+    //  
+    $social_networks = array(
+        'twitter'    => 'bhalash',
+        'facbook'    => 'bhalash',
+        'instagram'  => 'bhalash',
+        'github'     => 'bhalash',
+    );
 
     if (!isset($content_width)) {
         $content_width = 600;
     }
 
-    function rmwb_options() {
-        add_theme_page(
-            // $page_title,
-            'RMWB Options',
-            // $menu_title,
-            'Social Options',
-            // $capability,
-            'edit_theme_options',
-            // $menu_slug,
-            'social_options'
-            // $function
-        );
+    function rmwb_social() {
     }
-    
+
     function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
         register_sidebar(
@@ -37,8 +45,8 @@
                 'after_widget'  => '</div>',
                 'before_title'  => '<h6 class="sidebar-title">',
                 'after_title'   => '</h6>',
-            )
-        );
+           )
+       );
     }
 
     function split_title($title) {
