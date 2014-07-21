@@ -74,11 +74,11 @@ a, button, del, em, input, span, strong, sub, sup, time {
     font-size: inherit;
 }
 
-blockquote, code, input, label, li, option, p, pre, select { 
+blockquote, code, input, label, li, option, p, pre { 
     font: 0.84em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
-code, input, pre, pre span, .comment, .sidebar select, .site-nav a, .post-meta-top, .post-meta-bottom, .comment-meta {
+code, input, pre, pre span, .comment, .pagination a, .post-meta-top, .post-meta-bottom, .comment-meta {
     font: 0.84em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
@@ -94,7 +94,7 @@ blockquote p {
 }
 
 /*
- * Default Bottom Margins
+ * Default Margins
  */
 
 blockquote, code, embed, header, img, iframe, input, label, ol, option, p, pre, select, ul,
@@ -126,10 +126,7 @@ a {
 }
 
 blockquote { 
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    /* IE fallback. */
     padding: 0 0 0 10px;
     border-left: 1px solid #;
     border-left: 1px solid rgba(0,0,0,0.3); 
@@ -187,7 +184,6 @@ code, pre {
 }
 
 pre {
-    border-radius: 5px;
     box-sizing: border-box;
     font-size: 0.87em;
     overflow-x: auto;
@@ -217,9 +213,9 @@ sub { vertical-align: sub; }
 }
 
 input {
-    border: 1px solid #343537;
+    -webkit-border-radius: 0;
     border: 1px solid rgba(52,53,55,0.3);
-    border-radius: 5px;
+    border-radius: 0;
     box-sizing: border-box;
     float: left;
     height: 25px;
@@ -231,9 +227,8 @@ input {
 }
 
 textarea {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     box-sizing: border-box;
     display: inline-block;
     margin: 0 0 3px 0;
@@ -283,9 +278,14 @@ html { background-color: #343537; }
     background: #343537;
     float: left;
     padding: 0 0 1px 0;
-    position: fixed;
+    /*position: fixed;*/
     overflow: auto;
     width: 20%;
+}
+
+.content-left .interior {
+    margin: 0 auto;
+    width: 90%;
 }
 
 .content-right {
@@ -294,25 +294,17 @@ html { background-color: #343537; }
     width: 80%;
 }
 
-.content-left-interior,
-.content-right-interior {
+.content-right .interior {
     margin: 0 auto;
-    overflow: auto;
-}
-
-.content-left-interior {
-    width: 90%;
-}
-
-.content-right-interior {
     max-width: 1200px;
     min-width: 600px;
+    overflow: auto;
     padding: 0 0 30px 0;
     width: 90%;
 }
 
 @media screen and (max-width: 1600px) {
-    .content-right-interior {
+    .content-right .interior {
         max-width: 600px;
     }
 }
@@ -322,19 +314,20 @@ html { background-color: #343537; }
         background: #fff;
     }
 
-    .content-left {
-        position: static;
-    }
-
     .content-left,
     .content-right {
         float: none;
         width: 100%;
     }
 
-    .content-left-interior, .content-right-interior { width: 93%; }
-    .content-left-interior { max-width: 600px; }
-    .content-right-interior { min-width: 0; }
+    .content-left .interior {
+        max-width: 93%; 
+    }
+
+    .content-right .interior { 
+        min-width: 0;
+        width: 93%; 
+    }
 }
 
 /* 
@@ -342,7 +335,7 @@ html { background-color: #343537; }
 */
 
 header {
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 header a { 
@@ -400,11 +393,13 @@ header li a:hover {
 }
 
 .sidebar a:hover {
-    border-bottom: 1px dotted #ba3434;
+    color: #fff;
+    font-size: 2em;
 }
 
 .sidebar li {
     color: #fff;
+    list-style-type: none;
     margin-bottom: 0;
     text-align: left;
 }
@@ -414,8 +409,6 @@ header li a:hover {
 }
 
 .sidebar select {
-    background: #fff;
-    border-radius: 5px;
     width: 100%;
 }
 
@@ -428,6 +421,12 @@ header li a:hover {
     height: 100%;
     margin-top: 20px;
     width: 100%;
+}
+
+header .social,
+.sidebar-search,
+.sidebar {
+    margin-top: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -451,32 +450,23 @@ header li a:hover {
 
 /* Search input. */
 input[class=search-input] {
-    background: #fff;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    height: 30px;
+    border: 0;
+    height: 35px;
     margin: 0 auto;
-    padding: 0 0 0 6px;
     position: relative;
-    vertical-align: top;
     width: 100%;
 }
 
 input[class=search-submit] {
     background: #4284fd url('img/chevron_right.png') no-repeat center center;
-    background-size: 75% auto;
-    border: none;
-    border-radius: 5px;
+    background-size: 65% auto;
     display: block;
     float: right;
-    height: 25px;
-    margin-top: -28.5px;
+    margin-top: -32.5px;
     margin-right: 3px;
     position: relative;
     width: 25px;
-    /* THIS. IS. SPARTA. */
-    z-index: 300;
+    z-index: 2;
 }
 
 /*
@@ -524,7 +514,6 @@ article img {
     /* IE fallback. */
     border: 1px solid #343537;
     border: 1px solid rgba(52,53,55,0.3); 
-    border-radius: 5px; 
     height: auto;
     max-width: 99%;
 }
@@ -551,19 +540,16 @@ blockquote a:hover, li a:hover, p a:hover {
  * Intra-site Navigation
  */
 
-.site-nav {
+.pagination {
     margin: 0 auto;
     margin-top: 30px;
     overflow: auto;
     width: 100%;
 }
 
-.site-nav a {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.pagination a {
     background: #4284fd;
-    border-radius: 5px;
+    box-sizing: border-box;
     color: #fff;
     display: block;
     font-size: 0.88em;
@@ -573,15 +559,24 @@ blockquote a:hover, li a:hover, p a:hover {
     padding: 6px 8px;
     text-align: center;
     overflow: hidden;
+    width: 120px;
 }
 
-.nav-left, .nav-right {
+.pagination .left, 
+.pagination .right {
     overflow: auto;
     width: 49.5%;
 }
 
-.nav-left, .nav-right a { float: left; }
-.nav-right, .nav-left a { float: right; } 
+.pagination .left, 
+.pagination .right a { 
+    float: left;
+}
+
+.pagination .right, 
+.pagination .left a { 
+    float: right; 
+} 
 
 /*
  * Post Meta Information
@@ -633,7 +628,6 @@ blockquote a:hover, li a:hover, p a:hover {
 
 .social {
     list-style: none;
-    margin: 0 auto;
     max-width: 350px;
     text-align: center;
 }
@@ -682,11 +676,15 @@ blockquote a:hover, li a:hover, p a:hover {
  * Button Animation
  */
 
-.site-nav a, input[class=search-submit], input[id=submit] {
+.pagination a, 
+input[class=search-submit],
+input[id=submit] {
     background-color: #4284fd;
     transition: background-color .3s ease-in-out;
 }
 
-.site-nav a:hover, input[class=search-submit]:hover, input[id=submit]:hover {
+.pagination a:hover,
+input[class=search-submit]:hover,
+input[id=submit]:hover {
     background-color: #ba3434;
 }
