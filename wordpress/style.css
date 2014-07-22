@@ -627,21 +627,22 @@ blockquote a:hover, li a:hover, p a:hover {
  */
 
 .social {
-    list-style: none;
-    max-width: 350px;
-    text-align: center;
+    width: 100%;
 }
 
 .social li {
-    display: inline;
+    display: inline-blok;
+    list-style-type: none;
     text-align: center;
+    width: 25%;
 }
 
 .social a {
     border-radius: 50%;
-    display: inline-block;
+    display: block;
+    height: 100%;
     transition: background-color .3s ease-in-out;
-    width: 20%;
+    width: 100%;
 }
 
 .social a:hover {

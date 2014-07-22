@@ -3,14 +3,18 @@ function contentHeight() {
     $('.content-right').css('min-height', $(window).height() + 'px');
 }
 
-function widgetHeight() {
-    // Widget width is dynamic and proportional to the div container size. 
-    $('.social a').css('height', $('.social a').width() + 'px'); 
+function socialSize() {
+    $('.social').css('width', $('.social').parent().css('width'));
+
+    $('.social li').each(function() {
+        $(this).css('width', Math.floor($('.social').width() / 4 + 'px'));
+        $(this).css('height', $(this).width() + 'px');
+    });
 }
 
 $(function() {
     contentHeight();
-    widgetHeight();
+    socialSize();
 
     // Remove underline from hyperlink images. 
     $('p > a').each(function() {
@@ -24,5 +28,5 @@ $(function() {
 
 $(window).resize(function() {
     contentHeight();
-    widgetHeight();
+    socialSize();
 });
