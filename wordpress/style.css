@@ -75,11 +75,11 @@ a, button, del, em, input, span, strong, sub, sup, time {
 }
 
 blockquote, code, input, label, li, option, p, pre { 
-    font: 0.84em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
+    font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
 code, input, pre, pre span, .comment, .pagination a, .post-meta-top, .post-meta-bottom, .comment-meta {
-    font: 0.84em 'Source Code Pro', 'Courier New', Courier, monospace;
+    font: 0.87em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
 h1, h2, h3, h4, h5, h6,
