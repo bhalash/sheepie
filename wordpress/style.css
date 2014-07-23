@@ -157,6 +157,12 @@ ul {
     padding: 0 0 0 15px;
 }
 
+li ul,
+li ol {
+    margin-top: 3px;
+}
+
+li li,
 li p {
     font-size: 100%;
 }
@@ -381,43 +387,37 @@ header .social,
  * Article Styling
  */
 
-.size-auto .size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
-    /* Constrain all Wordpress image sizes. */
-    height: auto;
-    max-width: 100%;
-}
-
 article { 
     margin-bottom: 40px;
     margin-top: 40px;
 }
 
-article li {
-    margin-bottom: 0;
-}
-
-article li ul,
-article li ol {
-    margin-top: 3px;
-}
-
-article li li {
-    font-size: 0.95em;
+article a:hover {
+    text-decoration: underline;
 }
 
 article img { 
     border: 1px solid rgba(52,53,55,0.3); 
+    box-sizing: border-box;
     height: auto;
-    max-width: 99%;
+    max-width: 100%;
 }
 
-blockquote a:hover,
-li a:hover,
-p a:hover {
-    text-decoration: underline;
+/*
+ * Post Meta Information
+ */
+
+.article-title,
+#reply-title {
+    margin-bottom: 2px;
+}
+
+.article-title a:hover { 
+    color: #9fa5b1;
+}
+
+article .meta {
+    margin-bottom: 20px; 
 }
 
 /* 
@@ -459,24 +459,7 @@ p a:hover {
 } 
 
 /*
- * Post Meta Information
- */
-
-article .meta {
-    margin-bottom: 20px; 
-}
-
-.article-title,
-#reply-title {
-    margin-bottom: -1px;
-}
-
-.article-title a:hover { 
-    color: #9fa5b1;
-}
-
-/*
- * Post Comments
+ * Comment Input
  */
 
 ::-webkit-input-placeholder,
@@ -548,12 +531,25 @@ input[type=submit] {
     width: 100%;
 }
 
+.comment-entry {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.comment-author-info {
+    margin: 0 auto;
+}
+
+/*
+ * Comment Display
+ */
+
 .article-comments ul {
     margin: 0;
     padding: 0;
 }
 
-.article-comments li {
+.comment {
     box-sizing: border-box;
     list-style-type: none;
     min-height: 100px;
@@ -578,32 +574,6 @@ input[type=submit] {
 }
 
 /*
- * Comment Entry Form
- */
-
-.comment-entry {
-    margin: 0 auto;
-    margin-top: 20px;
-    max-width: 603px;
-}
-
-.comment-author-info {
-    margin: 0 auto;
-}
-
-.form-submit {
-    margin-bottom: 50px;
-}
-
-.comment-subscription-form {
-    margin-bottom: 0;
-}
-
-.comment-subscription-form label {
-    vertical-align: text-top;
-}
-
-/*
  * Website Search
  */
 
@@ -611,11 +581,6 @@ input[type=submit] {
     height: 30px;
 }
 
-.site-search p a {
-    overflow: auto;
-}
-
-/* Search input. */
 input[class=search-input] {
     border: 0;
     height: 35px;
@@ -633,7 +598,6 @@ input[class=search-submit] {
     margin-right: 3px;
     position: relative;
     width: 25px;
-    z-index: 2;
 }
 
 /*
@@ -661,8 +625,11 @@ input[class=search-submit] {
     border-radius: 50%;
     display: block;
     height: 100%;
-    transition: background-color .3s ease-in-out;
     width: 100%;
+}
+
+.social a:active {
+    border: 1px solid #fff;
 }
 
 #emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
@@ -690,18 +657,17 @@ input[class=search-submit] {
 #tumblr:hover     { background-color: #3d5a70; }
 
 /*
- * Button Animation
+ * Button Clicks
  */
-
-.pagination a,
-input[class=search-submit],
-input[id=submit] {
-    background-color: #4284fd;
-    transition: background-color .3s ease-in-out;
-}
 
 .pagination a:hover,
 input[class=search-submit]:hover,
 input[id=submit]:hover {
     background-color: #ba3434;
+}
+
+.pagination a:active,
+input[class=search-submit]:active,
+input[id=submit]:active {
+    border: 1px solid #343537;
 }
