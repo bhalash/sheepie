@@ -1,16 +1,19 @@
-<div class="post-comments">
+<section class="article-comments">
     <?php if (post_password_required()) : ?>
-        <h3 class="post-title">This post is password protected. Enter the password to view comments.</h3>
+        <h3 class="article-title">This post is password protected. Enter the password to view comments.</h3>
     <?php return; endif; ?>
     <?php if (have_comments()) : ?>
-        <h3 class="comment-title"><?php comments_number('No Comments:', '1 Comment:', '% Comments:');?></h3>
-        <?php wp_list_comments(
-            array ( 
-                'callback' => 'rmwb_comments',
-                'avatar_size' => 0,
-                'style' => 'div'
-            )
-        ); ?>
+        <h3 class="comment-title"><?php comments_number('No Comments', '1 Comment', '% Comments');?></h3>
+        <ul>
+            <?php wp_list_comments(
+                array( 
+                    'callback' => 'rmwb_comments',
+                    'avatar_size' => 0,
+                    'format' => 'html5',
+                    'style' => 'ul'
+                )
+            ); ?>
+        </ul>
      <?php else : ?>
         <?php if (comments_open()) : ?>
             <?php else : ?>
@@ -30,9 +33,9 @@
 
     comment_form( 
         array (
-            'title_reply' => 'Say something witty:',
+            'title_reply' => 'Say something',
             'comment_field' => '<p><textarea aria-required="true" class="comment-form-comment" id="comment" name="comment" rows="10"></textarea></p>',
             'fields' => $comment_form_fields
         )
     ); ?>
-</div>
+</section>
