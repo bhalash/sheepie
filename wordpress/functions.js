@@ -4,10 +4,8 @@ function contentHeight() {
 }
 
 function socialSize() {
-    $('.social').css('width', $('.social').parent().css('width'));
-
     $('.social li').each(function() {
-        $(this).css('width', Math.floor($('.social').width() / 4 + 'px'));
+        $(this).css('width', Math.floor($(this).parent().width() / 4 + 'px'));
         $(this).css('height', $(this).width() + 'px');
     });
 }

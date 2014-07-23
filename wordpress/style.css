@@ -527,22 +527,18 @@ input[type=submit] {
 .comment-form-email {
     display: inline;
     margin: 0 auto;
+    margin-bottom: 4px;
 }
 
 .comment-form-url {
     float: right;
-    margin-bottom: 7px;
 }
 
 @media (max-width: 1024px) {
     input {
         float: none;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         width: 100%;
-    }
-
-    .comment-form-email {
-        margin-bottom: 7px;        
     }
 }
 
@@ -645,13 +641,19 @@ input[class=search-submit] {
  */
 
 .social {
-    margin-bottom: 30px;
+    width: 100%;
+}
+
+.social ul {
+    margin: 0 auto;
+    max-width: 260px;
     width: 100%;
 }
 
 .social li {
     display: inline-block;
     list-style-type: none;
+    margin-bottom: 0;
     width: 22%;
 }
 
