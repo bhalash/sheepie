@@ -29,4 +29,4 @@
                 </header>
                 <?php get_sidebar(); ?>
             </div>
-        </section> 
+        </section>
