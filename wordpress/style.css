@@ -192,68 +192,6 @@ sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
 /*
- * Form inputs
- */
-
-::-webkit-input-placeholder,
-:-moz-placeholder,
-:-ms-input-placeholder {
-    color: #343537;
-}
-
-input,
-textarea {
-    /* Remove styling on iOS devices. */
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
-    border: 1px solid rgba(52,53,55,0.3);
-    border-radius: 0;
-    box-sizing: border-box;
-}
-
-input {
-    float: left;
-    height: 25px;
-    margin: 0 3px 3px 3px;
-    padding: 0 0 0 6px;
-    text-align: left;
-    vertical-align: top;
-    width: 32.3%;
-}
-
-textarea {
-    display: inline-block;
-    margin: 0 0 3px 0;
-    padding: 0;
-    width: 100%;
-}
-
-input[type=submit] {
-    background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
-    background-size: auto 75%;
-    border: none;
-    color: #fff;
-    height: 30px;
-    width: 149px;
-}
-
-@media (max-width: 1024px) {
-    input {
-        float: none;
-        margin: 0 auto;
-        margin-bottom: 3px;
-        width: 100%;
-    }
-}
-
-.content-right form {
-    margin: 0 auto;
-    margin-bottom: 20px;
-    overflow: auto;
-    width: 100%;
-}
-
-/*
  * Default Margins
  */
 
@@ -307,7 +245,7 @@ html { background-color: #343537; }
 
 @media screen and (max-width: 1600px) {
     /* Content can shrink below 600px width,
-but I don't want it larger. */
+    but I don't want it larger. */
     .content-right .interior {
         max-width: 600px;
     }
@@ -378,7 +316,6 @@ header li a {
 }
 
 header li a:hover {
-    border: none;
     text-decoration: none;
 }
 
@@ -441,39 +378,6 @@ header .social,
 }
 
 /*
- * Website Search
- */
-
-.site-search {
-    height: 30px;
-}
-
-.site-search p a {
-    overflow: auto;
-}
-
-/* Search input. */
-input[class=search-input] {
-    border: 0;
-    height: 35px;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-}
-
-input[class=search-submit] {
-    background: #4284fd url('img/chevron_right.png') no-repeat center center;
-    background-size: 65% auto;
-    display: block;
-    float: right;
-    margin-top: -32.5px;
-    margin-right: 3px;
-    position: relative;
-    width: 25px;
-    z-index: 2;
-}
-
-/*
  * Article Styling
  */
 
@@ -513,7 +417,7 @@ article img {
 blockquote a:hover,
 li a:hover,
 p a:hover {
-    border-bottom: 1px dotted #343537;
+    text-decoration: underline;
 }
 
 /* 
@@ -532,13 +436,10 @@ p a:hover {
     box-sizing: border-box;
     color: #fff;
     display: block;
-    font-size: 0.88em;
-    height: 30px;
-    line-height: 15px;
-    padding: 6px 8px;
+    padding: 8px 8px;
     text-align: center;
     overflow: hidden;
-    width: 120px;
+    width: 130px;
 }
 
 .pagination .left,
@@ -578,6 +479,79 @@ article .meta {
  * Post Comments
  */
 
+::-webkit-input-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+    color: #343537;
+}
+
+input,
+textarea {
+    /* Remove styling on iOS devices. */
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border: 1px solid rgba(52,53,55,0.3);
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+input {
+    height: 25px;
+    margin: 0 0 5px 0;
+    padding: 0 0 0 6px;
+    margin-bottom: 0;
+    text-align: left;
+    vertical-align: top;
+    width: 33%;
+}
+
+textarea {
+    margin: 0 0 3px 0;
+    padding: 0;
+    width: 100%;
+}
+
+input[type=submit] {
+    background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
+    background-size: auto 75%;
+    border: none;
+    color: #fff;
+    height: 30px;
+    width: 149px;
+}
+
+.comment-form-author {
+    float: left;
+}
+
+.comment-form-email {
+    display: inline;
+    margin: 0 auto;
+}
+
+.comment-form-url {
+    float: right;
+    margin-bottom: 7px;
+}
+
+@media (max-width: 1024px) {
+    input {
+        float: none;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .comment-form-email {
+        margin-bottom: 7px;        
+    }
+}
+
+.content-right form {
+    margin-bottom: 20px;
+    overflow: auto;
+    width: 100%;
+}
+
 .article-comments ul {
     margin: 0;
     padding: 0;
@@ -595,7 +569,7 @@ article .meta {
 }
 
 .comment-author { 
-    margin-bottom: -2px;
+    margin-bottom: 0;
 }
 
 .comment-author cite a {
@@ -634,6 +608,39 @@ article .meta {
 }
 
 /*
+ * Website Search
+ */
+
+.site-search {
+    height: 30px;
+}
+
+.site-search p a {
+    overflow: auto;
+}
+
+/* Search input. */
+input[class=search-input] {
+    border: 0;
+    height: 35px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+input[class=search-submit] {
+    background: #4284fd url('img/chevron_right.png') no-repeat center center;
+    background-size: 65% auto;
+    display: block;
+    float: right;
+    margin-top: -32.5px;
+    margin-right: 3px;
+    position: relative;
+    width: 25px;
+    z-index: 2;
+}
+
+/*
  * Social Icons
  */
 
@@ -654,10 +661,6 @@ article .meta {
     height: 100%;
     transition: background-color .3s ease-in-out;
     width: 100%;
-}
-
-.social a:hover {
-    border: none;
 }
 
 #emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
