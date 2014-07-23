@@ -7,6 +7,10 @@
     // Sidebar.
     add_action('widgets_init', 'sidebar_widgets_init');
 
+    if (!isset($content_width)) {
+        $content_width = 600;
+    }
+
     // Add your social networks here. Set network and user name.
     // Available networks: 
     // 
@@ -27,10 +31,6 @@
         'instagram'  => 'bhalash',
         'github'     => 'bhalash',
     );
-
-    if (!isset($content_width)) {
-        $content_width = 600;
-    }
 
     function rmwb_social() {
     }
@@ -72,10 +72,10 @@
     function rmwb_comments($comment, $args, $depth) {
         // Custom comment output.
         $GLOBALS['comment'] = $comment; ?>
-        <div class="comment <?php comment_class(); ?>" id="li-comment-<?php comment_ID() ?>">
-            <h5 class="comment-author"><?php echo get_comment_author_link(); ?></h5>
-            <p class="comment-meta">
-                Commented <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?>
+        <li class="comment <?php comment_class(); ?>" id="li-comment-<?php comment_ID() ?>">
+            <h4 class="comment-author"><?php echo get_comment_author_link(); ?></h4>
+            <p>
+                <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?>
                 <?php edit_comment_link(__('edit'),'  ',''); ?>
             </p>
             <?php if ($comment->comment_approved == '0') : ?>
