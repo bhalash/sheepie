@@ -325,7 +325,7 @@ header li a:hover {
     text-decoration: none;
 }
 
-.header-title-inset {
+header .title li:nth-child(odd) {
     margin-left: 15%;
 }
 
@@ -503,6 +503,9 @@ input[type=submit] {
     width: 149px;
 }
 
+/* The three inputs are displayed side-by-side at larger sizes. 
+Left is floated left, middle centered, and right floated right. */
+
 .comment-form-author {
     float: left;
 }
@@ -510,6 +513,7 @@ input[type=submit] {
 .comment-form-email {
     display: inline;
     margin: 0 auto;
+    /* This is bottom margin for the entire row. */
     margin-bottom: 4px;
 }
 
@@ -527,13 +531,14 @@ input[type=submit] {
 
 .content-right form {
     margin-bottom: 20px;
+    margin: 0 auto;
     overflow: auto;
-    width: 100%;
 }
 
 .comment-entry {
     margin: 0 auto;
     max-width: 600px;
+    width: 95%;
 }
 
 .comment-author-info {

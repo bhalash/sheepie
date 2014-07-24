@@ -16,7 +16,7 @@
         <section class="content-left">
             <div class="interior">
                 <header>
-                    <ul>
+                    <ul class="title">
                         <?php split_title(get_bloginfo('name')); ?>
                     </ul>
                     <div class="social">

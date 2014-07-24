@@ -53,18 +53,12 @@
         // Splits the site title into alternating words.
         // Kinda...you need to pay attention to your site title or the effect can be strange.
         $n      = 1;
-        $class  = '<li class="header-title-inset">';
         $anchor = '<a href="' . get_home_url() . '">';
         $close  = '</a></li>'; 
         $words  = explode(' ', $title);
 
         foreach ($words as $word) {
-            if ($n % 2 != 0) {
-                echo $class . $anchor . $word . $close;
-            } else {
-                echo '<li>' . $anchor . $word . $close;
-            }
-
+            echo '<li>' . $anchor . $word . $close;
             $n++;
         }
     }
