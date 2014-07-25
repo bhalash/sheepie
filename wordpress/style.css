@@ -181,7 +181,9 @@ pre {
     box-sizing: border-box;
     font-size: 0.87em;
     overflow-x: auto;
-    padding: 6px;
+    /* This is just to overwrite prettyprint's styling. 
+    Will eventually replace plugin with JS script. */
+    padding: 8px !important;
 }
 
 /*
@@ -401,6 +403,11 @@ article img {
     box-sizing: border-box;
     height: auto;
     max-width: 100%;
+}
+
+article ol,
+article ul {
+    margin-left: 10px;
 }
 
 /*
