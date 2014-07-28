@@ -1,8 +1,10 @@
-<?php get_header();  ?>
+<?php get_header(); ?>
 <div class="content-right">
-    <div class="content-right-interior">
+    <div class="interior">
         <article <?php post_class(); ?>>
-            <h3 class="post-title">Four, Oh Four!</h3>
+            <h3 class="article-title">Four, Oh Four!</h3>
             <p>Page not found.</p>
         </article>
-    <?php get_footer(); ?>
+    </div>
+</div>
+<?php get_footer(); ?>

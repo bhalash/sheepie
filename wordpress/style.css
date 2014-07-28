@@ -4,7 +4,7 @@ Theme URI: https://github.com/bhalash/RMWB
 Author: Mark Grealish
 Author URI: http://www.bhalash.com/
 Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
-Version: 1
+Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
@@ -80,8 +80,7 @@ code, input, pre, pre span, .comment,
     font: 0.87em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
-h1, h2, h3, h4, h5, h6,
-header li {
+h1, h2, h3, h4, h5, h6, header li, nav li {
     font: 4.5em 'OSP-DIN', impact;
 }
 
@@ -134,8 +133,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3em; }
-h2 { font-size: 2.5em; }
-h3 { font-size: 2em; }
+h2{ font-size: 2.5em; }
+h3, nav li { font-size: 2em; }
 h4 { font-size: 1.75em; }
 h5 { font-size: 1.5em; }
 h6 { font-size: 1.25em; }
@@ -179,6 +178,7 @@ pre {
 
 pre {
     box-sizing: border-box;
+    border: 0;
     font-size: 0.87em;
     overflow-x: auto;
     /* This is just to overwrite prettyprint's styling. 
@@ -195,7 +195,7 @@ em { font-style: italic; }
 label { display: block; }
 strong { font-weight: bold; }
 
-sub, sup { font-size: 75%; }
+small, sub, sup { font-size: 75%; }
 sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
@@ -226,28 +226,29 @@ html { background-color: #343537; }
     background: #343537;
     float: left;
     padding: 0 0 1px 0;
-    /*position: fixed;*/
+    position: fixed;
     overflow: auto;
-    width: 20%;
-}
-
-.content-left .interior {
-    margin: 0 auto;
-    width: 90%;
+    width: 14%;
 }
 
 .content-right {
     background: #fff;
     float: right;
-    width: 80%;
+    width: 86%;
+}
+
+.content-left .interior {
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 92%;
 }
 
 .content-right .interior {
     margin: 0 auto;
+    margin-bottom: 30px;
     max-width: 1200px;
     min-width: 600px;
     overflow: auto;
-    padding: 0 0 30px 0;
     width: 90%;
 }
 
@@ -256,6 +257,12 @@ html { background-color: #343537; }
     but I don't want it larger. */
     .content-right .interior {
         max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .content-left {
+        position: static;
     }
 }
 
@@ -280,55 +287,61 @@ html { background-color: #343537; }
     }
 }
 
-/* 
- * Header 
-*/
+/*
+ * Big Nav Menu things
+ */
 
-header {
-    margin: 30px 0;
-}
-
-header a { 
+header a,
+nav a {
     color: #fff;
 }
 
-header a:hover { 
+header a:hover,
+nav a:hover {
     color: #9fa5b1; 
 }
 
-header ul {
+nav a:hover:before {
+    content: '» ';
+}
+
+header ul,
+nav ul {
     display: inline-block;
     list-style-type: none;
     padding: 0;
-    width: auto;
+    width: 100%;
 }
 
-header li {
+header li,
+nav li {
     color: #fff;
-    line-height: 1.27em;
-    margin: -29px 0 -29px 0;
+    line-height: 1.15em;
+    margin: -25px 0 -25px 0;
+    text-align: right;
     text-transform: uppercase;
 }
 
-/* 
- * Compensates for the negative li margin. 
- * Otherwise vertical placement in the sidebar is pooched.
- */
-
-header li:first-child {
-    margin-top: 0;
+nav li {
+    margin: -9px 0 -9px 0;
 }
 
-header li a {
-    text-align: left;
+header li:first-child,
+nav li:first-child {
+    /* Compensates for the negative li margin. 
+    Otherwise vertical placement in the sidebar is pooched. */
+    margin-top: 0;
 }
 
 header li a:hover {
     text-decoration: none;
 }
 
-header .title li:nth-child(odd) {
-    margin-left: 15%;
+@media screen and (max-width: 1024px) {
+    header .title li:nth-child(odd),
+    nav li:nth-child(odd) {
+        margin-left: 15%;
+    }
 }
 
 /*
@@ -341,16 +354,8 @@ header .title li:nth-child(odd) {
     width: 100%;
 }
 
-.sidebar a:hover {
+.sidebar a {
     color: #fff;
-    font-size: 2em;
-}
-
-.sidebar li {
-    color: #fff;
-    list-style-type: none;
-    margin-bottom: 0;
-    text-align: left;
 }
 
 .sidebar p {
@@ -375,7 +380,7 @@ header .title li:nth-child(odd) {
 header .social,
 .site-search,
 .sidebar {
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 @media (max-width: 1024px) {
@@ -421,6 +426,7 @@ article ul {
 
 .article-title a:hover { 
     color: #9fa5b1;
+    text-decoration: none;
 }
 
 article .meta {
@@ -611,62 +617,6 @@ input[class=search-submit] {
     position: relative;
     width: 25px;
 }
-
-/*
- * Social Icons
- */
-
-.social {
-    width: 100%;
-}
-
-.social ul {
-    margin: 0 auto;
-    max-width: 260px;
-    width: 100%;
-}
-
-.social li {
-    display: inline-block;
-    list-style-type: none;
-    margin-bottom: 0;
-    width: 22%;
-}
-
-.social a {
-    border-radius: 50%;
-    display: block;
-    height: 100%;
-    width: 100%;
-}
-
-.social a:active {
-    border: 1px solid #fff;
-}
-
-#emails     { background: url('img/social/email.png')     no-repeat center center; background-size: 100% auto; }
-#facebook   { background: url('img/social/facebook.png')  no-repeat center center; background-size: 100% auto; }
-#flickr     { background: url('img/social/flickr.png')    no-repeat center center; background-size: 100% auto; }
-#github     { background: url('img/social/github.png')    no-repeat center center; background-size: 100% auto; }
-#google     { background: url('img/social/google.png')    no-repeat center center; background-size: 100% auto; }
-#instagram  { background: url('img/social/instagram.png') no-repeat center center; background-size: 100% auto; }
-#linkedin   { background: url('img/social/linkedin.png')  no-repeat center center; background-size: 100% auto; }
-#pinterest  { background: url('img/social/pinterest.png') no-repeat center center; background-size: 100% auto; }
-#rss        { background: url('img/social/rss.png')       no-repeat center center; background-size: 100% auto; }
-#twitter    { background: url('img/social/twitter.png')   no-repeat center center; background-size: 100% auto; }
-#tumblr     { background: url('img/social/tumblr.png')    no-repeat center center; background-size: 100% auto; }
-
-#emails:hover     { background-color: #ec4724; }
-#facebook:hover   { background-color: #3b5998; }
-#flickr:hover     { background-color: #0063db; }
-#github:hover     { background-color: #171516; }
-#google:hover     { background-color: #db5442; }
-#instagram:hover  { background-color: #3f729b; }
-#linkedin:hover   { background-color: #0274b3; }
-#pinterest:hover  { background-color: #cb2027; }
-#rss:hover        { background-color: #ff6600; }
-#twitter:hover    { background-color: #00aced; }
-#tumblr:hover     { background-color: #3d5a70; }
 
 /*
  * Button Clicks

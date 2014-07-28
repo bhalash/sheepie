@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section class="content-right">
+<div class="content-right">
     <div class="interior">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
@@ -21,14 +21,14 @@
                 <p>Sorry, no posts were found that match your criteria!</p>
             </article>
         <?php endif; ?>
-        <section class="pagination">
+        <div class="pagination">
             <div class="left">
                 <?php previous_posts_link('Previous Page'); ?>
             </div>
             <div class="right">
                 <?php next_posts_link('Next Page'); ?>
             </div>
-        </section>
+        </div>
     </div>
-</section>
+</div>
 <?php get_footer(); ?>
