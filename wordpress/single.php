@@ -7,7 +7,7 @@
                     <h3 class="article-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
                     <p class="meta">
                         by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a> 
-                        on <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?> in <?php the_category(', '); ?>.</time> <?php comments_popup_link('', '1 Comment.', '% Comments.'); ?>
+                        on <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?> in <?php the_category(', '); ?>.</time> <?php comments_popup_link('0 comments', '1 comment.', '% comments.'); ?>
                         <?php edit_post_link('Edit post.', ' ', ''); ?>
                     </p>
                     <?php the_content('Read the rest of this post &raquo;'); ?>

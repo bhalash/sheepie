@@ -89,17 +89,6 @@ input[type=submit], blockquote p {
     font-size: 100%;
 }
 
-/*
- * img
- */
-
-img { 
-    display: inline-block;
-    height: auto;
-    margin: 0 auto;
-    max-width: 98%;
-}
-
 /* 
  * Global Element Rules
  */
@@ -228,13 +217,13 @@ html { background-color: #343537; }
     padding: 0 0 1px 0;
     position: fixed;
     overflow: auto;
-    width: 14%;
+    width: 15%;
 }
 
 .content-right {
     background: #fff;
     float: right;
-    width: 86%;
+    width: 85%;
 }
 
 .content-left .interior {
@@ -406,8 +395,21 @@ article a:hover {
 article img { 
     border: 1px solid rgba(52,53,55,0.3); 
     box-sizing: border-box;
+    display: inline-block;
     height: auto;
     max-width: 100%;
+}
+
+@media screen and (max-width: 2048px) and (min-width: 2048px) {
+    article img { 
+        float: left;
+        margin: 0 10px 10px 0;
+        max-width: 32%;
+    }
+
+    article p {
+        overflow: auto;
+    }
 }
 
 article ol,
