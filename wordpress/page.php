@@ -4,10 +4,9 @@
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
                 <article <?php post_class(); ?> id="article-<?php the_ID(); ?>">
-                    <h3 class="article-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-                    <p class="meta">
-                        <?php edit_post_link('Edit page.', ' ', ''); ?>
-                    </p>
+                    <h2 class="article-title">
+                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                    </h2>
                     <?php the_content('Read the rest of this post &raquo;'); ?>
                 </article>
             <?php endwhile; ?> 

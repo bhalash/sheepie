@@ -2,7 +2,7 @@
 <div class="content-right">
     <div class="interior">
         <article <?php post_class(); ?>>
-            <h3 class="article-title">Four, Oh Four!</h3>
+            <h2 class="article-title">Four, Oh Four!</h2>
             <p>Page not found.</p>
         </article>
     </div>

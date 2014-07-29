@@ -236,8 +236,6 @@ html { background-color: #343537; }
 .content-right .interior {
     margin: 0 auto;
     margin-bottom: 30px;
-    max-width: 1200px;
-    min-width: 600px;
     overflow: auto;
     width: 90%;
 }
@@ -247,6 +245,12 @@ html { background-color: #343537; }
     but I don't want it larger. */
     .content-right .interior {
         max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 3200px) {
+    .content-right .interior {
+        max-width: 800px;
     }
 }
 
@@ -439,7 +443,7 @@ article ul {
 
 .article-title,
 #reply-title {
-    margin-bottom: 2px;
+    margin-bottom: 10px;
 }
 
 .article-title a:hover { 
@@ -447,8 +451,9 @@ article ul {
     text-decoration: none;
 }
 
-article .meta {
-    margin-bottom: 20px; 
+.meta {
+    line-height: 0.9em;
+    padding: 15px 0;
 }
 
 /* 
@@ -569,7 +574,6 @@ Left is floated left, middle centered, and right floated right. */
 
 .comment-entry {
     margin: 0 auto;
-    max-width: 600px;
     width: 100%;
 }
 
