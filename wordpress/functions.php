@@ -1,65 +1,21 @@
 <?php
-    // Wordpress repeatedly inserted emoticons. No more, ever.
-    remove_filter('the_content', 'convert_smilies');
-    remove_filter('the_excerpt', 'convert_smilies');
-    // Declares that the theme has HTML5 support.
-    current_theme_supports('html5');
-    // Sidebar.
-    add_action('widgets_init', 'sidebar_widgets_init');
-
     if (!isset($content_width)) {
         $content_width = 600;
     }
 
-    // Add your social networks here. Set network and user name.
-    // Available networks: 
-    // 
-    // emails (<-- note the 's'!)
-    // facebook
-    // flickr
-    // github
-    // google (google+)
-    // instagram
-    // linkedin
-    // pinterest
-    // twitter
-    // tumblr
-    //  
-    $social_networks = array(
-        'twitter'    => 'bhalash',
-        'facbook'    => 'bhalash',
-        'instagram'  => 'bhalash',
-        'github'     => 'bhalash',
-    );
-
-    function rmwb_social() {
-    }
-
-    function sidebar_widgets_init() {
-        // Wordpress dynamic sidebar.
-        register_sidebar(
-            array(
-                'name'          => 'Dynamic sidebar.',
-                'id'            => 'dynamic-sidebar',
-                'before_widget' => '<div class="sidebar-widget">',
-                'after_widget'  => '</div>',
-                'before_title'  => '<h6 class="sidebar-title">',
-                'after_title'   => '</h6>',
-           )
-       );
+    function rmwb_menu() {
+        register_nav_menu('sidebar-menu',__('Sidebar Menu'));
     }
 
     function split_title($title) {
         // Splits the site title into alternating words.
-        // Kinda...you need to pay attention to your site title or the effect can be strange.
-        $n      = 1;
         $anchor = '<a href="' . get_home_url() . '">';
+        $open   = '<li>';
         $close  = '</a></li>'; 
         $words  = explode(' ', $title);
 
         foreach ($words as $word) {
-            echo '<li>' . $anchor . $word . $close;
-            $n++;
+            echo $open . $anchor . $word . $close;
         }
     }
 
@@ -77,4 +33,14 @@
             <?php endif;
             comment_text();
     }
+
+    // Wordpress repeatedly inserted emoticons. No more, ever.
+    remove_filter('the_content', 'convert_smilies');
+    remove_filter('the_excerpt', 'convert_smilies');
+    // Declares that the theme has HTML5 support.
+    current_theme_supports('html5');
+    // Sidebar.
+    add_action('widgets_init', 'sidebar_widgets_init');
+    // Menu. 
+    add_action('init', 'rmwb_menu');
 ?>

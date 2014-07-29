@@ -1,5 +1,5 @@
 <?php $menu_defaults = array(
-    'theme_location'  => '',
+    'theme_location'  => 'sidebar-menu',
     'menu'            => '',
     'container'       => 'nav',
     'container_class' => '',
@@ -18,6 +18,7 @@
 ); ?>
 
 <?php wp_nav_menu($menu_defaults); ?>
+
 <div class="sidebar">
     <?php dynamic_sidebar('dynamic-sidebar'); ?> 
 </div>

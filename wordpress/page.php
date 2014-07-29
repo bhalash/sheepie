@@ -6,8 +6,6 @@
                 <article <?php post_class(); ?> id="article-<?php the_ID(); ?>">
                     <h3 class="article-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
                     <p class="meta">
-                        by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a> 
-                        on <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?>.</time>
                         <?php edit_post_link('Edit page.', ' ', ''); ?>
                     </p>
                     <?php the_content('Read the rest of this post &raquo;'); ?>

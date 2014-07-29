@@ -122,9 +122,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 3em; }
-h2{ font-size: 2.5em; }
-h3, nav li { font-size: 2em; }
-h4 { font-size: 1.75em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4, nav li { font-size: 1.75em; }
 h5 { font-size: 1.5em; }
 h6 { font-size: 1.25em; }
 
@@ -217,17 +217,18 @@ html { background-color: #343537; }
     padding: 0 0 1px 0;
     position: fixed;
     overflow: auto;
-    width: 15%;
+    width: 20%;
 }
 
 .content-right {
     background: #fff;
     float: right;
-    width: 85%;
+    width: 80%;
 }
 
 .content-left .interior {
     margin: 0 auto;
+    overflow: auto;
     padding: 30px 0;
     width: 92%;
 }
@@ -267,7 +268,8 @@ html { background-color: #343537; }
     }
 
     .content-left .interior {
-        max-width: 93%; 
+        max-width: 600px;
+        width: 93%;
     }
 
     .content-right .interior { 
@@ -280,18 +282,10 @@ html { background-color: #343537; }
  * Big Nav Menu things
  */
 
-header a,
-nav a {
-    color: #fff;
-}
-
-header a:hover,
-nav a:hover {
-    color: #9fa5b1; 
-}
-
-nav a:hover:before {
-    content: '» ';
+header,
+nav {
+    height: 100%;
+    width: 100%;
 }
 
 header ul,
@@ -299,20 +293,29 @@ nav ul {
     display: inline-block;
     list-style-type: none;
     padding: 0;
+}
+
+header ul,
+nav ul {
     width: 100%;
 }
 
 header li,
 nav li {
     color: #fff;
-    line-height: 1.15em;
     margin: -25px 0 -25px 0;
     text-align: right;
     text-transform: uppercase;
+    width: auto;
+}
+
+header li {
+    line-height: 1.15em;
 }
 
 nav li {
-    margin: -9px 0 -9px 0;
+    line-height: 1.25em;
+    margin: -9px 0;
 }
 
 header li:first-child,
@@ -322,15 +325,40 @@ nav li:first-child {
     margin-top: 0;
 }
 
-header li a:hover {
+header a,
+nav a {
+    color: #fff;
+}
+
+header a:hover,
+nav a:hover {
+    color: #9fa5b1;
     text-decoration: none;
 }
 
-@media screen and (max-width: 1024px) {
-    header .title li:nth-child(odd),
-    nav li:nth-child(odd) {
-        margin-left: 15%;
-    }
+nav a:hover:before {
+    content: '» ';
+}
+
+/* Current page on the site. */
+.current-menu-item {
+    line-height: 1.7em;
+    padding-right: 5%;
+}
+
+.current-menu-item,
+.current-menu-item:hover {
+    background: #fff;
+}
+
+.current-menu-item a,
+.current-menu-item a:hover {
+    background: none;
+    color: #343537;
+}
+
+.current-menu-item a:hover:before {
+    content: none; 
 }
 
 /*
@@ -343,12 +371,12 @@ header li a:hover {
     width: 100%;
 }
 
-.sidebar a {
+.sidebar p {
     color: #fff;
 }
 
-.sidebar p {
-    color: #fff;
+.sidebar a {
+    color: inherit;
 }
 
 .sidebar select {
@@ -398,18 +426,6 @@ article img {
     display: inline-block;
     height: auto;
     max-width: 100%;
-}
-
-@media screen and (max-width: 2048px) and (min-width: 2048px) {
-    article img { 
-        float: left;
-        margin: 0 10px 10px 0;
-        max-width: 32%;
-    }
-
-    article p {
-        overflow: auto;
-    }
 }
 
 article ol,
@@ -510,6 +526,7 @@ textarea {
 }
 
 input[type=submit] {
+    /* Comment form submit button. */
     background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
     background-size: auto 75%;
     border: none;
@@ -553,7 +570,7 @@ Left is floated left, middle centered, and right floated right. */
 .comment-entry {
     margin: 0 auto;
     max-width: 600px;
-    width: 95%;
+    width: 100%;
 }
 
 .comment-author-info {

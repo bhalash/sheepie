@@ -4,6 +4,9 @@ function contentHeight() {
 }
 
 $(function() {
+    $('.current-menu-item').prev().css('margin-bottom', '10px');
+    $('.current-menu-item').next().css('margin-top', '10px');
+
     contentHeight();
     
     // Remove underline from hyperlink images. 
