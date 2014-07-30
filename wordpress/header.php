@@ -13,8 +13,8 @@
 </head>
 <body <?php body_class(); ?>>
     <div class="site-container">
-        <div class="content-left">
-            <div class="interior">
+        <div class="left-wrap">
+            <div class="content">
                 <header>
                     <ul class="title">
                         <?php split_title(get_bloginfo('name')); ?>

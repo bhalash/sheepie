@@ -1,6 +1,6 @@
 function contentHeight() {
     // Page height - article bottom-margin.
-    $('.content-right').css('min-height', $(window).height() + 'px');
+    $('.right-wrap').css('min-height', $(window).height() + 'px');
 }
 
 $(function() {

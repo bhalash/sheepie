@@ -16,9 +16,7 @@
     'depth'           => 0,
     'walker'          => ''
 ); ?>
-
 <?php wp_nav_menu($menu_defaults); ?>
-
 <div class="sidebar">
     <?php dynamic_sidebar('dynamic-sidebar'); ?> 
 </div>

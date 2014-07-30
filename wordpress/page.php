@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-<div class="content-right">
-    <div class="interior">
+<div class="right-wrap">
+    <div class="content">
         <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
                 <article <?php post_class(); ?> id="article-<?php the_ID(); ?>">

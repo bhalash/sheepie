@@ -209,7 +209,7 @@ html { background-color: #343537; }
     width: 100%;
 }
 
-.content-left {
+.left-wrap {
     background: #343537;
     float: left;
     padding: 0 0 1px 0;
@@ -218,17 +218,26 @@ html { background-color: #343537; }
     width: 16%;
 }
 
-.content-right {
+.right-wrap {
     background: #fff;
     float: right;
     width: 84%;
 }
 
-.interior {
+.content {
     margin: 0 auto;
     overflow: auto;
     padding: 30px 0;
+}
+
+.left-wrap .content {
     width: 90%;
+}
+
+.right-wrap .content {
+    min-width: 600px;
+    max-width: 1000px;
+    width: 75%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -236,40 +245,24 @@ html { background-color: #343537; }
         background: #fff;
     }
 
-    .content-left,
-    .content-right {
+    .left-wrap,
+    .right-wrap {
         float: none;
         width: 100%;
     }
     
-    .content-left {
+    .left-wrap {
         position: static;
     }
 
-    .interior {
-        width: 94%; 
+    .left-wrap .content {
+        max-width: 600px;
     }
 
-    .content-left .interior {
-        max-width: 600px;
-        width: 93%;
-    }
-
-    .content-right .interior { 
-        max-width: 600px;
+    .right-wrap .content {
         min-width: 0;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1900px) {
-    .content-right .interior {
-        max-width: 750px;
-    }
-}
-
-@media screen and (min-width: 1900px) {
-    .content-right .interior {
-        max-width: 1000px;
+        max-width: 95%;
+        width: 95%;
     }
 }
 
@@ -549,7 +542,7 @@ Left is floated left, middle centered, and right floated right. */
     }
 }
 
-.content-right form {
+.right-wrap form {
     margin-bottom: 20px;
     margin: 0 auto;
     overflow: auto;
