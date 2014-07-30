@@ -4,7 +4,18 @@
     <!-- Bless the Maker and His water. Bless the coming and going of Him. May His passage cleanse the world. May He keep the world for His people. -->
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title><?php wp_title('&laquo;', true, 'right'); bloginfo('name'); ?></title>
+    <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
+    <title>
+        <?php 
+            if ($paged > 1) { 
+                echo 'Page ' . $paged . ' | '; 
+                echo bloginfo('name');
+            } else {
+                wp_title('|', true, 'right'); 
+                echo bloginfo('name');
+            } 
+        ?>
+    </title>
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
