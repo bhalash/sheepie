@@ -4,7 +4,7 @@ Theme URI: https://github.com/bhalash/RMWB
 Author: Mark Grealish
 Author URI: http://www.bhalash.com/
 Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
-Version: 1.1
+Version: 1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
@@ -180,9 +180,9 @@ pre {
 del { text-decoration: line-through; }
 em { font-style: italic; }
 label { display: block; }
+small { font-size: 85%; }
 strong { font-weight: bold; }
-
-small, sub, sup { font-size: 75%; }
+sub, sup { font-size: 75%; }
 sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
@@ -224,38 +224,11 @@ html { background-color: #343537; }
     width: 84%;
 }
 
-.content-left .interior {
+.interior {
     margin: 0 auto;
     overflow: auto;
     padding: 30px 0;
-    width: 92%;
-}
-
-.content-right .interior {
-    margin: 0 auto;
-    margin-bottom: 30px;
-    overflow: auto;
     width: 90%;
-}
-
-@media screen and (max-width: 1600px) {
-    /* Content can shrink below 600px width,
-    but I don't want it larger. */
-    .content-right .interior {
-        max-width: 600px;
-    }
-}
-
-@media screen and (min-width: 1600px) and (max-width: 3200px) {
-    .content-right .interior {
-        max-width: 800px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .content-left {
-        position: static;
-    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -268,6 +241,14 @@ html { background-color: #343537; }
         float: none;
         width: 100%;
     }
+    
+    .content-left {
+        position: static;
+    }
+
+    .interior {
+        width: 94%; 
+    }
 
     .content-left .interior {
         max-width: 600px;
@@ -275,8 +256,20 @@ html { background-color: #343537; }
     }
 
     .content-right .interior { 
+        max-width: 600px;
         min-width: 0;
-        width: 93%; 
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1900px) {
+    .content-right .interior {
+        max-width: 750px;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .content-right .interior {
+        max-width: 1000px;
     }
 }
 
@@ -338,10 +331,6 @@ nav a:hover {
     text-decoration: none;
 }
 
-nav a:hover:before {
-    content: '» ';
-}
-
 /* Current page on the site. */
 .current-menu-item {
     line-height: 1.7em;
@@ -357,10 +346,6 @@ nav a:hover:before {
 .current-menu-item a:hover {
     background: none;
     color: #343537;
-}
-
-.current-menu-item a:hover:before {
-    content: none; 
 }
 
 /*
@@ -450,7 +435,7 @@ article ul {
 }
 
 .meta {
-    line-height: 0.9em;
+    line-height: 1.2em;
     padding: 15px 0;
 }
 
