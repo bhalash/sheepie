@@ -75,14 +75,19 @@ blockquote, code, input, label, li, option, p, pre {
     font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
-code, input, pre, pre span, .comment,
-.pagination a {
+code, input, pre, pre span, .comment, .pagination a {
     font: 0.87em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
 h1, h2, h3, h4, h5, h6, header li, nav li {
-    font: 4.5em 'OSP-DIN', impact;
+    font: 4em 'OSP-DIN', impact;
 }
+
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4, nav li { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
 
 input[type=submit], blockquote p {
     /* Override for instances where Wordpress overrides styling. */
@@ -120,13 +125,6 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
     text-align: left;
 }
-
-h1 { font-size: 3em; }
-h2 { font-size: 2.5em; }
-h3 { font-size: 2em; }
-h4, nav li { font-size: 1.75em; }
-h5 { font-size: 1.5em; }
-h6 { font-size: 1.25em; }
 
 hr {
    background: #343537; 
@@ -217,13 +215,13 @@ html { background-color: #343537; }
     padding: 0 0 1px 0;
     position: fixed;
     overflow: auto;
-    width: 20%;
+    width: 16%;
 }
 
 .content-right {
     background: #fff;
     float: right;
-    width: 80%;
+    width: 84%;
 }
 
 .content-left .interior {

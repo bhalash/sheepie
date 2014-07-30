@@ -1,5 +1,5 @@
-# Proprietary font files.
-design/*/din
+# STFP config
+wordpress/sftp-config.json
 
 #################
 ## Eclipse
