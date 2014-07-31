@@ -66,7 +66,7 @@ audio, video {
  * Font Selection
  */
 
-abbr, acronym, cite, blockquote, dt, dd, input, label, li, option, p, q { 
+address, cite, blockquote, dt, dd, input, label, li, option, p, q { 
     font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
@@ -74,7 +74,7 @@ code, input, kbd, pre, pre span, td, tt, var, .comment, .pagination a {
     font: 0.83em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
-a, blockquote p, button, del, em, input, li li, li p, p abbr, p acronym, p label, pre span, q, span, strong, sub, sup, time, input[type=submit] {
+a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, p acronym, p label, pre span, q, span, strong, sub, sup, time, input[type=submit] {
     font-family: inherit;
     font-size: inherit;
 }
@@ -104,7 +104,7 @@ a {
     color: #ba3434;
 }
 
-blockquote, cite, code, input, label, li, option, p, pre, q, select { 
+address, blockquote, cite, code, input, label, li, option, p, pre, q, select { 
     color: #343537;
     line-height: 1.3em;
     text-align: left;
@@ -216,7 +216,7 @@ code, kbd, tt, var {
     margin: 0 3px;
 }
 
-code, pre, pre span, tt, var {
+code, kbd, tt, var {
     word-wrap: break-word;
 }
 
@@ -264,7 +264,7 @@ ins {
  * Default Margins
  */
 
-blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, select, table, ul, .comment, .site-search, .social {
+address, blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, select, table, ul, .comment, .site-search, .social {
     margin-bottom: 10px;
 }
 
