@@ -19,6 +19,20 @@
         }
     }
 
+    function sidebar_widgets_init() {
+        // Wordpress dynamic sidebar.
+        register_sidebar(
+            array(
+                'name'          => 'Dynamic sidebar.',
+                'id'            => 'dynamicsidebar',
+                'before_widget' => '<div class="sidebarwidget">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h6 class="sidebartitle">',
+                'after_title'   => '</h6>',
+            )
+        );
+    }
+
     function rmwb_comments($comment, $args, $depth) {
         // Custom comment output.
         $GLOBALS['comment'] = $comment; ?>
