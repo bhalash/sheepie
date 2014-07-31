@@ -66,21 +66,28 @@ audio, video {
  * Font Selection
  */
 
-a, button, del, em, input, span, strong, sub, sup, time {
+abbr, acronym, cite, blockquote, dt, dd, input, label, li, option, p, q { 
+    font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
+}
+
+code, input, kbd, pre, pre span, td, tt, var, .comment, .pagination a {
+    font: 0.83em 'Source Code Pro', 'Courier New', Courier, monospace;
+}
+
+a, blockquote p, button, del, em, input, li li, li p, p abbr, p acronym, p label, pre span, q, span, strong, sub, sup, time, input[type=submit] {
     font-family: inherit;
     font-size: inherit;
 }
 
-blockquote, code, input, label, li, option, p, pre { 
-    font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
-}
-
-code, input, pre, pre span, .comment, .pagination a {
-    font: 0.87em 'Source Code Pro', 'Courier New', Courier, monospace;
-}
+/*
+ * Headlines
+ */
 
 h1, h2, h3, h4, h5, h6, header li, nav li {
+    color: #9fa5b1;
     font: 4em 'OSP-DIN', impact;
+    letter-spacing: 1px;
+    text-align: left;
 }
 
 h2 { font-size: 2.5em; }
@@ -88,16 +95,6 @@ h3 { font-size: 2em; }
 h4, nav li { font-size: 1.75em; }
 h5 { font-size: 1.5em; }
 h6 { font-size: 1.25em; }
-
-input[type=submit], blockquote p {
-    /* Override for instances where Wordpress overrides styling. */
-    font-size: 100%;
-}
-
-li li,
-li p {
-    font-size: 100%;
-}
 
 /* 
  * Global Element Rules
@@ -107,28 +104,39 @@ a {
     color: #ba3434;
 }
 
-blockquote { 
-    box-sizing: border-box;
-    padding: 0 0 0 10px;
-    border-left: 1px solid #;
-    border-left: 1px solid rgba(0,0,0,0.3); 
-    margin: 0 auto;
-}
-
-blockquote, code, input, label, li, option, p, pre, select { 
+blockquote, cite, code, input, label, li, option, p, pre, q, select { 
     color: #343537;
     line-height: 1.3em;
     text-align: left;
 }
 
 /*
- * Headlines
+ * Blockquote, Quotation, and Cite
  */
 
-h1, h2, h3, h4, h5, h6 { 
-    color: #9fa5b1;
-    letter-spacing: 1px;
-    text-align: left;
+blockquote { 
+    box-sizing: border-box;
+    border-left: 1px solid rgba(0,0,0,0.3); 
+    margin: 0 auto;
+    padding-left: 10px;
+}
+
+cite {
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+q {
+    font-style: italic; 
+}
+
+q:after {
+    content: '" ';
+}
+
+q:before { 
+    content: '"'; 
 }
 
 /*
@@ -145,8 +153,7 @@ hr {
  * Lists
  */
 
-ol,
-ul {
+ol, ul {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0 0 0 15px;
@@ -157,22 +164,72 @@ li ol {
     margin-top: 3px;
 }
 
+dt, dd {
+    text-align: left; 
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+dd {
+    margin-left: 15px;
+}
+
+/*
+ * Tables
+ */
+
+table {
+    /* Override this width on a per-table basis if you need narrower. */
+    max-width: 100%;
+}
+
+td,
+th {
+    color: #343537;
+    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    color: #fff;
+    background: #343537;
+}
+
+th a {
+    color: #fff;
+}
+
+tr:nth-child(even) { 
+    background: #f4b44f; 
+}
+
 /*
  * Code Blocks
  */
 
-code,
-pre { 
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+code, kbd, tt, var {
+    color: #000;
+    margin: 0 3px;
+}
+
+code, pre, pre span, tt, var {
+    word-wrap: break-word;
+}
+
+code, pre { 
     -webkit-font-smoothing: antialiased;
+    letter-spacing: 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 pre {
     background: #343537;
-    box-sizing: border-box;
     color: #fff;
-    font-size: 0.83em;
-    letter-spacing: 0;
+    box-sizing: border-box;
     line-height: 1.2em;
     overflow: auto;
     text-align: left;
@@ -183,20 +240,31 @@ pre {
  * Inline Text Styling
  */
 
-del { text-decoration: line-through; }
+abbr, acronym { text-decoration: underline; }
 em { font-style: italic; }
-label { display: block; }
-small { font-size: 85%; }
+label { display: block; width: 100%; }
+small, .wp-caption-text { font-size: 85%; }
 strong { font-weight: bold; }
 sub, sup { font-size: 75%; }
 sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
+del, strike { 
+    color: #9e3814; 
+    text-decoration: line-through; 
+}
+
+ins { 
+    color: #899e14; 
+    font-size: 95%; 
+    text-decoration: underline; 
+}
+
 /*
  * Default Margins
  */
 
-blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, select, ul, .comment, .site-search, .social {
+blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, select, table, ul, .comment, .site-search, .social {
     margin-bottom: 10px;
 }
 
@@ -410,14 +478,24 @@ article a:hover {
     text-decoration: underline;
 }
 
-article img { 
-    border: 1px solid rgba(52,53,55,0.3); 
-    box-sizing: border-box;
-    display: inline-block;
-    height: auto;
+article div,
+article img {
     max-width: 100%;
 }
 
+article img { 
+    border: 1px solid rgba(52,53,55,0.3); 
+    box-sizing: border-box;
+    height: auto;
+}
+
+article input {
+    /* For password on password-protected posts. */
+    display: block;
+}
+
+article blockquote,
+article dl,
 article ol,
 article ul {
     margin-left: 10px;
