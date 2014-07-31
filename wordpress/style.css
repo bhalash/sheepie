@@ -94,6 +94,11 @@ input[type=submit], blockquote p {
     font-size: 100%;
 }
 
+li li,
+li p {
+    font-size: 100%;
+}
+
 /* 
  * Global Element Rules
  */
@@ -148,11 +153,6 @@ li ol {
     margin-top: 3px;
 }
 
-li li,
-li p {
-    font-size: 100%;
-}
-
 /*
  * Code Blocks
  */
@@ -164,13 +164,15 @@ pre {
 }
 
 pre {
+    background: #343537;
     box-sizing: border-box;
-    border: 0;
-    font-size: 0.87em;
-    overflow-x: auto;
-    /* This is just to overwrite prettyprint's styling. 
-    Will eventually replace plugin with JS script. */
-    padding: 8px !important;
+    color: #fff;
+    font-size: 0.83em;
+    letter-spacing: 0;
+    line-height: 1.2em;
+    overflow: auto;
+    text-align: left;
+    padding: 10px;
 }
 
 /*

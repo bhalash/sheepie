@@ -4,6 +4,11 @@ function contentHeight() {
 }
 
 $(function() {
+    // For google-code-prettify
+    $('pre').each(function() {
+        $(this).addClass('prettyprint');
+    });    
+
     $('.current-menu-item').prev().css('margin-bottom', '10px');
     $('.current-menu-item').next().css('margin-top', '10px');
 
