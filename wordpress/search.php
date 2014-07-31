@@ -8,7 +8,10 @@
                         <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
                     </h2>
                     <h6>
-                        <?php the_category(', '); ?> | <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
+                        posted in <?php the_category(', '); ?>
+                        <?php if ( comments_open() ) : ?>
+                            | <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
+                        <?php endif; ?>
                     </h6>
                     <?php the_content('Read the rest of this post &raquo;'); ?>
                     <p class="meta">
