@@ -1,4 +1,4 @@
-<div class="article-comments">
+<div class="article-comments" id="comments">
     <?php if (post_password_required()) : ?>
         <h3 class="article-title">This post is password protected. Enter the password to view comments.</h3>
     <?php return; endif; ?>

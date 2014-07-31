@@ -131,6 +131,10 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+/*
+ * Break
+ */
+
 hr {
    background: #343537; 
    border: 0;
@@ -196,8 +200,12 @@ blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, selec
     margin-bottom: 10px;
 }
 
-h1, h2, h3, h4, h5, h6 { 
-    margin-bottom: -8px;
+h1, h2, h3 {
+    margin-bottom: 0;
+}
+
+h4, h5, h6 {
+    margin-bottom: 10px;
 }
 
 /*
@@ -419,12 +427,8 @@ article ul {
  * Post Meta Information
  */
 
-.article-title,
-#reply-title {
-    margin-bottom: 10px;
-}
-
-.article-title a:hover { 
+article h2 a:hover,
+article h6 a:hover { 
     color: #9fa5b1;
     text-decoration: none;
 }
