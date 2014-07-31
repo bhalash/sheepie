@@ -1,6 +1,4 @@
 * Correct header layout on mobile devices.
 * Categories page template.
 * (non-plugin) Archives page template.
-* Replace prettyprint.js plugin with actual prettyprint.js and theme.
-* Larger-screen repsonsiveness.
 * Write contact form.
