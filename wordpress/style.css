@@ -10,31 +10,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
 */
 
-/*
- * Some notes for anyone who forks this: 
- * The breakpoint for a switch to the responsive view is 1024 pixels. I based this on the fixed-minimum width for blog content.
- * Some heights are set via JS. See functions.js for more information.
- * The social widgets are designed to be modular and removable. You can pull,
-alter,
-and and even more the widget. See the CSS file
- * and social.js for more information.
- */
-
 /* 
  * CSS Reset
  */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
-abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,
-strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label,
-legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary, time, mark,
-audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, 
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, 
+dl, dt, dd, ol, ul, li, fieldset, form, label,legend, table, caption, tbody, 
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, 
+figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary, 
+time, mark, audio, video {
     border: 0;
     color: inherit;
     font-size: 100%;
     font: inherit;
-    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial;
+    font-family: Lucida Grande, Verdana, Lucida Sans Regular, 
+        Lucida Sans Unicode, Arial;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -74,9 +66,19 @@ code, input, kbd, pre, pre span, td, tt, var, .comment, .pagination a {
     font: 0.83em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
-a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, p acronym, p label, pre span, q, span, strong, sub, sup, time, input[type=submit] {
+a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, 
+p acronym, p label, pre span, q, span, strong, sub, sup, time, 
+input[type=submit] {
     font-family: inherit;
     font-size: inherit;
+}
+
+small, .wp-caption-text { 
+    font-size: 85%; 
+}
+
+sub, sup { 
+    font-size: 75%; 
 }
 
 /*
@@ -114,21 +116,21 @@ address, blockquote, cite, code, input, label, li, option, p, pre, q, select {
  * Blockquote, Quotation, and Cite
  */
 
+
 blockquote { 
     box-sizing: border-box;
     border-left: 1px solid rgba(0,0,0,0.3); 
     margin: 0 auto;
     padding-left: 10px;
 }
-
 cite {
     display: block;
     font-weight: bold;
     margin-top: 5px;
 }
 
-q {
-    font-style: italic; 
+blockquote p, q {
+    font-style: italic;
 }
 
 q:after {
@@ -243,9 +245,7 @@ pre {
 abbr, acronym { text-decoration: underline; }
 em { font-style: italic; }
 label { display: block; width: 100%; }
-small, .wp-caption-text { font-size: 85%; }
 strong { font-weight: bold; }
-sub, sup { font-size: 75%; }
 sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
@@ -264,7 +264,8 @@ ins {
  * Default Margins
  */
 
-address, blockquote, code, embed, header, iframe, input, label, ol, option, p, pre, select, table, ul, .comment, .site-search, .social {
+address, blockquote, code, embed, header, iframe, input, label, ol, option, p, 
+pre, select, table, ul, .comment, .site-search, .social {
     margin-bottom: 10px;
 }
 
@@ -460,7 +461,7 @@ header .social,
 
 @media (max-width: 1024px) {
     .sidebar {
-        /* Change this line if you want to see sidebar widgets in the mobile view. */
+        /* Change this line if you want to see sidebar widgets on mobile. */
         display: none;
     }
 }
