@@ -13,7 +13,7 @@
                             | <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
                         <?php endif; ?>
                     </h6>
-                    <?php the_content('Read the rest of this post &raquo;'); ?>
+                    <?php the_excerpt('Read the rest of this post &raquo;'); ?>
                     <p class="meta">
                         <small>
                             by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a>
