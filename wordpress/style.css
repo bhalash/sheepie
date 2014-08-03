@@ -29,7 +29,7 @@ time, mark, audio, video {
         Lucida Sans Unicode, Arial;
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     vertical-align: baseline;
 }
@@ -62,7 +62,7 @@ address, cite, blockquote, dt, dd, input, label, li, option, p, q {
     font: 0.87em 'Source Sans Pro', sans-serif, 'Trebuchet MS', Helvetica;
 }
 
-code, input, kbd, pre, pre span, td, tt, var, .comment, .pagination a {
+code, input, kbd, pre, pre span, td, th, tt, var, .comment, .pagination a {
     font: 0.83em 'Source Code Pro', 'Courier New', Courier, monospace;
 }
 
@@ -72,6 +72,16 @@ input[type=submit] {
     font-family: inherit;
     font-size: inherit;
 }
+
+h1, h2, h3, h4, h5, h6, header li, nav li {
+    font: 4em 'OSP-DIN', impact;
+}
+
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4, nav li { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
 
 small, .wp-caption-text { 
     font-size: 85%; 
@@ -85,37 +95,114 @@ sub, sup {
  * Headlines
  */
 
-h1, h2, h3, h4, h5, h6, header li, nav li {
-    color: #9fa5b1;
-    font: 4em 'OSP-DIN', impact;
-    letter-spacing: 1px;
-    text-align: left;
+code, pre {
+    letter-spacing: 0;
 }
 
-h2 { font-size: 2.5em; }
-h3 { font-size: 2em; }
-h4, nav li { font-size: 1.75em; }
-h5 { font-size: 1.5em; }
-h6 { font-size: 1.25em; }
+h1, h2, h3, h4, h5, h6, header li, nav li {
+    letter-spacing: 1px;
+}
 
 /* 
- * Global Element Rules
+ * Line Height
  */
 
+address, blockquote, cite, code, input, label, li, option, p, pre, q, select { 
+    line-height: 1.3em;
+}
+
+/*
+ * Text Alignment
+ */
+
+.pagination a {
+    text-align: center;
+}
+
+header li,
+nav li {
+    text-align: right;
+}
+
+/*
+ * Colours 
+ */
+
+header a, header li, nav a, nav li, pre, th, th a, .pagination a, .sidebar p,
+input[type=submit] {
+    /* White. Duh. */
+    color: #fff;
+}
+
+article h2 a:hover, article h6 a:hover, h1, h2, h3, h4, h5, h6, header a:hover,
+nav a:hover, header li, nav li {
+    /* Silver grey. */
+    color: #9fa5b1;
+}
+
+address, blockquote, cite, code, input, label, li, option, p, pre, q, select,td,
+th, .current-menu-item a, .current-menu-item a:hover {
+    /* Charcoal grey. */
+    color: #343537;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder { 
+    color: #343537;
+}
+
+code, kbd, tt, var {
+    /* Sky blue. */
+    color: #548dd4;
+}
+
+del, strike {
+    /* Blood-ish red. */
+    color: #9e3814;
+}
+
+ins {
+    /* Grass green. */
+    color: #899e14; 
+}
+
 a { 
+    /* Dark red. */
     color: #ba3434;
 }
 
-address, blockquote, cite, code, input, label, li, option, p, pre, q, select { 
-    color: #343537;
-    line-height: 1.3em;
-    text-align: left;
+/*
+ * Background Color
+ */
+
+html, hr, .left-wrap {
+    background: #343537;
+}
+
+.pagination a {
+    background: #4284fd;
+}
+
+.pagination a:hover,
+input[class=search-submit]:hover,
+input[id=submit]:hover {
+    background-color: #ba3434;
+}
+
+.right-wrap, .current-menu-item, .current-menu-item:hover {
+   background: #fff; 
+}
+
+.article-comments li:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.current-menu-item a, .current-menu-item a:hover {
+    background: none;
 }
 
 /*
  * Blockquote, Quotation, and Cite
  */
-
 
 blockquote { 
     box-sizing: border-box;
@@ -146,7 +233,6 @@ q:before {
  */
 
 hr {
-   background: #343537; 
    border: 0;
    height: 1px;
 }
@@ -164,10 +250,6 @@ ol, ul {
 li ul,
 li ol {
     margin-top: 3px;
-}
-
-dt, dd {
-    text-align: left; 
 }
 
 dt {
@@ -190,19 +272,11 @@ table {
 
 td,
 th {
-    color: #343537;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace; 
-    text-align: left;
     padding: 10px;
 }
 
 th {
-    color: #fff;
     background: #343537;
-}
-
-th a {
-    color: #fff;
 }
 
 tr:nth-child(even) { 
@@ -214,27 +288,19 @@ tr:nth-child(even) {
  */
 
 code, kbd, tt, var {
-    color: #000;
-    margin: 0 3px;
-}
-
-code, kbd, tt, var {
     word-wrap: break-word;
 }
 
 code, pre { 
     -webkit-font-smoothing: antialiased;
-    letter-spacing: 0;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 pre {
     background: #343537;
-    color: #fff;
     box-sizing: border-box;
     line-height: 1.2em;
     overflow: auto;
-    text-align: left;
     padding: 10px;
 }
 
@@ -250,12 +316,10 @@ sup { vertical-align: super; }
 sub { vertical-align: sub; }
 
 del, strike { 
-    color: #9e3814; 
     text-decoration: line-through; 
 }
 
 ins { 
-    color: #899e14; 
     font-size: 95%; 
     text-decoration: underline; 
 }
@@ -281,15 +345,12 @@ h4, h5, h6 {
  * Containers
  */
 
-html { background-color: #343537; }
-
 .site-container { 
     overflow: auto; 
     width: 100%;
 }
 
 .left-wrap {
-    background: #343537;
     float: left;
     padding: 0 0 1px 0;
     position: fixed;
@@ -298,7 +359,6 @@ html { background-color: #343537; }
 }
 
 .right-wrap {
-    background: #fff;
     float: right;
     width: 84%;
 }
@@ -369,9 +429,7 @@ nav ul {
 
 header li,
 nav li {
-    color: #fff;
     margin: -25px 0 -25px 0;
-    text-align: right;
     text-transform: uppercase;
     width: auto;
 }
@@ -392,14 +450,8 @@ nav li:first-child {
     margin-top: 0;
 }
 
-header a,
-nav a {
-    color: #fff;
-}
-
 header a:hover,
 nav a:hover {
-    color: #9fa5b1;
     text-decoration: none;
 }
 
@@ -409,16 +461,6 @@ nav a:hover {
     padding-right: 5%;
 }
 
-.current-menu-item,
-.current-menu-item:hover {
-    background: #fff;
-}
-
-.current-menu-item a,
-.current-menu-item a:hover {
-    background: none;
-    color: #343537;
-}
 
 /*
  * Website Sidebar 
@@ -428,10 +470,6 @@ nav a:hover {
     margin-bottom: 15px;
     height: 100%;
     width: 100%;
-}
-
-.sidebar p {
-    color: #fff;
 }
 
 .sidebar a {
@@ -508,7 +546,6 @@ article ul {
 
 article h2 a:hover,
 article h6 a:hover { 
-    color: #9fa5b1;
     text-decoration: none;
 }
 
@@ -529,12 +566,9 @@ article h6 a:hover {
 }
 
 .pagination a {
-    background: #4284fd;
     box-sizing: border-box;
-    color: #fff;
     display: block;
     padding: 8px 8px;
-    text-align: center;
     overflow: hidden;
     width: 130px;
 }
@@ -559,12 +593,6 @@ article h6 a:hover {
  * Comment Input
  */
 
-::-webkit-input-placeholder,
-:-moz-placeholder,
-:-ms-input-placeholder {
-    color: #343537;
-}
-
 input,
 textarea {
     /* Remove styling on iOS devices. */
@@ -580,7 +608,6 @@ input {
     margin: 0 0 5px 0;
     padding: 0 0 0 6px;
     margin-bottom: 0;
-    text-align: left;
     vertical-align: top;
     width: 33%;
 }
@@ -596,7 +623,6 @@ input[type=submit] {
     background: #4284fd url('img/chevron_right.png') no-repeat 95% center;
     background-size: auto 75%;
     border: none;
-    color: #fff;
     height: 30px;
     width: 149px;
 }
@@ -658,16 +684,8 @@ Left is floated left, middle centered, and right floated right. */
     padding: 10px;
 }
 
-.article-comments li:nth-child(even) {
-    background-color: #dddddd;
-}
-
 .comment-author { 
     margin-bottom: 0;
-}
-
-.comment-author cite a {
-    text-align: left; 
 }
 
 .comment-title { 
@@ -705,12 +723,6 @@ input[class=search-submit] {
 /*
  * Button Clicks
  */
-
-.pagination a:hover,
-input[class=search-submit]:hover,
-input[id=submit]:hover {
-    background-color: #ba3434;
-}
 
 .pagination a:active,
 input[class=search-submit]:active,
