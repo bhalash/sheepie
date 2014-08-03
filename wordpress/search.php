@@ -26,7 +26,7 @@
                     </p>
                 </article>
             <?php endwhile; ?>
-        <?php else: ?>
+        <?php else : ?>
             <article> 
                 <h3>No joy, sorry</h3>
                 <p>Sorry, no posts were found that match your criteria!</p>
