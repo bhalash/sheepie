@@ -10,7 +10,7 @@
                     <h6>
                         posted in <?php the_category(', '); ?>
                         <?php if ( comments_open() ) : ?>
-                            | <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
+                            with <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
                         <?php endif; ?>
                     </h6>
                     <?php the_content('Read the rest of this post &raquo;'); ?>
@@ -19,7 +19,7 @@
                         <?php $month = get_the_time('m'); ?>
                         <small>
                             by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a>
-                            on <time datetime="<?php the_time('Y-m-d H:i'); ?>"><a href="<?php echo get_month_link($year, $month); ?>"><?php the_time(get_option('date_format')) ?></a>.</time>
+                            - <time datetime="<?php the_time('Y-m-d H:i'); ?>"><a href="<?php echo get_month_link($year, $month); ?>"><?php the_time(get_option('date_format')) ?></a></time>
                             <br />
                             Tagged: <?php the_tags('', ', ' ,  ''); ?>
                             <br />

@@ -7,6 +7,16 @@
         register_nav_menu('sidebar-menu',__('Sidebar Menu'));
     }
 
+    function search_results_count($page_num, $total_results) {
+        // Displays 'x to y of z' in search results.
+        $page_num = ($page_num == 0) ? 1 : $page_num;
+        $posts_per_page = get_option('posts_per_page');
+        $count_high = $page_num * $posts_per_page;
+        $count_low  = ($count_high - $posts_per_page) + 1;
+        $count_high = ($count_high > $total_results) ? $total_results : $count_high;
+        echo 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
+    }
+
     function split_title($title) {
         // Splits the site title into alternating words.
         $anchor = '<a href="' . get_home_url() . '">';

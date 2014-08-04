@@ -1,5 +1,6 @@
-# STFP config
+# Sublime Text config files
 wordpress/sftp-config.json
+wordpress/.sassbuilder-config.json
 
 #################
 ## Eclipse
