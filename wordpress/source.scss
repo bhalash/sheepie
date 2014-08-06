@@ -127,46 +127,46 @@ nav li {
  * Colours 
  */
 
+$color_dark_red:    #ba3434;
+$color_silver:      #9fa5b1;
+$color_dark_grey:   #343537;
+$color_white:       #fff;
+$color_sky_blue:    #548dd4;
+$color_blood_red:   #9e3814;
+$color_light_green: #899e14;
+
 header a, header li, nav a, nav li, pre, th, th a, .pagination a, .sidebar p,
 input[type=submit] {
-    /* White. Duh. */
-    color: #fff;
+    color: $color_white;
 }
 
 header a:hover, nav a:hover, header li, nav li {
-    /* Silver grey. */
-    color: #9fa5b1;
+    color: $color_silver;
 }
 
 address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, option, p, pre, q, select,td,
 th, .current-menu-item a, .current-menu-item a:hover {
-    /* Charcoal grey. */
-    color: #343537;
+    color: $color_dark_grey;
 }
 
 ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder { 
-    color: #343537;
+    color: $color_dark_grey;
 }
 
 code, kbd, tt, var {
-    /* Sky blue. */
-    color: #548dd4;
+    color: $color_sky_blue;
 }
 
 del, strike {
-    /* Blood-ish red. */
-    color: #9e3814;
+    color: $color_blood_red;
 }
 
 ins {
-    /* Grass green. */
-    color: #899e14; 
+    color: $color_light_green; 
 }
 
 article a, article h6 a { 
-    /* Pink-ish red. */
-    /*color: #e73057;*/
-    color: #9e3814;
+    color: $color_dark_red;
 }
 
 /*
@@ -174,7 +174,7 @@ article a, article h6 a {
  */
 
 html, hr, .left-wrap {
-    background: #343537;
+    background: $color_dark_grey;
 }
 
 .pagination a {
@@ -383,8 +383,8 @@ h4, h5, h6 {
         background: #fff;
     }
 
-    .left-wrap,
-    .right-wrap {
+    .left-right,
+    .wrap-wrap {
         float: none;
         width: 100%;
     }
@@ -530,6 +530,10 @@ article img {
 article input {
     /* For password on password-protected posts. */
     display: block;
+}
+
+article h2 a:hover {
+    text-decoration: none;
 }
 
 article blockquote,

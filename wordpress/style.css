@@ -108,37 +108,29 @@ nav li {
  */
 header a, header li, nav a, nav li, pre, th, th a, .pagination a, .sidebar p,
 input[type=submit] {
-  /* White. Duh. */
-  color: #fff; }
+  color: white; }
 
 header a:hover, nav a:hover, header li, nav li {
-  /* Silver grey. */
   color: #9fa5b1; }
 
 address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, option, p, pre, q, select, td,
 th, .current-menu-item a, .current-menu-item a:hover {
-  /* Charcoal grey. */
   color: #343537; }
 
 ::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder {
   color: #343537; }
 
 code, kbd, tt, var {
-  /* Sky blue. */
   color: #548dd4; }
 
 del, strike {
-  /* Blood-ish red. */
   color: #9e3814; }
 
 ins {
-  /* Grass green. */
   color: #899e14; }
 
 article a, article h6 a {
-  /* Pink-ish red. */
-  /*color: #e73057;*/
-  color: #9e3814; }
+  color: #ba3434; }
 
 /*
  * Background Color
@@ -323,8 +315,8 @@ h4, h5, h6 {
   html {
     background: #fff; }
 
-  .left-wrap,
-  .right-wrap {
+  .left-right,
+  .wrap-wrap {
     float: none;
     width: 100%; }
 
@@ -438,6 +430,9 @@ article img {
 article input {
   /* For password on password-protected posts. */
   display: block; }
+
+article h2 a:hover {
+  text-decoration: none; }
 
 article blockquote,
 article dl,
