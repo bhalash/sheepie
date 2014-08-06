@@ -315,8 +315,8 @@ h4, h5, h6 {
   html {
     background: #fff; }
 
-  .left-right,
-  .wrap-wrap {
+  .left-wrap,
+  .right-wrap {
     float: none;
     width: 100%; }
 
