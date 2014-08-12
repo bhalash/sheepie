@@ -1,0 +1,636 @@
+/*
+Theme Name: Real Men Wear Beards
+Theme URI: https://github.com/bhalash/RMWB
+Author: Mark Grealish
+Author URI: http://www.bhalash.com/
+Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
+Version: 1.3
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
+*/
+
+@import 'reset';
+@import 'fonts';
+
+// color vars
+$color_dark_red:    #ba3434;
+$color_white:       #fff;
+$color_black:       #000;
+$color_blood_red:   #9e3814;
+$color_bright_blue: #4284fd;
+$color_orange:      #f4b44f;
+$color_middle_grey: #ddd;
+$color_silver_grey: #9fa5b1;
+$color_dark_grey:   #343537;
+
+$default_margin: 10px;
+
+@mixin border-box-sizing() {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+// Default Margins
+address, blockquote, code, embed, header, iframe, input, label, ol, option, p, 
+pre, select, table, ul {
+    margin-bottom: $default_margin;
+}
+
+code, pre {
+    letter-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 1px;
+}
+
+// Line Height
+address, blockquote, cite, code, input, label, li, option, p, pre, q, select { 
+    line-height: 1.3em;
+}
+
+// colors 
+a { 
+    color: $color_dark_red;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+li, pre, th, th a {
+    color: $color_white;
+}
+
+address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, option, p, pre, q, select {
+    color: $color_dark_grey;
+}
+
+code, kbd, tt, var {
+    color: $color_black;
+}
+
+del, strike {
+    color: $color_blood_red;
+}
+
+html, hr {
+    background: $color_dark_grey;
+}
+
+blockquote { 
+    @include border-box-sizing();
+    border-left: 1px solid rgba(0,0,0,0.3); 
+    margin: 0 auto;
+    padding-left: 10px;
+}
+
+cite {
+    display: block;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+blockquote p, q {
+    font-style: italic;
+}
+
+q:after {
+    content: '" ';
+}
+
+q:before { 
+    content: '"'; 
+}
+
+hr {
+    border: 0;
+    height: 1px;
+}
+
+ol, ul {
+    @include border-box-sizing();
+    margin: 0 auto;
+    padding: 0 0 0 15px;
+}
+
+li {
+    ul, ol {
+        margin-top: 3px;
+    }
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+dd {
+    margin-left: 15px;
+}
+
+// Tables
+table {
+    // Override this width on a per-table basis if you need narrower.
+    max-width: 100%;
+}
+
+td, th {
+    color: $color_dark_grey;
+    padding: $default_margin;
+}
+
+th {
+    background: $color_dark_grey;
+}
+
+tr:nth-child(even) { 
+    background: $color_orange;
+}
+
+// Code Blocks
+code, kbd, tt, var {
+    word-wrap: break-word;
+}
+
+code, pre { 
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+pre {
+    @include border-box-sizing();
+    background: $color_dark_grey;
+    line-height: 1.2em;
+    overflow: auto;
+    padding: $default_margin;
+}
+
+// Inline Text Styling
+abbr, acronym { 
+    text-decoration: underline; 
+}
+
+em { 
+    font-style: italic; 
+}
+
+label { 
+    display: block; width: 100%; 
+}
+
+strong { 
+    font-weight: bold; 
+}
+
+sup { 
+    vertical-align: super; 
+}
+
+sub { 
+    vertical-align: sub; 
+}
+
+del, strike { 
+    text-decoration: line-through; 
+}
+
+ins { 
+    font-size: 95%; 
+    text-decoration: underline; 
+}
+
+h1, h2, h3 {
+    margin-bottom: 0;
+}
+
+h4, h5, h6 {
+    margin-bottom: $default_margin;
+}
+
+// Form Inputs
+input, textarea {
+    // Remove styling on iOS devices.
+    @include border-box-sizing();
+    -webkit-appearance: none;
+    border: 1px solid rgba(52,53,55,0.3);
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+input {
+    height: 25px;
+    margin: 0 0 5px 0;
+    padding: 0 0 0 6px;
+    margin-bottom: 0;
+    vertical-align: top;
+    width: 33%;
+}
+
+textarea {
+    margin: 0 0 3px 0;
+    padding: 0;
+    width: 100%;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, :-ms-input-placeholder { 
+    // Form placeholders.
+    color: $color_dark_grey;
+}
+
+@media screen and (max-width: 1024px) {
+    input {
+        float: none;
+        margin-bottom: 4px;
+        width: 100%;
+    }
+}
+
+// Containers
+.site-container { 
+    overflow: auto; 
+    width: 100%;
+}
+
+.content {
+    margin: 0 auto;
+    overflow: auto;
+    padding: 35px 0;
+}
+
+.left-wrap {
+    background: $color_dark_grey;
+    float: left;
+    padding: 0 0 1px 0;
+    position: fixed;
+    overflow: auto;
+    width: 16%;
+
+    .content {
+        width: 90%;
+    }
+}
+
+.right-wrap {
+    background: $color_white; 
+    float: right;
+    width: 84%;
+
+    form {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        overflow: auto;
+    }
+
+    .content {
+        min-width: 600px;
+        max-width: 1000px;
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    html {
+        background: $color_white;
+    }
+
+    .left-wrap {
+        float: none;
+        position: static;
+        width: 100%;
+
+        .content {
+            max-width: 600px;
+        }
+    }
+
+    .right-wrap {
+        float: none;
+        width: 100%;
+
+        .content {
+            min-width: 0;
+            max-width: 95%;
+            width: 95%;
+        }
+    }
+}
+
+// Big Nav Menu Things
+header, nav {
+    height: 100%;
+    width: 100%;
+
+    a {
+        color: $color_white;
+
+        &:hover {
+            color: $color_silver_grey;
+            text-decoration: none;
+        }
+    }
+
+    ul {
+        display: inline-block;
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+    }
+
+    li {
+        margin: -25px 0 -25px 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align: right;
+        width: auto;
+
+        &:first-child {
+            // Compensates for the negative li margin. 
+            // Otherwise vertical placement in the sidebar is pooched.
+            margin-top: 0;
+        }
+    }
+}
+
+nav li {
+    line-height: 1.25em;
+    margin: -9px 0;
+}
+
+header li {
+    line-height: 1.15em;
+}
+
+.current-menu-item {
+    // Current page on the site.
+    background: $color_white;
+    line-height: 1.7em;
+    padding-right: 5%;
+
+    &:hover {
+        background: $color_white;
+    }
+
+    a, a:hover {
+        background: none;
+        color: $color_dark_grey;
+    }
+} 
+
+// Sidebar
+.sidebar {
+    height: 100%;
+    margin: 20px 0;
+    width: 100%;
+
+    a {
+        color: inherit;
+    }
+
+    p {
+        color: $color_white;
+    }
+
+    select {
+        width: 100%;
+    }
+}
+
+.sidebar-title {
+    // Compensates for negative margin.
+    margin-bottom: 0;
+}
+
+.sidebar-widget {
+    height: 100%;
+    margin-top: 20px;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        // Change this line if you want to see sidebar widgets on mobile.
+        display: none;
+    }
+}
+
+// Article Styling
+article { 
+    margin-bottom: 40px;
+
+    h2 a:hover {
+        text-decoration: none;
+    }
+
+    div, img {
+        // Stops Wordpress images going over 100% width. 
+        max-width: 100%;
+    }
+
+    img { 
+        @include border-box-sizing();
+        border: 1px solid rgba(52,53,55,0.3); 
+        height: auto;
+    }
+
+    input {
+        // For password on password-protected posts.
+        display: block;
+    }
+
+    blockquote, dl, ol, ul {
+        margin-left: $default_margin;
+    }
+}
+
+
+// Post Meta Information
+.meta {
+    line-height: 1.2em;
+    padding: 15px 0;
+}
+
+// Pagination
+.pagination {
+    margin: 0 auto;
+    margin-top: 35px;
+    overflow: auto;
+    width: 100%;
+
+    a {
+        @include border-box-sizing();
+        color: $color_white;
+        background: $color_bright_blue;
+        display: block;
+        padding: 8px 8px;
+        overflow: hidden;
+        text-align: center;
+        width: 150px;
+
+        &:hover {
+            background-color: $color_dark_red;
+        }
+
+        &:active {
+            border: 1px solid $color_dark_grey;
+        }
+    }
+
+    .left {
+        float: left;
+        overflow: auto;
+        width: 49.5%;
+
+        a {
+            float: right;
+        }
+    }
+
+    .right {
+        float: right;
+        overflow: auto;
+        width: 49.5%;
+
+        a {
+            float: left;
+        }
+    }
+}
+
+// Website Search
+.site-search {
+    margin: 20px 0;
+
+    p {
+        height: 35px;
+        margin-bottom: 0;
+    }
+
+    input[type=text] {
+        height: 100%;
+        position: relative;
+        width: 100%;
+    }
+
+    input[type=submit] {
+        background: $color_bright_blue url('img/looking_glass.png') no-repeat center center;
+        background-size: 65% auto;
+        display: block;
+        float: right;
+        height: 100%;
+        margin-top: -35px;
+        position: relative;
+        width: 35px;
+
+        &:hover {
+            background-color: $color_dark_red;
+        }
+
+        &:active {
+            border: 1px solid $color_dark_grey;
+        } 
+    }
+}
+
+.search-info {
+    margin-bottom: 5px;
+    overflow: auto;
+
+    a {
+        color: $color_dark_red;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    span {
+        float: right;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    input[class=search-input] {
+        margin-bottom: 0;
+    }
+
+    .search-info span {
+        display: block;
+        float: none;
+    }
+}
+
+// Comment Display
+.article-comments {
+    h3 { 
+        margin-bottom: 1px; 
+        text-transform: lowercase;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li:nth-child(even) {
+        background-color: $color_middle_grey;
+    }
+}
+
+.comment {
+    @include border-box-sizing();
+    list-style-type: none;
+    margin-bottom: $default_margin;
+    min-height: 100px;
+    padding: $default_margin;
+
+    .author { 
+        margin-bottom: 0;
+    }
+}
+
+// Comment Input Form
+// The three inputs are displayed side-by-side at larger sizes. 
+// Left is floated left, middle centered, and right floated right.
+.author-name {
+    float: left;
+}
+
+.author-email {
+    margin: 0 auto; 
+    margin-bottom: 4px;
+}
+
+.author-url {
+    float: right;
+}
+
+.comment-author-info {
+    margin: 0 auto;
+}
+
+#submit {
+    // Comment form submit button.
+    background: $color_bright_blue url('img/chevron_right.png') no-repeat 95% center;
+    background-size: auto 75%;
+    border: none;
+    color: $color_white;
+    height: 35px;
+    text-align: left;
+    width: 149px;
+
+    &:hover {
+        background-color: $color_dark_red;
+    }
+
+    &:active {
+        border: 1px solid $color_dark_grey;
+    }
+}
+
+// Generic Hidden Box
+.hidden {
+    display: none;
+}

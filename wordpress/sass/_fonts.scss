@@ -1,0 +1,63 @@
+@font-face {
+    // Name: OSP-DIN
+    // Creator: Open Font Library
+    // URL: http://openfontlibrary.org/font/osp-din
+    // License: SIL Open Font License 1.1
+    font-family: 'OSP-DIN';
+    src: 
+        url('fonts/osp-din/osp-din.eot?') format('embedded-opentype'),
+        url('fonts/osp-din/osp-din.woff') format('woff'),
+        url('fonts/osp-din/osp-din.ttf') format('truetype'),
+        url('fonts/osp-din/osp-din.svg') format('svg');
+}
+
+// Font Selection
+$sans_stack:  'Source Sans Pro', sans-serif, 'Trebuchet MS';
+$fixed_stack: 'Source Code Pro', 'Courier New', Courier, monospace;
+$title_stack: 'OSP-DIN', impact;
+
+address, cite, blockquote, dt, dd, input, label, li, option, p, q { 
+    font: 0.87em $sans_stack;
+}
+
+code, input, kbd, pre, pre span, td, th, tt, var, .comment, input[type=submit], .pagination a {
+    font: 0.83em $fixed_stack;
+}
+
+h1, h2, h3, h4, h5, h6, header li, nav li {
+    font: 4em $title_stack;
+}
+
+a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, 
+p acronym, p label, pre span, q, span, strong, sub, sup, time {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+h2 { 
+    font-size: 2em; 
+}
+
+h3 { 
+    font-size: 1.75em; 
+}
+
+h4, nav li { 
+    font-size: 1.5em; 
+}
+
+h5 { 
+    font-size: 1.25em; 
+}
+
+h6 { 
+    font-size: 1em; 
+}
+
+small, .wp-caption-text { 
+    font-size: 85%; 
+}
+
+sub, sup { 
+    font-size: 75%; 
+}
