@@ -20,6 +20,8 @@
                         <small>
                             by <a title="Find more posts by <?php the_author(); ?>" href="<?php echo home_url(); ?>/?s&author=<?php the_author(); ?>"><?php the_author(); ?></a>
                             - <time datetime="<?php the_time('Y-m-d H:i'); ?>"><a href="<?php echo get_month_link($year, $month); ?>"><?php the_time(get_option('date_format')) ?></a></time>
+                            <br />
+                            <?php edit_post_link('Edit post.', ' ', ''); ?>
                         </small>
                     </p>
                 </article>

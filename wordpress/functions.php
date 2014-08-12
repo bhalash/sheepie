@@ -47,7 +47,7 @@
         // Custom comment output.
         $GLOBALS['comment'] = $comment; ?>
         <li class="comment <?php comment_class(); ?>" id="li-comment-<?php comment_ID() ?>">
-            <h4 class="comment-author"><?php echo get_comment_author_link(); ?></h4>
+            <h4 class="author"><?php echo get_comment_author_link(); ?></h4>
             <p>
                 <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?>
                 <?php edit_comment_link(__('edit'),'  ',''); ?>
