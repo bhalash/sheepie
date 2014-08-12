@@ -240,14 +240,6 @@ textarea {
     color: $color_dark_grey;
 }
 
-@media screen and (max-width: 1024px) {
-    input {
-        float: none;
-        margin-bottom: 4px;
-        width: 100%;
-    }
-}
-
 // Containers
 .site-container { 
     overflow: auto; 
@@ -409,13 +401,6 @@ header li {
     width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
-    .sidebar {
-        // Change this line if you want to see sidebar widgets on mobile.
-        display: none;
-    }
-}
-
 // Article Styling
 article { 
     margin-bottom: 40px;
@@ -534,6 +519,12 @@ article {
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .site-search input {
+        margin-bottom: 0;
+    }
+}
+
 .search-info {
     margin-bottom: 5px;
     overflow: auto;
@@ -627,6 +618,14 @@ article {
 
     &:active {
         border: 1px solid $color_dark_grey;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .article-comments input {
+        float: none;
+        margin-bottom: 4px;
+        width: 100%;
     }
 }
 

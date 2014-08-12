@@ -282,13 +282,6 @@ textarea {
   color: #343537;
 }
 
-@media screen and (max-width: 1024px) {
-  input {
-    float: none;
-    margin-bottom: 4px;
-    width: 100%;
-  }
-}
 .site-container {
   overflow: auto;
   width: 100%;
@@ -427,11 +420,6 @@ header li {
   width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
-  .sidebar {
-    display: none;
-  }
-}
 article {
   margin-bottom: 40px;
 }
@@ -530,6 +518,11 @@ article blockquote, article dl, article ol, article ul {
   border: 1px solid #343537;
 }
 
+@media screen and (max-width: 1024px) {
+  .site-search input {
+    margin-bottom: 0;
+  }
+}
 .search-info {
   margin-bottom: 5px;
   overflow: auto;
@@ -612,6 +605,13 @@ article blockquote, article dl, article ol, article ul {
   border: 1px solid #343537;
 }
 
+@media screen and (max-width: 1024px) {
+  .article-comments input {
+    float: none;
+    margin-bottom: 4px;
+    width: 100%;
+  }
+}
 .hidden {
   display: none;
 }
