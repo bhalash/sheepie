@@ -332,7 +332,6 @@ header, nav {
     }
 
     li {
-        margin: -25px 0 -25px 0;
         letter-spacing: 1px;
         text-transform: uppercase;
         text-align: right;
@@ -353,6 +352,7 @@ nav li {
 
 header li {
     line-height: 1.15em;
+    margin: -25px 0 -25px 0;
 }
 
 .current-menu-item {
@@ -429,7 +429,6 @@ article {
         margin-left: $default_margin;
     }
 }
-
 
 // Post Meta Information
 .meta {
