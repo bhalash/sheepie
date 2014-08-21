@@ -1,7 +1,6 @@
 # Sublime Text config files
-wordpress/sftp-config.json
-wordpress/.sassbuilder-config.json
-wordpress/sass/.sass-cache/*
+*.json
+sass/.sass-cache/
 
 #################
 ## Eclipse

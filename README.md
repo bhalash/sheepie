@@ -1,5 +1,5 @@
 # About RMWB
-RMWB is the HTML / CSS design layout and associated Wordpress template.
+RMWB is Wordpress template for the blog [Real Men Wear Beards](http://www.bhalash.com).
 
 ## Documentation
 None such as of this time. Email mark@bhalash.com if you have any questions.
