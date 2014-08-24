@@ -137,6 +137,7 @@ td, th {
 }
 
 th {
+    color: $color_white;
     background: $color_dark_grey;
 }
 
@@ -584,12 +585,17 @@ article {
 // Comment Input Form
 // The three inputs are displayed side-by-side at larger sizes. 
 // Left is floated left, middle centered, and right floated right.
+
+#commentform {
+    width: 100%;
+}
+
 .author-name {
     float: left;
 }
 
 .author-email {
-    margin: 0 auto; 
+    // margin: 0 auto; 
     margin-bottom: 4px;
 }
 
@@ -621,7 +627,7 @@ article {
 }
 
 @media screen and (max-width: 1024px) {
-    .article-comments input {
+    #commentform input {
         float: none;
         margin-bottom: 4px;
         width: 100%;

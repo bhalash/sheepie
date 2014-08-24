@@ -142,6 +142,7 @@ td, th {
   padding: 10px; }
 
 th {
+  color: white;
   background: #343537; }
 
 tr:nth-child(even) {
@@ -451,11 +452,13 @@ article {
   .comment .author {
     margin-bottom: 0; }
 
+#commentform {
+  width: 100%; }
+
 .author-name {
   float: left; }
 
 .author-email {
-  margin: 0 auto;
   margin-bottom: 4px; }
 
 .author-url {
@@ -478,7 +481,7 @@ article {
     border: 1px solid #343537; }
 
 @media screen and (max-width: 1024px) {
-  .article-comments input {
+  #commentform input {
     float: none;
     margin-bottom: 4px;
     width: 100%; } }
