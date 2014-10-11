@@ -11,26 +11,11 @@ Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, respon
 */
 
 @import 'reset';
+@import 'partials';
 @import 'fonts';
-
-// color vars
-$color_dark_red:    #ba3434;
-$color_white:       #fff;
-$color_black:       #000;
-$color_blood_red:   #9e3814;
-$color_bright_blue: #4284fd;
-$color_orange:      #f4b44f;
-$color_middle_grey: #ddd;
-$color_silver_grey: #9fa5b1;
-$color_dark_grey:   #343537;
+@import 'colors';
 
 $default_margin: 10px;
-
-@mixin border-box-sizing() {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 // Default Margins
 address, blockquote, code, embed, header, iframe, input, label, ol, option, p, 
@@ -81,7 +66,7 @@ html, hr {
 }
 
 blockquote { 
-    @include border-box-sizing();
+    @extend %border-box;
     border-left: 1px solid rgba(0,0,0,0.3); 
     margin: 0 auto;
     padding-left: 10px;
@@ -155,7 +140,7 @@ code, pre {
 }
 
 pre {
-    @include border-box-sizing();
+    @extend %border-box;
     background: $color_dark_grey;
     line-height: 1.2em;
     overflow: auto;
@@ -207,7 +192,7 @@ h4, h5, h6 {
 // Form Inputs
 input, textarea {
     // Remove styling on iOS devices.
-    @include border-box-sizing();
+    @extend %border-box;
     -webkit-appearance: none;
     border: 1px solid rgba(52,53,55,0.3);
     -webkit-border-radius: 0;
@@ -271,8 +256,8 @@ textarea {
     }
 
     .content {
-        min-width: 600px;
-        max-width: 800px;
+        min-width: 500px;
+        max-width: 700px;
         width: 75%;
     }
 }
@@ -409,7 +394,7 @@ article {
     }
 
     img { 
-        @include border-box-sizing();
+        @extend %border-box;
         border: 1px solid rgba(52,53,55,0.3); 
         height: auto;
     }
@@ -424,7 +409,7 @@ article {
     }
 
     ol, ul {
-        @include border-box-sizing();
+        @extend %border-box;
         margin-left: $default_margin;
         margin-bottom: $default_margin;
     }
@@ -444,7 +429,7 @@ article {
     width: 100%;
 
     a {
-        @include border-box-sizing();
+        @extend %border-box;
         color: $color_white;
         background: $color_bright_blue;
         display: block;
@@ -570,7 +555,7 @@ article {
 }
 
 .comment {
-    @include border-box-sizing();
+    @extend %border-box;
     list-style-type: none;
     margin-bottom: $default_margin;
     min-height: 100px;

@@ -27,11 +27,36 @@ time, mark, audio, video {
   text-decoration: none;
   vertical-align: baseline; }
 
+/*
+    Generic box rules. 
+*/
+/* Vertical centering of content. */
+/* Gradient */
+/* Clear. */
+/* Columns */
+.one-third-column, .one-quarter-column, .one-half-column {
+  float: left;
+  margin: 10px 0; }
+
+.one-third-column {
+  width: 33%; }
+
+.one-quarter-column {
+  width: 25%; }
+
+.one-half-column {
+  width: 50%; }
+
+blockquote, pre, input, textarea, article img, article ol, article ul, .pagination a, .comment {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 @font-face {
   font-family: 'OSP-DIN';
   src: url("fonts/osp-din/osp-din.eot?") format("embedded-opentype"), url("fonts/osp-din/osp-din.woff") format("woff"), url("fonts/osp-din/osp-din.ttf") format("truetype"), url("fonts/osp-din/osp-din.svg") format("svg"); }
 address, cite, blockquote, dt, dd, input, label, li, option, p, q {
-  font: 0.87em "Source Sans Pro", sans-serif, "Trebuchet MS"; }
+  font: 1em "Source Sans Pro", sans-serif, "Trebuchet MS"; }
 
 code, input, kbd, pre, pre span, td, th, tt, var, .comment, input[type=submit], .pagination a {
   font: 0.83em "Source Code Pro", "Courier New", Courier, monospace; }
@@ -99,9 +124,6 @@ html, hr {
   background: #343537; }
 
 blockquote {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   padding-left: 10px; }
@@ -155,9 +177,6 @@ code, pre {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004); }
 
 pre {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   background: #343537;
   line-height: 1.2em;
   overflow: auto;
@@ -196,9 +215,6 @@ h4, h5, h6 {
   margin-bottom: 10px; }
 
 input, textarea {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   -webkit-appearance: none;
   border: 1px solid rgba(52, 53, 55, 0.3);
   -webkit-border-radius: 0;
@@ -248,8 +264,8 @@ textarea {
     margin-bottom: 20px;
     overflow: auto; }
   .right-wrap .content {
-    min-width: 600px;
-    max-width: 800px;
+    min-width: 500px;
+    max-width: 700px;
     width: 75%; }
 
 @media screen and (max-width: 1024px) {
@@ -335,9 +351,6 @@ article {
   article div, article img {
     max-width: 100%; }
   article img {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     border: 1px solid rgba(52, 53, 55, 0.3);
     height: auto; }
   article input {
@@ -345,9 +358,6 @@ article {
   article blockquote, article dl, article ol, article ul {
     padding: 0 0 0 15px; }
   article ol, article ul {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     margin-left: 10px;
     margin-bottom: 10px; }
 
@@ -361,9 +371,6 @@ article {
   overflow: auto;
   width: 100%; }
   .pagination a {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     color: white;
     background: #4284fd;
     display: block;
@@ -441,9 +448,6 @@ article {
   background-color: #dddddd; }
 
 .comment {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   list-style-type: none;
   margin-bottom: 10px;
   min-height: 100px;

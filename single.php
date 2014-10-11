@@ -9,7 +9,7 @@
                     </h2>
                     <h6>
                         posted in <?php the_category(', '); ?>
-                        <?php if ( comments_open() ) : ?>
+                        <?php if (comments_open()) : ?>
                             with <a href="<?php comments_link(); ?>"><?php comments_number('0 comments', '1 comment', '% comments'); ?></a>
                         <?php endif; ?>
                     </h6>

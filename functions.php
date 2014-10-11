@@ -17,6 +17,82 @@
         echo 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
     }
 
+    function rmwb_reading_seconds($post) {
+        // Word count to seconds reading time, based on 300 WPM.
+        $average_wpm = 300;
+        $average_wps = round($average_wpm / 60);
+        $time = str_word_count(strip_tags($post));
+        return round($time / $average_wps);
+    }
+
+    function rmwb_reading_minutes($seconds) {
+        // Seconds to minutes, rounded to nearest minute.
+        if ($seconds % 60 <= 30) {
+            $minutes = floor($seconds / 60);
+        } else {
+            $minutes = ceil($seconds / 60);
+        }
+
+        return $minutes;
+    }
+
+    function rmwb_minutes_to_words($minutes) {
+        // Converts a given minutes time to words.
+        // Only does up to ninety-nine minutes.
+        // Honestly, if your article's reading time is above that, you've gone wrong somewhere.
+        $time_word = '';
+
+        $singles = array(
+            'one','two','three','four','five',
+            'six','seven','eight','nine'
+        );
+
+        $teens = array(
+            'eleven', 'twelve','thirteen','fourteen','fifteen',
+            'sixteen','seventeen','eighteen','nineteen'
+        );
+
+        $tens = array(
+            'ten','twenty','thirty','forty','fifty',
+            'sixty','seventy','eighty','ninety'
+        );
+
+        if ($minutes <= 0) {
+            // <0 - 0
+            $time_word = $singles[0];
+        } elseif ($minutes < 10) {
+            // 1 - 9
+            $time_word = $singles[$minutes - 1];
+        } elseif ($minutes > 10 && $minutes < 20) {
+            // 11 - 19
+            $time_word = $teens[$minutes - 11];
+        } elseif ($minutes % 10 == 0) {
+            // 10, 20, etc.
+            $time_word = $tens[($minutes / 10) - 1];
+        } elseif ($minutes > 99) {
+             // > 99
+            $a = $tens[8];   
+            $b = $singles[8];
+            $time_word = 'greater than' . $a . '-' . $b;
+        } else {
+            // 31, 56, 77, etc.
+            $a = $tens[($minutes % 100) / 10 - 1];   
+            $b = $singles[($minutes % 10) - 1];
+            $time_word = $a . '-' . $b;
+        }
+
+        return $time_word;
+    }
+
+    function rmwb_reading_time($post) {
+        // See http://www.bhalash.com/archives/13544802870
+        $time = rmwb_reading_seconds($post);
+        $time = rmwb_reading_minutes($time);
+        $time_word = rmwb_minutes_to_words($time);
+        $min_word = ($time <= 1) ? ' minute.' : ' minutes.';
+        return ucfirst($time_word) . $min_word;
+    }
+
     function split_title($title) {
         // Splits the site title into alternating words.
         $anchor = '<a href="' . get_home_url() . '">';

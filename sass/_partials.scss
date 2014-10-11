@@ -1,0 +1,80 @@
+/*
+    Generic box rules. 
+*/
+
+/* Vertical centering of content. */
+%vertical-center-100 {
+    padding: 100px 0; 
+}
+
+%vertical-center-75 {
+    padding: 75px 0; 
+}
+
+%vertical-center-50 {
+    padding: 50px 0; 
+}
+
+%vertical-center-40 {
+    padding: 40px 0; 
+}
+
+%vertical-center-25 {
+    padding: 25px 0; 
+}
+
+%vertical-center-15 {
+    padding: 15px 0; 
+}
+
+%vertical-center-10 {
+    padding: 10px 0; 
+}
+
+/* Gradient */
+%smooth-gradient {
+    // Gradient via http://www.colorzilla.com/gradient-editor/
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); 
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+    background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); 
+}
+
+/* Clear. */
+%clearfix {
+    &:after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
+
+/* Columns */
+%column {
+    float: left;
+    margin: 10px 0;
+}
+
+.one-third-column {
+    @extend %column;
+    width: 33%;
+}
+
+.one-quarter-column {
+    @extend %column;
+    width: 25%; 
+}
+
+.one-half-column {
+    @extend %column;
+    width: 50%;
+}
+
+%border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
