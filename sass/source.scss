@@ -122,6 +122,7 @@ td, th {
 }
 
 th {
+    color: $color_white;
     background: $color_dark_grey;
 }
 
@@ -201,7 +202,7 @@ input, textarea {
 
 input {
     height: 25px;
-    margin: 0 0 5px 0;
+    margin-bottom: 5px;
     padding: 0 0 0 6px;
     margin-bottom: 0;
     vertical-align: top;
@@ -256,8 +257,8 @@ textarea {
     }
 
     .content {
-        min-width: 500px;
-        max-width: 700px;
+        min-width: 600px;
+        max-width: 750px;
         width: 75%;
     }
 }
@@ -440,10 +441,7 @@ article {
 
         &:hover {
             background-color: $color_dark_red;
-        }
-
-        &:active {
-            border: 1px solid $color_dark_grey;
+            text-decoration: none;
         }
     }
 
@@ -569,12 +567,19 @@ article {
 // Comment Input Form
 // The three inputs are displayed side-by-side at larger sizes. 
 // Left is floated left, middle centered, and right floated right.
+
+#commentform {
+    width: 100%;
+}
+
 .author-name {
     float: left;
 }
 
 .author-email {
+    float: left;
     margin: 0 auto; 
+    margin-left: 4px;
     margin-bottom: 4px;
 }
 
@@ -593,6 +598,7 @@ article {
     border: none;
     color: $color_white;
     height: 35px;
+    max-width: 149px;
     text-align: left;
     width: 149px;
 
@@ -606,8 +612,9 @@ article {
 }
 
 @media screen and (max-width: 1024px) {
-    .article-comments input {
+    #commentform input {
         float: none;
+        margin-left: 0;
         margin-bottom: 4px;
         width: 100%;
     }
