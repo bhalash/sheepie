@@ -3,6 +3,19 @@
         $content_width = 600;
     }
 
+    function rmwb_scripts() {
+        wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true);
+        wp_enqueue_script('rmwb-prettify', get_stylesheet_directory_uri() . '/js/prettify.js', array('jquery'), '1.0', true);
+    }
+
+    function rmwb_styles() {
+        wp_register_style('rmwb-fonts', 'http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Noticia+Text|Source+Serif+Pro', array(), false, '1.3', 'all');
+        wp_enqueue_style('rmwb-fonts');
+        wp_enqueue_style('rmwb-style', get_stylesheet_directory_uri() . '/prettify.css', false, '1.3', 'all');
+        wp_enqueue_style('rmwb-prettify', get_stylesheet_uri(), false, '1.3', 'all');
+    }
+
+
     function rmwb_menu() {
         register_nav_menu('sidebar-menu',__('Sidebar Menu'));
     }
@@ -134,6 +147,9 @@
             comment_text();
     }
 
+    // Enqueue all scripts and stylesheets.
+    add_action('wp_enqueue_scripts', 'rmwb_styles');
+    add_action('wp_enqueue_scripts', 'rmwb_scripts');
     // Wordpress repeatedly inserted emoticons. No more, ever.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
