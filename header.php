@@ -16,9 +16,6 @@
             } 
         ?>
     </title>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Noticia+Text|Source+Serif+Pro" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/prettify.css" />
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/img/icon.png" />
     <?php wp_head(); ?>
@@ -27,12 +24,12 @@
     <div class="site-container">
         <div class="left-wrap">
             <div class="content">
-                <header>
+                <div id="header">
                     <ul class="title">
                         <?php split_title(get_bloginfo('name')); ?>
                     </ul>
                     <?php get_search_form(); ?>
-                </header>
+                </div>
                 <?php get_sidebar(); ?>
             </div>
         </div>
