@@ -1,6 +1,10 @@
 # Sublime Text config files
 *.json
+
+# Sass files
+*.scssc
 sass/.sass-cache/
+.sass-cache/
 
 #################
 ## Eclipse

@@ -1,9 +1,9 @@
 /*
 Theme Name: Real Men Wear Beards
-Theme URI: https://github.com/bhalash/RMWB
+Theme URI: https://github.com/bhalash/rmwb
 Author: Mark Grealish
 Author URI: http://www.bhalash.com/
-Description: This is the responsive HTML template for the blog "Real Men Wear Beards."
+Description: This is the responsive HTML template for bhalash.com
 Version: 1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,7 +61,7 @@ address, cite, blockquote, dt, dd, input, label, li, option, p, q {
 code, input, kbd, pre, pre span, td, th, tt, var, .comment, input[type=submit], .pagination a {
   font: 0.83em "Source Code Pro", "Courier New", Courier, monospace; }
 
-h1, h2, h3, h4, h5, h6, header li, nav li {
+h1, h2, h3, h4, h5, h6, #header li, nav li {
   font: 4em "OSP-DIN", impact; }
 
 a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr,
@@ -90,7 +90,7 @@ small, .wp-caption-text {
 sub, sup {
   font-size: 75%; }
 
-address, blockquote, code, embed, header, iframe, input, label, ol, option, p,
+address, blockquote, code, embed, #header, iframe, input, label, ol, option, p,
 pre, select, table, ul {
   margin-bottom: 10px; }
 
@@ -109,13 +109,13 @@ a {
     text-decoration: underline; }
 
 li, pre, th, th a {
-  color: white; }
+  color: #fff; }
 
 address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, option, p, pre, q, select {
   color: #343537; }
 
 code, kbd, tt, var {
-  color: black; }
+  color: #000; }
 
 del, strike {
   color: #9e3814; }
@@ -164,7 +164,7 @@ td, th {
   padding: 10px; }
 
 th {
-  color: white;
+  color: #fff;
   background: #343537; }
 
 tr:nth-child(even) {
@@ -257,7 +257,7 @@ textarea {
     width: 90%; }
 
 .right-wrap {
-  background: white;
+  background: #fff;
   float: right;
   width: 84%; }
   .right-wrap form {
@@ -271,7 +271,7 @@ textarea {
 
 @media screen and (max-width: 1024px) {
   html {
-    background: white; }
+    background: #fff; }
 
   .left-wrap {
     float: none;
@@ -287,44 +287,34 @@ textarea {
       min-width: 0;
       max-width: 95%;
       width: 95%; } }
-header, nav {
+#header, nav {
   height: 100%;
   width: 100%; }
-  header a, nav a {
-    color: white; }
-    header a:hover, nav a:hover {
+  #header a, nav a {
+    color: #fff; }
+    #header a:hover, nav a:hover {
       color: #9fa5b1;
       text-decoration: none; }
-  header ul, nav ul {
+  #header ul, nav ul {
     display: inline-block;
     list-style-type: none;
     padding: 0;
     width: 100%; }
-  header li, nav li {
+  #header li, nav li {
     letter-spacing: 1px;
     text-transform: uppercase;
     text-align: right;
     width: auto; }
-    header li:first-child, nav li:first-child {
+    #header li:first-child, nav li:first-child {
       margin-top: 0; }
 
 nav li {
   line-height: 1.25em;
   margin: -9px 0; }
 
-header li {
+#header li {
   line-height: 1.15em;
   margin: -25px 0 -25px 0; }
-
-.current-menu-item {
-  background: white;
-  line-height: 1.7em;
-  padding-right: 5%; }
-  .current-menu-item:hover {
-    background: white; }
-  .current-menu-item a, .current-menu-item a:hover {
-    background: none;
-    color: #343537; }
 
 .sidebar {
   height: 100%;
@@ -333,7 +323,7 @@ header li {
   .sidebar a {
     color: inherit; }
   .sidebar p {
-    color: white; }
+    color: #fff; }
   .sidebar select {
     width: 100%; }
 
@@ -372,7 +362,7 @@ article {
   overflow: auto;
   width: 100%; }
   .pagination a {
-    color: white;
+    color: #fff;
     background: #4284fd;
     display: block;
     padding: 8px 8px;
@@ -445,7 +435,7 @@ article {
   margin: 0;
   padding: 0; }
 .article-comments li:nth-child(even) {
-  background-color: #dddddd; }
+  background-color: #ddd; }
 
 .comment {
   list-style-type: none;
@@ -477,7 +467,7 @@ article {
   background: #4284fd url("img/chevron_right.png") no-repeat 95% center;
   background-size: auto 75%;
   border: none;
-  color: white;
+  color: #fff;
   height: 35px;
   max-width: 149px;
   text-align: left;
@@ -495,3 +485,5 @@ article {
     width: 100%; } }
 .hidden {
   display: none; }
+
+/*# sourceMappingURL=style.css.map */
