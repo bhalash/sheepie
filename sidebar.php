@@ -18,6 +18,6 @@
 ); ?>
 
 <?php wp_nav_menu($menu_defaults); ?>
-<div class="sidebar">
+<div id="sidebar">
     <?php dynamic_sidebar('dynamic-sidebar'); ?> 
 </div>
