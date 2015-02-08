@@ -1,13 +1,19 @@
-# About RMWB
-RMWB is Wordpress template for the blog [Real Men Wear Beards](http://www.bhalash.com).
+# RMWB
+RMWB is WordPress template for my personal blog, found at http://www.bhalash.com 
 
-## Documentation
-None such as of this time. Email mark@bhalash.com if you have any questions.
+## Description
+This theme is for my WordPress blog, although if you are feeling adventurous you can probably extract the static HTML and CSS from it. This theme is under active redevelopment to reach the point of 2.0, and so it might at any given point in time be broken.  
 
 ## License
-This code project is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+All of the code in the project is licensed under the GPL v2 or later.
 
-This project is Copyright 2014 Mark Grealish (mark@bhalash.com), except for the included font:
+> This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public > License, version 2, as published by the Free Software Foundation.
+> 
+>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+> 
+> You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 
-#### OSP-DIN
-[OSP-DIN](http://ospublish.constantvzw.org/foundry/osp-din/) is copyright of OSP-Foundry. The font is distributed under the [SIL Open Font License 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+A copy of the license is included in the root of the plugin’s directory. The file is named LICENSE.
+
+## Credit
+All credit goes to me, [Mark Grealish](http://www.bhalash.com).
