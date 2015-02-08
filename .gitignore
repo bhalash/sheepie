@@ -1,10 +1,22 @@
+#################
 # Sublime Text config files
-*.json
+#################
 
-# Sass files
-*.scssc
-sass/.sass-cache/
+# STFP and other plugins
+sftp-config.json
+
+# Sass and CSS
 .sass-cache/
+sass/.sass-cache/
+*.css
+*.css.map
+
+
+#################
+## jQuery Library
+#################
+
+jquery-*min.js
 
 #################
 ## Eclipse
