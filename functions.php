@@ -3,18 +3,27 @@
         $content_width = 600;
     }
 
+    function clean_search_url() {
+        // See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
+        if (is_search() && ! empty($_GET['s'])) {
+            wp_redirect(home_url('/search/') . urlencode(get_query_var('s')));
+            exit();
+        }
+    }
+
     function rmwb_scripts() {
         wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true);
         wp_enqueue_script('rmwb-prettify', get_stylesheet_directory_uri() . '/js/prettify.js', array('jquery'), '1.0', true);
     }
 
     function rmwb_styles() {
-        wp_register_style('rmwb-fonts', 'http://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Code+Pro|Noticia+Text|Source+Serif+Pro', array(), false, '1.3', 'all');
-        wp_enqueue_style('rmwb-fonts');
-        wp_enqueue_style('rmwb-style', get_stylesheet_directory_uri() . '/prettify.css', false, '1.3', 'all');
-        wp_enqueue_style('rmwb-prettify', get_stylesheet_uri(), false, '1.3', 'all');
+        wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Bitter|Roboto+Condensed|Source+Code+Pro');
+        wp_enqueue_style('google-fonts');
+        // Main style.
+        wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/sass/style.css', false, '1.4', 'all');
+        // Google code prettifier.
+        wp_enqueue_style('code-prettify', get_stylesheet_directory_uri() . '/prettify.css');
     }
-
 
     function rmwb_menu() {
         register_nav_menu('sidebar-menu',__('Sidebar Menu'));
@@ -27,7 +36,7 @@
         $count_high = $page_num * $posts_per_page;
         $count_low  = ($count_high - $posts_per_page) + 1;
         $count_high = ($count_high > $total_results) ? $total_results : $count_high;
-        echo 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
+        return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
     }
 
     function rmwb_reading_seconds($post) {
@@ -106,18 +115,6 @@
         return ucfirst($time_word) . $min_word;
     }
 
-    function split_title($title) {
-        // Splits the site title into alternating words.
-        $anchor = '<a href="' . get_home_url() . '">';
-        $open   = '<li>';
-        $close  = '</a></li>'; 
-        $words  = explode(' ', $title);
-
-        foreach ($words as $word) {
-            echo $open . $anchor . $word . $close;
-        }
-    }
-
     function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
         register_sidebar(
@@ -147,6 +144,7 @@
             comment_text();
     }
 
+    add_action( 'template_redirect', 'clean_search_url');
     // Enqueue all scripts and stylesheets.
     add_action('wp_enqueue_scripts', 'rmwb_styles');
     add_action('wp_enqueue_scripts', 'rmwb_scripts');
