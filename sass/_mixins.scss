@@ -1,5 +1,129 @@
-@mixin transform_scale_y($amount) {
-    -webkit-transform: scaleY($amount);
-    -ms-transform: scaleY($amount);
-    transform: scaleY($amount);
+@mixin breakpoint($point, $size: '') {
+    $cell_min: 320px;
+    $cell_max: 736px;
+
+    $tablet_min: 736px;
+    $tablet_max: 1024px;
+
+    @if $point == smartphone {
+        @media only screen and (min-device-width: $cell_min) and (max-device-width: $cell_max) and (orientation: portrait), 
+        only screen and (min-device-width: $cell_min) and (max-device-width: $cell_max) and (orientation: landscape) {
+            @content;  
+        }
+    }
+
+    @if $point == tablet {
+        @media only screen and (min-device-width: $tablet_min) and (max-device-width: $tablet_max) and (orientation: portrait), 
+        only screen and (min-device-width: $tablet_min) and (max-device-width: $tablet_max) and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @if $point == portrait {
+        @media only screen and (orientation: portrait) {
+            @content;
+        }
+    }
+
+    @if $point == landscape {
+        @media only screen and (orientation: landscape) {
+            @content;
+        }
+    }
+
+    @if $point == max {
+        @media only screen and (max-width: $size + px) {
+            @content;
+        }
+    }
+
+    @if $point == min {
+        @media only screen and (min-width: $size + px) {
+            @content;
+        }
+    }
+}
+
+@mixin cover_image($image) {
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-image: url($image);
+}
+
+@mixin flex_size($width, $ratio) {
+    // Ratio should be between 0 and foo.
+    display: inline-block;
+    height: 0;
+    padding-bottom: $width * $ratio;
+    width: $width;
+}
+
+@mixin vertical_center($amount) {
+    // Useful for vertically centering elements.
+    padding-bottom: $amount;
+    padding-top: $amount;
+}
+
+@mixin box_shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@function rgba_opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
+    // I do not intend for this to be called directly. 
+    // This function inverts RGB colours.
+    $red: 255 - $red;
+    $green: 255 - $green;
+    $blue: 255 - $blue;
+    $alpha: 1 - $alpha;
+
+    @return rgba($red, $green, $blue, $alpha);
+}
+
+@mixin columns($count, $gap) {
+    // Mozilla Firefox
+    -moz-column-count: $count;
+    -moz-column-gap: $gap;
+    // Webkit Browsers.
+    -webkit-column-count: $count;
+    -webkit-column-gap : $gap;
+    // CSS 3
+    column-count: $count;
+    column-gap: $gap;
+}
+
+@mixin placeholder_style($color, $font) {
+    // See: http://css-tricks.com/snippets/css/style-placeholder-text/
+    input[placeholder], textarea[placeholder] {
+        color: $color;
+        font: $font;
+    }
+
+    ::-moz-placeholder {
+        // Mozilla Firefox 19+
+        color: $color;
+        font: $font;
+    }
+
+    :-ms-input-placeholder {
+        // Internet Explorer 10+
+        color: $color;
+        font: $font;
+    }
+
+    ::-webkit-input-placeholder {
+        // Webkit browsers-Chrome and Opera
+        color: $color;
+        font: $font;
+    }
+}
+
+@mixin light_mask($opacity) {
+    background-color: rgba(255,255,255, $opacity);
+}
+
+@mixin dark_mask($opacity) {
+    background-color: rgba(24,41,77, $opacity);
 }

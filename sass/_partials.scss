@@ -1,50 +1,69 @@
 /*
-    Generic box rules. 
+ * Generic Rules, Button Rules and Other Useful Partials
+ * -----------------------------------------------------
+ * This file represents bits and pieces of code that I use across the site which
+ * aren't attached to a given section of the site. 
 */
 
-/* Vertical centering of content. */
-%vertical-center-100 {
-    padding: 100px 0; 
-}
+/*
+ * Shadows and Gradients
+ * ---------------------
+ */
 
-%vertical-center-75 {
-    padding: 75px 0; 
-}
-
-%vertical-center-50 {
-    padding: 50px 0; 
-}
-
-%vertical-center-40 {
-    padding: 40px 0; 
-}
-
-%vertical-center-25 {
-    padding: 25px 0; 
-}
-
-%vertical-center-15 {
-    padding: 15px 0; 
-}
-
-%vertical-center-10 {
-    padding: 10px 0; 
-}
-
-/* Gradient */
-%smooth-gradient {
+%rmwb-gradient {
     // Gradient via http://www.colorzilla.com/gradient-editor/
-    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); 
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); 
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: -o-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: -ms-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); 
+    background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0.75)), color-stop(100%,rgba(0,0,0,0.2))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* IE10+ */
+    background: linear-gradient(135deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#33000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-/* Clear. */
+%noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+%top-box-shadow {
+    // Add a box shadow to the top of an element.
+    -webkit-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
+    box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);    
+}
+
+%no-box-shadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/*
+ * Assorted Helper Classes
+ * -----------------------
+ */
+
+%border-box {
+    /* ALL GLORY TO THE BORDER BOX-this is used across the site in a great many
+     * spots where I need to pad an element without increasing the size. */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 %clearfix {
+    /* Bulletproof and Rock-Solid self-clearing float. You can tell it is both
+    * Bulletproof and Rock-Solid since I capitalized the words. There are very
+    * rare instances were I might need to use a clearing element (such as 
+    * splitting floating elements vertically). */
+    overflow: auto;
+
     &:after {
         clear: both;
         content: '';
@@ -52,29 +71,121 @@
     }
 }
 
-/* Columns */
-%column {
-    float: left;
-    margin: 10px 0;
+%block {
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
-.one-third-column {
-    @extend %column;
+%zero {
+    // There are a few cases where I need to zero the margin and padding of the
+    // the child of a parent with both.  
+    margin: 0;
+    padding: 0;
+}
+
+/* 
+ * Flexible Columns
+ * ----------------
+ * Used in the site's footer. These ultimately weren't used on the index page as
+ * the final layout was rather convoluted. 
+*/
+
+.split {
+    @extend %clearfix;
+}
+
+.twothirds {
+    width: 66%;
+}
+
+.onethird {
     width: 33%;
 }
 
-.one-quarter-column {
-    @extend %column;
+.quarter {
     width: 25%; 
 }
 
-.one-half-column {
-    @extend %column;
+.half {
     width: 50%;
 }
 
-%border-box {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+.onefifth {
+    width: 66%;
+}
+
+.twothirds, .onethird, .quarter, .half, .onefifth {
+    @extend %border-box;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    padding-right: $bottom_default;
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    @include breakpoint(smartphone) {
+        float: none;
+        margin-bottom: $bottom_default;
+        width: 100%;
+    } 
+}
+
+/*
+ * Text Element Columns
+ * --------------------
+ */
+
+.text-two {
+    @include columns(2, 20px);
+}
+
+.text-three {
+    @include columns(3, 20px);
+}
+
+.text-four {
+    @include columns(4, 20px);
+}
+
+.text-two, .text-three, .text-four {
+    @include breakpoint(smartphone) {
+        @include columns(1,0);
+    }
+}
+
+/*
+ * Team Member Split Columns
+ * -------------------------
+ * The padding and margin are both important in having the content laid out in a
+ * pleasing manner.
+ */
+
+%three {
+    // If there are three team members.
+    width: 32.667%;
+
+    &:not(:last-child) {
+        margin-right: 1%;
+    }
+}
+
+%four {
+    // If there are four team members.
+    width: 23.5%;
+
+    &:not(:last-child) {
+        margin-right: 2%;
+    }
+}
+
+%three, %four {
+    @include breakpoint(smartphone) {
+        float: none;
+        margin: 0;
+        margin-bottom: $bottom_default;
+        width: 100%;
+    }
 }

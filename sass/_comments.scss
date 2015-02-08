@@ -1,0 +1,78 @@
+.article-comments {
+    h3 { 
+        margin-bottom: 1px; 
+        text-transform: lowercase;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li:nth-child(even) {
+        background-color: $color_middle_grey;
+    }
+}
+
+.comment {
+    @extend %border-box;
+    list-style-type: none;
+    margin-bottom: $bottom_default;
+    min-height: 100px;
+    padding: $bottom_default;
+
+    .author { 
+        margin-bottom: 0;
+    }
+}
+
+#commentform {
+    width: 100%;
+
+    input {
+        @include breakpoint(max, 1024) {
+            float: none;
+            margin-left: 0;
+            margin-bottom: 4px;
+            width: 100%;
+        }
+    }
+
+    .author-name {
+        float: left;
+    }
+
+    .author-email {
+        float: left;
+        margin: 0 auto; 
+        margin-left: 4px;
+        margin-bottom: 4px;
+    }
+
+    .author-url {
+        float: right;
+    }
+
+    .comment-author-info {
+        margin: 0 auto;
+    }
+
+    #submit {
+        background: $color_bright_blue url('images/chevron_right.png') no-repeat 95% center;
+        background-size: auto 75%;
+        border: none;
+        color: #fff;
+        height: 35px;
+        max-width: 149px;
+        text-align: left;
+        width: 149px;
+
+        &:hover {
+            background-color: $color_dark_red;
+        }
+
+        &:active {
+            border: 1px solid $text_grey;
+        }
+    }
+}

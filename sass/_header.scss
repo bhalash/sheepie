@@ -1,0 +1,71 @@
+#header {
+    height: 100vh;
+    position: fixed;
+    width: $left_container_width;
+    z-index: 2;
+
+    @include cover_image('../images/polaris.jpg');
+
+    @include breakpoint(smartphone) {
+        float: none;
+        position: static;
+        width: 100%;
+    }
+
+    h3, p, ul {
+        color: #fff;
+        margin: 0; 
+        text-align: center;
+    }
+
+    p a {
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .description {
+        border: 1px solid rgba(#fff, 0.5);
+        border-width: 1px 0 1px 0;
+        margin: $bottom_default * 2 0;
+        padding: $bottom_default * 2 0;
+    }
+
+    nav.menu {
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            color: #fff;
+            display: inline-block;
+
+            &:nth-child(2):before, &:nth-child(2):after {
+                content: ' / ';
+            }
+        }
+    }
+
+    .interior {
+        @extend %border-box;
+        left: 0;
+        position: absolute;
+        overflow: hidden;
+        padding: 0 10%;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        @include breakpoint(smartphone) {
+            position: initial;
+            transform: translate(0,0);
+        }
+    }
+
+    .mask {
+        @extend %rmwb-gradient;
+        height: 100%;
+    }
+}

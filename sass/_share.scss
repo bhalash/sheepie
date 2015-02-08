@@ -1,0 +1,63 @@
+/*
+ * Nav Menu Social Links
+ * ----------------------
+ */
+
+$social_rmwb: #343537;
+$social_comments: #30b351;
+$social_email: #f5756c;
+$social_facebook: #3B5998;
+$social_flickr: #ff0084;
+$social_github: #666666;
+$social_google: #dd4b39;
+$social_instagram: #3f729b;
+$social_linkedin: #0976b4;
+$social_pinterest: #cc2127;
+$social_print: #007aaf;
+$social_reddit: #ff5700;
+$social_rss: #ff6600;
+$social_tumblr: #35465c;
+$social_twitter: #55acee;
+$social_youtube: #b31217;
+
+.beard     { background-image: url('../images/social/beard.png'); }
+.comments  { background-image: url('../images/social/comments.png'); }
+.email     { background-image: url('../images/social/email.png'); }
+.facebook  { background-image: url('../images/social/facebook.png'); }
+.flickr    { background-image: url('../images/social/flickr.png'); } 
+.github    { background-image: url('../images/social/github.png'); }
+.google    { background-image: url('../images/social/google.png'); }
+.instagram { background-image: url('../images/social/instagram.png'); }
+.linkedin  { background-image: url('../images/social/linkedin.png'); }
+.pinterest { background-image: url('../images/social/pinterest.png'); }
+.print     { background-image: url('../images/social/print.png'); }
+.reddit    { background-image: url('../images/social/reddit.png'); }
+.rss       { background-image: url('../images/social/rss.png'); }
+.tumblr    { background-image: url('../images/social/tumblr.png'); }
+.twitter   { background-image: url('../images/social/twitter.png'); }
+.youtube   { background-image: url('../images/social/youtube.png'); }
+
+nav.social {
+    ul {
+        list-style-type: none;
+        text-align: center;
+    }
+
+    li {
+        background-size: auto 90%;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        &:not(:first-child) {
+            margin-left: 5px;
+        }
+
+        @include flex_size(11%, 1);
+    }
+
+    a {
+        border: 0;
+
+        @include flex_size(100%, 1);
+    }
+}

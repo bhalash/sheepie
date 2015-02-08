@@ -1,0 +1,31 @@
+form#search {
+    font-size: 1.3em;
+    margin: 0;
+
+    p {
+        margin: 0;
+        position: relative;
+    }
+
+    input[type=text] {
+        display: inline-block;
+        height: 30px;
+        padding: 20px;
+        width: 100%;
+
+        &:focus {
+            outline: 1px solid #000;
+        }
+    }
+
+    button[type=submit] {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.results-count {
+    margin-top: $bottom_default;
+}

@@ -1,0 +1,34 @@
+article { 
+    header {
+        margin-bottom: $bottom_default * 0.5;
+
+        > * {
+            margin-bottom: 0;
+        }
+
+        time, small {
+            color: rgba(black, 0.5);
+        }
+    }
+
+    div, img {
+        @extend %border-box;
+        height: auto;
+        max-width: 100%;
+    }
+
+    input {
+        // For password on password-protected posts.
+        display: block;
+    }
+
+    blockquote, dl, ol, ul {
+        padding: 0 0 0 15px;
+    }
+
+    ol, ul {
+        @extend %border-box;
+        margin-left: $bottom_default;
+        margin-bottom: $bottom_default;
+    }
+}
