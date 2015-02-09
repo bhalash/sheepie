@@ -1,42 +1,18 @@
 #pagination {
-    margin: 0 auto;
-    margin-top: 35px;
-    overflow: auto;
-    width: 100%;
+    @extend %clearfix;
+    margin-top: $bottom_default * 3;
+
+    div:first-child {
+        margin-right: $bottom_default * 0.5;
+    }
+
+    .page-left, .page-right {
+        float: left;
+    }
 
     a {
-        @extend %border-box;
-        color: #fff;
-        background: $color_bright_blue;
-        display: block;
-        padding: 8px 8px;
-        overflow: hidden;
-        text-align: center;
-        width: 150px;
-
-        &:hover {
-            background-color: $color_dark_red;
-            text-decoration: none;
-        }
-    }
-
-    .page-left {
-        float: left;
-        overflow: auto;
-        width: 49.5%;
-
-        a {
-            float: right;
-        }
-    }
-
-    .page-right {
-        float: right;
-        overflow: auto;
-        width: 49.5%;
-
-        a {
-            float: left;
-        }
+        @extend %rmwb-button;
+        min-width: 120px;
+        padding: 8px;
     }
 }
