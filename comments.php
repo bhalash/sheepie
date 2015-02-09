@@ -1,36 +1,36 @@
-<?php if (comments_open()) : ?>
-    <div class="article-comments" id="comments">
-        <?php if (post_password_required()) : ?>
-            <h3>This post is password protected. Enter the password to view comments.</h3>
-        <?php return; endif; ?>
-        <?php if (have_comments()) : ?>
-            <h3 class="title"><?php comments_number('% comments.', '1 comment.', '% comments.');?></h3>
-            <ul>
-                <?php wp_list_comments(
-                    array( 
-                        'callback' => 'rmwb_comments',
-                        'avatar_size' => 0,
-                        'format' => 'html5',
-                        'style' => 'ul'
-                    )
-                ); ?>
-            </ul>
-        <?php endif; ?>
-    </div>
-    <div class="comment-entry">
-        <?php 
-        $comment_form_fields = array (
-            'author' => '<input aria-required="true" class="author-name" id="author" name="author" placeholder="Name*" type="text">',
-            'email' => '<input aria-required="true" class="author-email" id="email" name="email" placeholder="Email*" type="email">',
-            'url' => '<input aria-required="true" class="author-url" id="url" name="url" placeholder="Website" type="url">'
-            );
+<?php if (comments_open()) {
+    printf('<div class="article-comments" id="comments">');
 
-        comment_form( 
-            array (
-                'title_reply' => 'Say something',
-                'comment_field' => '<p><textarea aria-required="true" class="comment-form-comment" id="comment" name="comment" rows="10"></textarea></p>',
-                'fields' => $comment_form_fields
-            )
-        ); ?>
-    </div>
-<?php endif; ?>
+    if (post_password_required()) {
+        printf('<h5>%s</h5>', 'This post is password protected. Enter the password to view comments.');
+        return;
+    }
+
+    if (have_comments()) {
+        printf('<hr><h5>%s</h5>', get_comments_number('% comments.', '1 comment.', '% comments.'));
+        printf('<ul>');
+        
+        wp_list_comments(array( 
+            'callback' => 'rmwb_comments',
+            'avatar_size' => 0,
+            'format' => 'html5',
+            'style' => 'ul'
+        ));
+
+        printf('</ul></div>');
+    }
+
+    printf('<div id="comment-entry">');
+
+    comment_form(array(
+        'title_reply' => 'Have your say!',
+        'comment_field' => '<p id="textarea"><textarea aria-required="true" class="comment-form-comment" id="comment" name="comment"></textarea></p>',
+        'fields' => array(
+            'author' => '<input aria-required="true" class="author-name" id="author" name="author" placeholder="Name*" type="text" required>',
+            'email' => '<input aria-required="true" class="author-email" id="email" name="email" placeholder="Email*" type="text" required>',
+            'url' => '<input aria-required="false" class="author-url" id="url" name="url" placeholder="Website" type="text">'
+        )
+    ));
+
+    printf('</div>');
+} ?>
