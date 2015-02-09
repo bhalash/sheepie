@@ -11,6 +11,16 @@
         }
     }
 
+    function rmwb_excerpt() {
+        $excerpt = get_the_content(); 
+        $excerpt = strip_shortcodes($excerpt); 
+        $excerpt = strip_tags($excerpt); 
+        $excerpt = explode('.', $excerpt);
+        $excerpt = $excerpt[0]; 
+        $length = strlen(preg_replace(array('/\s/', '/\n/'), '', $excerpt)); 
+        return $excerpt;
+    }
+
     function rmwb_scripts() {
         wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true);
         wp_enqueue_script('rmwb-prettify', get_stylesheet_directory_uri() . '/js/prettify.js', array('jquery'), '1.0', true);
@@ -38,6 +48,47 @@
         $count_high = ($count_high > $total_results) ? $total_results : $count_high;
         return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
     }
+
+    function content_first_image() {
+        // See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
+        global $post, $posts;
+        $first_img = '';
+        ob_start();
+        ob_end_clean();
+        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+        $first_img = $matches[1][0];
+
+        if (empty($first_img)) {
+            $first_img = get_template_directory_uri() . '/images/polaris.jpg';
+        }
+
+        return $first_img;
+    }
+
+    function rmwb_title($title, $sep) {
+        // See: https://tommcfarlin.com/filter-wp-title/
+        global $paged, $page;
+
+        if (is_single() || is_page()) {
+            return substr($title, 2);
+        }
+
+        if (!is_search()) {
+            $title .= get_bloginfo('name');
+        }
+
+        if (is_home() || is_front_page()) {
+            if (0 == $paged) {
+                return $title;   
+            } else {
+                return $title .= " $sep " . $paged;
+            }
+        }
+
+        return substr($title, 2);
+    }
+
+    add_filter('wp_title', 'rmwb_title', 10, 2);
 
     function rmwb_reading_seconds($post) {
         // Word count to seconds reading time, based on 300 WPM.
