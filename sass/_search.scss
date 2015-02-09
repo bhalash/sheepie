@@ -1,6 +1,9 @@
-form#search {
+form.search {
     font-size: 1.3em;
     margin: 0;
+    outline: 0;
+
+    @include placeholder_style($pre_grey, $sans_stack);
 
     p {
         margin: 0;
@@ -8,21 +11,43 @@ form#search {
     }
 
     input[type=text] {
+        color: $pre_grey;
         display: inline-block;
-        height: 30px;
-        padding: 20px;
+        height: 100%;
+        padding: 5px;
         width: 100%;
-
-        &:focus {
-            outline: 1px solid #000;
-        }
     }
 
     button[type=submit] {
+        @extend %rmwb-button;
+        border: 0;
+        height: 25px;
+        padding: 0 !important;
+        padding-left: 80%;
         position: absolute;
-        right: 15px;
+        right: 3px;
         top: 50%;
         transform: translateY(-50%);
+        width: 25px;
+
+        &:after {
+            content: '→';
+        }
+    }
+}
+
+.nav-search {
+    display: none;
+    margin: 0 auto;
+    margin-top: $bottom_default;
+    width: 75%;
+
+    input {
+        border: 0;
+
+        &:focus {
+            border: 0;
+        }
     }
 }
 
