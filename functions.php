@@ -3,6 +3,85 @@
         $content_width = 600;
     }
 
+
+    /*
+     * Header Social Meta Information
+     * ------------------------------
+     * We tried a few different existing plugins for this, but:
+     * 
+     * 1. They were overly-complex for lay users to configure.
+     * 2. They worked in an inconsistent and buggy manner, at best.
+     * 3. They chosen one occasionally inserted annoying upsell banners on admin
+     *    pages.
+     */
+
+    function social_meta() {
+        facebook_meta();
+        twitter_meta();
+    }
+
+    $fallback_desc = 'Cuireann Tuairisc.ie seirbhís nuachta Gaeilge '
+        . 'ar fáil do phobal uile na Gaeilge, in Éirinn agus thar lear. Té sé '
+        . 'mar aidhm againn oibriú i gcónaí ar leas an phobail trí nuacht, '
+        . 'eolas, anailís agus siamsaíocht ar ardchaighdeán a bhailiú, a '
+        . 'fhoilsiú agus a chur sa chúrsaíocht.';
+    $fallback_image = get_template_directory_uri() . '/images/tuairisc_fallback.jpg';
+
+    function twitter_meta() {
+        /* Social Meta Information for Twitter
+         * ------------------------------------
+         * This /should/ be all of the relevant information for Twitter. */
+        global $fallback_desc, $fallback_image, $post;
+
+        $site_meta = array(
+            'twitter:card' => 'summary',
+            'twitter:site' => '@tuairiscnuacht',
+            'twitter:title' => get_the_title(),
+            'twitter:description' => (is_single()) ? get_the_excerpt() : $fallback_desc,
+            'twitter:image:src' => (is_single()) ? get_thumbnail_url() : $fallback_image,
+            'twitter:url' => get_site_url() . $_SERVER['REQUEST_URI'],
+        );
+
+        foreach ($site_meta as $key => $value) {
+            printf('<meta name="%s" content="%s">', $key, $value);
+        }
+    }
+
+    function facebook_meta() {
+        /* Social Meta Information for Facebook
+         * ------------------------------------
+         * This /should/ be all of the relevant information for Facebook. */
+        global $fallback_desc, $fallback_image, $post;
+
+        $site_meta = array(
+            'og:title' => get_the_title(),
+            'og:site_name' => get_bloginfo('name'),
+            'og:url' => get_site_url() . $_SERVER['REQUEST_URI'],
+            'og:description' => (is_single()) ? get_the_excerpt() : $fallback_desc,
+            'og:image' => (is_single()) ? get_thumbnail_url() : $fallback_image,
+            'og:image:width' => 300,
+            'og:image:height' => 300,
+            'og:type' => (is_single()) ? 'article' : 'website',
+            'og:locale' => get_locale(),
+        );
+
+        if (is_single()) {
+            $category = get_the_category($post->ID);
+
+            $article_meta = array(
+                'article:section' => $category[0]->cat_name,
+                'article:tag' => get_the_tags(),
+                'article:publisher' => 'https://www.facebook.com/tuairisc.ie',
+            );
+
+            $site_meta = array_merge($site_meta, $article_meta);
+        }
+
+        foreach ($site_meta as $key => $value) {
+            printf('<meta property="%s" content="%s">', $key, $value);
+        }
+    }
+
     function clean_search_url() {
         // See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
         if (is_search() && ! empty($_GET['s'])) {
