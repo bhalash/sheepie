@@ -2,10 +2,24 @@
     @extend %clearfix;
     width: 100%;
 
+    .interior {
+        @extend %clearfix;
+    }
+
     #content {
         @extend %border-box;
         float: right;
         width: 100% - $left_container_width;
+
+        @include breakpoint(max, 768) {
+            float: none;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        @include breakpoint(smartphone) {
+            width: 100%;
+        }
 
         .interior {
             margin: 0 auto;
@@ -14,17 +28,17 @@
             width: $right_interior_width;
 
             @include breakpoint(max, 1024) {
-                max-width: 95%;
-                min-width: 0;
-                width: 95%;
+                padding: 25px 0;
+                width: 90%;
             }
         }
     }
 }
 
-.interior {
-    @extend %clearfix;
-}
+/*
+ * Miscellaneous Containers
+ * ------------------------
+ */
 
 .dev-warning {
     background-color: Crimson;
@@ -35,4 +49,9 @@
         color: #fff;
         margin: 0;
     }
+}
+
+.mask {
+    @extend %rmwb-gradient;
+    height: 100%;
 }
