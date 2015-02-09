@@ -11,15 +11,14 @@ article {
         }
     }
 
-    div, img {
+    div, img, iframe {
         @extend %border-box;
         height: auto;
         max-width: 100%;
     }
 
     img {
-        border: 1px solid rgba($pre_grey, 0.1);
-        padding: 5px;
+        border: 1px solid $pre_grey;
     }
 
     input {
@@ -35,5 +34,54 @@ article {
         @extend %border-box;
         margin-left: $bottom_default;
         margin-bottom: $bottom_default;
+    }
+}
+
+.archive-article {
+    background-size: cover;
+    margin-bottom: $bottom_default;
+    overflow: hidden;
+    width: 100%;
+
+    a {
+        display: inline-block;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    h3, p {
+        color: #fff;
+    }
+
+    time {
+        color: rgba(#fff, 0.5);
+    }
+
+    h3 {
+        border-bottom: 1px solid #fff;
+        padding-bottom: $bottom_default * 0.5;
+    }
+
+    header p {
+        margin-bottom: $bottom_default * 0.5;
+        padding: 5px;
+    }
+
+    .excerpt {
+        color: rgba(#fff, 0.8);
+        font-style: italic;
+        margin: 0;
+    }
+
+    .mask {
+        @extend %border-box;
+        padding: 20px;
     }
 }
