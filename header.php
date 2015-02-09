@@ -13,20 +13,7 @@ if (!is_user_logged_in()) {
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
-    <title>
-        <?php 
-            if (is_home()) {
-                echo bloginfo('name');
-            }
-
-            // if ($paged > 1) { 
-            //     echo 'Page ' . $paged . ' | '; 
-            //     echo bloginfo('name');
-            // } else {
-            //     wp_title('|', true, 'right'); 
-            // } 
-        ?>
-    </title>
+    <title><?php wp_title('/', true, 'left'); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
     <?php wp_head(); ?>
@@ -43,8 +30,11 @@ if (!is_user_logged_in()) {
                             <ul>
                                 <li><a title="About me" href="/about/">About</a></li>
                                 <li><a title="Blog archives" href="/archives/">Archives</a></li>
-                                <li><a title="Search the site" href="javascript:void(0)">Search</a></li>
+                                <li><a id="nav-search-toggle" title="Search the site" href="/search/">Search</a></li>
                             </ul>
+                            <div class="nav-search">
+                                <?php get_search_form(); ?>
+                            </div>
                         </nav>
                     </div>
                     <nav class="social">
