@@ -11,7 +11,6 @@
             <?php get_search_form(); ?>
         </div>
         <p class="results-count">Sort results by <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query();?>&orderby=post_date&order=DESC">date</a> | <a href="<?php bloginfo('url');?>?s=<?php echo get_search_query();?>&orderby=relevance&order=DESC">relevance</a></p>
-        <div class="archive">
         <?php 
 
         while (have_posts()) {
@@ -21,13 +20,12 @@
                 printf('<hr />');
             }
 
-            get_template_part('article', ($count == 0) ? 'full' : 'archive');
+            get_template_part('article', ($count == 0 && $paged == 0 && !is_search()) ? 'full' : 'archive');
             $count++;
         }
     } else {
         get_template_part('article','missing');
     }
 
-printf('</div>');
 get_template_part('pagination');
 get_footer(); ?>

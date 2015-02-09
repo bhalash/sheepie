@@ -9,7 +9,7 @@
                 printf('<hr />');
             }
 
-            get_template_part('article', ($count == 0 && $paged == 0) ? 'full' : 'archive');
+            get_template_part('article', ($count == 0 && $paged == 0 && !is_search()) ? 'full' : 'archive');
             $count++;
         }
     } else {
