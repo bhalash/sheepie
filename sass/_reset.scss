@@ -18,32 +18,26 @@ time, mark, audio, video {
 }
 
 form {
-    input, textarea {
+    input[type=submit], button[type=submit], input, textarea {
         @extend %border-box;
         -webkit-appearance: none;
         -webkit-border-radius: 0;
         border-radius: 0;
-        border: 1px solid rgba(52,53,55,0.3);
+        border: 0;
+        margin: 0;
+        outline: 0;
     }
 
-    input {
-        height: 25px;
-        margin-bottom: 5px;
-        padding: 0 0 0 6px;
-        margin-bottom: 0;
-        vertical-align: top;
-        width: 33%;
+    input, textarea {
+        border: 1px solid $text_grey;
+        padding: 3px;
+
+        &:focus {
+            border: 1px solid $hyperlink_blue;
+        }
     }
 
     textarea {
-        margin: 0 0 3px 0;
-        padding: 0;
         width: 100%;
-    }
-}
-
-html {
-    @include breakpoint(max, 1024) {
-        background: #fff;
     }
 }
