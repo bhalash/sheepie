@@ -6,8 +6,8 @@
 
     @include cover_image('../images/polaris.jpg');
 
-    @include breakpoint(smartphone) {
-        float: none;
+    @include breakpoint(max, 768) {
+        height: auto;
         position: static;
         width: 100%;
     }
@@ -31,6 +31,18 @@
         border-width: 1px 0 1px 0;
         margin: $bottom_default * 2 0;
         padding: $bottom_default * 2 0;
+
+        @include breakpoint(max, 768) {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .description > p, .social {
+        @include breakpoint(max, 768) {
+            display: none;
+        }
     }
 
     nav.menu {
@@ -58,14 +70,10 @@
         top: 50%;
         transform: translate(0, -50%);
 
-        @include breakpoint(smartphone) {
+        @include breakpoint(max, 768) {
+            padding: $bottom_default 0;
             position: initial;
-            transform: translate(0,0);
+            transform: none;
         }
-    }
-
-    .mask {
-        @extend %rmwb-gradient;
-        height: 100%;
     }
 }
