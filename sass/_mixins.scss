@@ -94,26 +94,32 @@
     column-gap: $gap;
 }
 
-@mixin placeholder_style($color, $font) {
+@mixin placeholder_style($color, $font: '') {
     // See: http://css-tricks.com/snippets/css/style-placeholder-text/
     input[placeholder], textarea[placeholder] {
         color: $color;
         font: $font;
     }
 
-    ::-moz-placeholder {
+    input::-moz-placeholder {
         // Mozilla Firefox 19+
         color: $color;
         font: $font;
     }
 
-    :-ms-input-placeholder {
+    input:-moz-placeholder {
+        // Mozilla Firefox 19+
+        color: $color;
+        font: $font;
+    }
+
+    input:-ms-input-placeholder {
         // Internet Explorer 10+
         color: $color;
         font: $font;
     }
 
-    ::-webkit-input-placeholder {
+    input::-webkit-input-placeholder {
         // Webkit browsers-Chrome and Opera
         color: $color;
         font: $font;
