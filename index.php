@@ -4,12 +4,12 @@
     if (have_posts()) {
         while (have_posts()) {
             the_post();
+            get_template_part('article', ($count == 0 && !is_search()) ? 'full' : 'archive');
 
-            if ($count > 0) {
+            if ($count == 0) {
                 printf('<hr />');
             }
 
-            get_template_part('article', ($count == 0 && $paged == 0 && !is_search()) ? 'full' : 'archive');
             $count++;
         }
     } else {
