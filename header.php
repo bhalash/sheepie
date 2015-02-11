@@ -1,8 +1,8 @@
 <?php 
 // Better than any maintenance mode plugin.
 if (!is_user_logged_in()) {
-    // header('HTTP/1.1 503 Service Unavailable');
-    // header('Retry-After: 3600');
+    // REMOVE THIS WHEN FINISHED!!!!!!1ONEONEONE
+    // header('HTTP/1.0 403 Forbidden');
     // exit();
 }
 ?>
@@ -49,7 +49,3 @@ if (!is_user_logged_in()) {
         </div>
         <div id="content">
             <div class="interior">
-                <?php if (!is_user_logged_in()) : ?>
-                    <!-- TEMPORARY -->
-                    <div class="dev-warning"></div>
-                <?php endif; ?>

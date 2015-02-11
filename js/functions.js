@@ -44,9 +44,17 @@ jQuery(function($) {
      * Warning for users while I work on the site.
      */
 
-    var devUrl = 'http://www.bhalash.com/archives/13544803444';
-    var devWarning = '<p><strong>Feb 2015:</strong> Some parts of the site may be broken, as it is under active redevelopment. See <a href="' + devUrl + '">this</a> post for more information.';
-    $('.dev-warning').html(devWarning);
+    var dev = {
+        parent: '#content .interior',
+        div: '.dev-warning',
+        url: 'http://www.bhalash.com/archives/13544803444',
+        text: function() {
+            return '<p><strong>Feb 2015:</strong> Some parts of the site may be broken, as it is under active redevelopment. See <a href="' + this.url + '">this</a> post for more information.';
+        }
+    }
+
+    $(dev.parent).prepend('<div class="' + dev.div.substr(1) + '">');
+    $(dev.div).html(dev.text());
 
     /*
      * Commentform Toggle
