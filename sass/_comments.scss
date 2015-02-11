@@ -21,7 +21,7 @@
         }
     }
 
-    h3#reply-ttitle {
+    h5.reply-title {
         margin-bottom: $bottom_default;
     }
 }
@@ -39,7 +39,7 @@
         margin-bottom: $bottom_default * 0.4;
         width: 32.66%; 
 
-        &:not(#url) {
+        &:not(#comment-url) {
             margin-right: 1%;
         }
 
