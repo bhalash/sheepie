@@ -1,8 +1,12 @@
+<?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$next = $paged + 1; 
+$previous = $paged - 1; ?>
+
 <div id="pagination">
-    <div class="page-left">
-        <?php previous_posts_link('&#8592; Previous Page'); ?>
+    <div class="previous">
+        <?php previous_posts_link('&larr; Page ' . $previous); ?>
     </div>
-    <div class="page-right">
-        <?php next_posts_link('Next Page &#8594;'); ?>
+    <div class="next">
+        <?php next_posts_link('Page ' . $next . ' &rarr;'); ?>
     </div>
 </div>
