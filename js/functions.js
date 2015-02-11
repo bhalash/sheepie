@@ -53,8 +53,8 @@ jQuery(function($) {
         }
     }
 
-    $(dev.parent).prepend('<div class="' + dev.div.substr(1) + '">');
-    $(dev.div).html(dev.text());
+    // $(dev.parent).prepend('<div class="' + dev.div.substr(1) + '">');
+    // $(dev.div).html(dev.text());
 
     /*
      * Commentform Toggle
@@ -77,6 +77,6 @@ jQuery(function($) {
      */
 
     $('pre').each(function() {
-        $(this).addClass('prettyprint');
+        // $(this).addClass('prettyprint');
     });    
 });
