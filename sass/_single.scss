@@ -43,30 +43,17 @@ article {
     overflow: hidden;
     width: 100%;
 
-    a {
-        display: inline-block;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-        padding: 0;
-        width: 100%;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
     h3, p {
-        color: #fff;
+        color: #f4f4f4;
     }
 
-    time {
+    small, time {
         color: rgba(#fff, 0.5);
-    }
 
-    h3 {
-        border-bottom: 1px solid #fff;
-        padding-bottom: $bottom_default * 0.5;
+        a {
+            // color: #fff;
+            // font-weight: bold;
+        }
     }
 
     header p {
@@ -74,9 +61,7 @@ article {
         padding: 5px;
     }
 
-    .excerpt {
-        color: rgba(#fff, 0.8);
-        font-style: italic;
+    .excerpt p {
         margin: 0;
     }
 
