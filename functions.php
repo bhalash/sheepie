@@ -3,7 +3,6 @@
         $content_width = 600;
     }
 
-
     /*
      * Header Social Meta Information
      * ------------------------------
@@ -20,25 +19,27 @@
         twitter_meta();
     }
 
-    $fallback_desc = 'Cuireann Tuairisc.ie seirbhís nuachta Gaeilge '
-        . 'ar fáil do phobal uile na Gaeilge, in Éirinn agus thar lear. Té sé '
-        . 'mar aidhm againn oibriú i gcónaí ar leas an phobail trí nuacht, '
-        . 'eolas, anailís agus siamsaíocht ar ardchaighdeán a bhailiú, a '
-        . 'fhoilsiú agus a chur sa chúrsaíocht.';
-    $fallback_image = get_template_directory_uri() . '/images/tuairisc_fallback.jpg';
+    $fallback = array(
+        'publisher' => 'http://www.bhalash.com',
+        'image' => get_template_directory_uri() . '/images/polaris.jpg',
+        'description' => get_bloginfo('description'),
+        'twitter' => '@bhalash'
+    );
 
     function twitter_meta() {
         /* Social Meta Information for Twitter
          * ------------------------------------
          * This /should/ be all of the relevant information for Twitter. */
-        global $fallback_desc, $fallback_image, $post;
+        global $fallback, $post;
+        $the_post = get_post($post->ID);
+        setup_postdata($the_post);
 
         $site_meta = array(
             'twitter:card' => 'summary',
-            'twitter:site' => '@tuairiscnuacht',
+            'twitter:site' => $fallback['twitter'],
             'twitter:title' => get_the_title(),
-            'twitter:description' => (is_single()) ? get_the_excerpt() : $fallback_desc,
-            'twitter:image:src' => (is_single()) ? get_thumbnail_url() : $fallback_image,
+            'twitter:description' => (is_single()) ? get_the_excerpt() : $fallback['description'],
+            'twitter:image:src' => content_first_image($post->ID),
             'twitter:url' => get_site_url() . $_SERVER['REQUEST_URI'],
         );
 
@@ -51,16 +52,16 @@
         /* Social Meta Information for Facebook
          * ------------------------------------
          * This /should/ be all of the relevant information for Facebook. */
-        global $fallback_desc, $fallback_image, $post;
+        global $fallback, $post;
+        $the_post = get_post($post->ID);
+        setup_postdata($the_post);
 
         $site_meta = array(
             'og:title' => get_the_title(),
             'og:site_name' => get_bloginfo('name'),
             'og:url' => get_site_url() . $_SERVER['REQUEST_URI'],
-            'og:description' => (is_single()) ? get_the_excerpt() : $fallback_desc,
-            'og:image' => (is_single()) ? get_thumbnail_url() : $fallback_image,
-            'og:image:width' => 300,
-            'og:image:height' => 300,
+            'og:description' => (is_single()) ? get_the_excerpt() : $fallback['description'],
+            'og:image' => content_first_image($post->ID),
             'og:type' => (is_single()) ? 'article' : 'website',
             'og:locale' => get_locale(),
         );
@@ -68,10 +69,23 @@
         if (is_single()) {
             $category = get_the_category($post->ID);
 
+            $tags = get_the_tags();
+            $taglist = '';
+            $i = 0;
+
+            foreach ($tags as $the_tag) {
+                if ($i > 0) {
+                    $taglist .= ', ';
+                }
+
+                $taglist .= $the_tag->name;
+                $i++;
+            }
+
             $article_meta = array(
                 'article:section' => $category[0]->cat_name,
-                'article:tag' => get_the_tags(),
-                'article:publisher' => 'https://www.facebook.com/tuairisc.ie',
+                'article:tag' => $taglist,
+                'article:publisher' => $fallback['publisher'],
             );
 
             $site_meta = array_merge($site_meta, $article_meta);
@@ -130,18 +144,12 @@
 
     function content_first_image() {
         // See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
-        global $post, $posts;
-        $first_img = '';
+        global $post, $posts, $fallback;
         ob_start();
         ob_end_clean();
-        $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-        $first_img = $matches[1][0];
-
-        if (empty($first_img)) {
-            $first_img = get_template_directory_uri() . '/images/polaris.jpg';
-        }
-
-        return $first_img;
+        $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+        $first_image = $matches[1][0];
+        return (!empty($first_image)) ? $first_image : $fallback['image'];
     }
 
     function rmwb_title($title, $sep) {

@@ -16,6 +16,7 @@ if (!is_user_logged_in()) {
     <title><?php wp_title('/', true, 'left'); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
+    <?php social_meta(); ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>  onload="prettyPrint()">
