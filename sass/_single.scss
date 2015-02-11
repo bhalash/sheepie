@@ -39,9 +39,12 @@ article {
 
 .archive-article {
     background-size: cover;
-    margin-bottom: $bottom_default;
     overflow: hidden;
     width: 100%;
+
+    &:not(:last-of-type) {
+        margin-bottom: $bottom_default;
+    }
 
     h3, p {
         color: #f4f4f4;
