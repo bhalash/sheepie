@@ -1,10 +1,12 @@
 .pln {
   color: #fff;
+  /*color: #3399cc;*/
 }
 
 @media screen {
   .str {
-    color: #c9e724;
+    /*color: #c9e724;*/
+    color: #537178;
   }
 
   .kwd {
@@ -20,11 +22,13 @@
   }
 
   .lit {
-    color: #c9e724;
+    /*color: #c9e724;*/
+    color: #59c0e3;
   }
 
   .pun {
     color: #fff;
+    /*color: #bdd6db;*/
   }
 
   .opn {
@@ -60,46 +64,67 @@
   }
 }
 
-@media print, projection {
+@@media screen {
   .str {
-    color: #006600;
+    /*color: #c9e724;*/
+    color: #537178;
   }
 
   .kwd {
-    color: #006;
+    color: #21bdbf;
   }
 
   .com {
-    color: #600;
-    font-style: italic;
+    color: #999999;
   }
 
   .typ {
-    color: #404;
-    font-weight: bold;
+    color: #ff0055;
   }
 
   .lit {
-    color: #004444;
+    /*color: #c9e724;*/
+    color: #59c0e3;
   }
 
-  .pun, .opn, .clo {
-    color: #444400;
+  .pun {
+    color: #fff;
+    /*color: #bdd6db;*/
+  }
+
+  .opn {
+    color: #fff;
+  }
+
+  .clo {
+    color: #fff;
   }
 
   .tag {
-    color: #006;
-    font-weight: bold;
+    color: #21bdbf;
   }
 
   .atn {
-    color: #440044;
+    color: #c9e724;
   }
 
   .atv {
-    color: #006600;
+    color: #ec2525;
+  }
+
+  .dec {
+    color: #fff;
+  }
+
+  .var {
+    color: #fff;
+  }
+
+  .fun {
+    color: #538192;
   }
 }
+
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
   margin-top: 0;
