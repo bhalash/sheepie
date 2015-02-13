@@ -11,6 +11,12 @@ article {
         }
     }
 
+    h3.title {
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
     div, img, iframe {
         @extend %border-box;
         height: auto;
@@ -50,13 +56,13 @@ article {
         color: #f4f4f4;
     }
 
+    h3 {
+        border-bottom: 1px solid #fff;
+        padding-bottom: $bottom_default * 0.5;
+    }
+
     small, time {
         color: rgba(#fff, 0.5);
-
-        a {
-            // color: #fff;
-            // font-weight: bold;
-        }
     }
 
     header p {
