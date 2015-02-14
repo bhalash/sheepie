@@ -1,128 +1,129 @@
 .pln {
-  color: #fff;
-  /*color: #3399cc;*/
+    color: #333333; 
 }
 
 @media screen {
-  .str {
-    /*color: #c9e724;*/
-    color: #537178;
-  }
+    .str {
+        /*color: #c9e724;*/
+        color: #537178;
+    }
 
-  .kwd {
-    color: #21bdbf;
-  }
+    .kwd {
+        color: #167374;
+    }
 
-  .com {
-    color: #999999;
-  }
+    .com {
+        color: #666;
+        font-style: italic;
+    }
 
-  .typ {
-    color: #ff0055;
-  }
+    .typ {
+        color: #ff0055;
+    }
 
-  .lit {
-    /*color: #c9e724;*/
-    color: #59c0e3;
-  }
+    .lit {
+        /*color: #c9e724;*/
+        color: #59c0e3;
+    }
 
-  .pun {
-    color: #fff;
-    /*color: #bdd6db;*/
-  }
+    .pun {
+        /*color: #fff;*/
+        /*color: #bdd6db;*/
+        color: #39c;
+    }
 
-  .opn {
-    color: #fff;
-  }
+    .opn {
+        color: #fff;
+    }
 
-  .clo {
-    color: #fff;
-  }
+    .clo {
+        color: #fff;
+    }
 
-  .tag {
-    color: #21bdbf;
-  }
+    .tag {
+        color: #21bdbf;
+    }
 
-  .atn {
-    color: #c9e724;
-  }
+    .atn {
+        color: #c9e724;
+    }
 
-  .atv {
-    color: #ec2525;
-  }
+    .atv {
+        color: #ec2525;
+    }
 
-  .dec {
-    color: #fff;
-  }
+    .dec {
+        color: #fff;
+    }
 
-  .var {
-    color: #fff;
-  }
+    .var {
+        color: #fff;
+    }
 
-  .fun {
-    color: #538192;
-  }
+    .fun {
+        color: #538192;
+    }
 }
 
-@@media screen {
-  .str {
-    /*color: #c9e724;*/
-    color: #537178;
-  }
+@@media print {
+    .str {
+        /*color: #c9e724;*/
+        color: #537178;
+    }
 
-  .kwd {
-    color: #21bdbf;
-  }
+    .kwd {
+        color: #21bdbf;
+    }
 
-  .com {
-    color: #999999;
-  }
+    .com {
+        color: #666;
+    }
 
-  .typ {
-    color: #ff0055;
-  }
+    .typ {
+        color: #ff0055;
+    }
 
-  .lit {
-    /*color: #c9e724;*/
-    color: #59c0e3;
-  }
+    .lit {
+        /*color: #c9e724;*/
+        color: #59c0e3;
+    }
 
-  .pun {
+    .pun {
+        color: #fff;
+        /*color: #bdd6db;*/
+    }
+
+    .opn {
     color: #fff;
-    /*color: #bdd6db;*/
-  }
+    }
 
-  .opn {
-    color: #fff;
-  }
+    .clo {
+        color: #fff;
+    }
 
-  .clo {
-    color: #fff;
-  }
+    .tag {
+        color: #21bdbf;
+    }
 
-  .tag {
-    color: #21bdbf;
-  }
+    .atn {
+        color: #c9e724;
+    }
 
-  .atn {
-    color: #c9e724;
-  }
+    .atv {
+        color: #ec2525;
+    }
 
-  .atv {
-    color: #ec2525;
-  }
+    .dec {
+        color: #fff;
+    }
 
-  .dec {
-    color: #fff;
-  }
+    .var {
+        color: #fff;
+    }
 
-  .var {
-    color: #fff;
-  }
-
-  .fun {
-    color: #538192;
-  }
+    .fun {
+        color: #538192;
+    }
 }
 
 /* Specify class=linenums on a pre to get line numbering */
