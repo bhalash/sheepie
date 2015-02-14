@@ -103,8 +103,7 @@ code, input, kbd, pre, pre span, td, th, tt, var {
 
 pre {
     @extend %border-box;
-    background: #222;
-    color: #fff;
+    color: $pre_grey;
     // line-height: 1.2em;
     overflow: auto;
     padding: $bottom_default;
