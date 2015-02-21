@@ -26,6 +26,7 @@ $color_silver_grey: #9fa5b1;
 $hyperlink_blue: #3399cc;
 $text_grey: #3a3a3a;
 $pre_grey: #333333;
+$light_grey: #eee;
 
 /*
  * Typeface Declarations
@@ -33,7 +34,7 @@ $pre_grey: #333333;
  */
 
 $header_text_size: 3em;
-$regular_text_size: 0.86em;
+$regular_text_size: 1em;
 $fixed_text_size: 0.9em; 
 
 $sans_stack:  $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
