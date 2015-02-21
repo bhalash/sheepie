@@ -1,4 +1,4 @@
-<article <?php post_class('archive-article'); ?> id="article-<?php the_ID(); ?>" style="background-image: url('<?php echo content_first_image(); ?>');">
+<article <?php post_class('archive'); ?> id="article-<?php the_ID(); ?>" style="background-image: url('<?php echo content_first_image(); ?>');">
     <div class="mask">
         <header>
             <?php if (!is_page()) : ?>
