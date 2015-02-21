@@ -77,6 +77,6 @@ jQuery(function($) {
      */
 
     $('pre').each(function() {
-        // $(this).addClass('prettyprint');
+        $(this).addClass('prettyprint');
     });    
 });

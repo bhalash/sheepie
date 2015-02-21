@@ -98,15 +98,14 @@ code, input, kbd, pre, pre span, td, th, tt, var {
     color: inherit;
     font: $fixed_stack;
     letter-spacing: 0;
-    word-wrap: break-word;
 }
 
 pre {
-    @extend %border-box;
     color: $pre_grey;
-    // line-height: 1.2em;
+    background-color: $light_grey;
     overflow: auto;
     padding: $bottom_default;
+    white-space: pre;
 }
 
 /*
