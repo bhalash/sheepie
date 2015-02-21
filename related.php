@@ -11,8 +11,8 @@ $related_posts = new WP_Query(array(
     ),
     'date_query' => array(
         'inclusive' => false,
-        'after' => '52 weeks ago',
-        'before' => '6 weeks ago',
+        'after' => get_the_date('Y-m-j') . ' -180 days',
+        'before' => get_the_date('Y-m-j') . ' -7 days',
     )
 )); 
 
