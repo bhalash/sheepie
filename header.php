@@ -1,11 +1,3 @@
-<?php 
-// Better than any maintenance mode plugin.
-if (!is_user_logged_in()) {
-    // REMOVE THIS WHEN FINISHED!!!!!!1ONEONEONE
-    // header('HTTP/1.0 403 Forbidden');
-    // exit();
-}
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -28,11 +20,14 @@ if (!is_user_logged_in()) {
                     <div class="description">
                         <p><?php echo get_bloginfo('description'); ?></p>
                         <nav class="menu">
-                            <ul>
-                                <li><a title="About me" href="/about/">About</a></li>
-                                <li><a title="Blog archives" href="/archives/">Archives</a></li>
-                                <li><a id="nav-search-toggle" title="Search the site" href="/search/">Search</a></li>
-                            </ul>
+                            <?php if (has_nav_menu('sidebar')) {
+                                wp_nav_menu(array(
+                                    'menu_id' => 'sidebar',
+                                    'sort_column' => 'menu_order'
+                                ));
+                            } else {
+                                printf('<p class="menu-warn">Please set your sidebar navigation menu in the <a href="%s">Appearance menu!</a></p>', get_admin_url() . 'nav-menus.php');
+                            } ?>
                             <div class="nav-search">
                                 <?php get_search_form(); ?>
                             </div>

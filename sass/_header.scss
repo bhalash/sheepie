@@ -18,14 +18,6 @@
         text-align: center;
     }
 
-    p a {
-        color: inherit;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
     .description {
         border: 1px solid rgba(#fff, 0.5);
         border-width: 1px 0 1px 0;
@@ -58,6 +50,18 @@
                 content: ' / ';
             }
         }
+
+        a {
+            // color: #
+        }
+    }
+
+    .menu-warn {
+        @extend %border-box;
+        background-color: red;
+        border: 1px solid #fff;
+        margin: 5px 0;
+        padding: 5px 0;
     }
 
     .interior {

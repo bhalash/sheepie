@@ -1,4 +1,5 @@
 jQuery(function($) {
+    'use strict';
     /*
      * Search Form Focusing
      * --------------------
@@ -10,7 +11,7 @@ jQuery(function($) {
         results: '.page-search',
         url: window.location.host + '/search/',
         nav: {
-            toggle: '#nav-search-toggle',
+            toggle: 'a[title=Search]',
             body: '.nav-search',
             open: false
         }

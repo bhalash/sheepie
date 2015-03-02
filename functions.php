@@ -73,12 +73,12 @@
             $taglist = '';
             $i = 0;
 
-            foreach ($tags as $the_tag) {
+            foreach ($tags as $key => $value) {
                 if ($i > 0) {
                     $taglist .= ', ';
                 }
 
-                $taglist .= $the_tag->name;
+                $taglist .= $value->name;
                 $i++;
             }
 
@@ -280,7 +280,14 @@
             comment_text();
     }
 
-    add_action( 'template_redirect', 'clean_search_url');
+    function rmwb_nav() {
+        register_nav_menus(array(
+            'sidebar' => 'Sidebar Menu'
+        ));
+    }
+
+    add_action('init', 'rmwb_nav');
+    add_action('template_redirect', 'clean_search_url');
     // Enqueue all scripts and stylesheets.
     add_action('wp_enqueue_scripts', 'rmwb_styles');
     add_action('wp_enqueue_scripts', 'rmwb_scripts');
@@ -289,6 +296,7 @@
     remove_filter('the_excerpt', 'convert_smilies');
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
+    current_theme_supports('menus');
     // Sidebar.
     add_action('widgets_init', 'sidebar_widgets_init');
     // Menu. 
