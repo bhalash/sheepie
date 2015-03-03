@@ -123,7 +123,7 @@
         wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Bitter|Roboto+Condensed|Source+Code+Pro');
         wp_enqueue_style('google-fonts');
         // Main style.
-        wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/sass/style.css', false, '1.4', 'all');
+        wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
         // Google code prettifier.
         wp_enqueue_style('code-prettify', get_stylesheet_directory_uri() . '/prettify.css');
     }
