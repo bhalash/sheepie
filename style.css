@@ -10,7 +10,4 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
 */
 
-/*
- * This is a dummy/placeholder file used until I have a better arrangement for
- * the main, real stylesheet, located as sass/style.css. 
- */
+@import url('sass/style.css');
