@@ -5,11 +5,7 @@
         while (have_posts()) {
             the_post();
             get_template_part('article', ($count == 0 && !is_search()) ? 'full' : 'archive');
-
-            if ($count < get_option('posts_per_page')) {
-                printf('<hr />');
-            }
-
+            printf('<hr />');
             $count++;
         }
     } else {
