@@ -46,8 +46,7 @@ nav.social {
     }
 
     @each $value, $key in $social {
-        a.#{$value} {
-            background-color: nth($key, 1);
+        li.#{$value} {
             background-image: url(nth($key, 2));
         }
     }
