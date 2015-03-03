@@ -24,7 +24,8 @@ $color_middle_grey: #ddd;
 $color_silver_grey: #9fa5b1;
 
 $hyperlink_blue: #3399cc;
-$text_grey: #3a3a3a;
+// $text_grey: #3a3a3a;
+$text_grey: rgba(0, 0, 0, 0.8);
 $pre_grey: #333333;
 $light_grey: #eee;
 
@@ -34,8 +35,8 @@ $light_grey: #eee;
  */
 
 $header_text_size: 3em;
-$regular_text_size: 0.92em;
-$fixed_text_size: 0.9em; 
+$regular_text_size: 0.85em;
+$fixed_text_size: 0.8em; 
 
 $sans_stack:  $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
 $serif_stack: $regular_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
