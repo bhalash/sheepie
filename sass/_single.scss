@@ -13,7 +13,7 @@ article {
 
     h3.title {
         a:hover {
-            // text-decoration: none;
+            text-decoration: none;
         }
     }
 
@@ -48,26 +48,12 @@ article.archive {
     overflow: hidden;
     width: 100%;
 
+    header {
+        margin: 0;
+    }
+
     &:not(:last-of-type) {
         margin-bottom: $bottom_default;
-    }
-
-    header p {
-        margin-bottom: $bottom_default * 0.5;
-        padding: 5px;
-    }
-
-    h3, p {
-        color: #f4f4f4;
-    }
-
-    h3 {
-        border-bottom: 1px solid #fff;
-        padding-bottom: $bottom_default * 0.5;
-    }
-
-    small, time {
-        color: rgba(#fff, 0.5);
     }
 
     .excerpt p {
