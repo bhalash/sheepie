@@ -32,7 +32,8 @@ address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, optio
  */
 
 h1, h2, h3, h4, h5, h6 {
-    color: $pre_grey;
+    // color: $pre_grey;
+    color: $text_grey;
     font: $title_stack;
     margin-bottom: $bottom_default;
 
@@ -165,10 +166,10 @@ q {
  */
 
 hr {
-    background: rgba(0,0,0,0.5);
+    background: #f4f4f4;
     height: 1px;
     margin: $bottom_default * 2 0 $bottom_default * 2 0;
-    width: 35%;
+    width: 100%;
 }
 
 /*
