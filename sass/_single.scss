@@ -5,10 +5,24 @@ article {
         > * {
             margin-bottom: 0;
         }
+    }
 
-        time, small {
-            color: rgba(black, 0.5);
+    header, footer {
+        p, time, small {
+            color: $text_grey_light;
         }
+
+        p {
+            font: $sans_stack;
+        }
+
+        h4 {
+            margin: 0;
+        }
+    }
+
+    footer {
+
     }
 
     h3.title {
@@ -49,14 +63,6 @@ article.archive {
     width: 100%;
 
     header {
-        margin: 0;
-    }
-
-    &:not(:last-of-type) {
-        margin-bottom: $bottom_default;
-    }
-
-    .excerpt p {
         margin: 0;
     }
 
