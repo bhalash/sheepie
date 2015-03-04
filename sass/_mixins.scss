@@ -44,6 +44,13 @@
     }
 }
 
+@mixin translate($x, $y) {
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
 @mixin cover_image($image) {
     background-position: center 20%;
     background-repeat: no-repeat;
