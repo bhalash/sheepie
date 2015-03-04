@@ -5,6 +5,10 @@
  * aren't attached to a given section of the site. 
 */
 
+$rmwb_button_color: map-get($colours, text_grey_light);
+$rmwb_border_color_rest: map-get($colours, text_grey);
+$rmwb_border_color_active: map-get($colours, light_grey);
+
 /*
  * Shadows and Gradients
  * ---------------------
@@ -48,28 +52,6 @@
  * Assorted Helper Classes
  * -----------------------
  */
-
- %rmwb-button {
-    background: #fff center center/auto 95% no-repeat border-box;
-    border-radius: 5px;
-    color: $text_grey_light;
-    display: inline-block;
-    font: $sans_stack;
-    text-align: center;
-
-    &:hover {
-        text-decoration: none;
-    }
- }
-
-.thin-border {
-    border: 2px solid #f4f4f4;
-    transition: border-color .2s;
-
-    &:hover {
-        border-color: $light_grey;
-    }
-}
 
 %border-box {
     /* ALL GLORY TO THE BORDER BOX-this is used across the site in a great many

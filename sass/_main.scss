@@ -12,10 +12,10 @@
 
         .interior {
             margin: 0 auto;
-            max-width: $right_interior_max_width;
+            max-width: 900px;
             padding: 50px 0;
             position: relative;
-            width: $right_interior_width;
+            width: 75%;
 
             @include breakpoint(max, 1024) {
                 padding: 25px 0;
@@ -29,17 +29,6 @@
  * Miscellaneous Containers
  * ------------------------
  */
-
-.dev-warning {
-    background-color: Crimson;
-    margin-bottom: $bottom_default;
-    padding: 10px;
-
-    p {
-        color: #fff;
-        margin: 0;
-    }
-}
 
 .mask {
     @extend %rmwb-gradient;

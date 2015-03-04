@@ -1,3 +1,13 @@
+/*
+ * Comments
+ * --------
+ * Comments on articles on my site are like fairy dust, so I've removed it while
+ * I work on a restyle.
+ */
+
+// Colours
+$comment_alt_background: map-get($colours, text_grey_dark);
+
 #comments {
     margin-top: $bottom_default * 2;
 
@@ -6,7 +16,7 @@
     }
 
     li:nth-child(even) {
-        background-color: $color_middle_grey;
+        background-color: $comment_alt_background;
     }
 
     .comment {
@@ -68,7 +78,6 @@
     }
 
     input[type=submit] {
-        @extend %rmwb-button;
         height: 35px;
         max-width: 149px;
         padding: 8px;

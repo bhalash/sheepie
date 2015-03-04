@@ -1,3 +1,20 @@
+/*
+ * Articles and Pages
+ * ------------------
+ * This theme has two main article templates:
+ * 
+ * 1. article-full
+ * 2. article-excerpt
+ * 
+ * As the names hint, one is a full-sized article and the other is an excerpt. 
+ * There is also a placeholder article for missing/404/403 errors that I will 
+ * flesh out later.
+ */
+
+// Colors
+$article_header_text: map-get($colours, text_grey_light);
+$article_image_border: rgba(map-get($colours, code_block_grey), 0.5);
+
 article { 
     header {
         margin-bottom: $bottom_default * 0.5;
@@ -9,11 +26,11 @@ article {
 
     header, footer {
         p, time, small {
-            color: $text_grey_light;
+            color: $article_header_text;
         }
 
         p {
-            font: $sans_stack;
+            font: $font_open_sans;
         }
 
         h4 {
@@ -22,7 +39,7 @@ article {
     }
 
     footer {
-
+        // Left intentionally blank.
     }
 
     h3.title {
@@ -38,7 +55,7 @@ article {
     }
 
     img {
-        border: 1px solid $pre_grey;
+        border: 1px solid $article_image_border;
     }
 
     input {
@@ -57,7 +74,7 @@ article {
     }
 }
 
-article.archive {
+article.excerpt {
     background-size: cover;
     overflow: hidden;
     width: 100%;

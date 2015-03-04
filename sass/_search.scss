@@ -1,9 +1,11 @@
+$form_input_placeholder: map-get($colours, code_block_grey);
+
 form.search {
     font-size: 1.3em;
     margin: 0;
     outline: 0;
 
-    @include placeholder_style($pre_grey, $sans_stack);
+    @include placeholder_style($form_input_placeholder, $font_open_sans);
 
     p {
         margin: 0;
@@ -11,7 +13,7 @@ form.search {
     }
 
     input[type=text] {
-        color: $pre_grey;
+        color: $form_input_placeholder;
         display: inline-block;
         height: 100%;
         padding: 5px;
@@ -19,7 +21,7 @@ form.search {
     }
 
     button[type=submit] {
-        @extend %rmwb-button;
+        @extend %rmwb-button !optional;
         border: 0;
         height: 25px;
         padding: 0 !important;

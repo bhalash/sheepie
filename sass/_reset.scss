@@ -17,6 +17,18 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+/*
+ * Section Colours
+ * ---------------
+ */
+
+$form_border: map-get($colours, text_grey);
+$form_input_focus: map-get($colours, hyperlink_blue);
+$nav_hyperlink_rest: map-get($colours, text_grey_light);
+$table_tr: map-get($colours, text_grey_dark);
+$table_th: map-get($colours, code_block_grey);
+$table_tr_alt: map-get($colours, table_cell_alt_orange);
+
 form {
     input[type=submit], button[type=submit], input, textarea {
         @extend %border-box;
@@ -29,15 +41,43 @@ form {
     }
 
     input, textarea {
-        border: 1px solid $text_grey;
+        border: 1px solid $form_border;
         padding: 3px;
 
         &:focus {
-            border: 1px solid $hyperlink_blue;
+            border: 1px solid $form_input_focus;
         }
     }
 
     textarea {
         width: 100%;
     }
+}
+
+/*
+ * Tables
+ * ------
+ */
+
+table {
+    // Override this width on a per-table basis if you need narrower.
+    max-width: 100%;
+}
+
+td, th {
+    color: $table_tr;
+    padding: $bottom_default;
+}
+
+th {
+    color: #fff;
+    background: $table_th;
+
+    a {
+        color: inherit;
+    }
+}
+
+tr:nth-child(even) { 
+    background: $table_tr_alt;
 }
