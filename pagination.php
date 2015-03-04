@@ -5,7 +5,7 @@ $previous = $paged - 1; ?>
 <nav id="pagination">
     <span class="previous">
         <?php if (is_single()) {
-            next_post_link('&larr; %link');
+            next_post_link('%link', '&larr; %title', false);
         } else {
             previous_posts_link('&larr; Page ' . $previous);
         } ?>
@@ -15,7 +15,7 @@ $previous = $paged - 1; ?>
     <?php endif; ?>
     <span class="next">
         <?php if (is_single()) {
-            previous_post_link('%link &rarr;');
+            previous_post_link('%link', '%title &rarr;', false);
         } else {
             next_posts_link('Page ' . $next . ' &rarr;'); 
         } ?>
