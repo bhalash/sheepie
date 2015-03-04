@@ -17,8 +17,8 @@ nav#pagination {
 
     span.previous, span.next {
         @extend %rmwb-button;
-        // @extend .thin-border;
         position: absolute;
+        top: 0;
     }
 
     span.next {
