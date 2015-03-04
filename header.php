@@ -13,7 +13,7 @@
 </head>
 <body <?php body_class(); ?>>
     <div id="main">
-        <?php if (is_home()) : ?>
+        <?php if (!is_single()) : ?>
             <div <?php printf('%s', (get_query_var('paged') < 2) ? 'class="full-height"' : ''); ?> id="header">
                 <div class="mask">
                     <div class="interior">
