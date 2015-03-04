@@ -22,26 +22,28 @@ $color_bright_blue: #4284fd;
 $color_orange: #f4b44f;
 $color_middle_grey: #ddd;
 $color_silver_grey: #9fa5b1;
-
 $hyperlink_blue: #3399cc;
 // $text_grey: #3a3a3a;
-$text_grey: rgba(0, 0, 0, 0.8);
+// $text_grey: rgba(0, 0, 0, 0.8);
+$text_grey: #3a4145;
 $pre_grey: #333333;
-$light_grey: #eee;
+$light_grey: #ddd;
+$text_grey_light: #9eabb3;
 
 /*
  * Typeface Declarations
  * ---------------------
  */
 
-$header_text_size: 3em;
-$regular_text_size: 0.85em;
+$header_text_size: 3.5em;
+$regular_text_size: 1.05em;
 $fixed_text_size: 0.8em; 
 
 $sans_stack:  $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$serif_stack: $regular_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
+$serif_stack: $regular_text_size 'Merriweather', Georgia, Times, 'Times New Roman', serif;
 $fixed_stack: $fixed_text_size 'Source Code Pro', 'Courier New', Courier, monospace;
-$title_stack: bold $header_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
+// $title_stack: bold $header_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
+$title_stack: bold $header_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
 
 /*
  * Margins and Padding
@@ -54,8 +56,9 @@ $bottom_default: 14px;
 $left_container_width: 30%;
 // Width of right interior content.
 $right_interior_width: 60%;
+$right_interior_max_width: 800px;
 // Default line height.
-$line_default: 1.4em;
+$line_default: 1.6em;
 
 /*
  * Mixins and Partials
