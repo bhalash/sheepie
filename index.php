@@ -1,12 +1,16 @@
 <?php get_header();
     global $paged;
-    $count = 0;
+
+    if (get_query_var('paged') > 1) {
+        get_template_part('pagination');
+        printf('<hr />'); 
+    }
+    
     if (have_posts()) {
         while (have_posts()) {
             the_post();
-            get_template_part('article', ($count == 0 && !is_search()) ? 'full' : 'archive');
+            get_template_part('article', 'archive');
             printf('<hr />');
-            $count++;
         }
     } else {
         get_template_part('article','missing');
