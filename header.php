@@ -11,37 +11,19 @@
     <?php social_meta(); ?>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>  onload="prettyPrint()">
+<body <?php body_class(); ?>>
     <div id="main">
-        <div id="header">
-            <div class="mask">
-                <div class="interior">
-                    <h3><a title="Go home" href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a></h3>
-                    <div class="description">
-                        <p><?php echo get_bloginfo('description'); ?></p>
-                        <nav class="menu">
-                            <?php if (has_nav_menu('sidebar')) {
-                                wp_nav_menu(array(
-                                    'menu_id' => 'sidebar',
-                                    'sort_column' => 'menu_order'
-                                ));
-                            } else {
-                                printf('<p class="menu-warn">Please set your sidebar navigation menu in the <a href="%s">Appearance menu!</a></p>', get_admin_url() . 'nav-menus.php');
-                            } ?>
-                            <div class="nav-search">
-                                <?php get_search_form(); ?>
-                            </div>
-                        </nav>
+        <?php if (is_home()) : ?>
+            <div <?php printf('%s', (get_query_var('paged') < 2) ? 'class="full-height"' : ''); ?> id="header">
+                <div class="mask">
+                    <div class="interior">
+                        <h1><a title="Go home" href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
+                        <div class="description">
+                            <h4><?php echo get_bloginfo('description'); ?></h4>
+                        </div>
                     </div>
-                    <nav class="social">
-                        <ul>
-                            <li class="email"><a title="" href="mailto:mark@bhalash.com"></a></li>
-                            <li class="twitter"><a title="" href="//www.twitter.com/bhalash"></a></li>
-                            <li class="github"><a title="" href="//www.github.com/bhalash"></a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
         <div id="content">
             <div class="interior">
