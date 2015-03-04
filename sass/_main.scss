@@ -8,21 +8,11 @@
 
     #content {
         @extend %border-box;
-        float: right;
-        width: 100% - $left_container_width;
-
-        @include breakpoint(max, 768) {
-            float: none;
-            margin: 0 auto;
-            width: 90%;
-        }
-
-        @include breakpoint(smartphone) {
-            width: 100%;
-        }
+        width: 100%;
 
         .interior {
             margin: 0 auto;
+            max-width: $right_interior_max_width;
             padding: 50px 0;
             position: relative;
             width: $right_interior_width;
