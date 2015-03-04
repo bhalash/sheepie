@@ -13,7 +13,15 @@
 </head>
 <body <?php body_class(); ?>>
     <div id="main">
-        <?php if (!is_single()) : ?>
+        <nav id="top">
+            <ul>
+                <?php if (is_single() || is_page()) : ?>
+                    <li><a href="<?php echo site_url(); ?>">&larr; Home</a></li>
+                <?php endif; ?>
+                <!-- <li class="search"><a title="Search" href="/search">Search</a></li> -->
+            </ul>
+        </nav>
+        <?php if (!is_single() && !is_page()) : ?>
             <div <?php printf('%s', (get_query_var('paged') < 2) ? 'class="full-height"' : ''); ?> id="header">
                 <div class="mask">
                     <div class="interior">
