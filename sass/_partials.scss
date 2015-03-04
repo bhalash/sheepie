@@ -51,8 +51,8 @@
 
  %rmwb-button {
     background: #fff center center/auto 95% no-repeat border-box;
-    border: 2px solid $pre_grey;
-    color: $pre_grey;
+    border-radius: 5px;
+    color: $text_grey_light;
     display: inline-block;
     font: $sans_stack;
     text-align: center;
@@ -60,12 +60,16 @@
     &:hover {
         text-decoration: none;
     }
-
-    &:active {
-        background-color: $pre_grey;
-        color: #fff;
-    }
  }
+
+.thin-border {
+    border: 2px solid #f4f4f4;
+    transition: border-color .2s;
+
+    &:hover {
+        border-color: $light_grey;
+    }
+}
 
 %border-box {
     /* ALL GLORY TO THE BORDER BOX-this is used across the site in a great many
