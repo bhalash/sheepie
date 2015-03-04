@@ -1,18 +1,46 @@
-#pagination {
-    @extend %clearfix;
-    margin-top: $bottom_default * 3;
+nav#pagination {
+    overflow: auto;
+    min-height: 39px;
+    position: relative;
+    text-align: center;
 
-    div:first-child {
-        margin-right: $bottom_default * 0.5;
+    span {
+        color: $text_grey_light;
+        display: inline-block;
+        padding: 8px;
+        text-align: center;
+
+        &:empty {
+            display: none;
+        }
     }
 
-    .previous, .next {
-        float: left;
+    span.previous, span.next {
+        @extend %rmwb-button;
+        // @extend .thin-border;
+        position: absolute;
+    }
+
+    span.next {
+        right: 0;
+    }
+
+    span.previous {
+        left: 0;
+    }
+
+    span.count {
+        @include breakpoint(smartphone) {
+            display: none;
+        }
     }
 
     a {
-        @extend %rmwb-button;
-        min-width: 120px;
-        padding: 8px;
+        color: inherit;
+        text-align: center;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
