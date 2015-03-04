@@ -4,7 +4,8 @@
  */
 
 address, cite, blockquote, dt, dd, input, label, li, option, p, q { 
-    font: $sans_stack;
+    // font: $sans_stack;
+    font: $serif_stack;
 }
 
 a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, 
@@ -32,21 +33,29 @@ address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, optio
  */
 
 h1, h2, h3, h4, h5, h6 {
-    // color: $pre_grey;
     color: $text_grey;
     font: $title_stack;
     margin-bottom: $bottom_default;
 
     a {
         color: inherit;
+
+        &:hover {
+            color: #000;
+        }
     }
 }
 
-h2 { font-size: $header_text_size * 0.84; }
-h3 { font-size: $header_text_size * 0.68; }
-h4 { font-size: $header_text_size * 0.52; }
-h5 { font-size: $header_text_size * 0.36; }
-h6 { font-size: $header_text_size * 0.20; }
+h4, h5, h6, {
+    font: $serif_stack;
+    font-weight: bold;
+}
+
+h2 { font-size: $header_text_size * 0.75; }
+h3 { font-size: $header_text_size * 0.50; }
+h4 { font-size: $header_text_size * 0.35; }
+h5 { font-size: $header_text_size * 0.25; }
+h6 { font-size: $header_text_size * 0.15; }
 
 /*
  * Anchor Elements
@@ -102,8 +111,8 @@ code, input, kbd, pre, pre span, td, th, tt, var {
 }
 
 pre {
-    color: $pre_grey;
-    background-color: $light_grey;
+    color: #fff;
+    background-color: $pre_grey;
     overflow: auto;
     padding: $bottom_default;
     white-space: pre;
