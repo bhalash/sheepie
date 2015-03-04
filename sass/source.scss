@@ -1,34 +1,18 @@
 /*
-Theme Name: Real Men Wear Beards
-Theme URI: https://github.com/bhalash/rmwb
-Author: Mark Grealish
-Author URI: http://www.bhalash.com/
-Description: This is the responsive HTML template for bhalash.com
-Version: 2.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, white, light, dark, two-columns, left-sidebar, fixed-layout, responsive-layout, full-width-template
-*/
-
-/*
  * Colours
  * -------
  */
 
-// TODO: Replace these. 
-$color_dark_red: #ba3434;
-$color_blood_red: #9e3814;
-$color_bright_blue: #4284fd;
-$color_orange: #f4b44f;
-$color_middle_grey: #ddd;
-$color_silver_grey: #9fa5b1;
-$hyperlink_blue: #3399cc;
-// $text_grey: #3a3a3a;
-// $text_grey: rgba(0, 0, 0, 0.8);
-$text_grey: #3a4145;
-$pre_grey: #333333;
-$light_grey: #ddd;
-$text_grey_light: #9eabb3;
+$colours: (
+    table_cell_alt_orange: #f4b44f,
+    strikeout_red: #ba3434,
+    code_block_grey: #333333,
+    border_grey_rest: #f4f4f4,
+    border_grey_active: #ddd,
+    hyperlink_rest: #3399cc,
+    text_grey_dark: rgba(0,0,0,0.8),
+    text_grey_light: #9eabb3
+);
 
 /*
  * Typeface Declarations
@@ -37,13 +21,13 @@ $text_grey_light: #9eabb3;
 
 $header_text_size: 3.5em;
 $regular_text_size: 1.05em;
-$fixed_text_size: 0.8em; 
+$fixed_text_size: 0.8em;
 
-$sans_stack:  $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$serif_stack: $regular_text_size 'Merriweather', Georgia, Times, 'Times New Roman', serif;
-$fixed_stack: $fixed_text_size 'Source Code Pro', 'Courier New', Courier, monospace;
-// $title_stack: bold $header_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
-$title_stack: bold $header_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font_open_sans: $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font_merriweather: $regular_text_size 'Merriweather', Georgia, Times, 'Times New Roman', serif;
+$font_source_code_pro: $fixed_text_size 'Source Code Pro', 'Courier New', Courier, monospace;
+$font_open_sans_title: bold $header_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font_bitter_title: bold $header_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
 
 /*
  * Margins and Padding
@@ -52,13 +36,8 @@ $title_stack: bold $header_text_size 'Open Sans', Verdana, Geneva, sans-serif, s
 
 // Default bottom margin of all elements.
 $bottom_default: 14px;
-// Width of sidebar. Right container is 100% - this.
-$left_container_width: 30%;
-// Width of right interior content.
-$right_interior_width: 60%;
-$right_interior_max_width: 800px;
 // Default line height.
-$line_default: 1.6em;
+$line_height_default: 1.6em;
 
 /*
  * Mixins and Partials
@@ -78,7 +57,7 @@ $line_default: 1.6em;
 @import 'main';
 @import 'header';
 @import 'single';
-@import 'pagination';
+@import 'nav';
 @import 'comments';
 @import 'search';
 @import 'share';
