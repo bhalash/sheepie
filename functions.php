@@ -116,30 +116,33 @@
 
     function rmwb_scripts() {
         wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true);
-        wp_enqueue_script('rmwb-prettify', get_stylesheet_directory_uri() . '/js/prettify.js', array('jquery'), '1.0', true);
     }
 
     function rmwb_styles() {
-        wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Bitter|Roboto+Condensed|Source+Code+Pro');
+        wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,700,800|Bitter|Roboto+Condensed|Source+Code+Pro');
         wp_enqueue_style('google-fonts');
         // Main style.
         wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
-        // Google code prettifier.
-        wp_enqueue_style('code-prettify', get_stylesheet_directory_uri() . '/prettify.css');
     }
 
     function rmwb_menu() {
         register_nav_menu('sidebar-menu',__('Sidebar Menu'));
     }
 
-    function search_results_count($page_num, $total_results) {
-        // Displays 'x to y of z' in search results.
-        $page_num = ($page_num == 0) ? 1 : $page_num;
+    function archive_page_count($page_num = null, $total_results = null) {
+        if ($page_num == '') {
+            $page_num = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        }
+
+        if ($total_results == '') {
+            // if (is_home()) {
+                $total_results = wp_count_posts('post', 'readable')->publish;
+            // }
+        }
+
         $posts_per_page = get_option('posts_per_page');
-        $count_high = $page_num * $posts_per_page;
-        $count_low  = ($count_high - $posts_per_page) + 1;
-        $count_high = ($count_high > $total_results) ? $total_results : $count_high;
-        return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
+        $total_pages = ceil($total_results / $posts_per_page);
+        echo 'Page ' . $page_num . ' of ' . $total_pages;
     }
 
     function content_first_image() {
