@@ -22,14 +22,15 @@
             </ul>
         </nav>
         <?php if (!is_single() && !is_page()) : ?>
-            <div <?php printf('%s', (get_query_var('paged') < 2) ? 'class="full-height"' : ''); ?> id="header">
-                <div class="mask">
-                    <div class="interior">
-                        <h1><a title="Go home" href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
-                        <div class="description">
-                            <h4><?php echo get_bloginfo('description'); ?></h4>
-                        </div>
+            <div <?php printf('%s', (get_query_var('paged') < 2 && is_home()) ? 'class="full-height"' : ''); ?> id="header">
+                <div class="interior">
+                    <h1><a title="Go home" href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
+                    <div class="description">
+                        <h4><?php echo get_bloginfo('description'); ?></h4>
                     </div>
+                </div>
+                <div class="prompt">
+                    <span><a href="#content">&#8964;</a></span>
                 </div>
             </div>
         <?php endif; ?>
