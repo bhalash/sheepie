@@ -59,8 +59,8 @@ h4, h5, h6, {
     // font-weight: bold;
 }
 
-h2 { font-size: $header_text_size * 0.75; }
-h3 { font-size: $header_text_size * 0.50; }
+h2 { font-size: $header_text_size * 0.65; }
+h3 { font-size: $header_text_size * 0.45; }
 h4 { font-size: $header_text_size * 0.35; }
 h5 { font-size: $header_text_size * 0.25; }
 h6 { font-size: $header_text_size * 0.15; }
@@ -157,7 +157,7 @@ q {
 hr {
     background: $border_rest;
     height: 1px;
-    margin: $bottom_default * 2 0 $bottom_default * 2 0;
+    margin: $bottom_default 0;
     width: 100%;
 }
 
