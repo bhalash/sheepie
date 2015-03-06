@@ -88,55 +88,6 @@ $rmwb_border_color_active: map-get($colours, light_grey);
     padding: 0;
 }
 
-/* 
- * Flexible Columns
- * ----------------
- * Used in the site's footer. These ultimately weren't used on the index page as
- * the final layout was rather convoluted. 
-*/
-
-.split {
-    @extend %clearfix;
-}
-
-.twothirds {
-    width: 66%;
-}
-
-.onethird {
-    width: 33%;
-}
-
-.quarter {
-    width: 25%; 
-}
-
-.half {
-    width: 50%;
-}
-
-.onefifth {
-    width: 66%;
-}
-
-.twothirds, .onethird, .quarter, .half, .onefifth {
-    @extend %border-box;
-    float: left;
-    height: 100%;
-    min-height: 1px;
-    padding-right: $bottom_default;
-
-    &:last-child {
-        padding-right: 0;
-    }
-
-    @include breakpoint(smartphone) {
-        float: none;
-        margin-bottom: $bottom_default;
-        width: 100%;
-    } 
-}
-
 /*
  * Text Element Columns
  * --------------------
