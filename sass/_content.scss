@@ -1,0 +1,36 @@
+#main { 
+    @extend %clearfix;
+    width: 100%;
+
+    .interior {
+        @extend %clearfix;
+    }
+}
+
+#content {
+    @extend %border-box;
+    width: 100%;
+
+    .interior {
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 50px 0;
+        position: relative;
+        width: 75%;
+
+        @include breakpoint(max, 1024) {
+            padding: 30px 0;
+            width: 95%;
+        }
+    }
+}
+
+/*
+ * Miscellaneous Containers
+ * ------------------------
+ */
+
+.mask {
+    @extend %rmwb-gradient;
+    height: 100%;
+}
