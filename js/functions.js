@@ -1,6 +1,19 @@
 jQuery(function($) {
     'use strict';
     /*
+     * Cover Scroll Prompt
+     * -------------------
+     */
+
+    $('#header .prompt').click(function() {
+        $('html, body').animate({ 
+            scrollTop: $('#content').offset().top
+        }, 500);
+
+        return false;
+    });
+
+    /*
      * Search Form Focusing
      * --------------------
      */
