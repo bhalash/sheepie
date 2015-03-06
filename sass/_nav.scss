@@ -20,12 +20,10 @@ nav {
         color: $nav_hyperlink_rest;
         font: $font_open_sans;
         font-size: 0.85em;
-        text-transform: capitalize;
     }
 
     a {
         display: block;
-        font-size: 100%;
 
         &:hover {
             text-decoration: none;
@@ -47,9 +45,18 @@ nav#top {
     top: 0;
     z-index: 2;
 
+    @include breakpoint(smartphone) {
+        border-bottom: 1px solid map-get($colours, border_grey_rest);
+        position: initial;
+    }
+
     li {
         margin: 3px;
         padding: 25px;
+
+        @include breakpoint(smartphone) {
+            // padding: 10px;
+        }
     }
 
     .search {
@@ -65,38 +72,50 @@ nav#top {
  */
 
 nav#pagination {
-    overflow: auto;
-    min-height: 39px;
-    position: relative;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    a {
+        display: inline-block;
+    }
+
+    div { 
+        flex: 0 1 33.3%;
+
+        @include breakpoint(smartphone) {
+            flex: 0 1 50%;
+        }
+    }
 
     span {
         color: $nav_span_grey;
         white-space: nowrap;
+    }
+
+    div[class^=next] {
+        text-align: right;  
+    }
+
+    div.count {
+        text-align: center;
+
+        @include breakpoint(smartphone) {
+            display: none;
+        }
 
         &:empty {
             display: none;
         }
+
     }
 
-    span.previous, span.next {
-        position: absolute;
-        top: 0;
-    }
+    div.previous-post, div.next-post {
+        flex: 0 1 50%;
 
-    span.next {
-        right: 0;
-    }
-
-    span.previous {
-        left: 0;
-    }
-
-    span.count {
-        padding-top: 1px;
-        
         @include breakpoint(smartphone) {
-            display: none;
+            flex: 0 1 100%;
+            white-space: normal;
         }
     }
 }
