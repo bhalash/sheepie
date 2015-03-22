@@ -1,0 +1,196 @@
+/*
+ * Comments
+ * --------
+ */
+
+/*
+ * Colours
+ * -------
+ */
+ 
+$comment_alt_background: map-get($colours, text_grey_dark);
+$comment_header_text: map-get($colours, text_grey_light);
+
+/*
+ * Margins and Padding 
+ * -------------------
+ */
+
+$comment_full_margin: $bottom_default;
+$comment_half_margin: $bottom_default * 0.5;
+$comment_padding: 20px;
+
+/*
+ * Reader Comments
+ * ---------------
+ */
+
+#comments {
+    ul {
+        @extend %zero;
+        position: relative;
+    }
+
+    h5.reply-title {
+        margin-bottom: $comment_full_margin;
+    }
+}
+
+/*
+ * Comment Layout
+ * --------------
+ * I hate WordPress comments. Grumble.
+ */
+
+.comment, .comment header {
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+}
+
+.comment {
+    @extend %border-box;
+    list-style-type: none;
+    padding: $comment_padding 0;
+
+    &:not(:first-child) {
+        @extend %border-light;
+        border-width: 1px 0 0 0;
+    }
+
+    header p, .comment-interior {
+        @include prefix(flex, 1);
+    }
+
+    header {
+        @include breakpoint(portrait) {
+            @include prefix(flex-direction, column);
+            margin-bottom: $comment_half_margin;
+        }
+
+        p {
+            color: $comment_header_text;
+
+            @include breakpoint(portrait) {
+                margin: 0;
+            }
+        }
+
+        .date {
+            text-align: right;
+
+            @include breakpoint(portrait) {
+                text-align: left;
+            }
+        }
+
+    }
+
+    footer p {
+        margin: 0; 
+    }
+
+    a.avatar-wrapper {
+        margin-right: $comment_full_margin;
+        @include prefix(flex, 0 1 75px);
+
+        @include breakpoint(smartphone) {
+            @include prefix(flex, 0 1 45px);
+        }
+
+        img {
+            @extend %border-light;
+            border-radius: 50%;
+
+            @include breakpoint(smartphone) {
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
+
+    div.comment-body {
+        p {
+            font-size: 85%;
+        }
+    }
+}
+
+.focused-comment {
+    @extend %box-shadow-heavy;
+    border: 0;
+    left: -$comment_padding;
+    padding-left: $comment_padding;
+    padding-right: $comment_padding;
+    // position: absolute;
+    position: relative;
+    width: calc(100% + #{$comment_padding} * 2);
+}
+
+/*
+ * Comment Input Form
+ * ------------------
+ */
+
+#commentform {
+    @extend %clearfix;
+    width: 100%;
+
+    input, textarea {
+        @extend %border-light;
+        padding: $comment_half_margin;
+
+        &:not(textarea) {
+            margin-bottom: $comment_half_margin;
+        }
+
+        &:focus {
+            @extend %border-heavy;
+        }
+    }
+
+    .commentform-inputs {
+        // Wrapper container for the inputs on the commentform.
+        @include prefix_value(display, flex);
+        @include prefix(flex-direction, row);
+
+        @include breakpoint(smartphone) {
+            @include prefix(flex-direction, column);
+        }
+
+        input {
+            @include prefix(flex, 1);
+
+            &:not(:last-of-type) {
+                margin-right: $comment_half_margin;
+
+                @include breakpoint(smartphone) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    textarea {
+        height: 100px;
+
+        @include breakpoint(smartphone) {
+            // width: 99%;
+        }
+    }
+
+    p.form-submit {
+        margin-bottom: 0;
+    }
+
+    input[type=submit] {
+        height: 35px;
+        max-width: 149px;
+        padding: 8px;
+    }
+}
+
+#commentform > *:not(#textarea) {
+    /* Hide the comment form until someone clicks into it. No need to have it 
+     * be too obvious. ;) */ 
+    // display: none;
+}

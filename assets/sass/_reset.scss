@@ -30,22 +30,18 @@ $table_th: map-get($colours, code_block_grey);
 $table_tr_alt: map-get($colours, table_cell_alt_orange);
 
 form {
-    input[type=submit], button[type=submit], input, textarea {
+    button, input, textarea {
+        // Reset appearance across all browsers.
         @extend %border-box;
+        @extend %zero;
         -webkit-appearance: none;
         -webkit-border-radius: 0;
         border-radius: 0;
         border: 0;
-        margin: 0;
         outline: 0;
-    }
-
-    input, textarea {
-        border: 1px solid $form_border;
-        padding: 3px;
 
         &:focus {
-            border: 1px solid $form_input_focus;
+            outline: 0;
         }
     }
 
