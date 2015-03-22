@@ -34,12 +34,18 @@
         html.classList.add('webkit');
     }
 
+    if (/trident/.test(agent)) {
+        // Internet Explorer
+        html.classList.add('internet-explorer');
+    }
+
     if (/chrome/.test(agent)) {
         // Google Chrome
         html.classList.add('chrome');
     }
 
     if (/firefox/.test(agent)) {
+        // Mozilla Firefox
         html.classList.add('firefox');
     }
 })();
