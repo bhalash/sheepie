@@ -1,8 +1,8 @@
 @mixin breakpoint($point, $size: '') {
-    $cell_min: 320px;
-    $cell_max: 736px;
+    $cell_min: 200px;
+    $cell_max: 599px;
 
-    $tablet_min: 736px;
+    $tablet_min: 600px;
     $tablet_max: 1024px;
 
     @if $point == smartphone {
@@ -44,18 +44,34 @@
     }
 }
 
-@mixin translate($x, $y) {
-    -moz-transform: translate($x, $y);
-    -ms-transform: translate($x, $y);
-    -webkit-transform: translate($x, $y);
-    transform: translate($x, $y);
+@mixin prefix($property, $value) {
+    // Automatically add vendor prefixes to a CSS property.
+    // Mozilla Firefox.
+    -moz-#{$property}: $value;
+    // Microsoft Internet Explorer.
+    -ms-#{$property}: $value;
+    // Webkit Browsers (Chrome, Safari);
+    -webkit-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin prefix_value($property, $value) {
+    // Automatically add vendor prefixes to a CSS value.
+    // Mozilla Firefox.
+    #{$property}: -moz-#{$value};
+    // Microsoft Internet Explorer.
+    #{$property}: -ms-#{$value};
+    // Webkit Browsers (Chrome, Safari);
+    #{$property}: -webkit-#{$value};
+    #{$property}: $value;
 }
 
 @mixin cover_image($image) {
-    background-position: center 20%;
+    // background-position: center 20%;
+    background-image: url($image);
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; 
-    background-image: url($image);
 }
 
 @mixin flex_size($width, $ratio) {
@@ -72,12 +88,6 @@
     padding-top: $amount;
 }
 
-@mixin box_shadow($shadow) {
-    -webkit-box-shadow: $shadow;
-    -moz-box-shadow: $shadow;
-    box-shadow: $shadow;
-}
-
 @function rgba_opposite($red: 255, $green: 255, $blue: 255, $alpha: 0) {
     // I do not intend for this to be called directly. 
     // This function inverts RGB colours.
@@ -90,46 +100,31 @@
 }
 
 @mixin columns($count, $gap) {
-    // Mozilla Firefox
-    -moz-column-count: $count;
-    -moz-column-gap: $gap;
-    // Webkit Browsers.
-    -webkit-column-count: $count;
-    -webkit-column-gap : $gap;
-    // CSS 3
-    column-count: $count;
-    column-gap: $gap;
+    @include prefix(column-count, $count);
+    @include prefix(column-gap, $gap);
 }
 
-@mixin placeholder_style($color, $font: '') {
-    // See: http://css-tricks.com/snippets/css/style-placeholder-text/
-    input[placeholder], textarea[placeholder] {
-        color: $color;
-        font: $font;
+@mixin placeholder_style() {
+    &::-webkit-input-placeholder {
+       @content;
     }
 
-    input::-moz-placeholder {
-        // Mozilla Firefox 19+
-        color: $color;
-        font: $font;
+    &::-webkit-input-placeholder {
+        @content;
     }
 
-    input:-moz-placeholder {
-        // Mozilla Firefox 19+
-        color: $color;
-        font: $font;
+    &:-moz-placeholder {
+        @content;
+        opacity: 1;
     }
 
-    input:-ms-input-placeholder {
-        // Internet Explorer 10+
-        color: $color;
-        font: $font;
+    &::-moz-placeholder {
+        @content;
+        opacity: 1;
     }
 
-    input::-webkit-input-placeholder {
-        // Webkit browsers-Chrome and Opera
-        color: $color;
-        font: $font;
+    &:-ms-input-placeholder {
+        @content;
     }
 }
 

@@ -10,6 +10,53 @@ $rmwb_border_color_rest: map-get($colours, text_grey);
 $rmwb_border_color_active: map-get($colours, light_grey);
 
 /*
+ * Borders and Box Shadows
+ * -----------------------
+ */
+
+%border-light {
+    border: 1px solid map-get($colours, border_grey_rest);
+}
+
+%border-heavy {
+    border: 1px solid map-get($colours, pre_grey);
+}
+
+%box-shadow-heavy {
+    @include prefix(box-shadow, 0 0 6px map-get($colours, pre_grey));
+}
+
+/*
+ * Content Padding
+ * ---------------
+ */
+
+%padded-content {
+    padding-left: 30%;
+    padding-right: 30%;
+
+    @include breakpoint(max, 1500) {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    @include breakpoint(max, 1200) {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    @include breakpoint(max, 900) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    @include breakpoint(smartphone) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/*
  * Shadows and Gradients
  * ---------------------
  */
@@ -33,13 +80,6 @@ $rmwb_border_color_active: map-get($colours, light_grey);
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-%top-box-shadow {
-    // Add a box shadow to the top of an element.
-    -webkit-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);
-    box-shadow: 0 0 60px 20px rgba(0,0,0,0.75);    
 }
 
 %no-box-shadow {
@@ -108,39 +148,5 @@ $rmwb_border_color_active: map-get($colours, light_grey);
 .text-two, .text-three, .text-four {
     @include breakpoint(smartphone) {
         @include columns(1,0);
-    }
-}
-
-/*
- * Team Member Split Columns
- * -------------------------
- * The padding and margin are both important in having the content laid out in a
- * pleasing manner.
- */
-
-%three {
-    // If there are three team members.
-    width: 32.667%;
-
-    &:not(:last-child) {
-        margin-right: 1%;
-    }
-}
-
-%four {
-    // If there are four team members.
-    width: 23.5%;
-
-    &:not(:last-child) {
-        margin-right: 2%;
-    }
-}
-
-%three, %four {
-    @include breakpoint(smartphone) {
-        float: none;
-        margin: 0;
-        margin-bottom: $bottom_default;
-        width: 100%;
     }
 }
