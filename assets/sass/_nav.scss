@@ -1,0 +1,172 @@
+/*
+ * Nav Elements
+ * ------------
+ */
+
+// Colours
+$nav_span_grey: map-get($colours, text_grey_light);
+
+nav {
+    ul {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    li, span, a {
+        font: $font_open_sans;
+        font-size: 0.85em;
+    }
+
+    a {
+        display: block;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/*
+ * Site Top Navigation
+ * -------------------
+ */
+
+nav#top-menu {
+    @extend %padded-content;
+    background: transparent;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    ul {
+        margin: 0 auto;
+    }
+
+    li {
+        color: #fff;
+        padding: 15px;
+    }
+
+    a {
+        color: inherit;
+
+        &:hover {
+            color: map-get($colours, hyperlink_rest);
+        }
+    }
+}
+
+/*
+ * Site Top Navigation
+ * -------------------
+ */
+
+$social: (
+    comments: (#30b351, '../images/social/social-comments.png'),
+    email: (#f5756c, '../images/social/social-email.png'),
+    facebook: (#3B5998, '../images/social/social-facebook.png'),
+    flickr: (#ff0084, '../images/social/social-flickr.png'),
+    github: (#666666, '../images/social/social-github.png'),
+    google: (#dd4b39, '../images/social/social-google.png'),
+    instagram: (#3f729b, '../images/social/social-instagram.png'),
+    linkedin: (#0976b4, '../images/social/social-linkedin.png'),
+    pinterest: (#cc2127, '../images/social/social-pinterest.png'),
+    print: (#007aaf, '../images/social/social-print.png'),
+    reddit: (#ff5700, '../images/social/social-reddit.png'),
+    rmwb: (#343537, '../images/social/social-beard.png'),
+    rss: (#ff6600, '../images/social/social-rss.png'),
+    tumblr: (#35465c, '../images/social/social-tumblr.png'),
+    twitter: (#55acee, '../images/social/social-twitter.png'),
+    youtube: (#b31217, '../images/social/social-youtube.png')
+);
+
+
+nav#top-social {
+    ul {
+        text-align: center;
+
+        @include breakpoint(portrait) {
+            text-align: left;
+        }
+    }
+
+    ul, li, a {
+        font-size: 0;
+    }
+
+    a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        font-size: 0;
+        @include flex_size(40px, 1);
+    }
+
+    @each $value, $key in $social {
+        a[href*="#{$value}"] {
+            // background-color: nth($key, 1);
+            background-image: url(nth($key, 2));
+        }
+    }
+}
+
+/*
+ * Pagination
+ * ----------
+ * There is pagination for both individual posts and for the site itself.
+ */
+
+nav#pagination {
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, wrap);
+
+    padding: 7px 0;
+
+    a {
+        display: inline-block;
+    }
+
+    div { 
+        @include prefix(flex, 1);
+    }
+
+    span {
+        color: $nav_span_grey;
+        white-space: nowrap;
+    }
+
+    div[class^=next] {
+        text-align: right;  
+    }
+
+    div.count {
+        text-align: center;
+
+        @include breakpoint(smartphone) {
+            display: none;
+        }
+
+        &:empty {
+            display: none;
+        }
+
+    }
+
+    div.previous-post, div.next-post {
+        @include breakpoint(smartphone) {
+            white-space: normal;
+        }
+    }
+}
+
+.nav-box-shadow {
+    @include prefix(box-shadow, 0px -5px 39px -17px rgba(0,0,0,0.95));
+}
