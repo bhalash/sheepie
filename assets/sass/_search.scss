@@ -5,7 +5,9 @@ form.search {
     margin: 0;
     outline: 0;
 
-    @include placeholder_style($form_input_placeholder, $font_open_sans);
+    @include placeholder_style() {
+        color: $form_input_placeholder;
+    }
 
     p {
         margin: 0;
