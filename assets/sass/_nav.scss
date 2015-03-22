@@ -91,7 +91,7 @@ nav#top-social {
     ul {
         text-align: center;
 
-        @include breakpoint(portrait) {
+        @include breakpoint(smartphone) {
             text-align: left;
         }
     }

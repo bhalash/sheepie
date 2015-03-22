@@ -22,7 +22,7 @@
         color: #fff;
         text-align: center;
 
-        @include breakpoint(portrait) {
+        @include breakpoint(smartphone) {
             text-align: left;
         }
     }

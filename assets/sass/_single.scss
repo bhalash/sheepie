@@ -48,7 +48,7 @@ div.article-photobox {
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
 
-    @include breakpoint(portrait) {
+    @include breakpoint(smartphone) {
         @include prefix(flex-direction, column);
     }
 
@@ -162,7 +162,7 @@ div.related-articles {
     @include prefix(flex-direction, row);
     @include prefix(flex-wrap, nowrap);
 
-    @include breakpoint(portrait) {
+    @include breakpoint(smartphone) {
         @include prefix(flex-direction, column);
     }
 }
