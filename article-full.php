@@ -1,4 +1,4 @@
-<article <?php post_class(); ?> id="article-<?php the_ID(); ?>">
+<article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
     <header>
         <?php if (!is_single()) : ?>
             <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
