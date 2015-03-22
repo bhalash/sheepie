@@ -8,20 +8,20 @@
 }
 
 #content {
-    @extend %border-box;
+    $content_top_padding: 35px;
+
+    padding-top: $header_height;
     width: 100%;
 
-    .interior {
+    .content {
+        @extend %padded-content;
+        @extend %border-box;
+        background: #fff;
         margin: 0 auto;
-        max-width: 900px;
-        padding: 50px 0;
+        padding-top: $content_top_padding;
+        padding-bottom: $content_top_padding;
         position: relative;
-        width: 75%;
-
-        @include breakpoint(max, 1024) {
-            padding: 30px 0;
-            width: 95%;
-        }
+        width: 100%;
     }
 }
 
