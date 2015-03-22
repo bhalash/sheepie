@@ -36,6 +36,9 @@ nav {
  */
 
 nav#top-menu {
+    $nav_anchor_padding: 15px;
+    $nav_child_anchor_padding: 7px; 
+
     @extend %padded-content;
     background: transparent;
     left: 0;
@@ -44,22 +47,68 @@ nav#top-menu {
     top: 0;
     z-index: 2;
 
+    a {
+        color: inherit;
+        padding: $nav_anchor_padding;
+    }
+
     ul {
-        margin: 0 auto;
+        // First level of menu.
+        position: relative;
+
+        ul {
+            // Second level of menu.
+            display: none;
+            left: 0;
+            position: absolute;
+            top: 100%;
+
+            a {
+                // Second level anchor.
+                padding: $nav_child_anchor_padding;
+            }
+        }
     }
 
     li {
+        // This colour is overridden by nav.js.
         color: #fff;
-        padding: 15px;
-    }
-
-    a {
-        color: inherit;
 
         &:hover {
+            background: inherit;
+        }
+
+        &:hover > a {
+        /* If I changed the anchor colour via JS then the hover colour would 
+         * also be changed. This is a roundabout way to ensure consistent colour
+         * on hover without having to tediously reset it constnatly. */
             color: map-get($colours, hyperlink_rest);
         }
+
+        &:hover > ul {
+            display: block;
+        }
+
+        &:hover li {
+            // background: #fff;
+        }
+
+        li {
+            display: block;
+            font-size: 100%;
+            margin-left: $nav_anchor_padding;
+            white-space: nowrap;
+
+            li {
+                margin-left: $nav_anchor_padding * 2;
+            }
+        }
     }
+}
+
+.menu-item-has-children > a:after {
+    color: inherit;
+    content: ' ↓';
 }
 
 /*
@@ -119,16 +168,12 @@ nav#top-social {
  * There is pagination for both individual posts and for the site itself.
  */
 
-nav#pagination {
+nav.pagination {
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
     @include prefix(flex-wrap, wrap);
 
     padding: 7px 0;
-
-    a {
-        display: inline-block;
-    }
 
     div { 
         @include prefix(flex, 1);
@@ -139,7 +184,7 @@ nav#pagination {
         white-space: nowrap;
     }
 
-    div[class^=next] {
+    div[class^=next] a {
         text-align: right;  
     }
 
