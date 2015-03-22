@@ -30,11 +30,13 @@
         'id_form' => 'commentform',
         'id_submit' => 'submit',
         'title_reply' => '',
-        'comment_field' => '<p id="textarea"><textarea aria-required="true" class="comment-form-comment" id="comment" name="comment"></textarea></p>',
+        'comment_field' => '<p id="textarea"><textarea autocomplete="off" class="comment-form-comment" id="comment" name="comment" required></textarea></p>',
+        'comment_form_before_fields' => '<div class="argh">',
+        'comment_form_after_fields' =>'</div>',
         'fields' => array(
-            'author' => '<input aria-required="true" class="author-name" id="comment-author" name="author" placeholder="Name*" type="text" required>',
-            'email' => '<input aria-required="true" class="author-email" id="comment-email" name="email" placeholder="Email*" type="text" required>',
-            'url' => '<input aria-required="false" class="author-url" id="comment-url" name="url" placeholder="Website" type="text">'
+            'author' => '<input class="author-name" id="comment-author" name="author" placeholder="Name*" type="text" required>',
+            'email' => '<input class="author-email" id="comment-email" name="email" placeholder="Email*" type="text" required>',
+            'url' => '<input class="author-url" id="comment-url" name="url" placeholder="Website" type="text">'
         )
     ));
 
