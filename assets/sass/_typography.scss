@@ -53,10 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h4, h5, h6, {
-    // font: $font_merriweather;
     font: $font_open_sans;
     font-weight: 100;
-    // font-weight: bold;
 }
 
 h2 { font-size: $header_text_size * 0.65; }
@@ -105,10 +103,7 @@ pre {
 
 small, sub, sup, .wp-caption-text { 
     font-size: 70%; 
-
-    @include breakpoint(max, 768) {
-        font-size: 85%;
-    }
+    line-height: initial;
 }
 
 sup { 
@@ -216,5 +211,8 @@ ins {
 }
 
 form {
-    @include placeholder_style($text_default_grey, $font_open_sans);
+    @include placeholder_style() {
+        color: $text_default_grey;
+        font: $font_open_sans;
+    }
 }

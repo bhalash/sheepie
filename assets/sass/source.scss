@@ -20,7 +20,7 @@ $colours: (
  */
 
 $header_text_size: 3.5em;
-$regular_text_size: 1em;
+$regular_text_size: 0.95em;
 $fixed_text_size: 0.8em;
 
 $font_open_sans: $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
@@ -38,6 +38,7 @@ $font_bitter_title: bold $header_text_size 'Bitter', Georgia, Times, 'Times New 
 $bottom_default: 14px;
 // Default line height.
 $line_height_default: 140%;
+$header_height: 50vh;
 
 /*
  * Mixins and Partials
