@@ -5,34 +5,39 @@
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; ?>
-    <title><?php wp_title('/', true, 'left'); ?></title>
+    <?php // FIXME ?>
+    <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
     <?php social_meta(); ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+    <nav id="top-menu">
+        <?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
+    </nav>
     <div id="main">
-        <nav id="top">
-            <ul>
-                <?php if (is_single() || is_page()) : ?>
-                    <li><a href="<?php echo site_url(); ?>">&larr; Home</a></li>
-                <?php endif; ?>
-                <!-- <li class="search"><a title="Search" href="/search">Search</a></li> -->
-            </ul>
-        </nav>
-        <?php if (!is_single() && !is_page()) : ?>
-            <div <?php printf('%s', (get_query_var('paged') < 2 && is_home()) ? 'class="full-height"' : ''); ?> id="header">
-                <div class="interior">
-                    <h1><a title="Go home" href="<?php echo site_url(); ?>"><?php echo get_bloginfo('name'); ?></a></h1>
-                    <div class="description">
-                        <h4><?php echo get_bloginfo('description'); ?></h4>
-                    </div>
-                </div>
-                <div class="prompt">
-                    <span><a href="#content">&#8964;</a></span>
-                </div>
+        <div id="header">
+            <?php // Header navigation. ?>
+            <div id="titles">
+                <h2>
+                    <?php if(!is_single()) : ?>
+                        <a title="Go home" href="<?php printf(site_url()); ?>"><?php bloginfo('name'); ?></a>
+                    <?php else : ?>
+                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                    <?php endif; ?>
+                </h2>
+                <p>
+                    <?php if(!is_single()) : ?>
+                        <?php bloginfo('description'); ?>
+                    <?php else : ?>
+                        <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?>
+                    <?php endif; ?>
+                </p>
+                <nav id="top-social">
+                    <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
+                </nav>
             </div>
-        <?php endif; ?>
+        </div>
         <div id="content">
-            <div class="interior">
+            <div class="content">
