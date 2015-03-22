@@ -21,7 +21,7 @@
 
     $fallback = array(
         'publisher' => 'http://www.bhalash.com',
-        'image' => get_template_directory_uri() . '/images/polaris.jpg',
+        'image' => get_template_directory_uri() . '/assets/images/lightning.jpg',
         'description' => get_bloginfo('description'),
         'twitter' => '@bhalash'
     );
@@ -96,6 +96,11 @@
         }
     }
 
+    /*
+     * Clean Search URL
+     * ----------------
+     */
+
     function clean_search_url() {
         // See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
         if (is_search() && ! empty($_GET['s'])) {
@@ -103,6 +108,11 @@
             exit();
         }
     }
+
+    /*
+     * Theme Custom Excerpt
+     * --------------------
+     */
 
     function rmwb_excerpt() {
         $excerpt = get_the_content(); 
@@ -114,9 +124,10 @@
         return $excerpt;
     }
 
-    function rmwb_scripts() {
-        wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/js/functions.js', array('jquery'), '1.0', true);
-    }
+    /*
+     * Register Theme Scripts and Stylesheets
+     * --------------------------------------
+     */
 
     function google_font_url() {
         $google_fonts = array(
@@ -141,6 +152,11 @@
         return $g_string;
     }
 
+    function rmwb_scripts() {
+        wp_enqueue_script('rmwb-browser-detect', get_stylesheet_directory_uri() . '/assets/js/browser_detect.js', '', '1.0', true);
+        wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/assets/js/functions.js', array('jquery'), '1.0', true);
+    }
+
     function rmwb_styles() {
         wp_register_style('google-fonts',  google_font_url());
         wp_enqueue_style('google-fonts');
@@ -148,9 +164,14 @@
         wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
     }
 
-    function rmwb_menu() {
-        register_nav_menu('sidebar-menu',__('Sidebar Menu'));
-    }
+    // Enqueue all scripts and stylesheets.
+    add_action('wp_enqueue_scripts', 'rmwb_styles');
+    add_action('wp_enqueue_scripts', 'rmwb_scripts');
+
+    /*
+     * Pagination Post Counter
+     * -----------------------
+     */
 
     function archive_page_count($page_num = null, $total_results = null) {
         if ($page_num == '') {
@@ -168,6 +189,11 @@
         echo 'Page ' . $page_num . ' of ' . $total_pages;
     }
 
+    /*
+     * Get First Image from Article Content
+     * ------------------------------------
+     */
+
     function content_first_image() {
         // See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
         global $post, $posts, $fallback;
@@ -178,30 +204,11 @@
         return (!empty($first_image)) ? $first_image : $fallback['image'];
     }
 
-    function rmwb_title($title, $sep) {
-        // See: https://tommcfarlin.com/filter-wp-title/
-        global $paged, $page;
-
-        if (is_single() || is_page()) {
-            return substr($title, 2);
-        }
-
-        if (!is_search()) {
-            $title .= get_bloginfo('name');
-        }
-
-        if (is_home() || is_front_page()) {
-            if (0 == $paged) {
-                return $title;   
-            } else {
-                return $title .= " $sep " . $paged;
-            }
-        }
-
-        return substr($title, 2);
-    }
-
-    add_filter('wp_title', 'rmwb_title', 10, 2);
+    /*
+     * Calculate Article Reading Time
+     * ------------------------------
+     * See: http://www.bhalash.com/archives/13544802870
+     */
 
     function rmwb_reading_seconds($post) {
         // Word count to seconds reading time, based on 300 WPM.
@@ -223,9 +230,9 @@
     }
 
     function rmwb_minutes_to_words($minutes) {
-        // Converts a given minutes time to words.
-        // Only does up to ninety-nine minutes.
-        // Honestly, if your article's reading time is above that, you've gone wrong somewhere.
+        /* Converts a given minutes time to words. Only does up to 99 minutes,
+         * because, honestly, if your article's reading time is above that, then
+         * you've gone wrong somewhere. */
         $time_word = '';
 
         $singles = array(
@@ -279,6 +286,11 @@
         return ucfirst($time_word) . $min_word;
     }
 
+    /*
+     * Register Theme Widget Areas
+     * ---------------------------
+     */
+
     function sidebar_widgets_init() {
         // Wordpress dynamic sidebar.
         register_sidebar(array(
@@ -291,40 +303,88 @@
         ));
     }
 
-    function rmwb_comments($comment, $args, $depth) {
-        // Custom comment output.
-        $GLOBALS['comment'] = $comment; ?>
-        <li class="comment <?php comment_class(); ?>" id="li-comment-<?php comment_ID() ?>">
-            <h4 class="author"><?php echo get_comment_author_link(); ?></h4>
-            <p>
-                <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?>
-                <?php edit_comment_link(__('edit'),'  ',''); ?>
-            </p>
-            <?php if ($comment->comment_approved == '0') : ?>
-                <p><?php _e('Your comment has been held for moderation.') ?></p>
-            <?php endif;
-            comment_text();
-    }
+    add_action('widgets_init', 'sidebar_widgets_init');
+
+    /*
+     * Register Theme Navigation Menus
+     * -------------------------------
+     */
 
     function rmwb_nav() {
+        // Register navigation menus.
         register_nav_menus(array(
-            'sidebar' => 'Sidebar Menu'
+            'top-menu' => __('Header Menu'),
+            'top-social' => __('Header Social Links')
         ));
     }
 
     add_action('init', 'rmwb_nav');
+
+    /*
+     * Custom Comment and Comment Form Output
+     * --------------------------------------
+     * The WordPress comment form is a dickish thing to work with, because it is
+     * an utter pain in the ass to do /anything/ custom with it, as in this 
+     * case: I wanted to wrap the author name, email and website inputs in their
+     * own container for the sake of resizing them. comment_form() doesn't allow
+     * me to add the wrapper there, and JavaScript is a hacky workaround.
+     */
+
+    function rmwb_comments($comment, $args, $depth) {
+        // Custom comment output.
+        $GLOBALS['comment'] = $comment; ?>
+
+        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+            <a class="avatar-wrapper" href="<?php comment_author_url(); ?>">
+                <?php echo get_avatar($comment, 75); ?>
+            </a>
+            <div class="comment-interior">
+                <header>
+                    <p class="author"><?php comment_author_link(); ?></p>
+                    <p class="date"><small><?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?></small></p>
+                </header>
+
+                <?php if ($comment->comment_approved == '0') {
+                    printf('<p>%s</p>', _e('Your comment has been held for moderation.'));
+                } ?>
+
+                <div class="comment-body">
+                    <?php comment_text(); ?>
+                </div>
+                <?php if (is_user_logged_in()) : ?>
+                    <footer>
+                        <p><small>
+                            <?php edit_comment_link(__('edit'),'  ',''); ?>
+                        </small></p>
+                    </footer>
+                <?php endif; ?>
+            </div>
+        </li><?php
+    }
+
+    // See: https://wordpress.stackexchange.com/questions/172052/how-to-wrap-comment-form-fields-in-one-div
+    function rmwb_wrap_comment_fields_before() {
+        printf('<div class="commentform-inputs">');
+    }
+
+    function rmwb_wrap_comment_fields_after() {
+        printf('</div>');
+    }
+
+    add_action('comment_form_before_fields', 'rmwb_wrap_comment_fields_before');
+    add_action('comment_form_after_fields', 'rmwb_wrap_comment_fields_after');
+
+    /*
+     * Other Initial Actions
+     * ---------------------
+     * These aren't attached to any particular function. 
+     */
+
     add_action('template_redirect', 'clean_search_url');
-    // Enqueue all scripts and stylesheets.
-    add_action('wp_enqueue_scripts', 'rmwb_styles');
-    add_action('wp_enqueue_scripts', 'rmwb_scripts');
     // Wordpress repeatedly inserted emoticons. No more, ever.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
     current_theme_supports('menus');
-    // Sidebar.
-    add_action('widgets_init', 'sidebar_widgets_init');
-    // Menu. 
-    add_action('init', 'rmwb_menu');
 ?>
