@@ -1,0 +1,190 @@
+/*
+ * Articles and Pages
+ * ------------------
+ * This theme has two main article templates:
+ * 
+ * 1. article-full
+ * 2. article-excerpt
+ * 
+ * As the names hint, one is a full-sized article and the other is an excerpt. 
+ * There is also a placeholder article for missing/404/403 errors that I will 
+ * flesh out later.
+ */
+
+/*
+ * Article Colours
+ * ---------------
+ */
+
+$article_header_text: map-get($colours, text_grey_light);
+$article_image_border: rgba(map-get($colours, code_block_grey), 0.5);
+
+/*
+ * Article Margins and Padding
+ * ---------------------------
+ */
+
+$article_small_margin: $bottom_default * 0.5;
+$article_full_margin: $bottom_default;
+
+/*
+ * Article Partials and Child Elements
+ * -----------------------------------
+ */
+
+%article-child-block {
+    // Margin for child items.
+    &:not(:last-of-type) {
+        margin-right: 0.5%;
+
+        @include breakpoint(smartphone) {
+            margin-right: 0;
+        }
+    }
+}
+
+div.article-photobox {
+    // Shrink images down to neatly fit on one row.
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+
+    @include breakpoint(portrait) {
+        @include prefix(flex-direction, column);
+    }
+
+    a {
+        @extend %article-child-block;
+        @include prefix(flex, 0 1 50%);
+    }
+
+    img {
+        width: 100%;
+    }
+} 
+
+/*
+ * Base Article Rules
+ * ------------------
+ */
+
+article { 
+    header {
+        margin-bottom: $article_small_margin;
+
+        > * {
+            margin-bottom: 0;
+        }
+    }
+
+    header, footer {
+        p, time, small {
+            color: $article_header_text;
+        }
+
+        p {
+            font: $font_open_sans;
+        }
+
+        h4 {
+            margin: 0;
+        }
+    }
+
+    footer p {
+        @extend small;
+    }
+
+    h3.title a:hover {
+        text-decoration: none;
+    }
+
+    div, img, iframe {
+        @extend %border-box;
+        max-width: 100%;
+    }
+
+    img {
+        @extend %border-light;
+    }
+
+    input {
+        // For password on password-protected posts.
+        display: block;
+    }
+
+    blockquote, dl, ol, ul {
+        padding: 0 0 0 15px;
+    }
+
+    blockquote {
+        font-size: 90%;
+
+        p, li {
+            font-style: italic;
+        }
+    }
+
+    ol, ul {
+        @extend %border-box;
+        margin: 0 0 $article_full_margin $article_full_margin;
+    }
+}
+
+/*
+ * Excerpted Articles
+ * ------------------
+ */
+
+article.excerpt {
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+
+    header {
+        margin: 0;
+    }
+
+    .mask {
+        @extend %border-box;
+        padding: 40px 20px;
+    }
+}
+
+/*
+ * Related Articles
+ * ----------------
+ * Inserted below articles, these articles repreent three related articles
+ * picked at random from the post archives.
+ */
+
+div.related-articles {
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, nowrap);
+
+    @include breakpoint(portrait) {
+        @include prefix(flex-direction, column);
+    }
+}
+
+article.related {
+    @extend %article-child-block;
+    @include prefix(flex, 1);
+
+    @include breakpoint(smartphone) {
+        margin-bottom: $article_full_margin;
+    }
+
+    .related-thumbnail {
+        @extend %border-light;
+        @extend %border-box;
+        background-size: cover;
+        margin-bottom: $article_small_margin;
+
+        @include flex_size(100%, 0.5);
+    }
+
+    .related-thumbnail a {
+        @extend .related-thumbnail;
+    }
+}
