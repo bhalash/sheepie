@@ -1,0 +1,47 @@
+#header {
+    @extend %padded-content;
+    height: $header_height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    // z-index: -1;
+
+    @include cover_image('../images/lightning.jpg');
+    @include prefix_value(display, flex);
+    @include prefix(flex-direction, row);
+    @include prefix(align-items, center);
+}
+
+#titles {
+    margin: auto;
+    @include prefix(flex, 1);
+
+    h2, p {
+        @extend %zero;
+        color: #fff;
+        text-align: center;
+
+        @include breakpoint(portrait) {
+            text-align: left;
+        }
+    }
+
+    h2 {
+        @include breakpoint(smartphone) {
+            font-size: 2em;
+        }
+
+        a {
+            color: inherit; 
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    p {
+        color: map-get($colours, text_grey_light);
+    }
+}
