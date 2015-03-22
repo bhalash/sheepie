@@ -90,10 +90,6 @@ $social: (
 nav#top-social {
     ul {
         text-align: center;
-
-        @include breakpoint(smartphone) {
-            text-align: left;
-        }
     }
 
     ul, li, a {

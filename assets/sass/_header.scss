@@ -21,10 +21,6 @@
         @extend %zero;
         color: #fff;
         text-align: center;
-
-        @include breakpoint(smartphone) {
-            text-align: left;
-        }
     }
 
     h2 {
