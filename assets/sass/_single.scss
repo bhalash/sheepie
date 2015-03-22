@@ -68,6 +68,8 @@ div.article-photobox {
  */
 
 article { 
+    overflow-x: hidden;
+
     header {
         margin-bottom: $article_small_margin;
 
@@ -128,6 +130,15 @@ article {
         @extend %border-box;
         margin: 0 0 $article_full_margin $article_full_margin;
     }
+}
+
+/*
+ * Full Articles
+ * -------------
+ */
+
+article.full {
+    padding: 20px 0;
 }
 
 /*
