@@ -153,6 +153,7 @@
     }
 
     function rmwb_scripts() {
+        wp_enqueue_script('highlightjs', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js', '', '1.0', true);
         wp_enqueue_script('rmwb-browser-detect', get_stylesheet_directory_uri() . '/assets/js/browser_detect.js', '', '1.0', true);
         wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/assets/js/functions.js', array('jquery'), '1.0', true);
     }
@@ -160,7 +161,7 @@
     function rmwb_styles() {
         wp_register_style('google-fonts',  google_font_url());
         wp_enqueue_style('google-fonts');
-        // Main style.
+        wp_enqueue_style('highlightjs-css', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css', false, '1.4', 'all');
         wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
     }
 
@@ -179,9 +180,7 @@
         }
 
         if ($total_results == '') {
-            // if (is_home()) {
-                $total_results = wp_count_posts('post', 'readable')->publish;
-            // }
+            $total_results = wp_count_posts('post', 'readable')->publish;
         }
 
         $posts_per_page = get_option('posts_per_page');

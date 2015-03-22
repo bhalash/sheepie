@@ -5,6 +5,12 @@ jQuery(function($) {
      * -------------------
      */
 
+    // $(document).ready(function() {
+    //     $('pre code').each(function(i, block) {
+    //         hljs.highlightBlock(block);
+    //     });
+    // });
+
     $('#header .prompt').click(function() {
         $('html, body').animate({ 
             scrollTop: $('#content').offset().top
