@@ -93,7 +93,7 @@ article {
     }
 
     footer p {
-        @extend small;
+        font-size: 90%;
     }
 
     h3.title a:hover {
@@ -139,6 +139,21 @@ article {
 
 article.full {
     padding: 20px 0;
+
+    footer {
+        padding-top: 20px;
+        @include prefix_value(display, flex);
+        @include prefix_value(display, flex);
+        @include prefix(flex-direction, row);
+
+        h5, p {
+            margin: 0;
+        }
+    }
+
+    .author-info {
+        @include prefix(flex, 1);
+    }
 }
 
 /*
