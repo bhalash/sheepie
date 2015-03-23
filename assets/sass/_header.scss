@@ -11,6 +11,10 @@
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
     @include prefix(align-items, center);
+
+    @include breakpoint(smartphone) {
+        height: 65vh;
+    }
 }
 
 #titles {

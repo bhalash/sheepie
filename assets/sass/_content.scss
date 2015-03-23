@@ -13,6 +13,10 @@
     padding-top: $header_height;
     width: 100%;
 
+    @include breakpoint(smartphone) {
+        padding-top: $header_height_mobile;
+    }
+
     .content {
         @extend %padded-content;
         @extend %border-box;
