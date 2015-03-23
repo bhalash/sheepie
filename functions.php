@@ -159,10 +159,11 @@
     }
 
     function rmwb_styles() {
-        wp_register_style('google-fonts',  google_font_url());
+        wp_register_style('google-fonts', google_font_url());
         wp_enqueue_style('google-fonts');
         wp_enqueue_style('highlightjs-css', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css', false, '1.4', 'all');
         wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
+        wp_enqueue_style('custom-stylesheet', get_stylesheet_directory_uri() . '/custom.css', false, '1.4', 'all');
     }
 
     // Enqueue all scripts and stylesheets.
