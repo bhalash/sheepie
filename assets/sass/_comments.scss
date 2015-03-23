@@ -89,25 +89,6 @@ $comment_padding: 20px;
         margin: 0; 
     }
 
-    a.avatar-wrapper {
-        margin-right: $comment_full_margin;
-        @include prefix(flex, 0 1 75px);
-
-        @include breakpoint(smartphone) {
-            @include prefix(flex, 0 1 45px);
-        }
-
-        img {
-            @extend %border-light;
-            border-radius: 50%;
-
-            @include breakpoint(smartphone) {
-                height: 45px;
-                width: 45px;
-            }
-        }
-    }
-
     div.comment-body {
         p {
             font-size: 85%;

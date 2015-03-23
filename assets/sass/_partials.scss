@@ -150,3 +150,27 @@ $rmwb_border_color_active: map-get($colours, light_grey);
         @include columns(1,0);
     }
 }
+
+/*
+ * Round Avatar
+ * ------------
+ */
+
+div.avatar-wrapper {
+    margin-right: $bottom_default;
+    @include prefix(flex, 0 1 96px);
+
+    @include breakpoint(smartphone) {
+        @include prefix(flex, 0 1 65px);
+    }
+
+    img {
+        @extend %border-light;
+        border-radius: 50%;
+
+        @include breakpoint(smartphone) {
+            height: 65px;
+            width: 65px;
+        }
+    }
+}
