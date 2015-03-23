@@ -334,9 +334,9 @@
         $GLOBALS['comment'] = $comment; ?>
 
         <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-            <a class="avatar-wrapper" href="<?php comment_author_url(); ?>">
+            <div class="avatar-wrapper">
                 <?php echo get_avatar($comment, 75); ?>
-            </a>
+            </div>
             <div class="comment-interior">
                 <header>
                     <p class="author"><?php comment_author_link(); ?></p>
