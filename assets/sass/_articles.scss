@@ -138,10 +138,10 @@ article {
  */
 
 article.full {
-    padding: 20px 0;
+    // margin-top: 20px 0;
 
     footer {
-        padding-top: 20px;
+        // padding-top: 20px;
         @include prefix_value(display, flex);
         @include prefix_value(display, flex);
         @include prefix(flex-direction, row);
