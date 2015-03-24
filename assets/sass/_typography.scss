@@ -156,6 +156,10 @@ hr {
     width: 100%;
 }
 
+hr.double-margin {
+    margin: $bottom_default * 2 0;
+}
+
 /*
  * Miscellaneous Element Styling
  * -----------------------------
