@@ -69,6 +69,7 @@ $comment_padding: 20px;
 
         p {
             color: $comment_header_text;
+            font-size: 90%;
 
             @include breakpoint(portrait) {
                 margin: 0;
