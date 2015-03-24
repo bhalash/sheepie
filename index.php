@@ -9,7 +9,7 @@
             the_post();
             // get_template_part('article', 'excerpt');
             get_template_part('article', 'full');
-            printf('<hr />');
+            printf('<hr class="double-margin" />');
         }
     } else {
         get_template_part('article','missing');
