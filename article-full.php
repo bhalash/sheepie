@@ -15,7 +15,7 @@
                 <?php echo get_avatar(get_the_author_meta('ID'), 96); ?>
             </div>
             <div class="author-info">
-                <p><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?></p>
+                <p><small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?></small></p>
                 <h4><?php the_author_meta('display_name'); ?></h4>
                 <p><?php the_author_meta('user_description'); ?></p>
             </div>
