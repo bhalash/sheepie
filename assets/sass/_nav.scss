@@ -16,6 +16,10 @@ nav {
         display: inline-block;
     }
 
+    a[href*=earch] {
+        text-align: right;
+    }
+
     li, span, a {
         font: $font_open_sans;
         font-size: 0.85em;
@@ -59,56 +63,13 @@ nav#top-menu {
         ul {
             // Second level of menu.
             display: none;
-            left: 0;
-            position: absolute;
-            top: 100%;
-
-            a {
-                // Second level anchor.
-                padding: $nav_child_anchor_padding;
-            }
         }
     }
 
     li {
         // This colour is overridden by nav.js.
         color: #fff;
-
-        &:hover {
-            background: inherit;
-        }
-
-        &:hover > a {
-        /* If I changed the anchor colour via JS then the hover colour would 
-         * also be changed. This is a roundabout way to ensure consistent colour
-         * on hover without having to tediously reset it constnatly. */
-            color: map-get($colours, hyperlink_rest);
-        }
-
-        &:hover > ul {
-            display: block;
-        }
-
-        &:hover li {
-            // background: #fff;
-        }
-
-        li {
-            display: block;
-            font-size: 100%;
-            margin-left: $nav_anchor_padding;
-            white-space: nowrap;
-
-            li {
-                margin-left: $nav_anchor_padding * 2;
-            }
-        }
     }
-}
-
-.menu-item-has-children > a:after {
-    color: inherit;
-    content: ' ↓';
 }
 
 /*
