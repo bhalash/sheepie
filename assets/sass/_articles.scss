@@ -47,14 +47,12 @@ div.article-photobox {
     // Shrink images down to neatly fit on one row.
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
-
-    @include breakpoint(smartphone) {
-        @include prefix(flex-direction, column);
-    }
+    margin-bottom: $bottom_default;
 
     a {
+        margin: 0;
         @extend %article-child-block;
-        @include prefix(flex, 0 1 50%);
+        @include prefix(flex, 1 1 33.3%);
     }
 
     img {
@@ -106,7 +104,7 @@ article {
     }
 
     img {
-        @extend %border-light;
+        // @extend %border-light;
     }
 
     input {
