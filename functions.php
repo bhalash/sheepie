@@ -108,6 +108,8 @@
             exit();
         }
     }
+    
+    // add_action('template_redirect', 'clean_search_url');
 
     /*
      * Theme Custom Excerpt
@@ -380,7 +382,6 @@
      * These aren't attached to any particular function. 
      */
 
-    add_action('template_redirect', 'clean_search_url');
     // Wordpress repeatedly inserted emoticons. No more, ever.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
