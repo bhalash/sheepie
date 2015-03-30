@@ -16,10 +16,6 @@ nav {
         display: inline-block;
     }
 
-    a[href*=earch] {
-        text-align: right;
-    }
-
     li, span, a {
         font: $font_open_sans;
         font-size: 0.85em;
@@ -54,6 +50,10 @@ nav#top-menu {
     a {
         color: inherit;
         padding: $nav_anchor_padding;
+    }
+
+    a[href*=earch] {
+        text-align: right;
     }
 
     ul {
