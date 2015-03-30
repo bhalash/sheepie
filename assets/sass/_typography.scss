@@ -57,11 +57,12 @@ h4, h5, h6, {
     font-weight: 100;
 }
 
-h2 { font-size: $header_text_size * 0.65; }
-h3 { font-size: $header_text_size * 0.45; }
-h4 { font-size: $header_text_size * 0.35; }
-h5 { font-size: $header_text_size * 0.25; }
-h6 { font-size: $header_text_size * 0.15; }
+h1, %h1 {}
+h2, %h2 { font-size: $header_text_size * 0.65; }
+h3, %h3 { font-size: $header_text_size * 0.45; }
+h4, %h4 { font-size: $header_text_size * 0.35; }
+h5, %h5 { font-size: $header_text_size * 0.25; }
+h6, %h6 { font-size: $header_text_size * 0.15; }
 
 /*
  * Anchor Elements
@@ -120,8 +121,8 @@ sub {
  */
 
 blockquote { 
-    @extend %border-box;
     border-left: 1px solid rgba($code_block_background, 0.3); 
+    box-sizing: border-box;
     margin: 0 auto;
     padding-left: 10px;
 }
