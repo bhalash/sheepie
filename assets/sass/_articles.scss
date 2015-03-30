@@ -34,25 +34,29 @@ $article_full_margin: $bottom_default;
 
 %article-child-block {
     // Margin for child items.
-    &:not(:last-of-type) {
-        margin-right: 0.5%;
+    box-sizing: border-box;
+    padding-right: 0.5%;
 
-        @include breakpoint(smartphone) {
-            margin-right: 0;
-        }
+    @include breakpoint(smartphone) {
+        padding-right: 0;
     }
 }
 
 div.article-photobox {
     // Shrink images down to neatly fit on one row.
+    @include prefix(align-items, flex-start);
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
+    @include prefix(flex-wrap, wrap);
     margin-bottom: $bottom_default;
 
     a {
-        margin: 0;
         @extend %article-child-block;
-        @include prefix(flex, 1 1 33.3%);
+        @include prefix(flex, 1 1 33%);
+
+        @include breakpoint(smartphone) {
+            @include prefix(flex, 1);
+        }
     }
 
     img {
@@ -99,12 +103,12 @@ article {
     }
 
     div, img, iframe {
-        @extend %border-box;
+        box-sizing: border-box;
         max-width: 100%;
     }
 
     img {
-        // @extend %border-light;
+        @extend %border-light;
     }
 
     input {
@@ -125,7 +129,7 @@ article {
     }
 
     ol, ul {
-        @extend %border-box;
+        box-sizing: border-box;
         margin: 0 0 $article_full_margin $article_full_margin;
     }
 }
@@ -169,7 +173,7 @@ article.excerpt {
     }
 
     .mask {
-        @extend %border-box;
+        box-sizing: border-box;
         padding: 40px 20px;
     }
 }
@@ -201,7 +205,7 @@ article.related {
 
     .related-thumbnail {
         @extend %border-light;
-        @extend %border-box;
+        box-sizing: border-box;
         background-size: cover;
         margin-bottom: $article_small_margin;
 
