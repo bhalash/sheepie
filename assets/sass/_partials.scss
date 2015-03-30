@@ -10,6 +10,21 @@ $rmwb_border_color_rest: map-get($colours, text_grey);
 $rmwb_border_color_active: map-get($colours, light_grey);
 
 /*
+ * Self-clearing Float
+ * -------------------
+ */
+
+%clearfix {
+    overflow: auto;
+
+    &:after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
+
+/*
  * Borders and Box Shadows
  * -----------------------
  */
@@ -61,17 +76,6 @@ $rmwb_border_color_active: map-get($colours, light_grey);
  * ---------------------
  */
 
-%rmwb-gradient {
-    // Gradient via http://www.colorzilla.com/gradient-editor/
-    background: -moz-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(0,0,0,0.75)), color-stop(100%,rgba(0,0,0,0.2))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* IE10+ */
-    background: linear-gradient(135deg,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.2) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#33000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-
 %noselect {
     cursor: default;
     -webkit-touch-callout: none;
@@ -86,46 +90,6 @@ $rmwb_border_color_active: map-get($colours, light_grey);
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-}
-
-/*
- * Assorted Helper Classes
- * -----------------------
- */
-
-%border-box {
-    /* ALL GLORY TO THE BORDER BOX-this is used across the site in a great many
-     * spots where I need to pad an element without increasing the size. */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-%clearfix {
-    /* Bulletproof and Rock-Solid self-clearing float. You can tell it is both
-    * Bulletproof and Rock-Solid since I capitalized the words. There are very
-    * rare instances were I might need to use a clearing element (such as 
-    * splitting floating elements vertically). */
-    overflow: auto;
-
-    &:after {
-        clear: both;
-        content: '';
-        display: table;
-    }
-}
-
-%block {
-    display: block;
-    height: 100%;
-    width: 100%;
-}
-
-%zero {
-    // There are a few cases where I need to zero the margin and padding of the
-    // the child of a parent with both.  
-    margin: 0;
-    padding: 0;
 }
 
 /*
