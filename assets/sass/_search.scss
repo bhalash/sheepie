@@ -1,16 +1,18 @@
 $form_input_placeholder: map-get($colours, code_block_grey);
 
 form.search {
+    @extend %border-heavy;
+    border-width: 0 0 1px 0;
     font-size: 1.3em;
-    margin: 0;
     outline: 0;
+    margin-bottom: $bottom_default;
+    padding-bottom: $bottom_default;
 
     @include placeholder_style() {
         color: $form_input_placeholder;
     }
 
     p {
-        margin: 0;
         position: relative;
     }
 
