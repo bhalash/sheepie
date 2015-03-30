@@ -18,21 +18,36 @@
     </nav>
     <div id="main">
         <div id="header">
-            <?php // Header navigation. ?>
+            <?php // Header navigation. 
+            global $wp_query;
+            ?>
             <div id="titles">
                 <h2>
-                    <?php if(!is_single()) : ?>
-                        <a title="Go home" href="<?php printf(site_url()); ?>"><?php bloginfo('name'); ?></a>
-                    <?php else : ?>
-                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                    <?php endif; ?>
+                    <?php if (!is_single() && !is_search()) {
+                        // If is index page.
+                        printf('<a title="%s" href="%s">%s</a>', __('Go home'), get_bloginfo('url'), get_bloginfo('name')); 
+                    } else if (is_search()) {
+                        // Else if is search page.
+                        printf('%s \'%s\'', __('Results for'), get_search_query()); 
+                    } else {
+                        // Else if is single article (probably).
+                        printf(
+                            '<a href="%s" rel="bookmark" title="%s %s">%s</a>',
+                            get_the_permalink(),
+                            __('Permanent link to'), 
+                            get_the_title(), 
+                            get_the_title()
+                        );
+                    } ?>
                 </h2>
                 <p>
-                    <?php if(!is_single()) : ?>
-                        <?php bloginfo('description'); ?>
-                    <?php else : ?>
-                        <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?>
-                    <?php endif; ?>
+                    <?php if (!is_single() && !is_search()) {
+                        bloginfo('description');
+                    } else if (is_search()) {
+                        printf('%s', search_results_count(get_query_var('paged'), $wp_query->found_posts));
+                    } else { ?>
+                        <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> <?php echo __('in'); ?> <?php the_category(', '); edit_post_link(__('edit post'), ' / ', ''); ?>
+                    <?php }; ?>
                 </p>
                 <nav id="top-social">
                     <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>

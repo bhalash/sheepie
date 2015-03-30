@@ -96,6 +96,15 @@
         }
     }
 
+    function search_results_count($page_num, $total_results) {
+        $page_num = ($page_num == 0) ? 1 : $page_num;
+        $posts_per_page = get_option('posts_per_page');
+        $count_high = $page_num * $posts_per_page;
+        $count_low  = ($count_high - $posts_per_page) + 1;
+        $count_high = ($count_high > $total_results) ? $total_results : $count_high;
+        return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
+}
+
     /*
      * Clean Search URL
      * ----------------
@@ -109,7 +118,7 @@
         }
     }
     
-    // add_action('template_redirect', 'clean_search_url');
+    add_action('template_redirect', 'clean_search_url');
 
     /*
      * Theme Custom Excerpt
@@ -388,4 +397,8 @@
     // Declares that the theme has HTML5 support.
     current_theme_supports('html5');
     current_theme_supports('menus');
+    //
+    add_theme_support( 'html5', array(
+        'search-form'
+    ));        
 ?>

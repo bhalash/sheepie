@@ -14,7 +14,11 @@ $previous = $paged - 1; ?>
         } ?>
     </div>
 
-    <div class="count"><?php if (!is_single()) : ?><span><?php archive_page_count(); ?></span><?php endif; ?></div>
+    <div class="count">
+        <?php if (!is_single() && !is_search()) : ?>
+            <span><?php archive_page_count(); ?></span>
+        <?php endif; ?>
+    </div>
 
     <div class="next<?php echo (is_single()) ? '-post' : ''; ?>">
         <?php if (is_single()) {
