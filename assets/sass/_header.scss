@@ -5,7 +5,6 @@
     top: 0;
     left: 0;
     right: 0;
-    // z-index: -1;
 
     @include cover_image('../images/lightning.jpg');
     @include prefix_value(display, flex);
@@ -22,8 +21,8 @@
     @include prefix(flex, 1);
 
     h2, p {
-        @extend %zero;
         color: #fff;
+        margin: 0;
         text-align: center;
     }
 
