@@ -32,13 +32,13 @@ $table_tr_alt: map-get($colours, table_cell_alt_orange);
 form {
     button, input, textarea {
         // Reset appearance across all browsers.
-        @extend %border-box;
-        @extend %zero;
         -webkit-appearance: none;
         -webkit-border-radius: 0;
         border-radius: 0;
-        border: 0;
+        box-sizing: border-box;
+        margin: 0;
         outline: 0;
+        padding: 0;
 
         &:focus {
             outline: 0;
@@ -47,6 +47,11 @@ form {
 
     textarea {
         width: 100%;
+    }
+
+    input, textarea {
+        @extend %border-light;
+        padding: $bottom_default * 0.5;
     }
 }
 

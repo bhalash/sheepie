@@ -27,7 +27,8 @@ $comment_padding: 20px;
 
 #comments {
     ul {
-        @extend %zero;
+        margin: 0;
+        padding: 0;
         position: relative;
     }
 
@@ -48,7 +49,7 @@ $comment_padding: 20px;
 }
 
 .comment {
-    @extend %border-box;
+    box-sizing: border-box;
     list-style-type: none;
     padding: $comment_padding 0;
 
@@ -118,9 +119,6 @@ $comment_padding: 20px;
     width: 100%;
 
     input, textarea {
-        @extend %border-light;
-        padding: $comment_half_margin;
-
         &:not(textarea) {
             margin-bottom: $comment_half_margin;
         }
