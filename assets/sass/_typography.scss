@@ -3,15 +3,8 @@
  * --------------------
  */
 
-// Colours
-$text_default_grey: map-get($colours, text_grey_dark);
-$anchor_default_rest: map-get($colours, hyperlink_rest);
-$code_block_background: map-get($colours, code_block_grey);
-$border_rest: map-get($colours, border_grey_rest);
-$strike: map-get($colours, strikeout_red);
-
 address, cite, blockquote, dt, dd, input, label, li, option, p, q { 
-    font: $font_open_sans;
+    font: $font-opensans;
 }
 
 a, abbr, acronym, blockquote p, button, del, em, input, li li, li p, p abbr, 
@@ -22,15 +15,15 @@ p acronym, p label, pre span, q, span, strong, sub, sup, time {
 
 address, blockquote, code, embed, iframe, input, label, ol, option, p, 
 pre, select, table, ul {
-    margin-bottom: $bottom_default;
+    margin-bottom: $bottom-margin;
 }
 
 address, blockquote, cite, code, input, label, li, option, p, pre, q, select { 
-    line-height: $line_height_default;
+    line-height: $line-height-140;
 }
 
 address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, option, p, q, select {
-    color: $text_default_grey;
+    color: $colour-grey-dark-text;
 }
 
 /*
@@ -39,9 +32,9 @@ address, blockquote, cite, code, h1, h2, h3, h4, h5, h6, input, label, li, optio
  */
 
 h1, h2, h3, h4, h5, h6 {
-    color: $text_default_grey;
-    font: $font_open_sans_title;
-    margin-bottom: $bottom_default;
+    color: $colour-grey-dark-text;
+    font: $font-opensans-title;
+    margin-bottom: $bottom-margin;
 
     a {
         color: inherit;
@@ -53,16 +46,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h4, h5, h6, {
-    font: $font_open_sans;
+    font: $font-opensans;
     font-weight: 100;
 }
 
 h1, %h1 {}
-h2, %h2 { font-size: $header_text_size * 0.65; }
-h3, %h3 { font-size: $header_text_size * 0.45; }
-h4, %h4 { font-size: $header_text_size * 0.35; }
-h5, %h5 { font-size: $header_text_size * 0.25; }
-h6, %h6 { font-size: $header_text_size * 0.15; }
+h2, %h2 { font-size: $font-size-headline * 0.65; }
+h3, %h3 { font-size: $font-size-headline * 0.45; }
+h4, %h4 { font-size: $font-size-headline * 0.35; }
+h5, %h5 { font-size: $font-size-headline * 0.25; }
+h6, %h6 { font-size: $font-size-headline * 0.15; }
 
 /*
  * Anchor Elements
@@ -70,7 +63,7 @@ h6, %h6 { font-size: $header_text_size * 0.15; }
  */
 
 a { 
-    color: $anchor_default_rest;
+    color: $colour-blue-hyperlink;
 
     &:hover {
         text-decoration: underline;
@@ -85,15 +78,15 @@ a {
 code, input, kbd, pre, pre span, td, th, tt, var {
     -webkit-font-smoothing: antialiased;
     color: inherit;
-    font: $font_source_code_pro;
+    font: $font-sourcecodepro;
     letter-spacing: 0;
 }
 
 pre {
     color: #fff;
-    background-color: $code_block_background;
+    background-color: $colour-grey-pre;
     overflow: auto;
-    padding: $bottom_default;
+    padding: $bottom-margin;
     white-space: pre;
 }
 
@@ -121,7 +114,7 @@ sub {
  */
 
 blockquote { 
-    border-left: 1px solid rgba($code_block_background, 0.3); 
+    border-left: 1px solid rgba($colour-grey-pre, 0.3); 
     box-sizing: border-box;
     margin: 0 auto;
     padding-left: 10px;
@@ -151,14 +144,14 @@ q {
  */
 
 hr {
-    background: $border_rest;
+    background: $colour-grey-dark-border;
     height: 1px;
-    margin: $bottom_default 0;
+    margin: $bottom-margin 0;
     width: 100%;
 }
 
 hr.double-margin {
-    margin: $bottom_default * 2 0;
+    margin: $bottom-margin-28 0;
 }
 
 /*
@@ -167,7 +160,7 @@ hr.double-margin {
  */
 
 del, strike {
-    color: $strike;
+    color: $colour-red-delete;
 }
 
 hr {
@@ -217,7 +210,7 @@ ins {
 
 form {
     @include placeholder_style() {
-        color: $text_default_grey;
-        font: $font_open_sans;
+        color: $colour-grey-pre;
+        font: $font-opensans;
     }
 }

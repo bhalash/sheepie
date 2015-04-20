@@ -1,15 +1,18 @@
-$form_input_placeholder: map-get($colours, code_block_grey);
+/*
+ * Search
+ * ------
+ * Ware ye, stranger; this file is a big fat work in progress.
+ */
 
 form.search {
-    @extend %border-heavy;
-    border-width: 0 0 1px 0;
+    border-bottom-width: 1px;
     font-size: 1.3em;
     outline: 0;
-    margin-bottom: $bottom_default;
-    padding-bottom: $bottom_default;
+    margin-bottom: $bottom-margin;
+    padding-bottom: $bottom-margin;
 
     @include placeholder_style() {
-        color: $form_input_placeholder;
+        color: $colour-grey-pre;
     }
 
     p {
@@ -17,7 +20,7 @@ form.search {
     }
 
     input[type=text] {
-        color: $form_input_placeholder;
+        color: $colour-grey-pre;
         display: inline-block;
         height: 100%;
         padding: 5px;
@@ -45,7 +48,7 @@ form.search {
 .nav-search {
     display: none;
     margin: 0 auto;
-    margin-top: $bottom_default;
+    margin-top: $bottom-margin;
     width: 75%;
 
     input {
@@ -58,5 +61,5 @@ form.search {
 }
 
 .results-count {
-    margin-top: $bottom_default;
+    margin-top: $bottom-margin;
 }

@@ -4,23 +4,6 @@
  */
 
 /*
- * Colours
- * -------
- */
- 
-$comment_alt_background: map-get($colours, text_grey_dark);
-$comment_header_text: map-get($colours, text_grey_light);
-
-/*
- * Margins and Padding 
- * -------------------
- */
-
-$comment_full_margin: $bottom_default;
-$comment_half_margin: $bottom_default * 0.5;
-$comment_padding: 20px;
-
-/*
  * Reader Comments
  * ---------------
  */
@@ -33,7 +16,7 @@ $comment_padding: 20px;
     }
 
     h5.reply-title {
-        margin-bottom: $comment_full_margin;
+        margin-bottom: $bottom-margin;
     }
 }
 
@@ -51,7 +34,7 @@ $comment_padding: 20px;
 .comment {
     box-sizing: border-box;
     list-style-type: none;
-    padding: $comment_padding 0;
+    padding: $bottom-margin-21 0;
 
     &:not(:first-child) {
         @extend %border-light;
@@ -65,11 +48,11 @@ $comment_padding: 20px;
     header {
         @include breakpoint(portrait) {
             @include prefix(flex-direction, column);
-            margin-bottom: $comment_half_margin;
+            margin-bottom: $bottom-margin-7;
         }
 
         p {
-            color: $comment_header_text;
+            color: $colour-grey-light-text;
             font-size: 90%;
 
             @include breakpoint(portrait) {
@@ -99,14 +82,16 @@ $comment_padding: 20px;
 }
 
 .focused-comment {
+    /* Focused comment expands to either side, but the content within remains
+     * unchanges */
     @extend %box-shadow-heavy;
     border: 0;
-    left: -$comment_padding;
-    padding-left: $comment_padding;
-    padding-right: $comment_padding;
+    left: -$bottom-margin-21;
+    padding-left: $bottom-margin-21;
+    padding-right: $bottom-margin-21;
     // position: absolute;
     position: relative;
-    width: calc(100% + #{$comment_padding} * 2);
+    width: calc(100% + #{$bottom-margin-21} * 2);
 }
 
 /*
@@ -120,7 +105,7 @@ $comment_padding: 20px;
 
     input, textarea {
         &:not(textarea) {
-            margin-bottom: $comment_half_margin;
+            margin-bottom: $bottom-margin-7;
         }
 
         &:focus {
@@ -141,7 +126,7 @@ $comment_padding: 20px;
             @include prefix(flex, 1);
 
             &:not(:last-of-type) {
-                margin-right: $comment_half_margin;
+                margin-right: $bottom-margin-7;
 
                 @include breakpoint(smartphone) {
                     margin-right: 0;
@@ -163,14 +148,8 @@ $comment_padding: 20px;
     }
 
     input[type=submit] {
-        height: 35px;
+        height: $bottom-margin-35;
         max-width: 149px;
-        padding: 8px;
+        padding: $bottom-margin-7;
     }
-}
-
-#commentform > *:not(#textarea) {
-    /* Hide the comment form until someone clicks into it. No need to have it 
-     * be too obvious. ;) */ 
-    // display: none;
 }

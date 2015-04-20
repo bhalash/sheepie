@@ -3,43 +3,46 @@
  * -------
  */
 
-$colours: (
-    table_cell_alt_orange: #f4b44f,
-    strikeout_red: #ba3434,
-    code_block_grey: #333333,
-    border_grey_rest: #f4f4f4,
-    border_grey_active: #ddd,
-    hyperlink_rest: #3399cc,
-    text_grey_dark: rgba(0,0,0,0.8),
-    text_grey_light: #9eabb3
-);
+$colour-orange-table: #f4b44f;
+$colour-grey-pre: #333;
+$colour-grey-light-border: #f4f4f4;
+$colour-grey-dark-border: #ddd;
+$colour-grey-dark-text: rgba(0,0,0,0.8);
+$colour-grey-light-text: #9eabb3;
+$colour-blue-hyperlink: #3399cc;
+$colour-red-delete: #ba3434;
 
 /*
  * Typeface Declarations
  * ---------------------
  */
 
-$header_text_size: 3.5em;
-$regular_text_size: 0.95em;
-$fixed_text_size: 0.9em;
+$font-size-fixed: 0.9em;
+$font-size-regular: 0.95em;
+$font-size-headline: 3.5em;
 
-$font_open_sans: $regular_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$font_merriweather: $regular_text_size 'Merriweather', Georgia, Times, 'Times New Roman', serif;
-$font_source_code_pro: $fixed_text_size 'Source Code Pro', 'Courier New', Courier, monospace;
-$font_open_sans_title: bold $header_text_size 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$font_bitter_title: bold $header_text_size 'Bitter', Georgia, Times, 'Times New Roman', serif;
+$font-opensans: $font-size-regular 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font-merriweather: $font-size-regular 'Merriweather', Georgia, Times, 'Times New Roman', serif;
+$font-sourcecodepro: $font-size-fixed 'Source Code Pro', 'Courier New', Courier, monospace;
+$font-opensans-title: bold $font-size-headline 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font-bitter-title: bold $font-size-headline 'Bitter', Georgia, Times, 'Times New Roman', serif;
 
 /*
  * Margins and Padding
  * -------------------
  */
 
-// Default bottom margin of all elements.
-$bottom_default: 14px;
-// Default line height.
-$line_height_default: 140%;
-$header_height: 50vh;
-$header_height_mobile: 65vh;
+$bottom-margin: 14px;
+$bottom-margin-7: $bottom-margin * 0.5;
+$bottom-margin-21: $bottom-margin * 1.5;
+$bottom-margin-28: $bottom-margin * 2;
+$bottom-margin-35: $bottom-margin * 2.5;
+
+$line-height-140: 140%;
+$header-height: 50vh;
+$header-height-65: $header-height + 15vh;
+
+$header-background-image: url('../images/lightning.jpg');
 
 /*
  * Mixins and Partials

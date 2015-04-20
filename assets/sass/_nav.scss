@@ -3,9 +3,6 @@
  * ------------
  */
 
-// Colours
-$nav_span_grey: map-get($colours, text_grey_light);
-
 nav {
     ul {
         list-style-type: none;
@@ -17,7 +14,7 @@ nav {
     }
 
     li, span, a {
-        font: $font_open_sans;
+        font: $font-opensans;
         font-size: 0.85em;
     }
 
@@ -36,9 +33,6 @@ nav {
  */
 
 nav#top-menu {
-    $nav_anchor_padding: 15px;
-    $nav_child_anchor_padding: 7px; 
-
     @extend %padded-content;
     background: transparent;
     left: 0;
@@ -49,7 +43,7 @@ nav#top-menu {
 
     a {
         color: inherit;
-        padding: $nav_anchor_padding;
+        padding: $bottom-margin;
     }
 
     a[href*=earch] {
@@ -107,9 +101,7 @@ nav#top-social {
     }
 
     a {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @extend %cover-picture;
         display: block;
         font-size: 0;
         @include flex_size(40px, 1);
@@ -120,6 +112,10 @@ nav#top-social {
             // background-color: nth($key, 1);
             background-image: url(nth($key, 2));
         }
+    }
+
+    a[href^="mailto"] {
+        background-image: url(nth(map-get($social, email), 2));
     }
 }
 
@@ -141,7 +137,7 @@ nav.pagination {
     }
 
     span {
-        color: $nav_span_grey;
+        color: $colour-grey-light-text;
         white-space: nowrap;
     }
 
@@ -159,7 +155,6 @@ nav.pagination {
         &:empty {
             display: none;
         }
-
     }
 
     div.previous-post, div.next-post {

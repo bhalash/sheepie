@@ -1,18 +1,20 @@
 #header {
     @extend %padded-content;
-    height: $header_height;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    @extend %cover-picture;
 
-    @include cover_image('../images/lightning.jpg');
+    background-image: $header-background-image;
+    height: $header-height;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
     @include prefix_value(display, flex);
     @include prefix(flex-direction, row);
     @include prefix(align-items, center);
 
     @include breakpoint(smartphone) {
-        height: 65vh;
+        height: $header-height-65;
     }
 }
 
@@ -41,6 +43,6 @@
     }
 
     p {
-        color: map-get($colours, text_grey_light);
+        color: $colour-grey-light-text;
     }
 }

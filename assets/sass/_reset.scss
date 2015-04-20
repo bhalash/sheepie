@@ -17,28 +17,16 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-/*
- * Section Colours
- * ---------------
- */
-
-$form_border: map-get($colours, text_grey);
-$form_input_focus: map-get($colours, hyperlink_blue);
-$nav_hyperlink_rest: map-get($colours, text_grey_light);
-$table_tr: map-get($colours, text_grey_dark);
-$table_th: map-get($colours, code_block_grey);
-$table_tr_alt: map-get($colours, table_cell_alt_orange);
-
 form {
     button, input, textarea {
         // Reset appearance across all browsers.
-        -webkit-appearance: none;
-        -webkit-border-radius: 0;
-        border-radius: 0;
         box-sizing: border-box;
         margin: 0;
         outline: 0;
         padding: 0;
+
+        @include webkit(appearance, none);
+        @include webkit(border-radius, 0);
 
         &:focus {
             outline: 0;
@@ -51,34 +39,6 @@ form {
 
     input, textarea {
         @extend %border-light;
-        padding: $bottom_default * 0.5;
+        padding: $bottom-margin-7;
     }
-}
-
-/*
- * Tables
- * ------
- */
-
-table {
-    // Override this width on a per-table basis if you need narrower.
-    max-width: 100%;
-}
-
-td, th {
-    color: $table_tr;
-    padding: $bottom_default;
-}
-
-th {
-    color: #fff;
-    background: $table_th;
-
-    a {
-        color: inherit;
-    }
-}
-
-tr:nth-child(even) { 
-    background: $table_tr_alt;
 }

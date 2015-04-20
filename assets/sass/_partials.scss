@@ -5,10 +5,6 @@
  * aren't attached to a given section of the site. 
 */
 
-$rmwb_button_color: map-get($colours, text_grey_light);
-$rmwb_border_color_rest: map-get($colours, text_grey);
-$rmwb_border_color_active: map-get($colours, light_grey);
-
 /*
  * Self-clearing Float
  * -------------------
@@ -25,20 +21,33 @@ $rmwb_border_color_active: map-get($colours, light_grey);
 }
 
 /*
+ * Cover Picture
+ * -------------
+ */
+
+%cover-picture {
+    background-position: center center;
+    /* This seems like a weird combo with background-size, but I've had weird 
+     * encounters with giant screen sizes and Safari */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*
  * Borders and Box Shadows
  * -----------------------
  */
 
 %border-light {
-    border: 1px solid map-get($colours, border_grey_rest);
+    border: 1px solid $colour-grey-light-border;
 }
 
 %border-heavy {
-    border: 1px solid map-get($colours, pre_grey);
+    border: 1px solid $colour-grey-dark-border;
 }
 
 %box-shadow-heavy {
-    @include prefix(box-shadow, 0 0 6px map-get($colours, pre_grey));
+    box-shadow: 0 0 6px $colour-grey-pre;
 }
 
 /*
@@ -47,22 +56,27 @@ $rmwb_border_color_active: map-get($colours, light_grey);
  */
 
 %padded-content {
-    padding-left: 30%;
-    padding-right: 30%;
+    $padding: 30%;
+    $padding-20: $padding * 0.667;
+    $padding-15: $padding * 0.5;
+    $padding-5: $padding * 0.1667;
+
+    padding-left: $padding;
+    padding-right: $padding;
 
     @include breakpoint(max, 1500) {
-        padding-left: 20%;
-        padding-right: 20%;
+        padding-left: $padding-20;
+        padding-right: $padding-20;
     }
 
     @include breakpoint(max, 1200) {
-        padding-left: 15%;
-        padding-right: 15%;
+        padding-left: $padding-15;
+        padding-right: $padding-15;
     }
 
     @include breakpoint(max, 900) {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: $padding-5;
+        padding-right: $padding-5;
     }
 
     @include breakpoint(smartphone) {
@@ -112,29 +126,5 @@ $rmwb_border_color_active: map-get($colours, light_grey);
 .text-two, .text-three, .text-four {
     @include breakpoint(smartphone) {
         @include columns(1,0);
-    }
-}
-
-/*
- * Round Avatar
- * ------------
- */
-
-div.avatar-wrapper {
-    margin-right: $bottom_default;
-    @include prefix(flex, 0 1 96px);
-
-    @include breakpoint(smartphone) {
-        @include prefix(flex, 0 1 65px);
-    }
-
-    img {
-        @extend %border-light;
-        border-radius: 50%;
-
-        @include breakpoint(smartphone) {
-            height: 65px;
-            width: 65px;
-        }
     }
 }
