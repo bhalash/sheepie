@@ -26,6 +26,16 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+define('THEME_ASSETS', get_template_directory_uri() . '/assets');
+define('THEME_JS', THEME_ASSETS . 'js/');
+define('THEME_IMAGES', THEME_ASSETS . 'images/');
+define('THEME_CSS', THEME_ASSETS . 'scss/');
+
+/**
+ * Social Meta Fallback
+ * -----------------------------------------------------------------------------
+ */
+
 $social_fallback = array(
     // Social fallback is called in cases where the post is missing n info.
     'publisher' => 'http://www.bhalash.com',
@@ -33,6 +43,11 @@ $social_fallback = array(
     'description' => get_bloginfo('description'),
     'twitter' => '@bhalash'
 );
+
+/**
+ * Enqueue Styles and Scripts
+ * -----------------------------------------------------------------------------
+ */
 
 $google_fonts = array(
     // All Google Fonts to be loaded.
@@ -44,19 +59,23 @@ $google_fonts = array(
     'Source Code Pro'
 );
 
+$theme_javascript = array(
+    'browser-detect' => 'browser_detect.js',
+    'functions' => 'functions.js'
+);
+
+$theme_styles = array(
+    // FIXME
+    'main-style', 'style.css',
+    'custom-stylesheet' => ' /custom.css'
+);
+
 /**
- * Enqueue Styles and Scripts
- * --------------------------
+ * Generate Google Fonts URL
+ * -----------------------------------------------------------------------------
  */
 
 function google_font_url() {
-    /**
-     * Generate Google Fonts URL
-     * -------------------------
-     * @param {none}
-     * @return {none}
-     */
-
     global $google_fonts;
     $google_url = array();
 
@@ -73,63 +92,61 @@ function google_font_url() {
     return implode('', $google_uri);
 }
 
+/**
+ * Enqueue Theme JavaScript
+ *  -----------------------------------------------------------------------------
+ */    
+
 function enqueue_theme_scripts() {
-    /**
-     * Enqueue Theme JavaScript
-     *  -----------------------
-     * @param {none}
-     * @return {none}
-     */    
+    global $theme_javascript;
 
-    wp_enqueue_script('highlightjs', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js', '', '1.0', true);
-    wp_enqueue_script('rmwb-browser-detect', get_stylesheet_directory_uri() . '/assets/js/browser_detect.js', '', '1.0', true);
-    wp_enqueue_script('rmwb-functions', get_stylesheet_directory_uri() . '/assets/js/functions.js', array('jquery'), '1.0', true);
-}
+    foreach ($theme_javascript as $name => $script) {
+        if (WP_DEBUG) {
+            // Load unminified versions while debugging.
+            $script = str_replace('.min', '', $script);
+        }
 
-function enqueue_theme_stylesheets() {
-    /**
-     * Enqueue Theme Stylesheets
-     *  ------------------------
-     * @param {none}
-     * @return {none}
-     */    
-
-    wp_register_style('google-fonts', google_font_url());
-    wp_enqueue_style('google-fonts');
-    wp_enqueue_style('main-style', get_stylesheet_uri(), false, '1.4', 'all');
-    wp_enqueue_style('custom-stylesheet', get_stylesheet_directory_uri() . '/custom.css', false, '1.4', 'all');
+        wp_enqueue_script($name, THEME_JS . $script, array(), '2.0', true);
+    }
 }
 
 /**
- * Open Graph and Twitter Card Information
- * ---------------------------------------
+ * Enqueue Theme Stylesheets
+ *  -----------------------------------------------------------------------------
+ */    
+
+function enqueue_theme_stylesheets() {
+    global $theme_styles, $google_fonts;
+
+    foreach ($theme_styles as $name => $style) {
+        wp_enqueue_style($name, THEME_CSS . $style);
+    }
+
+    if (!empty($google_fonts)) {
+        wp_register_style('google-fonts', google_font_url($google_fonts));
+        wp_enqueue_style('google-fonts');
+    }
+}
+
+/**
+ * Output Open Graph and Twitter Card Tags
+ * -----------------------------------------------------------------------------
+ * Call the Open Graph and Twitter Card functions.
  */
 
 function social_meta() {
-    /**
-     * Output Open Graph and Twitter Card Tags
-     * ---------------------------------------
-     * Call the Open Graph and Twitter Card functions.
-     *
-     * @param {none}
-     * @return {none}  
-     */
-
     open_graph_tags();
     twitter_card_tags();
 }
 
-function twitter_card_tags() {
-    /**
-     * Twitter Card
-     * ------------
-     * This function /should/ present all of the relevant and correct
-     * information for Twitter Card. 
-     *
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Twitter Card
+ * -----------------------------------------------------------------------------
+ * This function /should/ present all of the relevant and correct
+ * information for Twitter Card. 
+ */
 
+function twitter_card_tags() {
     global $social_fallback, $post;
     $the_post = get_post($post->ID);
     setup_postdata($the_post);
@@ -148,17 +165,14 @@ function twitter_card_tags() {
     }
 }
 
-function open_graph_tags() {
-    /**
-     * Open Graph
-     * ----------
-     * This function /should/ present all of the relevant and correct
-     * information for Open Graph scrapers. 
-     *
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Open Graph
+ * -----------------------------------------------------------------------------
+ * This function /should/ present all of the relevant and correct
+ * information for Open Graph scrapers. 
+ */
 
+function open_graph_tags() {
     global $social_fallback, $post;
     $the_post = get_post($post->ID);
     setup_postdata($the_post);
@@ -205,18 +219,18 @@ function open_graph_tags() {
     }
 }
 
-function search_results_count($page_num, $total_results) {
-    /**
-     * Search Result Count
-     * -------------------
-     * Return a count of results for the search in the format 
-     * 'Results 1 to 10 of 200'
-     * 
-     * @param {int} $page_num Current page nunber.
-     * @param {int} $total_results Total number of search results.
-     * @return {string} Count of results.
-     */
+/**
+ * Search Result Count
+ * -----------------------------------------------------------------------------
+ * Return a count of results for the search in the format 
+ * 'Results 1 to 10 of 200'
+ * 
+ * @param int $page_num Current page nunber.
+ * @param int $total_results Total number of search results.
+ * @return string Count of results.
+ */
 
+function search_results_count($page_num, $total_results) {
     $page_num = ($page_num === 0) ? 1 : $page_num;
     $posts_per_page = get_option('posts_per_page');
     $count_high = $page_num * $posts_per_page;
@@ -225,33 +239,30 @@ function search_results_count($page_num, $total_results) {
     return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
 }
 
-function clean_search_url() {
-    /**
-     * Rewrite Search URL Cleanly
-     * --------------------------
-     * Cleanly rewrite search URL from ?s=topic to /search/topic
-     * See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
-     * 
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Rewrite Search URL Cleanly
+ * -----------------------------------------------------------------------------
+ * Cleanly rewrite search URL from ?s=topic to /search/topic
+ * See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
+ */
 
+function clean_search_url() {
     if (is_search() && ! empty($_GET['s'])) {
         wp_redirect(home_url('/search/') . urlencode(get_query_var('s')));
         exit();
     }
 }
 
-function custom_excerpt($excerpt) {
-    /**
-     * Custom Theme Excerpt
-     * --------------------
-     * I forget why I did this.
-     * 
-     * @param {string} $excerpt
-     * @return {string} $excerpt
-     */
+/**
+ * Custom Theme Excerpt
+ * -----------------------------------------------------------------------------
+ * I forget why I did this.
+ * 
+ * @param string $excerpt
+ * @return string $excerpt
+ */
 
+function custom_excerpt($excerpt) {
     $excerpt = get_the_content(); 
     $excerpt = strip_shortcodes($excerpt); 
     $excerpt = strip_tags($excerpt); 
@@ -261,21 +272,21 @@ function custom_excerpt($excerpt) {
     return $excerpt;
 }
 
-function archive_page_count($page_num = null, $total_results = null, $type = null) {
-    /**
-     * Pagination Post Counter
-     * -----------------------
-     * Fetch and display total post count in format of 'Page 1 of 10'.
-     * This only counts published, public posts; drafts, pages, custom
-     * post types and private posts are all excluded unless you specify
-     * inclusion.
-     * 
-     * @param {int} $page_num Current page in pagination.
-     * @param {int} $total_results Total results, for pagination.
-     * @param {string} $type Type of post to use.
-     * @return {string The post counter.
-     */
+/**
+ * Pagination Post Counter
+ * -----------------------------------------------------------------------------
+ * Fetch and display total post count in format of 'Page 1 of 10'.
+ * This only counts published, public posts; drafts, pages, custom
+ * post types and private posts are all excluded unless you specify
+ * inclusion.
+ * 
+ * @param int $page_num Current page in pagination.
+ * @param int $total_results Total results, for pagination.
+ * @param string $type Type of post to use.
+ * @return string The post counter.
+ */
 
+function archive_page_count($page_num = null, $total_results = null, $type = null) {
     if (is_null($page_num)) {
         $page_num = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
@@ -293,22 +304,21 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
     printf('Page %s of %s', $page_num, $total_pages);
 }
 
-function content_first_image() {
-    /**
-     * Retrive first image in content.
-     * -------------------------------
-     * I chose not to use the featured image feature in WordPress, because
-     * I do not want to be ultimately tied to WordPress as a blogging CMS.
-     * 
-     * This functions extracts and returns the first found image in the post,
-     * no matter what that image happens to be.
-     * 
-     * See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
-     *
-     * @param {none}
-     * @return {string} Full URL of the first image found.
-     */
+/**
+ * Retrive first image in content.
+ * -----------------------------------------------------------------------------
+ * I chose not to use the featured image feature in WordPress, because
+ * I do not want to be ultimately tied to WordPress as a blogging CMS.
+ * 
+ * This functions extracts and returns the first found image in the post,
+ * no matter what that image happens to be.
+ * 
+ * See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
+ *
+ * @return string Full URL of the first image found.
+ */
 
+function content_first_image() {
     global $post, $posts, $social_fallback;
     ob_start();
     ob_end_clean();
@@ -317,20 +327,20 @@ function content_first_image() {
     return (!empty($first_image)) ? $first_image : $social_fallback['image'];
 }
 
-function article_reading_time($post_id = null, $average_wpm = 300, $return_minutes = false) {
-    /**
-     * Article Reading Time in Seconds
-     * -------------------------------
-     * Inpsired by Medium; see: http://www.bhalash.com/archives/13544802870
-     *
-     * Return the reading time of the article in seconds, based on an average 
-     * WPM of 300. You are free to override this.
-     * 
-     * @param {int} $post_id 
-     * @param {int} $average_wpm Average reading speed.
-     * @return {int} $reading_time Reading time in seconds.
-     */
+/**
+ * Article Reading Time in Seconds
+ * -----------------------------------------------------------------------------
+ * Inpsired by Medium; see: http://www.bhalash.com/archives/13544802870
+ *
+ * Return the reading time of the article in seconds, based on an average 
+ * WPM of 300. You are free to override this.
+ * 
+ * @param int $post_id 
+ * @param int $average_wpm Average reading speed.
+ * @return int $reading_time Reading time in seconds.
+ */
 
+function article_reading_time($post_id = null, $average_wpm = 300, $return_minutes = false) {
     $reading_time = 0;
 
     if (is_null($post_id_id)) {
@@ -348,16 +358,16 @@ function article_reading_time($post_id = null, $average_wpm = 300, $return_minut
     return $reading_time;
 }
 
+/**
+ * Article Reading Time in Seconds
+ * -----------------------------------------------------------------------------
+ * Convert the reading time in seconds, to the reding time in minutes.
+ * 
+ * @param int $seconds Reading time in seconds.
+ * @return int $minutes Reading time in minutes.
+ */
+
 function article_reading_time_minutes($seconds) {
-    /**
-     * Article Reading Time in Seconds
-     * -------------------------------
-     * Convert the reading time in seconds, to the reding time in minutes.
-     * 
-     * @param {int} $seconds Reading time in seconds.
-     * @return {int} $minutes Reading time in minutes.
-     */
-    
     $minutes = 0;
 
     if ($seconds % 60 <= 30) {
@@ -369,19 +379,19 @@ function article_reading_time_minutes($seconds) {
     return $minutes;
 }
 
-function reading_time_in_words($reading_time) {
-    /**
-     * Article Reading Time in Seconds
-     * -------------------------------
-     * Converts a given minutes time to words. Only does up to 99 minutes,
-     * because, honestly, if your article's reading time is above that then
-     * you went horribly wrong somewhere.
-     * 
-     * @param {int} $seconds Reading time in minutes.
-     * @return {string} $time_words Reading time of article expressed as a phrase.
-     * 
-     */
+/**
+ * Article Reading Time in Seconds
+ * -----------------------------------------------------------------------------
+ * Converts a given minutes time to words. Only does up to 99 minutes,
+ * because, honestly, if your article's reading time is above that then
+ * you went horribly wrong somewhere.
+ * 
+ * @param int $seconds Reading time in minutes.
+ * @return string $time_words Reading time of article expressed as a phrase.
+ * 
+ */
 
+function reading_time_in_words($reading_time) {
     $words = array(
         'singles' = array(
             'one','two','three','four','five','six','seven','eight','nine'
@@ -425,12 +435,12 @@ function reading_time_in_words($reading_time) {
 function rmwb_reading_time($post_id = null) {
     /**
      * Reading Time Wrapper
-     * --------------------
+     * -----------------------------------------------------------------------------
      * Take in post and return its reading time in minutes as a phrase.
      * See http://www.bhalash.com/archives/13544802870
      *
-     * @param {int} $post_id 
-     * @param {string} $time_phrase Reading time as a phrase/words.
+     * @param int $post_id 
+     * @param string $time_phrase Reading time as a phrase/words.
      */
 
     if (is_null($post_id)) {
@@ -443,14 +453,12 @@ function rmwb_reading_time($post_id = null) {
     return ucfirst($time_phrase) . $minute_word;
 }
 
-function sidebar_widgets_init() {
-    /**
-     * Register Theme Widget Areas
-     * ---------------------------
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Register Theme Widget Areas
+ * -----------------------------------------------------------------------------
+ */
 
+function sidebar_widgets_init() {
     register_sidebar(array(
         'name' => 'Dynamic sidebar.',
         'id' => 'dynamicsidebar',
@@ -461,14 +469,12 @@ function sidebar_widgets_init() {
     ));
 }
 
-function rmwb_nav() {
-    /**
-     * Register Theme Navigation Menus
-     * -------------------------------
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Register Theme Navigation Menus
+ * -----------------------------------------------------------------------------
+ */
 
+function rmwb_nav() {
     register_nav_menus(array(
         'top-menu' => __('Header Menu'),
         'top-social' => __('Header Social Links')
@@ -477,16 +483,15 @@ function rmwb_nav() {
 
 add_action('init', 'rmwb_nav');
 
-function rmwb_comments($comment, $args, $depth) {
-    /**
-     * Custom Comment and Comment Form Output
-     * --------------------------------------
-     * @param {string} $comment The comment.
-     * @param {array} $args Array argument 
-     * @param {int} $depth Depth of the comments thread.
-     * @return {none}
-     */
+/**
+ * Custom Comment and Comment Form Output
+ * -----------------------------------------------------------------------------
+ * @param string $comment The comment.
+ * @param array $args Array argument 
+ * @param int $depth Depth of the comments thread.
+ */
 
+function rmwb_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment; ?>
 
     <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
@@ -517,31 +522,24 @@ function rmwb_comments($comment, $args, $depth) {
     </li><?php
 }
 
-function wrap_comment_fields_before() {
-    /**
-     * Prepend Element to Comment Fields
-     * ---------------------------------
-     * See: https://wordpress.stackexchange.com/questions/172052/how-to-wrap-comment-form-fields-in-one-div
-     *
-     * @param {none}
-     * @return {none}
-     */
+/**
+ * Wrap Comment Fields in Elements
+ * -----------------------------------------------------------------------------
+ * See: http://goo.gl/m9kv1z
+ */
 
+function wrap_comment_fields_before() {
     printf('<div class="commentform-inputs">');
 }
 
 function wrap_comment_fields_after() {
-    /**
-     * Append Element to Comment Fields
-     * --------------------------------
-     * See: https://wordpress.stackexchange.com/questions/172052/how-to-wrap-comment-form-fields-in-one-div
-     *
-     * @param {none}
-     * @return {none}
-     */
-
     printf('</div>');
 }
+
+/**
+ * Filters, Options and Actions
+ * -----------------------------------------------------------------------------
+ */
 
 if (!isset($content_width)) {
     $content_width = 600;
