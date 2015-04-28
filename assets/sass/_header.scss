@@ -1,5 +1,30 @@
+/**
+ * Site Header
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
 #header {
-    @extend %padded-content;
     @extend %cover-picture;
 
     background-image: $header-background-image;
@@ -9,18 +34,16 @@
     right: 0;
     top: 0;
 
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(align-items, center);
+    @include flex-parent(row, center);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         height: $header-height-65;
     }
 }
 
 #titles {
     margin: auto;
-    @include prefix(flex, 1);
+    @include flex-child(1);
 
     h2, p {
         color: #fff;
@@ -29,7 +52,7 @@
     }
 
     h2 {
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             font-size: 2em;
         }
 

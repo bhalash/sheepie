@@ -1,6 +1,27 @@
-/*
+/**
  * Comments
- * --------
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /*
@@ -27,8 +48,7 @@
  */
 
 .comment, .comment header {
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
+    @include flex-parent(row);
 }
 
 .comment {
@@ -37,17 +57,17 @@
     padding: $bottom-margin-21 0;
 
     &:not(:first-child) {
-        @extend %border-light;
         border-width: 1px 0 0 0;
     }
 
     header p, .comment-interior {
-        @include prefix(flex, 1);
+        @include flex-child(1);
     }
 
     header {
-        @include breakpoint(portrait) {
-            @include prefix(flex-direction, column);
+        @include media(portrait) {
+            @include flex-parent(column);
+
             margin-bottom: $bottom-margin-7;
         }
 
@@ -55,7 +75,7 @@
             color: $colour-grey-light-text;
             font-size: 90%;
 
-            @include breakpoint(portrait) {
+            @include media(portrait) {
                 margin: 0;
             }
         }
@@ -63,7 +83,7 @@
         .date {
             text-align: right;
 
-            @include breakpoint(portrait) {
+            @include media(portrait) {
                 text-align: left;
             }
         }
@@ -84,7 +104,6 @@
 .focused-comment {
     /* Focused comment expands to either side, but the content within remains
      * unchanges */
-    @extend %box-shadow-heavy;
     border: 0;
     left: -$bottom-margin-21;
     padding-left: $bottom-margin-21;
@@ -107,28 +126,23 @@
         &:not(textarea) {
             margin-bottom: $bottom-margin-7;
         }
-
-        &:focus {
-            @extend %border-heavy;
-        }
     }
 
     .commentform-inputs {
         // Wrapper container for the inputs on the commentform.
-        @include prefix_value(display, flex);
-        @include prefix(flex-direction, row);
+        @include flex-parent(row);
 
-        @include breakpoint(smartphone) {
-            @include prefix(flex-direction, column);
+        @include media(smartphone) {
+            @include flex-parent(column);
         }
 
         input {
-            @include prefix(flex, 1);
+            @include flex-child(1);
 
             &:not(:last-of-type) {
                 margin-right: $bottom-margin-7;
 
-                @include breakpoint(smartphone) {
+                @include media(smartphone) {
                     margin-right: 0;
                 }
             }
@@ -138,7 +152,7 @@
     textarea {
         height: 100px;
 
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             // width: 99%;
         }
     }

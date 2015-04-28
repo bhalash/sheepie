@@ -1,14 +1,27 @@
-/*
+/**
  * Articles and Pages
- * ------------------
- * This theme has two main article templates:
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
  * 
- * 1. article-full
- * 2. article-excerpt
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
  * 
- * As the names hint, one is a full-sized article and the other is an excerpt. 
- * There is also a placeholder article for missing/404/403 errors that I will 
- * flesh out later.
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
 /*
@@ -29,25 +42,22 @@ $article-image-border: rgba($colour-grey-pre, 0.5);
     box-sizing: border-box;
     padding-right: 0.5%;
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         padding-right: 0;
     }
 }
 
 div.article-photobox {
     // Shrink images down to neatly fit on one row.
-    @include prefix(align-items, flex-start);
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, wrap);
+    @include flex-parent(row, flex-start);
     margin-bottom: $bottom-margin;
 
     a {
         @extend %article-child-block;
-        @include prefix(flex, 1 1 33%);
+        @include flex-child(1 1 33%);
 
-        @include breakpoint(smartphone) {
-            @include prefix(flex, 1);
+        @include media(smartphone) {
+            @include flex-child(1);
         }
     }
 
@@ -65,15 +75,14 @@ div.avatar-wrapper {
     margin-right: $bottom-margin;
     @include prefix(flex, 0 1 96px);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         @include prefix(flex, 0 1 65px);
     }
 
     img {
-        @extend %border-light;
         border-radius: 50%;
 
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             height: 65px;
             width: 65px;
         }
@@ -121,10 +130,6 @@ article {
     div, img, iframe {
         box-sizing: border-box;
         max-width: 100%;
-    }
-
-    img {
-        @extend %border-light;
     }
 
     input {
@@ -198,30 +203,27 @@ article.excerpt {
  */
 
 div.related-articles {
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, nowrap);
+    @include flex-parent(row);
 
-    @include breakpoint(smartphone) {
-        @include prefix(flex-direction, column);
+    @include media(smartphone) {
+        @include flex-parent(column);
     }
 }
 
 article.related {
     @extend %article-child-block;
-    @include prefix(flex, 1);
+    @include flex-child(1);
 
-    @include breakpoint(smartphone) {
+    @include media(smartphone) {
         margin-bottom: $bottom-margin;
     }
 
     .related-thumbnail {
-        @extend %border-light;
         background-size: cover;
         box-sizing: border-box;
         margin-bottom: $bottom-margin-7;
 
-        @include flex_size(100%, 0.5);
+        @include square-flex(100%, 0.5);
     }
 
     .related-thumbnail a {

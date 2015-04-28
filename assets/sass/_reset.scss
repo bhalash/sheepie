@@ -1,44 +1,254 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, images, 
-ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, 
-dl, dt, dd, ol, ul, li, fieldset, form, label,legend, table, caption, tbody, 
-tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, 
-figcaption, footer, header, hgroup menu, nav, output, ruby, section, summary, 
-time, mark, audio, video {
-    border: 0; 
-    color: inherit;
-    font-size: 100%;
-    font: inherit;
-    font-family: Lucida Grande, Verdana, Lucida Sans Regular, Lucida Sans Unicode, Arial;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    text-decoration: none;
-    vertical-align: baseline;
+/**
+ * CSS Reset
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+html {
+    font: 100% $font-family-georgia;
+    @include line-height(2.4);
 }
 
-form {
-    button, input, textarea {
-        // Reset appearance across all browsers.
-        box-sizing: border-box;
-        margin: 0;
+body {
+    background-color: $colour-grey-article-border;
+    margin: 0;
+    padding: 0;
+}
+
+/**
+ * Forms
+ * -----
+ */
+
+input, button, textarea {
+    // Remove all default appearance and focus appearance styling. 
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    @include prefix(border-radius, 0);
+
+    &:focus {
+        border: 0;
         outline: 0;
-        padding: 0;
-
-        @include webkit(appearance, none);
-        @include webkit(border-radius, 0);
-
-        &:focus {
-            outline: 0;
-        }
     }
 
     textarea {
-        width: 100%;
+        resize: none;
+    }
+}
+
+/**
+ * Headline Items
+ * --------------
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+h1 { 
+    @include font-size(3.2);
+    @include line-height(4);
+}
+
+h2 { 
+    @include font-size(2.6); 
+}
+
+h3 { 
+    @include font-size(1.8);
+}
+
+h4 { 
+    @include font-size(1.6);
+}
+
+h5 { 
+    @include font-size(1.4);
+}
+
+h6 { 
+    @include font-size(1.2);
+}
+
+/**
+ * Non-healine Items 
+ * -----------------
+ */
+
+a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, 
+sub, sup {
+    font: inherit;
+}
+
+/**
+ * Big Text
+ * --------
+ * Normal text is ~1.6
+ */
+
+big, dt {
+    @include font-size(1.9);
+}
+
+/**
+ * Small Text
+ * ----------
+ * Normal text is ~1.6
+ */
+
+cite, ins, q, small, sup, sub {
+    @include font-size(1.3);
+}
+
+/**
+ * Bold Text
+ * ---------
+ */
+
+dt, strong {
+    font-weight: bold;
+}
+
+/**
+ * Code Blocks
+ * -----------
+ */
+
+code, kbd, pre, pre span, tt, var {
+    font-family: $font-family-courier;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    -webkit-font-smoothing: antialiased;
+    @include font-size(1.4);
+}
+
+pre {
+    background-color: $colour-grey-box;
+    color: #fff;
+    line-height: 1.2em;
+    overflow: auto;
+}
+
+/**
+ * Blockquote and Cite
+ * -------------------
+ */
+ 
+blockquote {
+    // Ciaran asked for a meticulously-styled blockquote area.
+    background-image: 
+        url($blockquote-open),
+        url($blockquote-close);
+    background-position: 
+        -4% 4%, 
+        104% 88%;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: auto 25px;
+    border-color: 1px solid $colour-grey-article-border;
+    border-width: 1px 0;
+    font-style: italic;
+    padding: 15px 30px;
+    @include font-size(1.4);
+
+    >:last-child {
+        margin-bottom: 0;
+    }
+}
+
+cite {
+    color: $colour-grey-cite;
+    display: block;
+    font-style: none;
+    font-weight: bold;
+    width: 100%;
+    @include font-size(1.4);
+
+    &:before {
+        content: ' -';
+    }
+}
+
+/**
+ * Miscellaneous Inline Elements
+ * -----------------------------
+ */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: transparent;
+    width: 100%;
+}
+
+iframe, img {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+li {
+    line-height: 1em;
+}
+
+small {
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+ 
+    li {
+        margin-bottom: 0;
+    } 
+}
+
+/**
+ * Article Text Styling
+ * --------------------
+ */
+
+article {
+    blockquote, ol, p, pre, ul {
+        @include font-size(1.5);
+
+        a {
+            color: $colour-green-anchor;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 
-    input, textarea {
-        @extend %border-light;
-        padding: $bottom-margin-7;
+    a img, blockquote, ol, p, pre, ul {
+        margin-bottom: $margin;
     }
 }

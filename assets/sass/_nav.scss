@@ -1,6 +1,27 @@
-/*
+/**
  * Nav Elements
- * ------------
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
 nav {
@@ -33,63 +54,18 @@ nav {
  */
 
 nav#top-menu {
-    @extend %padded-content;
     background: transparent;
     left: 0;
     position: fixed;
     right: 0;
     top: 0;
     z-index: 2;
-
-    a {
-        color: inherit;
-        padding: $bottom-margin;
-    }
-
-    a[href*=earch] {
-        text-align: right;
-    }
-
-    ul {
-        // First level of menu.
-        position: relative;
-
-        ul {
-            // Second level of menu.
-            display: none;
-        }
-    }
-
-    li {
-        // This colour is overridden by nav.js.
-        color: #fff;
-    }
 }
 
 /*
  * Site Top Navigation
  * -------------------
  */
-
-$social: (
-    comments: (#30b351, '../images/social/social-comments.png'),
-    email: (#f5756c, '../images/social/social-email.png'),
-    facebook: (#3B5998, '../images/social/social-facebook.png'),
-    flickr: (#ff0084, '../images/social/social-flickr.png'),
-    github: (#666666, '../images/social/social-github.png'),
-    google: (#dd4b39, '../images/social/social-google.png'),
-    instagram: (#3f729b, '../images/social/social-instagram.png'),
-    linkedin: (#0976b4, '../images/social/social-linkedin.png'),
-    pinterest: (#cc2127, '../images/social/social-pinterest.png'),
-    print: (#007aaf, '../images/social/social-print.png'),
-    reddit: (#ff5700, '../images/social/social-reddit.png'),
-    rmwb: (#343537, '../images/social/social-beard.png'),
-    rss: (#ff6600, '../images/social/social-rss.png'),
-    tumblr: (#35465c, '../images/social/social-tumblr.png'),
-    twitter: (#55acee, '../images/social/social-twitter.png'),
-    youtube: (#b31217, '../images/social/social-youtube.png')
-);
-
 
 nav#top-social {
     ul {
@@ -104,19 +80,8 @@ nav#top-social {
         @extend %cover-picture;
         display: block;
         font-size: 0;
-        @include flex_size(40px, 1);
     }
 
-    @each $value, $key in $social {
-        a[href*="#{$value}"] {
-            // background-color: nth($key, 1);
-            background-image: url(nth($key, 2));
-        }
-    }
-
-    a[href^="mailto"] {
-        background-image: url(nth(map-get($social, email), 2));
-    }
 }
 
 /*
@@ -126,14 +91,11 @@ nav#top-social {
  */
 
 nav.pagination {
-    @include prefix_value(display, flex);
-    @include prefix(flex-direction, row);
-    @include prefix(flex-wrap, wrap);
-
     padding: 7px 0;
+    @include flex-parent(row);
 
     div { 
-        @include prefix(flex, 1);
+        @include flex-child(1);
     }
 
     span {
@@ -148,7 +110,7 @@ nav.pagination {
     div.count {
         text-align: center;
 
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             display: none;
         }
 
@@ -158,7 +120,7 @@ nav.pagination {
     }
 
     div.previous-post, div.next-post {
-        @include breakpoint(smartphone) {
+        @include media(smartphone) {
             white-space: normal;
         }
     }

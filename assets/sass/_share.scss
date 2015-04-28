@@ -1,53 +1,32 @@
 /*
  * Nav Menu Social Links
- * ----------------------
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
-$social: (
-    comments: (#30b351, '../images/social/comments.png'),
-    email: (#f5756c, '../images/social/email.png'),
-    facebook: (#3B5998, '../images/social/facebook.png'),
-    flickr: (#ff0084, '../images/social/flickr.png'),
-    github: (#666666, '../images/social/github.png'),
-    google: (#dd4b39, '../images/social/google.png'),
-    instagram: (#3f729b, '../images/social/instagram.png'),
-    linkedin: (#0976b4, '../images/social/linkedin.png'),
-    pinterest: (#cc2127, '../images/social/pinterest.png'),
-    print: (#007aaf, '../images/social/print.png'),
-    reddit: (#ff5700, '../images/social/reddit.png'),
-    rmwb: (#343537, '../images/social/beard.png'),
-    rss: (#ff6600, '../images/social/rss.png'),
-    tumblr: (#35465c, '../images/social/tumblr.png'),
-    twitter: (#55acee, '../images/social/twitter.png'),
-    youtube: (#b31217, '../images/social/youtube.png')
-);
 
 nav.social {
     ul {
         list-style-type: none;
         text-align: center;
-    }
-
-    li {
-        background-size: auto 90%;
-        background-repeat: no-repeat;
-        background-position: center center;
-
-        &:not(:first-child) {
-            margin-left: 5px;
-        }
-
-        @include flex_size(13%, 1);
-    }
-
-    a {
-        border: 0;
-
-        @include flex_size(100%, 1);
-    }
-
-    @each $value, $key in $social {
-        li.#{$value} {
-            background-image: url(nth($key, 2));
-        }
     }
 }
