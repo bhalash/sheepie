@@ -1,29 +1,29 @@
 <?php
+
 /**
- * Sheepie Theme Functions
- * -----------------------
- * @category   Functions File
- * @package    Sheepie WordPress Theme
+ * Main PHP Functions
+ * -----------------------------------------------------------------------------
+ * @category   PHP Script
+ * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
- * @copyright  2015 Mark Grealish
+ * @copyright  Copyright (c) 2015 Mark Grealish
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
- * @version    1.0
- * @link       https://github.com/bhalash/bhalash.com
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
  * 
- * This file is part of the Sheepie WordPress theme.
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
  * 
- * Sheepie is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  * 
- * Sheepie is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with Sheepie. If not, see <http://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
 $social_fallback = array(
@@ -60,7 +60,7 @@ function google_font_url() {
     global $google_fonts;
     $google_url = array();
 
-    $google_uri[] 'http://fonts.googleapis.com/css?family=';
+    $google_uri[] '//fonts.googleapis.com/css?family=';
 
     foreach ($google_fonts as $index => $value) {
         $g_string[] = str_replace(' ', '+', $value);
@@ -241,7 +241,6 @@ function clean_search_url() {
         exit();
     }
 }
-
 
 function custom_excerpt($excerpt) {
     /**
@@ -564,4 +563,5 @@ remove_filter('the_excerpt', 'convert_smilies');
 current_theme_supports('html5');
 current_theme_supports('menus');
 add_theme_support('html5', array('search-form'));        
+
 ?>
