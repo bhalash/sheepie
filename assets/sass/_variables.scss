@@ -1,5 +1,5 @@
 /**
- * Sass Root Source File
+ * Stylesheet Variables
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -24,34 +24,41 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/** 
- * Variables
- * ---------
- */
-
-@import 'variables';
+$DEBUG: true;
 
 /**
- * Mixins and Partials
+ * Theme Breakpoints
  * -----------------------------------------------------------------------------
  */
 
-@import 'scss-helpers/bhalash-helpers';
+$b-1280: max 1280px;
+$b-1024: max 1028px;
+$b-960:  max 960px;
+$b-768:  max 768px;
 
-.yahoo {
-    @include margin(3, top);
-}
-
-/**
- * Imports
+/*
+ * Colors
  * -----------------------------------------------------------------------------
  */
 
-@import 'reset';
-@import 'containers';
-// @import 'nav';
-// @import 'content';
-// @import 'articles';
-// @import 'comments';
-// @import 'search';
-// @import 'share';
+$default-colors: (
+    gray: (
+        dark: rgb(51,51,51),
+        base: rgba(0,0,0,0.8),
+        light: rgb(158,171,179),
+        x-light: rgb(244,244,244),
+    ),
+    blue: (
+        base: rgb(51,153,204)
+    )
+);
+
+/*
+ * Typeface Declarations
+ * -----------------------------------------------------------------------------
+ */
+
+$font-opensans: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font-lato: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
+$font-sourcecodepro:'Source Code Pro', 'Courier New', Courier, monospace;
+$font-opensans-title: 'Open Sans Condensed', Verdana, Geneva, sans-serif, sans-serif;
