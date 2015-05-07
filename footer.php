@@ -31,7 +31,7 @@
                 <!-- <div id="footer" style="width: 100%; height: 30px; background: #000"></div> -->
             </div> <?php // End .interior ?>
         </div> <?php // End #content ?>
-    </div> <?php // End #main ?>
+    </div> <?php // End #site ?>
     <script>
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-2156640-5']);
