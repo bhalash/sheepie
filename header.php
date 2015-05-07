@@ -26,7 +26,10 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-?>
+if (!is_user_logged_in()) {
+    require_once('not-logged-in.php');
+    exit();
+} ?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -43,46 +46,30 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <nav id="top-menu">
-        <?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
-    </nav>
-    <div id="main">
-        <div id="header">
-            <?php // Header navigation. 
-            global $wp_query;
-            ?>
-            <div id="titles">
-                <h2>
-                    <?php if (!is_single() && !is_search()) {
-                        // If is index page.
-                        printf('<a title="%s" href="%s">%s</a>', __('Go home'), get_bloginfo('url'), get_bloginfo('name')); 
-                    } else if (is_search()) {
-                        // Else if is search page.
-                        printf('%s \'%s\'', __('Results for'), get_search_query()); 
-                    } else {
-                        // Else if is single article (probably).
-                        printf(
-                            '<a href="%s" rel="bookmark" title="%s %s">%s</a>',
-                            get_the_permalink(),
-                            __('Permanent link to'), 
-                            get_the_title(), 
-                            get_the_title()
-                        );
-                    } ?>
-                </h2>
-                <p>
-                    <?php if (!is_single() && !is_search()) {
-                        bloginfo('description');
-                    } else if (is_search()) {
-                        printf('%s', search_results_count(get_query_var('paged'), $wp_query->found_posts));
-                    } else { ?>
-                        <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> <?php echo __('in'); ?> <?php the_category(', '); edit_post_link(__('edit post'), ' / ', ''); ?>
-                    <?php }; ?>
-                </p>
-                <nav id="top-social">
-                    <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
-                </nav>
-            </div>
+    <div class="side-by-side" id="site">
+        <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
+            <h1 id="header-title"><?php page_title($post->ID); ?></h1>
+            <p id="header-description"><?php bloginfo('description'); ?></p>
+            <ul id="header-social">
+                <li><a class="facebook" href="http://www.facebook.com/bhalash"></a></li>
+            </ul>
         </div>
         <div id="content">
             <div class="content">
+
+<?php /*
+    <p>
+        <?php if (!is_single() && !is_search()) {
+            bloginfo('description');
+        } else if (is_search()) {
+            printf('%s', search_results_count(get_query_var('paged'), $wp_query->found_posts));
+        } else { ?>
+            <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> <?php echo __('in'); ?> <?php the_category(', '); edit_post_link(__('edit post'), ' / ', ''); ?>
+        <?php }; ?>
+    </p>
+    <nav id="top-social">
+        <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
+    </nav>
+</div>
+
+*/ ?>
