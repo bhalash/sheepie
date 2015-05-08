@@ -26,10 +26,35 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-define('THEME_ASSETS', get_template_directory_uri() . '/assets');
+define('THEME_VERSION', 2.0);
+
+/**
+ * Theme File Paths
+ * -----------------------------------------------------------------------------
+ */
+
+define('THEME_ROOT', get_template_directory_uri());
+
+/**
+ * PHP Includes
+ * -----------------------------------------------------------------------------
+ */
+
+define('THEME_INCLUDES', get_template_directory() . '/includes/');
+
+define('THEME_ASSETS', THEME_ROOT . '/assets/');
+
 define('THEME_JS', THEME_ASSETS . 'js/');
 define('THEME_IMAGES', THEME_ASSETS . 'images/');
-define('THEME_CSS', THEME_ASSETS . 'scss/');
+define('THEME_CSS', THEME_ASSETS . 'sass/');
+
+/**
+ * Theme Includes
+ * -----------------------------------------------------------------------------
+ */
+
+// require_once(THEME_INCLUDES . 'options.php');
+require_once(THEME_INCLUDES . 'container-states.php');
 
 /**
  * Social Meta Fallback
@@ -52,52 +77,54 @@ $social_fallback = array(
 $google_fonts = array(
     // All Google Fonts to be loaded.
     'Open Sans Condensed 300',
-    'Merriweather',
     'Open Sans:400,700,800',
-    'Bitter',
-    'Roboto Condensed',
-    'Source Code Pro'
+    'Source Code Pro',
+    'Lato'
 );
 
 $theme_javascript = array(
-    'browser-detect' => 'browser_detect.js',
-    'functions' => 'functions.js'
+    'browser-detect' => THEME_JS . 'browser_detect.js',
+    'functions' => THEME_JS . 'functions.js'
 );
 
 $theme_styles = array(
-    // FIXME
-    'main-style', 'style.css',
-    'custom-stylesheet' => ' /custom.css'
+    // Compressed, compiled theme CSS.
+    'main-style'        => THEME_CSS . '/style.css',
+    // WordPress style.css. Not really used.
+    'wordpress-style'   => THEME_ROOT . '/style.css',
+    // Custom user-added CSS.
+    'custom-stylesheet' => THEME_ROOT . '/custom.css'
 );
 
 /**
- * Generate Google Fonts URL
+ * Parse Google Fonts from Array
  * -----------------------------------------------------------------------------
+ * @param   array   $fonts          Array of fonts to be used.
+ * @return  string  $google_url     Parsed URL of fonts to be enqueued.
  */
 
-function google_font_url() {
+function google_font_url($fonts) {
     global $google_fonts;
-    $google_url = array();
+    $google_url = array('//fonts.googleapis.com/css?family=');
 
-    $google_uri[] '//fonts.googleapis.com/css?family=';
+    foreach ($fonts as $key => $value) {
+        $google_url[] = str_replace(' ', '+', $value);
 
-    foreach ($google_fonts as $index => $value) {
-        $g_string[] = str_replace(' ', '+', $value);
-
-        if ($index < sizeof($google_fonts) - 1) {
-            $google_uri[] = '|';
+        if ($key < sizeof($google_fonts) - 1) {
+            $google_url[] = '|';
         }
     }
 
-    return implode('', $google_uri);
+    return implode('', $google_url);
 }
 
-/**
- * Enqueue Theme JavaScript
- *  -----------------------------------------------------------------------------
- */    
+/** 
+ * Load Theme JavaScript
+ * -----------------------------------------------------------------------------
+ * Load all theme JavaScript.
+ */
 
-function enqueue_theme_scripts() {
+function load_theme_scripts() {
     global $theme_javascript;
 
     foreach ($theme_javascript as $name => $script) {
@@ -106,20 +133,21 @@ function enqueue_theme_scripts() {
             $script = str_replace('.min', '', $script);
         }
 
-        wp_enqueue_script($name, THEME_JS . $script, array(), '2.0', true);
+        wp_enqueue_script($name, $script, array('jquery'), THEME_VERSION, true);
     }
 }
 
 /**
- * Enqueue Theme Stylesheets
- *  -----------------------------------------------------------------------------
- */    
+ * Load Theme Custom Styles
+ * -----------------------------------------------------------------------------
+ * Load all theme CSS.
+ */
 
-function enqueue_theme_stylesheets() {
+function load_theme_styles() {
     global $theme_styles, $google_fonts;
 
     foreach ($theme_styles as $name => $style) {
-        wp_enqueue_style($name, THEME_CSS . $style);
+        wp_enqueue_style($name, $style, array(), THEME_VERSION);
     }
 
     if (!empty($google_fonts)) {
@@ -220,14 +248,41 @@ function open_graph_tags() {
 }
 
 /**
+ * Get Avatar URL
+ * -----------------------------------------------------------------------------
+ * Wrapper for get_avatar that only returns the URL. Yes, WordPress added a 
+ * get_avatar_url() function in version 4.2. The Tuairisc site, however, uses 
+ * a plugin named WP User Avatar (https://wordpress.org/plugins/wp-user-avatar/)
+ * to upload and serve avatars from a local source.
+ * 
+ * 1. WP User Avatar hooks into get_avatar()
+ * 2. As of April 29 2015 the plugin does not support the new get_avatar_data()
+ *    and get_avatar_url() functions. 
+ * 
+ * That is to say both new functions will stil only serve from Gravatar without 
+ * consideration of locally-uploaded avatars.
+ * 
+ * @param   string  $id_or_email    Either user ID or email address.
+ * @param   int     $size           Avatar size.
+ * @param   string  $default        URL for fallback avatar.
+ * @param   string  $alt            Alt text for image.
+ * @param   string                  The avatar's URL.
+ */
+
+function get_avatar_url_only($id_or_email, $size, $default, $alt) {
+   $avatar = get_avatar($id_or_email, $size, $default, $alt); 
+   return preg_replace('/(^.*src="|"\s.*$)/', '', $avatar); 
+}
+
+/**
  * Search Result Count
  * -----------------------------------------------------------------------------
  * Return a count of results for the search in the format 
  * 'Results 1 to 10 of 200'
  * 
- * @param int $page_num Current page nunber.
- * @param int $total_results Total number of search results.
- * @return string Count of results.
+ * @param   int     $page_num       Current page nunber.
+ * @param   int     $total_results  Total number of search results.
+ * @return  string                  Count of results.
  */
 
 function search_results_count($page_num, $total_results) {
@@ -258,8 +313,8 @@ function clean_search_url() {
  * -----------------------------------------------------------------------------
  * I forget why I did this.
  * 
- * @param string $excerpt
- * @return string $excerpt
+ * @param   string   $excerpt
+ * @return  string   $excerpt
  */
 
 function custom_excerpt($excerpt) {
@@ -280,10 +335,10 @@ function custom_excerpt($excerpt) {
  * post types and private posts are all excluded unless you specify
  * inclusion.
  * 
- * @param int $page_num Current page in pagination.
- * @param int $total_results Total results, for pagination.
- * @param string $type Type of post to use.
- * @return string The post counter.
+ * @param   int     $page_num       Current page in pagination.
+ * @param   int     $total_results  Total results, for pagination.
+ * @param   string  $type           Type of post to use.
+ * @return  string                  The post counter.
  */
 
 function archive_page_count($page_num = null, $total_results = null, $type = null) {
@@ -304,6 +359,33 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
     printf('Page %s of %s', $page_num, $total_pages);
 }
 
+/** 
+ * Return Thumbnail Image URL
+ * -----------------------------------------------------------------------------
+ * Taken from: http://goo.gl/NhcEU6
+ * 
+ * WordPress, by default, only has a handy function to return a glob of HTML
+ * -an image inside an anchor-for a post thumbnail. This wrapper extracts
+ * and returns only the URL.
+ * 
+ * @param   int     $post_id        The ID of the post.
+ * @param   int     $thumb_size     The requested size of the thumbnail.
+ * @param   bool    $return_arr     Return either the entire thumbnail object or just the URL.
+ * @return  string  $thumb_url[0]   URL of the thumbnail.
+ * @return  array   $thumb_url      All information on the attachment.
+ */
+
+function get_post_thumbnail_url($post_id = null, $thumb_size = 'large', $return_arr = false) {
+
+    if (is_null($post_id)) {
+        $post_id = get_the_ID();
+    }
+
+    $thumb_id = get_post_thumbnail_id($post_id);
+    $thumb_url = wp_get_attachment_image_src($thumb_id, $thumb_size, true);
+    return ($return_arr) ? $thumb_url : $thumb_url[0];
+}
+
 /**
  * Retrive first image in content.
  * -----------------------------------------------------------------------------
@@ -313,18 +395,53 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
  * This functions extracts and returns the first found image in the post,
  * no matter what that image happens to be.
  * 
- * See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/
+ * See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post
  *
- * @return string Full URL of the first image found.
+ * @param   int     $post_id        ID of candidate post.
+ * @return  string                  Full URL of the first image found.
  */
 
-function content_first_image() {
-    global $post, $posts, $social_fallback;
-    ob_start();
-    ob_end_clean();
-    $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+function content_first_image($post_id = null) {
+    global $post, $posts;
+    $content = '';
+    $matched = array();
+
+    if (is_null($post_id)) { 
+        $content = get_post($post_id);
+        $content = $content->post_content;
+    } else {
+        $content = $post->post_content;
+    }
+
+    // ob_start();
+    // ob_end_clean();
+    $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
     $first_image = $matches[1][0];
-    return (!empty($first_image)) ? $first_image : $social_fallback['image'];
+    return (!empty($first_image)) ? $first_image : false;
+}
+
+/**
+ * Determine if Post Content has an Image
+ * -----------------------------------------------------------------------------
+ * Because I habitually do not use post thumbnails, I need to instead determine
+ * whether the post's content has an image, and thereafter I grab the first one. 
+ * 
+ * @param   int     $post_id        ID of candidate post.
+ * @return  bool                    Post content has image true/false.
+ */
+
+function has_content_image($post_id = null) {
+    global $post;
+    $content = '';
+
+    if (is_null($post_id)) { 
+        $content = get_post($post_id);
+        $content = $content->post_content;
+    } else {
+        $content = $post->post_content;
+    }
+
+    return (preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content));
 }
 
 /**
@@ -335,9 +452,9 @@ function content_first_image() {
  * Return the reading time of the article in seconds, based on an average 
  * WPM of 300. You are free to override this.
  * 
- * @param int $post_id 
- * @param int $average_wpm Average reading speed.
- * @return int $reading_time Reading time in seconds.
+ * @param   int     $post_id 
+ * @param   int     $average_wpm    Average reading speed.
+ * @return  int     $reading_time   Reading time in seconds.
  */
 
 function article_reading_time($post_id = null, $average_wpm = 300, $return_minutes = false) {
@@ -363,8 +480,8 @@ function article_reading_time($post_id = null, $average_wpm = 300, $return_minut
  * -----------------------------------------------------------------------------
  * Convert the reading time in seconds, to the reding time in minutes.
  * 
- * @param int $seconds Reading time in seconds.
- * @return int $minutes Reading time in minutes.
+ * @param   int     $seconds        Reading time in seconds.
+ * @return  int     $minutes        Reading time in minutes.
  */
 
 function article_reading_time_minutes($seconds) {
@@ -386,63 +503,68 @@ function article_reading_time_minutes($seconds) {
  * because, honestly, if your article's reading time is above that then
  * you went horribly wrong somewhere.
  * 
- * @param int $seconds Reading time in minutes.
- * @return string $time_words Reading time of article expressed as a phrase.
+ * @param   int     $seconds        Reading time in minutes.
+ * @return  string  $time_words     Reading time of article expressed as a phrase.
  * 
  */
 
 function reading_time_in_words($reading_time) {
     $words = array(
-        'singles' = array(
+        'singles' => array(
             'one','two','three','four','five','six','seven','eight','nine'
         ),
-        'teens' = array(
+        'teens' => array(
             'eleven','twelve','thirteen','fourteen','fifteen','sixteen',
             'seventeen','eighteen','nineteen'
         ),
-        'tens' = array(
+        'tens' => array(
             'ten','twenty','thirty','forty','fifty','sixty','seventy','eighty',
             'ninety'
         )
     );
 
     // Reading time in words.
-    $time_word = '';
+    $time_word = array();
 
     if ($reading_time <= 0) {
         // <0 - 0
-        $time_word = $words['singles'][0];
+        $time_word[] = $words['singles'][0];
     } elseif ($reading_time < 10) {
         // 1 - 9
-        $time_word = $words['singles'][$reading_time - 1];
+        $time_word[] =$words['singles'][$reading_time - 1];
     } elseif ($reading_time > 10 && $reading_time < 20) {
         // 11 - 19
-        $time_word = $words['teens'][$reading_time - 11];
+        $time_word[] = $words['teens'][$reading_time - 11];
     } elseif ($reading_time % 10 === 0) {
         // 10, 20, etc.
-        $time_word = $words['tens'][($reading_time / 10) - 1];
+        $time_word[] = $words['tens'][($reading_time / 10) - 1];
     } elseif ($reading_time > 99) {
          // > 99
-        $time_word = 'greater than' . $words['singles'][8] . '-' . $words['tens'][8];
+        $time_word[] = 'greater than';
+        $time_word[] = $words['singles'][8];
+        $time_word[] = '-';
+        $time_word[] = $words['tens'][8];
     } else {
         // 31, 56, 77, etc.
-        $time_word = $words['tens'][($reading_time % 100) / 10 - 1] . '-' . $words['singles'][($reading_time % 10) - 1];
+        $time_word[] = $words['tens'][($reading_time % 100) / 10 - 1];
+        $time_word[] = '-';
+        $time_word[] = $words['singles'][($reading_time % 10) - 1];
     }
 
-    return $time_word;
+    return implode('', $time_word);
 }
 
-function rmwb_reading_time($post_id = null) {
-    /**
-     * Reading Time Wrapper
-     * -----------------------------------------------------------------------------
-     * Take in post and return its reading time in minutes as a phrase.
-     * See http://www.bhalash.com/archives/13544802870
-     *
-     * @param int $post_id 
-     * @param string $time_phrase Reading time as a phrase/words.
-     */
+/**
+ * Reading Time Wrapper
+ * -----------------------------------------------------------------------------
+ * Take in post and return its reading time in minutes as a phrase.
+ * See http://www.bhalash.com/archives/13544802870
+ *
+ * @param   int     $post_id 
+ * @param   string  $time_phrase    Reading time as a phrase/words.
+ */
 
+function rmwb_reading_time($post_id = null) {
     if (is_null($post_id)) {
         $post_id = get_the_ID();
     }
@@ -458,7 +580,7 @@ function rmwb_reading_time($post_id = null) {
  * -----------------------------------------------------------------------------
  */
 
-function sidebar_widgets_init() {
+function theme_widgets() {
     register_sidebar(array(
         'name' => 'Dynamic sidebar.',
         'id' => 'dynamicsidebar',
@@ -474,21 +596,19 @@ function sidebar_widgets_init() {
  * -----------------------------------------------------------------------------
  */
 
-function rmwb_nav() {
+function theme_navigation() {
     register_nav_menus(array(
         'top-menu' => __('Header Menu'),
         'top-social' => __('Header Social Links')
     ));
 }
 
-add_action('init', 'rmwb_nav');
-
 /**
  * Custom Comment and Comment Form Output
  * -----------------------------------------------------------------------------
- * @param string $comment The comment.
- * @param array $args Array argument 
- * @param int $depth Depth of the comments thread.
+ * @param   string  $comment    The comment.
+ * @param   array   $args       Array argument 
+ * @param   int     $depth      Depth of the comments thread.
  */
 
 function rmwb_comments($comment, $args, $depth) {
@@ -545,10 +665,11 @@ if (!isset($content_width)) {
     $content_width = 600;
 }
 
-add_action('widgets_init', 'sidebar_widgets_init');
+add_action('init', 'theme_navigation');
+add_action('widgets_init', 'theme_widgets');
 // Enqueue all scripts and stylesheets.
-add_action('wp_enqueue_scripts', 'enqueue_theme_stylesheets');
-add_action('wp_enqueue_scripts', 'enqueue_theme_scripts');
+add_action('wp_enqueue_scripts', 'load_theme_styles');
+add_action('wp_enqueue_scripts', 'load_theme_scripts');
 // Wrap comment form fields in <div></div> tags.
 add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
