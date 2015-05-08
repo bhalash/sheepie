@@ -1,5 +1,5 @@
 /**
- * Site Header
+ * Header Stylesheet
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -23,49 +23,45 @@
  * You should have received a copy of the GNU General Public License along with 
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
+/**
+ * Overall Header Rules
+ * -----------------------------------------------------------------------------
+ */
+
 #header {
-    @extend %cover-picture;
-
-    background-image: $header-background-image;
-    height: $header-height;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-
-    @include flex-parent(row, center);
-
-    @include media(smartphone) {
-        height: $header-height-65;
+    h1, ul, p {
+        text-align: center;
     }
 }
 
-#titles {
-    margin: auto;
-    @include flex-child(1);
+/**
+ * Header Social Media Menu
+ * -----------------------------------------------------------------------------
+ */
 
-    h2, p {
-        color: #fff;
-        margin: 0;
-        text-align: center;
-    }
+ul#header-social {
+    list-style-type: none;
 
-    h2 {
-        @include media(smartphone) {
-            font-size: 2em;
-        }
+    li {
+        border-radius: 50%;
+        display: inline-block;
+        @include square-flex(35px 1);
+
+        @include generate-social-link(a);
 
         a {
-            color: inherit; 
-
-            &:hover {
-                text-decoration: none;
-            }
+            border-radius: inherit;
+            display: inline-block;
         }
     }
+}
 
-    p {
-        color: $colour-grey-light-text;
-    }
+/**
+ * Header Descriptive Paragraph
+ * -----------------------------------------------------------------------------
+ */
+
+p#header-description {
+    @include margin(1 0);
 }
