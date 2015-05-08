@@ -29,4 +29,8 @@ nav.social {
         list-style-type: none;
         text-align: center;
     }
+
+    @include generate-social-link(a, 100% 1) {
+        background-color: transparent;
+    }
 }
