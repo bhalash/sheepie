@@ -1,0 +1,155 @@
+/**
+ * Site Main Containers
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/* Both the percentage width of the content column and the right offset of the 
+ * header in side-by-side mode, i.e. #content has a width of 60% and #header is
+ * offset from the right by 60%. */
+$side-by-side-width: 70%;
+
+// Height of the header when it isn't occupying either a cover or sidebar size.
+$header-default-height: 40vh;
+
+/**
+ * Header and Content Containers
+ * -----------------------------------------------------------------------------
+ */
+
+#header, #content {
+    box-sizing: border-box;
+    @include padding(2);
+}
+
+/**
+ * Header Container
+ * -----------------------------------------------------------------------------
+ * Default header content appearance.
+ */
+
+#header {
+    background-color: #fff;
+    transition: right .3s ease-in;
+    @include flex-parent(column, center);
+
+    > * {
+        // Child content is raised owing to the background gradient.
+        z-index: 2;
+    }
+}
+
+/**
+ * Main Site Container
+ * -----------------------------------------------------------------------------
+ */
+
+#site {
+    // position: relative;
+}
+
+/**
+ * Site Index Pages Layout
+ * -----------------------------------------------------------------------------
+ * Two side-by-side columns: Fixed header on left, scolling content on right.
+ */
+
+#site.side-by-side {
+    @include flex-parent(row-reverse);
+
+    @include media($b-1024) {
+        @include flex-parent(column);
+    }
+ 
+    #header {
+        @include fixed(0 $side-by-side-width 0 0); 
+
+        @include media($b-1024) {
+            height: $header-default-height;
+            /* Relative in case of a background image, which employs an
+             * absolutely positioned gradient. */
+            position: relative;
+            @include flex-child(1);
+        }
+    }
+
+    #content {
+        @include flex-child(0 1 $side-by-side-width);
+
+        @include media($b-1024) {
+            @include flex-child(1);
+        }
+    }
+}
+
+/**
+ * Site Home Page Cover Layout
+ * -----------------------------------------------------------------------------
+ * Cover layout that you see when you first visit the site.
+ */
+
+#site.cover {
+    #header {
+        // Fill window if in cover mode.
+        @include fixed(0);
+    }
+
+    #content {
+        // Hide #content and prevent it from scrolling.
+        overflow: hidden;
+        position: fixed;
+        z-index: -1;
+    }
+}
+
+/**
+ * Header Sizes Default
+ * -----------------------------------------------------------------------------
+ */
+
+#site:not(.side-by-side):not(.cover) #header {
+    height: $header-default-height;
+    /* Relative in case of a background image, which employs an absolutely
+     * positioned gradient. */
+    position: relative;
+}
+
+/**
+ * Header with Background Image
+ * -----------------------------------------------------------------------------
+ */
+
+#header.has-image {
+    // background-color: palette(gray);
+    background-size: cover;
+
+    &:after {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 100%); 
+        content: ' ';
+        @include absolute(0);
+    }
+
+    h1, ul, p {
+        color: #fff;
+    }
+}
