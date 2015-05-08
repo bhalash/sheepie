@@ -25,25 +25,37 @@
  */
 
 html {
-    font: 100% $font-family-georgia;
-    @include line-height(2.4);
+    font: 100% $font-opensans;
+    @include line-height(2);
 }
 
 body {
-    background-color: $colour-grey-article-border;
+    @include media(print) {
+        margin: 0;
+    }
+}
+
+/*
+ * Remove Margins and Padding
+ * -----------------------------------------------------------------------------
+ */
+
+body, h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
     margin: 0;
     padding: 0;
 }
 
 /**
  * Forms
- * -----
+ * -----------------------------------------------------------------------------
  */
 
 input, button, textarea {
     // Remove all default appearance and focus appearance styling. 
     -webkit-appearance: none;
+    border: 0;
     box-sizing: border-box;
+    outline: 0;
     @include prefix(border-radius, 0);
 
     &:focus {
@@ -58,43 +70,42 @@ input, button, textarea {
 
 /**
  * Headline Items
- * --------------
+ * -----------------------------------------------------------------------------
  */
 
 h1, h2, h3, h4, h5, h6 {
+    // font-family: $font-opensans-title;
     font-weight: bold;
-    margin: 0;
-    padding: 0;
 }
 
 h1 { 
-    @include font-size(3.2);
+    @include font-size(4);
     @include line-height(4);
 }
 
 h2 { 
-    @include font-size(2.6); 
+    @include font-size(3); 
 }
 
 h3 { 
-    @include font-size(1.8);
+    @include font-size(2.5);
 }
 
 h4 { 
-    @include font-size(1.6);
+    @include font-size(2.3);
 }
 
 h5 { 
-    @include font-size(1.4);
+    @include font-size(2.1);
 }
 
 h6 { 
-    @include font-size(1.2);
+    @include font-size(1.9);
 }
 
 /**
  * Non-healine Items 
- * -----------------
+ * -----------------------------------------------------------------------------
  */
 
 a, abbr, acronym, big, cite, code, del, em, ins, small, span, strike, strong, 
@@ -104,7 +115,7 @@ sub, sup {
 
 /**
  * Big Text
- * --------
+ * -----------------------------------------------------------------------------
  * Normal text is ~1.6
  */
 
@@ -114,7 +125,7 @@ big, dt {
 
 /**
  * Small Text
- * ----------
+ * -----------------------------------------------------------------------------
  * Normal text is ~1.6
  */
 
@@ -123,76 +134,30 @@ cite, ins, q, small, sup, sub {
 }
 
 /**
- * Bold Text
- * ---------
- */
-
-dt, strong {
-    font-weight: bold;
-}
-
-/**
  * Code Blocks
- * -----------
+ * -----------------------------------------------------------------------------
  */
 
 code, kbd, pre, pre span, tt, var {
-    font-family: $font-family-courier;
+    font-family: $font-sourcecodepro;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
     -webkit-font-smoothing: antialiased;
     @include font-size(1.4);
 }
 
 pre {
-    background-color: $colour-grey-box;
+    background-color: palette(gray);
     color: #fff;
+    font-weight: bold;
     line-height: 1.2em;
+    margin-bottom: margin(1);
+    padding: padding(1.5);
     overflow: auto;
 }
 
 /**
- * Blockquote and Cite
- * -------------------
- */
- 
-blockquote {
-    // Ciaran asked for a meticulously-styled blockquote area.
-    background-image: 
-        url($blockquote-open),
-        url($blockquote-close);
-    background-position: 
-        -4% 4%, 
-        104% 88%;
-    background-origin: content-box;
-    background-repeat: no-repeat;
-    background-size: auto 25px;
-    border-color: 1px solid $colour-grey-article-border;
-    border-width: 1px 0;
-    font-style: italic;
-    padding: 15px 30px;
-    @include font-size(1.4);
-
-    >:last-child {
-        margin-bottom: 0;
-    }
-}
-
-cite {
-    color: $colour-grey-cite;
-    display: block;
-    font-style: none;
-    font-weight: bold;
-    width: 100%;
-    @include font-size(1.4);
-
-    &:before {
-        content: ' -';
-    }
-}
-
-/**
- * Miscellaneous Inline Elements
- * -----------------------------
+ * Miscellaneous Elements
+ * -----------------------------------------------------------------------------
  */
 
 a {
@@ -212,27 +177,18 @@ iframe, img {
     overflow: hidden;
 }
 
-li {
-    line-height: 1em;
-}
-
 small {
     letter-spacing: 0;
     line-height: normal;
 }
 
-ol, ul {
-    margin: 0;
-    padding: 0;
- 
-    li {
-        margin-bottom: 0;
-    } 
-}
+li {
+    margin-bottom: 0;
+} 
 
 /**
  * Article Text Styling
- * --------------------
+ * -----------------------------------------------------------------------------
  */
 
 article {
@@ -240,7 +196,7 @@ article {
         @include font-size(1.5);
 
         a {
-            color: $colour-green-anchor;
+            color: palette(blue);
 
             &:hover {
                 text-decoration: underline;
@@ -249,6 +205,6 @@ article {
     }
 
     a img, blockquote, ol, p, pre, ul {
-        margin-bottom: $margin;
+        @include margin(2, bottom);
     }
 }
