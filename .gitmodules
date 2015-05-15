@@ -1,6 +1,3 @@
 [submodule "assets/sass/scss-helpers"]
 	path = assets/sass/scss-helpers
 	url = git@github.com:bhalash/scss-helpers.git
-[submodule "assets/sass/normalize.css"]
-	path = assets/sass/normalize.css
-	url = git@github.com:necolas/normalize.css.git
