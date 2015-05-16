@@ -51,10 +51,12 @@ ul#header-social {
     li {
         border-radius: 50%;
         display: inline-block;
-        @include square-flex(35px 1);
+        @include square-flex(50px 1);
 
         @include generate-social-link(a) {
-            background-color: transparent;
+            &:not(:hover) {
+                background-color: transparent;
+            }
         }
 
         a {
