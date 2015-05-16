@@ -42,6 +42,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
     padding: 0;
+
     @include margin(0 0 2 0);
 }
 
@@ -137,7 +138,6 @@ code, kbd, pre, pre span, tt, var {
 pre {
     background-color: palette(gray);
     color: #fff;
-    font-weight: bold;
     overflow: auto;
     @include line-height(1.6);
     @include padding(1.5);
@@ -174,12 +174,12 @@ small {
 }
 
 li {
-    margin-bottom: 0;
+    margin: 0;
 } 
 
 blockquote, ol, p, ul {
     @include font-size(1.4);
-
+    font-weight: 300;
 }
 
 /**
@@ -190,6 +190,11 @@ blockquote, ol, p, ul {
 
 article { 
     @extend %clearfix;
+    @include margin(2 0);
+
+    >:last-child {
+        margin-bottom: 0;
+    }
 
     header, footer {
         p, time, small {
