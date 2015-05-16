@@ -159,9 +159,8 @@ a {
 
 hr {
     border: 0;
+    background: palette(gray, light);
     height: 1px;
-    background: transparent;
-    width: 100%;
 }
 
 iframe, img {
