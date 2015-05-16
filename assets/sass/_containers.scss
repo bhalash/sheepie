@@ -49,7 +49,7 @@ $header-default-height: 40vh;
 
 #header, #content {
     box-sizing: border-box;
-    transition: all .3s ease-in;
+    // transition: all .3s ease-in;
     @include padding(2);
 
     @include media(smartphone) {
@@ -129,7 +129,7 @@ $header-default-height: 40vh;
         width: 90%;
     }
 
-    @include media(smartphone) {
+    @include media($b-640) {
         width: 100%;
     }
 }
