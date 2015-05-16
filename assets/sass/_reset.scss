@@ -25,6 +25,7 @@
  */
 
 html {
+    color: palette(gray);
     font-family: $font-opensans;
     // @include line-height(2);
 }
@@ -80,8 +81,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
-    // @include font-size(4);
-    @include line-height(4);
+    @include font-size(4);
+    // @include line-height(4);
 }
 
 h2 { 
@@ -178,55 +179,6 @@ li {
 } 
 
 blockquote, ol, p, ul {
-    @include font-size(1.4);
+    @include font-size(1.5);
     font-weight: 300;
-}
-
-/**
- * Default Article Styling
- * -----------------------------------------------------------------------------
- * Default text and other element styling for articles.
- */
-
-article { 
-    @extend %clearfix;
-    @include margin(2 0);
-
-    >:last-child {
-        margin-bottom: 0;
-    }
-
-    header, footer {
-        p, time, small {
-            color: palette(gray, light);
-        }
-    }
-
-    header {
-        @include margin(0.5, bottom);
-
-        > * {
-            @include margin(0, bottom);
-        }
-    }
-
-    input {
-        // For password on password-protected posts.
-        display: block;
-    }
-
-    blockquote, dl, ol, ul {
-        box-sizing: border-box;
-        @include padding(1, left);
-    }
-
-    blockquote {
-        p, li {
-            font-style: italic;
-        }
-    }
-
-    ol, ul {
-        @include margin(1, left);
-    }
 }

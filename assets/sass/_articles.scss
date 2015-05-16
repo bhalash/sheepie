@@ -25,6 +25,42 @@
  */
 
 /**
+ * Default Article Styling
+ * -----------------------------------------------------------------------------
+ * Default text and other element styling for articles.
+ */
+
+article { 
+    @extend %clearfix;
+    @include margin(2 0);
+
+    >:last-child {
+        // Remove margin from last child element.
+        margin-bottom: 0;
+    }
+    
+    input {
+        // For password on password-protected posts.
+        display: block;
+    }
+
+    blockquote, dl, ol, ul {
+        box-sizing: border-box;
+        @include padding(1, left);
+    }
+
+    blockquote {
+        p, li {
+            font-style: italic;
+        }
+    }
+
+    ol, ul {
+        @include margin(1, left);
+    }
+}
+
+/**
  * Article Titles
  * -----------------------------------------------------------------------------
  */
@@ -35,6 +71,42 @@
 
         &:hover {
             text-decoration: inherit;
+        }
+    }
+}
+
+/**
+ * Article Header and Footer
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+header, footer {
+    p, time, small {
+        color: palette(gray, light);
+    }
+}
+
+header {
+    @include margin(0.5, bottom);
+
+    > * {
+        @include margin(0, bottom);
+    }
+}
+
+footer {
+    @include flex-parent(row);
+
+    h5, p {
+        margin: 0;
+    }
+
+    .author-info {
+        @include flex-child(1);
+
+        > * {
+            margin: 0;
         }
     }
 }
@@ -109,18 +181,7 @@ div.avatar-wrapper {
  */
 
 article.full {
-
-    footer {
-        @include flex-parent(row);
-
-        h5, p {
-            margin: 0;
-        }
-    }
-
-    .author-info {
-        @include flex-child(1);
-    }
+    
 }
 
 /*
