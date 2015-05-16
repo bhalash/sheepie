@@ -24,64 +24,56 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-nav {
-    ul {
-        list-style-type: none;
-        margin: 0;
-    }
+// nav {
+//     ul {
+//         list-style-type: none;
+//         margin: 0;
+//     }
 
-    li {
-        display: inline-block;
-    }
+//     li {
+//         display: inline-block;
+//     }
 
-    li, span, a {
-        font: $font-opensans;
-        font-size: 0.85em;
-    }
+//     li, span, a {
+//         @include font-size(0.85);
+//     }
 
-    a {
-        display: block;
+//     a {
+//         display: block;
 
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-/*
- * Site Top Navigation
- * -----------------------------------------------------------------------------
- */
-
-nav#top-menu {
-    background: transparent;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 2;
-}
+//         &:hover {
+//             text-decoration: none;
+//         }
+//     }
+// }
 
 /*
  * Site Top Navigation
  * -----------------------------------------------------------------------------
  */
 
-nav#top-social {
-    ul {
-        text-align: center;
-    }
+// nav#top-menu {
+//     background: transparent;
+//     z-index: 2;
+//     @include fixed(0 0 0, top right left);
+// }
 
-    ul, li, a {
-        font-size: 0;
-    }
+/*
+ * Site Top Navigation
+ * -----------------------------------------------------------------------------
+ */
 
-    a {
-        display: block;
-        font-size: 0;
-    }
+// nav#top-social {
+//     ul {
+//         text-align: center;
+//     }
 
-}
+//     ul, li, a {
+//         /* Elements have no textual content. This is to remove extraenous space
+//          * added by browsers. */
+//         font-size: 0;
+//     }
+// }
 
 /*
  * Pagination
@@ -89,8 +81,8 @@ nav#top-social {
  * There is pagination for both individual posts and for the site itself.
  */
 
-nav.pagination {
-    padding: 7px 0;
+nav#pagination {
+    @include padding(0.7 0);
     @include flex-parent(row);
 
     div { 
@@ -100,10 +92,6 @@ nav.pagination {
     span {
         color: palette(gray);
         white-space: nowrap;
-    }
-
-    div[class^=next] a {
-        text-align: right;  
     }
 
     div.count {
@@ -116,6 +104,10 @@ nav.pagination {
         &:empty {
             display: none;
         }
+    }
+
+    div[class^=next] {
+        text-align: right;  
     }
 
     div.previous-post, div.next-post {
