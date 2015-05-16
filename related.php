@@ -94,11 +94,11 @@ if ($related_posts->found_posts < $desired_related_count) {
 }
 
 if ($related_posts->have_posts()) {
-    printf('<div class="%s">', 'related-articles');
+    printf('<hr><div class="%s">', 'related-articles');
 
     while ($related_posts->have_posts()) {
         $related_posts->the_post();
-        get_template_part('article', 'related');
+        get_template_part(THEME_PARTIALS . '/articles/article', 'related');
     }
 
     printf('</div>');

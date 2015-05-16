@@ -33,11 +33,11 @@ if (have_posts()) {
         the_post();
         get_template_part(THEME_PARTIALS . '/articles/article', 'full');
         get_template_part(THEME_PARTIALS . '/pagination');
-        get_template_part(THEME_PARTIALS . '/articles/article', 'related');
+        get_template_part('related');
         comments_template();
     }
 } else {
-    get_template_part('article', 'missing');
+    // get_template_part('article', 'missing');
 }
 
 get_footer(); ?>
