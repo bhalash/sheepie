@@ -42,7 +42,7 @@ function get_header_background($post_id = null) {
 
     $header_thumb = false;
 
-    if (has_post_thumbnail($post->ID)) {
+    if (has_post_thumbnail($post_id)) {
         $header_thumb = get_post_thumbnail_url($post_id, 'large'); 
     } else if (has_content_image($post_id)) {
         $header_thumb = content_first_image($post_id);
