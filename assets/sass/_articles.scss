@@ -43,19 +43,10 @@ article {
         display: block;
     }
 
-    blockquote, dl, ol, ul {
+    dl, ol, ul {
         box-sizing: border-box;
+        @include margin(2, left);
         @include padding(1, left);
-    }
-
-    blockquote {
-        p, li {
-            font-style: italic;
-        }
-    }
-
-    ol, ul {
-        @include margin(1, left);
     }
 }
 
@@ -80,19 +71,8 @@ header {
 }
 
 footer {
-    @include flex-parent(row);
-    @include margin(2, top);
-
     h5, p {
         margin: 0;
-    }
-
-    .author-info {
-        @include flex-child(1);
-
-        > * {
-            margin: 0;
-        }
     }
 }
 
@@ -112,18 +92,26 @@ footer {
 }
 
 /**
- * Photobox
+ * Article Child Elements
  * -----------------------------------------------------------------------------
- * I post a great many photographs, and this has become a convenient way for me
- * to arrange and display them.
  */
 
-div.article-photobox {
-    // Shrink images down to neatly fit on one row.
+%article-child {
     @include flex-parent(row, space-between, wrap);
-    @include margin(1, bottom);
 
-    a {
+    @include media(smartphone) {
+        @include flex-parent(column);
+    }
+
+    br {
+        /* Wordpress inserts a line break if it find a wayward space or line 
+         * break in the post texarea. This can cause every other item in the 
+         * photobox to be irregularly sized. I hide breaks in order to 
+         * circumvent this. */
+        display: none;
+    }
+
+    > * {
         box-sizing: border-box;
         /* The next line deserves an explanation: I want to equidistantly space 
          * items in a manner consistent with my preferred vertical spacing. If I
@@ -136,25 +124,36 @@ div.article-photobox {
          * The alternative is to use flexbox space items and give them a width
          * equal to (33.3% - my preferred margin). */
         @include flex-child(0 calc(33.3% - #{rem(1)}));
+
+        @include media(smartphone) {
+            @include flex-child(1);
+        }
+    }
+}
+
+/**
+ * Photobox
+ * -----------------------------------------------------------------------------
+ * I post a great many photographs, and this has become a convenient way for me
+ * to arrange and display them.
+ */
+
+div.article-photobox {
+    @extend %article-child;
+    // Shrink images down to neatly fit on one row.
+    @include margin(1, bottom);
+
+    a {
         @include padding(1, bottom);
 
         @include media(smartphone) {
             padding: 0;
-            @include flex-child(1);
         }
     }
 
-    br {
-        /* Wordpress inserts a line break if it find a wayward space or line 
-         * break in the post texarea. This can cause every other item in the 
-         * photobox to be irregularly sized. I hide breaks in order to 
-         * circumvent this. */
-        display: none;
-    }
-
     img {
-        /* Important, or images will display weirdly in a manner that varies
-         * by browser. */
+        /* Important: images will otherwise display weirdly in a manner that 
+         * varies by browser. */
         width: 100%;
     }
 } 
@@ -188,7 +187,18 @@ div.avatar-wrapper {
  */
 
 article.full {
+    footer {
+        @include flex-parent(row);
+        @include margin(2, top);
+    }
 
+    .author-info {
+        @include flex-child(1);
+
+        > * {
+            margin: 0;
+        }
+    }
 }
 
 /*
@@ -205,7 +215,7 @@ article.excerpt {
 
     .mask {
         box-sizing: border-box;
-        padding: padding(2.25) padding(1.5);
+        @include padding(2.25 1.5);
     }
 }
 
@@ -217,19 +227,11 @@ article.excerpt {
  */
 
 div.related-articles {
-    @include flex-parent(row);
-
-    @include media(smartphone) {
-        @include flex-parent(column);
-    }
+    @extend %article-child;
 }
 
 article.related {
-    @include padding(0 1 1 0);
-    @include flex-child(1);
-
     @include media(smartphone) {
-        padding: 0;
         @include margin(1, bottom);
     }
 
