@@ -126,25 +126,6 @@ blockquote, cite, footer p, ins, pre, q, small, sup, sub {
 }
 
 /**
- * Code Blocks
- * -----------------------------------------------------------------------------
- */
-
-code, kbd, pre, pre span, tt, var {
-    font-family: $font-sourcecodepro;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-    -webkit-font-smoothing: antialiased;
-}
-
-pre {
-    background-color: palette(gray);
-    color: #fff;
-    overflow: auto;
-    @include line-height(1.6);
-    @include padding(1.5);
-}
-
-/**
  * Miscellaneous Elements
  * -----------------------------------------------------------------------------
  */
@@ -162,6 +143,7 @@ hr {
     border: 0;
     background: palette(gray, light);
     height: 1px;
+    @include margin(2 0);
 }
 
 iframe, img {
