@@ -32,7 +32,6 @@
 
 article { 
     @extend %clearfix;
-    @include margin(2 0);
 
     >:last-child {
         // Remove margin from last child element.
