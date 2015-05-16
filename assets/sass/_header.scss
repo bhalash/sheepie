@@ -62,7 +62,7 @@ ul#header-social {
     @include generate-social-link(a) {
         /* Child anchors need to be block-sized to benefit from the square 
          * flex. */
-        display: block;
+        display: inherit;
 
         &:not(:hover) {
             // I wanted icons to be transparent by default.
