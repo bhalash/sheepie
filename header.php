@@ -51,11 +51,13 @@ if (!is_user_logged_in()) {
             <h1 id="header-title"><?php page_title($post->ID); ?></h1>
             <p id="header-description"><?php bloginfo('description'); ?></p>
             <ul id="header-social">
-                <li><a class="facebook" href="http://www.facebook.com/bhalash"></a></li>
+                <li><a class="facebook" href="//www.facebook.com/bhalash"></a></li>
+                <li><a class="github" href="//www.github.com/bhalash"></a></li>
+                <li><a class="twitter" href="//www.twitter.com/bhalash"></a></li>
             </ul>
         </div>
         <div id="content">
-            <div class="content">
+            <div id="interior">
 
 <?php /*
     <p>
