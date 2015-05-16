@@ -34,25 +34,25 @@ $previous = $paged - 1; ?>
     <hr>
 <?php endif; ?>
 <nav id="pagination">
-    <div class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
+    <p class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
         <?php if (is_single()) {
             next_post_link('%link', '&larr; %title', false);
         } else {
             previous_posts_link('&larr; Page ' . $previous);
         } ?>
-    </div>
+    </p>
 
-    <div class="count">
+    <p class="count">
         <?php if (!is_single() && !is_search()) : ?>
             <span><?php archive_page_count(); ?></span>
         <?php endif; ?>
-    </div>
+    </p>
 
-    <div class="next<?php echo (is_single()) ? '-post' : ''; ?>">
+    <p class="next<?php echo (is_single()) ? '-post' : ''; ?>">
         <?php if (is_single()) {
             previous_post_link('%link', '%title &rarr;', false);
         } else {
             next_posts_link('Page ' . $next . ' &rarr;'); 
         } ?>
-    </div>
+    </p>
 </nav>

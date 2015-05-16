@@ -85,7 +85,8 @@ nav#pagination {
     @include padding(0.7 0);
     @include flex-parent(row);
 
-    div { 
+    p { 
+        margin: 0;
         @include flex-child(1);
     }
 
@@ -94,7 +95,7 @@ nav#pagination {
         white-space: nowrap;
     }
 
-    div.count {
+    p.count {
         text-align: center;
 
         @include media(smartphone) {
@@ -106,11 +107,11 @@ nav#pagination {
         }
     }
 
-    div[class^=next] {
+    p[class^=next] {
         text-align: right;  
     }
 
-    div.previous-post, div.next-post {
+    p.previous-post, p.next-post {
         @include media(smartphone) {
             white-space: normal;
         }
