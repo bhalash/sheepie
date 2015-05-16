@@ -89,6 +89,7 @@ $google_fonts = array(
 
 $theme_javascript = array(
     'browser-detect' => THEME_JS . 'browser_detect.js',
+    'highlightjs' => THEME_JS . 'highlight.js',
     'functions' => THEME_JS . 'functions.js'
 );
 

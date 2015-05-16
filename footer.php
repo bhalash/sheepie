@@ -45,5 +45,7 @@
         })();
     </script>
     <?php wp_footer(); ?>
+    <?php // Initialize highlight.js ?>
+    <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
