@@ -61,21 +61,6 @@ article {
 }
 
 /**
- * Article Titles
- * -----------------------------------------------------------------------------
- */
-
-.title {
-    a {
-        color: inherit; 
-
-        &:hover {
-            text-decoration: inherit;
-        }
-    }
-}
-
-/**
  * Article Header and Footer
  * -----------------------------------------------------------------------------
  *
@@ -97,6 +82,7 @@ header {
 
 footer {
     @include flex-parent(row);
+    @include margin(2, top);
 
     h5, p {
         margin: 0;
@@ -112,17 +98,17 @@ footer {
 }
 
 /**
- * Article Child Blocks
+ * Article Titles
  * -----------------------------------------------------------------------------
  */
 
-%article-child-block {
-    // Margin for child items.
-    box-sizing: border-box;
-    padding-right: 0.5%;
+.title {
+    a {
+        color: inherit; 
 
-    @include media(smartphone) {
-        padding-right: 0;
+        &:hover {
+            text-decoration: inherit;
+        }
     }
 }
 
@@ -135,19 +121,41 @@ footer {
 
 div.article-photobox {
     // Shrink images down to neatly fit on one row.
-    @include flex-parent(row, flex-start, wrap);
+    @include flex-parent(row, space-between, wrap);
     @include margin(1, bottom);
 
     a {
-        @extend %article-child-block;
-        @include flex-child(1 0 33%);
+        box-sizing: border-box;
+        /* The next line deserves an explanation: I want to equidistantly space 
+         * items in a manner consistent with my preferred vertical spacing. If I
+         * do not explicitly state either a size, or padding, WordPress' 
+         * inserted line breaks will cause every other item to have an irregular
+         * size. 
+         * 
+         * Padding didn't work out for a few reasons, namely that I had to apply
+         * a negative padding to the parent in order to makte items fit neatly.
+         * The alternative is to use flexbox space items and give them a width
+         * equal to (33.3% - my preferred margin). */
+        @include flex-child(0 calc(33.3% - #{rem(1)}));
+        @include padding(1, bottom);
 
         @include media(smartphone) {
+            padding: 0;
             @include flex-child(1);
         }
     }
 
+    br {
+        /* Wordpress inserts a line break if it find a wayward space or line 
+         * break in the post texarea. This can cause every other item in the 
+         * photobox to be irregularly sized. I hide breaks in order to 
+         * circumvent this. */
+        display: none;
+    }
+
     img {
+        /* Important, or images will display weirdly in a manner that varies
+         * by browser. */
         width: 100%;
     }
 } 
@@ -181,7 +189,7 @@ div.avatar-wrapper {
  */
 
 article.full {
-    
+
 }
 
 /*
@@ -218,10 +226,11 @@ div.related-articles {
 }
 
 article.related {
-    @extend %article-child-block;
+    @include padding(0 1 1 0);
     @include flex-child(1);
 
     @include media(smartphone) {
+        padding: 0;
         @include margin(1, bottom);
     }
 
