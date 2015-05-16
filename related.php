@@ -62,8 +62,8 @@ if ($related_posts->found_posts < $desired_related_count) {
     $excluded_posts = array();
 
     // Debug
-    printf('<script>console.log("%s, %s");</script>', $related_posts->found_posts, $desired_related_count);
-    printf('<script>console.log("%s");</script>', $filler_count);
+    // printf('<script>console.log("%s, %s");</script>', $related_posts->found_posts, $desired_related_count);
+    // printf('<script>console.log("%s");</script>', $filler_count);
 
     foreach($related_posts->posts as $post => $key) {
         // Add any found posts to the array of excluded images.
@@ -94,7 +94,7 @@ if ($related_posts->found_posts < $desired_related_count) {
 }
 
 if ($related_posts->have_posts()) {
-    printf('<hr><div class="%s">', 'related-articles');
+    printf('<div class="%s">', 'related-articles');
 
     while ($related_posts->have_posts()) {
         $related_posts->the_post();
