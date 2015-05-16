@@ -27,10 +27,20 @@
 /* Both the percentage width of the content column and the right offset of the 
  * header in side-by-side mode, i.e. #content has a width of 60% and #header is
  * offset from the right by 60%. */
-$side-by-side-width: 70%;
+$side-by-side-width: 75%;
+$side-by-side-width-small: 66.6%;
 
 // Height of the header when it isn't occupying either a cover or sidebar size.
 $header-default-height: 40vh;
+
+/**
+ * Main Site Container
+ * -----------------------------------------------------------------------------
+ */
+
+#site {
+    // Insert rules here. ^_~
+}
 
 /**
  * Header and Content Containers
@@ -39,7 +49,12 @@ $header-default-height: 40vh;
 
 #header, #content {
     box-sizing: border-box;
+    transition: all .3s ease-in;
     @include padding(2);
+
+    @include media(smartphone) {
+        @include padding(1);
+    }
 }
 
 /**
@@ -50,22 +65,12 @@ $header-default-height: 40vh;
 
 #header {
     background-color: #fff;
-    transition: right .3s ease-in;
     @include flex-parent(column, center);
 
     > * {
-        // Child content is raised owing to the background gradient.
+        // Child content must be raised owing to the background gradient.
         z-index: 2;
     }
-}
-
-/**
- * Main Site Container
- * -----------------------------------------------------------------------------
- */
-
-#site {
-    // position: relative;
 }
 
 /**
@@ -84,6 +89,10 @@ $header-default-height: 40vh;
     #header {
         @include fixed(0 $side-by-side-width 0 0); 
 
+        @include media($b-1280) {
+            right: $side-by-side-width-small;
+        }
+
         @include media($b-1024) {
             height: $header-default-height;
             /* Relative in case of a background image, which employs an
@@ -96,9 +105,40 @@ $header-default-height: 40vh;
     #content {
         @include flex-child(0 1 $side-by-side-width);
 
+        @include media($b-1280) {
+            @include flex-child(0 1 $side-by-side-width-small);
+        }
+
         @include media($b-1024) {
             @include flex-child(1);
         }
+    }
+}
+
+/**
+ * Content Interior Container
+ * -----------------------------------------------------------------------------
+ */
+
+#interior {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: $side-by-side-width;
+
+    @include media($b-1280) {
+        width: 90%;
+    }
+
+    @include media(smartphone) {
+        width: 100%;
+    }
+}
+
+body:not(.single) .interior {
+    @include padding(5 0);
+
+    @include media(smartphone) {
+        @include padding(0);
     }
 }
 
@@ -144,7 +184,7 @@ $header-default-height: 40vh;
     background-size: cover;
 
     &:after {
-        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 100%); 
+        background: linear-gradient(to bottom, palette(gray) 0% , rgba(0,0,0,0.3) 100%); 
         content: ' ';
         @include absolute(0);
     }
