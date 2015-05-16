@@ -36,14 +36,19 @@ define('THEME_VERSION', 2.0);
 define('THEME_ROOT', get_template_directory_uri());
 
 /**
- * PHP Includes
+ * Theme Includes and Partials Paths
  * -----------------------------------------------------------------------------
  */
 
 define('THEME_INCLUDES', get_template_directory() . '/includes/');
+define('THEME_PARTIALS', '/partials');
+
+/**
+ * Theme Asset Paths
+ * -----------------------------------------------------------------------------
+ */
 
 define('THEME_ASSETS', THEME_ROOT . '/assets/');
-
 define('THEME_JS', THEME_ASSETS . 'js/');
 define('THEME_IMAGES', THEME_ASSETS . 'images/');
 define('THEME_CSS', THEME_ASSETS . 'sass/');
