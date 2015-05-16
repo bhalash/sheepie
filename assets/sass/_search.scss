@@ -28,11 +28,11 @@ form.search {
     border-bottom-width: 1px;
     font-size: 1.3em;
     outline: 0;
-    margin-bottom: $bottom-margin;
-    padding-bottom: $bottom-margin;
+    margin-bottom: margin(1);
+    padding-bottom: padding(1);
 
     @include placeholder_style() {
-        color: $colour-grey-pre;
+        color: palette(gray, dark);
     }
 
     p {
@@ -40,7 +40,7 @@ form.search {
     }
 
     input[type=text] {
-        color: $colour-grey-pre;
+        color: palette(gray, dark);
         display: inline-block;
         height: 100%;
         padding: 5px;
@@ -68,7 +68,7 @@ form.search {
 .nav-search {
     display: none;
     margin: 0 auto;
-    margin-top: $bottom-margin;
+    margin-top: margin(1);
     width: 75%;
 
     input {
@@ -81,5 +81,5 @@ form.search {
 }
 
 .results-count {
-    margin-top: $bottom-margin;
+    margin-top: margin(1);
 }

@@ -50,7 +50,7 @@ nav {
 
 /*
  * Site Top Navigation
- * -------------------
+ * -----------------------------------------------------------------------------
  */
 
 nav#top-menu {
@@ -64,7 +64,7 @@ nav#top-menu {
 
 /*
  * Site Top Navigation
- * -------------------
+ * -----------------------------------------------------------------------------
  */
 
 nav#top-social {
@@ -77,7 +77,6 @@ nav#top-social {
     }
 
     a {
-        @extend %cover-picture;
         display: block;
         font-size: 0;
     }
@@ -86,7 +85,7 @@ nav#top-social {
 
 /*
  * Pagination
- * ----------
+ * -----------------------------------------------------------------------------
  * There is pagination for both individual posts and for the site itself.
  */
 
@@ -99,7 +98,7 @@ nav.pagination {
     }
 
     span {
-        color: $colour-grey-light-text;
+        color: palette(gray);
         white-space: nowrap;
     }
 

@@ -26,7 +26,7 @@
 
 /*
  * Reader Comments
- * ---------------
+ * -----------------------------------------------------------------------------
  */
 
 #comments {
@@ -37,13 +37,13 @@
     }
 
     h5.reply-title {
-        margin-bottom: $bottom-margin;
+        margin-bottom: margin(1);
     }
 }
 
 /*
  * Comment Layout
- * --------------
+ * -----------------------------------------------------------------------------
  * I hate WordPress comments. Grumble.
  */
 
@@ -54,7 +54,7 @@
 .comment {
     box-sizing: border-box;
     list-style-type: none;
-    padding: $bottom-margin-21 0;
+    padding: padding(1.5) 0;
 
     &:not(:first-child) {
         border-width: 1px 0 0 0;
@@ -68,11 +68,11 @@
         @include media(portrait) {
             @include flex-parent(column);
 
-            margin-bottom: $bottom-margin-7;
+            margin-bottom: margin(0.5);
         }
 
         p {
-            color: $colour-grey-light-text;
+            color: palette(gray, light);
             font-size: 90%;
 
             @include media(portrait) {
@@ -104,18 +104,18 @@
 .focused-comment {
     /* Focused comment expands to either side, but the content within remains
      * unchanges */
+    $comment-padding: padding(1.5);
+
     border: 0;
-    left: -$bottom-margin-21;
-    padding-left: $bottom-margin-21;
-    padding-right: $bottom-margin-21;
-    // position: absolute;
+    left: -$comment-padding;
+    padding: $comment-padding 0;
     position: relative;
-    width: calc(100% + #{$bottom-margin-21} * 2);
+    width: calc(100% + #{$comment-padding} * 2);
 }
 
 /*
  * Comment Input Form
- * ------------------
+ * -----------------------------------------------------------------------------
  */
 
 #commentform {
@@ -124,7 +124,7 @@
 
     input, textarea {
         &:not(textarea) {
-            margin-bottom: $bottom-margin-7;
+            margin-bottom: margin(0.5);
         }
     }
 
@@ -140,7 +140,7 @@
             @include flex-child(1);
 
             &:not(:last-of-type) {
-                margin-right: $bottom-margin-7;
+                margin-right: margin(0.5);
 
                 @include media(smartphone) {
                     margin-right: 0;
@@ -151,10 +151,6 @@
 
     textarea {
         height: 100px;
-
-        @include media(smartphone) {
-            // width: 99%;
-        }
     }
 
     p.form-submit {
@@ -162,8 +158,8 @@
     }
 
     input[type=submit] {
-        height: $bottom-margin-35;
+        height: padding(3);
         max-width: 149px;
-        padding: $bottom-margin-7;
+        padding: paddinG(0.5);
     }
 }
