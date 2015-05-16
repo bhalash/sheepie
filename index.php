@@ -36,8 +36,7 @@ printf('<hr />');
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        // get_template_part('article', 'excerpt');
-        get_template_part('article', 'full');
+        get_template_part(THEME_PARTIALS . '/articles/article', 'full');
         printf('<hr class="double-margin" />');
     }
 } else {
