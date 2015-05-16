@@ -30,7 +30,7 @@ get_header();
 
 global $paged;
 
-get_template_part('pagination');
+get_template_part(THEME_PARTIALS . '/pagination');
 printf('<hr />'); 
 
 if (have_posts()) {
@@ -43,5 +43,5 @@ if (have_posts()) {
     get_template_part('article','missing');
 }
 
-get_template_part('pagination');
+get_template_part(THEME_PARTIALS . '/pagination');
 get_footer(); ?>
