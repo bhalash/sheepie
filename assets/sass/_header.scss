@@ -32,6 +32,7 @@
 #header {
     h1, ul, p {
         text-align: center;
+        @include margin(0);
     }
 }
 
@@ -48,7 +49,9 @@ ul#header-social {
         display: inline-block;
         @include square-flex(35px 1);
 
-        @include generate-social-link(a);
+        @include generate-social-link(a) {
+            background-color: transparent;
+        }
 
         a {
             border-radius: inherit;
@@ -63,5 +66,8 @@ ul#header-social {
  */
 
 p#header-description {
+    box-sizing: border-box;
+    display: inline-block;
+    @include padding(1.2);
     @include margin(1 0);
 }
