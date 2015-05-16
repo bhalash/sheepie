@@ -41,11 +41,9 @@ body {
  * -----------------------------------------------------------------------------
  */
 
-article {
-    blockquote, cite, li, footer p, ins, p, q {
-        @include font-size(1.5);
-        font-weight: 300;
-    }
+blockquote, cite, li, footer p, ins, p, q {
+    @include font-size(1.5);
+    font-weight: 300;
 }
 
 /*
