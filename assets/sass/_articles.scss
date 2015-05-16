@@ -24,17 +24,24 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/*
- * Article Colours
- * ---------------
+/**
+ * Article Titles
+ * -----------------------------------------------------------------------------
  */
 
-$article-header-text: $colour-grey-light-text;
-$article-image-border: rgba($colour-grey-pre, 0.5);
+.title {
+    a {
+        color: inherit; 
 
-/*
- * Article Partials and Child Elements
- * -----------------------------------
+        &:hover {
+            text-decoration: inherit;
+        }
+    }
+}
+
+/**
+ * Article Child Blocks
+ * -----------------------------------------------------------------------------
  */
 
 %article-child-block {
@@ -47,14 +54,21 @@ $article-image-border: rgba($colour-grey-pre, 0.5);
     }
 }
 
+/**
+ * Photobox
+ * -----------------------------------------------------------------------------
+ * I post a great many photographs, and this has become a convenient way for me
+ * to arrange and display them.
+ */
+
 div.article-photobox {
     // Shrink images down to neatly fit on one row.
-    @include flex-parent(row, flex-start);
-    margin-bottom: $bottom-margin;
+    @include flex-parent(row, flex-start, wrap);
+    @include margin(1, bottom);
 
     a {
         @extend %article-child-block;
-        @include flex-child(1 1 33%);
+        @include flex-child(1 0 33%);
 
         @include media(smartphone) {
             @include flex-child(1);
@@ -68,11 +82,11 @@ div.article-photobox {
 
 /*
  * Round Avatar
- * ------------
+ * -----------------------------------------------------------------------------
  */
 
 div.avatar-wrapper {
-    margin-right: $bottom-margin;
+    @include margin(1, right);
     @include prefix(flex, 0 1 96px);
 
     @include media(smartphone) {
@@ -90,82 +104,14 @@ div.avatar-wrapper {
 }
 
 /*
- * Base Article Rules
- * ------------------
- */
-
-article { 
-    overflow-x: hidden;
-
-    header {
-        margin-bottom: $bottom-margin-7;
-
-        > * {
-            margin-bottom: 0;
-        }
-    }
-
-    header, footer {
-        p, time, small {
-            color: $article_header_text;
-        }
-
-        p {
-            font: $font-opensans;
-        }
-
-        h4 {
-            margin: 0;
-        }
-    }
-
-    footer p {
-        font-size: 90%;
-    }
-
-    h3.title a:hover {
-        text-decoration: none;
-    }
-
-    div, img, iframe {
-        box-sizing: border-box;
-        max-width: 100%;
-    }
-
-    input {
-        // For password on password-protected posts.
-        display: block;
-    }
-
-    blockquote, dl, ol, ul {
-        padding: 0 0 0 15px;
-    }
-
-    blockquote {
-        font-size: 90%;
-
-        p, li {
-            font-style: italic;
-        }
-    }
-
-    ol, ul {
-        box-sizing: border-box;
-        margin-left: $bottom-margin;
-    }
-}
-
-/*
  * Full Articles
- * -------------
+ * -----------------------------------------------------------------------------
  */
 
 article.full {
 
     footer {
-        @include prefix_value(display, flex);
-        @include prefix_value(display, flex);
-        @include prefix(flex-direction, row);
+        @include flex-parent(row);
 
         h5, p {
             margin: 0;
@@ -173,13 +119,13 @@ article.full {
     }
 
     .author-info {
-        @include prefix(flex, 1);
+        @include flex-child(1);
     }
 }
 
 /*
  * Excerpted Articles
- * ------------------
+ * -----------------------------------------------------------------------------
  */
 
 article.excerpt {
@@ -191,13 +137,13 @@ article.excerpt {
 
     .mask {
         box-sizing: border-box;
-        padding: 40px 20px;
+        padding: padding(2.25) padding(1.5);
     }
 }
 
 /*
  * Related Articles
- * ----------------
+ * -----------------------------------------------------------------------------
  * Inserted below articles, these articles repreent three related articles
  * picked at random from the post archives.
  */
@@ -215,15 +161,15 @@ article.related {
     @include flex-child(1);
 
     @include media(smartphone) {
-        margin-bottom: $bottom-margin;
+        @include margin(1, bottom);
     }
 
     .related-thumbnail {
         background-size: cover;
         box-sizing: border-box;
-        margin-bottom: $bottom-margin-7;
 
-        @include square-flex(100%, 0.5);
+        @include margin(0.5, bottom);
+        @include square-flex(100% 0.5);
     }
 
     .related-thumbnail a {
