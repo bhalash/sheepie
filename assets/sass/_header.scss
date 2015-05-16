@@ -34,6 +34,10 @@
         text-align: center;
         @include margin(0);
     }
+
+    a {
+        color: inherit;
+    }
 }
 
 /**
@@ -69,5 +73,5 @@ p#header-description {
     box-sizing: border-box;
     display: inline-block;
     @include padding(1.2);
-    @include margin(1 0);
+    // @include margin(1 0);
 }
