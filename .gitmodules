@@ -1,3 +1,6 @@
 [submodule "assets/sass/scss-helpers"]
 	path = assets/sass/scss-helpers
 	url = git@github.com:bhalash/scss-helpers.git
+[submodule "assets/js/jquery-syntaxhighlighter"]
+	path = assets/js/jquery-syntaxhighlighter
+	url = git@github.com:balupton/jquery-syntaxhighlighter.git
