@@ -33,7 +33,7 @@ $previous = $paged - 1; ?>
 <?php if (is_single()) : ?>
     <hr>
 <?php endif; ?>
-<nav class="pagination">
+<nav id="pagination">
     <div class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
         <?php if (is_single()) {
             next_post_link('%link', '&larr; %title', false);
