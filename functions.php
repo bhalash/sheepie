@@ -89,7 +89,11 @@ $google_fonts = array(
 
 $theme_javascript = array(
     'browser-detect' => THEME_JS . 'browser_detect.js',
-    'highlightjs' => THEME_JS . 'highlight.js',
+    /* ¡Important! highlight.js /must/ be loaded before functions.js or it will
+     * not initialize correctly! The initializing function is called at the top
+     * functions.js */ 
+    'highlight-js' => THEME_JS . 'highlight.js',
+    'google-analytics' => THEME_JS . 'analytics.js',
     'functions' => THEME_JS . 'functions.js'
 );
 
