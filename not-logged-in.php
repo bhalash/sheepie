@@ -9,7 +9,7 @@
 <body>
     <div id="crapholder">
         <h3>Under Redevelopment</h3>
-        <p>Check back on May 10 &lt;3</p>
+        <p>Check back on May 31 &lt;3</p>
     </div>
     <style type="text/css">
         #crapholder {
