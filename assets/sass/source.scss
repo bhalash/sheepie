@@ -25,8 +25,10 @@
  */
 
 /** 
- * Variables
- * ---------
+ * Theme Variables
+ * -----------------------------------------------------------------------------
+ * Contains all variables used throughout the theme: Sizes, margins, padding, 
+ * colours and fonts (among others) are all determined here.
  */
 
 @import 'variables';
@@ -34,24 +36,54 @@
 /**
  * Mixins and Partials
  * -----------------------------------------------------------------------------
+ * Scss helper library: Contains many functions and mixins around which this 
+ * theme is built.
  */
 
 @import 'scss-helpers/bhalash-helpers';
 
-.yahoo {
-    @include margin(3, top);
-}
+/**
+ * CSS Normalize
+ * -----------------------------------------------------------------------------
+ * Normalize.css.
+ * See: https://github.com/necolas/normalize.css 
+ */
+
+@import 'normalize';
 
 /**
- * Imports
+ * Theme Defaults
  * -----------------------------------------------------------------------------
+ * Default sizes and margins, outside of variables.
  */
 
 @import 'reset';
+
+/**
+ * Containers
+ * -----------------------------------------------------------------------------
+ * Top-level containers in the theme: Site container, header and content 
+ * containers.
+ */
+
 @import 'containers';
+
+/**
+ * Theme Header
+ * -----------------------------------------------------------------------------
+ * Rules for elements interior to the header.
+ */
+
 @import 'header';
-// @import 'content';
-// @import 'articles';
+
+/**
+ * Articles
+ * -----------------------------------------------------------------------------
+ * Rules for different article templates.
+ */
+
+@import 'articles';
+
 // @import 'comments';
 // @import 'search';
 // @import 'share';
