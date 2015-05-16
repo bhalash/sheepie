@@ -25,8 +25,10 @@
  */
 
 /**
- * Overall Header Rules
+ * Header Interior Element Defaults
  * -----------------------------------------------------------------------------
+ * External rules for the header container are set in _containers.css. All rules
+ * in this stylesheet are for elements /internal/ to #header.
  */
 
 #header {
@@ -43,6 +45,8 @@
 /**
  * Header Social Media Menu
  * -----------------------------------------------------------------------------
+ * Horizontal row of external social media links. The WordPress side of the 
+ * logic is still TODO.
  */
 
 ul#header-social {
@@ -51,17 +55,18 @@ ul#header-social {
     li {
         border-radius: 50%;
         display: inline-block;
+        overflow: hidden;
         @include square-flex(50px 1);
+    }
 
-        @include generate-social-link(a) {
-            &:not(:hover) {
-                background-color: transparent;
-            }
-        }
+    @include generate-social-link(a) {
+        /* Child anchors need to be block-sized to benefit from the square 
+         * flex. */
+        display: block;
 
-        a {
-            border-radius: inherit;
-            display: inline-block;
+        &:not(:hover) {
+            // I wanted icons to be transparent by default.
+            background-color: transparent;
         }
     }
 }
