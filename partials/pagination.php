@@ -30,9 +30,6 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $next = $paged + 1; 
 $previous = $paged - 1; ?>
 
-<?php if (is_single()) : ?>
-    <hr>
-<?php endif; ?>
 <nav id="pagination">
     <p class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
         <small>
