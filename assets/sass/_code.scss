@@ -37,13 +37,15 @@ code, kbd, pre, pre span, tt, var {
 }
 
 pre { 
-    font-weight: bold;
+    // font-weight: bold;
+    background-color: palette(gray);
+    color: #fff;
     overflow: auto;
     @include font-size(1.3);
+    @include padding(1);
 
     code {
         display: block;
-        @include padding(1);
     }
 
     code.css, code.scss {
