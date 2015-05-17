@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Single Post Template
+ * Home Link
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -24,21 +24,12 @@
  * 
  * You should have received a copy of the GNU General Public License along with 
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
- */
+ */ 
 
-get_header();
-get_template_part(THEME_PARTIALS . '/gohome');
+?>
 
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-        get_template_part(THEME_PARTIALS . '/articles/article', 'full');
-        get_template_part(THEME_PARTIALS . '/pagination');
-        get_template_part('related');
-        comments_template();
-    }
-} else {
-    // get_template_part('article', 'missing');
-}
-
-get_footer(); ?>
+<nav id="gohome">
+    <p>
+        <small><a href="<?php printf(site_url()); ?>">Back to Home</a></small>
+    </p>
+</nav>
