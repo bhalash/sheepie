@@ -73,12 +73,11 @@ input, button, textarea {
         border: 0;
         outline: 0;
     }
+}
 
-    textarea {
-        /* Prevent resizing of nested textarea elements. Some shitty WordPress
-         * plugins can cause this in weird instances. */
-        resize: none;
-    }
+textarea {
+    resize: none;
+    width: 100%;
 }
 
 /**
