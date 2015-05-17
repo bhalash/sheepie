@@ -63,7 +63,9 @@
  */
 
 #header-description {
+    box-sizing: border-box;
     @include margin(2 0);
+    @include padding(0 2);
 
     span {
         border: 1px solid palette(white, dark); 
