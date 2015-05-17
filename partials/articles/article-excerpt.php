@@ -33,7 +33,6 @@
         <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
     </header>
     <div class="excerpt">
-        <?php // the_excerpt(); ?>
         <?php printf('<p>%s <a href="<?php the_permalink(); ?>">...</a></p>', custom_excerpt()); ?>
     </div>
     <footer>
