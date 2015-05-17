@@ -44,14 +44,26 @@ $b-640:  max 640px;
  */
 
 $default-colors: (
-    gray: (
-        dark: rgb(51,51,51),
-        base: rgba(0,0,0,0.8),
-        light: rgb(158,171,179),
-        x-light: rgb(244,244,244),
+    black: (
+        x-dark: rgba(0,0,0,1),
+        dark: rgba(0,0,0,0.858),
+        mid-dark: rgba(0,0,0,0.716),
+        base: rgba(0,0,0,0.574),
+        mid-light: rgba(0,0,0,0.432),
+        light: rgba(0,0,0,0.290),
+        x-light: rgba(0,0,0,0.148)
+    ),
+    white: (
+        x-dark: rgba(255,255,255,0.148),
+        dark: rgba(255,255,255,0.290),
+        mid-dark: rgba(255,255,255,0.432),
+        base: rgba(255,255,255,0.574),
+        mid-light: rgba(255,255,255,0.716),
+        light: rgba(255,255,255,0.858),
+        x-light: rgba(255,255,255,1)
     ),
     blue: (
-        base: rgb(51,153,204)
+        base: rgb(62,191,255)
     )
 );
 
