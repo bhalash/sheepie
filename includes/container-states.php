@@ -58,7 +58,14 @@ function get_header_background($post_id = null) {
  */
 
 function header_background($post_id = null) {
-    printf('style="background-image: url(%s);"', get_header_background($post_id));
+    if (is_null($post_id)) {
+        global $post;
+        $post_id = $post->ID;
+    }
+
+    if (has_content_image($post_id)) {
+        printf('style="background-image: url(%s);"', get_header_background($post_id));
+    }
 }
 
 /**
