@@ -48,7 +48,7 @@ if (!is_user_logged_in()) {
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
-            <h1 id="header-title"><?php page_title($post->ID); ?></h1>
+            <h2 id="header-title"><?php page_title($post->ID); ?></h2>
             <p id="header-description"><?php bloginfo('description'); ?></p>
             <ul id="header-social">
                 <li><a class="facebook" href="//www.facebook.com/bhalash"></a></li>
