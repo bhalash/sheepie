@@ -102,8 +102,6 @@ $theme_styles = array(
     'main-style'        => THEME_CSS . '/style.css',
     // WordPress style.css. Not really used.
     'wordpress-style'   => THEME_ROOT . '/style.css',
-    // Custom user-added CSS.
-    'custom-stylesheet' => THEME_ROOT . '/custom.css'
 );
 
 /**
