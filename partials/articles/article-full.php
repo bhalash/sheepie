@@ -29,7 +29,7 @@
 ?>
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-    
+
     <?php if (!is_single()) : ?>
         <header>
             <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
@@ -42,6 +42,7 @@
     the_content('Read the rest of this post &raquo;');
 
     if (is_single()) {
+        get_template_part(THEME_PARTIALS . '/pagination');
         get_template_part(THEME_PARTIALS . '/articles/footer', 'full');
     } ?>
 
