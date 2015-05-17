@@ -34,13 +34,43 @@
 #header {
     #header-title, #header-social, #header-description {
         color: #fff;
-        font-weight: 300;
+        // font-weight: 300;
         text-align: center;
-        @include margin(0);
     }
+}
+
+/**
+ * Header Title Text
+ * -----------------------------------------------------------------------------
+ */
+
+#header-title {
+    @include margin(0);
 
     a {
         color: inherit;
+        letter-spacing: 1.5px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/**
+ * Header Descriptive Paragraph
+ * -----------------------------------------------------------------------------
+ */
+
+#header-description {
+    @include margin(2 0);
+
+    span {
+        border: 1px solid palette(white, dark); 
+        border-width: 1px 0;
+        box-sizing: border-box;
+        display: inline-block;
+        @include padding(1.5 0);
     }
 }
 
@@ -62,9 +92,6 @@
     }
 
     @include generate-social-link(a) {
-        /* Child anchors need to be block-sized to benefit from the square 
-         * flex. */
-        display: inherit;
         transition: background-color .2s ease-in;
 
         &:not(:hover) {
@@ -72,16 +99,4 @@
             background-color: transparent;
         }
     }
-}
-
-/**
- * Header Descriptive Paragraph
- * -----------------------------------------------------------------------------
- */
-
-#header-description {
-    box-sizing: border-box;
-    display: inline-block;
-    @include padding(1.2);
-    // @include margin(1 0);
 }
