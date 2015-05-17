@@ -27,8 +27,6 @@
  */
 
 ?>
-
-                <!-- <div id="footer" style="width: 100%; height: 30px; background: #000"></div> -->
             </div> <?php // End .interior ?>
         </div> <?php // End #content ?>
     </div> <?php // End #site ?>
