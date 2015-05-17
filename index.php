@@ -30,14 +30,11 @@ get_header();
 
 global $paged;
 
-get_template_part(THEME_PARTIALS . '/pagination');
-printf('<hr />'); 
-
 if (have_posts()) {
     while (have_posts()) {
         the_post();
         get_template_part(THEME_PARTIALS . '/articles/article', 'full');
-        printf('<hr class="double-margin" />');
+        printf('<hr>');
     }
 } else {
     get_template_part('article','missing');
