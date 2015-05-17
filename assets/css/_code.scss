@@ -48,45 +48,45 @@ pre {
         display: block;
     }
 
-    code.css, code.scss {
-        .hljs-at_rule, .hljs-tag, .hljs-keyword {
-            // CSS element tag.
-            color: #ea457c;
-        }
+    // code.css, code.scss {
+    //     .hljs-at_rule, .hljs-tag, .hljs-keyword {
+    //         // CSS element tag.
+    //         color: #ea457c;
+    //     }
 
-        .hljs-id, .hljs-class { 
-            // CSS element class or ID.
-            color: #b2eb57; 
-        }
+    //     .hljs-id, .hljs-class { 
+    //         // CSS element class or ID.
+    //         color: #b2eb57; 
+    //     }
 
-        .hljs-rules { 
-            // CSS rule top-level block.
-            // color: palette(black, light); 
-        }
+    //     .hljs-rules { 
+    //         // CSS rule top-level block.
+    //         // color: palette(black, light); 
+    //     }
 
-        .hljs-rule {
-        }
+    //     .hljs-rule {
+    //     }
 
-        .hljs-attribute {
-            // font-face part of font-face: foo;
-            color: palette(blue);
-        }
+    //     .hljs-attribute {
+    //         // font-face part of font-face: foo;
+    //         color: palette(blue);
+    //     }
 
-        .hljs-value {
-            // foo part of font-face: foo;
-        }
+    //     .hljs-value {
+    //         // foo part of font-face: foo;
+    //     }
 
-        .hljs-hexcolor, .hljs-number {
-            // 545px part of margin: 545px;
-            color: #a78bf6;
-        }
+    //     .hljs-hexcolor, .hljs-number {
+    //         // 545px part of margin: 545px;
+    //         color: #a78bf6;
+    //     }
 
-        .hljs-string {
-            color: #e7ca3b;
-        }
-    }
+    //     .hljs-string {
+    //         color: #e7ca3b;
+    //     }
+    // }
 
-    code.bash {
-        // Shell
-    }
+    // code.bash {
+    //     // Shell
+    // }
 }
