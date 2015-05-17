@@ -29,7 +29,6 @@
  * offset from the right by 60%. */
 $side-by-side-width: 75%;
 $side-by-side-width-small: 66.6%;
-
 // Height of the header when it isn't occupying either a cover or sidebar size.
 $header-default-height: 40vh;
 
@@ -180,11 +179,11 @@ body:not(.single) .interior {
  */
 
 #header.has-image {
-    // background-color: palette(gray);
+    // background-color: palette(black);
     background-size: cover;
 
     &:after {
-        background: linear-gradient(to bottom, palette(gray) 0% , rgba(0,0,0,0.3) 100%); 
+        background: linear-gradient(to bottom, palette(black) 0%, rgba(0,0,0,0.3) 100%); 
         content: ' ';
         @include absolute(0);
     }

@@ -25,7 +25,7 @@
  */
 
 html {
-    color: palette(gray);
+    color: palette(black, x-dark);
     font-family: $font-opensans;
     // @include line-height(2);
 }
@@ -75,6 +75,8 @@ input, button, textarea {
     }
 
     textarea {
+        /* Prevent resizing of nested textarea elements. Some shitty WordPress
+         * plugins can cause this in weird instances. */
         resize: none;
     }
 }
@@ -135,7 +137,7 @@ a {
 
 hr {
     border: 0;
-    background: palette(gray, light);
+    background: palette(black, light);
     height: 1px;
     @include margin(2 0);
 }
@@ -148,6 +150,10 @@ hr {
 
 big, dt {
     @include font-size(1.9);
+}
+
+cite, small {
+    @include font-size(1.3);
 }
 
 small {
@@ -175,7 +181,7 @@ li {
  */
 
 blockquote {
-    border-left: 1px solid palette(gray, light);
+    border-left: 1px solid palette(black, light);
     @include padding(1, left);
 
     p, li {
