@@ -207,15 +207,10 @@ article.full {
  */
 
 article.excerpt {
-    width: 100%;
+    @include margin(3 0);
 
-    header {
+    header, p {
         margin: 0;
-    }
-
-    .mask {
-        box-sizing: border-box;
-        @include padding(2.25 1.5);
     }
 }
 
