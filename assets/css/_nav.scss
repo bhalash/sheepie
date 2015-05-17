@@ -24,56 +24,32 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// nav {
-//     ul {
-//         list-style-type: none;
-//         margin: 0;
-//     }
-
-//     li {
-//         display: inline-block;
-//     }
-
-//     li, span, a {
-//         @include font-size(0.85);
-//     }
-
-//     a {
-//         display: block;
-
-//         &:hover {
-//             text-decoration: none;
-//         }
-//     }
-// }
-
 /*
  * Site Top Navigation
  * -----------------------------------------------------------------------------
  */
 
-// nav#top-menu {
-//     background: transparent;
-//     z-index: 2;
-//     @include fixed(0 0 0, top right left);
-// }
+#gohome, #pagination {
+    p { 
+        margin: 0;
+        @include flex-child(1);
+    }
+}
 
-/*
- * Site Top Navigation
+/**
+ * Home Link
  * -----------------------------------------------------------------------------
  */
 
-// nav#top-social {
-//     ul {
-//         text-align: center;
-//     }
+nav#gohome {
+    @include margin(2, bottom);
 
-//     ul, li, a {
-//         /* Elements have no textual content. This is to remove extraenous space
-//          * added by browsers. */
-//         font-size: 0;
-//     }
-// }
+    a {
+        &:before {
+            content: '← ';
+        }
+    }
+}
 
 /*
  * Pagination
@@ -82,13 +58,8 @@
  */
 
 nav#pagination {
-    @include padding(0.7 0);
+    @include margin(3 0);
     @include flex-parent(row);
-
-    p { 
-        margin: 0;
-        @include flex-child(1);
-    }
 
     span {
         color: palette(black);
