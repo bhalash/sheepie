@@ -41,7 +41,7 @@ if (!is_user_logged_in()) {
     <?php // FIXME ?>
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.png" />
+    <link rel="icon" type="image/png" href="<?php printf(get_stylesheet_directory_uri()); ?>/images/favicon.png" />
     <?php social_meta(); ?>
     <?php wp_head(); ?>
 </head>
@@ -49,7 +49,9 @@ if (!is_user_logged_in()) {
     <div class="side-by-side" id="site">
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
             <h2 id="header-title"><?php page_title($post->ID); ?></h2>
-            <p id="header-description"><?php bloginfo('description'); ?></p>
+            <p id="header-description">
+                <span><?php bloginfo('description'); ?></span>
+            </p>
             <ul id="header-social">
                 <li><a class="facebook" href="//www.facebook.com/bhalash"></a></li>
                 <li><a class="github" href="//www.github.com/bhalash"></a></li>
