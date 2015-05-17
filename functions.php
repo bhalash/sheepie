@@ -51,7 +51,7 @@ define('THEME_PARTIALS', '/partials');
 define('THEME_ASSETS', THEME_ROOT . '/assets/');
 define('THEME_JS', THEME_ASSETS . 'js/');
 define('THEME_IMAGES', THEME_ASSETS . 'images/');
-define('THEME_CSS', THEME_ASSETS . 'sass/');
+define('THEME_CSS', THEME_ASSETS . 'css/');
 
 /**
  * Theme Includes

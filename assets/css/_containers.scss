@@ -94,7 +94,7 @@ $header-default-height: 40vh;
         }
 
         @include media($b-1024) {
-            height: $header-default-height;
+            min-height: $header-default-height;
             /* Relative in case of a background image, which employs an
              * absolutely positioned gradient. */
             position: relative;
