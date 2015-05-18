@@ -37,6 +37,16 @@ jQuery('pre').each(function() {
 
 hljs.initHighlightingOnLoad();
 
+/**
+ * Article Photobox
+ * -----------------------------------------------------------------------------
+ * Wordpress inserts a line break if it find a wayward space or line break in 
+ * the post texarea. This can cause every other item in the photobox to be 
+ * irregularly sized. I remove breaks in order to circumvent this.
+ */
+
+jQuery('.article-photobox br').remove();
+
 /*
  * Comments Focus
  * -----------------------------------------------------------------------------

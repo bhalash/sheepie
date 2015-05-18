@@ -102,14 +102,6 @@ footer {
         @include flex-parent(column);
     }
 
-    br {
-        /* Wordpress inserts a line break if it find a wayward space or line 
-         * break in the post texarea. This can cause every other item in the 
-         * photobox to be irregularly sized. I hide breaks in order to 
-         * circumvent this. */
-        display: none;
-    }
-
     > * {
         box-sizing: border-box;
         // Space items equidistantly. 
