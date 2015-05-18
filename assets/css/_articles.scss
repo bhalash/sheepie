@@ -224,6 +224,10 @@ article.related {
         @include margin(1, bottom);
     }
 
+    header, p {
+        margin: 0;
+    }
+
     .related-thumbnail {
         background-size: cover;
         box-sizing: border-box;
