@@ -37,7 +37,7 @@ if (have_posts()) {
         comments_template();
     }
 } else {
-    // get_template_part('article', 'missing');
+    get_template_part(THEME_PARTIALS . '/articles/article', 'missing');
 }
 
 get_footer(); ?>
