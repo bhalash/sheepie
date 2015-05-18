@@ -69,7 +69,7 @@ require_once(THEME_INCLUDES . 'container-states.php');
 $social_fallback = array(
     // Social fallback is called in cases where the post is missing n info.
     'publisher' => 'http://www.bhalash.com',
-    'image' => get_template_directory_uri() . '/assets/images/lightning.jpg',
+    'image' => get_template_directory_uri() . '/assets/images/fallback.jpg',
     'description' => get_bloginfo('description'),
     'twitter' => '@bhalash'
 );
