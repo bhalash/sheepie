@@ -233,3 +233,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+assets/css/scss-helpers/
+
+assets/images/fallback_big.jpg
