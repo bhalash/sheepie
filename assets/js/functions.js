@@ -27,14 +27,11 @@
 /*
  * Initialize highligh.js
  * -----------------------------------------------------------------------------
+ * highlight.js operates on the <code> child or <pre> elements. This wraps the
+ * content of an element with <code> before initializing highlight.js.
  */
 
-jQuery('pre').each(function() {
-    if (jQuery(this).find('code').length === 0) {
-        jQuery(this).wrapInner('<code></code>');
-    }
-});
-
+jQuery('pre:not(:has(> code))').wrapInner('<code></code>');
 hljs.initHighlightingOnLoad();
 
 /**
