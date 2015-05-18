@@ -24,6 +24,9 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+$avatar-big: 96px;
+$avatar-small: 65px;
+
 /**
  * Default Article Styling
  * -----------------------------------------------------------------------------
@@ -62,12 +65,8 @@ header, footer {
     }
 }
 
-header {
-    @include margin(0.5, bottom);
-
-    > * {
-        @include margin(0, bottom);
-    }
+header > * {
+    @include margin(0, bottom);
 }
 
 footer {
@@ -97,7 +96,7 @@ footer {
  */
 
 %article-child {
-    @include flex-parent(row, space-between, wrap);
+    @include flex-parent(row, flex-start, wrap);
 
     @include media(smartphone) {
         @include flex-parent(column);
@@ -113,20 +112,12 @@ footer {
 
     > * {
         box-sizing: border-box;
-        /* The next line deserves an explanation: I want to equidistantly space 
-         * items in a manner consistent with my preferred vertical spacing. If I
-         * do not explicitly state either a size, or padding, WordPress' 
-         * inserted line breaks will cause every other item to have an irregular
-         * size. 
-         * 
-         * Padding didn't work out for a few reasons, namely that I had to apply
-         * a negative padding to the parent in order to makte items fit neatly.
-         * The alternative is to use flexbox space items and give them a width
-         * equal to (33.3% - my preferred margin). */
-        @include flex-child(0 1 calc(33.3% - #{rem(1)}));
+        // Space items equidistantly. 
+        @include flex-child(0 1 32%);
 
-        @include media(smartphone) {
-            @include flex-child(1);
+        &:not(:nth-child(3n+0)) {
+            // Add margin to every not-third item.
+            margin-right: 2%;
         }
     }
 }
@@ -165,18 +156,18 @@ div.article-photobox {
 
 div.avatar-wrapper {
     @include margin(1, right);
-    @include prefix(flex, 0 1 96px);
+    @include prefix(flex, 0 1 $avatar-big);
 
     @include media(smartphone) {
-        @include prefix(flex, 0 1 65px);
+        @include prefix(flex, 0 1 $avatar-small);
     }
 
     img {
         border-radius: 50%;
 
         @include media(smartphone) {
-            height: 65px;
-            width: 65px;
+            height: $avatar-small;
+            width: $avatar-small;
         }
     }
 }
@@ -187,6 +178,10 @@ div.avatar-wrapper {
  */
 
 article.full {
+    header {
+        @include margin(1, bottom);
+    }
+
     footer {
         @include flex-parent(row);
         @include margin(2, top);
