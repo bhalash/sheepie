@@ -63,7 +63,7 @@ $header-default-height: 300px;
  */
 
 #header {
-    background-color: #fff;
+    background-size: cover;
     position: relative;
     @include flex-parent(column, center);
 
@@ -153,8 +153,6 @@ $header-default-height: 300px;
  */
 
 #header.has-image {
-    background-size: cover;
-
     &:after {
         background-color: palette(black);
         content: ' ';
