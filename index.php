@@ -27,8 +27,11 @@
  */
 
 get_header();
-
 global $paged;
+
+if (!is_single() && $paged > 0) {
+    get_template_part(THEME_PARTIALS . '/pagination');
+}
 
 if (have_posts()) {
     while (have_posts()) {
