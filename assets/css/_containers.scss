@@ -30,7 +30,7 @@
 $side-by-side-width: 75%;
 $side-by-side-width-small: 66.6%;
 // Height of the header when it isn't occupying either a cover or sidebar size.
-$header-default-height: 40vh;
+$header-default-height: 300px;
 
 /**
  * Main Site Container
@@ -64,6 +64,7 @@ $header-default-height: 40vh;
 
 #header {
     background-color: #fff;
+    position: relative;
     @include flex-parent(column, center);
 
     > * {
@@ -115,33 +116,6 @@ $header-default-height: 40vh;
 }
 
 /**
- * Content Interior Container
- * -----------------------------------------------------------------------------
- */
-
-#interior {
-    box-sizing: border-box;
-    margin: 0 auto;
-    width: $side-by-side-width;
-
-    @include media($b-1280) {
-        width: 90%;
-    }
-
-    @include media($b-640) {
-        width: 100%;
-    }
-}
-
-body:not(.single) .interior {
-    @include padding(5 0);
-
-    @include media(smartphone) {
-        @include padding(0);
-    }
-}
-
-/**
  * Site Home Page Cover Layout
  * -----------------------------------------------------------------------------
  * Cover layout that you see when you first visit the site.
@@ -179,16 +153,42 @@ body:not(.single) .interior {
  */
 
 #header.has-image {
-    // background-color: palette(black);
     background-size: cover;
 
     &:after {
-        background: linear-gradient(to bottom, palette(black) 0%, rgba(0,0,0,0.3) 100%); 
+        background-color: palette(black);
         content: ' ';
         @include absolute(0);
     }
+}
 
-    h1, ul, p {
-        color: #fff;
+div.default-background, div.no-image {
+    background-image: url($fallback_image);
+}
+
+/**
+ * Content Interior Container
+ * -----------------------------------------------------------------------------
+ */
+
+#interior {
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 70%;
+
+    @include media($b-1280) {
+        width: 85%;
+    }
+
+    @include media($b-640) {
+        width: 100%;
+    }
+}
+
+body:not(.single) .interior {
+    @include padding(5 0);
+
+    @include media(smartphone) {
+        @include padding(0);
     }
 }
