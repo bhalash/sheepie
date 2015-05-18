@@ -58,10 +58,16 @@ h5.reply-title {
  * -----------------------------------------------------------------------------
  */
 
-#comments ul {
-    margin: 0;
-    padding: 0;
-    position: relative;
+#comments {
+    ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    p {
+        @include margin(0.5, bottom);
+    }
 }
 
 li.comment {
