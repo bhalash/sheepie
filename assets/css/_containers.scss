@@ -185,7 +185,7 @@ div.default-background, div.no-image {
     }
 }
 
-body:not(.single) .interior {
+body:not(.single) #interior {
     @include padding(5 0);
 
     @include media(smartphone) {
