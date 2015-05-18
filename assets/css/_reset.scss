@@ -140,6 +140,10 @@ hr {
     @include margin(2 0);
 }
 
+body:not(.single) article ~ hr {
+    @include margin(4 0);
+}
+
 /**
  * Gulliver's Text
  * -----------------------------------------------------------------------------
