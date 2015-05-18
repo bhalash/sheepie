@@ -99,25 +99,13 @@ footer {
 %article-child {
     @include flex-parent(row, flex-start, wrap);
 
-    @include media(smartphone) {
-        @include flex-parent(column, flex-start, nowrap);
-    }
-
     > * {
         box-sizing: border-box;
         @include flex-child(0 1 32%);
 
-        @include media(smartphone) {
-            @include flex-child(1);
-        }
-
         &:not(:nth-child(3n+0)):not(:last-child) {
             // Add margin to every not-third or last item.
             margin-right: 2%;
-
-            @include media(smartphone) {
-                margin-right: 0;
-            }
         }
     }
 }
