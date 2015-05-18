@@ -360,7 +360,10 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
 
     if (is_null($total_results)) {
         $total_results = wp_count_posts($type, 'readable')->publish;
-        $total_results += wp_count_posts($type, 'readable')->private;
+
+        if (is_user_logged_in()) {
+            $total_results += wp_count_posts($type, 'readable')->private;
+        }
     }
 
     $posts_per_page = get_option('posts_per_page');
