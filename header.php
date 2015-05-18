@@ -26,10 +26,7 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-if (!is_user_logged_in()) {
-    require_once('not-logged-in.php');
-    exit();
-} ?>
+?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,11 +44,24 @@ if (!is_user_logged_in()) {
 </head>
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
+        <?php // Output a pretty background image, if it exists. ?>
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
             <h2 id="header-title"><?php page_title($post->ID); ?></h2>
+
             <p id="header-description">
-                <span><?php bloginfo('description'); ?></span>
+                <?php // Either site information or post meta content. ?>
+                <span>
+                    <?php if (!is_single()) : ?>
+                        <?php bloginfo('description'); ?>
+                    <?php else: ?>
+                        <small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?></small> 
+                    <?php endif; ?>
+                </span>
             </p>
+
+            <?php // TODO: Static menu isn't desireable! ?>
+            <?php // wp_nav_menu(array('theme_location' => 'top-social')); ?>
+
             <ul id="header-social">
                 <li><a class="facebook" href="//www.facebook.com/bhalash"></a></li>
                 <li><a class="github" href="//www.github.com/bhalash"></a></li>
@@ -60,20 +70,3 @@ if (!is_user_logged_in()) {
         </div>
         <div id="content">
             <div id="interior">
-
-<?php /*
-    <p>
-        <?php if (!is_single() && !is_search()) {
-            bloginfo('description');
-        } else if (is_search()) {
-            printf('%s', search_results_count(get_query_var('paged'), $wp_query->found_posts));
-        } else { ?>
-            <time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> <?php echo __('in'); ?> <?php the_category(', '); edit_post_link(__('edit post'), ' / ', ''); ?>
-        <?php }; ?>
-    </p>
-    <nav id="top-social">
-        <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
-    </nav>
-</div>
-
-*/ ?>
