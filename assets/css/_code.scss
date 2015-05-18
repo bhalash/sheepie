@@ -31,8 +31,7 @@
 
 code, kbd, pre, pre span, tt, var {
     font-family: $font-sourcecodepro;
-    // font-weight: 400;
-    text-shadow: 1px 1px 1px palette(black, x-light);
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
 
