@@ -230,7 +230,7 @@ article.related {
         box-sizing: border-box;
 
         @include margin(0.5, bottom);
-        @include square-flex(100% 0.5);
+        @include square-flex(100% 0.75);
     }
 
     .related-thumbnail a {
