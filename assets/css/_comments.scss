@@ -1,5 +1,5 @@
 /**
- * Comments
+ * Comments Template and Commentform
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -24,142 +24,150 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * Input Element Border
+ * -----------------------------------------------------------------------------
+ */
+
+%input-border {
+    border: 1px solid palette(black, x-light);
+    box-sizing: border-box;
+
+    &:focus {
+        border-color: palette(black);
+    }
+}
+
+/**
+ * Comment Area Miscellaneous Rules
+ * -----------------------------------------------------------------------------
+ */
+
+h5.reply-title {
+    // Bold black text dividing section.
+    @include margin(1, bottom);
+}
+
+#reply-title.comment-reply-title {
+    // WordPres inserts it, but it is extraenous. 
+    display: none !important;
+}
+
 /*
  * Reader Comments
  * -----------------------------------------------------------------------------
  */
 
-#comments {
-    ul {
-        margin: 0;
-        padding: 0;
-        position: relative;
-    }
-
-    h5.reply-title {
-        margin-bottom: margin(1);
-    }
+#comments ul {
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-/*
- * Comment Layout
- * -----------------------------------------------------------------------------
- * I hate WordPress comments. Grumble.
- */
-
-.comment, .comment header {
-    @include flex-parent(row);
-}
-
-.comment {
+li.comment {
     box-sizing: border-box;
     list-style-type: none;
-    padding: padding(1.5) 0;
+    @include flex-parent(row);
+    @include padding(1.5 0);
 
-    &:not(:first-child) {
-        border-width: 1px 0 0 0;
-    }
-
-    header p, .comment-interior {
+    .comment-interior {
         @include flex-child(1);
     }
 
-    header {
+    &:not(:first-of-type) {
+        border-top: 1px solid palette(black, x-light);
+    }
+}
+
+/**
+ * Comment Header
+ * -----------------------------------------------------------------------------
+ */
+
+li.comment header {
+    @include flex-parent(row);
+
+    @include media(portrait) {
+        @include flex-parent(column);
+        @include margin(0.5, bottom);
+    }
+
+    p {
+        font-weight: bold;
+        @include flex-child(1);
+
         @include media(portrait) {
-            @include flex-parent(column);
-
-            margin-bottom: margin(0.5);
+            margin: 0;
         }
-
-        p {
-            color: palette(black, light);
-            font-size: 90%;
-
-            @include media(portrait) {
-                margin: 0;
-            }
-        }
-
-        .date {
-            text-align: right;
-
-            @include media(portrait) {
-                text-align: left;
-            }
-        }
-
     }
 
-    footer p {
-        margin: 0; 
-    }
+    p.date {
+        text-align: right;
 
-    div.comment-body {
-        p {
-            font-size: 85%;
+        @include media(portrait) {
+            text-align: left;
         }
     }
 }
+
+/**
+ * Comment Footer
+ * -----------------------------------------------------------------------------
+ * Basically the "edit comment" link.
+ */
+
+li.comment footer p {
+    margin: 0; 
+}
+
+/**
+ * Focused Comment
+ * -----------------------------------------------------------------------------
+ */
 
 .focused-comment {
     /* Focused comment expands to either side, but the content within remains
-     * unchanges */
-    $comment-padding: padding(1.5);
+     * unchanged */
+    $comment-padding: 15px;
 
     border: 0;
-    left: -$comment-padding;
-    padding: $comment-padding 0;
-    position: relative;
     width: calc(100% + #{$comment-padding} * 2);
+    @include padding(1.5 0);
+    @include relative(-$comment-padding, left);
 }
 
-/*
+/**
  * Comment Input Form
  * -----------------------------------------------------------------------------
  */
 
 #commentform {
-    @extend %clearfix;
-    width: 100%;
+    input,textarea {
+        @extend %input-border;
+        padding: 5px;
 
-    input, textarea {
-        &:not(textarea) {
-            margin-bottom: margin(0.5);
+        @include placeholder-style() {
+            font-size: inherit;
         }
     }
 
-    .commentform-inputs {
-        // Wrapper container for the inputs on the commentform.
-        @include flex-parent(row);
-
-        @include media(smartphone) {
-            @include flex-parent(column);
-        }
-
-        input {
-            @include flex-child(1);
-
-            &:not(:last-of-type) {
-                margin-right: margin(0.5);
-
-                @include media(smartphone) {
-                    margin-right: 0;
-                }
-            }
-        }
+    p, input {
+        @extend small;
     }
 
     textarea {
-        height: 100px;
-    }
-
-    p.form-submit {
-        margin-bottom: 0;
+        height: 200px;
     }
 
     input[type=submit] {
-        height: padding(3);
+        height: 30px;
         max-width: 149px;
-        padding: paddinG(0.5);
+        @include padding(0.5, bottom);
     }
+}
+
+.commentform-inputs {
+    // Wrapper container for the inputs on the commentform.
+    @extend %article-child;
+    @include margin(1, bottom);
 }
