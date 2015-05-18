@@ -24,9 +24,29 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/*
+ * Reader Comments
+ * -----------------------------------------------------------------------------
+ * List of comments and top-level comment style.
+ */
+
+#comments {
+    ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    p {
+        @include margin(0.5, bottom);
+    }
+}
+
 /**
  * Input Element Border
  * -----------------------------------------------------------------------------
+ * Generically used several times. This is un/focused border style for
+ * commentform inputs.
  */
 
 %input-border {
@@ -44,7 +64,8 @@
  */
 
 h5.reply-title {
-    // Bold black text dividing section.
+    /* Bold black text dividing section. This is the generic subheading that I
+     * use throughout the section. */
     @include margin(1, bottom);
 }
 
@@ -53,22 +74,11 @@ h5.reply-title {
     display: none !important;
 }
 
-/*
- * Reader Comments
+/**
+ * Individual Comment
  * -----------------------------------------------------------------------------
+ * Top-level rules for the comment container.
  */
-
-#comments {
-    ul {
-        margin: 0;
-        padding: 0;
-        position: relative;
-    }
-
-    p {
-        @include margin(0.5, bottom);
-    }
-}
 
 li.comment {
     box-sizing: border-box;
@@ -76,21 +86,18 @@ li.comment {
     @include flex-parent(row);
     @include padding(1.5 0);
 
-    .comment-interior {
-        @include flex-child(1);
-    }
-
     &:not(:first-of-type) {
         border-top: 1px solid palette(black, x-light);
     }
 }
 
 /**
- * Comment Header
+ * Comment Header, Footer and Content Interior
  * -----------------------------------------------------------------------------
  */
 
 li.comment header {
+    font-weight: bold;
     @include flex-parent(row);
 
     @include media(portrait) {
@@ -99,36 +106,30 @@ li.comment header {
     }
 
     p {
-        font-weight: bold;
         @include flex-child(1);
 
-        @include media(portrait) {
-            margin: 0;
-        }
-    }
+        &.date {
+            text-align: right;
 
-    p.date {
-        text-align: right;
-
-        @include media(portrait) {
-            text-align: left;
+            @include media(portrait) {
+                text-align: left;
+            }
         }
     }
 }
-
-/**
- * Comment Footer
- * -----------------------------------------------------------------------------
- * Basically the "edit comment" link.
- */
 
 li.comment footer p {
     margin: 0; 
 }
 
+li.comment .comment-interior {
+    @include flex-child(1);
+}
+
 /**
  * Focused Comment
  * -----------------------------------------------------------------------------
+ * Currently selected comment, determined by clicking.
  */
 
 .focused-comment {
@@ -145,12 +146,13 @@ li.comment footer p {
 /**
  * Comment Input Form
  * -----------------------------------------------------------------------------
+ * All input styles for the commentform.
  */
 
 #commentform {
     input,textarea {
         @extend %input-border;
-        padding: 5px;
+        @include padding(0.5);
 
         @include placeholder-style() {
             font-size: inherit;
@@ -174,6 +176,20 @@ li.comment footer p {
 
 .commentform-inputs {
     // Wrapper container for the inputs on the commentform.
-    @extend %article-child;
+    @include flex-parent(row, space-between, nowrap);
     @include margin(1, bottom);
+
+    @include media($b-640) {
+        margin: 0;
+        @include flex-parent(column, flex-start);
+    }
+
+    input {
+        @include flex-child(0 1 32%);
+
+        @include media($b-640) {
+            @include margin(1, bottom);
+            @include flex-child(1);
+        }
+    }
 }
