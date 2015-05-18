@@ -113,10 +113,10 @@ footer {
     > * {
         box-sizing: border-box;
         // Space items equidistantly. 
-        @include flex-child(0 1 32%);
+        @include flex-child(1 0 32%);
 
-        &:not(:nth-child(3n+0)) {
-            // Add margin to every not-third item.
+        &:not(:nth-child(3n+0)):not(:last-child) {
+            // Add margin to every not-third or last item.
             margin-right: 2%;
         }
     }
