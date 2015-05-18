@@ -34,11 +34,12 @@ $avatar-small: 65px;
  */
 
 article { 
+    // WordPress uses floats for inline styles.
     @extend %clearfix;
 
-    >:last-child {
+    >:not(:last-child) {
         // Remove margin from last child element.
-        margin-bottom: 0;
+        @include margin(2, bottom);
     }
     
     input {
@@ -124,7 +125,6 @@ footer {
 div.article-photobox {
     @extend %article-child;
     // Shrink images down to neatly fit on one row.
-    @include margin(1, bottom);
 
     a {
         @include padding(1, bottom);

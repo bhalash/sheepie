@@ -51,8 +51,8 @@ blockquote, cite, li, footer p, ins, p, q {
  */
 
 blockquote, h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
+    margin: 0;
     padding: 0;
-    @include margin(0 0 2 0);
 }
 
 /**
