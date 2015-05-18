@@ -68,8 +68,18 @@ $header-default-height: 300px;
     @include flex-parent(column, center);
 
     > * {
+        /* Specific workaround for Mobile Safari: without this #interior content
+         * will scroll behind the header. */
+        -webkit-backface-visibility: hidden;
         // Child content must be raised owing to the background gradient.
         z-index: 2;
+    }
+
+    &.has-image:after {
+        // Gradient to overlay non-default image. 
+        background: linear-gradient(to bottom, palette(black, mid-dark) 0%, palette(black, light) 100%);
+        content: ' ';
+        @include absolute(0);
     }
 }
 
@@ -151,14 +161,6 @@ $header-default-height: 300px;
  * Header with Background Image
  * -----------------------------------------------------------------------------
  */
-
-#header.has-image {
-    &:after {
-        background-color: palette(black);
-        content: ' ';
-        @include absolute(0);
-    }
-}
 
 div.default-background, div.no-image {
     background-image: url($fallback_image);
