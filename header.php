@@ -44,12 +44,12 @@
 </head>
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
-        <?php // Output a pretty background image, if it exists. ?>
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
+            <?php // 1. Output a pretty background image, if it exists. ?>
             <h2 id="header-title"><?php page_title($post->ID); ?></h2>
 
             <p id="header-description">
-                <?php // Either site information or post meta content. ?>
+                <?php // 2. Either site information or post meta content. ?>
                 <span>
                     <?php if (!is_single()) : ?>
                         <?php bloginfo('description'); ?>
@@ -59,14 +59,11 @@
                 </span>
             </p>
 
-            <?php // TODO: Static menu isn't desireable! ?>
-            <?php // wp_nav_menu(array('theme_location' => 'top-social')); ?>
+            <div id="header-social">
+                <?php // 3. Social navigation menu. ?>
+                <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
+            </div>
 
-            <ul id="header-social">
-                <li><a class="facebook" href="//www.facebook.com/bhalash"></a></li>
-                <li><a class="github" href="//www.github.com/bhalash"></a></li>
-                <li><a class="twitter" href="//www.twitter.com/bhalash"></a></li>
-            </ul>
         </div>
         <div id="content">
             <div id="interior">

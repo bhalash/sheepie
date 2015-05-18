@@ -24,6 +24,9 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+// Social icon size.
+$social-45: 45px;
+
 /**
  * Header Interior Element Defaults
  * -----------------------------------------------------------------------------
@@ -84,22 +87,34 @@
  */
 
 #header-social {
-    margin: 0;
-    list-style-type: none;
+    ul {
+        margin: 0;
+        list-style-type: none;
+    }
+
+    li, a {
+        // WordPress requires menu links to have a text label.
+        font-size: 0 !important;
+    }
 
     li {
         border-radius: 50%;
-        display: inline-block;
         overflow: hidden;
-        @include square-flex(50px 1);
+        transition: background-color .2s ease-in;
     }
 
-    @include generate-social-link(a) {
-        transition: background-color .2s ease-in;
+    @include generate-social-link(li, $social-45 1) {
+        // ^ presumes anchor elements
+        display: inline-block;
 
         &:not(:hover) {
             // I wanted icons to be transparent by default.
             background-color: transparent;
         }
+    }
+
+    a {
+        display: block;
+        @include square-flex(100% 1);
     }
 }
