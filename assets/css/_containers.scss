@@ -23,14 +23,8 @@
  * You should have received a copy of the GNU General Public License along with 
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
-
-/* Both the percentage width of the content column and the right offset of the 
- * header in side-by-side mode, i.e. #content has a width of 60% and #header is
- * offset from the right by 60%. */
-$side-by-side-width: 75%;
-$side-by-side-width-small: 66.6%;
 // Height of the header when it isn't occupying either a cover or sidebar size.
-$header-default-height: 300px;
+$header-min-height: 40vh;
 
 /**
  * Main Site Container
@@ -47,13 +41,7 @@ $header-default-height: 300px;
  */
 
 #header, #content {
-    box-sizing: border-box;
     // transition: all .3s ease-in;
-    @include padding(2);
-
-    @include media(smartphone) {
-        @include padding(1);
-    }
 }
 
 /**
@@ -70,7 +58,7 @@ $header-default-height: 300px;
     > * {
         /* Specific workaround for Mobile Safari: without this #interior content
          * will scroll behind the header. */
-        -webkit-backface-visibility: hidden;
+         @include prefix(backface-visibility, hidden, webkit moz);
         // Child content must be raised owing to the background gradient.
         z-index: 2;
     }
@@ -90,37 +78,56 @@ $header-default-height: 300px;
  */
 
 #site.side-by-side {
+    /* Both the percentage width of the content column and the right offset of the 
+     * header in side-by-side mode, i.e. #content has a width of 60% and #header is
+     * offset from the right by 60%. */
+    $sides-75: 75%;
+    $sides-66: 66.6%;
+
     @include flex-parent(row-reverse);
 
-    @include media($b-1024) {
-        @include flex-parent(column);
+    #content {
+        /* ¡Important! Mozilla Firefox applies an invisible min-width to the 
+         * element. I guess it is a bug? While in flex-row layout, the column
+         * has a minimum width of ~900px, set invisibly, and not reported in the
+         * developer tools. Thanks, Obama. */
+        min-width: 0;
+        @include flex-child(0 1 $sides-66);
+
+        @include media($b-1280) {
+            @include prefix(flex-basis, $sides-75);
+        }
     }
  
     #header {
-        @include fixed(0 $side-by-side-width 0 0); 
+        @include fixed(0 $sides-66 0 0);
 
         @include media($b-1280) {
-            right: $side-by-side-width-small;
+            right: $sides-75;
         }
+    }
+}
 
-        @include media($b-1024) {
-            min-height: $header-default-height;
-            /* Relative in case of a background image, which employs an
-             * absolutely positioned gradient. */
-            position: relative;
+#site.side-by-side {
+    // Switch to a column layout at 960px.
+
+    @include media($b-960) {
+        @include prefix(flex-direction, column);
+    }
+
+    #header, #content {
+        @include media($b-960) {
             @include flex-child(1);
         }
     }
 
-    #content {
-        @include flex-child(0 1 $side-by-side-width);
-
-        @include media($b-1280) {
-            @include flex-child(0 1 $side-by-side-width-small);
-        }
-
-        @include media($b-1024) {
-            @include flex-child(1);
+    #header {
+        @include media($b-960) {
+            min-height: $header-min-height;
+            /* Relative in case of a background image, which employs an
+             * absolutely positioned gradient. */
+            position: relative;
+            @include padding(2 0);
         }
     }
 }
@@ -151,7 +158,7 @@ $header-default-height: 300px;
  */
 
 #site:not(.side-by-side):not(.cover) #header {
-    height: $header-default-height;
+    height: $header-min-height;
     /* Relative in case of a background image, which employs an absolutely
      * positioned gradient. */
     position: relative;
@@ -167,28 +174,34 @@ div.default-background, div.no-image {
 }
 
 /**
+ * Content Exterior Container
+ * -----------------------------------------------------------------------------
+ */
+
+body:not(.single) #content {
+    @include padding(5 5, top bottom);
+}
+
+/**
  * Content Interior Container
  * -----------------------------------------------------------------------------
  */
 
 #interior {
     box-sizing: border-box;
-    margin: 0 auto;
-    width: 70%;
+    margin: 5% 10%;
 
     @include media($b-1280) {
-        width: 85%;
+        margin: 5%;
     }
 
-    @include media($b-640) {
-        width: 100%;
-    }
-}
+    // width: 70%;
 
-body:not(.single) #interior {
-    @include padding(5 0);
+    // @include media($b-1280) {
+    //     width: 85%;
+    // }
 
-    @include media(smartphone) {
-        @include padding(0);
-    }
+    // @include media($b-640) {
+    //     width: 100%;
+    // }
 }
