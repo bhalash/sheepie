@@ -52,7 +52,9 @@ $header-min-height: 40vh;
 
 #header {
     background-size: cover;
+    box-sizing: border-box;
     position: relative;
+    @include padding(2);
     @include flex-parent(column, center);
 
     > * {
@@ -123,12 +125,10 @@ $header-min-height: 40vh;
 
     #header {
         @include media($b-960) {
-            box-sizing: border-box;
             min-height: $header-min-height;
             /* Relative in case of a background image, which employs an
              * absolutely positioned gradient. */
             position: relative;
-            @include padding(2);
         }
     }
 }
