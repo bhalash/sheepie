@@ -24,56 +24,48 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-form.search {
-    outline: 0;
-    @include margin(1, bottom);
-    @include padding(1, bottom);
+/**
+ * Placeholder Search Form
+ * -----------------------------------------------------------------------------
+ * This is strictly WIP: click invisible button in the bottom-left corner of the
+ * site to active the all-CSS modal search box.
+ */
 
-    @include placeholder_style() {
-        color: palette(black, dark);
-    }
-
-    p {
-        position: relative;
-    }
-
-    input[type=text] {
-        color: palette(black, dark);
-        display: inline-block;
-        margin: 5px;
-        @include square-flex(100% 1);
-    }
-
-    button[type=submit] {
-        border: 0;
-        padding: 0 !important;
-        padding-left: 80%;
-        @include absolute(50% 3px, top right);
-        @include height(2.5);
-        @include prefix(transform, translateY(-50%));
-        @include width(2.5);
-
-        &:after {
-            content: '→';
-        }
-    }
+a#search-open {
+    display: block;
+    z-index: 10;
+    @include absolute(0 0, bottom left);
+    @include size(3 3);
 }
 
-.nav-search {
+a#search-close {
+    background: #000;
+    display: block;
+    @include square-flex(30px 1);
+    @include absolute(5px 5px, top right);
+}
+
+#search {
+    background: palette(white, light);
     display: none;
-    margin: 0 auto;
-    margin-top: margin(1);
-    width: 75%;
+    @include fixed(0);
 
-    input {
-        border: 0;
-
-        &:focus {
-            border: 0;
-        }
+    &:target {
+        display: block;
     }
 }
 
-.results-count {
-    margin-top: margin(1);
+#search input {
+    background: transparent;
+    display: block;
+    width: 75%;
+    text-align: center;
+    @include font-size(4);
+    @include absolute(50% 50%, top left);
+    @include prefix(transform, translate(-50%, -50%));
+
+    @include media(smartphone) {
+        width: 90%;
+    }
 }
+
