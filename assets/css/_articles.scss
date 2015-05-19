@@ -136,6 +136,45 @@ div.article-photobox {
     }
 } 
 
+/**
+ * Lightbox
+ * -----------------------------------------------------------------------------
+ * There is a JavaScript component to determine state, but it is mostly handled
+ * through this CSS.
+ * 
+ * 1. If #lightbox is targeted by a clicked link, make it appear.
+ * 2. Otherwise it is hidden.
+ * 3. I am working on a way to successfuly freeze the background without 
+ *    resorting to JavaScript (I could freeze the body tag, but that requires
+ *     JS!).
+ */
+
+#lightbox {
+    background: palette(black, dark);
+    display: none;
+    @include fixed(0);
+
+    img {
+        max-width: 90%;
+        max-height: 90%;
+        @include fixed(50% 50%, left top);
+        @include prefix(transform, translate(-50%, -50%));
+    }
+
+    &:target {
+        display: block;
+        outline: 0;
+        z-index: 4;
+
+        &~ #site #content {
+            // Freeze content.
+            // @extend %freeze;
+            // left: 
+            // z-index: 2;
+        }
+    }
+}
+
 /*
  * Round Avatar
  * -----------------------------------------------------------------------------
