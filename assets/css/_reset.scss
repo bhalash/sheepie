@@ -50,7 +50,7 @@ blockquote, cite, li, footer p, ins, p, q {
  * -----------------------------------------------------------------------------
  */
 
-blockquote, h1, h2, h3, h4, h5, h6, ol, p, pre, ul {
+blockquote, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul, %zero {
     margin: 0;
     padding: 0;
 }
@@ -118,7 +118,7 @@ h6 {
  * -----------------------------------------------------------------------------
  */
 
-a {
+a, %default-anchor {
     color: palette(blue);
     font-weight: 400;
     text-decoration: none;
@@ -133,14 +133,14 @@ a {
  * -----------------------------------------------------------------------------
  */
 
-hr {
+hr, %hr {
     border: 0;
     background: palette(black, light);
     height: 1px;
     @include margin(2 0);
 }
 
-body:not(.single) article ~ hr {
+body:not(.single) article ~ hr, %article-hr {
     @include margin(4 0);
 }
 
@@ -150,17 +150,13 @@ body:not(.single) article ~ hr {
  * Normal text is ~1.6
  */
 
-big, dt {
+big, dt, .big, %big {
     @include font-size(1.9);
 }
 
-cite, small {
-    @include font-size(1.3);
-}
-
-small {
+cite, small, .small, %small {
     letter-spacing: 0;
-    line-height: normal;
+    @include font-size(1.3);
 }
 
 /**
@@ -172,10 +168,6 @@ iframe, img {
     max-width: 100%;
     overflow: hidden;
 }
-
-li {
-    margin: 0;
-} 
 
 /**
  * Blockquotes 
