@@ -50,14 +50,17 @@
  */
 
 a#search-open {
+    background: palette(white, x-dark);
+    border-radius: 50%;
     display: block;
     z-index: 10;
-    @include absolute(0 0, bottom left);
+    @include absolute(10px 10px, bottom left);
     @include size(3 3);
 }
 
 a#search-close {
-    background: #000;
+    background: palette(black, x-light);
+    border-radius: 50%;
     display: block;
     @include square-flex(30px 1);
     @include absolute(5px 5px, top right);
