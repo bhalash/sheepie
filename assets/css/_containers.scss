@@ -146,10 +146,8 @@ $header-min-height: 40vh;
     }
 
     #content {
-        // Hide #content and prevent it from scrolling.
-        overflow: hidden;
-        position: fixed;
-        z-index: -1;
+        // Freeze content.
+        @extend %freeze;
     }
 }
 
