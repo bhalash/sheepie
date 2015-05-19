@@ -30,5 +30,5 @@
 
 <div id="search">
     <a href="#_" id="search-close"></a>
-    <input type="text" placeholder="<?php printf('%s', __('click and type to search the site')); ?>" tabindex="1"  autofocus>
+    <input type="text" placeholder="<?php printf('%s', __('¡form doesn\'t do anything yet!')); ?>" tabindex="1"  autofocus>
 </div>
