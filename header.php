@@ -62,13 +62,9 @@
                 <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
             </div>
 
-            <?php // Debug search open ?>
+            <?php // Initial modal search form. ?>
             <a href="#search" id="search-open"></a>
+            <?php get_search_form(); ?>
         </div>
         <div id="content">
-            <?php // Debug modal search form ?>
-            <div id="search">
-                <a href="#_" id="search-close"></a>
-                <input type="text" placeholder="<?php printf('%s', __('click and type to search the site')); ?>" tabindex="1"  autofocus>
-            </div>
             <div id="interior">
