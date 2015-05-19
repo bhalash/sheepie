@@ -165,13 +165,6 @@ div.article-photobox {
         display: block;
         outline: 0;
         z-index: 4;
-
-        &~ #site #content {
-            // Freeze content.
-            // @extend %freeze;
-            // left: 
-            // z-index: 2;
-        }
     }
 }
 
