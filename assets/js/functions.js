@@ -42,7 +42,33 @@ hljs.initHighlightingOnLoad();
  * irregularly sized. I remove breaks in order to circumvent this.
  */
 
-jQuery('.article-photobox br').remove();
+var photobox = {
+    br: '.article-photobox br',
+    a: 'article a:has(img)',
+    lightbox: 'lightbox',
+    addLightbox: function() {
+        // Add lightbox to body on page load.
+        jQuery('body').prepend('<a href="#_" id="' + photobox.lightbox + '"><img src="" /></a>');
+        photobox.lightbox = '#' + photobox.lightbox;
+    },
+    setImage: function() {
+        // Set lightbox image source on click.
+        var src = jQuery(this).find('img').first().attr('src');
+        jQuery(photobox.lightbox).find('img').attr('src', src);
+        // window.history.back(1);
+    },
+    setHref: function() {
+        // Change href of all items to point to the lightbox.
+        jQuery(this).data('href', jQuery(this).attr('href'));
+        jQuery(this).attr('href', photobox.lightbox);
+    }
+}
+
+// Remove all line breaks within the photobox, as they can break formatting.
+jQuery(photobox.br).remove();
+photobox.addLightbox();
+jQuery(photobox.a).each(photobox.setHref);
+jQuery(photobox.a).click(photobox.setImage);
 
 /*
  * Comments Focus
@@ -52,6 +78,7 @@ jQuery('.article-photobox br').remove();
 jQuery('.comment').click(function() { 
     jQuery('.comment').not(this).removeClass('focused-comment');
     jQuery(this).addClass('focused-comment');
+    return false;
 });
 
 // jQuery(function($) {
