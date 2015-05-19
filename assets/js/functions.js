@@ -48,7 +48,7 @@ var photobox = {
     lightbox: 'lightbox',
     addLightbox: function() {
         // Add lightbox to body on page load.
-        jQuery('body').prepend('<a href="#&#x2063;" id="' + photobox.lightbox + '"><img src="" /></a>');
+        jQuery('body').prepend('<a href="#_" id="' + photobox.lightbox + '"><img src="" /></a>');
         photobox.lightbox = '#' + photobox.lightbox;
     },
     setImage: function() {
