@@ -46,16 +46,14 @@
     <div class="side-by-side" id="site">
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
             <?php // 1. Output a pretty background image, if it exists. ?>
-            <h2 id="header-title"><?php page_title($post->ID); ?></h2>
+            <h2 id="header-title">
+                <?php bloginfo('name'); ?>
+            </h2>
 
             <p id="header-description">
                 <?php // 2. Either site information or post meta content. ?>
                 <span>
-                    <?php if (!is_single()) : ?>
-                        <?php bloginfo('description'); ?>
-                    <?php else: ?>
-                        <small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?></small> 
-                    <?php endif; ?>
+                    <?php bloginfo('description'); ?>
                 </span>
             </p>
 
