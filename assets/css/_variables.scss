@@ -45,6 +45,17 @@ $b-960:  max 960px;
 $b-768:  max 768px;
 $b-640:  max 640px;
 
+/**
+ * Content Side-by-Side Sizes
+ * -----------------------------------------------------------------------------
+ * Both the percentage width of the content column and the right offset of the 
+ * header in side-by-side mode, i.e. #content has a width of 60% and #header is
+ * offset from the right by 60%.
+ */
+
+$sides-75: 75%;
+$sides-66: 66.6%;
+
 /*
  * Colors
  * -----------------------------------------------------------------------------
