@@ -47,7 +47,7 @@
         <div class="<?php header_class($post->ID); ?>" id="header" <?php header_background($post->ID); ?>>
             <?php // 1. Output a pretty background image, if it exists. ?>
             <h2 id="header-title">
-                <?php bloginfo('name'); ?>
+                <a title="<?php bloginfo('name'); ?>" href="<?php printf(home_url()); ?>"><?php bloginfo('name'); ?></a>
             </h2>
 
             <p id="header-description">
