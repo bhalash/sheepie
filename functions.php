@@ -81,10 +81,8 @@ $social_fallback = array(
 
 $google_fonts = array(
     // All Google Fonts to be loaded.
-    'Open Sans Condensed 300',
     'Open Sans:300,400,700,800',
     'Source Code Pro:300,400',
-    'Lato'
 );
 
 $theme_javascript = array(
