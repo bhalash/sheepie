@@ -60,7 +60,7 @@ $header-min-height: 40vh;
     > * {
         /* Specific workaround for Mobile Safari: without this #interior content
          * will scroll behind the header. */
-         @include prefix(backface-visibility, hidden, webkit moz);
+         @include prefix(backface-visibility, hidden, webkit);
         // Child content must be raised owing to the background gradient.
         z-index: 2;
     }
