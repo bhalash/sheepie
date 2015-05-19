@@ -164,12 +164,12 @@ li.comment .comment-interior {
     }
 
     textarea {
-        height: 200px;
+        @include height(20);
     }
 
     input[type=submit] {
-        height: 30px;
-        max-width: 149px;
+        @include height(3);
+        @include rem(max-width, 15);
         @include padding(0.5, bottom);
     }
 }
