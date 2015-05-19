@@ -25,11 +25,9 @@
  */
 
 form.search {
-    border-bottom-width: 1px;
-    font-size: 1.3em;
     outline: 0;
-    margin-bottom: margin(1);
-    padding-bottom: padding(1);
+    @include margin(1, bottom);
+    @include padding(1, bottom);
 
     @include placeholder_style() {
         color: palette(black, dark);
@@ -42,22 +40,18 @@ form.search {
     input[type=text] {
         color: palette(black, dark);
         display: inline-block;
-        height: 100%;
-        padding: 5px;
-        width: 100%;
+        margin: 5px;
+        @include square-flex(100% 1);
     }
 
     button[type=submit] {
-        @extend %rmwb-button !optional;
         border: 0;
-        height: 25px;
         padding: 0 !important;
         padding-left: 80%;
-        position: absolute;
-        right: 3px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 25px;
+        @include absolute(50% 3px, top right);
+        @include height(2.5);
+        @include prefix(transform, translateY(-50%));
+        @include width(2.5);
 
         &:after {
             content: '→';
