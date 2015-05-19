@@ -62,9 +62,10 @@
                 <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
             </div>
 
-            <?php // Initial modal search form. ?>
+            <?php // Modal search open. ?>
             <a href="#search" id="search-open"></a>
-            <?php get_search_form(); ?>
         </div>
         <div id="content">
+            <?php // Initial modal search form. ?>
+            <?php get_search_form(); ?>
             <div id="interior">
