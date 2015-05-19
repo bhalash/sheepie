@@ -48,7 +48,7 @@ var photobox = {
     lightbox: 'lightbox',
     addLightbox: function() {
         // Add lightbox to body on page load.
-        jQuery('body').prepend('<a href="#_" id="' + photobox.lightbox + '"><img src="" /></a>');
+        jQuery('body').prepend('<a href="#&#x2063;" id="' + photobox.lightbox + '"><img src="" /></a>');
         photobox.lightbox = '#' + photobox.lightbox;
     },
     setImage: function() {
@@ -73,6 +73,8 @@ jQuery(photobox.a).click(photobox.setImage);
 /*
  * Comments Focus
  * -----------------------------------------------------------------------------
+ * The CSS style associated with this is still incomplete. Goal is to have 
+ * comment 'pop out' when clicked.
  */
 
 jQuery('.comment').click(function() { 
@@ -80,58 +82,3 @@ jQuery('.comment').click(function() {
     jQuery(this).addClass('focused-comment');
     return false;
 });
-
-// jQuery(function($) {
-//     'use strict';
-//     /*
-//      * Cover Scroll Prompt
-//      * -------------------
-//      */
-
-//     $('#header .prompt').click(function() {
-//         $('html, body').animate({ 
-//             scrollTop: $('#content').offset().top
-//         }, 500);
-
-//         return false;
-//     });
-
-//     /*
-//      * Search Form Focusing
-//      * --------------------
-//      */
-
-//     var search = {
-//         form: '.search',
-//         input: '.search-text',
-//         results: '.page-search',
-//         url: window.location.host + '/search/',
-//         nav: {
-//             toggle: 'a[title=Search]',
-//             body: '.nav-search',
-//             open: false
-//         }
-//     };
-
-//     if (search.results.length > 0) {
-//         $(search.results).find(search.input).focus();
-//     }
-
-//     $(search.nav.toggle).click(function() {
-//         $(search.nav.body).slideDown(200, function() {
-//             $(search.nav.body).find(search.input).focus();
-//         });
-
-//         if (!search.nav.open) {
-//             search.nav.open = true;
-//             return false;
-//         }
-//     });
-
-//     $(search.form).submit(function(click) {
-//         if ($(search.input).val() === '') {
-//             click.preventDefault();
-//             window.location.href = search.url;
-//         }
-//     });
-// });
