@@ -31,6 +31,24 @@
  * site to active the all-CSS modal search box.
  */
 
+#search {
+    background: palette(white, light);
+    display: none;
+    @include prefix(backface-visibility, initial, webkit);
+    @include fixed(0);
+
+    &:target {
+        display: block;
+        z-index: 4;
+    }
+}
+
+/**
+ * Temproary Search Open and Close Buttons
+ * -----------------------------------------------------------------------------
+ * They need to be styled.
+ */
+
 a#search-open {
     display: block;
     z-index: 10;
@@ -45,15 +63,10 @@ a#search-close {
     @include absolute(5px 5px, top right);
 }
 
-#search {
-    background: palette(white, light);
-    display: none;
-    @include fixed(0);
-
-    &:target {
-        display: block;
-    }
-}
+/**
+ * Placeholder Search Input
+ * -----------------------------------------------------------------------------
+ */
 
 #search input {
     background: transparent;
