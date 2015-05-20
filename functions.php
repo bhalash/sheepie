@@ -133,6 +133,14 @@ function google_font_url($fonts) {
 function load_theme_scripts() {
     global $theme_javascript;
 
+    if (!is_admin()) {
+        /* Load jQuery into the footer instead of the header.
+         * See: http://biostall.com/how-to-load-jquery-in-the-footer-of-a-wordpress-website */
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1', true);
+        wp_eneuque_script('jquery');
+    }
+
     foreach ($theme_javascript as $name => $script) {
         if (WP_DEBUG) {
             // Load unminified versions while debugging.
