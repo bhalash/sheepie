@@ -150,21 +150,14 @@ div.article-photobox {
  */
 
 #lightbox {
+    @extend %pop-modal;
     background: palette(black, dark);
-    display: none;
-    @include fixed(0);
 
     img {
         max-width: 90%;
         max-height: 90%;
         @include fixed(50% 50%, left top);
         @include prefix(transform, translate(-50%, -50%));
-    }
-
-    &:target {
-        display: block;
-        outline: 0;
-        z-index: 4;
     }
 }
 

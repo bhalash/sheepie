@@ -32,15 +32,9 @@
  */
 
 #search {
+    @extend %pop-modal;
     background: palette(white, light);
-    display: none;
     @include prefix(backface-visibility, initial, webkit);
-    @include fixed(0);
-
-    &:target {
-        display: block;
-        z-index: 4;
-    }
 }
 
 /**
