@@ -55,7 +55,6 @@ var photobox = {
         // Set lightbox image source on click.
         var src = jQuery(this).find('img').first().attr('src');
         jQuery(photobox.lightbox).find('img').attr('src', src);
-        // window.history.back(1);
     },
     setHref: function() {
         // Change href of all items to point to the lightbox.
