@@ -89,27 +89,27 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
-h1 { 
+h1, %h1 { 
     @include font-size(4.8);
 }
 
-h2 { 
+h2, %h2 { 
     @include font-size(3.3); 
 }
 
-h3 { 
+h3, %h3 { 
     @include font-size(2.8);
 }
 
-h4 { 
+h4, %h4 { 
     @include font-size(2.3);
 }
 
-h5 { 
+h5, %h5 { 
     @include font-size(1.8);
 }
 
-h6 { 
+h6, %h6 { 
     @include font-size(1.3);
 }
 
@@ -118,7 +118,7 @@ h6 {
  * -----------------------------------------------------------------------------
  */
 
-a, %default-anchor {
+a, %anchor {
     color: palette(blue);
     font-weight: 400;
     text-decoration: none;
@@ -167,6 +167,13 @@ cite, small, .small, %small {
 iframe, img {
     max-width: 100%;
     overflow: hidden;
+}
+
+embed, iframe {
+    // Embedded and iframe content looks weird when printed.
+    @include media(print) {
+        display: none;
+    }
 }
 
 /**
