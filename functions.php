@@ -138,7 +138,7 @@ function load_theme_scripts() {
          * See: http://biostall.com/how-to-load-jquery-in-the-footer-of-a-wordpress-website */
         wp_deregister_script('jquery');
         wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1', true);
-        wp_eneuque_script('jquery');
+        wp_enqueue_script('jquery');
     }
 
     foreach ($theme_javascript as $name => $script) {
