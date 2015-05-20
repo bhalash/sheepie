@@ -61,29 +61,13 @@ $sides-66: 66.6%;
  * -----------------------------------------------------------------------------
  */
 
-$default-colors: (
-    black: (
-        x-dark: rgba(0,0,0,1),
-        dark: rgba(0,0,0,0.858),
-        mid-dark: rgba(0,0,0,0.716),
-        base: rgba(0,0,0,0.574),
-        mid-light: rgba(0,0,0,0.432),
-        light: rgba(0,0,0,0.290),
-        x-light: rgba(0,0,0,0.148)
-    ),
-    white: (
-        x-dark: rgba(255,255,255,0.148),
-        dark: rgba(255,255,255,0.290),
-        mid-dark: rgba(255,255,255,0.432),
-        base: rgba(255,255,255,0.574),
-        mid-light: rgba(255,255,255,0.716),
-        light: rgba(255,255,255,0.858),
-        x-light: rgba(255,255,255,1)
-    ),
+$theme-colors: (
     blue: (
         base: #00A3F5
     )
 );
+
+$default-colors: map-merge($default-colors, $theme-colors);
 
 /*
  * Typeface Declarations
