@@ -24,15 +24,6 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-/** 
- * Theme Variables
- * -----------------------------------------------------------------------------
- * Contains all variables used throughout the theme: Sizes, margins, padding, 
- * colours and fonts (among others) are all determined here.
- */
-
-@import 'variables';
-
 /**
  * Mixins and Partials
  * -----------------------------------------------------------------------------
@@ -41,6 +32,15 @@
  */
 
 @import 'scss-helpers/bhalash-helpers';
+
+/** 
+ * Theme Variables
+ * -----------------------------------------------------------------------------
+ * Contains all variables used throughout the theme: Sizes, margins, padding, 
+ * colours and fonts (among others) are all determined here.
+ */
+
+@import 'variables';
 
 /**
  * CSS Normalize
