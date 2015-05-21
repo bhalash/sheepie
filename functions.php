@@ -62,6 +62,15 @@ define('THEME_CSS', THEME_ASSETS . 'css/');
 require_once(THEME_INCLUDES . 'container-states.php');
 
 /**
+ * Prefetch Media
+ * -----------------------------------------------------------------------------
+ * Defaults to the site domain on the assumption that you want to prefetch your
+ * own site. 
+ */
+
+define('PREFETCH_DOMAIN', 'ix.bhalash.com');
+
+/**
  * Social Meta Fallback
  * -----------------------------------------------------------------------------
  */
@@ -259,6 +268,17 @@ function open_graph_tags() {
         // Iterate all information and output.
         printf('<meta property="%s" content="%s">', $key, $value);
     }
+}
+
+/**
+ * Media Prefetch
+ * -----------------------------------------------------------------------------
+ * Set prefetch for a given media domain. Useful if your site is image heavy.
+ */
+
+function dns_prefetch() {
+    $prefetch_domain = (defined('PREFETCH_DOMAIN')) ? PREFETCH_DOMAIN : $_SERVER['SERVER_NAME'];
+    printf('<link rel="dns-prefetch" href="//%s">', $prefetch_domain);
 }
 
 /**
@@ -688,6 +708,9 @@ add_action('widgets_init', 'theme_widgets');
 // Enqueue all scripts and stylesheets.
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
+add_action('wp_head', 'social_meta');
+// Set prefetch domain for media.
+add_action('wp_head', 'dns_prefetch');
 // Wrap comment form fields in <div></div> tags.
 add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
