@@ -142,6 +142,10 @@ hr, %hr {
 
 body:not(.single) article ~ hr, %article-hr {
     @include margin(4 0);
+
+    &:last-of-type {
+        background: transparent;
+    }
 }
 
 /**
