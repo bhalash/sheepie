@@ -63,7 +63,7 @@
             </div>
 
             <?php // Modal search open. ?>
-            <a href="#search" id="search-open"></a>
+            <?php //<a href="#search" id="search-open"></a> ??>
         </div>
         <div id="content">
             <?php // Initial modal search form. ?>
