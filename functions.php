@@ -106,9 +106,9 @@ $theme_javascript = array(
 
 $theme_styles = array(
     // Compressed, compiled theme CSS.
-    'main-style' => THEME_CSS . '/style.css',
+    'main-style' => THEME_CSS . 'main.css',
     // WordPress style.css. Not really used.
-    'wordpress-style' => THEME_ROOT . '/style.css',
+    'wordpress-style' => THEME_ROOT . 'style.css',
 );
 
 /**
