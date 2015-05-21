@@ -78,7 +78,7 @@ define('PREFETCH_DOMAIN', 'ix.bhalash.com');
 $social_fallback = array(
     // Social fallback is called in cases where the post is missing n info.
     'publisher' => 'http://www.bhalash.com',
-    'image' => get_template_directory_uri() . '/assets/images/fallback.jpg',
+    'image' => THEME_IMAGES . 'fallback.jpg',
     'description' => get_bloginfo('description'),
     'twitter' => '@bhalash'
 );
@@ -108,7 +108,7 @@ $theme_styles = array(
     // Compressed, compiled theme CSS.
     'main-style' => THEME_CSS . 'main.css',
     // WordPress style.css. Not really used.
-    'wordpress-style' => THEME_ROOT . 'style.css',
+    'wordpress-style' => THEME_ROOT . '/style.css',
 );
 
 /**
