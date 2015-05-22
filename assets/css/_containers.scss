@@ -74,6 +74,22 @@ $header-min-height: 40vh;
 }
 
 /**
+ * 404 Error Template
+ * -----------------------------------------------------------------------------
+ * Hide header and set the error div full page.
+ */
+
+body[class^=error] #header {
+    display: none;    
+}
+
+#error {
+    text-align: center; 
+    @include fixed(0);
+    @include flex-parent(column, center);
+}
+
+/**
  * Site Index Pages Layout
  * -----------------------------------------------------------------------------
  * Two side-by-side columns: Fixed header on left, scolling content on right.
