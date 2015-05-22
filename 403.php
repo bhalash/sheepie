@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 404 Template
+ * 403 Template
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -29,8 +29,8 @@
 get_header(); ?>
 
 <div id="error">
-    <h1><?php _e('Error 404', TTD); ?></h1>
-    <p><?php _e('Page not found. :(', TTD); ?></p>
+    <h1><?php _e('Error 403', TTD); ?></h1>
+    <p><?php _e('Oh you naughty thing. ;)', TTD); ?></p>
 </div>
 
 <?php get_footer(); ?>
