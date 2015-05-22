@@ -31,6 +31,7 @@ get_header(); ?>
 <div id="error">
     <h1><?php _e('Error 404', TTD); ?></h1>
     <p><?php _e('Page not found. :(', TTD); ?></p>
+    <p><small><a href="<?php printf(site_url()); ?>"><?php _e('back to home', TTD); ?></a></small></p>
 </div>
 
 <?php get_footer(); ?>
