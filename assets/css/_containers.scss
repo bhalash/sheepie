@@ -84,6 +84,9 @@ body[class^=error] #header {
 }
 
 #error {
+    color: #fff;
+    @extend %cover-picture;
+    background-image: url($fallback-image);
     text-align: center; 
     @include fixed(0);
     @include flex-parent(column, center);
@@ -179,7 +182,7 @@ body[class^=error] #header {
  */
 
 div.default-background, div.no-image {
-    background-image: url($fallback_image);
+    background-image: url($fallback-image);
 }
 
 /**
