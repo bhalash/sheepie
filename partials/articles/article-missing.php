@@ -30,7 +30,7 @@
 
 <article <?php post_class(); ?> id="article-<?php the_ID(); ?>">
     <header>
-        <h3>No joy, sorry</h3>
+        <h3><?php _e('Article not found.', TTD); ?></h3>
     </header>
-    <p>Sorry, no posts were found that match your criteria!</p>
+    <p><?php _e('No posts were found that match your criteria! :(', TTD); ?></p>
 </article>
