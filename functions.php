@@ -282,6 +282,16 @@ function dns_prefetch() {
 }
 
 /**
+ * Load Favicon
+ * -----------------------------------------------------------------------------
+ */
+
+function set_favicon() {
+    $icon_path = THEME_IMAGES . 'favicon.png';
+    printf('<link rel="icon" type="image/png" href="%s" />', $icon_path);
+}
+
+/**
  * Get Avatar URL
  * -----------------------------------------------------------------------------
  * Wrapper for get_avatar that only returns the URL. Yes, WordPress added a 
@@ -709,6 +719,8 @@ add_action('widgets_init', 'theme_widgets');
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
 add_action('wp_head', 'social_meta');
+// Set site favicon.
+add_action('wp_head', 'set_favicon');
 // Set prefetch domain for media.
 add_action('wp_head', 'dns_prefetch');
 // Wrap comment form fields in <div></div> tags.

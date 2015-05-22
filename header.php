@@ -38,7 +38,6 @@
     <?php // FIXME ?>
     <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-    <link rel="icon" type="image/png" href="<?php printf(get_stylesheet_directory_uri()); ?>/images/favicon.png" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
