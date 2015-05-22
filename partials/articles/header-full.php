@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Full Article Template
+ * Article Header
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -28,14 +28,14 @@
 
 ?>
 
-<article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-
-    <?php get_template_part(THEME_ARTICLES . 'header', 'full');
-    the_content(__('Read the rest of this post &raquo;', TTD));
-
-    if (is_single()) {
-        get_template_part(THEME_PARTIALS . '/pagination');
-        get_template_part(THEME_ARTICLES . 'footer', 'full');
-    } ?>
-
-</article>
+<header>
+    <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf('%s %s', _e('Permanent link to', TTD), the_title_attribute()); ?>"><?php the_title(); ?></a></h3>
+    <?php if (!is_page()) : ?>
+        <small>
+            <time datetime="<?php the_time('Y-m-d H:i'); ?>">
+                <?php the_time(get_option('date_format')) ?>
+            </time>
+            <?php _e(' in ', TTD); the_category(', '); edit_post_link(__('edit post', TTD), ' / ', ''); ?>
+            </small>
+    <?php endif; ?>
+</header>
