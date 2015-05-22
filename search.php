@@ -45,16 +45,16 @@ if (is_search()) {
                 printf('<hr />');
             }
 
-            get_template_part('article', 'excerpt');
+            get_template_part(THEME_ARTICLES . 'article', 'excerpt');
             $count++;
         }
     } else {
-        get_template_part('article','missing');
+        get_template_part(THEME_ARTICLES . 'article', 'missing');
     }
 }
 
 if (is_search()) {
-    get_template_part('pagination');
+    get_template_part(THEME_PARTIALS . '/pagination');
 }
 
 get_footer(); ?>

@@ -98,7 +98,7 @@ if ($related_posts->have_posts()) {
 
     while ($related_posts->have_posts()) {
         $related_posts->the_post();
-        get_template_part(THEME_PARTIALS . '/articles/article', 'related');
+        get_template_part(THEME_ARTICLES . 'article', 'related');
     }
 
     printf('</div>');

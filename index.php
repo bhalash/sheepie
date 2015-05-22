@@ -36,11 +36,11 @@ if (!is_single() && $paged > 0) {
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part(THEME_PARTIALS . '/articles/article', 'full');
+        get_template_part(THEME_ARTICLES . 'article', 'full');
         printf('<hr>');
     }
 } else {
-    get_template_part('article','missing');
+    get_template_part(THEME_ARTICLES . 'article', 'missing');
 }
 
 get_template_part(THEME_PARTIALS . '/pagination');
