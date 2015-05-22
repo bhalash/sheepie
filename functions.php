@@ -42,6 +42,7 @@ define('THEME_ROOT', get_template_directory_uri());
 
 define('THEME_INCLUDES', get_template_directory() . '/includes/');
 define('THEME_PARTIALS', '/partials');
+define('THEME_ARTICLES', THEME_PARTIALS . '/articles/');
 
 /**
  * Theme Asset Paths
@@ -62,13 +63,21 @@ define('THEME_CSS', THEME_ASSETS . 'css/');
 require_once(THEME_INCLUDES . 'container-states.php');
 
 /**
- * Prefetch Media
+ * Theme Text Domain
  * -----------------------------------------------------------------------------
- * Defaults to the site domain on the assumption that you want to prefetch your
- * own site. 
  */
 
-define('PREFETCH_DOMAIN', 'ix.bhalash.com');
+define('TTD', 'sheepie');
+
+/**
+ * Other Variables
+ * -----------------------------------------------------------------------------
+ */
+
+// Media prefetch domain: If null or empty, defaults to site domain.
+$prefetch_domain = 'ix.bhalash.com';
+// Path to favicon.
+$favicon_pth = THEME_IMAGES . 'favicon.png';
 
 /**
  * Social Meta Fallback
@@ -277,8 +286,9 @@ function open_graph_tags() {
  */
 
 function dns_prefetch() {
-    $prefetch_domain = (defined('PREFETCH_DOMAIN')) ? PREFETCH_DOMAIN : $_SERVER['SERVER_NAME'];
-    printf('<link rel="dns-prefetch" href="//%s">', $prefetch_domain);
+    global $prefetch_domain;
+    $prefetch = $prefetch_domain || $_SERVER['SERVER_NAME'];
+    printf('<link rel="dns-prefetch" href="//%s">', $prefetch);
 }
 
 /**
@@ -287,8 +297,8 @@ function dns_prefetch() {
  */
 
 function set_favicon() {
-    $icon_path = THEME_IMAGES . 'favicon.png';
-    printf('<link rel="icon" type="image/png" href="%s" />', $icon_path);
+    global $favicon_path;
+    printf('<link rel="icon" type="image/png" href="%s" />', $favicon_path);
 }
 
 /**
@@ -404,7 +414,7 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
 
     $posts_per_page = get_option('posts_per_page');
     $total_pages = ceil($total_results / $posts_per_page);
-    printf('Page %s of %s', $page_num, $total_pages);
+    printf(__('Page %s of %s', TTD), $page_num, $total_pages);
 }
 
 /** 
@@ -461,8 +471,6 @@ function content_first_image($post_id = null) {
         $content = $post->post_content;
     }
 
-    // ob_start();
-    // ob_end_clean();
     $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
     $first_image = $matches[1][0];
     return (!empty($first_image)) ? $first_image : false;
@@ -632,9 +640,9 @@ function theme_widgets() {
     register_sidebar(array(
         'name' => 'Dynamic sidebar.',
         'id' => 'dynamicsidebar',
-        'before_widget' => '<div class="sidebarwidget">',
+        'before_widget' => '<div class="sidebar-widget">',
         'after_widget' => '</div>',
-        'before_title' => '<h6 class="sidebartitle">',
+        'before_title' => '<h6 class="sidebar-title">',
         'after_title' => '</h6>',
     ));
 }
@@ -646,8 +654,8 @@ function theme_widgets() {
 
 function theme_navigation() {
     register_nav_menus(array(
-        'top-menu' => __('Header Menu'),
-        'top-social' => __('Header Social Links')
+        'top-menu' => __('Header Menu', TTD),
+        'top-social' => __('Header Social Links', TTD)
     ));
 }
 
@@ -669,11 +677,11 @@ function rmwb_comments($comment, $args, $depth) {
         <div class="comment-interior">
             <header>
                 <p class="author"><?php comment_author_link(); ?></p>
-                <p class="date"><small><?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()); ?></small></p>
+                <p class="date"><small><?php printf(__('%1$s at %2$s', TTD), get_comment_date(), get_comment_time()); ?></small></p>
             </header>
 
             <?php if ($comment->comment_approved === '0') {
-                printf('<p>%s</p>', _e('Your comment has been held for moderation.'));
+                printf('<p>%s</p>', _e('Your comment has been held for moderation.', TTD));
             } ?>
 
             <div class="comment-body">
@@ -682,7 +690,7 @@ function rmwb_comments($comment, $args, $depth) {
             <?php if (is_user_logged_in()) : ?>
                 <footer>
                     <p><small>
-                        <?php edit_comment_link(__('edit'),'  ',''); ?>
+                        <?php edit_comment_link(__('edit', TTD),'  ',''); ?>
                     </small></p>
                 </footer>
             <?php endif; ?>
