@@ -35,39 +35,44 @@ jQuery('pre:not(:has(> code))').wrapInner('<code></code>');
 hljs.initHighlightingOnLoad();
 
 /**
+ * Remove Photobox Breaks
+ * -----------------------------------------------------------------------------
+ * WordPress can insert <br> tags between elements if it detects either a space
+ * or a line break. This can break the formatting of the lightbox.
+ */
+
+jQuery('.article-photobox br').remove();
+
+/**
  * Article Photobox
  * -----------------------------------------------------------------------------
  * Wordpress inserts a line break if it find a wayward space or line break in 
- * the post texarea. This can cause every other item in the photobox to be 
+ * the post texarea. This can cause every other item in the lightbox to be 
  * irregularly sized. I remove breaks in order to circumvent this.
  */
 
-var photobox = {
-    br: '.article-photobox br',
+var lightbox = {
     a: 'article a:has(img)',
     lightbox: 'lightbox',
     addLightbox: function() {
         // Add lightbox to body on page load.
-        jQuery('body').prepend('<a href="#_" id="' + photobox.lightbox + '"><img src="" /></a>');
-        photobox.lightbox = '#' + photobox.lightbox;
+        jQuery('body').prepend('<a href="#_" id="' + lightbox.lightbox + '"><img src="" /></a>');
+        lightbox.lightbox = '#' + lightbox.lightbox;
     },
     setImage: function() {
         // Set lightbox image source on click.
         var src = jQuery(this).find('img').first().attr('src');
-        jQuery(photobox.lightbox).find('img').attr('src', src);
+        jQuery(lightbox.lightbox).find('img').attr('src', src);
     },
     setHref: function() {
         // Change href of all items to point to the lightbox.
         jQuery(this).data('href', jQuery(this).attr('href'));
-        jQuery(this).attr('href', photobox.lightbox);
+        jQuery(this).attr('href', lightbox.lightbox);
     }
 }
-
-// Remove all line breaks within the photobox, as they can break formatting.
-jQuery(photobox.br).remove();
-photobox.addLightbox();
-jQuery(photobox.a).each(photobox.setHref);
-jQuery(photobox.a).click(photobox.setImage);
+lightbox.addLightbox();
+jQuery(lightbox.a).each(lightbox.setHref);
+jQuery(lightbox.a).click(lightbox.setImage);
 
 /*
  * Comments Focus
