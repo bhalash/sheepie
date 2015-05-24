@@ -92,6 +92,23 @@ footer {
 }
 
 /**
+ * Left and Right Floated Images 
+ * -----------------------------------------------------------------------------
+ */
+
+.leftie {
+    float: left;
+    width: 20%;
+    @include margin(0 3 1 0);
+}
+
+.rightie {
+    float: right;
+    width: 20%;
+    @include margin(0 0 1 3);
+}
+
+/**
  * Article Child Elements
  * -----------------------------------------------------------------------------
  */
@@ -137,7 +154,7 @@ div.article-photobox {
 } 
 
 /**
- * Lightbox
+ * Lightbox Image
  * -----------------------------------------------------------------------------
  * There is a JavaScript component to determine state, but it is mostly handled
  * through this CSS.
@@ -154,8 +171,10 @@ div.article-photobox {
     background: palette(black, dark);
 
     img {
+        height: initial;
         max-width: 90%;
         max-height: 90%;
+        width: initial;
         @include fixed(50% 50%, left top);
         @include prefix(transform, translate(-50%, -50%));
     }
