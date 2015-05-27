@@ -287,8 +287,12 @@ function open_graph_tags() {
 
 function dns_prefetch() {
     global $prefetch_domain;
-    $prefetch = $prefetch_domain || $_SERVER['SERVER_NAME'];
-    printf('<link rel="dns-prefetch" href="//%s">', $prefetch);
+
+    if (!is_admin() && empty($prefetch_domain) || is_null($prefetch_domain)) {
+        $prefetch_domain = $_SERVER['SERVER_NAME'];
+    }
+
+    printf('<link rel="dns-prefetch" href="//%s">', $prefetch_domain);
 }
 
 /**
