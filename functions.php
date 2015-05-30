@@ -190,6 +190,78 @@ function load_theme_styles() {
 }
 
 /**
+ * Get the Blog's Age
+ * -----------------------------------------------------------------------------
+ * Return the age of the blog in $format. Defaults to days.
+ * 
+ * See: https://php.net/manual/en/datetime.diff.php
+ * See: https://php.net/manual/en/class.dateinterval.php 
+ * 
+ * @param   string      $format         DateInterval format.
+ * @param   string      $blog_age       Age of the blog in $format.
+ */
+
+function blog_age($format = '%a') {
+    $first_post_date = new DateTime(get_posts(array(
+        'posts_per_page' => 1,
+        'order' => 'ASC'
+    ))[0]->post_date);
+
+    $last_post_date = new DateTime(get_posts(array(
+        'posts_per_page' => 1
+    ))[0]->post_date);
+
+    return $first_post_date->diff($last_post_date)->format($format);
+}
+
+/**
+ * Post Interval Average
+ * -----------------------------------------------------------------------------
+ * Return the blog's posts per day, rounded to $percision.
+ * 
+ * @param   int     $precision          Rounding precision.
+ * @return  int     $posts_per_day      Number of posts per day.
+ */
+
+function posts_per_day($precision = 2) {
+    $blog_age_days = blog_age('%a');
+    $post_count = wp_count_posts()->publish;
+    return round($blog_age_days / $post_count, $precision);
+}
+
+/**
+ * Count Comment Authors
+ * -----------------------------------------------------------------------------
+ * WordPress doesn't appear to have a convenient way to count unique comment
+ * authors. 
+ * 
+ * @return int      $count          count of comment authors.
+ */
+
+function get_comment_authors_count() {
+    $authors = array();
+
+    foreach (get_comments() as $comment) {
+        if (!in_array($comment->comment_author_email, $authors)) {
+            if (!empty($comment->comment_author_email)) {
+                $authors[] = $comment->comment_author_email;
+            }
+        }
+    }
+
+    return count($authors);
+}
+
+/**
+ * Print Comment Authors
+ * -----------------------------------------------------------------------------
+ */
+
+function comment_authors_count() {
+    printf(get_comment_author_count());
+}
+
+/**
  * Output Open Graph and Twitter Card Tags
  * -----------------------------------------------------------------------------
  * Call the Open Graph and Twitter Card functions.
