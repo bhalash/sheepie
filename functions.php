@@ -223,7 +223,7 @@ function blog_age($format = '%a') {
  * @return  int     $posts_per_day      Number of posts per day.
  */
 
-function posts_per_day($precision = 2) {
+function post_interval($precision = 2) {
     $blog_age_days = blog_age('%a');
     $post_count = wp_count_posts()->publish;
     return round($blog_age_days / $post_count, $precision);
