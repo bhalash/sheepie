@@ -261,6 +261,34 @@ function comment_authors_count() {
     printf(get_comment_author_count());
 }
 
+/*
+ * Print Blog Statistics
+ * -----------------------------------------------------------------------------
+ * Rattle off some useful statistics about the age and amount of content on the 
+ * blog.
+ */
+
+function blog_statistics() {
+    printf(__('The blog <a title="%s" href="%s">%s</a> has %s posts in %s categories, that are labelled with %s tags. ', TTF),
+        get_bloginfo('name'),
+        home_url(),
+        get_bloginfo('name'),
+        wp_count_posts()->publish,
+        count(get_categories()),
+        count(get_tags())
+    );
+
+    printf(__('%s different visitors have left a total of %s comments. ', TTF),
+        get_comment_authors_count(),
+        wp_count_comments()->total_comments
+    );
+
+    printf(__('On average, a new post has been published every %s days over the last %s days.', TTF),
+        post_interval(),
+        blog_age()
+    );
+}
+
 /**
  * Output Open Graph and Twitter Card Tags
  * -----------------------------------------------------------------------------
