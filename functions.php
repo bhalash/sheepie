@@ -43,6 +43,7 @@ define('THEME_ROOT', get_template_directory_uri());
 define('THEME_INCLUDES', get_template_directory() . '/includes/');
 define('THEME_PARTIALS', '/partials');
 define('THEME_ARTICLES', THEME_PARTIALS . '/articles/');
+define('THEME_PAGES', THEME_PARTIALS . '/pages/');
 
 /**
  * Theme Asset Paths
