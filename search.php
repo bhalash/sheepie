@@ -27,34 +27,21 @@
  */
 
 get_header();
+global $paged;
 
-if (is_search()) {
-    global $wp_query; 
-    $count = 0;
-    $result_count = search_results_count(get_query_var('paged'), $wp_query->found_posts);
-}
-
-if (is_search()) {
-    if (have_posts()) {
-        get_search_form();
-
-        while (have_posts()) {
-            the_post();  
-
-            if ($count > 0) {
-                printf('<hr />');
-            }
-
-            get_template_part(THEME_ARTICLES . 'article', 'excerpt');
-            $count++;
-        }
-    } else {
-        get_template_part(THEME_ARTICLES . 'article', 'missing');
-    }
-}
-
-if (is_search()) {
+if (!is_single() && $paged > 0) {
     get_template_part(THEME_PARTIALS . '/pagination');
 }
 
+if (have_posts()) {
+    while (have_posts()) {
+        the_post();
+        get_template_part(THEME_ARTICLES . 'article', 'full');
+        printf('<hr>');
+    }
+} else {
+    get_template_part(THEME_ARTICLES . 'article', 'missing');
+}
+
+get_template_part(THEME_PARTIALS . '/pagination');
 get_footer(); ?>
