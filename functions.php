@@ -76,7 +76,10 @@ define('TTD', 'sheepie');
  */
 
 // Media prefetch domain: If null or empty, defaults to site domain.
-$prefetch_domain = 'ix.bhalash.com';
+$prefetch_domains = array(
+    'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
+);
+
 // Path to favicon.
 $favicon_pth = THEME_IMAGES . 'favicon.png';
 
@@ -387,13 +390,11 @@ function open_graph_tags() {
  */
 
 function dns_prefetch() {
-    global $prefetch_domain;
+    global $prefetch_domains;
 
-    if (!is_admin() && empty($prefetch_domain) || is_null($prefetch_domain)) {
-        $prefetch_domain = $_SERVER['SERVER_NAME'];
+    foreach ($prefetch_domains as $domain) {
+        printf('<link rel="dns-prefetch" href="//%s">', $domain);
     }
-
-    printf('<link rel="dns-prefetch" href="//%s">', $prefetch_domain);
 }
 
 /**
