@@ -136,7 +136,14 @@ footer {
 
 div.article-photobox {
     @extend %article-child;
-    // Shrink images down to neatly fit on one row.
+    /* Every word has a space afterward, above and below, set by the browser. 
+     * An object with display "inline-block" or similar is treated as a word by
+     * your browser, and given a small trailing space beside and below, 
+     * determined by either the element or element parent's font-size value.
+     * 
+     * This can offset images several pixels from where they should be, in 
+     * circumstances where those few pixels can break layout. */
+    font-size: 0;
 
     a {
         @include padding(1, bottom);
