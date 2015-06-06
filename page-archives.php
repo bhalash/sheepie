@@ -36,21 +36,29 @@ get_header();
  * -----------------------------------------------------------------------------
  */
 
+$yearly_archive_key = 'sheepie_dated_archive_count';
+
+delete_option($yearly_archive_key);
+
 printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
+printf('<pre>');
 
-// Get the year of the first post.
-$start_year = get_posts(array(
-    'posts_per_page' => 1,
-    'order' => 'ASC'
-))[0]->post_date;
-
-$start_year = preg_replace('/-.*/', '', $start_year);
-$end_year = date('Y');
-
-for ($i = $start_year; $i <= $end_year; $i++) {
-    $year = get_year_link($i);
-    printf('<h5 class="title"><a href="%s">%s</a></h5>', $year, $i);
+if (!get_option($yearly_archive_key)) {
+    $argh = generate_dated_archive_count($yearly_archive_key);
+} else {
+    $argh = update_dated_archive_count($yearly_archive_key);
 }
+
+$argh = get_option($yearly_archive_key);
+var_dump($argh);
+
+printf('</pre>');
+
+// for ($i = $start_year; $i <= $end_year; $i++) {
+//     // Iterate years.
+//     $year = get_year_link($i);
+//     printf('<h5 class="title"><a href="%s">%s</a></h5>', $year, $i);
+// }
 
 // $dates = wp_get_archives(array(
 //     'type' => 'monthly',
