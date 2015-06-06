@@ -24,9 +24,6 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Social icon size.
-$social-45: 45px;
-
 /**
  * Header Interior Element Defaults
  * -----------------------------------------------------------------------------
@@ -103,12 +100,10 @@ $social-45: 45px;
         transition: background-color .2s ease-in;
     }
 
-    @include generate-social-link(li, $social-45 1) {
-        // ^ presumes anchor elements
+    @include generate-social-link(li, 35px 1) {
         display: inline-block;
-
+        
         &:not(:hover) {
-            // I wanted icons to be transparent by default.
             background-color: transparent;
         }
     }
