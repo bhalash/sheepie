@@ -41,6 +41,10 @@ article {
         // Remove margin from last child element.
         @include margin(2, bottom);
     }
+
+    blockquote > *:not(:last-child) {
+        @include margin(1, bottom);
+    }
     
     input {
         // For password on password-protected posts.
