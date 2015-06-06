@@ -62,6 +62,7 @@ define('THEME_CSS', THEME_ASSETS . 'css/');
 
 // require_once(THEME_INCLUDES . 'options.php');
 require_once(THEME_INCLUDES . 'container-states.php');
+require_once(THEME_INCLUDES . 'archive-functions.php');
 
 /**
  * Theme Text Domain
