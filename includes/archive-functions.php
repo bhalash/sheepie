@@ -53,13 +53,12 @@ function generate_dated_archive_count($option_name) {
 
     // Current year.
     $current_year = date('Y');
-    $current_month = date('m');
 
     $post_counts = array(
-        'last_checked' => array(
-            $current_year, $current_month
-        )
+        'last_checked' => date('Y-m-d')
     );
+
+    var_dump('2014-01-22' > $post_counts['last_checked']);
 
     // Years that the blog has been in operation.
     for ($i = $current_year; $i >= $first_year; $i--) {
