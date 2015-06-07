@@ -98,6 +98,10 @@ body[class^=error] #header {
 #site.side-by-side {
     @include flex-parent(row-reverse);
 
+    @include media($b-960) {
+        @include prefix(flex-direction, column);
+    }
+
     #content {
         /* ¡Important! Mozilla Firefox applies an invisible min-width to the 
          * element. I guess it is a bug? While in flex-row layout, the column
@@ -106,34 +110,14 @@ body[class^=error] #header {
         min-width: 0;
         @include flex-child(0 1 $sides-66);
 
-        @include media($b-1280) {
-            @include prefix(flex-basis, $sides-75);
+        @include media($b-960) {
+            @include flex-child(1);
         }
     }
  
     #header {
         @include fixed(0 $sides-66 0 0);
 
-        @include media($b-1280) {
-            right: $sides-75;
-        }
-    }
-}
-
-#site.side-by-side {
-    // Switch to a column layout at 960px.
-
-    @include media($b-960) {
-        @include prefix(flex-direction, column);
-    }
-
-    #header, #content {
-        @include media($b-960) {
-            @include flex-child(1);
-        }
-    }
-
-    #header {
         @include media($b-960) {
             min-height: $header-min-height;
             /* Relative in case of a background image, which employs an
