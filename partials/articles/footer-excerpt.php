@@ -28,6 +28,12 @@
 
 if (!is_page()) : ?>
     <footer>
-            <p><small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?></small></p>
+        <p>
+            <small>
+                <time datetime="<?php the_time('Y-m-d H:i'); ?>">
+                    <?php the_time(get_option('date_format')) ?>
+                </time> in <?php the_category(', '); edit_post_link('edit post', ' / ', ''); ?>
+            </small>
+        </p>
     </footer>
 <?php endif; ?>
