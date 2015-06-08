@@ -1,6 +1,6 @@
 <?php 
 /**
- * Container State Text and Class Determinations
+ * 
  * -----------------------------------------------------------------------------
  * Functions to determine and set site state. 
  *
@@ -27,10 +27,94 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */ 
 
+/** 
+ * Return Thumbnail Image URL
+ * -----------------------------------------------------------------------------
+ * Taken from: http://goo.gl/NhcEU6
+ * 
+ * WordPress, by default, only has a handy function to return a glob of HTML
+ * -an image inside an anchor-for a post thumbnail. This wrapper extracts
+ * and returns only the URL.
+ * 
+ * @param   int     $post_id        The ID of the post.
+ * @param   int     $thumb_size     The requested size of the thumbnail.
+ * @param   bool    $return_arr     Return either the entire thumbnail object or just the URL.
+ * @return  string  $thumb_url[0]   URL of the thumbnail.
+ * @return  array   $thumb_url      All information on the attachment.
+ */
+
+function get_post_thumbnail_url($post_id = null, $thumb_size = 'large', $return_arr = false) {
+
+    if (is_null($post_id)) {
+        $post_id = get_the_ID();
+    }
+
+    $thumb_id = get_post_thumbnail_id($post_id);
+    $thumb_url = wp_get_attachment_image_src($thumb_id, $thumb_size, true);
+    return ($return_arr) ? $thumb_url : $thumb_url[0];
+}
+
+/**
+ * Retrive first image in content.
+ * -----------------------------------------------------------------------------
+ * I chose not to use the featured image feature in WordPress, because
+ * I do not want to be ultimately tied to WordPress as a blogging CMS.
+ * 
+ * This functions extracts and returns the first found image in the post,
+ * no matter what that image happens to be.
+ * 
+ * See: http://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post
+ *
+ * @param   int     $post_id        ID of candidate post.
+ * @return  string                  Full URL of the first image found.
+ */
+
+function content_first_image($post_id = null) {
+    global $post, $posts;
+    $content = '';
+    $matched = array();
+
+    if (is_null($post_id)) { 
+        $content = get_post($post_id);
+        $content = $content->post_content;
+    } else {
+        $content = $post->post_content;
+    }
+
+    $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    $first_image = $matches[1][0];
+    return (!empty($first_image)) ? $first_image : false;
+}
+
+/**
+ * Determine if Post Content has an Image
+ * -----------------------------------------------------------------------------
+ * Because I habitually do not use post thumbnails, I need to instead determine
+ * whether the post's content has an image, and thereafter I grab the first one. 
+ * 
+ * @param   int     $post_id        ID of candidate post.
+ * @return  bool                    Post content has image true/false.
+ */
+
+function has_content_image($post_id = null) {
+    global $post;
+    $content = '';
+
+    if (is_null($post_id)) { 
+        $content = get_post($post_id);
+        $content = $content->post_content;
+    } else {
+        $content = $post->post_content;
+    }
+
+    return (preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content));
+}
+
+
 /**
  * Get Post Image for Background
  * -----------------------------------------------------------------------------
- * 
+ *  
  * @param  int    $post_id
  * @return string $header_thumb         Thumbnail image, if it exists.
  */
