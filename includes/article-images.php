@@ -66,23 +66,22 @@ function get_post_thumbnail_url($post_id = null, $thumb_size = 'large', $return_
  *
  * @param   int     $post_id        ID of candidate post.
  * @return  string                  Full URL of the first image found.
+ * @return  bool                    Return false if no image found.
  */
 
 function content_first_image($post_id = null) {
-    global $post, $posts;
     $content = '';
-    $matched = array();
+    $matches = array();
 
     if (is_null($post_id)) { 
-        $content = get_post($post_id);
-        $content = $content->post_content;
-    } else {
+        global $post;
         $content = $post->post_content;
+    } else {
+        $content = get_post($post_id)->post_content;
     }
 
-    $first_image = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
-    $first_image = $matches[1][0];
-    return (!empty($first_image)) ? $first_image : false;
+    preg_match('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    return (!empty($matches[1])) ? $matches[1] : false;
 }
 
 /**
@@ -96,23 +95,22 @@ function content_first_image($post_id = null) {
  */
 
 function content_has_image($post_id = null) {
-    global $post;
-    $content = '';
-
     if (is_null($post_id)) { 
-        $content = get_post($post_id);
-        $content = $content->post_content;
-    } else {
+        global $post;
         $content = $post->post_content;
+    } else {
+        $content = get_post($post_id)->post_content;
     }
 
-    return (preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content));
+    return (strpos($content, '<img src') !== false);
 }
 
 /**
  * Get Post Image for Background
  * -----------------------------------------------------------------------------
- *  
+ * Get either the thumbnail image, if it exists, or alternatively the first 
+ * image found in the post's content.
+ * 
  * @param  int    $post_id
  * @return string $header_thumb         Thumbnail image, if it exists.
  */
