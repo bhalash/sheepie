@@ -27,7 +27,7 @@
  */
 
 get_header();
-get_template_part(THEME_PARTIALS . '/gohome');
+get_template_part(THEME_PARTIALS . 'gohome');
 
 if (have_posts()) {
     while (have_posts()) {

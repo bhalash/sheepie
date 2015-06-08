@@ -30,18 +30,18 @@ get_header();
 global $paged;
 
 if (!is_single() && $paged > 0) {
-    get_template_part(THEME_PARTIALS . '/pagination');
+    get_template_part(THEME_PARTIALS . 'pagination');
 }
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part(THEME_ARTICLES . 'article', 'full');
+        get_template_part(THEME_ARTICLES, 'full');
         printf('<hr>');
     }
 } else {
-    get_template_part(THEME_ARTICLES . 'article', 'missing');
+    get_template_part(THEME_ARTICLES, 'missing');
 }
 
-get_template_part(THEME_PARTIALS . '/pagination');
+get_template_part(THEME_PARTIALS . 'pagination');
 get_footer(); ?>
