@@ -37,7 +37,7 @@ article {
     // WordPress uses floats for inline styles.
     @extend %clearfix;
 
-    >:not(:last-child) {
+    main >:not(:last-child) {
         // Remove margin from last child element.
         @include margin(2, bottom);
     }
