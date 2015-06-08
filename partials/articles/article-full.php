@@ -29,7 +29,7 @@
 ?>
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-    <?php get_template_part(THEME_ARTICLES . 'header', 'full'); ?>
+    <?php get_template_part(THEME_PARTIALS . 'header', 'full'); ?>
 
     <main>
         <?php the_content(__('Read the rest of this post &raquo;', TTD)); ?>
@@ -37,6 +37,6 @@
 
     <?php if (is_single()) {
         get_template_part(THEME_PARTIALS . '/pagination');
-        get_template_part(THEME_ARTICLES . 'footer', 'full');
+        get_template_part(THEME_PARTIALS . 'footer', 'full');
     } ?>
 </article>

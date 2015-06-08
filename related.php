@@ -52,7 +52,7 @@ $related_posts = new WP_Query(array(
 if ($related_posts->found_posts < $desired_related_count) {
     /*
      * Related Posts Filler
-     * --------------------
+     * -------------------------------------------------------------------------
      * As you go farther back in time in the blog archives, there will be fewer
      * matching related posts. In that case, I would prefer to just grab any
      * random post from this period and add it to the original loop as a filler.
@@ -60,10 +60,6 @@ if ($related_posts->found_posts < $desired_related_count) {
 
     $filler_count = $desired_related_count - $related_posts->found_posts;
     $excluded_posts = array();
-
-    // Debug
-    // printf('<script>console.log("%s, %s");</script>', $related_posts->found_posts, $desired_related_count);
-    // printf('<script>console.log("%s");</script>', $filler_count);
 
     foreach($related_posts->posts as $post => $key) {
         // Add any found posts to the array of excluded images.
@@ -98,7 +94,7 @@ if ($related_posts->have_posts()) {
 
     while ($related_posts->have_posts()) {
         $related_posts->the_post();
-        get_template_part(THEME_ARTICLES . 'article', 'related');
+        get_template_part(THEME_ARTICLES, 'related');
     }
 
     printf('</div>');
