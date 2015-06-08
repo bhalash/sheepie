@@ -36,45 +36,8 @@ get_header();
  * -----------------------------------------------------------------------------
  */
 
-$yearly_archive_key = 'sheepie_dated_archive_count';
-
-delete_option($yearly_archive_key);
-
 printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
-printf('<pre>');
-
-if (!get_option($yearly_archive_key)) {
-    $argh = generate_dated_archive_count($yearly_archive_key);
-} else {
-    $argh = update_dated_archive_count($yearly_archive_key);
-}
-
-$argh = get_option($yearly_archive_key);
-var_dump($argh);
-
-printf('</pre>');
-
-// for ($i = $start_year; $i <= $end_year; $i++) {
-//     // Iterate years.
-//     $year = get_year_link($i);
-//     printf('<h5 class="title"><a href="%s">%s</a></h5>', $year, $i);
-// }
-
-// $dates = wp_get_archives(array(
-//     'type' => 'monthly',
-//     'limit' => '',
-//     'format' => 'html', 
-//     'before' => '',
-//     'after' => '',
-//     'show_post_count' => false,
-//     'echo' => 0,
-//     'order' => 'DESC'
-// ));
-
-// foreach ($dates as $date) {
-//     printf('date');
-// }
-
+get_template_part(THEME_ARCHIVES, 'alltime');
 printf('<hr>');
 
 /**
@@ -83,12 +46,6 @@ printf('<hr>');
  */
 
 printf('<h5 class="title">%s</h5>', __('Archives by Category', TTD));
-// $categories = get_categories(); 
-
-// foreach ($categories as $category) {
-//     printf('%s ', $category->cat_name);
-// }
-
 printf('<hr>');
 
 /**
@@ -96,13 +53,6 @@ printf('<hr>');
  * -----------------------------------------------------------------------------
  * I use tags indiscriminately for the purposes of labelling. 
  */
-
-// printf('<h5 class="title">%s</h5>', __('Archives by Tag', ttd));
-// $tags = get_tags(); 
-
-// foreach ($tags as $tag) {
-//     printf('%s ', $tag->name);
-// }
 
 /**
  * Statistics
