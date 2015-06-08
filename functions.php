@@ -56,13 +56,11 @@ define('THEME_IMAGES', THEME_ASSETS . 'images/');
 define('THEME_CSS', THEME_ASSETS . 'css/');
 
 /**
- * Theme Includes
+ * Template Default/Fallback Image
  * -----------------------------------------------------------------------------
  */
 
-include(THEME_INCLUDES . 'reading-times.php');
-include(THEME_INCLUDES . 'social-meta.php');
-include(THEME_INCLUDES . 'article-images.php');
+define('FALLBACK_IMAGE', THEME_IMAGES . 'fallback.jpg');
 
 /**
  * Theme Text Domain
@@ -70,6 +68,15 @@ include(THEME_INCLUDES . 'article-images.php');
  */
 
 define('TTD', 'sheepie');
+
+/**
+ * Theme Includes
+ * -----------------------------------------------------------------------------
+ */
+
+include(THEME_INCLUDES . 'reading-times.php');
+include(THEME_INCLUDES . 'social-meta.php');
+include(THEME_INCLUDES . 'article-images.php');
 
 /**
  * Other Variables
@@ -120,7 +127,7 @@ $theme_styles = array(
 $social_fallback = array(
     // Social fallback is called in cases where the post is missing n info.
     'publisher' => 'http://www.bhalash.com',
-    'image' => THEME_IMAGES . 'fallback.jpg',
+    'image' => FALLBACK_IMAGE,
     'description' => get_bloginfo('description'),
     'twitter' => '@bhalash'
 );
