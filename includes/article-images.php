@@ -1,9 +1,8 @@
-<?php 
+<?php
+
 /**
- * 
+ * Article Image Functions
  * -----------------------------------------------------------------------------
- * Functions to determine and set site state. 
- *
  * @category   PHP Script
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
@@ -25,7 +24,7 @@
  * 
  * You should have received a copy of the GNU General Public License along with 
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
- */ 
+ */
 
 /** 
  * Return Thumbnail Image URL
@@ -96,7 +95,7 @@ function content_first_image($post_id = null) {
  * @return  bool                    Post content has image true/false.
  */
 
-function has_content_image($post_id = null) {
+function content_has_image($post_id = null) {
     global $post;
     $content = '';
 
@@ -109,7 +108,6 @@ function has_content_image($post_id = null) {
 
     return (preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content));
 }
-
 
 /**
  * Get Post Image for Background
@@ -129,7 +127,7 @@ function get_post_image($post_id = null) {
 
     if (has_post_thumbnail($post_id)) {
         $post_image = get_post_thumbnail_url($post_id, 'large'); 
-    } else if (has_content_image($post_id)) {
+    } else if (content_has_image($post_id)) {
         $post_image = content_first_image($post_id);
     }
 
@@ -148,85 +146,9 @@ function post_image_background($post_id = null) {
         $post_id = $post->ID;
     }
 
-    if (has_content_image($post_id)) {
+    if (content_has_image($post_id)) {
         printf('style="background-image: url(%s);"', get_post_image($post_id));
     }
-}
-
-/**
- * Set Header Class
- * -----------------------------------------------------------------------------
- * Set class if header has any available background image.
- *
- * @param   int    $post_id
- * @return  string                       Class for background iamge.
- */
-
-function get_header_class($post_id = null) {
-    if (is_null($post_id)) {
-        global $post;
-        $post_id = $post->ID;
-    }
-
-    return (has_post_thumbnail($post_id) || has_content_image($post_id)) ? 'has-image' : 'no-image';
-}
-
-/**
- * Echo Header Class
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- */
-
-function header_class($post_id = null) {
-    printf(get_header_class($post_id));
-}
-
-/**
- * Set Title Based on Page Type
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- * @return  string  $page_title         Title of page.
- */
-
-function get_page_title($post_id = null) {
-    if (is_null($post_id)) {
-        global $post;
-        $post_id = $post->ID;
-    }
-
-    $page_title = '';
-
-    if (!is_single() && !is_search()) {
-        $page_title = sprintf('<a title="%s" href="%s">%s</a>',
-            __('Go home'), get_bloginfo('url'),
-            get_bloginfo('name')
-        ); 
-    } else if (is_search()) {
-        $page_title = sprintf('%s \'%s\'',
-            __('Results for'),
-            get_search_query()
-        ); 
-    } else {
-        // If single article or page.
-        $page_title = sprintf('<a href="%s" rel="bookmark" title="%s %s">%s</a>', 
-            get_the_permalink(),
-            __('Permanent link to'), 
-            get_the_title($post_id), 
-            get_the_title($post_id)
-        );
-    }
-
-    return $page_title;
-}
-
-/**
- * Echo Page Title Based on Page Type
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- */
-
-function page_title($post_id = null) {
-    printf(get_page_title($post_id));
 }
 
 ?>

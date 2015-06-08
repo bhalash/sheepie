@@ -60,9 +60,9 @@ define('THEME_CSS', THEME_ASSETS . 'css/');
  * -----------------------------------------------------------------------------
  */
 
-// require_once(THEME_INCLUDES . 'options.php');
-require_once(THEME_INCLUDES . 'container-states.php');
-require_once(THEME_INCLUDES . 'archive-functions.php');
+include(THEME_INCLUDES . 'reading-times.php');
+include(THEME_INCLUDES . 'social-meta.php');
+include(THEME_INCLUDES . 'article-images.php');
 
 /**
  * Theme Text Domain
@@ -83,19 +83,6 @@ $prefetch_domains = array(
 
 // Path to favicon.
 $favicon_pth = THEME_IMAGES . 'favicon.png';
-
-/**
- * Social Meta Fallback
- * -----------------------------------------------------------------------------
- */
-
-$social_fallback = array(
-    // Social fallback is called in cases where the post is missing n info.
-    'publisher' => 'http://www.bhalash.com',
-    'image' => THEME_IMAGES . 'fallback.jpg',
-    'description' => get_bloginfo('description'),
-    'twitter' => '@bhalash'
-);
 
 /**
  * Enqueue Styles and Scripts
@@ -123,6 +110,19 @@ $theme_styles = array(
     'main-style' => THEME_CSS . 'main.css',
     // WordPress style.css. Not really used.
     'wordpress-style' => THEME_ROOT . '/style.css',
+);
+
+/**
+ * Social Meta Defaults
+ * -----------------------------------------------------------------------------
+ */
+
+$social_fallback = array(
+    // Social fallback is called in cases where the post is missing n info.
+    'publisher' => 'http://www.bhalash.com',
+    'image' => THEME_IMAGES . 'fallback.jpg',
+    'description' => get_bloginfo('description'),
+    'twitter' => '@bhalash'
 );
 
 /**
@@ -219,6 +219,155 @@ function blog_age($format = '%a') {
 }
 
 /**
+ * Convert Number to Month
+ * -----------------------------------------------------------------------------
+ * See: https://stackoverflow.com/questions/18467669/convert-number-to-month-name-in-php
+ * 
+ * @param  int          $number             The month of the year as a number.
+ * @param  string                           The month as a word.
+ */
+
+function get_month_from_number($number) {
+    return date_create_from_format('!m', $number % 12)->format('F');
+}
+
+/**
+ * Generate Dated Archive Post Count
+ * -----------------------------------------------------------------------------
+ * Generate the initial count of posts by year and month, and save it under the
+ * given options key. Generating this can be resource intensive, so it makes 
+ * sense to store this as a variable.
+ * 
+ * See: https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
+ * 
+ * @param   string      $option_name        Options key for the post count.
+ * @return  array       $counts             Returned counts for the 
+ */
+
+function timed_archives_count() {
+    global $wpdb;
+
+    /* Get the year of the first post: 
+     * -------------------------------------------------------------------------
+     * 1. Get 1 post in ascending order. This is the first post on the blog.
+     * 2. Extract the date of the post.
+     * 3. Parse that down to the year alone. */
+    $from_date = preg_replace('/-.*/', '', get_posts(array(
+        'posts_per_page' => 1,
+        'order' => 'ASC'
+    ))[0]->post_date);
+
+    for ($i = date('Y'); $i >= $from_date; $i--) {
+        $counts[$i] = array();
+
+        $month = $wpdb->get_results($wpdb->prepare(
+            "SELECT MONTH(post_date) AS post_month, count(ID) AS post_count from " .
+            "{$wpdb->posts} WHERE post_status = 'publish' AND YEAR(post_date) = %d " .
+            "GROUP BY post_month;", $i
+        ), OBJECT_K);
+
+        foreach ($month as $m) {
+            $counts[$i][get_month_from_number($m->post_month)] = $m->post_count;
+        }
+    }
+
+    return $counts;
+}
+
+/**
+ * Generate Category Archive Post Count
+ * -----------------------------------------------------------------------------
+ * Generate the initial count of posts by year and month, and save it under the
+ * given options key. Generating this can be resource intensive, so it makes 
+ * sense to store this as a variable.
+ * 
+ * See: https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
+ * 
+ * @param   string      $option_name        Options key for the post count.
+ * @return  array       $counts             Returned counts for the 
+ */
+
+function category_archives_count() {
+
+}
+
+/**
+ * Set Header Class
+ * -----------------------------------------------------------------------------
+ * Set class if header has any available background image.
+ *
+ * @param   int    $post_id
+ * @return  string                       Class for background iamge.
+ */
+
+function get_header_class($post_id = null) {
+    if (is_null($post_id)) {
+        global $post;
+        $post_id = $post->ID;
+    }
+
+    return (has_post_thumbnail($post_id) || content_has_image($post_id)) ? 'has-image' : 'no-image';
+}
+
+/**
+ * Echo Header Class
+ * -----------------------------------------------------------------------------
+ * @param   int     $post_id
+ */
+
+function header_class($post_id = null) {
+    printf(get_header_class($post_id));
+}
+
+/**
+ * Set Title Based on Page Type
+ * -----------------------------------------------------------------------------
+ * @param   int     $post_id
+ * @return  string  $page_title         Title of page.
+ */
+
+function get_page_title($post_id = null) {
+    if (is_null($post_id)) {
+        global $post;
+        $post_id = $post->ID;
+    }
+
+    $page_title = '';
+
+    if (!is_single() && !is_search()) {
+        $page_title = sprintf('<a title="%s" href="%s">%s</a>',
+            __('Go home'), get_bloginfo('url'),
+            get_bloginfo('name')
+        ); 
+    } else if (is_search()) {
+        $page_title = sprintf('%s \'%s\'',
+            __('Results for'),
+            get_search_query()
+        ); 
+    } else {
+        // If single article or page.
+        $page_title = sprintf('<a href="%s" rel="bookmark" title="%s %s">%s</a>', 
+            get_the_permalink(),
+            __('Permanent link to'), 
+            get_the_title($post_id), 
+            get_the_title($post_id)
+        );
+    }
+
+    return $page_title;
+}
+
+/**
+ * Echo Page Title Based on Page Type
+ * -----------------------------------------------------------------------------
+ * @param   int     $post_id
+ */
+
+function page_title($post_id = null) {
+    printf(get_page_title($post_id));
+}
+
+/**
  * Post Interval Average
  * -----------------------------------------------------------------------------
  * Return the blog's posts per day, rounded to $percision.
@@ -231,29 +380,6 @@ function post_interval($precision = 2) {
     $blog_age_days = blog_age('%a');
     $post_count = wp_count_posts()->publish;
     return round($blog_age_days / $post_count, $precision);
-}
-
-/**
- * Count Comment Authors
- * -----------------------------------------------------------------------------
- * WordPress doesn't appear to have a convenient way to count unique comment
- * authors. 
- * 
- * @return int      $count          count of comment authors.
- */
-
-function get_comment_authors_count() {
-    $authors = array();
-
-    foreach (get_comments() as $comment) {
-        if (!in_array($comment->comment_author_email, $authors)) {
-            if (!empty($comment->comment_author_email)) {
-                $authors[] = $comment->comment_author_email;
-            }
-        }
-    }
-
-    return count($authors);
 }
 
 /**
@@ -291,97 +417,6 @@ function blog_statistics() {
         post_interval(),
         blog_age()
     );
-}
-
-/**
- * Output Open Graph and Twitter Card Tags
- * -----------------------------------------------------------------------------
- * Call the Open Graph and Twitter Card functions.
- */
-
-function social_meta() {
-    open_graph_tags();
-    twitter_card_tags();
-}
-
-/**
- * Twitter Card
- * -----------------------------------------------------------------------------
- * This function /should/ present all of the relevant and correct
- * information for Twitter Card. 
- */
-
-function twitter_card_tags() {
-    global $social_fallback, $post;
-    $the_post = get_post($post->ID);
-    setup_postdata($the_post);
-
-    $site_meta = array(
-        'twitter:card' => 'summary',
-        'twitter:site' => $social_fallback['twitter'],
-        'twitter:title' => get_the_title(),
-        'twitter:description' => (is_single()) ? get_the_excerpt() : $social_fallback['description'],
-        'twitter:image:src' => content_first_image($post->ID),
-        'twitter:url' => get_site_url() . $_SERVER['REQUEST_URI'],
-    );
-
-    foreach ($site_meta as $key => $value) {
-        printf('<meta name="%s" content="%s">', $key, $value);
-    }
-}
-
-/**
- * Open Graph
- * -----------------------------------------------------------------------------
- * This function /should/ present all of the relevant and correct
- * information for Open Graph scrapers. 
- */
-
-function open_graph_tags() {
-    global $social_fallback, $post;
-    $the_post = get_post($post->ID);
-    setup_postdata($the_post);
-
-    $site_meta = array(
-        'og:title' => get_the_title(),
-        'og:site_name' => get_bloginfo('name'),
-        'og:url' => get_site_url() . $_SERVER['REQUEST_URI'],
-        'og:description' => (is_single()) ? get_the_excerpt() : $social_fallback['description'],
-        'og:image' => content_first_image($post->ID),
-        'og:type' => (is_single()) ? 'article' : 'website',
-        'og:locale' => get_locale(),
-    );
-
-    if (is_single()) {
-        // If single post, add category and tag information.
-        $category = get_the_category($post->ID);
-
-        $tags = get_the_tags();
-        $taglist = array();
-        $i = 0;
-
-        foreach ($tags as $key => $value) {
-            if ($i > 0) {
-                $taglist[] = ', ';
-            }
-
-            $taglist[] = $value->name;
-            $i++;
-        }
-
-        $article_meta = array(
-            'article:section' => $category[0]->cat_name,
-            'article:tag' => implode('', $taglist),
-            'article:publisher' => $social_fallback['publisher'],
-        );
-
-        $site_meta = array_merge($site_meta, $article_meta);
-    }
-
-    foreach ($site_meta as $key => $value) {
-        // Iterate all information and output.
-        printf('<meta property="%s" content="%s">', $key, $value);
-    }
 }
 
 /**
@@ -525,137 +560,6 @@ function archive_page_count($page_num = null, $total_results = null, $type = nul
 }
 
 /**
- * Article Reading Time in Seconds
- * -----------------------------------------------------------------------------
- * Inpsired by Medium; see: http://www.bhalash.com/archives/13544802870
- *
- * Return the reading time of the article in seconds, based on an average 
- * WPM of 300. You are free to override this.
- * 
- * @param   int     $post_id 
- * @param   int     $average_wpm    Average reading speed.
- * @return  int     $reading_time   Reading time in seconds.
- */
-
-function article_reading_time($post_id = null, $average_wpm = 300, $return_minutes = false) {
-    $reading_time = 0;
-
-    if (is_null($post_id_id)) {
-        $post_id = get_the_ID();
-    }
-
-    $average_wps = round($average_wpm / 60);
-    $time = str_word_count(strip_tags($post_id));
-    $reading_tine = round($time / $average_wps);
-
-    if ($return_minutes) {
-        $reading_time = article_reading_time_minutes($reading_time);
-    }
-
-    return $reading_time;
-}
-
-/**
- * Article Reading Time in Seconds
- * -----------------------------------------------------------------------------
- * Convert the reading time in seconds, to the reding time in minutes.
- * 
- * @param   int     $seconds        Reading time in seconds.
- * @return  int     $minutes        Reading time in minutes.
- */
-
-function article_reading_time_minutes($seconds) {
-    $minutes = 0;
-
-    if ($seconds % 60 <= 30) {
-        $minutes = floor($seconds / 60);
-    } else {
-        $minutes = ceil($seconds / 60);
-    }
-
-    return $minutes;
-}
-
-/**
- * Article Reading Time in Seconds
- * -----------------------------------------------------------------------------
- * Converts a given minutes time to words. Only does up to 99 minutes,
- * because, honestly, if your article's reading time is above that then
- * you went horribly wrong somewhere.
- * 
- * @param   int     $seconds        Reading time in minutes.
- * @return  string  $time_words     Reading time of article expressed as a phrase.
- * 
- */
-
-function reading_time_in_words($reading_time) {
-    $words = array(
-        'singles' => array(
-            'one','two','three','four','five','six','seven','eight','nine'
-        ),
-        'teens' => array(
-            'eleven','twelve','thirteen','fourteen','fifteen','sixteen',
-            'seventeen','eighteen','nineteen'
-        ),
-        'tens' => array(
-            'ten','twenty','thirty','forty','fifty','sixty','seventy','eighty',
-            'ninety'
-        )
-    );
-
-    // Reading time in words.
-    $time_word = array();
-
-    if ($reading_time <= 0) {
-        // <0 - 0
-        $time_word[] = $words['singles'][0];
-    } elseif ($reading_time < 10) {
-        // 1 - 9
-        $time_word[] =$words['singles'][$reading_time - 1];
-    } elseif ($reading_time > 10 && $reading_time < 20) {
-        // 11 - 19
-        $time_word[] = $words['teens'][$reading_time - 11];
-    } elseif ($reading_time % 10 === 0) {
-        // 10, 20, etc.
-        $time_word[] = $words['tens'][($reading_time / 10) - 1];
-    } elseif ($reading_time > 99) {
-         // > 99
-        $time_word[] = 'greater than';
-        $time_word[] = $words['singles'][8];
-        $time_word[] = '-';
-        $time_word[] = $words['tens'][8];
-    } else {
-        // 31, 56, 77, etc.
-        $time_word[] = $words['tens'][($reading_time % 100) / 10 - 1];
-        $time_word[] = '-';
-        $time_word[] = $words['singles'][($reading_time % 10) - 1];
-    }
-
-    return implode('', $time_word);
-}
-
-/**
- * Reading Time Wrapper
- * -----------------------------------------------------------------------------
- * Take in post and return its reading time in minutes as a phrase.
- * See http://www.bhalash.com/archives/13544802870
- *
- * @param   int     $post_id 
- * @param   string  $time_phrase    Reading time as a phrase/words.
- */
-
-function rmwb_reading_time($post_id = null) {
-    if (is_null($post_id)) {
-        $post_id = get_the_ID();
-    }
-
-    $time = article_reading_time($post_id, true);
-    $time_phrase = reading_time_in_words($time);
-    $minute_word = ($time <= 1) ? ' minute.' : ' minutes.';
-    return ucfirst($time_phrase) . $minute_word;
-}
-
-/**
  * Register Theme Widget Areas
  * -----------------------------------------------------------------------------
  */
@@ -681,6 +585,29 @@ function theme_navigation() {
         'top-menu' => __('Header Menu', TTD),
         'top-social' => __('Header Social Links', TTD)
     ));
+}
+
+/**
+ * Count Comment Authors
+ * -----------------------------------------------------------------------------
+ * WordPress doesn't appear to have a convenient way to count unique comment
+ * authors. 
+ * 
+ * @return int      $count          count of comment authors.
+ */
+
+function get_comment_authors_count() {
+    $authors = array();
+
+    foreach (get_comments() as $comment) {
+        if (!in_array($comment->comment_author_email, $authors)) {
+            if (!empty($comment->comment_author_email)) {
+                $authors[] = $comment->comment_author_email;
+            }
+        }
+    }
+
+    return count($authors);
 }
 
 /**
@@ -750,7 +677,6 @@ add_action('widgets_init', 'theme_widgets');
 // Enqueue all scripts and stylesheets.
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
-add_action('wp_head', 'social_meta');
 // Set site favicon.
 add_action('wp_head', 'set_favicon');
 // Set prefetch domain for media.
