@@ -28,27 +28,28 @@
  */ 
 
 /**
- * Get Lead Image for Header
+ * Get Post Image for Background
  * -----------------------------------------------------------------------------
+ * 
  * @param  int    $post_id
  * @return string $header_thumb         Thumbnail image, if it exists.
  */
 
-function get_header_background($post_id = null) {
+function get_post_image($post_id = null) {
     if (is_null($post_id)) {
         global $post;
         $post_id = $post->ID;
     }
 
-    $header_thumb = false;
+    $post_image = false;
 
     if (has_post_thumbnail($post_id)) {
-        $header_thumb = get_post_thumbnail_url($post_id, 'large'); 
+        $post_image = get_post_thumbnail_url($post_id, 'large'); 
     } else if (has_content_image($post_id)) {
-        $header_thumb = content_first_image($post_id);
+        $post_image = content_first_image($post_id);
     }
 
-    return $header_thumb;
+    return $post_image;
 }
 
 /**
@@ -57,14 +58,14 @@ function get_header_background($post_id = null) {
  * @param  int    $post_id
  */
 
-function header_background($post_id = null) {
+function post_image_background($post_id = null) {
     if (is_null($post_id)) {
         global $post;
         $post_id = $post->ID;
     }
 
     if (has_content_image($post_id)) {
-        printf('style="background-image: url(%s);"', get_header_background($post_id));
+        printf('style="background-image: url(%s);"', get_post_image($post_id));
     }
 }
 
