@@ -43,7 +43,6 @@
  */
 
 function get_post_thumbnail_url($post_id = null, $thumb_size = 'large', $return_arr = false) {
-
     if (is_null($post_id)) {
         $post_id = get_the_ID();
     }
@@ -94,10 +93,11 @@ function content_first_image($post_id = null) {
  * @return  bool                    Post content has image true/false.
  */
 
-function content_has_image($post_id = null) {
+function has_post_image($post_id = null) {
     if (is_null($post_id)) { 
         global $post;
         $content = $post->post_content;
+        $post_id = $post->ID;
     } else {
         $content = get_post($post_id)->post_content;
     }
@@ -108,11 +108,14 @@ function content_has_image($post_id = null) {
 /**
  * Get Post Image for Background
  * -----------------------------------------------------------------------------
- * Get either the thumbnail image, if it exists, or alternatively the first 
- * image found in the post's content.
+ * Returns an image in this order:
  * 
- * @param  int    $post_id
- * @return string $header_thumb         Thumbnail image, if it exists.
+ * 1. Specified post thumbnail in it's large size.
+ * 2. First image in post's content.
+ * 3. Sitewide fallback image.
+ * 
+ * @param  int      $post_id
+ * @return string   $header_thumb         Thumbnail image, if it exists.
  */
 
 function get_post_image($post_id = null) {
@@ -121,11 +124,11 @@ function get_post_image($post_id = null) {
         $post_id = $post->ID;
     }
 
-    $post_image = false;
+    $post_image = FALLBACK_IMAGE;
 
     if (has_post_thumbnail($post_id)) {
         $post_image = get_post_thumbnail_url($post_id, 'large'); 
-    } else if (content_has_image($post_id)) {
+    } else if (has_post_image($post_id)) {
         $post_image = content_first_image($post_id);
     }
 
@@ -138,15 +141,15 @@ function get_post_image($post_id = null) {
  * @param  int    $post_id
  */
 
-function post_image_background($post_id = null) {
-    if (is_null($post_id)) {
-        global $post;
-        $post_id = $post->ID;
+function post_image_background($post_id = null, $echo = false) {
+    $image = 'style="background-image: url(' . get_post_image($post_id) . ');"';
+
+    if ($echo) {
+        printf($image);
+        return;
     }
 
-    if (content_has_image($post_id)) {
-        printf('style="background-image: url(%s);"', get_post_image($post_id));
-    }
+    return $image;
 }
 
 ?>
