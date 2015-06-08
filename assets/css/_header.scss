@@ -45,6 +45,8 @@
  */
 
 #header-title {
+    // Tightens
+    line-height: 90%;
     @include margin(0);
 
     a {
@@ -85,12 +87,14 @@
 
 #header-social {
     ul {
+        font-size: 0;
         margin: 0;
         list-style-type: none;
     }
 
-    li, a {
-        // WordPress requires menu links to have a text label.
+    ul, li, a {
+        /* WordPress requires menu links to have a text label.
+         * Also fixes problem with iOS. */
         font-size: 0 !important;
     }
 
@@ -98,11 +102,12 @@
         border-radius: 50%;
         overflow: hidden;
         transition: background-color .2s ease-in;
+        @include margin(0 0.5);
     }
 
-    @include generate-social-link(li, 35px 1) {
+    @include generate-social-link(li, 45px 1) {
         display: inline-block;
-        
+
         &:not(:hover) {
             background-color: transparent;
         }
