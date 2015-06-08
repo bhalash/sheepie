@@ -41,7 +41,7 @@ define('THEME_ROOT', get_template_directory_uri());
  */
 
 define('THEME_INCLUDES', get_template_directory() . '/includes/');
-define('THEME_PARTIALS', '/partials');
+define('THEME_PARTIALS', '/partials/');
 define('THEME_ARTICLES', THEME_PARTIALS . '/articles/article');
 define('THEME_ARCHIVES', THEME_PARTIALS . '/archives/archive');
 define('THEME_PAGES', THEME_PARTIALS . '/pages/');
