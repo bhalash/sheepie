@@ -29,13 +29,14 @@
 ?>
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
+    <?php get_template_part(THEME_ARTICLES . 'header', 'full'); ?>
 
-    <?php get_template_part(THEME_ARTICLES . 'header', 'full');
-    the_content(__('Read the rest of this post &raquo;', TTD));
+    <main>
+        <?php the_content(__('Read the rest of this post &raquo;', TTD)); ?>
+    </main>
 
-    if (is_single()) {
+    <?php if (is_single()) {
         get_template_part(THEME_PARTIALS . '/pagination');
         get_template_part(THEME_ARTICLES . 'footer', 'full');
     } ?>
-
 </article>
