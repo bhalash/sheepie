@@ -42,7 +42,8 @@ define('THEME_ROOT', get_template_directory_uri());
 
 define('THEME_INCLUDES', get_template_directory() . '/includes/');
 define('THEME_PARTIALS', '/partials');
-define('THEME_ARTICLES', THEME_PARTIALS . '/articles/');
+define('THEME_ARTICLES', THEME_PARTIALS . '/articles/article');
+define('THEME_ARCHIVES', THEME_PARTIALS . '/archives/archive');
 define('THEME_PAGES', THEME_PARTIALS . '/pages/');
 
 /**
@@ -274,7 +275,7 @@ function timed_archives_count() {
         ), OBJECT_K);
 
         foreach ($month as $m) {
-            $counts[$i][get_month_from_number($m->post_month)] = $m->post_count;
+            $counts[$i][$m->post_month] = $m->post_count;
         }
     }
 
@@ -313,7 +314,7 @@ function get_header_class($post_id = null) {
         $post_id = $post->ID;
     }
 
-    return (has_post_thumbnail($post_id) || content_has_image($post_id)) ? 'has-image' : 'no-image';
+    return (has_post_thumbnail($post_id) || has_post_image($post_id)) ? 'has-image' : 'no-image';
 }
 
 /**
