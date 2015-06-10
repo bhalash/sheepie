@@ -70,7 +70,7 @@ function twitter_card_tags() {
         'twitter:site' => $social_fallback['twitter'],
         'twitter:title' => get_the_title(),
         'twitter:description' => (is_single()) ? get_the_excerpt() : $social_fallback['description'],
-        'twitter:image:src' => content_first_image($post->ID),
+        'twitter:image:src' => get_post_image($post->ID),
         'twitter:url' => get_site_url() . $_SERVER['REQUEST_URI'],
     );
 
@@ -96,14 +96,14 @@ function open_graph_tags() {
         'og:site_name' => get_bloginfo('name'),
         'og:url' => get_site_url() . $_SERVER['REQUEST_URI'],
         'og:description' => (is_single()) ? get_the_excerpt() : $social_fallback['description'],
-        'og:image' => content_first_image($post->ID),
+        'og:image' => get_post_image($post->ID),
         'og:type' => (is_single()) ? 'article' : 'website',
         'og:locale' => get_locale(),
     );
 
     if (is_single()) {
         // If single post, add category and tag information.
-        $category = get_the_category($post->ID);
+        $category = get_the_category($post->ID)[0]->cat_name;
 
         $tags = get_the_tags();
         $taglist = array();
@@ -119,7 +119,7 @@ function open_graph_tags() {
         }
 
         $article_meta = array(
-            'article:section' => $category[0]->cat_name,
+            'article:section' => $category,
             'article:tag' => implode('', $taglist),
             'article:publisher' => $social_fallback['publisher'],
         );
