@@ -24,7 +24,7 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
- .yearly-archive {
+ .archive {
     @include flex-parent(row, space-between, wrap); 
 
     @include media($b-768) {
@@ -32,7 +32,7 @@
     }
 }
 
-.yearly-archive-card {
+.archive-card {
     @include margin(2, top);
     @include flex-child(0 1 49%);
 

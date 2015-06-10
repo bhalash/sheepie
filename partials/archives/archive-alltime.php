@@ -29,7 +29,7 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-printf('<div class="yearly-archive">');
+printf('<div class="archive">');
 $timed_archive_counts = timed_archives_count();
 
 foreach ($timed_archive_counts as $year => $months) {
@@ -46,7 +46,7 @@ foreach ($timed_archive_counts as $year => $months) {
         }
     }
 
-    printf('<div class="yearly-archive-card" id="archive-card-%s">', $year);
+    printf('<div class="archive-card" id="archive-card-%s">', $year);
     printf('<h2 %s><a title="%s" href="%s">%s</a></h2>', post_image_background($first_id, false), __('Archives for the year ', TTD) . $year, get_year_link($year), $year);
     printf('<ul>');
 
