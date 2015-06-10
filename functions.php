@@ -90,7 +90,7 @@ $prefetch_domains = array(
 );
 
 // Path to favicon.
-$favicon_pth = THEME_IMAGES . 'favicon.png';
+$favicon_path = THEME_IMAGES . 'favicon.png';
 
 /**
  * Enqueue Styles and Scripts
