@@ -49,6 +49,10 @@ if (!isset($social_fallback)) {
  */
 
 function social_meta() {
+    if (is_admin()) {
+        return;
+    }
+
     open_graph_tags();
     twitter_card_tags();
 }
