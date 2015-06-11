@@ -80,14 +80,6 @@ define('THEME_IMAGES', ASSETS_URL . 'images/');
 define('THEME_CSS', ASSETS_URL . 'css/');
 
 /**
- * Template Default/Fallback Image
- * -----------------------------------------------------------------------------
- */
-
-define('FALLBACK_IMAGE_URL', THEME_IMAGES . 'fallback.jpg');
-define('FALLBACK_IMAGE_PATH', ASSETS_PATH . 'images/fallback.jpg');
-
-/**
  * Theme Text Domain
  * -----------------------------------------------------------------------------
  */
@@ -99,9 +91,9 @@ define('TTD', 'sheepie');
  * -----------------------------------------------------------------------------
  */
 
+include(THEME_INCLUDES . 'article-images/article-images.php');
 include(THEME_INCLUDES . 'reading-times.php');
 include(THEME_INCLUDES . 'social-meta.php');
-include(THEME_INCLUDES . 'article-images.php');
 
 /**
  * Other Variables
@@ -718,12 +710,30 @@ add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
 // Clean search URL rewrite.
 add_action('template_redirect', 'clean_search_url');
+
+
+/**
+  * Filters 
+  * ----------------------------------------------------------------------------
+  */
+
 // Wordpress repeatedly inserted emoticons. No more, ever.
 remove_filter('the_content', 'convert_smilies');
 remove_filter('the_excerpt', 'convert_smilies');
+
+/**
+ * Theme Support
+ * -----------------------------------------------------------------------------
+ */
+
 // HTML5 support in theme.
 current_theme_supports('html5');
 current_theme_supports('menus');
-add_theme_support('html5', array('search-form'));        
+
+add_theme_support('post-thumbnails');
+
+add_theme_support('html5', array(
+    'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
+));        
 
 ?>
