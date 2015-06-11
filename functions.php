@@ -33,35 +33,59 @@ define('THEME_VERSION', 2.0);
  * -----------------------------------------------------------------------------
  */
 
-define('THEME_ROOT', get_template_directory_uri());
-
-/**
- * Theme Includes and Partials Paths
- * -----------------------------------------------------------------------------
- */
-
-define('THEME_INCLUDES', get_template_directory() . '/includes/');
-define('THEME_PARTIALS', '/partials/');
-define('THEME_ARTICLES', THEME_PARTIALS . '/articles/article');
-define('THEME_ARCHIVES', THEME_PARTIALS . '/archives/archive');
-define('THEME_PAGES', THEME_PARTIALS . '/pages/');
+define('THEME_PATH', get_template_directory());
+define('THEME_URL', get_template_directory_uri());
 
 /**
  * Theme Asset Paths
  * -----------------------------------------------------------------------------
  */
 
-define('THEME_ASSETS', THEME_ROOT . '/assets/');
-define('THEME_JS', THEME_ASSETS . 'js/');
-define('THEME_IMAGES', THEME_ASSETS . 'images/');
-define('THEME_CSS', THEME_ASSETS . 'css/');
+define('ASSETS_PATH', THEME_PATH . '/assets/');
+define('ASSETS_URL', THEME_URL . '/assets/');
+
+/**
+ * Theme Includes and Partials Paths
+ * -----------------------------------------------------------------------------
+ * File paths are inconsistent between get_template_part() and include() or
+ * require(). 
+ * 
+ * 1. With include(), / is the ultimate root on the filesystem, as provided by 
+ *    get_template_directory();
+ * 2. With get_template_parth(), / is the WordPress theme folder. 
+ * 
+ * Included files are entire standalone scripts, and partials are partials 
+ * templates.
+ */
+
+define('THEME_INCLUDES',  THEME_PATH . '/includes/');
+define('THEME_PARTIALS',  '/partials/');
+
+/**
+ * Theme Partial Templates
+ * -----------------------------------------------------------------------------
+ */
+
+define('PARTIAL_ARTICLES', THEME_PARTIALS . 'articles/article');
+define('PARTIAL_ARCHIVES', THEME_PARTIALS . 'archives/archive');
+define('PARTIAL_PAGES',    THEME_PARTIALS . 'pages/');
+
+/**
+ * Image, CSS and JavaScript Assets
+ * -----------------------------------------------------------------------------
+ */
+
+define('THEME_JS', ASSETS_URL . 'js/');
+define('THEME_IMAGES', ASSETS_URL . 'images/');
+define('THEME_CSS', ASSETS_URL . 'css/');
 
 /**
  * Template Default/Fallback Image
  * -----------------------------------------------------------------------------
  */
 
-define('FALLBACK_IMAGE', THEME_IMAGES . 'fallback.jpg');
+define('FALLBACK_IMAGE_URL', THEME_IMAGES . 'fallback.jpg');
+define('FALLBACK_IMAGE_PATH', ASSETS_PATH . 'images/fallback.jpg');
 
 /**
  * Theme Text Domain
@@ -117,7 +141,7 @@ $theme_styles = array(
     // Compressed, compiled theme CSS.
     'main-style' => THEME_CSS . 'main.css',
     // WordPress style.css. Not really used.
-    'wordpress-style' => THEME_ROOT . '/style.css',
+    'wordpress-style' => THEME_URL . '/style.css',
 );
 
 /**
@@ -128,7 +152,7 @@ $theme_styles = array(
 $social_fallback = array(
     // Social fallback is called in cases where the post is missing n info.
     'publisher' => 'http://www.bhalash.com',
-    'image' => FALLBACK_IMAGE,
+    'image' => FALLBACK_IMAGE_URL,
     'description' => get_bloginfo('description'),
     'twitter' => '@bhalash'
 );

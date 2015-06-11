@@ -31,10 +31,10 @@ get_header();
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part(THEME_ARTICLES, 'full');
+        get_template_part(PARTIAL_ARTICLES, 'full');
     }
 } else {
-    get_template_part(THEME_ARTICLES, 'missing');
+    get_template_part(PARTIAL_ARTICLES, 'missing');
 }
 
 get_footer(); ?>

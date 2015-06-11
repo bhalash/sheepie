@@ -118,18 +118,18 @@ function has_post_image($post_id = null) {
  * @return string   $header_thumb         Thumbnail image, if it exists.
  */
 
-function get_post_image($post_id = null) {
+function get_post_image($post_id = null, $fallback_image = FALLBACK_IMAGE_URL) {
     if (is_null($post_id)) {
         global $post;
         $post_id = $post->ID;
     }
 
-    $post_image = FALLBACK_IMAGE;
-
     if (has_post_thumbnail($post_id)) {
         $post_image = get_post_thumbnail_url($post_id, 'large'); 
     } else if (has_post_image($post_id)) {
         $post_image = content_first_image($post_id);
+    } else {
+        $post_image = $fallback_image;
     }
 
     return $post_image;

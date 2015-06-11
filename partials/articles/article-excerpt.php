@@ -29,11 +29,11 @@
 ?>
 
 <article <?php post_class('excerpt'); ?> id="article-<?php the_ID(); ?>">
-    <?php get_template_part(THEME_ARTICLES . 'header', 'full'); ?>
+    <?php get_template_part(THEME_PARTIALS . 'header', 'full'); ?>
 
     <main>
         <p><?php custom_excerpt(); ?> <a href="<?php the_permalink(); ?>">...</a></p>
     </main>
 
-    <?php get_template_part(THEME_ARTICLES . 'footer', 'excerpt'); ?>
+    <?php get_template_part(THEME_PARTIALS . 'footer', 'excerpt'); ?>
 </article>
