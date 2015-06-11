@@ -47,7 +47,7 @@ foreach ($timed_archive_counts as $year => $months) {
     }
 
     printf('<div class="archive-card" id="archive-card-%s">', $year);
-    printf('<h2 %s><a title="%s" href="%s">%s</a></h2>', post_image_background($first_id, false), __('Archives for the year ', TTD) . $year, get_year_link($year), $year);
+    printf('<h2 %s><a title="%s" href="%s">%s</a></h2>', post_image_css($first_id, false), __('Archives for the year ', TTD) . $year, get_year_link($year), $year);
     printf('<ul>');
 
     foreach ($months as $month => $count) {

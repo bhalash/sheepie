@@ -42,7 +42,7 @@
 </head>
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
-        <div class="<?php header_class($post->ID); ?>" id="header" <?php post_image_background($post->ID, true); ?>>
+        <div class="<?php header_class($post->ID); ?>" id="header" <?php post_image_css($post->ID, true); ?>>
             <?php // 1. Output a pretty background image, if it exists. ?>
             <h2 id="header-title">
                 <a title="<?php bloginfo('name'); ?>" href="<?php printf(home_url()); ?>"><?php bloginfo('name'); ?></a>
