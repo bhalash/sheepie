@@ -119,7 +119,6 @@ $google_fonts = array(
 );
 
 $theme_javascript = array(
-    'browser-detect' => THEME_JS . 'browser_detect.min.js',
     /* ¡Important! highlight.js /must/ be loaded before functions.js or it will
      * not initialize correctly! The initializing function is called at the top
      * functions.js */ 
@@ -375,6 +374,36 @@ function get_page_title($post_id = null) {
 
 function page_title($post_id = null) {
     printf(get_page_title($post_id));
+}
+
+/**
+ * Blog Title
+ * -----------------------------------------------------------------------------
+ * Stolen from Twenty Twelve. 
+ * 
+ * @param   string      $title          Title of whatever.
+ * @param   string      $sep            Title separator.
+ */
+
+function sheepie_title($title, $sep) {
+    global $paged, $page;
+
+    if (is_feed()) {
+        return $title;
+    }
+
+    $title .= get_bloginfo('name');
+    $site_description = get_bloginfo('description', 'display');
+
+    if ($site_description && (is_home() || is_front_page())) {
+        $title = "$title $sep $site_description";
+    }
+
+    if ($paged >= 2 || $page >= 2) {
+        $title = "$title $sep " . sprintf( __( 'Page %s', TTD), max( $paged, $page ) );
+    }
+
+    return $title;
 }
 
 /**
@@ -684,19 +713,24 @@ if (!isset($content_width)) {
 
 add_action('init', 'theme_navigation');
 add_action('widgets_init', 'theme_widgets');
+
 // Enqueue all scripts and stylesheets.
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
+
 // Set site favicon.
 add_action('wp_head', 'set_favicon');
+
 // Set prefetch domain for media.
 add_action('wp_head', 'dns_prefetch');
+
 // Wrap comment form fields in <div></div> tags.
 add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
+
 // Clean search URL rewrite.
 add_action('template_redirect', 'clean_search_url');
-
+remove_action('wp_head', 'wp_generator');
 
 /**
   * Filters 
@@ -706,6 +740,11 @@ add_action('template_redirect', 'clean_search_url');
 // Wordpress repeatedly inserted emoticons. No more, ever.
 remove_filter('the_content', 'convert_smilies');
 remove_filter('the_excerpt', 'convert_smilies');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+
+// Title function.
+add_filter('wp_title', 'sheepie_title', 10, 2);
 
 /**
  * Theme Support
