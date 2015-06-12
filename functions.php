@@ -91,9 +91,8 @@ define('TTD', 'sheepie');
  * -----------------------------------------------------------------------------
  */
 
-include(THEME_INCLUDES . 'article-images/article-images.php');
+include(THEME_INCLUDES . 'social-meta/social-meta.php');
 include(THEME_INCLUDES . 'reading-times.php');
-include(THEME_INCLUDES . 'social-meta.php');
 
 /**
  * Other Variables
