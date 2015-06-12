@@ -1,3 +1,6 @@
 [submodule "assets/css/scss-helpers"]
 	path = assets/css/scss-helpers
 	url = https://github.com/bhalash/scss-helpers
+[submodule "includes/social-meta"]
+	path = includes/social-meta
+	url = https://github.com/bhalash/social-meta
