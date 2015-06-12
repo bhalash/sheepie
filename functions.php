@@ -137,19 +137,6 @@ $theme_styles = array(
 );
 
 /**
- * Social Meta Defaults
- * -----------------------------------------------------------------------------
- */
-
-$social_fallback = array(
-    // Social fallback is called in cases where the post is missing n info.
-    'publisher' => 'http://www.bhalash.com',
-    'image' => FALLBACK_IMAGE_URL,
-    'description' => get_bloginfo('description'),
-    'twitter' => '@bhalash'
-);
-
-/**
  * Parse Google Fonts from Array
  * -----------------------------------------------------------------------------
  * @param   array   $fonts          Array of fonts to be used.
