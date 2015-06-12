@@ -37,7 +37,7 @@ get_header();
  */
 
 printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
-get_template_part(THEME_ARCHIVES, 'alltime');
+get_template_part(PARTIAL_ARCHIVES, 'alltime');
 printf('<hr>');
 
 /**
