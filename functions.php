@@ -159,15 +159,15 @@ function google_font_url($fonts) {
 /** 
  * Load Theme JavaScript
  * -----------------------------------------------------------------------------
- * Load all theme JavaScript.
+ * Load all theme JavaScript. It will jQuery into the footer instead of the header.
+ * 
+ * @link    http://biostall.com/how-to-load-jquery-in-the-footer-of-a-wordpress-website 
  */
 
 function load_theme_scripts() {
     global $theme_javascript;
 
     if (!is_admin()) {
-        /* Load jQuery into the footer instead of the header.
-         * See: http://biostall.com/how-to-load-jquery-in-the-footer-of-a-wordpress-website */
         wp_deregister_script('jquery');
         wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1', true);
         wp_enqueue_script('jquery');
@@ -207,11 +207,10 @@ function load_theme_styles() {
  * -----------------------------------------------------------------------------
  * Return the age of the blog in $format. Defaults to days.
  * 
- * See: https://php.net/manual/en/datetime.diff.php
- * See: https://php.net/manual/en/class.dateinterval.php 
- * 
  * @param   string      $format         DateInterval format.
- * @param   string      $blog_age       Age of the blog in $format.
+ * @return  string      $blog_age       Age of the blog in $format.
+ * @link    https://php.net/manual/en/datetime.diff.php
+ * @link    https://php.net/manual/en/class.dateinterval.php 
  */
 
 function blog_age($format = '%a') {
@@ -230,10 +229,9 @@ function blog_age($format = '%a') {
 /**
  * Convert Number to Month
  * -----------------------------------------------------------------------------
- * See: https://stackoverflow.com/questions/18467669/convert-number-to-month-name-in-php
- * 
- * @param  int          $number             The month of the year as a number.
- * @param  string                           The month as a word.
+ * @param   int          $number             The month of the year as a number.
+ * @return  string                           The month as a word.
+ * @link    https://stackoverflow.com/questions/18467669/convert-number-to-month-name-in-php
  */
 
 function get_month_from_number($number) {
@@ -247,10 +245,9 @@ function get_month_from_number($number) {
  * given options key. Generating this can be resource intensive, so it makes 
  * sense to store this as a variable.
  * 
- * See: https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
- * 
  * @param   string      $option_name        Options key for the post count.
  * @return  array       $counts             Returned counts for the 
+ * @link    https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
  */
 
 function timed_archives_count() {
@@ -290,10 +287,9 @@ function timed_archives_count() {
  * given options key. Generating this can be resource intensive, so it makes 
  * sense to store this as a variable.
  * 
- * See: https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
- * 
  * @param   string      $option_name        Options key for the post count.
  * @return  array       $counts             Returned counts for the 
+ * @link    https://wordpress.stackexchange.com/questions/60859/post-count-per-day-month-year-since-blog-began
  */
 
 function category_archives_count() {
@@ -383,6 +379,7 @@ function page_title($post_id = null) {
  * 
  * @param   string      $title          Title of whatever.
  * @param   string      $sep            Title separator.
+ * @return  string      $title          Modded title.
  */
 
 function sheepie_title($title, $sep) {
@@ -501,7 +498,7 @@ function set_favicon() {
  * @param   int     $size           Avatar size.
  * @param   string  $default        URL for fallback avatar.
  * @param   string  $alt            Alt text for image.
- * @param   string                  The avatar's URL.
+ * @return  string                  The avatar's URL.
  */
 
 function get_avatar_url_only($id_or_email, $size, $default, $alt) {
@@ -533,7 +530,8 @@ function search_results_count($page_num, $total_results) {
  * Rewrite Search URL Cleanly
  * -----------------------------------------------------------------------------
  * Cleanly rewrite search URL from ?s=topic to /search/topic
- * See: http://wpengineer.com/2258/change-the-search-url-of-wordpress/
+ *
+ * @link    http://wpengineer.com/2258/change-the-search-url-of-wordpress/
  */
 
 function clean_search_url() {
@@ -691,7 +689,7 @@ function rmwb_comments($comment, $args, $depth) {
 /**
  * Wrap Comment Fields in Elements
  * -----------------------------------------------------------------------------
- * See: http://goo.gl/m9kv1z
+ * @link    https://wordpress.stackexchange.com/questions/172052/how-to-wrap-comment-form-fields-in-one-div
  */
 
 function wrap_comment_fields_before() {
