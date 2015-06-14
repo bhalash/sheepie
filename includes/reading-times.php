@@ -140,10 +140,10 @@ function reading_time_in_words($reading_time) {
  * Reading Time Wrapper
  * -----------------------------------------------------------------------------
  * Take in post and return its reading time in minutes as a phrase.
- * See http://www.bhalash.com/archives/13544802870
  *
  * @param   int     $post_id 
- * @param   string  $time_phrase    Reading time as a phrase/words.
+ * @return  string  $time_phrase    Reading time as a phrase/words.
+ * @link    http://www.bhalash.com/archives/13544802870
  */
 
 function rmwb_reading_time($post_id = null) {
