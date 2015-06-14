@@ -42,7 +42,7 @@ article {
         @include margin(2, bottom);
     }
 
-    blockquote > *:not(:last-child) {
+    blockquote > *:not(:last-child), li > * {
         @include margin(1, bottom);
     }
     
