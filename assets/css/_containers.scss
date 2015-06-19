@@ -68,7 +68,7 @@ $header-min-height: 40vh;
 
     &.has-image:after {
         // Gradient to overlay non-default image. 
-        background: linear-gradient(to bottom, palette(black, mid-dark) 0%, palette(black, light) 100%);
+        background: linear-gradient(to bottom, rgba(palette(black, light), 0.5) 0%, rgba(palette(black, x-dark), 0.7) 100%);
         content: ' ';
         @include absolute(0);
     }
