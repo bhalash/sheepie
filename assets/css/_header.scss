@@ -106,8 +106,6 @@
     }
 
     @include generate-social-link(li, 45px 1) {
-        display: inline-block;
-
         &:not(:hover) {
             background-color: transparent;
         }
