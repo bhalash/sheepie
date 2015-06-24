@@ -1,6 +1,8 @@
 [submodule "includes/social-meta"]
 	path = includes/social-meta
 	url = git@github.com:bhalash/social-meta.git
+    branch = master
 [submodule "assets/css/scss-helpers"]
 	path = assets/css/scss-helpers
 	url = git@github.com:bhalash/scss-helpers.git
+    branch = master
