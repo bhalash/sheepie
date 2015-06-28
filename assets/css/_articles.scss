@@ -151,10 +151,6 @@ div.article-photobox {
 
     a {
         @include padding(1, bottom);
-
-        @include media(smartphone) {
-            padding: 0;
-        }
     }
 
     img {
