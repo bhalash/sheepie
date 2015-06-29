@@ -181,9 +181,9 @@ div.article-photobox {
         height: initial;
         max-width: 90%;
         max-height: 90%;
+        transform: translate(-50%, -50%);
         width: initial;
         @include fixed(50% 50%, left top);
-        @include prefix(transform, translate(-50%, -50%));
     }
 }
 
@@ -194,10 +194,10 @@ div.article-photobox {
 
 div.avatar-wrapper {
     @include margin(1, right);
-    @include prefix(flex, 0 1 $avatar-big);
+    flex: 0 1 $avatar-big;
 
     @include media(smartphone) {
-        @include prefix(flex, 0 1 $avatar-small);
+        flex: 0 1 $avatar-small;
     }
 
     img {

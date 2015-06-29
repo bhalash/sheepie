@@ -100,7 +100,7 @@ body[class^=error] #header {
     @include flex-parent(row-reverse);
 
     @include media($b-960) {
-        @include prefix(flex-direction, column);
+        flex-direction: column;
     }
 
     #content {

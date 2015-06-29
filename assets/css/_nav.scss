@@ -90,5 +90,5 @@ nav#pagination {
 }
 
 .nav-box-shadow {
-    @include prefix(box-shadow, 0px -5px 39px -17px rgba(0,0,0,0.95));
+    box-shadow: 0px -5px 39px -17px rgba(0,0,0,0.95);
 }

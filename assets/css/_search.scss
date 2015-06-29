@@ -70,9 +70,9 @@ a#search-close {
     display: block;
     width: 75%;
     text-align: center;
+    transform: translate(-50%, -50%);
     @include font-size(4);
     @include absolute(50% 50%, top left);
-    @include prefix(transform, translate(-50%, -50%));
 
     @include media(smartphone) {
         width: 90%;
