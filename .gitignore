@@ -11,6 +11,11 @@ sass/.sass-cache/
 *.css
 *.css.map
 
+#################
+## Node.js Packages
+#################
+
+node_modules/
 
 #################
 ## jQuery Library
