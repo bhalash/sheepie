@@ -173,7 +173,7 @@ div.default-background, div.no-image {
  */
 
 body:not(.single) #content {
-    @include padding(5 5, top bottom);
+    @include padding(5 0);
 }
 
 /**
