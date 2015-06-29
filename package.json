@@ -1,0 +1,34 @@
+{
+  "name": "sheepie",
+  "version": "0.0.1",
+  "description": "Packages necessary to transpile, prefix and compress the theme's Sass.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "gulp-autoprefixer": "~2.3.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-ruby-sass": "~1.0.5",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-watch": "~4.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bhalash/sheepie.git"
+  },
+  "keywords": [
+    "wordpress",
+    "css",
+    "html5",
+    "sass",
+    "scss"
+  ],
+  "author": "Mark Grealish",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/bhalash/sheepie/issues"
+  }
+}
