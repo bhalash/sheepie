@@ -64,6 +64,12 @@ $header-min-height: 40vh;
          @include prefix(backface-visibility, hidden, webkit);
         // Child content must be raised owing to the background gradient.
         z-index: 2;
+
+        @media screen\0 {
+            /* Required for IE10 to respect z-index.
+             * @link http://stackoverflow.com/a/23344797/1433400 */
+            position: relative;
+        }
     }
 
     &.has-image:after {
