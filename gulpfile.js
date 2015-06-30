@@ -39,6 +39,14 @@ var paths = {
     output: assets
 };
 
+var prefixes = [
+    'last 1 version', 
+    '> 1%',
+    'ie 10',
+    'ie 9',
+    'ie 8'
+];
+
 gulp.task('css', function() {
     sass(paths.input, {
             sourcemap: true,
@@ -47,7 +55,7 @@ gulp.task('css', function() {
         .on('error', function(err) {
             console.log(err.message);
         })
-        .pipe(prefix('last 1 version', '> 1%', 'ie 10', 'ie 9', 'ie 8'))
+        .pipe(prefix(prefixes))
         .pipe(sourcemap.write())
         .pipe(gulp.dest(paths.output));
 });
