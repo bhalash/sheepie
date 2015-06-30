@@ -66,7 +66,7 @@
 
 #header-description {
     box-sizing: border-box;
-    @include margin(2 0);
+    @include margin(2 0 1);
     @include padding(0 2);
 
     span {
@@ -103,9 +103,8 @@
         overflow: hidden;
         transition: background-color .2s ease-in;
         @include margin(0 0.5);
-    }
+        @include social-link(45px 1);
 
-    @include generate-social-link(li, 45px 1) {
         &:not(:hover) {
             background-color: transparent;
         }
