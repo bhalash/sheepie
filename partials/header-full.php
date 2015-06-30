@@ -29,7 +29,7 @@
 ?>
 
 <header>
-    <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf('%s %s', _e('Permanent link to', TTD), the_title_attribute()); ?>"><?php the_title(); ?></a></h3>
+    <h3 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf('%s %s', _e('Permanent link to ', TTD), the_title_attribute()); ?>"><?php the_title(); ?></a></h3>
     <?php if (!is_page()) : ?>
         <small>
             <time datetime="<?php the_time('Y-m-d H:i'); ?>">
