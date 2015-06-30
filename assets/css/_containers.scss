@@ -65,7 +65,7 @@ $header-min-height: 40vh;
         // Child content must be raised owing to the background gradient.
         z-index: 2;
 
-        @media screen\0 {
+        @include media(ie) {
             /* Required for IE10 to respect z-index.
              * @link http://stackoverflow.com/a/23344797/1433400 */
             position: relative;
@@ -123,6 +123,8 @@ body[class^=error] #header {
     }
  
     #header {
+        // Required for Android Browser.
+        -webkit-transform:translateZ(0);
         @include fixed(0 $sides-66 0 0);
 
         @include media($b-960) {
