@@ -120,9 +120,19 @@ footer {
 %article-child {
     @include flex-parent(row, flex-start, wrap);
 
+    @media screen\0 {
+        // Fallback for IE8, IE9 and IE10.
+        @include clearfix();
+    }
+
     > * {
         box-sizing: border-box;
         @include flex-child(0 1 32%);
+
+        @media screen\0 {
+            float: left;
+            width: 32%;
+        }
 
         &:not(:nth-child(3n+0)):not(:last-child) {
             // Add margin to every not-third or last item.
