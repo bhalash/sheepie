@@ -1,6 +1,6 @@
 {
   "name": "sheepie",
-  "version": "1",
+  "version": "1.0.0",
   "description": "Packages necessary to transpile, prefix and compress Sheepie's Sass.",
   "main": "gulpfile.js",
   "dependencies": {
