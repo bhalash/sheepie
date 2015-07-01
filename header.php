@@ -39,29 +39,31 @@
     <title><?php wp_title('-', true, 'right'); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
+    <!--[if lte IE 9]>
+        <script src="<?php printf('%s%s', THEME_URL, '/bower_components/html5shiv/dist/html5shiv.js'); ?>"></script>
+    <![endif]-->
 </head>
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
         <div class="<?php header_class($post->ID); ?>" id="header" <?php post_image_css($post->ID, true); ?>>
             <?php // 1. Output a pretty background image, if it exists. ?>
-            <h2 id="header-title">
-                <a title="<?php bloginfo('name'); ?>" href="<?php printf(home_url()); ?>"><?php bloginfo('name'); ?></a>
-            </h2>
+            <div id="header-content">
+                <h2 id="header-title">
+                    <a title="<?php bloginfo('name'); ?>" href="<?php printf(home_url()); ?>"><?php bloginfo('name'); ?></a>
+                </h2>
 
-            <p id="header-description">
-                <?php // 2. Either site information or post meta content. ?>
-                <span>
-                    <?php bloginfo('description'); ?>
-                </span>
-            </p>
+                <p id="header-description">
+                    <?php // 2. Either site information or post meta content. ?>
+                    <span>
+                        <?php bloginfo('description'); ?>
+                    </span>
+                </p>
 
-            <div id="header-social">
-                <?php // 3. Social navigation menu. ?>
-                <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
+                <div id="header-social">
+                    <?php // 3. Social navigation menu. ?>
+                    <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
+                </div>
             </div>
-
-            <?php // Modal search open. ?>
-            <?php //<a href="#search" id="search-open"></a> ??>
         </div>
         <div id="content">
             <?php // Initial modal search form. ?>
