@@ -58,7 +58,7 @@ $header-min-height: 40vh;
     @include padding(2);
     @include flex-parent(column, center);
 
-    > * {
+    #header-content {
         /* Specific workaround for Mobile Safari: without this #interior content
          * will scroll behind the header. */
          @include prefix(backface-visibility, hidden, webkit);
@@ -69,6 +69,11 @@ $header-min-height: 40vh;
             /* Required for IE10 to respect z-index.
              * @link http://stackoverflow.com/a/23344797/1433400 */
             position: relative;
+        }
+
+        @include media(ie 9) {
+            @include absolute(50% 50%, top left);
+            transform: translate(-50%, -50%);
         }
     }
 
@@ -109,6 +114,10 @@ body[class^=error] #header {
         flex-direction: column;
     }
 
+    @include media(ie 9) {
+        @include clearfix();
+    }
+
     #content {
         /* ¡Important! Mozilla Firefox applies an invisible min-width to the 
          * element. I guess it is a bug? While in flex-row layout, the column
@@ -117,7 +126,15 @@ body[class^=error] #header {
         min-width: 0;
         @include flex-child(0 1 $sides-66);
 
+        @include media(ie 9) {
+            float: right;
+            width: $sides-66;
+        }
+
         @include media($b-960) {
+            // For Internet Explorer 9.
+            float: none;
+            width: 100%;
             @include flex-child(1);
         }
     }
