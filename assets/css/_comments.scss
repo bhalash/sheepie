@@ -50,7 +50,7 @@
  */
 
 %input-border {
-    border: 1px solid palette(black, x-light);
+    border: 1px solid palette(white, mid-dark);
     box-sizing: border-box;
 
     &:focus {
@@ -163,6 +163,10 @@ li.comment .comment-interior {
         @extend small;
     }
 
+    p {
+        @include margin(1, bottom);
+    }
+
     textarea {
         @include height(20);
     }
@@ -184,12 +188,28 @@ li.comment .comment-interior {
         @include flex-parent(column, flex-start);
     }
 
+    @include media(ie 9) {
+        @include clearfix();
+    }
+
     input {
         @include flex-child(0 1 32%);
+
+        @include media(ie 9) {
+            float: left;
+            width: 32%;
+            
+            &:not(:last-child) {
+                margin-right: 2%;
+            }
+        }
 
         @include media($b-640) {
             @include margin(1, bottom);
             @include flex-child(1);
+
+            float: none;
+            width: 100%;
         }
     }
 }
