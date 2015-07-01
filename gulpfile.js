@@ -47,7 +47,7 @@ var prefixes = [
     'ie 8'
 ];
 
-gulp.task('css', function() {
+gulp.task('default', function() {
     sass(paths.input, {
             sourcemap: true,
             style: 'compressed'
@@ -60,4 +60,4 @@ gulp.task('css', function() {
         .pipe(gulp.dest(paths.output));
 });
 
-gulp.watch(paths.sass, ['css']);
+gulp.watch(paths.sass, ['default']);
