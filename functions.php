@@ -124,7 +124,7 @@ $theme_javascript = array(
      * functions.js */ 
     'highlight-js' => THEME_JS . 'highlight.js',
     'google-analytics' => THEME_JS . 'analytics.js',
-    'functions' => THEME_JS . 'functions.min.js'
+    'functions' => THEME_JS . 'functions.js'
 );
 
 $theme_styles = array(
@@ -174,9 +174,10 @@ function load_theme_scripts() {
     }
 
     foreach ($theme_javascript as $name => $script) {
-        if (WP_DEBUG) {
-            // Load unminified versions while debugging.
-            $script = str_replace('.min', '', $script);
+        if (!WP_DEBUG) {
+            // Instead load minified version if you aren't debugging.
+            $script = str_replace(THEME_JS, THEME_JS . 'min/', $script);
+            $script = str_replace('.js', '.min.js', $script);
         }
 
         wp_enqueue_script($name, $script, array('jquery'), THEME_VERSION, true);
@@ -716,9 +717,10 @@ add_action('widgets_init', 'theme_widgets');
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
 
+// Fallback HTML5 shim for IE9.
+
 // Set site favicon.
 add_action('wp_head', 'set_favicon');
-
 // Set prefetch domain for media.
 add_action('wp_head', 'dns_prefetch');
 
