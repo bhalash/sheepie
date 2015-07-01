@@ -205,6 +205,11 @@ div.avatar-wrapper {
     @include margin(1, right);
     flex: 0 1 $avatar-big;
 
+    @include media(ie 9) {
+        float: left;
+        width: calc(100% - $avatar-big);
+    }
+
     @include media(smartphone) {
         flex: 0 1 $avatar-small;
     }
@@ -232,6 +237,10 @@ article.full {
     footer {
         @include flex-parent(row);
         @include margin(2, top);
+
+        @include media(ie 9) {
+            @include clearfix();
+        }
     }
 
     .author-info {
