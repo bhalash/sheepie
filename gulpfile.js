@@ -30,13 +30,28 @@ var gulp        = require('gulp');
 var sass        = require('gulp-ruby-sass');
 var sourcemap   = require('gulp-sourcemaps');
 var prefix      = require('gulp-autoprefixer');
+var uglify      = require('gulp-uglify');
+var rename      = require('gulp-rename');
 
-var assets = './assets/css/';
+var assets = {
+    folder: './assets/',
+    js: './assets/js/',
+    css: './assets/css/'
+};
 
 var paths = {
-    sass:   assets + '*.scss',
-    input:  assets + 'main.scss',
-    output: assets
+    css: {
+        folder: assets.css,
+        batch: assets.css + '*.scss',
+        main: assets.css + 'main.scss',
+        out: assets.css
+    },
+    js: {
+        folder: assets.js,
+        batch: assets.js + '*.js',
+        main: assets.js + 'main.js',
+        out: assets.js + '/min/'
+    }
 };
 
 var prefixes = [
@@ -48,7 +63,8 @@ var prefixes = [
 ];
 
 gulp.task('default', function() {
-    sass(paths.input, {
+    // Build CSS.
+    sass(paths.css.main, {
             sourcemap: true,
             style: 'compressed'
         })
@@ -57,7 +73,17 @@ gulp.task('default', function() {
         })
         .pipe(prefix(prefixes))
         .pipe(sourcemap.write())
-        .pipe(gulp.dest(paths.output));
+        .pipe(gulp.dest(paths.css.out));
 });
 
-gulp.watch(paths.sass, ['default']);
+gulp.task('minify', function() {
+    // Minify all scripts in the JS folder.
+    return gulp.src(paths.js.batch)
+        .pipe(uglify())
+        .pipe(rename({
+            extname: '.min.js'
+        }))
+        .pipe(gulp.dest(paths.js.out));
+});
+
+gulp.watch(paths.css.batch, ['default']);
