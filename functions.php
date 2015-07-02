@@ -159,19 +159,10 @@ function google_font_url($fonts) {
 /** 
  * Load Theme JavaScript
  * -----------------------------------------------------------------------------
- * Load all theme JavaScript. It will jQuery into the footer instead of the header.
- * 
- * @link    http://biostall.com/how-to-load-jquery-in-the-footer-of-a-wordpress-website 
  */
 
 function load_theme_scripts() {
     global $theme_javascript;
-
-    if (!is_admin()) {
-        wp_deregister_script('jquery');
-        wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1', true);
-        wp_enqueue_script('jquery');
-    }
 
     foreach ($theme_javascript as $name => $script) {
         if (!WP_DEBUG) {
@@ -201,6 +192,18 @@ function load_theme_styles() {
         wp_register_style('google-fonts', google_font_url($google_fonts));
         wp_enqueue_style('google-fonts');
     }
+}
+
+/*
+ * Load Site JS in Footer
+ * -----------------------------------------------------------------------------
+ * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/
+ */
+
+function clean_header() {
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
 }
 
 /**
@@ -727,6 +730,9 @@ add_action('wp_head', 'dns_prefetch');
 // Wrap comment form fields in <div></div> tags.
 add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
+
+// Load all site JS in footer.
+add_action('wp_enqueue_scripts', 'clean_header');
 
 // Clean search URL rewrite.
 add_action('template_redirect', 'clean_search_url');
