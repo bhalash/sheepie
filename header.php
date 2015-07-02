@@ -39,9 +39,6 @@
     <title><?php wp_title('-', true, 'right'); ?></title>
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
-    <!--[if lte IE 9]>
-        <script src="<?php printf('%s%s', THEME_URL, '/bower_components/html5shiv/dist/html5shiv.js'); ?>"></script>
-    <![endif]-->
 </head>
 <body <?php body_class(); ?>>
     <div class="side-by-side" id="site">
@@ -66,6 +63,4 @@
             </div>
         </div>
         <div id="content">
-            <?php // Initial modal search form. ?>
-            <?php get_search_form(); ?>
             <div id="interior">
