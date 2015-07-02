@@ -26,12 +26,12 @@
 
 'use strict';
 
-var gulp        = require('gulp');
-var sass        = require('gulp-ruby-sass');
-var sourcemap   = require('gulp-sourcemaps');
-var prefix      = require('gulp-autoprefixer');
-var uglify      = require('gulp-uglify');
-var rename      = require('gulp-rename');
+var gulp = require('gulp');
+var sass = require('gulp-ruby-sass');
+var sourcemap = require('gulp-sourcemaps');
+var prefix = require('gulp-autoprefixer');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 var assets = {
     folder: './assets/',
@@ -62,9 +62,9 @@ var prefixes = [
     'ie 8'
 ];
 
-gulp.task('default', function() {
+gulp.task('css', function() {
     // Build CSS.
-    sass(paths.css.main, {
+    return sass(paths.css.main, {
             sourcemap: true,
             style: 'compressed'
         })
@@ -76,7 +76,7 @@ gulp.task('default', function() {
         .pipe(gulp.dest(paths.css.out));
 });
 
-gulp.task('minify', function() {
+gulp.task('js', function() {
     // Minify all scripts in the JS folder.
     return gulp.src(paths.js.batch)
         .pipe(uglify())
@@ -86,4 +86,7 @@ gulp.task('minify', function() {
         .pipe(gulp.dest(paths.js.out));
 });
 
-gulp.watch(paths.css.batch, ['default']);
+gulp.task('default', function() {
+    gulp.watch(paths.js.batch, ['js']);
+    gulp.watch(paths.css.batch, ['css']);
+});
