@@ -127,6 +127,13 @@ $theme_javascript = array(
     'functions' => THEME_JS . 'functions.js'
 );
 
+$conditional_scripts = array(
+    'html5-shiv' => array(
+        THEME_URL . '/node_modules/html5shiv/dist/html5shiv.min.js',
+        'lte IE 9'
+    )
+);
+
 $theme_styles = array(
     // Compressed, compiled theme CSS.
     'main-style' => THEME_CSS . 'main.css',
@@ -161,8 +168,8 @@ function google_font_url($fonts) {
  * -----------------------------------------------------------------------------
  */
 
-function load_theme_scripts() {
-    global $theme_javascript;
+function tuairisc_scripts() {
+    global $theme_javascript, $conditional_scripts, $wp_scripts;
 
     foreach ($theme_javascript as $name => $script) {
         if (!WP_DEBUG) {
@@ -172,6 +179,14 @@ function load_theme_scripts() {
         }
 
         wp_enqueue_script($name, $script, array('jquery'), THEME_VERSION, true);
+    }
+
+    foreach ($conditional_scripts as $name => $script) {
+        $path = $script[0];
+        $condition = $script[1];
+
+        wp_enqueue_script($name, $path, array(), THEME_VERSION, false);
+        wp_script_add_data($name, 'conditional', $condition);
     }
 }
 
