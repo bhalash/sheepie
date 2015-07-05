@@ -168,7 +168,7 @@ function google_font_url($fonts) {
  * -----------------------------------------------------------------------------
  */
 
-function tuairisc_scripts() {
+function load_theme_scripts() {
     global $theme_javascript, $conditional_scripts, $wp_scripts;
 
     foreach ($theme_javascript as $name => $script) {
@@ -212,6 +212,8 @@ function load_theme_styles() {
 /*
  * Load Site JS in Footer
  * -----------------------------------------------------------------------------
+ * See comments in this thread. 
+ *
  * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/
  */
 
