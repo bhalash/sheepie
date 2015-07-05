@@ -212,9 +212,7 @@ function load_theme_styles() {
 /*
  * Load Site JS in Footer
  * -----------------------------------------------------------------------------
- * See comments in this thread. 
- *
- * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/
+ * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/#comment-56740
  */
 
 function clean_header() {
