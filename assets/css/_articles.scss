@@ -34,12 +34,13 @@ $avatar-small: 65px;
  */
 
 article { 
-    // WordPress uses floats for inline styles.
-    @extend %clearfix;
+    main {
+        @include clearfix();
 
-    main >:not(:last-child) {
-        // Remove margin from last child element.
-        @include margin(2, bottom);
+        >:not(:last-child) {
+            // Remove margin from last child element.
+            @include margin(2, bottom);
+        }
     }
 
     blockquote > *:not(:last-child), li > * {
@@ -110,6 +111,10 @@ footer {
     float: right;
     width: 20%;
     @include margin(0 0 1 3);
+}
+
+.clear {
+    @include clearfix();
 }
 
 /**
