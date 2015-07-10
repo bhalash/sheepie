@@ -64,7 +64,7 @@ var prefixes = [
 
 gulp.task('css', function() {
     // Build CSS.
-    return sass(paths.css.main, {
+    sass(paths.css.main, {
             sourcemap: true,
             style: 'compressed'
         })
@@ -78,7 +78,7 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
     // Minify all scripts in the JS folder.
-    return gulp.src(paths.js.batch)
+    gulp.src(paths.js.batch)
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
