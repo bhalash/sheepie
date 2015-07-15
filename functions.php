@@ -580,6 +580,51 @@ function custom_excerpt($excerpt) {
 }
 
 /**
+ * Determine Loop Type
+ * -----------------------------------------------------------------------------
+ * Determine WordPress loop type.
+ * 
+ * @return  string   $loop_type         Type of loop.
+ */
+
+function find_loop_type() {
+    global $wp_query; 
+    $loop_type = 'notfound';
+
+    if ($wp_query->is_page) {
+        $loop_type = is_front_page() ? 'front' : 'page';
+    } elseif ($wp_query->is_home) {
+        $loop_type = 'home';
+    } elseif ($wp_query->is_single) {
+        $loop_type = ($wp_query->is_attachment) ? 'attachment' : 'single';
+    } elseif ($wp_query->is_category) {
+        $loop_type = 'category';
+    } elseif ($wp_query->is_tag) {
+        $loop_type = 'tag';
+    } elseif ($wp_query->is_tax) {
+        $loop_type = 'tax';
+    } elseif ($wp_query->is_archive) {
+        if ($wp_query->is_day) {
+            $loop_type = 'day';
+        } elseif ($wp_query->is_month) {
+            $loop_type = 'month';
+        } elseif ($wp_query->is_year) {
+            $loop_type = 'year';
+        } elseif ($wp_query->is_author) {
+            $loop_type = 'author';
+        } else {
+            $loop_type = 'archive';
+        }
+    } elseif ($wp_query->is_search) {
+        $loop_type = 'search';
+    } elseif ($wp_query->is_404) {
+        $loop_type = 'notfound';
+    }
+
+    return $loop_type;
+}
+
+/**
  * Pagination Post Counter
  * -----------------------------------------------------------------------------
  * Fetch and display total post count in format of 'Page 1 of 10'.
@@ -589,30 +634,29 @@ function custom_excerpt($excerpt) {
  * 
  * @param   int     $page_num       Current page in pagination.
  * @param   int     $total_results  Total results, for pagination.
- * @param   string  $type           Type of post to use.
  * @return  string                  The post counter.
  */
 
-function archive_page_count($page_num = null, $total_results = null, $type = null) {
+function archive_page_count($echo = false, $page_num = null, $total_results = null) {
+    global $wp_query;
+
+    if (is_null($total_results)) {
+        $total_results = $wp_query->found_posts;
+    }
+
     if (is_null($page_num)) {
         $page_num = (get_query_var('paged')) ? get_query_var('paged') : 1;
     }
 
-    if (is_null($type)) {
-        $type = 'post';
-    }
-
-    if (is_null($total_results)) {
-        $total_results = wp_count_posts($type, 'readable')->publish;
-
-        if (is_user_logged_in()) {
-            $total_results += wp_count_posts($type, 'readable')->private;
-        }
-    }
-
     $posts_per_page = get_option('posts_per_page');
     $total_pages = ceil($total_results / $posts_per_page);
-    printf(__('Page %s of %s', TTD), $page_num, $total_pages);
+    $page_count = sprintf(__('Page %s of %s', TTD), $page_num, $total_pages);
+
+    if (!$echo) {
+        return $page_count;
+    }
+
+    printf($page_count);
 }
 
 /**

@@ -43,8 +43,8 @@ $previous = $paged - 1; ?>
 
     <p class="count">
         <small>
-            <?php if (!is_single() && !is_search()) : ?>
-                <span><?php archive_page_count(); ?></span>
+            <?php if (!is_single()) : ?>
+                <span><?php archive_page_count(true); ?></span>
             <?php endif; ?>
         </small>
     </p>
