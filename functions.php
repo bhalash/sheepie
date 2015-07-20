@@ -95,6 +95,16 @@ include(THEME_INCLUDES . 'social-meta/social-meta.php');
 include(THEME_INCLUDES . 'reading-times.php');
 
 /**
+ * Social Meta Header Information
+ * -----------------------------------------------------------------------------
+ */
+
+$sheepie_social = new Social_Meta(array(
+    'facebook' => 'bhalash',
+    'twitter' => '@bhalash'
+));
+
+/**
  * Other Variables
  * -----------------------------------------------------------------------------
  */
