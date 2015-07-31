@@ -571,25 +571,6 @@ function clean_search_url() {
 }
 
 /**
- * Custom Theme Excerpt
- * -----------------------------------------------------------------------------
- * I forget why I did this.
- * 
- * @param   string   $excerpt
- * @return  string   $excerpt
- */
-
-function custom_excerpt($excerpt) {
-    $excerpt = get_the_content(); 
-    $excerpt = strip_shortcodes($excerpt); 
-    $excerpt = strip_tags($excerpt); 
-    $excerpt = explode('.', $excerpt);
-    $excerpt = $excerpt[0]; 
-    $length = strlen(preg_replace(array('/\s/', '/\n/'), '', $excerpt)); 
-    return $excerpt;
-}
-
-/**
  * Determine Loop Type
  * -----------------------------------------------------------------------------
  * Determine WordPress loop type.
