@@ -62,8 +62,8 @@ var prefixes = [
     'ie 8'
 ];
 
-gulp.task('css', function() {
-    // Build CSS.
+gulp.task('css-dev', function() {
+    // Development and debug CSS.
     sass(paths.css.main, {
             sourcemap: true,
             style: 'compressed'
@@ -73,6 +73,18 @@ gulp.task('css', function() {
         })
         .pipe(prefix(prefixes))
         .pipe(sourcemap.write())
+        .pipe(gulp.dest(paths.css.out));
+});
+
+gulp.task('css', function() {
+    // Build CSS.
+    sass(paths.css.main, {
+            style: 'compressed'
+        })
+        .on('error', function(err) {
+            console.log(err.message);
+        })
+        .pipe(prefix(prefixes))
         .pipe(gulp.dest(paths.css.out));
 });
 
