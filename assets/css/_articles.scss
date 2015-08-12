@@ -123,25 +123,11 @@ footer {
  */
 
 %article-child {
-    @include flex-parent(row, flex-start, wrap);
+    @include column-of(article, 3, 2);
 
     @include media(ie) {
         // Fallback for IE8, IE9 and IE10.
         @include clearfix();
-    }
-
-    > * {
-        box-sizing: border-box;
-        @include flex-child(0 1 32%);
-
-        @include media(ie) {
-            float: left;
-            width: 32%;
-        }
-
-        &:not(:nth-child(3n+0)):not(:last-child) {
-            margin-right: 2%;
-        }
     }
 }
 
