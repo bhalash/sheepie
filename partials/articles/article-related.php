@@ -26,20 +26,16 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-global $post;
 ?>
 
 <article <?php post_class('related'); ?> id="article-<?php the_ID(); ?>">
     <header>
-        <div class="related-thumbnail <?php header_class($post->ID); ?>" <?php post_image_css($post->ID, true); ?>>
-            <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"></a>
-        </div>
         <h6 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
         <?php if (!is_page()) : ?>
             <small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time></small>
         <?php endif; ?>
     </header>
     <footer>
-        <small><?php edit_post_link('edit post', ' ', ''); ?></small>
+        <span><small><?php edit_post_link('edit post', ' ', ''); ?></small></span>
     </footer>
 </article>
