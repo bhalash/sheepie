@@ -26,6 +26,8 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
+global $post;
+
 ?>
 
 <!DOCTYPE html>
