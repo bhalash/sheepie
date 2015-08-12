@@ -93,6 +93,7 @@ define('TTD', 'sheepie');
 
 include(THEME_INCLUDES . 'social-meta/social-meta.php');
 include(THEME_INCLUDES . 'reading-times.php');
+include(THEME_INCLUDES . 'related.php');
 
 /**
  * Social Meta Header Information
