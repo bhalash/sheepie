@@ -39,16 +39,16 @@
  * @return  int     $reading_time   Reading time in seconds.
  */
 
-function article_reading_time($post_id = null, $average_wpm = 300, $return_minutes = false) {
-    $reading_time = 0;
-
-    if (is_null($post_id_id)) {
-        $post_id = get_the_ID();
+function article_reading_time($post = null, $wpm = 300, $return_minutes = false) {
+    if (!($post = get_post($post))) {
+        global $post;
     }
 
-    $average_wps = round($average_wpm / 60);
-    $time = str_word_count(strip_tags($post_id));
-    $reading_tine = round($time / $average_wps);
+    $reading_time = 0;
+
+    $wps = round($wpm / 60);
+    $time = str_word_count(strip_tags($post));
+    $reading_tine = round($time / $wps);
 
     if ($return_minutes) {
         $reading_time = article_reading_time_minutes($reading_time);
@@ -91,6 +91,10 @@ function article_reading_time_minutes($seconds) {
  */
 
 function reading_time_in_words($reading_time) {
+    if (!$reading_time) {
+        return false;
+    }
+
     $words = array(
         'singles' => array(
             'one','two','three','four','five','six','seven','eight','nine'
@@ -106,34 +110,34 @@ function reading_time_in_words($reading_time) {
     );
 
     // Reading time in words.
-    $time_word = array();
+    $sentence = array();
 
     if ($reading_time <= 0) {
         // <0 - 0
-        $time_word[] = $words['singles'][0];
+        $sentence[] = $words['singles'][0];
     } elseif ($reading_time < 10) {
         // 1 - 9
-        $time_word[] =$words['singles'][$reading_time - 1];
+        $sentence[] = $words['singles'][$reading_time - 1];
     } elseif ($reading_time > 10 && $reading_time < 20) {
         // 11 - 19
-        $time_word[] = $words['teens'][$reading_time - 11];
+        $sentence[] = $words['teens'][$reading_time - 11];
     } elseif ($reading_time % 10 === 0) {
         // 10, 20, etc.
-        $time_word[] = $words['tens'][($reading_time / 10) - 1];
+        $sentence[] = $words['tens'][($reading_time / 10) - 1];
     } elseif ($reading_time > 99) {
          // > 99
-        $time_word[] = 'greater than';
-        $time_word[] = $words['singles'][8];
-        $time_word[] = '-';
-        $time_word[] = $words['tens'][8];
+        $sentence[] = 'greater than';
+        $sentence[] = $words['singles'][8];
+        $sentence[] = '-';
+        $sentence[] = $words['tens'][8];
     } else {
         // 31, 56, 77, etc.
-        $time_word[] = $words['tens'][($reading_time % 100) / 10 - 1];
-        $time_word[] = '-';
-        $time_word[] = $words['singles'][($reading_time % 10) - 1];
+        $sentence[] = $words['tens'][($reading_time % 100) / 10 - 1];
+        $sentence[] = '-';
+        $sentence[] = $words['singles'][($reading_time % 10) - 1];
     }
 
-    return implode('', $time_word);
+    return implode('', $sentence);
 }
 
 /**
@@ -146,12 +150,12 @@ function reading_time_in_words($reading_time) {
  * @link    http://www.bhalash.com/archives/13544802870
  */
 
-function rmwb_reading_time($post_id = null) {
-    if (is_null($post_id)) {
-        $post_id = get_the_ID();
+function rmwb_reading_time($post = null) {
+    if (!($post = get_post($post))) {
+        global $post;
     }
 
-    $time = article_reading_time($post_id, true);
+    $time = article_reading_time($post, true);
     $time_phrase = reading_time_in_words($time);
     $minute_word = ($time <= 1) ? ' minute.' : ' minutes.';
     return ucfirst($time_phrase) . $minute_word;
