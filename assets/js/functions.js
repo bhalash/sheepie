@@ -51,28 +51,56 @@ jQuery('.article-photobox br').remove();
  * irregularly sized. I remove breaks in order to circumvent this.
  */
 
-var lightbox = {
-    a: 'article a:has(img)',
-    lightbox: 'lightbox',
-    addLightbox: function() {
-        // Add lightbox to body on page load.
-        jQuery('body').prepend('<a href="#_" id="' + lightbox.lightbox + '"><img src="" /></a>');
-        lightbox.lightbox = '#' + lightbox.lightbox;
-    },
-    setImage: function() {
-        // Set lightbox image source on click.
-        var src = jQuery(this).find('img').first().attr('src');
-        jQuery(lightbox.lightbox).find('img').attr('src', src);
-    },
-    setHref: function() {
-        // Change href of all items to point to the lightbox.
-        jQuery(this).data('href', jQuery(this).attr('href'));
-        jQuery(this).attr('href', lightbox.lightbox);
+(function(lightbox, $) {
+    lightbox.box = 'rmwb-lightbox';
+    lightbox.target = 'article a img';
+    lightbox.data = 'id';
+
+    String.prototype.addRand = function(spacer, number) {
+        var rand = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, number);
+        return this + spacer + rand;
     }
-}
-lightbox.addLightbox();
-jQuery(lightbox.a).each(lightbox.setHref);
-jQuery(lightbox.a).click(lightbox.setImage);
+
+    lightbox.checkHash = function() {
+        var hash = window.location.hash.substring(1);
+
+        if (!!hash && hash.match(/\d{1,11}-\d/)) {
+            $('[data-' + lightbox.data + '=' + hash + ']').trigger('click');
+        }
+    }
+
+    lightbox.setup = function() {
+        $('body').addLightbox();
+        $(lightbox.target).each(lightbox.addData);
+        $('article').on('click', 'img', lightbox.show);
+        lightbox.checkHash();
+    }
+
+    lightbox.show = function(event) {
+        var box = '.' + lightbox.box;
+        var id = $(this).data(lightbox.data);
+        var src = $(this).attr('src');
+
+        $(box).attr(lightbox.data, id);
+        $(box + ' img').attr('src', src);
+    }
+
+    lightbox.addData = function() {
+        var post = $(this).attr('src').replace(/^[^\d]*/, '').replace(/\/.*/g, '');
+        var number = $(this).attr('src').replace(/^.*\//g, '').replace(/\..*/, '');
+        var id = post + '-' + number;
+        $(this).attr('data-' + lightbox.data, id).parent().attr('href', '#' + id);
+    }
+
+    $.fn.addLightbox = function(type) {
+        type = type || lightbox.box;
+        lightbox.box = type.addRand('-', 5);
+        this.prepend('<a href="#_" class="' + lightbox.box+ '"><img src="" /></a>');
+        return this;
+    }
+
+    lightbox.setup();
+})(window.lightbox = window.lightbox || {}, jQuery);
 
 /*
  * Comments Focus
