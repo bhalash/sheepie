@@ -173,7 +173,7 @@ div.article-photobox {
  *     JS!).
  */
 
-#lightbox {
+a[class^=rmwb-lightbox-] {
     @extend %pop-modal;
     background: palette(black, dark);
 
