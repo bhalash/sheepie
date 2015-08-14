@@ -126,7 +126,7 @@ $favicon_path = THEME_IMAGES . 'favicon.png';
 $google_fonts = array(
     // All Google Fonts to be loaded.
     'Open Sans:300,400,700,800',
-    'Source Code Pro:300,400',
+    'Source Code Pro:300,400'
 );
 
 $theme_javascript = array(
@@ -141,6 +141,13 @@ $theme_javascript = array(
 $conditional_scripts = array(
     'html5-shiv' => array(
         THEME_URL . '/node_modules/html5shiv/dist/html5shiv.min.js',
+        'lte IE 9'
+    )
+);
+
+$conditional_styles = array(
+    'ie-fallback' => array(
+        THEME_CSS . 'ie.css',
         'lte IE 9'
     )
 );
@@ -208,7 +215,7 @@ function load_theme_scripts() {
  */
 
 function load_theme_styles() {
-    global $theme_styles, $google_fonts;
+    global $theme_styles, $google_fonts, $conditional_styles;
 
     foreach ($theme_styles as $name => $style) {
         wp_enqueue_style($name, $style, array(), THEME_VERSION);
@@ -217,6 +224,14 @@ function load_theme_styles() {
     if (!empty($google_fonts)) {
         wp_register_style('google-fonts', google_font_url($google_fonts));
         wp_enqueue_style('google-fonts');
+    }
+
+    foreach ($conditional_styles as $name => $style) {
+        $path = $style[0];
+        $condition = $style[1];
+
+        wp_enqueue_style($name, $path, array(), THEME_VERSION);
+        wp_style_add_data($name, 'conditional', $condition);
     }
 }
 
