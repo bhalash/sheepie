@@ -41,9 +41,6 @@
             imgData: {
                 attribute: 'id',
                 separator: '-'
-            },
-            regex: {
-                hash: /\d{1,11}-\d/,
             }
         };
 
