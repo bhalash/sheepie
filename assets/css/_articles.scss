@@ -34,7 +34,7 @@ $avatar-small: 65px;
  */
 
 article { 
-    main {
+    .main {
         @include clearfix();
 
         >:not(:last-child) {
@@ -118,20 +118,6 @@ footer {
 }
 
 /**
- * Article Child Elements
- * -----------------------------------------------------------------------------
- */
-
-%article-child {
-    @include column-of(article, 3, 2);
-
-    @include media(ie) {
-        // Fallback for IE8, IE9 and IE10.
-        @include clearfix();
-    }
-}
-
-/**
  * Photobox
  * -----------------------------------------------------------------------------
  * I post a great many photographs, and this has become a convenient way for me
@@ -139,7 +125,6 @@ footer {
  */
 
 div.article-photobox {
-    @extend %article-child;
     /* Every word has a space afterward, above and below, set by the browser. 
      * An object with display "inline-block" or similar is treated as a word by
      * your browser, and given a small trailing space beside and below, 
@@ -150,7 +135,6 @@ div.article-photobox {
     font-size: 0;
 
     a {
-        @include padding(1, bottom);
     }
 
     img {
@@ -263,10 +247,6 @@ article.excerpt {
  * picked at random from the post archives.
  */
 
-div.related-articles {
-    @extend %article-child;
-}
-
 article.related {
     @include media(smartphone) {
         @include margin(1, bottom);
@@ -287,5 +267,30 @@ article.related {
     .related-thumbnail a {
         display: block;
         @extend .related-thumbnail;
+    }
+}
+
+/**
+ * Article Children IE Fallback
+ * -----------------------------------------------------------------------------
+ */
+
+.column-of-three {
+    @include column-of('.columnar', 3, 2) {
+        @include padding(1, bottom);
+    }
+
+    @include media(ie) {
+        display: block;
+        @include clearfix();
+
+        > * { 
+            float: left;
+            width: #{column-width(3, 2) + '%'};
+
+            &:not(:nth-child(3n)) {
+                margin-right: 2%;;
+            }
+        }
     }
 }
