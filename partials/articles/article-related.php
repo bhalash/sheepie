@@ -30,7 +30,10 @@
 
 <article <?php post_class('related columnar'); ?> id="article-<?php the_ID(); ?>">
     <header>
-        <h6 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+        <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+            <div class="related-thumbnail <?php header_class($post->ID); ?>" <?php post_image_css($post->ID, true); ?>></div>
+            <h6 class="title"><?php the_title(); ?></h6>
+        </a>
         <?php if (!is_page()) : ?>
             <small><time datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time(get_option('date_format')) ?></time></small>
         <?php endif; ?>

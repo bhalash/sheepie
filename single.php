@@ -34,6 +34,7 @@ if (have_posts()) {
         the_post();
         get_template_part(PARTIAL_ARTICLES, 'full');
         
+        printf('<hr>');
         printf('<div class="%s">', 'column-of-three related-articles');
 
         foreach (get_related() as $post) {
