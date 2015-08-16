@@ -28,7 +28,7 @@
 
 ?>
 
-<article <?php post_class('related'); ?> id="article-<?php the_ID(); ?>">
+<article <?php post_class('related columnar'); ?> id="article-<?php the_ID(); ?>">
     <header>
         <h6 class="title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
         <?php if (!is_page()) : ?>

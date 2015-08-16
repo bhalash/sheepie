@@ -32,7 +32,7 @@
     <header>
         <h3><?php _e('Article not found.', TTD); ?></h3>
     </header>
-    <main>
+    <div class="main">
         <p><?php _e('No posts were found that match your criteria! :(', TTD); ?></p>
-    </main>
+    </div>
 </article>
