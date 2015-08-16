@@ -131,8 +131,16 @@ footer {
             float: left;
             width: #{column-width(3, 2) + '%'};
 
+            @include media(smartphone) {
+                float: none;
+            }
+
             &:not(:nth-child(3n)) {
                 margin-right: 2%;;
+
+                @include media(smartphone) {
+                    margin-right: 0;
+                }
             }
         }
     }
@@ -271,6 +279,10 @@ article.excerpt {
 
 div.related-articles {
     @include column-of(article, 3, 2);
+
+    @include media(smartphone) {
+        display: block;
+    }
 }
 
 article.related {
