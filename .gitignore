@@ -1,15 +1,16 @@
 #################
-# Sublime Text config files
+## Sass and CSS
 #################
-
-# STFP and other plugins
-sftp-config.json
-
-# Sass and CSS
 .sass-cache/
 sass/.sass-cache/
 *.css
 *.css.map
+
+#################
+## Minified JS
+#################
+js/min/
+*.min.js
 
 #################
 ## Node.js Packages
