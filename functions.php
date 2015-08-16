@@ -135,6 +135,7 @@ $theme_javascript = array(
      * functions.js */ 
     'highlight-js' => THEME_JS . 'highlight.js',
     'google-analytics' => THEME_JS . 'analytics.js',
+    'lightbox' => THEME_JS . 'lightbox.js',
     'functions' => THEME_JS . 'functions.js'
 );
 
