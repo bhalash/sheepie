@@ -180,30 +180,15 @@ li.comment .comment-interior {
 
 .commentform-inputs {
     // Wrapper container for the inputs on the commentform.
-    @include flex-parent(row, space-between, nowrap);
     @include margin(1, bottom);
+    @include column-of(input, 3, 1);
 
     @include media($b-640) {
         margin: 0;
         @include flex-parent(column, flex-start);
     }
 
-    @include media(ie 9) {
-        @include clearfix();
-    }
-
     input {
-        @include flex-child(0 1 32%);
-
-        @include media(ie 9) {
-            float: left;
-            width: 32%;
-            
-            &:not(:last-child) {
-                margin-right: 2%;
-            }
-        }
-
         @include media($b-640) {
             @include margin(1, bottom);
             @include flex-child(1);

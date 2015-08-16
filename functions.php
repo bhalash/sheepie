@@ -764,7 +764,7 @@ function rmwb_comments($comment, $args, $depth) {
  */
 
 function wrap_comment_fields_before() {
-    printf('<div class="commentform-inputs">');
+    printf('<div class="commentform-inputs column-of-three">');
 }
 
 function wrap_comment_fields_after() {
