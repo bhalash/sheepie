@@ -118,6 +118,27 @@ footer {
 }
 
 /**
+ * Article Children IE Fallback
+ * -----------------------------------------------------------------------------
+ */
+
+.column-of-three {
+    @include media(ie) {
+        display: block;
+        @include clearfix();
+
+        > * { 
+            float: left;
+            width: #{column-width(3, 2) + '%'};
+
+            &:not(:nth-child(3n)) {
+                margin-right: 2%;;
+            }
+        }
+    }
+}
+
+/**
  * Photobox
  * -----------------------------------------------------------------------------
  * I post a great many photographs, and this has become a convenient way for me
@@ -134,7 +155,8 @@ div.article-photobox {
      * circumstances where those few pixels can break layout. */
     font-size: 0;
 
-    a {
+    @include column-of(a, 3, 2) {
+        @include padding(1, bottom);
     }
 
     img {
@@ -248,6 +270,8 @@ article.excerpt {
  */
 
 article.related {
+    @include column-of(article, 3, 2);
+
     @include media(smartphone) {
         @include margin(1, bottom);
     }
@@ -267,30 +291,5 @@ article.related {
     .related-thumbnail a {
         display: block;
         @extend .related-thumbnail;
-    }
-}
-
-/**
- * Article Children IE Fallback
- * -----------------------------------------------------------------------------
- */
-
-.column-of-three {
-    @include column-of('.columnar', 3, 2) {
-        @include padding(1, bottom);
-    }
-
-    @include media(ie) {
-        display: block;
-        @include clearfix();
-
-        > * { 
-            float: left;
-            width: #{column-width(3, 2) + '%'};
-
-            &:not(:nth-child(3n)) {
-                margin-right: 2%;;
-            }
-        }
     }
 }
