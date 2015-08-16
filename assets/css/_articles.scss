@@ -269,9 +269,11 @@ article.excerpt {
  * picked at random from the post archives.
  */
 
-article.related {
+div.related-articles {
     @include column-of(article, 3, 2);
+}
 
+article.related {
     @include media(smartphone) {
         @include margin(1, bottom);
     }
