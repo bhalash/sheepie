@@ -51,56 +51,127 @@ jQuery('.article-photobox br').remove();
  * irregularly sized. I remove breaks in order to circumvent this.
  */
 
-(function(lightbox, $) {
-    lightbox.box = 'rmwb-lightbox';
-    lightbox.target = 'article a img';
-    lightbox.data = 'id';
+;(function($, window, document, undefined) {
+    'use strict'; 
+    $.fn.addLightbox = $.fn.addLightbox || function(args) {
+        var defaults = {
+            classes: {
+                hasLightbox: 'has-lightbox',
+                lightbox: 'rmwb-lightbox'
+            },
+            imgData: {
+                attribute: 'id',
+                separator: '-'
+            },
+            regex: {
+                hash: /\d{1,11}-\d/,
+            }
+        };
 
-    String.prototype.addRand = function(spacer, number) {
-        var rand = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, number);
-        return this + spacer + rand;
-    }
+        var settings = {};
+        var isSinglePost = false;
 
-    lightbox.checkHash = function() {
-        var hash = window.location.hash.substring(1);
+        var init = function(element, args) {
+            // Initialize lightbox and set up all the things.
 
-        if (!!hash && hash.match(/\d{1,11}-\d/)) {
-            $('[data-' + lightbox.data + '=' + hash + ']').trigger('click');
+            settings = $.extend({}, defaults, args);
+
+            if (!$('body').hasClass(settings.classes.hasLightbox)) {
+                isSinglePost = $('body').hasClass('single');
+                $(element).each(setupImage);
+                setupLightbox('body');
+
+                checkUrlHash();
+            }
         }
+
+        var checkUrlHash = function() {
+            /* Check URL for matching image hash. Trigger lightbox to appear
+             * if it does. */
+
+            if (window.location.hash) {
+                var hash = window.location.hash.substring(1);
+
+                if (hash.match(/(\d{1,11}-)?\d{1}\.[a-z]{3}/)) {
+                    var attr = settings.imgData.attribute;
+                    var image = '[data-' + attr + '="' + hash + '"]';
+                    $(image).trigger('click');
+                }
+            }
+        }
+
+        var addRandChars = function(amount, divider) {
+            // Generate stream of random chars prefixed by a dividing char.
+
+            amount = amount || 10;
+            divider = divider || '-';
+
+            return divider + Math.random()
+                .toString(36)
+                .replace(/[^a-z]+/g, '')
+                .substr(0, amount);
+        }
+
+        var setupLightbox = function(element) {
+            // Prepend lightbox to target element.
+
+            // Append random chars to class to avoid conflicts.
+            settings.classes.lightbox += addRandChars(10, '-');
+
+            var lightbox = $('<a>', {
+                href: '#_',
+                'class': settings.classes.lightbox
+            }).append('<img src="" />');
+            
+            $(element).prepend(lightbox).addClass(settings.classes.hasLightbox);
+        }
+
+        var setupImage = function() {
+            // Get image ID and change parent link to point to the lightbox.
+
+            // I do not want the article ID to appear in single post links.
+            var post = (!isSinglePost) ? $(this).attr('src') : '';
+
+            // Reduce URL to 1.jpg, 2.png, whatever.
+            var number = $(this).attr('src').replace(/^.*\//g, '');
+
+            if (!isSinglePost) {
+                // Reduce URL to numeric post ID, and remove tailing slash.
+                post = post.replace(/^[^\d]*/, '').replace(/\/.*/g, '');
+            } else {
+                settings.imgData.separator = '';
+            }
+
+            var data = {
+                attr: 'data-' + settings.imgData.attribute,
+                value: post + settings.imgData.separator + number
+            };
+
+            var href = '#' + data.value;
+
+            // Set image data attribute and click action.
+            $(this).attr(data.attr, data.value).parent().attr('href', href);
+            $(this).on('click', showLightbox);
+        }
+
+        var showLightbox = function(event) {
+            // Set lightbox ID and it's img src attribute.
+
+            var lightbox = {
+                selector: '.' + settings.classes.lightbox,
+                id: $(this).data(settings.imgData.attribute),
+                src: $(this).attr('src')
+            };
+
+            $(lightbox.selector).attr('id', lightbox.id);
+            $(lightbox.selector).children('img').attr('src', lightbox.src);
+        }
+
+        init(this, args);
     }
+})(jQuery, window, document);
 
-    lightbox.setup = function() {
-        $('body').addLightbox();
-        $(lightbox.target).each(lightbox.addData);
-        $('article').on('click', 'img', lightbox.show);
-        lightbox.checkHash();
-    }
-
-    lightbox.show = function(event) {
-        var box = '.' + lightbox.box;
-        var id = $(this).data(lightbox.data);
-        var src = $(this).attr('src');
-
-        $(box).attr(lightbox.data, id);
-        $(box + ' img').attr('src', src);
-    }
-
-    lightbox.addData = function() {
-        var post = $(this).attr('src').replace(/^[^\d]*/, '').replace(/\/.*/g, '');
-        var number = $(this).attr('src').replace(/^.*\//g, '').replace(/\..*/, '');
-        var id = post + '-' + number;
-        $(this).attr('data-' + lightbox.data, id).parent().attr('href', '#' + id);
-    }
-
-    $.fn.addLightbox = function(type) {
-        type = type || lightbox.box;
-        lightbox.box = type.addRand('-', 5);
-        this.prepend('<a href="#_" class="' + lightbox.box+ '"><img src="" /></a>');
-        return this;
-    }
-
-    lightbox.setup();
-})(window.lightbox = window.lightbox || {}, jQuery);
+jQuery('article a img').addLightbox();
 
 /*
  * Comments Focus
