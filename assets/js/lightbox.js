@@ -53,10 +53,13 @@
             settings = $.extend({}, defaults, args);
 
             if (!$('body').hasClass(settings.classes.hasLightbox)) {
+                /* 1. Check body class.
+                 * 2. Set up each target image.
+                 * 3. Prepend lightbox to body.
+                 * 4. Once everything is ready, check URL for image hash. */
                 isSinglePost = $('body').hasClass('single');
                 $(element).each(setupImage);
                 setupLightbox('body');
-
                 checkUrlHash();
             }
         }
