@@ -32,8 +32,8 @@
  */
 
 #search {
-    @extend %pop-modal;
     background: palette(white, light);
+    @include pop-modal();
     @include prefix(backface-visibility, initial, webkit);
 }
 
