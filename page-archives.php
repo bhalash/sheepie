@@ -30,36 +30,53 @@
  */
 
 get_header();
+$timed_archive_counts = timed_archives_count();
 
-/**
- * Archives by Date
- * -----------------------------------------------------------------------------
- */
+// Archives by date.
 
 printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
-get_template_part(PARTIAL_ARCHIVES, 'alltime');
+printf('<div class="archive">');
+
+foreach ($timed_archive_counts as $year => $months) {
+    $first_post = year_first_post($year, true);
+
+    printf('<div class="archive-card" id="archive-card-%s">', $year);
+
+    printf('<h2 %s><a title="%s" href="%s">%s</a></h2>',
+        post_image_css($first_post, false),
+        __('Archives for the year ', TTD) . $year,
+        get_year_link($year),
+        $year
+    );
+
+    printf('<ul>');
+
+    foreach ($months as $month => $count) {
+        printf('<li><a href="%s">%s (%s)</a></li>',
+            get_month_link($year, $month),
+            get_month_from_number($month),
+            $count
+        );
+    }
+
+    printf('</ul></div>');
+}
+
+printf('</div>');
 printf('<hr>');
 
-/**
- * Archives by Category 
- * -----------------------------------------------------------------------------
- */
+// Arhives by category.
+// TODO
 
 printf('<h5 class="title">%s</h5>', __('Archives by Category', TTD));
 printf('<hr>');
 
-/**
- * Archives by Tag
- * -----------------------------------------------------------------------------
- * I use tags indiscriminately for the purposes of labelling. 
- */
+// Archives by tag.
+// TODO
 
-/**
- * Statistics
- * -----------------------------------------------------------------------------
- */
+// Statistics.
 
-printf('<h5 class="title">%s</h5>', __('Blog Statistics', ttd));
+printf('<h5 class="title">%s</h5>', __('Blog Statistics', TTD));
 printf('<p>%s</p>', blog_statistics());
 
 // Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)
