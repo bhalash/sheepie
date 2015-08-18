@@ -185,10 +185,7 @@ li.comment .comment-interior {
     @include columns(flex, input, 3, 2) {
         @include media($b-640) {
             width: 100%;
-
-            &:not(:last-child) {
-                @include margin(1, bottom);
-            }
+            @include margin(1, bottom);
         }
     }
 

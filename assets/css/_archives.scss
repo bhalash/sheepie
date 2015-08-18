@@ -25,20 +25,11 @@
  */
 
  .archive {
-    @include flex-parent(row, space-between, wrap); 
-
-    @include media($b-768) {
-        @include flex-parent(column, nowrap, start);
-    }
+    @include columns(flex, div, 2, 2);
 }
 
 .archive-card {
     @include margin(2, top);
-    @include flex-child(0 1 49%);
-
-    @include media($b-768) {
-        @include flex-child(1);
-    }
 
     h2 {
         background: center/cover;
