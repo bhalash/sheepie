@@ -248,7 +248,7 @@ function blog_statistics($echo = false) {
         $average = __('On average, a new post has been published every %s days over the last %s days.', TTD);
 
         $stats[] = sprintf($categories, $anchor, wp_count_posts()->publish, count(get_categories()), count(get_tags()));
-        $stats[] = sprintf($average, get_comment_authors_count(), wp_count_comments()->total_comments);
+        $stats[] = sprintf($visitors, get_comment_authors_count(), wp_count_comments()->total_comments);
         $stats[] = sprintf($average, post_interval(), blog_age());
 
         $stats = implode(' ', $stats);
