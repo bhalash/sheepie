@@ -59,22 +59,15 @@ $header-min-height: 40vh;
     @include flex-parent(column, center);
 
     #header-content {
-        /* Specific workaround for Mobile Safari: without this #interior content
-         * will scroll behind the header. */
-         @include prefix(backface-visibility, hidden, webkit);
+        /* Required for IE10 to respect z-index.
+         * @link http://stackoverflow.com/a/23344797/1433400 */
+        position: relative;
         // Child content must be raised owing to the background gradient.
         z-index: 2;
 
-        @include media(ie) {
-            /* Required for IE10 to respect z-index.
-             * @link http://stackoverflow.com/a/23344797/1433400 */
-            position: relative;
-        }
-
-        @include media(ie 9) {
-            @include absolute(50% 50%, top left);
-            transform: translate(-50%, -50%);
-        }
+        /* Specific workaround for Mobile Safari: without this #interior content
+         * will scroll behind the header. */
+         @include prefix(backface-visibility, hidden, webkit);
     }
 
     &.has-image:after {
@@ -82,10 +75,6 @@ $header-min-height: 40vh;
         background: linear-gradient(to bottom, rgba(palette(black, light), 0.5) 0%, rgba(palette(black, x-dark), 0.7) 100%);
         content: ' ';
         @include absolute(0);
-
-        @include media(ie 9) {
-            background-color: rgba(0,0,0,0.4);
-        }
     }
 }
 
@@ -118,10 +107,6 @@ body[class^=error] #header {
         flex-direction: column;
     }
 
-    @include media(ie 9) {
-        @include clearfix();
-    }
-
     #content {
         /* ¡Important! Mozilla Firefox applies an invisible min-width to the 
          * element. I guess it is a bug? While in flex-row layout, the column
@@ -130,15 +115,7 @@ body[class^=error] #header {
         min-width: 0;
         @include flex-child(0 1 $sides-66);
 
-        @include media(ie 9) {
-            float: right;
-            width: $sides-66;
-        }
-
         @include media($b-960) {
-            // For Internet Explorer 9.
-            float: none;
-            width: 100%;
             @include flex-child(1);
         }
     }
@@ -171,7 +148,7 @@ body[class^=error] #header {
 
     #content {
         // Freeze content.
-        @extend %freeze;
+        @include freeze();
     }
 }
 

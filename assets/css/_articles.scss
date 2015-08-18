@@ -118,35 +118,6 @@ footer {
 }
 
 /**
- * Article Children IE Fallback
- * -----------------------------------------------------------------------------
- */
-
-.column-of-three {
-    @include media(ie) {
-        display: block;
-        @include clearfix();
-
-        > * { 
-            float: left;
-            width: #{column-width(3, 2) + '%'};
-
-            @include media(smartphone) {
-                float: none;
-            }
-
-            &:not(:nth-child(3n)) {
-                margin-right: 2%;;
-
-                @include media(smartphone) {
-                    margin-right: 0;
-                }
-            }
-        }
-    }
-}
-
-/**
  * Photobox
  * -----------------------------------------------------------------------------
  * I post a great many photographs, and this has become a convenient way for me
@@ -188,8 +159,8 @@ div.article-photobox {
  */
 
 a[class^=rmwb-lightbox-] {
-    @extend %pop-modal;
     background: palette(black, dark);
+    @include pop-modal();
 
     img {
         height: initial;
@@ -209,11 +180,6 @@ a[class^=rmwb-lightbox-] {
 div.avatar-wrapper {
     @include margin(1, right);
     flex: 0 1 $avatar-big;
-
-    @include media(ie 9) {
-        float: left;
-        width: calc(100% - $avatar-big);
-    }
 
     @include media(smartphone) {
         flex: 0 1 $avatar-small;
@@ -242,10 +208,6 @@ article.full {
     footer {
         @include flex-parent(row);
         @include margin(2, top);
-
-        @include media(ie 9) {
-            @include clearfix();
-        }
     }
 
     .author-info {
