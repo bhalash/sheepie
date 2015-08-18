@@ -134,7 +134,7 @@ div.article-photobox {
      * circumstances where those few pixels can break layout. */
     font-size: 0;
 
-    @include column-of(a, 3, 2) {
+    @include columns(flex, a, 3, 2) {
         @include padding(1, bottom);
     }
 
@@ -240,7 +240,7 @@ article.excerpt {
  */
 
 div.related-articles {
-    @include column-of(article, 3, 2);
+    @include columns(flex, article, 3, 2);
 
     @include media(smartphone) {
         display: block;
