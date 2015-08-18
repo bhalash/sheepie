@@ -94,6 +94,7 @@ define('TTD', 'sheepie');
 $theme_includes = array(
     'theme-css.php',
     'theme-js.php',
+    'blog-archives.php',
     'social-meta/social-meta.php',
     'reading-times.php',
     'related.php',
