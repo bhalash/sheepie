@@ -1,0 +1,95 @@
+/**
+ * Internet Explorer Fallback
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ * This file is part of Sheepie.
+ * 
+ * Sheepie is free software: you can redistribute it and/or modify it under the
+ * terms of the GNU General Public License as published by the Free Software 
+ * Foundation, either version 3 of the License, or (at your option) any later
+ * version.
+ * 
+ * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License along with 
+ * Sheepie. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+@import 'scss-helpers/bhalash-helpers';
+@import 'variables';
+
+/**
+ * Header Container
+ * -----------------------------------------------------------------------------
+ */
+
+#header.has-image:after {
+    background-color: rgba(0,0,0,0.4);
+}
+
+#header-content {
+    @include absolute(50% 50%, top left);
+    transform: translate(-50%, -50%);
+}
+
+/**
+ * Main Site Container
+ * -----------------------------------------------------------------------------
+ */
+
+#site.side-by-side {
+    @include clearfix();
+
+    #content {
+        float: right;
+        width: $sides-66;
+
+        @include media($b-960) {
+            // For Internet Explorer 9.
+            float: none;
+            width: 100%;
+        }
+    }
+}
+
+/**
+ * Article Children IE Fallback
+ * -----------------------------------------------------------------------------
+ */
+
+.column-of-three {
+    display: block;
+    @include clearfix();
+
+    > * { 
+        float: left;
+        width: #{column-width(3, 2) + '%'};
+
+        &:not(:nth-child(3n)) {
+            margin-right: 2%;
+        }
+    }
+}
+
+/**
+ * Single Article Elements
+ * -----------------------------------------------------------------------------
+ */
+
+div.avatar-wrapper {
+    float: left;
+    width: calc(100% - $avatar-big);
+}
+
+article.full footer {
+    @include clearfix();
+}
