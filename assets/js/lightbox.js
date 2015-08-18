@@ -70,20 +70,15 @@
 
             if (window.location.hash) {
                 var hash = window.location.hash.substring(1);
-
-                if (hash.match(/(\d{1,11}-)?\d{1}\.[a-z]{3}/)) {
-                    var attr = settings.imgData.attribute;
-                    var image = '[data-' + attr + '="' + hash + '"]';
-                    $(image).trigger('click');
-                }
+                var attr = settings.imgData.attribute;
+                $('[data-' + attr + '="' + hash + '"]').trigger('click');
             }
         }
 
-        var addRandChars = function(amount, divider) {
+        var randChars = function(amount, divider) {
             // Generate stream of random chars prefixed by a dividing char.
-
             amount = amount || 10;
-            divider = divider || '-';
+            divider = divider || '';
 
             return divider + Math.random()
                 .toString(36)
@@ -95,7 +90,7 @@
             // Prepend lightbox to target element.
 
             // Append random chars to class to avoid conflicts.
-            settings.classes.lightbox += addRandChars(10, '-');
+            settings.classes.lightbox += randChars(10, '-');
 
             var lightbox = $('<a>', {
                 href: '#_',
@@ -109,24 +104,25 @@
             // Get image ID and change parent link to point to the lightbox.
 
             // I do not want the article ID to appear in single post links.
-            var post = (!isSinglePost) ? $(this).attr('src') : '';
+            var hash = (!isSinglePost) ? randChars(4) : '';
 
             // Reduce URL to 1.jpg, 2.png, whatever.
             var number = $(this).attr('src').replace(/^.*\//g, '');
 
-            if (!isSinglePost) {
-                // Reduce URL to numeric post ID, and remove tailing slash.
-                post = post.replace(/^[^\d]*/, '').replace(/\/.*/g, '');
-            } else {
+            if (isSinglePost) {
                 settings.imgData.separator = '';
             }
 
             var data = {
                 attr: 'data-' + settings.imgData.attribute,
-                value: post + settings.imgData.separator + number
+                value: hash + settings.imgData.separator + number
             };
 
             var href = '#' + data.value;
+
+            if (!$(this).parent().is('a')) {
+                $(this).wrap('<a></a>');
+            }
 
             // Set image data attribute and click action.
             $(this).attr(data.attr, data.value).parent().attr('href', href);
