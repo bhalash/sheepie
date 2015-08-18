@@ -27,28 +27,18 @@
  */
 
 if (comments_open()) {
-    printf('<div class="article-comments" id="comments">');
-
     if (post_password_required()) {
-        printf('<h5 class="reply-title">%s</h5>', 
-            __('This post is password protected. Enter the password to view comments.', TTD)
-        );
-
         return;
     }
 
-    if (have_comments()) {
-        $plural = (get_comments_number() === 1) ? '' : 's';
-
-        printf('<hr>');
-
-        printf(__('<h5 class="reply-title">%d comment%s on \'%s\':</h5>', TTD), 
-            get_comments_number(), 
-            $plural,
+    printf('<div class="article-comments" id="comments">');
+        printf('<h4 class="comments-title subtitle">%s \'%s\'</h4>',
+            __('Have your say on ', TTD),
             get_the_title()
         );
 
-        printf('<ul>');
+    if (have_comments()) {
+        printf('<ul class="%s">', 'commentlist');
 
         wp_list_comments(array(
             'callback' => 'theme_comments',
@@ -60,30 +50,36 @@ if (comments_open()) {
         printf('</ul>');
     }
 
-    printf('</div>');
-
-    printf('<hr>');
     printf('<div id="comment-entry">');
 
-    printf('<h5 class="reply-title">%s on \'%s\':</h5>', 
-        __('Have your own say', TTD), 
-        get_the_title()
+    // Template input for name, email and URL.
+    $input = '<input class="%s-name" id="%s" name="%s" placeholder="%s" type="text" required="required">';
+    $textarea = '<textarea class="comment-form-comment" id="comment" name="comment" required="required"></textarea>';
+
+    $fields = array(
+        // Name, author and email fields.
+        'author' => sprintf($input,
+            'author', 'author', 'author', __('Name*', TTD)
+        ), 
+        'email' => sprintf($input,
+            'email', 'email', 'email', __('Email*', TTD)
+        ), 
+        'url' => sprintf($input,
+            'url', 'url', 'url', __('Website', TTD)
+        )
     );
 
     comment_form(array(
         'id_form' => 'commentform',
         'id_submit' => 'submit',
-        'title_reply' => __('Have your say:', TTD),
-        'comment_field' => '<p id="textarea"><textarea class="comment-form-comment" id="comment" name="comment" required="required"></textarea></p>',
+        'title_reply' => '',
+        'comment_field' => sprintf('<p id="textarea">%s</p>', $textarea),
         'comment_form_before_fields' => '<div class="comment-form">',
         'comment_form_after_fields' =>'</div>',
-        'fields' => array(
-            'author' => '<input class="author-name" id="author" name="author" placeholder="' . __('Name*', TTD) . '" type="text" required="required">',
-            'email' => '<input class="author-email" id="email" name="email" placeholder="' . __('Email*', TTD) . '" type="text" required="required">',
-            'url' => '<input class="author-url" id="url" name="url" placeholder="' . __('Website', TTD) . '" type="text">'
-        )
+        'fields' => $fields,
     ));
 
+    printf('</div>');
     printf('</div>');
 }
 
