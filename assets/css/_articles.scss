@@ -243,7 +243,7 @@ div.related-articles {
     @include columns(flex, article, 3, 2);
 
     @include media(smartphone) {
-        display: block;
+        @include columns(flex, article, 3, 5);
     }
 }
 
