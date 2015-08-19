@@ -24,31 +24,76 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
- .archive {
+.archive {
     @include columns(flex, div, 2, 2);
+
+    @include media($b-640) {
+        display: block;
+    }
+}
+
+.archive-year-name {
+    background: center/cover;
+    text-align: center;
+
+    a {
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+        display: block;
+        height: 100%;
+        @include padding(3 0);
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 .archive-card {
-    @include margin(2, top);
+    @include margin(2, bottom);
+}
 
-    h2 {
-        background: center/cover;
-        text-align: center;
+.archive-card-year {
+    background: palette(black);
+    box-sizing: border-box;
+    list-style-type: none;
+    text-align: center;
+    @include columns(flex, li, 4, 0);
+    @include padding(1);
+}
 
-        a {
-            background: rgba(0,0,0,0.4);
-            color: #fff;
-            display: block;
-            height: 100%;
-            @include padding(3 0);
+.archive-card-month {
+    color: palette(white, x-light);
+    // @include margin(1, bottom);
+}
 
-            &:hover {
-                text-decoration: none;
-            }
-        }
+.archive-card-data {
+    span {
+        @include absolute(50% 50%, top left);
+        transform: translate(-50%, -50%);
     }
 
-    ul {
-        list-style-type: none;
+    span.month-count {
+        display: none;
+    }
+
+    &:hover span.month-count {
+        display: initial;
+    }
+
+    &:hover span.month-name {
+        display: none;
+    }
+}
+
+.archive-card-month a {
+    background: palette(black, mid-dark);
+    color: inherit;
+    display: block;
+    position: relative;
+    @include square-flex(100% 1);
+
+    &:hover {
+        background: blue;
     }
 }
