@@ -31,6 +31,8 @@ if (comments_open()) {
         return;
     }
 
+    printf('<hr>');
+
     printf('<div class="article-comments" id="comments">');
         printf('<h4 class="comments-title subtitle">%s \'%s\'</h4>',
             __('Have your say on ', TTD),
