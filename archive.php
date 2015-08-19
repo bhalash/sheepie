@@ -30,7 +30,7 @@ get_header();
 global $paged;
 
 if (!is_single() && $paged > 0) {
-    get_template_part(THEME_PARTIALS . 'pagination');
+    get_template_part(THEME_PARTIALS . '/pagination');
 }
 
 if (have_posts()) {
@@ -43,5 +43,7 @@ if (have_posts()) {
     get_template_part(PARTIAL_ARTICLES, 'missing');
 }
 
-get_template_part(THEME_PARTIALS . 'pagination');
-get_footer(); ?>
+get_template_part(THEME_PARTIALS . '/pagination');
+get_footer();
+
+?>
