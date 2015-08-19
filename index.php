@@ -44,4 +44,6 @@ if (have_posts()) {
 }
 
 get_template_part(THEME_PARTIALS . '/pagination');
-get_footer(); ?>
+get_footer();
+
+?>
