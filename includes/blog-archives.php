@@ -67,12 +67,13 @@ function blog_age($format = '%a') {
  * Convert Number to Month
  * -----------------------------------------------------------------------------
  * @param   int          $number             The month of the year as a number.
+ * @param   string       $format             Format for date.
  * @return  string                           The month as a word.
  * @link    http://stackoverflow.com/a/18467892/1433400
  */
 
-function get_month_from_number($number) {
-    return date_create_from_format('!m', $number % 12)->format('F');
+function get_month_from_number($number, $format = 'M') {
+    return date_create_from_format('!m', $number % 12)->format($format);
 }
 
 /**
