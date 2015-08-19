@@ -30,33 +30,54 @@
  */
 
 get_header();
-$timed_archive_counts = timed_archives_count();
 
 // Archives by date.
 
 printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
 printf('<div class="archive">');
 
-foreach ($timed_archive_counts as $year => $months) {
+foreach (timed_archives_count() as $year => $calendar) {
     $first_post = year_first_post($year, true);
 
     printf('<div class="archive-card" id="archive-card-%s">', $year);
 
-    printf('<h2 %s><a title="%s" href="%s">%s</a></h2>',
+    // Print year name with background image from post of that year.
+    printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
+        'archive-year-name',
         post_image_css($first_post, false),
         __('Archives for the year ', TTD) . $year,
         get_year_link($year),
         $year
     );
 
-    printf('<ul>');
+    // One "card" per year.
+    printf('<ul class="%s" id="%s">', 'archive-card-year', $year);
 
-    foreach ($months as $month => $count) {
-        printf('<li><a href="%s">%s (%s)</a></li>',
-            get_month_link($year, $month),
-            get_month_from_number($month),
+    foreach ($calendar as $month => $count) {
+        // Per-month items.
+        printf('<li class="%s" id="%s">',
+            'archive-card-month', 
+            $year . '-' . $month
+        );
+
+        // Actual count or whatever else you want at the bottom.
+        printf('<a class="%s" href="%s">',
+            'archive-card-data',
+            get_month_link($year, $month)
+        );
+        
+        printf('<span class="%s">%s</span>',
+            'month-name',
+            get_month_from_number($month)
+        );
+
+        printf('<span class="%s">%s</span>',
+            'month-count',
             $count
         );
+
+        printf('</a>');
+        printf('</li>');
     }
 
     printf('</ul></div>');
