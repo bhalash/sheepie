@@ -92,6 +92,7 @@ define('TTD', 'sheepie');
  */
 
 $theme_includes = array(
+    'comment-functions.php',
     'theme-css.php',
     'theme-js.php',
     'blog-archives.php',
