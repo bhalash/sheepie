@@ -87,4 +87,6 @@ printf('<h5 class="title">%s</h5>', __('Blog Statistics', TTD));
 printf('<p>%s</p>', blog_statistics());
 
 // Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)
-get_footer(); ?>
+get_footer();
+
+?>
