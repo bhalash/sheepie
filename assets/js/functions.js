@@ -21,6 +21,31 @@ jQuery('pre:not(:has(> code))').wrapInner('<code></code>');
 hljs.initHighlightingOnLoad();
 
 /**
+ * 
+ * -----------------------------------------------------------------------------
+ */
+
+(function($) {
+    var searchOpen = false;
+    var search = '#bigsearch';
+    var $toggle = $('.bigsearch-toggle');
+
+    function bigSearchToggle(event) {
+        $(this).attr('href', (searchOpen) ? '#!' : search);
+        $(search).toggle(!searchOpen);
+        event.preventDefault();
+        $(search).find('input').focus();
+        searchOpen = !searchOpen;
+    }
+
+    $toggle.on('click', bigSearchToggle);
+
+    if (window.location.hash === search) {
+        $toggle.trigger('click');
+    }
+})(jQuery);
+
+/**
  * Remove Photobox Breaks
  * -----------------------------------------------------------------------------
  * WordPress can insert <br> tags between elements if it detects either a space
