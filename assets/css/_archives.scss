@@ -24,7 +24,7 @@
  * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
 
-.archive {
+div.archive {
     @include columns(flex, div, 2, 2);
 
     @include media($b-640) {
