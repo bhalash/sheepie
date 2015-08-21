@@ -8,33 +8,10 @@
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
- *
- * This file is part of Sheepie.
- * 
- * Sheepie is free software: you can redistribute it and/or modify it under the
- * terms of the GNU General Public License as published by the Free Software 
- * Foundation, either version 3 of the License, or (at your option) any later
- * version.
- * 
- * Sheepie is distributed in the hope that it will be useful, but WITHOUT ANY 
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License along with 
- * Sheepie. If not, see <http://www.gnu.org/licenses/>.
  */
  
 // Height of the header when it isn't occupying either a cover or sidebar size.
 $header-min-height: 40vh;
-
-/**
- * Main Site Container
- * -----------------------------------------------------------------------------
- */
-
-#site {
-    // Insert rules here. ^_~
-}
 
 /**
  * Content Exterior
@@ -52,30 +29,10 @@ $header-min-height: 40vh;
  */
 
 #header {
-    background-size: cover;
     box-sizing: border-box;
     position: relative;
     @include padding(2);
     @include flex-parent(column, center);
-
-    #header-content {
-        /* Required for IE10 to respect z-index.
-         * @link http://stackoverflow.com/a/23344797/1433400 */
-        position: relative;
-        // Child content must be raised owing to the background gradient.
-        z-index: 2;
-
-        /* Specific workaround for Mobile Safari: without this #interior content
-         * will scroll behind the header. */
-         @include prefix(backface-visibility, hidden, webkit);
-    }
-
-    &.has-image:after {
-        // Gradient to overlay non-default image. 
-        background: linear-gradient(to bottom, rgba(palette(black, light), 0.5) 0%, rgba(palette(black, x-dark), 0.7) 100%);
-        content: ' ';
-        @include absolute(0);
-    }
 }
 
 /**
