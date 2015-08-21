@@ -35,7 +35,7 @@ $avatar-small: 65px;
 
 article { 
     .main {
-        @include clearfix();
+        @include clearfix;
 
         >:not(:last-child) {
             // Remove margin from last child element.
@@ -114,7 +114,7 @@ footer {
 }
 
 .clear {
-    @include clearfix();
+    @include clearfix;
 }
 
 /**
@@ -160,7 +160,7 @@ div.article-photobox {
 
 a[class^=rmwb-lightbox-] {
     background: palette(black, dark);
-    @include pop-modal();
+    @include pop-modal;
 
     img {
         height: initial;
@@ -189,8 +189,7 @@ div.avatar-wrapper {
         border-radius: 50%;
 
         @include media(smartphone) {
-            height: $avatar-small;
-            width: $avatar-small;
+            @include size($avatar-small $avatar-small);
         }
     }
 }
