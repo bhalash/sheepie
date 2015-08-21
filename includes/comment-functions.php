@@ -86,7 +86,7 @@ function theme_comments($comment, $args, $depth) {
  */
 
 function wrap_comment_fields_before() {
-    printf('<div class="commentform-inputs column-of-three">');
+    printf('<div class="commentform-inputs">');
 }
 
 function wrap_comment_fields_after() {
