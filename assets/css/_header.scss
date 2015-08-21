@@ -100,10 +100,11 @@
 
     li {
         border-radius: 50%;
+        display: inline-block;
         overflow: hidden;
         transition: background-color .2s ease-in;
         @include margin(0 0.5);
-        @include social-link(45px 1);
+        @include social(45px 1);
 
         &:not(:hover) {
             background-color: transparent;
