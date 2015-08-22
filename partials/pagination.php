@@ -28,11 +28,9 @@ $previous = $paged - 1; ?>
     </p>
 
     <p class="count">
-        <small>
-            <?php if (!is_single()) : ?>
-                <span><?php archive_page_count(true); ?></span>
-            <?php endif; ?>
-        </small>
+        <?php if (!is_single() && query_has_pages()) : ?>
+        <small><span><?php archive_page_count(true); ?></span></small>
+        <?php endif; ?>
     </p>
 
     <p class="next<?php echo (is_single()) ? '-post' : ''; ?>">
