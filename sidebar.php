@@ -22,24 +22,29 @@ $action = esc_url(home_url('/'));
 
 <div id="sidebar">
     <div class="sidebar-interior">
-        <h2 class="sidebar-title">
-            <?php printf('<a class="%s" href="%s">%s</a>',
-                'sidebar-site-name',
-                home_url(),
-                get_bloginfo('name')
-            ); ?>
-        </h2>
+        <div class="sidebar-title">
+            <h2 class="site-name">
+                <?php printf('<a class="%s" href="%s">%s</a>',
+                    'sidebar-site-name',
+                    home_url(),
+                    get_bloginfo('name')
+                ); ?>
+            </h2>
+        </div>
 
-        <p class="sidebar-description">
+        <div class="sidebar-description">
             <span>
                 <?php bloginfo('description'); ?>
             </span>
-        </p>
+        </div>
 
         <div class="sidebar-social">
             <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
         </div>
-        <button class="bigsearch-toggle">search</button>
+
+        <div class="sidebar-buttons">
+            <button class="bigsearch-toggle search"></button>
+        </div>
     </div>
 </div>
 <div id="bigsearch">
