@@ -52,11 +52,12 @@
         var init = function(element, target) {
             $element = $(element);
             $target = $(target);
-            $element.on('click', toggle);
+            $element.on('click', element, toggle);
         }
 
         var toggle = function(event) {
             $target.toggle(open).find('input').focus();
+            $element.toggleClass('search').toggleClass('close');
             open = !open;
         }
 
@@ -64,7 +65,7 @@
     }
 
     $('.bigsearch-toggle').bigSearchToggle('#bigsearch');
-})(jQuery);
+})(jQuery, window, document, undefined);
 
 /*
  * Placeholder Fallback IE9
