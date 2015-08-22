@@ -17,19 +17,31 @@
  * in this stylesheet are for elements /internal/ to #sidebar.
  */
 
-.sidebar-title, .sidebar-social, .sidebar-description {
-    color: #fff;
-}
-
 .sidebar-interior {
     @include absolute(0 0 0, right bottom left);
     @include padding(2);
-    // Child content must be raised owing to the background gradient.
-    z-index: 2;
 
-    /* Specific workaround for Mobile Safari: without this #interior content
-     * will scroll behind the sidebar. */
-     @include prefix(backface-visibility, hidden, webkit);
+    @include media($b-960) {
+        top: 0;
+        @include padding(0.5);
+        @include columns(flex, div, 50% 0 auto auto, 0);
+    }
+
+    @include media($b-640) {
+        @include padding(1);
+
+        >div:not(.sidebar-title) {
+            display: none;
+        }
+    }
+
+    .site-name, .sidebar-description {
+        color: #fff;
+    }
+
+    > div {
+        @extend %vspace-half;
+    }
 }
 
 /**
@@ -38,16 +50,27 @@
  */
 
 .sidebar-title {
+    @include media($b-960) {
+        position: relative;
+    }
+
+    @include media($b-640) {
+        @include flex-child(1);
+    }
+}
+
+.site-name {
     line-height: 120%;
-    @include margin(0);
 
     a {
         color: inherit;
         letter-spacing: 1.5px;
+    }
 
-        &:hover {
-            text-decoration: none;
-        }
+    @include media($b-960) {
+        @include font-size(2.5);
+        @include absolute(50% 20px, top left);
+        transform: translateY(-50%);
     }
 }
 
@@ -57,14 +80,13 @@
  */
 
 .sidebar-description {
-    box-sizing: border-box;
-    @include margin(2 0 1);
+    @include media($b-960) {
+        display: none;
+    }
 
     span {
-        box-sizing: border-box;
-        display: inline-block;
-        @include padding(1.5 0);
-    }
+        @extend %small;
+    }   
 }
 
 /**
@@ -86,20 +108,27 @@
     }
 
     li {
-        border-radius: 50%;
         display: inline-block;
         overflow: hidden;
-        transition: background-color .2s ease-in;
-        @include margin(0 0.5);
-        @include social(30px 1);
-
-        &:not(:hover) {
-            background-color: transparent;
-        }
+        @include social(25% 1);
     }
 
     a {
         display: block;
         @include square-flex(100% 1);
+    }
+}
+
+.sidebar-buttons {
+    button.bigsearch-toggle {
+        @include social(25% 1, search close) {
+            background-color: transparent
+        }
+
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }
