@@ -21,7 +21,7 @@ if (comments_open()) {
 
     printf('<div class="article-comments" id="comments">');
         printf('<h4 class="comments-title subtitle">%s \'%s\'</h4>',
-            __('Have your say on ', TTD),
+            __('Have your say on ', LOCALE),
             get_the_title()
         );
 
@@ -47,13 +47,13 @@ if (comments_open()) {
     $fields = array(
         // Name, author and email fields.
         'author' => sprintf($input,
-            'author', 'author', 'author', __('Name*', TTD)
+            'author', 'author', 'author', __('Name*', LOCALE)
         ), 
         'email' => sprintf($input,
-            'email', 'email', 'email', __('Email*', TTD)
+            'email', 'email', 'email', __('Email*', LOCALE)
         ), 
         'url' => sprintf($input,
-            'url', 'url', 'url', __('Website', TTD)
+            'url', 'url', 'url', __('Website', LOCALE)
         )
     );
 
