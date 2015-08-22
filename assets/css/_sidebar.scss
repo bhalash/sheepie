@@ -24,7 +24,11 @@
     @include media($b-960) {
         top: 0;
         @include padding(0.5);
-        @include columns(flex, div, 50% 0 auto auto, 0);
+        // @include columns(flex, div, 50% 0 auto auto, 0);
+
+        div:not(.sidebar-title) {
+            display:none;
+        }
     }
 
     @include media($b-640) {
@@ -51,7 +55,7 @@
 
 .sidebar-title {
     @include media($b-960) {
-        position: relative;
+        margin: 0;
     }
 
     @include media($b-640) {
