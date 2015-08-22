@@ -17,9 +17,16 @@ $author = get_the_author_meta('ID');
 ?>
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-    <?php partial('postheader'); ?>
+    <header>
+        <h4 class="title full-title">
+            <?php partial('posttitle'); ?>
+        </h4>
+        <?php if (!is_page()) : ?>
+            <span class="meta"><?php partial('postmeta'); ?></span>
+        <?php endif; ?>
+    </header>
     <div class="main">
-        <?php the_content(__('Read the rest of this post &raquo;', TTD)); ?>
+        <?php the_content(__('Read the rest of this post &raquo;', LOCALE)); ?>
     </div>
 
     <?php if (is_single()) : ?>
