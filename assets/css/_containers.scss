@@ -21,16 +21,24 @@ body {
  * -----------------------------------------------------------------------------
  */
 
+%contentsize {
+    width: calc(100% - #{rem($sidebar-width)});
+
+    @include media($b-960) {
+        @include rem(top, $collapsed-sidebar-height);
+        width: 100%;
+    }
+}
+
 #content {
+    @extend %contentsize;
     box-sizing: border-box;
     min-width: 0;
     position: relative;
-    width: calc(100% - #{rem($sidebar-width)});
     @include margin($sidebar-width, left);
 
     @include media($b-960) {
         margin: 0;
-        width: 100%;
     }
 }
 
@@ -67,16 +75,14 @@ body:not(.page-template-page-search) #content {
     position: relative;
     @include fixed(0 0 0, top bottom left);
     @include width($sidebar-width);
+    z-index: 2;
 
     // Required for Android Browser.
     -webkit-transform:translateZ(0);
 
     @include media($b-960) {
-        min-height: $responsive-sidebar-height;
         width: 100%;
-        /* Relative in case of a background image, which employs an
-         * absolutely positioned gradient. */
-        position: relative;
+        @include height($collapsed-sidebar-height);
     }
 }
 
