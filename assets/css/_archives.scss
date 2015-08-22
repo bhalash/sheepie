@@ -18,6 +18,11 @@ div.archive {
     }
 }
 
+/**
+ * Timed Archive Card Year
+ * -----------------------------------------------------------------------------
+ */
+
 .archive-year-name {
     background: center/cover;
     text-align: center;
@@ -35,10 +40,6 @@ div.archive {
     }
 }
 
-.archive-card {
-    @include margin(2, bottom);
-}
-
 .archive-card-year {
     background: palette(black);
     box-sizing: border-box;
@@ -48,10 +49,19 @@ div.archive {
     @include padding(1);
 }
 
+/**
+ * Timed Archive Card Month
+ * -----------------------------------------------------------------------------
+ */
+
 .archive-card-month {
     color: palette(white, x-light);
-    // @include margin(1, bottom);
 }
+
+/**
+ * Timed Archive Card Data 
+ * -----------------------------------------------------------------------------
+ */
 
 .archive-card-data {
     span {
