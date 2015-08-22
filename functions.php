@@ -48,15 +48,6 @@ define('THEME_INCLUDES',  THEME_PATH . '/includes/');
 define('THEME_PARTIALS',  '/partials/');
 
 /**
- * Theme Partial Templates
- * -----------------------------------------------------------------------------
- */
-
-define('PARTIAL_ARTICLES', THEME_PARTIALS . 'articles/article');
-define('PARTIAL_ARCHIVES', THEME_PARTIALS . 'archives/archive');
-define('PARTIAL_PAGES',    THEME_PARTIALS . 'pages/');
-
-/**
  * Image, CSS and JavaScript Assets
  * -----------------------------------------------------------------------------
  */
@@ -112,6 +103,19 @@ $prefetch_domains = array(
 $favicon_path = THEME_IMAGES . 'favicon.png';
 
 /**
+ * Partial Wrapper
+ * -----------------------------------------------------------------------------
+ * Shorthand wrapper for get_template_part to reduce the verbosity of calls.
+ * 
+ * @param   string      $name           Partial name.
+ * @param   strgin      $slug           Partial slug.
+ */
+
+function partial($name, $slug = '') {
+    get_template_part(THEME_PARTIALS . $name, $slug);
+}
+
+/**
  * Set Header Class
  * -----------------------------------------------------------------------------
  * Set class if header has any available background image.
@@ -126,7 +130,8 @@ function get_header_class($post_id = null) {
         $post_id = $post->ID;
     }
 
-    return (has_post_thumbnail($post_id) || has_post_image($post_id)) ? 'has-image' : 'no-image';
+    return (has_post_thumbnail($post_id)
+        || has_post_image($post_id)) ? 'has-image' : 'no-image';
 }
 
 /**
@@ -376,7 +381,7 @@ current_theme_supports('html5');
 current_theme_supports('menus');
 
 add_theme_support('post-thumbnails');
-
+add_theme_support('html5', array('search-form'));
 add_theme_support('html5', array(
     'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 ));        

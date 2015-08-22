@@ -13,19 +13,19 @@
  */
 
 get_header();
-get_template_part(THEME_PARTIALS . 'gohome');
+partial('gohome');
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part(PARTIAL_ARTICLES, 'full');
+        partial('article', 'full');
         
         printf('<hr>');
         printf('<div class="%s">', 'column-of-three related-articles');
 
         foreach (get_related() as $post) {
             setup_postdata($post);
-            get_template_part(PARTIAL_ARTICLES, 'related');
+            partial('article', 'related');
         }
 
         printf('</div>');
@@ -34,7 +34,9 @@ if (have_posts()) {
         comments_template();
     }
 } else {
-    get_template_part(PARTIAL_ARTICLES, 'missing');
+    partial('article', 'missing');
 }
 
-get_footer(); ?>
+get_footer(); 
+
+?>

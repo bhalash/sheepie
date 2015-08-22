@@ -16,20 +16,20 @@ get_header();
 global $paged;
 
 if (!is_single() && $paged > 0) {
-    get_template_part(THEME_PARTIALS . '/pagination');
+    partial('pagination');
 }
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        get_template_part(PARTIAL_ARTICLES, 'full');
+        partial('article', 'full');
         printf('<hr>');
     }
 } else {
-    get_template_part(PARTIAL_ARTICLES, 'missing');
+    partial('article', 'missing');
 }
 
-get_template_part(THEME_PARTIALS . '/pagination');
+partial('pagination');
 get_footer();
 
 ?>

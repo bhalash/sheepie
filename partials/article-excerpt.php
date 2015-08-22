@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Full Article Template
+ * PHP Header File
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -14,15 +14,18 @@
 
 ?>
 
-<article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-    <?php get_template_part(THEME_PARTIALS . 'header', 'full'); ?>
+<article <?php post_class('excerpt'); ?> id="article-<?php the_ID(); ?>">
+    <?php partial('postheader'); ?>
 
     <div class="main">
-        <?php the_content(__('Read the rest of this post &raquo;', TTD)); ?>
+        <p><?php custom_excerpt(); ?> <a href="<?php the_permalink(); ?>">...</a></p>
     </div>
 
-    <?php if (is_single()) {
-        get_template_part(THEME_PARTIALS . '/pagination');
-        get_template_part(THEME_PARTIALS . 'footer', 'full');
-    } ?>
+    <?php if (!is_page()) : ?>
+        <footer>
+            <p>
+                </small><?php partial('postmeta'); ?>
+            </p>
+        </footer>
+    <?php endif; ?>
 </article>

@@ -38,7 +38,7 @@ function theme_comments($comment, $args, $depth) {
                     <?php printf('<span class="%s"><time datetime="%s">%s</time></span>',
                         'post-date',
                         get_comment_date('Y-M-d H:i'),
-                        get_comment_date_strftime()
+                        get_comment_date(get_option('date_format'))
                     ); ?>
                 </p>
             </header>
