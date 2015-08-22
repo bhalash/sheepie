@@ -13,69 +13,27 @@
 @import 'scss-helpers/bhalash-helpers';
 @import 'variables';
 
-/**
- * Header Container
- * -----------------------------------------------------------------------------
- */
-
-#header.has-image:after {
-    background-color: rgba(0,0,0,0.4);
+nav#pagination {
+    @include columns(float, p, 3, 0);
 }
 
-#header-content {
-    @include absolute(50% 50%, top left);
-    transform: translate(-50%, -50%);
+.article-photobox {
+    @include columns(float, a, 3, 2);
 }
 
-/**
- * Main Site Container
- * -----------------------------------------------------------------------------
- */
-
-#site.side-by-side {
-    @include clearfix();
-
-    #content {
-        float: right;
-        width: $sides-66;
-
-        @include media($b-960) {
-            // For Internet Explorer 9.
-            float: none;
-            width: 100%;
-        }
-    }
-}
-
-/**
- * Article Children IE Fallback
- * -----------------------------------------------------------------------------
- */
-
-.column-of-three {
-    display: block;
-    @include clearfix();
-
-    > * { 
-        float: left;
-        width: #{column-width(3, 2) + '%'};
-
-        &:not(:nth-child(3n)) {
-            margin-right: 2%;
-        }
-    }
-}
-
-/**
- * Single Article Elements
- * -----------------------------------------------------------------------------
- */
-
-div.avatar-wrapper {
+.avatar {
     float: left;
-    width: calc(100% - $avatar-big);
+    width: $avatar-big;
 }
 
-article.full footer {
-    @include clearfix();
+.commentform-inputs {
+    @include columns(float, input, 3, 2);
+}
+
+.related-articles {
+    @include columns(float, article, 3, 2);
+}
+
+.placeholder {
+    color: palette(black, x-dark);
 }
