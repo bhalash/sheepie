@@ -16,6 +16,8 @@ if (is_404()) {
     return;
 }
 
+$action = esc_url(home_url('/'));
+
 ?>
 
 <div id="sidebar">
@@ -41,9 +43,9 @@ if (is_404()) {
     </div>
 </div>
 <div id="bigsearch">
-    <form role="search" id="bigsearch-form" method="get" class="right left bottom" action="<?php printf(esc_url(home_url('/'))); ?>" autocomplete="off">
+    <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off">
         <fieldset>
-            <input id="s" class="search-input-class" name="s" placeholder="<?php _e('search', TTD); ?>" type="search" required="required" autofocus>
+            <input class="bigsearch-input" name="s" placeholder="<?php _e('search', LOCALE); ?>" type="search" required="required" autofocus>
         </fieldset>
     </form>
 </div>
