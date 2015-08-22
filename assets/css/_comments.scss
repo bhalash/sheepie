@@ -136,15 +136,6 @@ li.comment .comment-interior {
  */
 
 #commentform {
-    input,textarea {
-        @extend %input-border;
-        @include padding(0.5);
-
-        @include placeholder-style() {
-            font-size: inherit;
-        }
-    }
-
     p, input {
         @extend small;
     }
@@ -155,12 +146,6 @@ li.comment .comment-interior {
 
     textarea {
         @include height(20);
-    }
-
-    input[type=submit] {
-        @include height(3);
-        @include rem(max-width, 15);
-        @include padding(0.5, bottom);
     }
 }
 
@@ -178,5 +163,29 @@ li.comment .comment-interior {
     @include media($b-640) {
         display: block;
         margin: 0;
+    }
+}
+
+/*
+ * User Avatar
+ * -----------------------------------------------------------------------------
+ */
+
+.avatar {
+    @include margin(1, right);
+    flex: 0 1 $avatar-big;
+
+    @include media(smartphone) {
+        flex: 0 1 $avatar-small;
+    }
+
+    .author-photo {
+        background: center/cover no-repeat;
+        border-radius: 50%;
+
+        @include square-flex(100% 1);
+        @include media(smartphone) {
+            @include size($avatar-small $avatar-small);
+        }
     }
 }
