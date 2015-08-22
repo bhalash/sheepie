@@ -47,7 +47,7 @@ function theme_comments($comment, $args, $depth) {
                 <?php if (!$comment->comment_approved) {
                     printf('<p class="%s">%s</p>',
                         'comment-unapproved',
-                        __('Tá do thrácht á mheas.', TTD)
+                        __('Your comment is awaiting approval.', LOCALE)
                     );
                 } else {
                     comment_text();
@@ -56,7 +56,7 @@ function theme_comments($comment, $args, $depth) {
 
             <?php if (is_user_logged_in()) : ?>
                 <footer>
-                    <p><?php edit_comment_link(__('edit', TTD),'', ''); ?></p>
+                    <p><?php edit_comment_link(__('edit', LOCALE),'', ''); ?></p>
                 </footer>
             <?php endif; ?>
         </div>
