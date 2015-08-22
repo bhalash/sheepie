@@ -19,19 +19,19 @@ get_header();
 
 // Archives by date.
 
-printf('<h5 class="title">%s</h5>', __('Archives by Year', TTD));
+printf('<h5 class="title">%s</h5>', __('Archives by Year', LOCALE));
 printf('<div class="archive">');
 
 foreach (timed_archives_count() as $year => $calendar) {
     $first_post = year_first_post($year, true);
 
-    printf('<div class="archive-card" id="archive-card-%s">', $year);
+    printf('<div class="archive-card vspace-full" id="archive-card-%s">', $year);
 
     // Print year name with background image from post of that year.
     printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
         'archive-year-name',
         post_image_css($first_post, false),
-        __('Archives for the year ', TTD) . $year,
+        __('Archives for the year ', LOCALE) . $year,
         get_year_link($year),
         $year
     );
@@ -75,7 +75,7 @@ printf('<hr>');
 // Arhives by category.
 // TODO
 
-printf('<h5 class="title">%s</h5>', __('Archives by Category', TTD));
+printf('<h5 class="title">%s</h5>', __('Archives by Category', LOCALE));
 printf('<hr>');
 
 // Archives by tag.
@@ -83,7 +83,7 @@ printf('<hr>');
 
 // Statistics.
 
-printf('<h5 class="title">%s</h5>', __('Blog Statistics', TTD));
+printf('<h5 class="title">%s</h5>', __('Blog Statistics', LOCALE));
 printf('<p>%s</p>', blog_statistics());
 
 // Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)
