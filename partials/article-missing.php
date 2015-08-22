@@ -14,11 +14,4 @@
 
 ?>
 
-<article <?php post_class(); ?> id="article-<?php the_ID(); ?>">
-    <header>
-        <h3><?php _e('Article not found.', TTD); ?></h3>
-    </header>
-    <div class="main">
-        <p><?php _e('No posts were found that match your criteria! :(', TTD); ?></p>
-    </div>
-</article>
+<p><?php _e('No matching posts were found! :(', LOCALE); ?></p>
