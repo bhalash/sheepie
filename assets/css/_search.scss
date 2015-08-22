@@ -19,17 +19,24 @@
     background: #fff;
     display: none;
     height: 100vh;
-    left: $sidebar-width;
     z-index: 3;
-    @include fixed(0 0 0 $sidebar-width);
+    @extend %contentsize;
+    @include fixed(0 0, right bottom);
 
     &:target {
         display: block;
     }
 
-    @include media($b-960) {
-        left: 0;
-        top: $responsive-sidebar-height;
+    @include media(tablet) {
+        bottom: initial;
+        border: 1px solid palette(black, x-dark);
+        border-width: 1px 0;
+        top: 0;
+        @include height(12);
+    }
+
+    @include media(smartphone) {
+        @include height(6);
     }
 }
 
@@ -38,16 +45,11 @@
  * -----------------------------------------------------------------------------
  */
 
-form#bigsearch-form {
+.bigsearch-form {
     height: 100%;
-    margin: 0 auto;
-    position: relative;
 
     fieldset {
-        border: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
+        width: 90%;
         @include absolute-center;
     }
 }
@@ -57,12 +59,26 @@ form#bigsearch-form {
  * -----------------------------------------------------------------------------
  */
 
-input#s {
+.bigsearch-input {
     background: transparent;
     display: block;
     margin: 0 auto;
     text-align: center;
     width: 90%;
     @include font-size(7);
+
+    @include media(smartphone) {
+        @include font-size(3);
+    }
 }
 
+/**
+ * Regular Search Form
+ * -----------------------------------------------------------------------------
+ */
+
+.searchform-input {
+    @include padding(1);
+    @include font-size(2.7);
+    width: 100%;
+}
