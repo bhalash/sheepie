@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP Header File
+ * Excerpted Article
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -15,17 +15,15 @@
 ?>
 
 <article <?php post_class('excerpt'); ?> id="article-<?php the_ID(); ?>">
-    <?php partial('postheader'); ?>
-
     <div class="main">
-        <p><?php custom_excerpt(); ?> <a href="<?php the_permalink(); ?>">...</a></p>
+        <header>
+            <h5 class="title excerpt-title">
+                <?php partial('posttitle'); ?>
+            </h5>
+            <?php if (!is_page()) : ?>
+                <span class="meta"><?php partial('postmeta'); ?></span>
+            <?php endif; ?>
+        </header>
+        <?php the_excerpt(); ?>
     </div>
-
-    <?php if (!is_page()) : ?>
-        <footer>
-            <p>
-                </small><?php partial('postmeta'); ?>
-            </p>
-        </footer>
-    <?php endif; ?>
 </article>
