@@ -324,7 +324,7 @@ function search_results_count($echo = false) {
     // Stops an overage on the final page of the search.
     $count_high = ($position > $total_results) ? $total_results : $position;
 
-    $count = printf(__('Results %s to %s of %s', TTD),
+    $count = sprintf(__('Results %s to %s of %s', TTD),
         $count_low,
         $count_high,
         archive_total()
