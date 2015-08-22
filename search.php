@@ -13,15 +13,12 @@
  */
 
 get_header();
-
-if (!is_single() && $paged > 0) {
-    partial('pagination');
-}
+get_search_form();
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        partial('article', 'full');
+        partial('article', 'excerpt');
         printf('<hr>');
     }
 } else {

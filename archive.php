@@ -14,10 +14,6 @@
 
 get_header();
 
-if (!is_single() && $paged > 0) {
-    partial('pagination');
-}
-
 if (have_posts()) {
     while (have_posts()) {
         the_post();
