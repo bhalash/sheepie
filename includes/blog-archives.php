@@ -306,7 +306,9 @@ function archive_page_count($echo = false) {
  */
 
 function search_results_count($echo = false) {
-    $total = archive_total();
+    global $wp_query;
+    
+    $total = $wp_query->found_posts;
 
     $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $posts_per_page = get_option('posts_per_page');
@@ -322,12 +324,12 @@ function search_results_count($echo = false) {
     $count_low  = ($position - $posts_per_page) + 1;
 
     // Stops an overage on the final page of the search.
-    $count_high = ($position > $total_results) ? $total_results : $position;
+    $count_high = ($position > $total_results) ? $total : $position;
 
     $count = sprintf(__('Results %s to %s of %s', TTD),
         $count_low,
         $count_high,
-        archive_total()
+        $total
     );
 
     if (!$echo) {
