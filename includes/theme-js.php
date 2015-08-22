@@ -35,14 +35,16 @@ $conditional_scripts = array(
 function load_theme_scripts() {
     global $theme_javascript, $conditional_scripts, $wp_scripts;
 
-    foreach ($theme_javascript as $name => $script) {
-        if (!WP_DEBUG) {
-            // Instead load minified version if you aren't debugging.
-            $script = str_replace(THEME_JS, THEME_JS . 'min/', $script);
-            $script = str_replace('.js', '.min.js', $script);
-        }
+    if (!is_404()) {
+        foreach ($theme_javascript as $name => $script) {
+            if (!WP_DEBUG) {
+                // Instead load minified version if you aren't debugging.
+                $script = str_replace(THEME_JS, THEME_JS . 'min/', $script);
+                $script = str_replace('.js', '.min.js', $script);
+            }
 
-        wp_enqueue_script($name, $script, array('jquery'), THEME_VERSION, true);
+            wp_enqueue_script($name, $script, array('jquery'), THEME_VERSION, true);
+        }
     }
 
     foreach ($conditional_scripts as $name => $script) {

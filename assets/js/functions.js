@@ -5,61 +5,66 @@
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
- * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
  */
 
-/*
- * Initialize highligh.js
- * -----------------------------------------------------------------------------
- * highlight.js operates on the <code> child or <pre> elements. This wraps the
- * content of an element with <code> before initializing highlight.js.
- */
-
-jQuery('pre:not(:has(> code))').wrapInner('<code></code>');
-hljs.initHighlightingOnLoad();
-
-/**
- * 
- * -----------------------------------------------------------------------------
- */
 
 (function($) {
-    var searchOpen = false;
-    var search = '#bigsearch';
-    var $toggle = $('.bigsearch-toggle');
 
-    function bigSearchToggle(event) {
-        $(this).attr('href', (searchOpen) ? '#!' : search);
-        $(search).toggle(!searchOpen);
-        event.preventDefault();
-        $(search).find('input').focus();
-        searchOpen = !searchOpen;
+    /*
+     * Initialize highligh.js
+     * -------------------------------------------------------------------------
+     * highlight.js operates on the <code> child or <pre> elements. This wraps the
+     * content of an element with <code> before initializing highlight.js.
+     */
+
+    $('pre:not(:has(> code))').wrapInner('<code></code>');
+    hljs.initHighlightingOnLoad();
+
+    /**
+     * Remove Photobox Breaks
+     * -------------------------------------------------------------------------
+     * WordPress can insert <br> tags between elements if it detects either a
+     * space or a line break. This can break the formatting of the lightbox.
+     */
+
+    $('.article-photobox br').remove();
+
+    /*
+     * Initialize Lightbox
+     * -------------------------------------------------------------------------
+     */
+
+    jQuery('article a img').addLightbox();
+
+    /**
+     * Bigsearch Toggle 
+     * -------------------------------------------------------------------------
+     */
+
+    $.fn.bigSearchToggle = function(target) {
+        var $element = '';
+        var $target = '';
+        var open = true;
+
+        var init = function(element, target) {
+            $element = $(element);
+            $target = $(target);
+            $element.on('click', toggle);
+        }
+
+        var toggle = function(event) {
+            $target.toggle(open).find('input').focus();
+            open = !open;
+        }
+
+        init(this, target);
     }
 
-    $toggle.on('click', bigSearchToggle);
-
-    if (window.location.hash === search) {
-        $toggle.trigger('click');
-    }
+    $('.bigsearch-toggle').bigSearchToggle('#bigsearch');
 })(jQuery);
-
-/**
- * Remove Photobox Breaks
- * -----------------------------------------------------------------------------
- * WordPress can insert <br> tags between elements if it detects either a space
- * or a line break. This can break the formatting of the lightbox.
- */
-
-jQuery('.article-photobox br').remove();
-
-/*
- * Initialize Lightbox
- * -----------------------------------------------------------------------------
- */
-
-jQuery('article a img').addLightbox();
 
 /*
  * Placeholder Fallback IE9

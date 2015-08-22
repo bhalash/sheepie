@@ -75,7 +75,7 @@
             settings.classes.lightbox += randChars(10, '-');
 
             var lightbox = $('<a>', {
-                href: '#_',
+                href: '#!',
                 'class': settings.classes.lightbox
             }).append('<img src="" />');
             

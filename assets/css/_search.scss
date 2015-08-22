@@ -5,63 +5,64 @@
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
- * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
  */
 
 /**
- * Placeholder Search Form
+ * Big Search Form Container
  * -----------------------------------------------------------------------------
- * This is strictly WIP: click invisible button in the bottom-left corner of the
- * site to active the all-CSS modal search box.
  */
 
-#search {
-    background: palette(white, light);
-    @include pop-modal();
-    @include prefix(backface-visibility, initial, webkit);
+#bigsearch {
+    background: #fff;
+    display: none;
+    height: 100vh;
+    left: $sidebar-width;
+    z-index: 3;
+    @include fixed(0 0 0 $sidebar-width);
+
+    &:target {
+        display: block;
+    }
+
+    @include media($b-960) {
+        left: 0;
+        top: $responsive-sidebar-height;
+    }
 }
 
 /**
- * Temproary Search Open and Close Buttons
+ * Big Search Form
  * -----------------------------------------------------------------------------
- * They need to be styled.
  */
 
-a#search-open {
-    background: palette(white, x-dark);
-    border-radius: 50%;
-    display: block;
-    z-index: 10;
-    @include absolute(10px 10px, bottom left);
-    @include size(3 3);
-}
+form#bigsearch-form {
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
 
-a#search-close {
-    background: palette(black, x-light);
-    border-radius: 50%;
-    display: block;
-    @include square-flex(30px 1);
-    @include absolute(5px 5px, top right);
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        @include absolute-center;
+    }
 }
 
 /**
- * Placeholder Search Input
+ * Big Search Text Input
  * -----------------------------------------------------------------------------
  */
 
-#search input {
+input#s {
     background: transparent;
     display: block;
-    width: 75%;
+    margin: 0 auto;
     text-align: center;
-    transform: translate(-50%, -50%);
-    @include font-size(4);
-    @include absolute(50% 50%, top left);
-
-    @include media(smartphone) {
-        width: 90%;
-    }
+    width: 90%;
+    @include font-size(7);
 }
 

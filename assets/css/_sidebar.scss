@@ -1,51 +1,44 @@
 /**
- * Header Stylesheet
+ * Theme Sidebar
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
- * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
  */
 
 /**
- * Header Interior Element Defaults
+ * Sidebar Interior Element Defaults
  * -----------------------------------------------------------------------------
- * External rules for the header container are set in _containers.css. All rules
- * in this stylesheet are for elements /internal/ to #header.
+ * External rules for the sidebar container are set in _containers.css. All rules
+ * in this stylesheet are for elements /internal/ to #sidebar.
  */
 
-#header {
-    #header-title, #header-social, #header-description {
-        color: #fff;
-        // font-weight: 300;
-        text-align: center;
-    }
+.sidebar-title, .sidebar-social, .sidebar-description {
+    color: #fff;
 }
 
-
-.header-content {
-    /* Required for IE10 to respect z-index.
-     * @link http://stackoverflow.com/a/23344797/1433400 */
-    position: relative;
+.sidebar-interior {
+    @include absolute(0 0 0, right bottom left);
+    @include padding(2);
     // Child content must be raised owing to the background gradient.
     z-index: 2;
 
     /* Specific workaround for Mobile Safari: without this #interior content
-     * will scroll behind the header. */
+     * will scroll behind the sidebar. */
      @include prefix(backface-visibility, hidden, webkit);
 }
 
 /**
- * Header Title Text
+ * Sidebar Title Text
  * -----------------------------------------------------------------------------
  */
 
-.header-title {
-    // Tightens
-    line-height: 90%;
+.sidebar-title {
+    line-height: 120%;
     @include margin(0);
 
     a {
@@ -59,18 +52,15 @@
 }
 
 /**
- * Header Descriptive Paragraph
+ * Sidebar Descriptive Paragraph
  * -----------------------------------------------------------------------------
  */
 
-.header-description {
+.sidebar-description {
     box-sizing: border-box;
     @include margin(2 0 1);
-    @include padding(0 2);
 
     span {
-        border: 1px solid palette(white, dark); 
-        border-width: 1px 0;
         box-sizing: border-box;
         display: inline-block;
         @include padding(1.5 0);
@@ -78,16 +68,14 @@
 }
 
 /**
- * Header Social Media Menu
+ * Sidebar Social Media Menu
  * -----------------------------------------------------------------------------
- * Horizontal row of external social media links. The WordPress side of the 
- * logic is still TODO.
+ * Horizontal row of external social media links.
  */
 
-.header-social {
+.sidebar-social {
     ul {
         font-size: 0;
-        margin: 0;
         list-style-type: none;
     }
 
@@ -103,7 +91,7 @@
         overflow: hidden;
         transition: background-color .2s ease-in;
         @include margin(0 0.5);
-        @include social(45px 1);
+        @include social(30px 1);
 
         &:not(:hover) {
             background-color: transparent;
