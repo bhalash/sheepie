@@ -61,7 +61,7 @@ define('THEME_CSS', ASSETS_URL . 'css/');
  * -----------------------------------------------------------------------------
  */
 
-define('TTD', 'sheepie');
+define('LOCALE', 'sheepie');
 
 /**
  * Theme Includes
@@ -217,7 +217,7 @@ function sheepie_title($title, $sep) {
     }
 
     if ($paged >= 2 || $page >= 2) {
-        $title = "$title $sep " . sprintf( __( 'Page %s', TTD), max( $paged, $page ) );
+        $title = "$title $sep " . sprintf( __( 'Page %s', LOCALE), max( $paged, $page ) );
     }
 
     return $title;
@@ -235,6 +235,38 @@ function dns_prefetch() {
     foreach ($prefetch_domains as $domain) {
         printf('<link rel="dns-prefetch" href="//%s">', $domain);
     }
+}
+
+/**
+ * Generate Ascending and Descending Search Link
+ * -----------------------------------------------------------------------------
+ * @param   string      $order          'asc' or 'desc'
+ * @param   bool        $echo           Echo it, true/false.
+ * @return  string      $url            Generated URL.
+ */
+
+function search_url($order = null, $echo = true) {
+    if (!$order) {
+        $order = 'asc';
+    }
+
+    $query = get_search_query();
+    $url = array();
+
+    $url[] = esc_url(home_url('/')); 
+    $url[] = '?s=';
+    $url[] = esc_attr($query);
+    $url[] = '&sort=date';
+    $url[] = '&order=';
+    $url[] = $order;
+
+    $url = implode('', $url);
+
+    if (!$echo) {
+        return $url;
+    }
+
+    printf($url);
 }
 
 /**
@@ -274,8 +306,8 @@ function theme_widgets() {
 
 function theme_navigation() {
     register_nav_menus(array(
-        'top-menu' => __('Header Menu', TTD),
-        'top-social' => __('Header Social Links', TTD)
+        'top-menu' => __('Header Menu', LOCALE),
+        'top-social' => __('Header Social Links', LOCALE)
     ));
 }
 
@@ -298,7 +330,7 @@ add_action('wp_head', 'dns_prefetch');
 
 
 // Clean search URL rewrite.
-add_action('template_redirect', 'clean_search_url');
+// add_action('template_redirect', 'clean_search_url');
 remove_action('wp_head', 'wp_generator');
 
 /**
