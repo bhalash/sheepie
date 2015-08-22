@@ -14,7 +14,6 @@
 
 $theme_javascript = array(
     'highlight-js' => THEME_JS . 'highlight.js',
-    'google-analytics' => THEME_JS . 'analytics.js',
     'lightbox' => THEME_JS . 'lightbox.js',
     'functions' => THEME_JS . 'functions.js'
 );
@@ -27,10 +26,6 @@ $conditional_scripts = array(
     ),
     'jquery-placeholder' => array(
         THEME_URL . '/node_modules/jquery-placeholder/jquery.placeholder.min.js',
-        'lte IE 9'
-    ),
-    'functions-ie' => array(
-        THEME_JS . 'functions-ie.js',
         'lte IE 9'
     )
 );
