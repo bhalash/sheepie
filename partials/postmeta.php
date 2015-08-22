@@ -19,8 +19,8 @@ printf('<time datetime="%s">%s</a>',
     get_the_time(get_option('date_format'))
 );
 
-_e(' in ', TTD);
+_e(' in ', LOCALE);
 the_category(', ');
-edit_post_link(__('edit post', TTD), ' / ', ''); 
+edit_post_link(__('edit post', LOCALE), ' / ', ''); 
 
 ?>
