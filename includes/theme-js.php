@@ -24,6 +24,14 @@ $conditional_scripts = array(
     'html5-shiv' => array(
         THEME_URL . '/node_modules/html5shiv/dist/html5shiv.min.js',
         'lte IE 9'
+    ),
+    'jquery-placeholder' => array(
+        THEME_URL . '/node_modules/jquery-placeholder/jquery.placeholder.min.js',
+        'lte IE 9'
+    ),
+    'functions-ie' => array(
+        THEME_JS . 'functions-ie.js',
+        'lte IE 9'
     )
 );
 
