@@ -10,7 +10,7 @@
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
- * @license    https://www.gnu.org/copyleft/gpl.html The GNU General Public License v3.0
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
  */
@@ -247,6 +247,94 @@ function blog_statistics($echo = false) {
     }
 
     printf($stats);
+}
+
+/**
+ * Get Total Number of Pages in Query
+ * -----------------------------------------------------------------------------
+ * @return  int      Total number of pages in current query, rounded up.
+ */
+
+function query_page_total() {
+    global $wp_query;
+    
+    return ceil($wp_query->found_posts / get_option('posts_per_page'));
+}
+
+/**
+ * See if Query Has Pages
+ * -----------------------------------------------------------------------------
+ * @return bool     Query has pages, true/false.
+ */
+
+function query_has_pages() {
+    return (query_page_total() > 1);
+}
+
+/**
+ * Pagination Post Counter
+ * -----------------------------------------------------------------------------
+ * Fetch and display total post count in format of 'Page 1 of 10'.
+ * This only counts published, public posts; drafts, pages, custom
+ * post types and private posts are all excluded unless you specify
+ * inclusion.
+ * 
+ * @param   bool        $echo       Echo results, true/false.
+ * @return  string      $count      The post count.
+ */
+
+function archive_page_count($echo = false) {
+    $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $count = sprintf(__('Page %s of %s', TTD), $page, query_page_total());
+
+    if (!$echo) {
+        return $count;
+    }
+
+    printf($count);
+}
+
+/**
+ * Search Result Count
+ * -----------------------------------------------------------------------------
+ * Return a count of results for the search in the format 
+ * 'Results 1 to 10 of 200'
+ * 
+ * @param   int     $page_num       Current page nunber.
+ * @param   int     $total_results  Total number of search results.
+ * @return  string                  Count of results.
+ */
+
+function search_results_count($echo = false) {
+    $total = archive_total();
+
+    $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $posts_per_page = get_option('posts_per_page');
+
+    /* Position within the query. 
+     * i.e. page = 3, posts_per_page = 10
+     * 3 * 10 = 30, so we're on the page that ends with the 30th post.
+     */
+
+    $position = $page * $posts_per_page;
+
+    // $position - 30 - 10 + 1 = 21, so we're on the page that begins with 21.
+    $count_low  = ($position - $posts_per_page) + 1;
+
+    // Stops an overage on the final page of the search.
+    $count_high = ($position > $total_results) ? $total_results : $position;
+
+    $count = printf(__('Results %s to %s of %s', TTD),
+        $count_low,
+        $count_high,
+        archive_total()
+    );
+
+    if (!$echo) {
+        return $count;
+    }
+
+    printf($count);
 }
 
 ?>

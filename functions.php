@@ -238,26 +238,6 @@ function dns_prefetch() {
 }
 
 /**
- * Search Result Count
- * -----------------------------------------------------------------------------
- * Return a count of results for the search in the format 
- * 'Results 1 to 10 of 200'
- * 
- * @param   int     $page_num       Current page nunber.
- * @param   int     $total_results  Total number of search results.
- * @return  string                  Count of results.
- */
-
-function search_results_count($page_num, $total_results) {
-    $page_num = ($page_num === 0) ? 1 : $page_num;
-    $posts_per_page = get_option('posts_per_page');
-    $count_high = $page_num * $posts_per_page;
-    $count_low  = ($count_high - $posts_per_page) + 1;
-    $count_high = ($count_high > $total_results) ? $total_results : $count_high;
-    return 'Results ' . $count_low . ' to ' . $count_high . ' of ' . $total_results;
-}
-
-/**
  * Rewrite Search URL Cleanly
  * -----------------------------------------------------------------------------
  * Cleanly rewrite search URL from ?s=topic to /search/topic
@@ -271,42 +251,6 @@ function clean_search_url() {
         exit();
     }
 }
-
-/**
- * Pagination Post Counter
- * -----------------------------------------------------------------------------
- * Fetch and display total post count in format of 'Page 1 of 10'.
- * This only counts published, public posts; drafts, pages, custom
- * post types and private posts are all excluded unless you specify
- * inclusion.
- * 
- * @param   int     $page_num       Current page in pagination.
- * @param   int     $total_results  Total results, for pagination.
- * @return  string                  The post counter.
- */
-
-function archive_page_count($echo = false, $page_num = null, $total_results = null) {
-    global $wp_query;
-
-    if (is_null($total_results)) {
-        $total_results = $wp_query->found_posts;
-    }
-
-    if (is_null($page_num)) {
-        $page_num = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    }
-
-    $posts_per_page = get_option('posts_per_page');
-    $total_pages = ceil($total_results / $posts_per_page);
-    $page_count = sprintf(__('Page %s of %s', TTD), $page_num, $total_pages);
-
-    if (!$echo) {
-        return $page_count;
-    }
-
-    printf($page_count);
-}
-
 /**
  * Register Theme Widget Areas
  * -----------------------------------------------------------------------------
