@@ -10,18 +10,6 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/*
- * Site Top Navigation
- * -----------------------------------------------------------------------------
- */
-
-#gohome, #pagination {
-    p { 
-        margin: 0;
-        @include flex-child(1);
-    }
-}
-
 /**
  * Home Link
  * -----------------------------------------------------------------------------
@@ -45,7 +33,7 @@ nav#gohome {
 
 nav#pagination {
     @include margin(3 0);
-    @include flex-parent(row);
+    @include columns(flex, p, 3, 0);
 
     span {
         color: palette(black);
