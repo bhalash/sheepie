@@ -35,8 +35,8 @@
  */
 
 function get_avatar_url_only($avatar, $id_or_email, $size, $default, $alt) {
-    if (!is_admin()) {
-        $avatar = preg_replace('/(^.*src="|"\s.*$)/', '', $avatar);
+   if (!is_admin()) {
+        $avatar = preg_replace('/(^.*src=("|\')|("|\')\ssrcset.*$)/', '', $avatar);
    }
 
    return $avatar;
