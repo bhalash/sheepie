@@ -13,6 +13,7 @@
  */
 
 get_header();
+partial('gohome');
 get_search_form();
 
 if (have_posts()) {
