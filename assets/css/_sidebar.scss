@@ -18,34 +18,61 @@
  */
 
 .sidebar-interior {
-    @include absolute(0 0 0, right bottom left);
+    box-sizing: border-box;
+    height: 100%;
+    overflow:hidden;
+    @include flex-parent(column, flex-end);
     @include padding(2);
 
-    @include media($b-960) {
-        top: 0;
-        @include padding(0.5);
-        // @include columns(flex, div, 50% 0 auto auto, 0);
-
-        div:not(.sidebar-title) {
-            display:none;
-        }
-    }
-
-    @include media($b-640) {
+    @include media($b-1024) {
+        @include flex-parent(row, justify-content);
         @include padding(1);
+    }
+}
 
-        >div:not(.sidebar-title) {
-            display: none;
+/**
+ * Sidebar Child Elements
+ * -----------------------------------------------------------------------------
+ */
+
+.sidebar-child {
+    color: #fff;
+
+    &:not(:last-child) {
+        @include margin($vspace, bottom);
+
+        @include media($b-1024) {
+            margin: 0;
         }
     }
 
-    .site-name, .sidebar-description {
-        color: #fff;
+    a {
+        color: inherit;
+        letter-spacing: 1.5px;
     }
 
-    > div {
-        @extend %vspace-half;
+    ul {
+        list-style-type: none;
+        @include clearfix;
     }
+
+    li {
+        /* WordPress requires menu links to have a text label.
+         * Also hides extra space from display: inline-block; */
+        font-size: 0 !important;
+        float: left;
+        overflow: hidden;
+
+        a {
+            display: block;
+            font-size: inherit;
+            @include square-flex(100% 1);
+        }
+    }
+
+    span {
+        @extend %small;
+    }   
 }
 
 /**
@@ -54,27 +81,25 @@
  */
 
 .sidebar-title {
-    @include media($b-960) {
-        margin: 0;
+    @include flex-child(0 1 auto);
+
+    @include media($b-1024) {
+        @include flex-child(0 1 60%, initial, 2);
+        text-align: center;
     }
 
     @include media($b-640) {
         @include flex-child(1);
+        text-align: left;
     }
 }
 
 .site-name {
     line-height: 120%;
 
-    a {
-        color: inherit;
-        letter-spacing: 1.5px;
-    }
-
-    @include media($b-960) {
-        @include font-size(2.5);
-        @include absolute(50% 20px, top left);
-        transform: translateY(-50%);
+    @include media($b-1024) {
+        @include font-size(2);
+        line-height: 40px;
     }
 }
 
@@ -84,13 +109,11 @@
  */
 
 .sidebar-description {
-    @include media($b-960) {
+    @include flex-child(0 1 auto);
+
+    @include media($b-1024) {
         display: none;
     }
-
-    span {
-        @extend %small;
-    }   
 }
 
 /**
@@ -99,40 +122,68 @@
  * Horizontal row of external social media links.
  */
 
-.sidebar-social {
-    ul {
-        font-size: 0;
-        list-style-type: none;
+.sidebar-socialrow {
+    @include flex-child(0 1 auto);
+
+    @include media($b-1024) {
+        @include flex-child(0 1 20%, initial, 1);
+        @include rem(min-width, 22);
     }
 
-    ul, li, a {
-        /* WordPress requires menu links to have a text label.
-         * Also fixes problem with iOS. */
-        font-size: 0 !important;
+    @include media($b-640) {
+        display: none;
     }
 
     li {
-        display: inline-block;
-        overflow: hidden;
         @include social(25% 1);
-    }
 
-    a {
-        display: block;
-        @include square-flex(100% 1);
+        @include media($b-1024) {
+            @include square-flex(40px 1);
+        }
     }
 }
 
-.sidebar-buttons {
-    button.bigsearch-toggle {
-        @include social(25% 1, search close) {
-            background-color: transparent
-        }
+/**
+ * Sidebar Bottom Buttons
+ * -----------------------------------------------------------------------------
+ */
 
-        opacity: 0.5;
+.sidebar-buttonrow {
+    @include flex-child(0 1 auto);
+    @include clearfix;
+    overflow: hidden;
 
-        &:hover {
-            opacity: 1;
-        }
+    @include media($b-1024) {
+        @include flex-child(0 1 30%, initial, 3);
+        @include rem(min-width, 22);
+    }
+
+    @include media($b-640) {
+        @include rem(min-width, 5);
+    }
+
+}
+
+.sidebar-buttonrow button {
+    /* I found buttons don't position properly unless floated, so eh.
+     * There is an invisible non-padding, non-margin space applied above
+     * the button unless it was floated. 
+     */
+
+    float: left;
+
+    @include social(25% 1, search close) {
+        background-color: transparent;
+    }
+
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @include media($b-1024) {
+        float: right;
+        @include square-flex(40px 1);
     }
 }
