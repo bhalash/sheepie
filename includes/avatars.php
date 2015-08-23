@@ -55,10 +55,6 @@ function get_avatar_url_only($avatar, $id_or_email, $size, $default, $alt) {
  */
 
 function get_avatar_background($id_or_email, $size = 'large', $classes = null) {
-    if (!($author = get_user_by('id', $id_or_email))) {
-        return false;
-    }
-
     $avatar = get_avatar($id_or_email, $size);
     $background = sprintf('background-image: url(%s);', $avatar);
 
