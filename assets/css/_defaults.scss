@@ -102,6 +102,10 @@ hr, %hr {
     @include margin(2 0);
 }
 
+body:not(.single):not(.search) hr {
+    @include margin(4 0);
+}
+
 body:not(.single) article ~ hr, %article-hr {
     &:last-of-type {
         background: transparent;
