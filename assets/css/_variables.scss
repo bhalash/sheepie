@@ -119,3 +119,20 @@ $font-opensans-title: 'Open Sans Condensed', Verdana, Geneva, sans-serif, sans-s
 .vspace-double, %vspace-double {
     @include margin($vspace * 2, bottom);
 }
+
+/**
+ * Content and Search Size
+ * -----------------------------------------------------------------------------
+ * Separated because content and search both use them, and I need them for
+ * IE fallback.
+ */
+
+%contentsize {
+    width: calc(100% - #{rem($sidebar-width)});
+
+    @include media($b-1024) {
+        @include rem(top, $collapsed-sidebar-height);
+        width: 100%;
+    }
+}
+

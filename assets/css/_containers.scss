@@ -10,25 +10,10 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-body {
-    @include media($b-960) {
-        display: block;
-    }
-}
-
 /**
  * Content and Interior Content Rules
  * -----------------------------------------------------------------------------
  */
-
-%contentsize {
-    width: calc(100% - #{rem($sidebar-width)});
-
-    @include media($b-960) {
-        @include rem(top, $collapsed-sidebar-height);
-        width: 100%;
-    }
-}
 
 #content {
     @extend %contentsize;
@@ -37,8 +22,8 @@ body {
     position: relative;
     @include margin($sidebar-width, left);
 
-    @include media($b-960) {
-        margin: 0;
+    @include media($b-1024) {
+        margin: 0 auto;
     }
 }
 
@@ -72,7 +57,6 @@ body:not(.page-template-page-search) #content {
 #sidebar {
     background: palette(rmwb);
     box-sizing: border-box;
-    position: relative;
     @include fixed(0 0 0, top bottom left);
     @include width($sidebar-width);
     z-index: 2;
@@ -80,7 +64,7 @@ body:not(.page-template-page-search) #content {
     // Required for Android Browser.
     -webkit-transform:translateZ(0);
 
-    @include media($b-960) {
+    @include media($b-1024) {
         width: 100%;
         @include height($collapsed-sidebar-height);
     }
