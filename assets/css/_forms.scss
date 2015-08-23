@@ -49,7 +49,7 @@ input:not(.bigsearch-input), textarea {
 
     &:focus {
         color: palette(white, x-light);
-        background: palette(white, x-dark);
+        background: palette(rmwb);
 
         @include placeholder-style {
             color: palette(white, x-light);
