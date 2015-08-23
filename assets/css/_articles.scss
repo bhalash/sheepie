@@ -159,7 +159,6 @@ article.full {
     }
 
     footer {
-        @include columns(flex, div, 10% auto, 2%);
         @include margin(2, top);
     }
 
