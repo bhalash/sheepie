@@ -1,0 +1,77 @@
+/**
+ * Forms
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+form {
+    position: relative;
+    width: 100%;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+// Remove all default appearance and focus appearance styling. 
+
+fieldset, input, button, textarea {
+    -webkit-appearance: none;
+    border: none;
+    box-sizing: border-box;
+    outline: 0;
+    @include prefix(border-radius, 0);
+
+     &:focus {
+         border: 0;
+         outline: 0;
+     }
+}
+
+// Input and text area colours.
+
+input:not(.bigsearch-input), textarea {
+    background: palette(white, light);
+    @include font-size(1.6);
+    @include rem(min-height, 5);
+    @include padding(1 1.5);
+
+    @include placeholder-style {
+        font-size: inherit;
+    }
+
+    &:focus {
+        color: palette(white, x-light);
+        background: palette(white, x-dark);
+
+        @include placeholder-style {
+            color: palette(white, x-light);
+        }
+    }
+}
+
+// Textareas.
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+// Submid button.
+
+input[type=submit] {
+    @include height(3);
+    @include rem(max-width, 15);
+    @include padding(0.5, bottom);
+
+    &:active {
+        background: palette(blue);
+    }
+}

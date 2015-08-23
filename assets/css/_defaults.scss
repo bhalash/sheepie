@@ -42,68 +42,6 @@ blockquote, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul, %zero {
 }
 
 /**
- * Forms
- * -----------------------------------------------------------------------------
- */
-
-form {
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-}
-
-fieldset {
-    border: none;
-    margin: 0;
-    padding: 0;
-
-    &:focus {
-        outline: 1px black;
-    }   
-}
-
-input, button, textarea {
-    // Remove all default appearance and focus appearance styling. 
-    -webkit-appearance: none;
-    border: 0;
-    box-sizing: border-box;
-    outline: 0;
-    @include prefix(border-radius, 0);
-
-    // &:focus {
-    //     border: 0;
-    //     outline: 0;
-    // }
-}
-
-input, textarea {
-    @include padding(0.5);
-
-    @include placeholder-style {
-        font-size: inherit;
-    }
-}
-
-input:not(.bigsearch-input), textarea {
-    background: palette(white, light);
-
-    &:focus {
-        background: palette(white, mid-dark);
-    }
-}
-
-textarea {
-    resize: none;
-    width: 100%;
-}
-
-input[type=submit] {
-    @include height(3);
-    @include rem(max-width, 15);
-    @include padding(0.5, bottom);
-}
-
-/**
  * Headline Items
  * -----------------------------------------------------------------------------
  */
