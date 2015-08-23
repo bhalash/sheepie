@@ -22,7 +22,7 @@ $action = esc_url(home_url('/'));
 
 <div id="sidebar">
     <div class="sidebar-interior">
-        <div class="sidebar-title">
+        <div class="sidebar-title sidebar-child">
             <h2 class="site-name">
                 <?php printf('<a class="%s" href="%s">%s</a>',
                     'sidebar-site-name',
@@ -32,17 +32,19 @@ $action = esc_url(home_url('/'));
             </h2>
         </div>
 
-        <div class="sidebar-description">
+        <div class="sidebar-description sidebar-child">
             <span>
                 <?php bloginfo('description'); ?>
             </span>
         </div>
 
-        <div class="sidebar-social">
-            <?php wp_nav_menu(array('theme_location' => 'top-social')); ?>
-        </div>
+        <?php wp_nav_menu(array(
+            'theme_location' => 'top-social',
+            'container' => 'div',
+            'container_class' => 'sidebar-socialrow sidebar-child'
+        )); ?>
 
-        <div class="sidebar-buttons">
+        <div class="sidebar-buttonrow sidebar-child">
             <button class="bigsearch-toggle search"></button>
         </div>
     </div>
