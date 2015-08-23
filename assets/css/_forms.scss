@@ -47,10 +47,12 @@ input:not(.bigsearch-input), textarea {
         font-size: inherit;
     }
 
-    &:focus {
+    &:not(#submit):focus {
         color: palette(white, x-light);
         background: palette(rmwb);
+    }
 
+    &:focus {
         @include placeholder-style {
             color: palette(white, x-light);
         }
@@ -72,6 +74,7 @@ input[type=submit] {
     @include padding(0.5, bottom);
 
     &:active {
+        color: palette(white, x-light);
         background: palette(blue);
     }
 }
