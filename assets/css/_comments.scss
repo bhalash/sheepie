@@ -29,35 +29,12 @@
 }
 
 /**
- * Input Element Border
- * -----------------------------------------------------------------------------
- * Generically used several times. This is un/focused border style for
- * commentform inputs.
- */
-
-%input-border {
-    border: 1px solid palette(white, mid-dark);
-    box-sizing: border-box;
-
-    &:focus {
-        border-color: palette(black);
-    }
-}
-
-/**
  * Comment Area Miscellaneous Rules
  * -----------------------------------------------------------------------------
  */
 
-h5.reply-title {
-    /* Bold black text dividing section. This is the generic subheading that I
-     * use throughout the section. */
-    @include margin(1, bottom);
-}
-
-#reply-title.comment-reply-title {
-    // WordPres inserts it, but it is extraenous. 
-    display: none !important;
+.comments-title {
+     @include margin($vspace, bottom);
 }
 
 /**
@@ -69,64 +46,14 @@ h5.reply-title {
 li.comment {
     box-sizing: border-box;
     list-style-type: none;
-    @include flex-parent(row);
-    @include padding(1.5 0);
+    @include columns(flex, div, 10% auto, 2);
 
-    &:not(:first-of-type) {
-        border-top: 1px solid palette(black, x-light);
-    }
-}
-
-/**
- * Comment Header, Footer and Content Interior
- * -----------------------------------------------------------------------------
- */
-
-li.comment header {
-    font-weight: bold;
-    @include flex-parent(row);
-
-    @include media(portrait) {
-        @include flex-parent(column);
-        @include margin(0.5, bottom);
-    }
-
-    p {
-        @include flex-child(1);
-
-        &.date {
-            text-align: right;
-
-            @include media(portrait) {
-                text-align: left;
-            }
+    header, footer {
+        span {
+            @extend %small;
+            font-weight: bold;
         }
     }
-}
-
-li.comment footer p {
-    margin: 0; 
-}
-
-li.comment .comment-interior {
-    @include flex-child(1);
-}
-
-/**
- * Focused Comment
- * -----------------------------------------------------------------------------
- * Currently selected comment, determined by clicking.
- */
-
-.focused-comment {
-    /* Focused comment expands to either side, but the content within remains
-     * unchanged */
-    $comment-padding: 15px;
-
-    border: 0;
-    width: calc(100% + #{$comment-padding} * 2);
-    @include padding(1.5 0);
-    @include relative(-$comment-padding, left);
 }
 
 /**
@@ -172,7 +99,6 @@ li.comment .comment-interior {
  */
 
 .avatar {
-    @include margin(1, right);
     flex: 0 1 $avatar-big;
 
     @include media(smartphone) {
