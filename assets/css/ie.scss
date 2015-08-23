@@ -26,17 +26,26 @@ nav#pagination {
     @include columns(float, a, 3, 2);
 }
 
-.avatar {
-    float: left;
-    width: $avatar-big;
-}
-
 .commentform-inputs {
     @include columns(float, input, 3, 2);
 }
 
 .related-articles {
     @include columns(float, article, 3, 2);
+}
+
+/**
+ * Avatars
+ * -----------------------------------------------------------------------------
+ */
+
+.avatar-box {
+    @include columns(float, div, 10% auto, 2%);
+}
+
+.avatar {
+    float: left;
+    width: $avatar-big;
 }
 
 /**

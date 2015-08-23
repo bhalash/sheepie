@@ -32,7 +32,7 @@ $author = get_the_author_meta('ID');
     <?php if (is_single()) : ?>
         <?php partial('pagination'); ?>
         <hr>
-        <footer>
+        <footer class="avatar-box">
             <div class="avatar">
                 <?php avatar_background($author, 96, 'author-photo'); ?>
             </div>

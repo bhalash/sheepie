@@ -24,7 +24,7 @@ function theme_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     ?>
 
-    <li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
+    <li <?php comment_class('avatar-box'); ?> id="comment-<?php comment_ID() ?>">
         <div class="avatar">
             <?php avatar_background($comment, 'thumb', 'author-photo'); ?>
         </div>
