@@ -1,5 +1,5 @@
 /**
- * Search
+ * Site Search Boxes
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -16,7 +16,7 @@
  */
 
 #bigsearch {
-    background: #fff;
+    background: palette(rmwb);
     display: none;
     height: 100vh;
     z-index: 3;
@@ -27,16 +27,10 @@
         display: block;
     }
 
-    @include media(tablet) {
-        bottom: initial;
-        border: 1px solid palette(black, x-dark);
-        border-width: 1px 0;
-        top: 0;
-        @include height(12);
-    }
-
-    @include media(smartphone) {
-        @include height(6);
+    @include media($b-1024) {
+        bottom: auto;
+        @include fixed($collapsed-sidebar-height 0 0, top right left);
+        height: auto;
     }
 }
 
@@ -46,11 +40,17 @@
  */
 
 .bigsearch-form {
-    height: 100%;
+    // Important for absoute centering.
+    height: inherit;
 
     fieldset {
-        width: 90%;
+        width: 100%;
         @include absolute-center;
+
+        @include media($b-1024) {
+            position: static;
+            transform: none;
+        }
     }
 }
 
@@ -61,14 +61,21 @@
 
 .bigsearch-input {
     background: transparent;
+    color: palette(white, x-light);
     display: block;
     margin: 0 auto;
     text-align: center;
     width: 90%;
     @include font-size(7);
 
-    @include media(smartphone) {
+    @include placeholder-style {
+        color: palette(white);
+    }
+
+    @include media($b-1024) {
+        box-sizing: border-box;
         @include font-size(3);
+        @include padding(2);
     }
 }
 
