@@ -23,7 +23,7 @@
     @extend %contentsize;
     @include fixed(0 0, right bottom);
 
-    &:target {
+    &.show {
         display: block;
     }
 
