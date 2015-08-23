@@ -85,6 +85,10 @@ li.comment {
          */
 
         max-width: 32.5%;
+
+        @include media($b-640) {
+            max-width: 100%;
+        }
     }
 
     @include columns(flex, input, 3, 2) {
@@ -107,6 +111,10 @@ li.comment {
 
 .avatar-box {
     @include columns(flex, div, 10% auto, 2%);
+
+    @include media($b-640) {
+        @include columns(flex, div, 2% auto, 2%);
+    }
 }
 
 .avatar {
