@@ -181,8 +181,6 @@ li.comment .comment-interior {
 
     .author-photo {
         background: center/cover no-repeat;
-        border-radius: 50%;
-
         @include square-flex(100% 1);
     }
 }
