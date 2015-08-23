@@ -13,6 +13,11 @@
 @import 'scss-helpers/bhalash-helpers';
 @import 'variables';
 
+/**
+ * Assorted Flexbox Elements
+ * -----------------------------------------------------------------------------
+ */
+
 nav#pagination {
     @include columns(float, p, 3, 0);
 }
@@ -34,6 +39,71 @@ nav#pagination {
     @include columns(float, article, 3, 2);
 }
 
+/**
+ * Placeholder Polyfill
+ * -----------------------------------------------------------------------------
+ */
+
 .placeholder {
     color: palette(black, x-dark);
+}
+
+/**
+ * Sidebar
+ * -----------------------------------------------------------------------------
+ */
+
+.sidebar-interior {
+    @include clearfix;
+}
+
+.sidebar-child {
+    @include media($b-1024) {
+        @include clearfix;
+    }
+}
+
+.sidebar-socialrow {
+    @include media($b-1024) {
+        float: left;
+        min-width: 0;
+        width: 25%;
+    }
+
+    @include media($b-768) {
+        display: none;
+    }
+}
+
+.sidebar-title {
+    @include media($b-1024) {
+        display: inline-block;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    @include media($b-768) {
+        float: left;
+        width: calc(100% - 50px);
+    }
+}
+
+.site-name {
+    @include media($b-1024) {
+        display: inherit;
+        margin: inherit;
+        width: inherit;
+    }
+}
+
+.sidebar-buttonrow {
+    @include media($b-1024) {
+        float: right;    
+        min-width: 0;
+        width: 25%;
+    }
+
+    @include media($b-768) {
+        width: 50px;
+    }
 }
