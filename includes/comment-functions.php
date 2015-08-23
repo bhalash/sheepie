@@ -25,25 +25,29 @@ function theme_comments($comment, $args, $depth) {
     ?>
 
     <li <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
-        <?php printf('<div class="%s" style="%s"><a title="%s" href="%s"></a></div>',
-            'photo comment-photo',
-            sprintf('background-image: url(%s);', get_avatar($comment)),
-            get_comment_author(),
-            get_comment_author_url()
-        ); ?>
+        <div class="avatar">
+            <?php avatar_background($comment, 'thumb', 'author-photo'); ?>
+        </div>
         <div class="comment-body">
             <header>
-                <p class="comment-meta">
-                    <span class="comment-author-link"><?php comment_author_link(); ?></span>
-                    <?php printf('<span class="%s"><time datetime="%s">%s</time></span>',
-                        'post-date',
-                        get_comment_date('Y-M-d H:i'),
-                        get_comment_date(get_option('date_format'))
-                    ); ?>
-                </p>
+                <?php 
+                
+                printf('<span class="%s">%s %s </span>',
+                    'comment-author-link',
+                    get_comment_author_link(),
+                    __('on', LOCALE)
+                );
+
+                printf('<span class="%s"><time datetime="%s">%s</time></span>',
+                    'post-date',
+                    get_comment_date('Y-M-d H:i'),
+                    get_comment_date(get_option('date_format'))
+                );
+                
+                ?>
             </header>
 
-            <div class="comment-body">
+            <div class="main">
                 <?php if (!$comment->comment_approved) {
                     printf('<p class="%s">%s</p>',
                         'comment-unapproved',
@@ -56,11 +60,12 @@ function theme_comments($comment, $args, $depth) {
 
             <?php if (is_user_logged_in()) : ?>
                 <footer>
-                    <p><?php edit_comment_link(__('edit', LOCALE),'', ''); ?></p>
+                    <span><?php edit_comment_link(__('edit', LOCALE),'', ''); ?></span>
                 </footer>
             <?php endif; ?>
         </div>
     </li>
+    <hr>
 
     <?php
 }
