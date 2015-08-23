@@ -113,19 +113,17 @@ li.comment {
     @include columns(flex, div, 10% auto, 2%);
 
     @include media($b-640) {
-        @include columns(flex, div, 2% auto, 2%);
+        display: block;        
     }
 }
 
 .avatar {
-    flex: 0 1 $avatar-big;
-
-    @include media(smartphone) {
-        flex: 0 1 $avatar-small;
-    }
-
     .author-photo {
         background: center/cover no-repeat;
         @include square-flex(100% 1);
+    }
+
+    @include media($b-640) {
+        display: none;
     }
 }
