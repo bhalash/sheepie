@@ -159,16 +159,8 @@ article.full {
     }
 
     footer {
-        @include flex-parent(row);
+        @include columns(flex, div, 10% auto, 2%);
         @include margin(2, top);
-    }
-
-    .author-info {
-        @include flex-child(1);
-
-        > * {
-            margin: 0;
-        }
     }
 
     .main >:not(:last-child) {
