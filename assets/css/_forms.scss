@@ -39,6 +39,7 @@ fieldset, input, button, textarea {
 
 input:not(.bigsearch-input), textarea {
     background: palette(white, light);
+    transition: background-color .15s;
     @include font-size(1.6);
     @include rem(min-height, 5);
     @include padding(1 1.5);
