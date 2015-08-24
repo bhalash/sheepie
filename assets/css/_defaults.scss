@@ -27,7 +27,7 @@ body {
  */
 
 blockquote, cite, li, footer p, ins, p, q {
-    @include font-size(1.5);
+    @include font-size(1.7);
     font-weight: 300;
 }
 
@@ -124,7 +124,7 @@ big, dt, .big, %big {
 
 cite, small, .small, %small {
     letter-spacing: 0;
-    @include font-size(1.3);
+    @include font-size(1.5);
 }
 
 /**
