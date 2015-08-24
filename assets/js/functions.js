@@ -59,6 +59,7 @@
         var linkedKeypress = function(event) {
             if  (event.keyCode === 27) {
                 $(this).removeClass('show');
+                $element.removeClass('close');
             }
         }
 
