@@ -53,6 +53,13 @@ li.comment {
             font-weight: bold;
         }
     }
+
+
+    .main {
+        p {
+            @extend %small;
+        }
+    }
 }
 
 /**

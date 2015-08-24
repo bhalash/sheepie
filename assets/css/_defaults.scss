@@ -27,11 +27,12 @@ body {
  */
 
 blockquote, cite, li, footer p, ins, p, q {
-    @include font-size(1.7);
+    @include font-size(1.5);
     font-weight: 300;
 }
 
-/*
+/**
+:qa
  * Remove Margins and Padding
  * -----------------------------------------------------------------------------
  */
@@ -124,7 +125,7 @@ big, dt, .big, %big {
 
 cite, small, .small, %small {
     letter-spacing: 0;
-    @include font-size(1.5);
+    @include font-size(1.3);
 }
 
 /**
