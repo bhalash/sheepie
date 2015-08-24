@@ -43,26 +43,28 @@
      * -------------------------------------------------------------------------
      */
 
-    $.fn.linkedToggle = function(target) {
+    $.fn.linkedToggle = function(target, input) {
         var $element = '';
         var $target = '';
+        var $input = '';
 
-        var init = function(element, target) {
+        var init = function(element, target, input) {
             $element = $(element);
             $target = $(target);
+            $input = $(input);
             $element.on('click', element, toggle);
         }
 
         var toggle = function(event) {
             $target.toggleClass('show');
             $element.toggleClass('close');
-            $element.find('input').first().focus();
+            $input.focus();
         }
 
-        init(this, target);
+        init(this, target, input);
     }
 
-    $('.bigsearch-toggle').linkedToggle('#bigsearch');
+    $('.bigsearch-toggle').linkedToggle('#bigsearch', '.bigsearch-input');
 })(jQuery, window, document, undefined);
 
 /**
