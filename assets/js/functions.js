@@ -53,9 +53,19 @@
             $target = $(target);
             $input = $(input);
             $element.on('click', element, toggle);
+            $target.on('keyup', linkedKeypress);
+        }
+
+        var linkedKeypress = function(event) {
+            var escape = 27;
+
+            if  (!$input.is(':focus') && event.keyCode === escape) {
+                $(this).removeClass('show');
+            }
         }
 
         var toggle = function(event) {
+            $target.attr('tabindex', 2);
             $target.toggleClass('show');
             $element.toggleClass('close');
             $input.focus();
