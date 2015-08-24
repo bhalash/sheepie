@@ -27,6 +27,10 @@ $conditional_scripts = array(
     'jquery-placeholder' => array(
         THEME_URL . '/node_modules/jquery-placeholder/jquery.placeholder.min.js',
         'lte IE 9'
+    ),
+    'ie-functions' => array(
+        THEME_JS . 'ie-functions.js',
+        'lte IE 9'
     )
 );
 

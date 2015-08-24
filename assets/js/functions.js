@@ -31,15 +31,6 @@
 
     $('.article-photobox br').remove();
 
-    /**
-     * IE9 Placeholder Polyfill
-     * -------------------------------------------------------------------------
-     */
-
-    if ($.fn.placeholder) {
-        $('input, textarea').placeholder();
-    }
-
     /*
      * Initialize Lightbox
      * -------------------------------------------------------------------------
