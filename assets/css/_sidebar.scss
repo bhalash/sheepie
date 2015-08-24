@@ -170,20 +170,22 @@
      * the button unless it was floated. 
      */
 
+    -webkit-appearance: button;
+    cursor: pointer;
+    opacity: 0.5;
     float: left;
 
     @include social(25% 1, search close) {
         background-color: transparent;
     }
 
-    opacity: 0.5;
-
-    &:hover {
+    &:active {
         opacity: 1;
     }
 
     @include media($b-1024) {
         float: right;
+        opacity: 1;
         @include square-flex(40px 1);
     }
 }

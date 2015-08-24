@@ -43,10 +43,9 @@
      * -------------------------------------------------------------------------
      */
 
-    $.fn.bigSearchToggle = function(target) {
+    $.fn.linkedToggle = function(target) {
         var $element = '';
         var $target = '';
-        var open = true;
 
         var init = function(element, target) {
             $element = $(element);
@@ -55,15 +54,15 @@
         }
 
         var toggle = function(event) {
-            $target.toggle(open).find('input').focus();
-            $element.toggleClass('search').toggleClass('close');
-            open = !open;
+            $target.toggleClass('show');
+            $element.toggleClass('close');
+            $element.find('input').first().focus();
         }
 
         init(this, target);
     }
 
-    $('.bigsearch-toggle').bigSearchToggle('#bigsearch');
+    $('.bigsearch-toggle').linkedToggle('#bigsearch');
 })(jQuery, window, document, undefined);
 
 /**

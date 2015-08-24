@@ -17,14 +17,18 @@
 
 #bigsearch {
     background: palette(rmwb);
-    display: none;
     height: 100vh;
+    opacity: 0;
+    transition: opacity .15s;
+    visibility: hidden;
     z-index: 3;
     @extend %contentsize;
     @include fixed(0 0, right bottom);
 
     &.show {
-        display: block;
+        opacity: 1;
+        transition: opacity .15s;
+        visibility: visible;
     }
 
     @include media($b-1024) {
