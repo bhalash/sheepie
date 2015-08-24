@@ -78,4 +78,5 @@ function clean_header() {
 
 add_action('wp_enqueue_scripts', 'clean_header');
 add_action('wp_enqueue_scripts', 'load_theme_scripts');
+
 ?>
