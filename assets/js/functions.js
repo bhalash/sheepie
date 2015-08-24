@@ -57,9 +57,7 @@
         }
 
         var linkedKeypress = function(event) {
-            var escape = 27;
-
-            if  (!$input.is(':focus') && event.keyCode === escape) {
+            if  (event.keyCode === 27) {
                 $(this).removeClass('show');
             }
         }
