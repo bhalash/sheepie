@@ -76,10 +76,18 @@
 
             var lightbox = $('<a>', {
                 href: '#!',
-                'class': settings.classes.lightbox
+                'class': settings.classes.lightbox,
+                tabindex: 300
             }).append('<img src="" />');
             
             $(element).prepend(lightbox).addClass(settings.classes.hasLightbox);
+            $('.' + settings.classes.lightbox).on('keyup', closeOnEscape);
+        }
+
+        var closeOnEscape = function(event) {
+            if (event.keyCode === 27) {
+                $(this).click();
+            }
         }
 
         var setupImage = function() {
