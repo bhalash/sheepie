@@ -18,7 +18,6 @@ code, kbd, pre, pre span, tt, var {
 
 pre { 
     background-color: rgba(0,0,0,0.05);
-    font-weight: bold;
     color: palette(black, x-dark);
     overflow: auto;
     @include font-size(1.3);
