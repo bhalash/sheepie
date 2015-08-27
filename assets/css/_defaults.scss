@@ -11,7 +11,7 @@
  */
 
 html {
-    color: palette(black, x-dark);
+    color: palette(black, mid-light);
     font-family: $font-opensans;
 }
 
@@ -27,8 +27,8 @@ body {
  */
 
 blockquote, cite, li, footer p, ins, p, q {
-    @include font-size(1.5);
-    font-weight: 300;
+    @include font-size(1.6);
+    // font-weight: 300; 
 }
 
 /**
@@ -83,7 +83,6 @@ h6, %h6 {
 
 a, %anchor {
     color: palette(blue);
-    font-weight: 400;
     text-decoration: none;
 
     &:hover {
