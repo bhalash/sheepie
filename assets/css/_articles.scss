@@ -45,7 +45,7 @@ article {
 
 header, footer {
     p, time, small {
-        color: palette(black);
+        // color: palette(black);
     }
 }
 
@@ -154,17 +154,16 @@ a[class^=rmwb-lightbox-] {
  * -----------------------------------------------------------------------------
  */
 
+header.full {
+    @include margin(1.5, bottom);
+}
+
+footer.full {
+    @include margin(2, top);
+}
+
 article.full {
-    header {
-        @include margin(1, bottom);
-    }
-
-    footer {
-        @include margin(2, top);
-    }
-
-    .main >:not(:last-child) {
-        // Remove margin from last child element.
+    div, ul, ol, p, pre {
         @extend %vspace-full;
     }
 }
@@ -214,4 +213,13 @@ article.related {
             display: block;
         }
     }
+}
+
+/**
+ * Resume
+ * -----------------------------------------------------------------------------
+ */
+
+.employer {
+    @include margin(2, bottom);
 }

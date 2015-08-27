@@ -17,7 +17,7 @@ $author = get_the_author_meta('ID');
 ?>
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
-    <header>
+    <header class="full">
         <h4 class="title full-title">
             <?php partial('posttitle'); ?>
         </h4>
@@ -32,7 +32,7 @@ $author = get_the_author_meta('ID');
     <?php if (is_single()) : ?>
         <?php partial('pagination'); ?>
         <hr>
-        <footer class="avatar-box">
+        <footer class="full avatar-box">
             <div class="avatar">
                 <?php avatar_background($author, 96, 'author-photo'); ?>
             </div>
