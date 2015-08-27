@@ -44,33 +44,16 @@
      */
 
     $.fn.linkedToggle = function(target, input) {
-        var $element = '';
-        var $target = '';
-        var $input = '';
-
-        var init = function(element, target, input) {
-            $element = $(element);
-            $target = $(target);
-            $input = $(input);
-            $element.on('click', element, toggle);
-            $target.on('keyup', linkedKeypress);
-        }
-
-        var linkedKeypress = function(event) {
-            if  (event.keyCode === 27) {
-                $(this).removeClass('show');
-                $element.removeClass('close');
-            }
-        }
+        var $target = $(target);
+        var $input = $(input);
 
         var toggle = function(event) {
-            $target.attr('tabindex', 2);
-            $target.toggleClass('show');
-            $element.toggleClass('close');
-            $input.focus();
+            $(this).toggleClass('close');
+            $target.attr('tabindex', 2).toggleClass('show').find('input').focus();
         }
 
-        init(this, target, input);
+        this.on('click', toggle);
+        return this;
     }
 
     $('.bigsearch-toggle').linkedToggle('#bigsearch', '.bigsearch-input');
