@@ -22,7 +22,7 @@ get_header();
 <div id="search">
     <form role="search" id="search-full-page" method="get" class="right left bottom" action="<?php printf(esc_url(home_url('/'))); ?>" autocomplete="off">
         <fieldset>
-            <input id="s" class="search-input-class" name="s" placeholder="<?php _e('search', LOCALE); ?>" type="search" required="required" autofocus>
+            <input id="s" class="search-input-class" name="s" placeholder="<?php _e('search', 'sheepie'); ?>" type="search" required="required" autofocus>
         </fieldset>
     </form>
 </div>

@@ -14,4 +14,4 @@
 
 ?>
 
-<p><?php _e('No matching posts were found! :[', LOCALE); ?></p>
+<p><?php _e('No matching posts were found! :[', 'sheepie'); ?></p>

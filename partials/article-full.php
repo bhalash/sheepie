@@ -26,7 +26,7 @@ $author = get_the_author_meta('ID');
         <?php endif; ?>
     </header>
     <div class="full-main">
-        <?php the_content(__('Read the rest of this post &raquo;', LOCALE)); ?>
+        <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
 
     <?php if (is_single()) : ?>

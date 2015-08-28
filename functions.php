@@ -61,8 +61,7 @@ define('THEME_CSS', ASSETS_URL . 'css/');
  * -----------------------------------------------------------------------------
  */
 
-define('LOCALE', 'sheepie');
-load_theme_textdomain(LOCALE, THEME_PATH . '/languages');
+load_theme_textdomain('sheepie', THEME_PATH . '/languages');
 
 /**
  * Theme Includes
@@ -162,19 +161,19 @@ function get_page_title($post_id = null) {
 
     if (!is_single() && !is_search()) {
         $page_title = sprintf('<a title="%s" href="%s">%s</a>',
-            __('Go home'), get_bloginfo('url'),
+            __('Go home', 'sheepie'), esc_url(home_url()),
             get_bloginfo('name')
         ); 
     } else if (is_search()) {
         $page_title = sprintf('%s \'%s\'',
-            __('Results for'),
+            __('Results for', 'sheepie'),
             get_search_query()
         ); 
     } else {
         // If single article or page.
         $page_title = sprintf('<a href="%s" rel="bookmark" title="%s %s">%s</a>', 
             get_the_permalink(),
-            __('Permanent link to'), 
+            __('Permanent link to', 'sheepie'), 
             get_the_title($post_id), 
             get_the_title($post_id)
         );
@@ -218,7 +217,7 @@ function sheepie_title($title, $sep) {
     }
 
     if ($paged >= 2 || $page >= 2) {
-        $title = "$title $sep " . sprintf( __( 'Page %s', LOCALE), max( $paged, $page ) );
+        $title = "$title $sep " . sprintf( __( 'Page %s', 'sheepie'), max( $paged, $page ) );
     }
 
     return $title;
@@ -271,28 +270,15 @@ function search_url($order = null, $echo = true) {
 }
 
 /**
- * Rewrite Search URL Cleanly
- * -----------------------------------------------------------------------------
- * Cleanly rewrite search URL from ?s=topic to /search/topic
- *
- * @link    http://wpengineer.com/2258/change-the-search-url-of-wordpress/
- */
-
-function clean_search_url() {
-    if (is_search() && ! empty($_GET['s'])) {
-        wp_redirect(home_url('/search/') . urlencode(get_query_var('s')));
-        exit();
-    }
-}
-/**
  * Register Theme Widget Areas
  * -----------------------------------------------------------------------------
  */
 
 function theme_widgets() {
     register_sidebar(array(
-        'name' => 'Dynamic sidebar.',
-        'id' => 'dynamicsidebar',
+        'id' => 'theme-widgets',
+        'name' => __('Sheepie Footer Widgets', 'sheepie'),
+        'description' => __('Sheepie\'s widgets will display in the mail column, below all other content.', 'sheepie'),
         'before_widget' => '<div class="sidebar-widget">',
         'after_widget' => '</div>',
         'before_title' => '<h6 class="sidebar-title">',
@@ -307,8 +293,8 @@ function theme_widgets() {
 
 function theme_navigation() {
     register_nav_menus(array(
-        'top-menu' => __('Header Menu', LOCALE),
-        'top-social' => __('Header Social Links', LOCALE)
+        'top-menu' => __('Header Menu', 'sheepie'),
+        'top-social' => __('Header Social Links', 'sheepie')
     ));
 }
 
@@ -317,21 +303,13 @@ function theme_navigation() {
  * -----------------------------------------------------------------------------
  */
 
-if (!isset($content_width)) {
-    $content_width = 600;
-}
-
 add_action('init', 'theme_navigation');
 add_action('widgets_init', 'theme_widgets');
-
 // Set site favicon.
 add_action('wp_head', 'set_favicon');
 // Set prefetch domain for media.
 add_action('wp_head', 'dns_prefetch');
-
-
 // Clean search URL rewrite.
-// add_action('template_redirect', 'clean_search_url');
 remove_action('wp_head', 'wp_generator');
 
 /**
@@ -353,10 +331,16 @@ add_filter('wp_title', 'sheepie_title', 10, 2);
  * -----------------------------------------------------------------------------
  */
 
+if (!isset($content_width)) {
+    $content_width = 880;
+}
+
 // HTML5 support in theme.
 current_theme_supports('html5');
 current_theme_supports('menus');
 
+// add_theme_support('title-tag');
+add_theme_support('automatic-feed-links');
 add_theme_support('post-thumbnails');
 add_theme_support('html5', array('search-form'));
 add_theme_support('html5', array(

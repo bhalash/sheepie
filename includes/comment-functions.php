@@ -35,7 +35,7 @@ function theme_comments($comment, $args, $depth) {
                 printf('<span class="%s">%s %s </span>',
                     'comment-author-link',
                     get_comment_author_link(),
-                    __('on', LOCALE)
+                    __('on', 'sheepie')
                 );
 
                 printf('<span class="%s"><time datetime="%s">%s</time></span>',
@@ -51,7 +51,7 @@ function theme_comments($comment, $args, $depth) {
                 <?php if (!$comment->comment_approved) {
                     printf('<p class="%s">%s</p>',
                         'comment-unapproved',
-                        __('Your comment is awaiting approval.', LOCALE)
+                        __('Your comment is awaiting approval.', 'sheepie')
                     );
                 } else {
                     comment_text();
@@ -60,7 +60,7 @@ function theme_comments($comment, $args, $depth) {
 
             <?php if (is_user_logged_in()) : ?>
                 <footer>
-                    <span><?php edit_comment_link(__('edit', LOCALE),'', ''); ?></span>
+                    <span><?php edit_comment_link(__('edit', 'sheepie'),'', ''); ?></span>
                 </footer>
             <?php endif; ?>
         </div>

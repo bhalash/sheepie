@@ -19,7 +19,7 @@ get_header();
 
 // Archives by date.
 
-printf('<h5 class="title">%s</h5>', __('Archives by Year', LOCALE));
+printf('<h5 class="title">%s</h5>', __('Archives by Year', 'sheepie'));
 printf('<div class="archive">');
 
 foreach (timed_archives_count() as $year => $calendar) {
@@ -31,7 +31,7 @@ foreach (timed_archives_count() as $year => $calendar) {
     printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
         'archive-year-name',
         post_image_css($first_post, false),
-        __('Archives for the year ', LOCALE) . $year,
+        __('Archives for the year ', 'sheepie') . $year,
         get_year_link($year),
         $year
     );
@@ -75,7 +75,7 @@ printf('<hr>');
 // Arhives by category.
 // TODO
 
-printf('<h5 class="title">%s</h5>', __('Archives by Category', LOCALE));
+printf('<h5 class="title">%s</h5>', __('Archives by Category', 'sheepie'));
 printf('<hr>');
 
 // Archives by tag.
@@ -83,7 +83,7 @@ printf('<hr>');
 
 // Statistics.
 
-printf('<h5 class="title">%s</h5>', __('Blog Statistics', LOCALE));
+printf('<h5 class="title">%s</h5>', __('Blog Statistics', 'sheepie'));
 printf('<p>%s</p>', blog_statistics());
 
 // Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)

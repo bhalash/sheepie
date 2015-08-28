@@ -22,7 +22,7 @@ $total = $wp_query->found_posts;
 
 <form role="search" class="searchform vspace-half" id="searchform" method="get" action="<?php printf($action); ?>" autocomplete="off">
     <fieldset>
-        <input class="searchform-input" name="s" placeholder="<?php _e('search', LOCALE); ?>" type="text" required="required" value="<?php printf($query); ?>">
+        <input class="searchform-input" name="s" placeholder="<?php _e('search', 'sheepie'); ?>" type="text" required="required" value="<?php printf($query); ?>">
     </fieldset>
 </form>
 <div class="clearfix search-results-meta">
@@ -30,8 +30,8 @@ $total = $wp_query->found_posts;
     <span class="total meta right-float">
         Sort by: 
 
-        <a href="<?php search_url('asc'); ?>"><?php _e('oldest', LOCALE); ?></a> |
-        <a href="<?php search_url('desc'); ?>"><?php _e('newest', LOCALE); ?></a>
+        <a href="<?php search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
+        <a href="<?php search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>
     </span>
 </div>
 <hr>

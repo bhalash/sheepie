@@ -15,7 +15,7 @@
 printf('<a href="%s" rel="%s" title="%s%s">%s</a>',
     get_the_permalink(),
     'bookmark',
-    __('Permanent link to ', LOCALE),
+    __('Permanent link to ', 'sheepie'),
     the_title_attribute(array('echo' => false)),
     get_the_title()
 ); 

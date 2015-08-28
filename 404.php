@@ -16,9 +16,9 @@ get_header(); ?>
 
 <div id="error">
     <div class="error-content">
-        <h1><?php _e('Error 404', LOCALE); ?></h1>
-        <p><?php _e('Page not found. :[', LOCALE); ?></p>
-        <p><small><a href="<?php printf(site_url()); ?>"><?php _e('back to home', LOCALE); ?></a></small></p>
+        <h1><?php _e('Error 404', 'sheepie'); ?></h1>
+        <p><?php _e('Page not found. :[', 'sheepie'); ?></p>
+        <p><small><a href="<?php printf(site_url()); ?>"><?php _e('back to home', 'sheepie'); ?></a></small></p>
     </div>
 </div>
 

@@ -52,7 +52,7 @@ $action = esc_url(home_url('/'));
 <div id="bigsearch">
     <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off">
         <fieldset>
-            <input class="bigsearch-input" name="s" placeholder="<?php _e('search', LOCALE); ?>" type="search" required="required">
+            <input class="bigsearch-input" name="s" placeholder="<?php _e('search', 'sheepie'); ?>" type="search" required="required">
         </fieldset>
     </form>
 </div>
