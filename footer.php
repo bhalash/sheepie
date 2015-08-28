@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP Header File
+ * PHP Footer File
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
