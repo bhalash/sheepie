@@ -230,9 +230,9 @@ function blog_statistics($echo = false) {
             get_bloginfo('name')
         );
 
-        $categories = __('The blog %s has %s posts in %s categories, that are labelled with %s tags.', LOCALE);
-        $visitors = __('%s different visitors have left a total of %s comments.', LOCALE);
-        $average = __('On average, a new post has been published every %s days over the last %s days.', LOCALE);
+        $categories = __('The blog %s has %s posts in %s categories, that are labelled with %s tags.', 'sheepie');
+        $visitors = __('%s different visitors have left a total of %s comments.', 'sheepie');
+        $average = __('On average, a new post has been published every %s days over the last %s days.', 'sheepie');
 
         $stats[] = sprintf($categories, $anchor, wp_count_posts()->publish, count(get_categories()), count(get_tags()));
         $stats[] = sprintf($visitors, get_comment_authors_count(), wp_count_comments()->total_comments);
@@ -285,7 +285,7 @@ function query_has_pages() {
 
 function archive_page_count($echo = false) {
     $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $count = sprintf(__('Page %s of %s', LOCALE), $page, query_page_total());
+    $count = sprintf(__('Page %s of %s', 'sheepie'), $page, query_page_total());
 
     if (!$echo) {
         return $count;
@@ -326,7 +326,7 @@ function search_results_count($echo = false) {
     // Stops an overage on the final page of the search.
     $count_high = ($position > $total_results) ? $total : $position;
 
-    $count = sprintf(__('Results %s to %s of %s', LOCALE),
+    $count = sprintf(__('Results %s to %s of %s', 'sheepie'),
         $count_low,
         $count_high,
         $total
