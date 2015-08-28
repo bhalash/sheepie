@@ -31,6 +31,11 @@ $author = get_the_author_meta('ID');
 
     <?php if (is_single()) : ?>
         <?php partial('pagination'); ?>
+        <p class="article-tags">
+            <?php if (!is_page()) {
+                the_tags();
+            } ?>
+        </p>
         <hr>
         <footer class="full avatar-box">
             <div class="avatar">
