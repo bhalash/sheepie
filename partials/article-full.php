@@ -25,7 +25,7 @@ $author = get_the_author_meta('ID');
             <span class="meta"><?php partial('postmeta'); ?></span>
         <?php endif; ?>
     </header>
-    <div class="main">
+    <div class="full-main">
         <?php the_content(__('Read the rest of this post &raquo;', LOCALE)); ?>
     </div>
 

@@ -38,28 +38,6 @@ article {
 }
 
 /**
- * Article Header and Footer
- * -----------------------------------------------------------------------------
- *
- */
-
-header, footer {
-    p, time, small {
-        // color: palette(black);
-    }
-}
-
-header > * {
-    @include margin(0, bottom);
-}
-
-footer {
-    h5, p {
-        margin: 0;
-    }
-}
-
-/**
  * Article Titles
  * -----------------------------------------------------------------------------
  */
@@ -162,10 +140,8 @@ footer.full {
     @include margin(2, top);
 }
 
-article.full {
-    div, ul, ol, p, pre {
-        @extend %vspace-full;
-    }
+div.full-main > *:not(:last-child) {
+    @extend %vspace-full;
 }
 
 /*
