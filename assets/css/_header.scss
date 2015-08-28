@@ -1,5 +1,5 @@
 /**
- * Theme Sidebar
+ * Theme Header
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -13,11 +13,11 @@
 /**
  * Sidebar Interior Element Defaults
  * -----------------------------------------------------------------------------
- * External rules for the sidebar container are set in _containers.css. All rules
- * in this stylesheet are for elements /internal/ to #sidebar.
+ * External rules for the header container are set in _containers.css. All rules
+ * in this stylesheet are for elements /internal/ to #header.
  */
 
-.sidebar-interior {
+.header-interior {
     box-sizing: border-box;
     height: 100%;
     overflow:hidden;
@@ -35,7 +35,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.sidebar-child {
+.header-child {
     color: palette(white, x-light);
 
     &:not(:last-child) {
@@ -80,7 +80,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.sidebar-title {
+.header-title {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -112,7 +112,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.sidebar-description {
+.header-description {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -126,7 +126,7 @@
  * Horizontal row of external social media links.
  */
 
-.sidebar-socialrow {
+.header-socialrow {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -152,7 +152,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.sidebar-buttonrow {
+.header-buttonrow {
     @include flex-child(0 1 auto);
     @include clearfix;
     overflow: hidden;
@@ -168,7 +168,7 @@
 
 }
 
-.sidebar-buttonrow button {
+.header-buttonrow button {
     /* I found buttons don't position properly unless floated, so eh.
      * There is an invisible non-padding, non-margin space applied above
      * the button unless it was floated. 

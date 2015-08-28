@@ -29,6 +29,6 @@ global $post;
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <?php get_sidebar(); ?>
+    <?php partial('head'); ?>
     <div id="content">
         <div class="content-interior">

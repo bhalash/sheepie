@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Sidebar Template
+ * Theme Responsive Header
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -20,19 +20,19 @@ $action = esc_url(home_url('/'));
 
 ?>
 
-<div id="sidebar">
-    <div class="sidebar-interior">
-        <div class="sidebar-title sidebar-child">
+<div id="header">
+    <div class="header-interior">
+        <div class="header-title header-child">
             <h2 class="site-name">
                 <?php printf('<a class="%s" href="%s">%s</a>',
-                    'sidebar-site-name',
+                    'header-site-name',
                     home_url(),
                     get_bloginfo('name')
                 ); ?>
             </h2>
         </div>
 
-        <div class="sidebar-description sidebar-child">
+        <div class="header-description header-child">
             <span>
                 <?php bloginfo('description'); ?>
             </span>
@@ -41,10 +41,10 @@ $action = esc_url(home_url('/'));
         <?php wp_nav_menu(array(
             'theme_location' => 'top-social',
             'container' => 'div',
-            'container_class' => 'sidebar-socialrow sidebar-child'
+            'container_class' => 'header-socialrow header-child'
         )); ?>
 
-        <div class="sidebar-buttonrow sidebar-child">
+        <div class="header-buttonrow header-child">
             <button class="bigsearch-toggle search"></button>
         </div>
     </div>

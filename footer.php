@@ -14,6 +14,7 @@
 
 ?>
         </div> <?php // End .interior ?>
+        <?php //sidebar ?> 
     </div> <?php // End #content ?>
     <?php wp_footer(); ?>
 </body>
