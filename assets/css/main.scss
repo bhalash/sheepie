@@ -10,106 +10,45 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/**
- * Mixins and Partials
- * -----------------------------------------------------------------------------
- * Scss helper library: Contains many functions and mixins around which this 
- * theme is built.
- */
+// Mixins and Partials
+@import 'scss-helpers/helpers';
 
-@import 'scss-helpers/bhalash-helpers';
-
-/** 
- * Theme Variables
- * -----------------------------------------------------------------------------
- * Contains all variables used throughout the theme: Sizes, margins, padding, 
- * colours and fonts (among others) are all determined here.
- */
-
+// Theme Variables and Partials
 @import 'variables';
+@import 'partials';
 
-/**
- * CSS Normalize
- * -----------------------------------------------------------------------------
- * Normalize.css.
- * See: https://github.com/necolas/normalize.css 
- */
-
+// CSS Normalize
 @import 'normalize';
 
-/**
- * Theme Defaults
- * -----------------------------------------------------------------------------
- * Default sizes and margins, outside of variables.
- */
-
+// Theme Defaults
 @import 'defaults';
 
-/**
- * Containers
- * -----------------------------------------------------------------------------
- * Top-level containers in the theme: Site container, header and content 
- * containers.
- */
-
-@import 'containers';
-
-/**
- * Theme Sidebar
- * -----------------------------------------------------------------------------
- * Rules for elements interior to the sidebar.
- */
-
+// Theme Header
 @import 'header';
 
-/**
- * Articles
- * -----------------------------------------------------------------------------
- * Rules for different article templates.
- */
+// Containers
+@import 'containers';
 
+// Articles
 @import 'articles';
 
-/**
- * Archives
- * -----------------------------------------------------------------------------
- * Rules for different archive templates.
- */
-
+// Archives
 @import 'archives';
 
-/**
- * Navigational Elements
- * -----------------------------------------------------------------------------
- */
-
+// Navigational Elements
 @import 'nav';
 
-/**
- * Code Blocks
- * -----------------------------------------------------------------------------
- */
-
-@import 'code';
-
-/**
- * Form Elements
- * -----------------------------------------------------------------------------
- * Buttons, inputs, forms, fieldsets and textareas.
- */
-
+// Form Elements
 @import 'forms';
 
-/**
- * Comments and Commentform
- * -----------------------------------------------------------------------------
- */
-
+// Comments and Commentform
 @import 'comments';
 
-/**
- * Search Form and Search Results Template
- * -----------------------------------------------------------------------------
- */
-
+// Search Form and Search Results Template
 @import 'search';
+
+// Code Blocks
+@import 'code';
+
+// Required WordPress element styles.
+@import 'wordpress';
