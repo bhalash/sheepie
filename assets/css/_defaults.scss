@@ -108,7 +108,7 @@ body:not(.single):not(.search) hr {
 
 body:not(.single) article ~ hr, %article-hr {
     &:last-of-type {
-        background: transparent;
+        // background: transparent;
     }
 }
 
