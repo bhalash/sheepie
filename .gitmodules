@@ -5,3 +5,4 @@
 [submodule "includes/social-meta"]
 	path = includes/social-meta
 	url = git@github.com:bhalash/social-meta.git
+    branch = master
