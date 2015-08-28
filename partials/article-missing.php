@@ -14,4 +14,4 @@
 
 ?>
 
-<p><?php _e('No matching posts were found! :[', 'sheepie'); ?></p>
+<p><?php _e('No matching posts were found! :&#40;', 'sheepie'); ?></p>
