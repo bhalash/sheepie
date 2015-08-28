@@ -24,4 +24,6 @@ if (have_posts()) {
     partial('article', 'missing');
 }
 
-get_footer(); ?>
+get_footer(); 
+
+?>
