@@ -33,7 +33,7 @@
 
     @include media($b-1024) {
         bottom: auto;
-        @include fixed($collapsed-sidebar-height 0 0, top right left);
+        @include fixed($collapsed-header-height 0 0, top right left);
         height: auto;
     }
 }

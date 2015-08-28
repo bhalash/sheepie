@@ -37,9 +37,9 @@ $b-640:  max 640px;
  * offset from the right by 60%.
  */
 
-$sidebar-width: 25;
-$collapsed-sidebar-height: 6;
-$smartphone-sidebar-height: 2;
+$header-width: 25;
+$collapsed-header-height: 6;
+$smartphone-header-height: 2;
 
 /**
  * Default Vertical Space
@@ -128,10 +128,10 @@ $font-opensans-title: 'Open Sans Condensed', Verdana, Geneva, sans-serif, sans-s
  */
 
 %contentsize {
-    width: calc(100% - #{rem($sidebar-width)});
+    width: calc(100% - #{rem($header-width)});
 
     @include media($b-1024) {
-        @include rem(top, $collapsed-sidebar-height);
+        @include rem(top, $collapsed-header-height);
         width: 100%;
     }
 }

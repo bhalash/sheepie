@@ -20,7 +20,7 @@
     box-sizing: border-box;
     min-width: 0;
     position: relative;
-    @include margin($sidebar-width, left);
+    @include margin($header-width, left);
 
     @include media($b-1024) {
         margin: 0 auto;
@@ -51,14 +51,14 @@ body:not(.page-template-page-search) #content {
 /**
  * Header Container
  * -----------------------------------------------------------------------------
- * Default sidebar content appearance.
+ * Default header content appearance.
  */
 
-#sidebar {
+#header {
     background: palette(rmwb);
     box-sizing: border-box;
     @include fixed(0 0 0, top bottom left);
-    @include width($sidebar-width);
+    @include width($header-width);
     z-index: 2;
 
     // Required for Android Browser.
@@ -66,14 +66,14 @@ body:not(.page-template-page-search) #content {
 
     @include media($b-1024) {
         width: 100%;
-        @include height($collapsed-sidebar-height);
+        @include height($collapsed-header-height);
     }
 }
 
 /**
  * 404 Error Template
  * -----------------------------------------------------------------------------
- * Hide sidebar and set the error div full page.
+ * Hide header and set the error div full page.
  */
 
 #error {
