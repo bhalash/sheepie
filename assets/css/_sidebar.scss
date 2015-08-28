@@ -1,0 +1,33 @@
+/**
+ * Theme Sidebar and Widgets
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+#widgets {
+    @include columns(float, div, 3, 2%) {
+        @include media($b-540) {
+            @include nofloat;
+        }
+    }
+}
+
+.sidebar-widget {
+    @include media($b-540) {
+        @include margin($vspace, bottom);
+    }
+
+    p, li, label {
+        @extend %small;
+    }
+}
+
+.widget-title {
+    @include margin($vspace * 0.5, bottom);
+}

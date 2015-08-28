@@ -13,8 +13,9 @@
  */
 
 ?>
+            <?php get_sidebar(); ?>
         </div> <?php // End .interior ?>
-        <?php //sidebar ?> 
+        <?php get_sidebar(); ?>
     </div> <?php // End #content ?>
     <?php wp_footer(); ?>
 </body>
