@@ -99,9 +99,6 @@ $prefetch_domains = array(
     'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
 );
 
-// Path to favicon.
-$favicon_path = THEME_IMAGES . 'favicon.png';
-
 /**
  * Partial Wrapper
  * -----------------------------------------------------------------------------
@@ -281,8 +278,8 @@ function theme_widgets() {
         'description' => __('Sheepie\'s widgets will display in the mail column, below all other content.', 'sheepie'),
         'before_widget' => '<div class="sidebar-widget">',
         'after_widget' => '</div>',
-        'before_title' => '<h6 class="sidebar-title">',
-        'after_title' => '</h6>',
+        'before_title' => '<h4 class="widget-title">',
+        'after_title' => '</h4>',
     ));
 }
 
@@ -305,17 +302,13 @@ function theme_navigation() {
 
 add_action('init', 'theme_navigation');
 add_action('widgets_init', 'theme_widgets');
-// Set site favicon.
-add_action('wp_head', 'set_favicon');
-// Set prefetch domain for media.
 add_action('wp_head', 'dns_prefetch');
-// Clean search URL rewrite.
 remove_action('wp_head', 'wp_generator');
 
 /**
-  * Filters 
-  * ----------------------------------------------------------------------------
-  */
+ * Filters 
+ * ----------------------------------------------------------------------------
+ */
 
 // Wordpress repeatedly inserted emoticons. No more, ever.
 remove_filter('the_content', 'convert_smilies');
