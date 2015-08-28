@@ -62,6 +62,7 @@ define('THEME_CSS', ASSETS_URL . 'css/');
  */
 
 define('LOCALE', 'sheepie');
+load_theme_textdomain(LOCALE, THEME_PATH . '/languages');
 
 /**
  * Theme Includes
