@@ -29,13 +29,13 @@ $author = get_the_author_meta('ID');
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
 
+    <?php wp_link_pages(array(
+        'before' => sprintf('<p class="%s">%s', 'page-links', __('Page: ', 'sheepie')),
+        'after' => '</p>'
+    )); ?>
+
     <?php if (is_single()) : ?>
         <?php partial('pagination'); ?>
-        <p class="article-tags">
-            <?php if (!is_page()) {
-                the_tags();
-            } ?>
-        </p>
         <hr>
         <footer class="full avatar-box">
             <div class="avatar">

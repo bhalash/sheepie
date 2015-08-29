@@ -49,3 +49,7 @@
 .bypostauthor {
     color: inherit;
 }
+
+.page-links {
+    @include margin($vspace, top);
+}
