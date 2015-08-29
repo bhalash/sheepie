@@ -18,6 +18,9 @@ $query = get_search_query();
 $action = esc_url(home_url('/'));
 $total = $wp_query->found_posts;
 
+$result = 'result';
+$result .= $total > 1 ? 's' : '';
+
 ?>
 
 <form role="search" class="searchform vspace-half" id="searchform" method="get" action="<?php printf($action); ?>" autocomplete="off">
@@ -26,7 +29,7 @@ $total = $wp_query->found_posts;
     </fieldset>
 </form>
 <div class="clearfix search-results-meta">
-    <span class="total meta left-float"><?php printf($total); ?> results</span>
+    <span class="total meta left-float"><?php printf('%d %s', $total, $result); ?></span>
     <span class="total meta right-float">
         Sort by: 
 
