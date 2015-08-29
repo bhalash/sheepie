@@ -61,6 +61,10 @@ function load_theme_scripts() {
         wp_enqueue_script($name, $path, array(), THEME_VERSION, false);
         wp_script_add_data($name, 'conditional', $condition);
     }
+
+    if (is_singular()) {
+        wp_enqueue_script('comment-reply');
+    }
 }
 
 /*
