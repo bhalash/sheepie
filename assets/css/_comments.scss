@@ -98,7 +98,7 @@ li.comment {
         }
     }
 
-    @include columns(flex, input, 3, 2) {
+    @include columns(flex, input, 3, $three-col-margin) {
         @include media($b-640) {
             width: 100%;
             @include margin(1, bottom);
