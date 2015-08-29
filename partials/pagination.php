@@ -14,7 +14,9 @@
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $next = $paged + 1; 
-$previous = $paged - 1; ?>
+$previous = $paged - 1; 
+
+?>
 
 <nav id="pagination">
     <p class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
@@ -29,7 +31,7 @@ $previous = $paged - 1; ?>
 
     <p class="count">
         <?php if (!is_single() && query_has_pages()) : ?>
-        <small><span><?php archive_page_count(true); ?></span></small>
+            <small><span><?php archive_page_count(true); ?></span></small>
         <?php endif; ?>
     </p>
 
