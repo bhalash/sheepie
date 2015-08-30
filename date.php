@@ -17,11 +17,11 @@ get_header();
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        partial('article', 'full');
+        sheepie_partial('article', 'full');
         printf('<hr>');
     }
 } else {
-    partial('article', 'missing');
+    sheepie_partial('article', 'missing');
 }
 
 get_footer(); 

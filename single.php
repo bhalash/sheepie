@@ -13,19 +13,19 @@
  */
 
 get_header();
-partial('gohome');
+sheepie_partial('gohome');
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        partial('article', 'full');
+        sheepie_partial('article', 'full');
         
         printf('<hr>');
         printf('<div class="%s">', 'column-of-three related-articles');
 
         foreach (get_related() as $post) {
             setup_postdata($post);
-            partial('article', 'related');
+            sheepie_partial('article', 'related');
         }
 
         printf('</div>');
@@ -34,7 +34,7 @@ if (have_posts()) {
         comments_template();
     }
 } else {
-    partial('article', 'missing');
+    sheepie_partial('article', 'missing');
 }
 
 get_footer(); 

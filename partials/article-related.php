@@ -22,6 +22,6 @@
         </a>
     </header>
     <footer>
-        <small><?php partial('postmeta'); ?></small>
+        <small><?php sheepie_partial('postmeta'); ?></small>
     </footer>
 </article>

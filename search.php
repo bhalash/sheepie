@@ -13,18 +13,18 @@
  */
 
 get_header();
-partial('gohome');
+sheepie_partial('gohome');
 get_search_form();
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        partial('article', 'excerpt');
+        sheepie_partial('article', 'excerpt');
         printf('<hr>');
     }
 } else {
-    partial('article', 'missing');
+    sheepie_partial('article', 'missing');
 }
 
-partial('pagination');
+sheepie_partial('pagination');
 get_footer(); ?>

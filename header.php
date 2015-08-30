@@ -29,6 +29,6 @@ global $post;
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <?php partial('head'); ?>
+    <?php sheepie_partial('head'); ?>
     <div id="content">
         <div class="content-interior">

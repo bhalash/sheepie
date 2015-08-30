@@ -19,10 +19,10 @@ $author = get_the_author_meta('ID');
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
     <header class="full">
         <h4 class="title full-title">
-            <?php partial('posttitle'); ?>
+            <?php sheepie_partial('posttitle'); ?>
         </h4>
         <?php if (!is_page()) : ?>
-            <span class="meta"><?php partial('postmeta'); ?></span>
+            <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
         <?php endif; ?>
     </header>
     <div class="full-main">
@@ -35,7 +35,7 @@ $author = get_the_author_meta('ID');
     )); ?>
 
     <?php if (is_single()) : ?>
-        <?php partial('pagination'); ?>
+        <?php sheepie_partial('pagination'); ?>
         <hr>
         <footer class="full avatar-box">
             <div class="avatar">
@@ -43,7 +43,7 @@ $author = get_the_author_meta('ID');
             </div>
             <div class="author-info">
                 <p>
-                    <small><?php partial('postmeta'); ?></small>
+                    <small><?php sheepie_partial('postmeta'); ?></small>
                 </p>
                 <h4><?php the_author_meta('display_name'); ?></h4>
                 <p><?php the_author_meta('user_description'); ?></p>

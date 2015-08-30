@@ -18,10 +18,10 @@
     <div class="main">
         <header>
             <h5 class="title excerpt-title">
-                <?php partial('posttitle'); ?>
+                <?php sheepie_partial('posttitle'); ?>
             </h5>
             <?php if (!is_page()) : ?>
-                <span class="meta"><?php partial('postmeta'); ?></span>
+                <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
             <?php endif; ?>
         </header>
         <?php the_excerpt(); ?>
