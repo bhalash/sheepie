@@ -85,7 +85,7 @@ function sheepie_wrap_comment_fields_after() {
     printf('</div>');
 }
 
-add_action('comment_form_before_fields', 'wrap_comment_fields_before');
-add_action('comment_form_after_fields', 'wrap_comment_fields_after');
+add_action('comment_form_before_fields', 'sheepie_wrap_comment_fields_before');
+add_action('comment_form_after_fields', 'sheepie_wrap_comment_fields_after');
 
 ?>

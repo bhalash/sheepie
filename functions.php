@@ -27,7 +27,7 @@ function sheepie_setup() {
     sheepie_dns_prefetch();
 
     // Theme menus.
-    add_action('init', 'sheepie_navigation');
+    add_action('init', 'sheepie_menus');
 
     // Them widget areas.
     add_action('widgets_init', 'sheepie_widgets');
