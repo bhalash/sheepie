@@ -18,7 +18,7 @@
     <header class="title">
         <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
             <div class="excerpt-thumbnail thumbnail" <?php post_image_css($post->ID, true); ?>></div>
-            <h6 class="title"><?php the_title(); ?></h6>
+            <?php the_title('<h6 class="title">', '</h6>'); ?>
         </a>
     </header>
     <footer>
