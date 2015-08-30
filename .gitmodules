@@ -6,3 +6,6 @@
 	path = includes/social-meta
 	url = git@github.com:bhalash/social-meta.git
     branch = master
+[submodule "includes/sheepie-related-posts"]
+	path = includes/sheepie-related-posts
+	url = git@github.com:bhalash/sheepie-related-posts.git
