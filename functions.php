@@ -26,19 +26,27 @@ function sheepie_setup() {
     // Header tag DNS prefetch.
     sheepie_dns_prefetch();
 
-    add_action('init', 'sheepie_theme_navigation');
-    add_action('widgets_init', 'sheepie_theme_widgets');
+    // Theme menus.
+    add_action('init', 'sheepie_navigation');
+
+    // Them widget areas.
+    add_action('widgets_init', 'sheepie_widgets');
+
+    // Header DNS prefetch meta tags.
     add_action('wp_head', 'sheepie_dns_prefetch');
+
+    // Remove WordPress version from site header.
     remove_action('wp_head', 'wp_generator');
 
-    $GLOBALS['content_width'] = 880;
-
     add_filter('wp_title', 'sheepie_title', 10, 2);
+
+    // Remove the fuck out of emoji and emoticons.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
 
+    
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
@@ -50,6 +58,9 @@ function sheepie_setup() {
         'gallery',
         'caption'
     ));
+
+    // Content width.
+    $GLOBALS['content_width'] = 880;
 
     $sheepie_social = new Social_Meta(array(
         // Facebook and Twitter social media information.
@@ -184,43 +195,11 @@ function sheepie_dns_prefetch() {
 }
 
 /**
- * Generate Ascending and Descending Search Link
- * -----------------------------------------------------------------------------
- * @param   string      $order          'asc' or 'desc'
- * @param   bool        $echo           Echo it, true/false.
- * @return  string      $url            Generated URL.
- */
-
-function sheepie_search_url($order = null, $echo = true) {
-    if (!$order) {
-        $order = 'asc';
-    }
-
-    $query = get_search_query();
-    $url = array();
-
-    $url[] = esc_url(home_url('/')); 
-    $url[] = '?s=';
-    $url[] = esc_attr($query);
-    $url[] = '&sort=date';
-    $url[] = '&order=';
-    $url[] = $order;
-
-    $url = implode('', $url);
-
-    if (!$echo) {
-        return $url;
-    }
-
-    printf($url);
-}
-
-/**
  * Register Theme Widget Areas
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_theme_widgets() {
+function sheepie_widgets() {
     register_sidebar(array(
         'id' => 'theme-widgets',
         'name' => __('Sheepie Footer Widgets', 'sheepie'),
@@ -237,7 +216,7 @@ function sheepie_theme_widgets() {
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_theme_navigation() {
+function sheepie_menus() {
     register_nav_menus(array(
         'top-menu' => __('Header Menu', 'sheepie'),
         'top-social' => __('Header Social Links', 'sheepie')

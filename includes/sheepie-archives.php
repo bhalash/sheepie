@@ -339,4 +339,36 @@ function sheepie_search_results_count($echo = false) {
     printf($count);
 }
 
+/**
+ * Generate Ascending and Descending Search Link
+ * -----------------------------------------------------------------------------
+ * @param   string      $order          'asc' or 'desc'
+ * @param   bool        $echo           Echo it, true/false.
+ * @return  string      $url            Generated URL.
+ */
+
+function sheepie_search_url($order = null, $echo = true) {
+    if (!$order) {
+        $order = 'asc';
+    }
+
+    $query = get_search_query();
+    $url = array();
+
+    $url[] = esc_url(home_url('/')); 
+    $url[] = '?s=';
+    $url[] = esc_attr($query);
+    $url[] = '&sort=date';
+    $url[] = '&order=';
+    $url[] = $order;
+
+    $url = implode('', $url);
+
+    if (!$echo) {
+        return $url;
+    }
+
+    printf($url);
+}
+
 ?>
