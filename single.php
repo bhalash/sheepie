@@ -20,17 +20,19 @@ if (have_posts()) {
         the_post();
         sheepie_partial('article', 'full');
         
-        printf('<hr>');
-        printf('<div class="%s">', 'column-of-three related-articles');
+        if (function_exists('rp_get_related')) {
+            printf('<hr>');
+            printf('<div class="%s">', 'column-of-three related-articles');
 
-        foreach (sheepie_get_related() as $post) {
-            setup_postdata($post);
-            sheepie_partial('article', 'related');
+            foreach (rp_get_related() as $post) {
+                setup_postdata($post);
+                sheepie_partial('article', 'related');
+            }
+
+            printf('</div>');
+            wp_reset_postdata();
         }
 
-        printf('</div>');
-
-        wp_reset_postdata();
         comments_template();
     }
 } else {
