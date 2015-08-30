@@ -29,9 +29,8 @@ div.archive {
 
     a {
         background: rgba(0,0,0,0.4);
-        color: #fff;
+        color: palette(white, x-light);
         display: block;
-        height: 100%;
         @include padding(3 0);
 
         &:hover {
@@ -45,7 +44,7 @@ div.archive {
     box-sizing: border-box;
     list-style-type: none;
     text-align: center;
-    @include columns(flex, li, 4, 0);
+    @include columns(flex, li, 4, 1%);
     @include padding(1);
 }
 
@@ -56,6 +55,7 @@ div.archive {
 
 .archive-card-month {
     color: palette(white, x-light);
+    margin-bottom: 1%;
 }
 
 /**
