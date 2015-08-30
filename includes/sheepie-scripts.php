@@ -14,15 +14,15 @@
 
 
 function sheepie_scripts() { 
-    $assets = get_template_directory_url()  '/assets/';
+    $assets = get_template_directory_uri() . '/assets/';
     $js_path = $assets . 'js/';
-    $css_path = $passets . 'css/';
+    $css_path = $assets . 'css/';
     $node_path = $assets . '/node_modules/';
 
     $sheepie_js = array(
-        'highlight-js' => THEME_JS . 'highlight.js',
-        'lightbox' => THEME_JS . 'lightbox.js',
-        'functions' => THEME_JS . 'functions.js'
+        'highlight-js' => $js_path . 'highlight.js',
+        'lightbox' => $js_path . 'lightbox.js',
+        'functions' => $js_path . 'functions.js'
     );
 
     $sheepie_conditional_js = array(
@@ -36,7 +36,7 @@ function sheepie_scripts() {
             'lte IE 9'
         ),
         'ie-functions' => array(
-            THEME_JS . 'ie-functions.js',
+            $js_path . 'ie-functions.js',
             'lte IE 9'
         )
     );
@@ -49,38 +49,52 @@ function sheepie_scripts() {
 
     $sheepie_css = array(
         // Compressed, compiled theme CSS.
-        'main-style' => THEME_CSS . 'main.css',
+        'main-style' => $css_path . 'main.css',
     );
 
     $sheepie_conditional_css = array(
         // Internet Explorer conditiional CSS.
         'ie-fallback' => array(
-            THEME_CSS . 'ie.css',
+            $css_path . 'ie.css',
             'lte IE 9'
         )
     );
 
-    sheepie_js($sheepie_js, $heme_conditional_js);
+    sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path);
     sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts);
 }
 
 add_action('wp_enqueue_scripts', 'sheepie_scripts');
+
+/*
+ * Load Site JS in Footer
+ * -----------------------------------------------------------------------------
+ * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/#comment-56740
+ */
+
+function sheepie_clean_header() {
+    remove_action('wp_head', 'wp_print_scripts');
+    remove_action('wp_head', 'wp_print_head_scripts', 9);
+    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+}
+
+add_action('wp_enqueue_scripts', 'sheepie_clean_header');
 
 /** 
  * Sheepie JavaScript Loader
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_js($sheepie_js, $sheepie_conditional_js) {
+function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
     if (!is_404()) {
         foreach ($sheepie_js as $name => $script) {
             if (!WP_DEBUG) {
                 // Instead load minified version if you aren't debugging.
-                $script = str_replace(THEME_JS, THEME_JS . 'min/', $script);
+                $script = str_replace($js_path, $js_path . 'min/', $script);
                 $script = str_replace('.js', '.min.js', $script);
             }
 
-            wp_enqueue_script($name, $script, array('jquery'), GLOBALS['sheepie_version'], true);
+            wp_enqueue_script($name, $script, array('jquery'), $GLOBALS['sheepie_version'], true);
         }
     }
 
@@ -88,7 +102,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js) {
         $path = $script[0];
         $condition = $script[1];
 
-        wp_enqueue_script($name, $path, array(), GLOBALS['sheepie_version'], false);
+        wp_enqueue_script($name, $path, array(), $GLOBALS['sheepie_version'], false);
         wp_script_add_data($name, 'conditional', $condition);
     }
 
@@ -105,7 +119,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js) {
 
 function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
     foreach ($sheepie_css as $name => $style) {
-        wp_enqueue_style($name, $style, array(), GLOBALS['sheepie_version']);
+        wp_enqueue_style($name, $style, array(), $GLOBALS['sheepie_version']);
     }
 
     if (!empty($sheepie_fonts)) {
@@ -117,7 +131,7 @@ function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
         $path = $style[0];
         $condition = $style[1];
 
-        wp_enqueue_style($name, $path, array(), GLOBALS['sheepie_version']);
+        wp_enqueue_style($name, $path, array(), $GLOBALS['sheepie_version']);
         wp_style_add_data($name, 'conditional', $condition);
     }
 }
@@ -143,18 +157,5 @@ function sheepie_google_font_url($fonts) {
 
     return implode('', $google_url);
 }
-/*
- * Load Site JS in Footer
- * -----------------------------------------------------------------------------
- * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/#comment-56740
- */
-
-function sheepie_clean_header() {
-    remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 9);
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
-}
-
-add_action('wp_enqueue_scripts', 'sheepie_clean_header');
 
 ?>

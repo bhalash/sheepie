@@ -20,13 +20,13 @@
  * @param   int     $depth      Depth of the comments thread.
  */
 
-function theme_comments($comment, $args, $depth) {
+function sheepie_theme_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
     ?>
 
     <li <?php comment_class('avatar-box'); ?> id="comment-<?php comment_ID() ?>">
         <div class="avatar">
-            <?php avatar_background($comment, 'thumb', 'author-photo'); ?>
+            <?php sheepie_avatar_background_html($comment, 'thumb', 'author-photo'); ?>
         </div>
         <div class="comment-body">
             <header>
@@ -73,23 +73,18 @@ function theme_comments($comment, $args, $depth) {
 /**
  * Wrap Comment Fields in Elements
  * -------------------------------------------------------------------------
+ * Wrap comment form fields in <div></div> tags.
  * @link http://wordpress.stackexchange.com/a/172055
  */
 
-function wrap_comment_fields_before() {
+function sheepie_wrap_comment_fields_before() {
     printf('<div class="commentform-inputs">');
 }
 
-function wrap_comment_fields_after() {
+function sheepie_wrap_comment_fields_after() {
     printf('</div>');
 }
 
-/**
- * Actions
- * -----------------------------------------------------------------------------
- */
-
-// Wrap comment form fields in <div></div> tags.
 add_action('comment_form_before_fields', 'wrap_comment_fields_before');
 add_action('comment_form_after_fields', 'wrap_comment_fields_after');
 

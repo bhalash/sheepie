@@ -24,7 +24,7 @@
  * @return  array             $related    Array of related posts.
  */
 
-function get_related($post = null, $count = 3, $timeout = 12, $range = null) {
+function sheepie_get_related($post = null, $count = 3, $timeout = 12, $range = null) {
     if (!($post = get_post($post))) {
         global $post;
     }
@@ -69,7 +69,7 @@ function get_related($post = null, $count = 3, $timeout = 12, $range = null) {
 
     if ($missing = $count - sizeof($related)) {
         // Filler isn't cached because that could cause problems.
-        $related = related_filler($post, $missing, $related);
+        $related = sheepie_related_filler($post, $missing, $related);
     }
 
     return $related;
@@ -84,7 +84,7 @@ function get_related($post = null, $count = 3, $timeout = 12, $range = null) {
  * @return  array             Filler posts.
  */
 
-function related_filler($post, $count, $related) {
+function sheepie_related_filler($post, $count, $related) {
     $exlude = array(); 
     $exclude[] = $post->ID;
 

@@ -23,7 +23,7 @@ if (have_posts()) {
         printf('<hr>');
         printf('<div class="%s">', 'column-of-three related-articles');
 
-        foreach (get_related() as $post) {
+        foreach (sheepie_get_related() as $post) {
             setup_postdata($post);
             sheepie_partial('article', 'related');
         }

@@ -26,7 +26,7 @@
  * @link    https://php.net/manual/en/class.dateinterval.php 
  */
 
-function blog_age($format = '%a') {
+function sheepie_blog_age($format = '%a') {
     $trans_name = 'shp_blog_age'; 
     $trans_expiry = 24 * HOUR_IN_SECONDS;
 
@@ -58,7 +58,7 @@ function blog_age($format = '%a') {
  * @link    http://stackoverflow.com/a/18467892/1433400
  */
 
-function get_month_from_number($number, $format = 'M') {
+function sheepie_get_month_from_number($number, $format = 'M') {
     return date_create_from_format('!m', $number % 12)->format($format);
 }
 
@@ -78,7 +78,7 @@ function get_month_from_number($number, $format = 'M') {
  * @link    http://wordpress.stackexchange.com/a/60862
  */
 
-function timed_archives_count() {
+function sheepie_timed_archives_count() {
     $trans_name = 'shp_timed_archives_count';
     $trans_expiry = 24 * HOUR_IN_SECONDS;
 
@@ -122,7 +122,7 @@ function timed_archives_count() {
  * @link    http://wordpress.stackexchange.com/a/60862
  */
 
-function category_archives_count() {
+function sheepie_category_archives_count() {
 
 }
 
@@ -135,7 +135,7 @@ function category_archives_count() {
  * @return  int     $posts_per_day      Number of posts per day.
  */
 
-function post_interval($precision = 2) {
+function sheepie_post_interval($precision = 2) {
     $blog_age_days = blog_age('%a');
     $post_count = wp_count_posts()->publish;
     return round($blog_age_days / $post_count, $precision);
@@ -150,7 +150,7 @@ function post_interval($precision = 2) {
  * @return int      $count          count of comment authors.
  */
 
-function get_comment_authors_count($echo = false) {
+function sheepie_get_comment_authors_count($echo = false) {
     $trans_name = 'shp_comment_author_count';
     $trans_expiry = 24 * HOUR_IN_SECONDS;
 
@@ -181,7 +181,7 @@ function get_comment_authors_count($echo = false) {
  * -----------------------------------------------------------------------------
  */
 
-function year_first_post($year, $has_image = true) {
+function sheepie_year_first_post($year, $has_image = true) {
     $trans_name = 'shp_year_first_post_' . $year;
     $trans_expiry = 24 * HOUR_IN_SECONDS;
 
@@ -217,7 +217,7 @@ function year_first_post($year, $has_image = true) {
  * @return  string      $stats          Blog stats, printed or returned.
  */
 
-function blog_statistics($echo = false) {
+function sheepie_blog_statistics($echo = false) {
     $trans_name = 'shp_blog_statistics';
     $trans_expiry = 24 * HOUR_IN_SECONDS;
 
@@ -255,7 +255,7 @@ function blog_statistics($echo = false) {
  * @return  int      Total number of pages in current query, rounded up.
  */
 
-function query_page_total() {
+function sheepie_query_page_total() {
     global $wp_query;
     
     return ceil($wp_query->found_posts / get_option('posts_per_page'));
@@ -267,8 +267,8 @@ function query_page_total() {
  * @return bool     Query has pages, true/false.
  */
 
-function query_has_pages() {
-    return (query_page_total() > 1);
+function sheepie_query_has_pages() {
+    return (sheepie_query_page_total() > 1);
 }
 
 /**
@@ -283,9 +283,9 @@ function query_has_pages() {
  * @return  string      $count      The post count.
  */
 
-function archive_page_count($echo = false) {
+function sheepie_archive_page_count($echo = false) {
     $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $count = sprintf(__('Page %s of %s', 'sheepie'), $page, query_page_total());
+    $count = sprintf(__('Page %s of %s', 'sheepie'), $page, sheepie_query_page_total());
 
     if (!$echo) {
         return $count;
@@ -305,7 +305,7 @@ function archive_page_count($echo = false) {
  * @return  string                  Count of results.
  */
 
-function search_results_count($echo = false) {
+function sheepie_search_results_count($echo = false) {
     global $wp_query;
     
     $total = $wp_query->found_posts;

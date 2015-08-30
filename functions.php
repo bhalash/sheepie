@@ -12,92 +12,73 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-define('THEME_VERSION', 2.0);
+$GLOBALS['sheepie_version'] = 2.1;
 
 /**
- * Theme File Paths
+ * Sheepie Setup
  * -----------------------------------------------------------------------------
  */
 
-define('THEME_PATH', get_template_directory());
-define('THEME_URL', get_template_directory_uri());
+function sheepie_setup() {
+    // All theme PHP.
+    sheepie_includes(); 
 
-/**
- * Theme Asset Paths
- * -----------------------------------------------------------------------------
- */
+    // Header tag DNS prefetch.
+    sheepie_dns_prefetch();
 
-define('ASSETS_PATH', THEME_PATH . '/assets/');
-define('ASSETS_URL', THEME_URL . '/assets/');
+    add_action('init', 'sheepie_theme_navigation');
+    add_action('widgets_init', 'sheepie_theme_widgets');
+    add_action('wp_head', 'sheepie_dns_prefetch');
+    remove_action('wp_head', 'wp_generator');
 
-/**
- * Theme Includes and Partials Paths
- * -----------------------------------------------------------------------------
- * File paths are inconsistent between get_template_part() and include() or
- * require(). 
- * 
- * 1. With include(), / is the ultimate root on the filesystem, as provided by 
- *    get_template_directory();
- * 2. With get_template_parth(), / is the WordPress theme folder. 
- * 
- * Included files are entire standalone scripts, and partials are partials 
- * templates.
- */
+    $GLOBALS['content_width'] = 880;
 
-define('THEME_INCLUDES',  THEME_PATH . '/includes/');
-define('THEME_PARTIALS',  '/partials/');
+    add_filter('wp_title', 'sheepie_title', 10, 2);
+    remove_filter('the_content', 'convert_smilies');
+    remove_filter('the_excerpt', 'convert_smilies');
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
 
-/**
- * Image, CSS and JavaScript Assets
- * -----------------------------------------------------------------------------
- */
+    add_theme_support('automatic-feed-links');
+    add_theme_support('post-thumbnails');
+    add_theme_support('title-tag');
 
-define('THEME_JS', ASSETS_URL . 'js/');
-define('THEME_IMAGES', ASSETS_URL . 'images/');
-define('THEME_CSS', ASSETS_URL . 'css/');
+    add_theme_support('html5', array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption'
+    ));
 
-/**
- * Theme Text Domain
- * -----------------------------------------------------------------------------
- */
+    $sheepie_social = new Social_Meta(array(
+        // Facebook and Twitter social media information.
+        'facebook' => 'bhalash',
+        'twitter' => '@bhalash'
+    ));
+}
 
-load_theme_textdomain('sheepie', THEME_PATH . '/languages');
+add_action('after_setup_theme', 'sheepie_setup');
 
 /**
  * Theme Includes
  * -----------------------------------------------------------------------------
  */
 
-$theme_includes = array(
-    'comment-functions.php',
-    'theme-css.php',
-    'theme-js.php',
-    'blog-archives.php',
-    'social-meta/social-meta.php',
-    'reading-times.php',
-    'related.php',
-    'avatars.php'
-);
+function sheepie_includes() {
+    $theme_includes = array(
+        'sheepie-scripts.php',
+        'sheepie-avatars.php',
+        'sheepie-archives.php',
+        'sheepie-comments.php',
+        'sheepie-related-posts.php',
+        'social-meta/social-meta.php'
+    );
 
-foreach ($theme_includes as $include) {
-    include_once(THEME_INCLUDES . $include);
+    foreach ($theme_includes as $include) {
+        include_once(get_template_directory() . '/includes/' . $include);
+    }
 }
-
-/**
- * Misc Variables
- * -----------------------------------------------------------------------------
- */
-
-$sheepie_social = new Social_Meta(array(
-    // Facebook and Twitter social media information.
-    'facebook' => 'bhalash',
-    'twitter' => '@bhalash'
-));
-
-// Media prefetch domain: If null or empty, defaults to site domain.
-$prefetch_domains = array(
-    'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
-);
 
 /**
  * Partial Wrapper
@@ -108,37 +89,8 @@ $prefetch_domains = array(
  * @param   strgin      $slug           Partial slug.
  */
 
-function partial($name, $slug = '') {
-    get_template_part(THEME_PARTIALS . $name, $slug);
-}
-
-/**
- * Set Header Class
- * -----------------------------------------------------------------------------
- * Set class if header has any available background image.
- *
- * @param   int    $post_id
- * @return  string                       Class for background iamge.
- */
-
-function get_header_class($post_id = null) {
-    if (is_null($post_id)) {
-        global $post;
-        $post_id = $post->ID;
-    }
-
-    return (has_post_thumbnail($post_id)
-        || has_post_image($post_id)) ? 'has-image' : 'no-image';
-}
-
-/**
- * Echo Header Class
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- */
-
-function header_class($post_id = null) {
-    printf(get_header_class($post_id));
+function sheepie_partial($name, $slug = '') {
+    get_template_part('/partials/' . $name, $slug);
 }
 
 /**
@@ -148,7 +100,7 @@ function header_class($post_id = null) {
  * @return  string  $page_title         Title of page.
  */
 
-function get_page_title($post_id = null) {
+function sheepie_page_title($post_id = null, $echo = false) {
     if (is_null($post_id)) {
         global $post;
         $post_id = $post->ID;
@@ -176,17 +128,11 @@ function get_page_title($post_id = null) {
         );
     }
 
-    return $page_title;
-}
+    if (!$echo) {
+        return $page_title;
+    }
 
-/**
- * Echo Page Title Based on Page Type
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- */
-
-function page_title($post_id = null) {
-    printf(get_page_title($post_id));
+    printf($page_title);
 }
 
 /**
@@ -214,7 +160,7 @@ function sheepie_title($title, $sep) {
     }
 
     if ($paged >= 2 || $page >= 2) {
-        $title = "$title $sep " . sprintf( __( 'Page %s', 'sheepie'), max( $paged, $page ) );
+        $title = "$title $sep " . sprintf(__('Page %s', 'sheepie'), max($paged, $page));
     }
 
     return $title;
@@ -226,10 +172,13 @@ function sheepie_title($title, $sep) {
  * Set prefetch for a given media domain. Useful if your site is image heavy.
  */
 
-function dns_prefetch() {
-    global $prefetch_domains;
+function sheepie_dns_prefetch() {
+    // Media prefetch domain: If null or empty, defaults to site domain.
+    $prefetch = array(
+        'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
+    );
 
-    foreach ($prefetch_domains as $domain) {
+    foreach ($prefetch as $domain) {
         printf('<link rel="dns-prefetch" href="//%s">', $domain);
     }
 }
@@ -242,7 +191,7 @@ function dns_prefetch() {
  * @return  string      $url            Generated URL.
  */
 
-function search_url($order = null, $echo = true) {
+function sheepie_search_url($order = null, $echo = true) {
     if (!$order) {
         $order = 'asc';
     }
@@ -271,7 +220,7 @@ function search_url($order = null, $echo = true) {
  * -----------------------------------------------------------------------------
  */
 
-function theme_widgets() {
+function sheepie_theme_widgets() {
     register_sidebar(array(
         'id' => 'theme-widgets',
         'name' => __('Sheepie Footer Widgets', 'sheepie'),
@@ -288,56 +237,11 @@ function theme_widgets() {
  * -----------------------------------------------------------------------------
  */
 
-function theme_navigation() {
+function sheepie_theme_navigation() {
     register_nav_menus(array(
         'top-menu' => __('Header Menu', 'sheepie'),
         'top-social' => __('Header Social Links', 'sheepie')
     ));
 }
-
-/**
- * Filters, Options and Actions
- * -----------------------------------------------------------------------------
- */
-
-add_action('init', 'theme_navigation');
-add_action('widgets_init', 'theme_widgets');
-add_action('wp_head', 'dns_prefetch');
-remove_action('wp_head', 'wp_generator');
-
-/**
- * Filters 
- * ----------------------------------------------------------------------------
- */
-
-// Wordpress repeatedly inserted emoticons. No more, ever.
-remove_filter('the_content', 'convert_smilies');
-remove_filter('the_excerpt', 'convert_smilies');
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('wp_print_styles', 'print_emoji_styles');
-
-// Title function.
-add_filter('wp_title', 'sheepie_title', 10, 2);
-
-/**
- * Theme Support
- * -----------------------------------------------------------------------------
- */
-
-if (!isset($content_width)) {
-    $content_width = 880;
-}
-
-// HTML5 support in theme.
-current_theme_supports('html5');
-current_theme_supports('menus');
-
-// add_theme_support('title-tag');
-add_theme_support('automatic-feed-links');
-add_theme_support('post-thumbnails');
-add_theme_support('html5', array('search-form'));
-add_theme_support('html5', array(
-    'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
-));        
 
 ?>

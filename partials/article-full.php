@@ -39,7 +39,7 @@ $author = get_the_author_meta('ID');
         <hr>
         <footer class="full avatar-box">
             <div class="avatar">
-                <?php avatar_background($author, 96, 'author-photo'); ?>
+                <?php sheepie_avatar_background_html($author, 96, 'author-photo'); ?>
             </div>
             <div class="author-info">
                 <p>

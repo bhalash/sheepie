@@ -22,8 +22,8 @@ get_header();
 printf('<h5 class="title">%s</h5>', __('Archives by Year', 'sheepie'));
 printf('<div class="archive">');
 
-foreach (timed_archives_count() as $year => $calendar) {
-    $first_post = year_first_post($year, true);
+foreach (sheepie_timed_archives_count() as $year => $calendar) {
+    $first_post = sheepie_year_first_post($year, true);
 
     printf('<div class="archive-card vspace-full" id="archive-card-%s">', $year);
 
@@ -54,7 +54,7 @@ foreach (timed_archives_count() as $year => $calendar) {
         
         printf('<span class="%s">%s</span>',
             'month-name',
-            get_month_from_number($month)
+            sheepie_get_month_from_number($month)
         );
 
         printf('<span class="%s">%s</span>',
@@ -84,7 +84,7 @@ printf('<hr>');
 // Statistics.
 
 printf('<h5 class="title">%s</h5>', __('Blog Statistics', 'sheepie'));
-printf('<p>%s</p>', blog_statistics());
+printf('<p>%s</p>', sheepie_blog_statistics());
 
 // Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)
 get_footer();

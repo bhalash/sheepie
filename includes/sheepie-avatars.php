@@ -34,13 +34,15 @@
  * @return  string                  The avatar's URL.
  */
 
-function get_avatar_url_only($avatar, $id_or_email, $size, $default, $alt) {
+function sheepie_get_avatar_url($avatar, $id_or_email, $size, $default, $alt) {
    if (!is_admin()) {
         $avatar = preg_replace('/(^.*src=("|\')|("|\')\ssrcset.*$)/', '', $avatar);
    }
 
    return $avatar;
 }
+
+add_filter('get_avatar', 'sheepie_get_avatar_url', 10, 5);
 
 /**
  * Avatar as Background Image
@@ -54,7 +56,7 @@ function get_avatar_url_only($avatar, $id_or_email, $size, $default, $alt) {
  * @return  string  $html           Avatar HTML.
  */
 
-function get_avatar_background($id_or_email, $size = 'large', $classes = null) {
+function sheepie_avatar_background_html($id_or_email, $size = 'large', $classes = null, $echo = true) {
     $avatar = get_avatar($id_or_email, $size);
     $background = sprintf('background-image: url(%s);', $avatar);
 
@@ -71,29 +73,11 @@ function get_avatar_background($id_or_email, $size = 'large', $classes = null) {
         $background
     );
 
-    return $html;
+    if (!$echo) {
+        return $html;
+    }
+
+    printf($html);
 }
-
-/**
- * Print Avatar Background Image
- * -----------------------------------------------------------------------------
- * Not a filter for get_avatar. Return avatar as a background image wrapped with
- * some useful HTML.
- * 
- * @param   string  $id_or_email    Either user ID or email address.
- * @param   int     $size           Avatar size.
- * @param   arr     $classes        Classes to add to element.
- */
-
-function avatar_background($id, $size = 'large', $classes = null) {
-    echo get_avatar_background($id, $size, $classes);
-}
-
-/**
- * Filters, Options and Actions
- * -----------------------------------------------------------------------------
- */
-
-add_filter('get_avatar', 'get_avatar_url_only', 10, 5);
 
 ?>

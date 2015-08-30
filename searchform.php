@@ -33,8 +33,8 @@ $result .= $total > 1 ? 's' : '';
     <span class="total meta right-float">
         Sort by: 
 
-        <a href="<?php search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
-        <a href="<?php search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>
+        <a href="<?php sheepie_search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
+        <a href="<?php sheepie_search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>
     </span>
 </div>
 <hr>

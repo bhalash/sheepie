@@ -29,7 +29,7 @@ if (comments_open()) {
         printf('<ul class="%s">', 'commentlist');
 
         wp_list_comments(array(
-            'callback' => 'theme_comments',
+            'callback' => 'sheepie_theme_comments',
             'avatar_size' => 0,
             'format' => 'html5',
             'style' => 'ul'
