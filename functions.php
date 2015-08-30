@@ -23,32 +23,20 @@ function sheepie_setup() {
     // All theme PHP.
     sheepie_includes(); 
 
-    // Header tag DNS prefetch.
-    sheepie_dns_prefetch();
-
-    // Theme menus.
-    add_action('init', 'sheepie_menus');
-
-    // Them widget areas.
-    add_action('widgets_init', 'sheepie_widgets');
-
-    // Header DNS prefetch meta tags.
-    add_action('wp_head', 'sheepie_dns_prefetch');
-
     // Remove WordPress version from site header.
     remove_action('wp_head', 'wp_generator');
-
-    add_filter('wp_title', 'sheepie_title', 10, 2);
 
     // Remove the fuck out of emoji and emoticons.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
+
+    // Tell WordPress to manage the site title itself.
+    add_theme_support('title-tag');
     
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
-    add_theme_support('title-tag');
 
     add_theme_support('html5', array(
         'comment-list',
@@ -146,37 +134,6 @@ function sheepie_page_title($post_id = null, $echo = false) {
 }
 
 /**
- * Blog Title
- * -----------------------------------------------------------------------------
- * Stolen from Twenty Twelve. 
- * 
- * @param   string      $title          Title of whatever.
- * @param   string      $sep            Title separator.
- * @return  string      $title          Modded title.
- */
-
-function sheepie_title($title, $sep) {
-    global $paged, $page;
-
-    if (is_feed()) {
-        return $title;
-    }
-
-    $title .= get_bloginfo('name');
-    $site_description = get_bloginfo('description', 'display');
-
-    if ($site_description && (is_home() || is_front_page())) {
-        $title = "$title $sep $site_description";
-    }
-
-    if ($paged >= 2 || $page >= 2) {
-        $title = "$title $sep " . sprintf(__('Page %s', 'sheepie'), max($paged, $page));
-    }
-
-    return $title;
-}
-
-/**
  * Media Prefetch
  * -----------------------------------------------------------------------------
  * Set prefetch for a given media domain. Useful if your site is image heavy.
@@ -192,6 +149,8 @@ function sheepie_dns_prefetch() {
         printf('<link rel="dns-prefetch" href="//%s">', $domain);
     }
 }
+
+add_action('wp_head', 'sheepie_dns_prefetch');
 
 /**
  * Register Theme Widget Areas
@@ -210,6 +169,9 @@ function sheepie_widgets() {
     ));
 }
 
+// Them widget areas.
+add_action('widgets_init', 'sheepie_widgets');
+
 /**
  * Register Theme Navigation Menus
  * -----------------------------------------------------------------------------
@@ -221,5 +183,8 @@ function sheepie_menus() {
         'top-social' => __('Header Social Links', 'sheepie')
     ));
 }
+
+// Theme menus.
+add_action('init', 'sheepie_menus');
 
 ?>
