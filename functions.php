@@ -67,9 +67,9 @@ function sheepie_includes() {
     $theme_includes = array(
         'sheepie-scripts.php',
         'sheepie-avatars.php',
-        'sheepie-archives.php',
         'sheepie-comments.php',
         'related-posts/related-posts.php',
+        'archive-functions/archive-functions.php',
         'social-meta/social-meta.php'
     );
 

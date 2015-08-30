@@ -10,3 +10,6 @@
 	path = includes/related-posts
 	url = git@github.com:bhalash/related-posts.git
     ignore = dirty
+[submodule "includes/archive-functions"]
+	path = includes/archive-functions
+	url = git@github.com:bhalash/archive-functions.git

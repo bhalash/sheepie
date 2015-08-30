@@ -30,8 +30,8 @@ $previous = $paged - 1;
     </p>
 
     <p class="count">
-        <?php if (!is_single() && sheepie_query_has_pages()) : ?>
-            <small><span><?php sheepie_archive_page_count(true); ?></span></small>
+        <?php if (!is_single() && function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
+            <small><span><?php arc_archive_page_count(true); ?></span></small>
         <?php endif; ?>
     </p>
 

@@ -30,11 +30,13 @@ $result .= $total > 1 ? 's' : '';
 </form>
 <div class="clearfix search-results-meta">
     <span class="total meta left-float"><?php printf('%d %s', $total, $result); ?></span>
-    <span class="total meta right-float">
-        Sort by: 
+    <?php if (function_exists('arc_search_url')) : ?>
+        <span class="total meta right-float">
+            Sort by: 
 
-        <a href="<?php sheepie_search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
-        <a href="<?php sheepie_search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>
-    </span>
+            <a href="<?php arc_search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
+            <a href="<?php arc_search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>
+        </span>
+    <?php endif; ?>
 </div>
 <hr>
