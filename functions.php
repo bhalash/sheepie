@@ -69,7 +69,7 @@ function sheepie_includes() {
         'sheepie-avatars.php',
         'sheepie-archives.php',
         'sheepie-comments.php',
-        'sheepie-related-posts/related-posts.php',
+        'related-posts/related-posts.php',
         'social-meta/social-meta.php'
     );
 
