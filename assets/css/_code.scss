@@ -16,9 +16,14 @@ code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
 }
 
-pre { 
-    background-color: rgba(0,0,0,0.05);
+p code, kbd, tt, var {
     color: palette(black, x-dark);
+}
+
+pre { 
+    // background-color: rgba(0,0,0,0.05);
+    background: palette(rmwb);
+    color: palette(white, x-light);
     overflow: auto;
     @include font-size(1.3);
     @include padding(1);
@@ -29,6 +34,8 @@ pre {
 
     .hljs-comment {
         color: #757d83;
+        font-weight: bold;
+        font-style: italic;
     }
 
     .hljs-phpdoc {
@@ -37,7 +44,7 @@ pre {
     }
 
     .hljs-string, .hljs-number {
-        color: #f9092c;
+        color: #a6e22e;
     }
 
     .hljs-variable, .hljs-attribute {
@@ -45,7 +52,7 @@ pre {
     }
 
     .hljs-keyword, .hljs-tag, .hljs-id, .hljs-class { 
-        color: #0f85e4;
+        color: #00efff;
     }
 
     .hljs-rules { 
