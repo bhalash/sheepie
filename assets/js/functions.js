@@ -10,10 +10,9 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-
-(function($) {
+;(function($) {
     /*
-     * Initialize highligh.js
+     * Initialize highlight.js
      * -------------------------------------------------------------------------
      * highlight.js operates on the <code> child or <pre> elements. This wraps the
      * content of an element with <code> before initializing highlight.js.
