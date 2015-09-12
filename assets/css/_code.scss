@@ -20,6 +20,11 @@ p code, kbd, tt, var {
     color: palette(black, x-dark);
 }
 
+p code {
+    font-weight: bold;
+    margin: 0 5px;
+}
+
 pre { 
     // background-color: rgba(0,0,0,0.05);
     background: palette(rmwb);
@@ -37,6 +42,10 @@ pre {
         font-weight: bold;
         font-style: italic;
     }
+    
+    .hljs-regexp {
+        color: #e65644;
+    }
 
     .hljs-phpdoc {
         color: #b5bd68;
@@ -44,7 +53,7 @@ pre {
     }
 
     .hljs-string, .hljs-number {
-        color: #b5bd68;
+        color: #efff58;
     }
 
     .hljs-variable, .hljs-attribute {
@@ -52,7 +61,7 @@ pre {
     }
 
     .hljs-keyword, .hljs-tag, .hljs-id, .hljs-class { 
-        color: #5491c5;
+        color: #a7d7ff;
     }
 
     .hljs-rules { 
