@@ -179,7 +179,7 @@
     opacity: 0.5;
     float: left;
 
-    @include social(25% 1, search close) {
+    @include social(25% 1, null, search close) {
         background-color: transparent;
     }
 
