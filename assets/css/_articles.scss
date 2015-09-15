@@ -35,6 +35,11 @@ article {
         @include margin(2, left);
         @include padding(1, left);
     }
+
+    img {
+        border: 1px solid palette(rmwb);
+        box-sizing: border-box;
+    }
 }
 
 /**
