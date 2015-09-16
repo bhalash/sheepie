@@ -18,6 +18,10 @@ if (is_404()) {
 
 $action = esc_url(home_url('/'));
 
+$placeholder = sprintf('%s',
+    __('search', 'sheepie')
+);
+
 ?>
 
 <div id="header">
@@ -45,14 +49,19 @@ $action = esc_url(home_url('/'));
         )); ?>
 
         <div class="header-buttonrow header-child">
-            <button class="bigsearch-toggle search"></button>
+            <button id="navrow-search-toggle" class="bigsearch-toggle toggle">
+                <span class="toggle-icon search"></span> 
+            </button>
         </div>
     </div>
 </div>
 <div id="bigsearch">
-    <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off">
+    <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch-input" name="s" placeholder="<?php _e('search', 'sheepie'); ?>" type="search" required="required">
+            <input class="bigsearch-input" name="s" placeholder="<?php printf($placeholder); ?>" type="search" required="required">
         </fieldset>
     </form>
+    <button id="bigsearch-search-toggle" class="bigsearch-toggle toggle">
+        <span class="toggle-icon search"></span> 
+    </button>
 </div>
