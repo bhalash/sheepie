@@ -127,6 +127,21 @@
     }
 }
 
+// Nav row open/close toggle.
+
+#navrow-search-toggle {
+}
+
+// Big search open/close toggle.
+
+#bigsearch-search-toggle {
+    display: none;
+
+    @include media($b-1024) {
+        display: initial;
+    }
+}
+
 /* The icon is separate for reasons of size:
  * The parent button grows in size on smaller screens to be a better touch
  * target. */
@@ -141,23 +156,5 @@
 
     @include media($b-1024) {
         @include square-flex(40px 1);
-    }
-}
-
-// Nav row open/close toggle.
-
-#navrow-search-toggle {
-    @include media($b-1024) {
-        float: right;
-    }
-}
-
-// Big search open/close toggle.
-
-#bigsearch-search-toggle {
-    display: none;
-
-    @include media($b-1024) {
-        display: initial;
     }
 }
