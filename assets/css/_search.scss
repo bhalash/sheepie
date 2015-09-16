@@ -17,7 +17,9 @@
 
 #bigsearch {
     background: palette(rmwb);
+    box-sizing: border-box;
     height: 100vh;
+    height: $navbar-height-full;
     opacity: 0;
     transition: opacity .15s;
     visibility: hidden;
@@ -31,10 +33,14 @@
         visibility: visible;
     }
 
+    &:focus {
+        outline: none;
+    }
+
     @include media($b-1024) {
-        bottom: auto;
-        @include fixed($collapsed-header-height 0 0, top right left);
-        height: auto;
+        @include fixed(0 0 auto 0);
+        @include height($navbar-height-collapsed);
+        @include padding(1);
     }
 }
 
@@ -45,16 +51,12 @@
 
 .bigsearch-form {
     // Important for absoute centering.
-    height: inherit;
+    height: 100%;
 
     fieldset {
+        height: 100%;
+        position: relative;
         width: 100%;
-        @include absolute-center;
-
-        @include media($b-1024) {
-            position: static;
-            transform: none;
-        }
     }
 }
 
@@ -71,15 +73,15 @@
     text-align: center;
     width: 90%;
     @include font-size(7);
+    @include absolute-center;
 
     @include placeholder-style {
-        color: palette(white);
+        color: rgba(palette(white, x-light), 0.5);
     }
 
     @include media($b-1024) {
         box-sizing: border-box;
-        @include font-size(3);
-        @include padding(2);
+        @include font-size(2);
     }
 }
 
@@ -92,4 +94,70 @@
     @include padding(1);
     @include font-size(2.7);
     width: 100%;
+}
+
+/**
+ * Big Search Toggle Buttons
+ * -----------------------------------------------------------------------------
+ */
+
+.toggle {
+    /* I found buttons don't position properly unless floated, so eh.
+     * There is an invisible non-padding, non-margin space applied above
+     * the button unless it was floated. 
+     */
+
+    -webkit-appearance: button;
+    background: transparent;
+    cursor: pointer;
+    margin:0;
+    opacity: 0.5;
+    padding: 0;
+    @include size(4 4);
+
+    &:active {
+        opacity: 1;
+    }
+
+    @include media($b-1024) {
+        opacity: 1;
+        @include absolute(0 0, top right);
+        // Button size is increased to present a better touch target.
+        @include size(6 6);
+    }
+}
+
+/* The icon is separate for reasons of size:
+ * The parent button grows in size on smaller screens to be a better touch
+ * target. */
+
+.toggle-icon {
+    display: block;
+    margin: 0 auto;
+
+    @include social(100% 1, null, search close) {
+        background-color: transparent;
+    }
+
+    @include media($b-1024) {
+        @include square-flex(40px 1);
+    }
+}
+
+// Nav row open/close toggle.
+
+#navrow-search-toggle {
+    @include media($b-1024) {
+        float: right;
+    }
+}
+
+// Big search open/close toggle.
+
+#bigsearch-search-toggle {
+    display: none;
+
+    @include media($b-1024) {
+        display: initial;
+    }
 }
