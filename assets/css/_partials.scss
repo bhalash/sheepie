@@ -52,10 +52,10 @@
  */
 
 %contentsize {
-    width: calc(100% - #{rem($header-width)});
+    width: calc(100% - #{rem($navbar-width)});
 
     @include media($b-1024) {
-        @include rem(top, $collapsed-header-height);
+        @include rem(top, $navbar-height-collapsed);
         width: 100%;
     }
 }
