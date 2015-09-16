@@ -102,7 +102,7 @@ article {
  * to arrange and display them.
  */
 
-div.article-photobox {
+%photobox-elements {
     /* Every word has a space afterward, above and below, set by the browser. 
      * An object with display "inline-block" or similar is treated as a word by
      * your browser, and given a small trailing space beside and below, 
@@ -112,16 +112,31 @@ div.article-photobox {
      * circumstances where those few pixels can break layout. */
     font-size: 0;
 
-    @include columns(flex, a, 3, $three-col-margin) {
-        @include padding(1, bottom);
-    }
-
     img {
         /* Important: images will otherwise display weirdly in a manner that 
          * varies by browser. */
         width: 100%;
     }
+
+    a {
+        @include padding(1, bottom);
+    }
+}
+
+.article-photobox-two {
+    @extend %photobox-elements;
+    @include columns(flex, a, 2, $three-col-margin);
+}
+
+.article-photobox-three, .article-photobox {
+    @extend %photobox-elements;
+    @include columns(flex, a, 3, $three-col-margin);
 } 
+
+.article-pohotobox-four {
+    @extend %photobox-elements;
+    @include columns(flex, a, 4, $three-col-margin);
+}
 
 /**
  * Lightbox Image
@@ -204,6 +219,7 @@ article.related {
     .thumbnail {
         background-size: cover;
         box-sizing: border-box;
+        border: 1px solid palette(rmwb);
 
         @include margin(0.5, bottom);
         @include square-flex(100% 0.75);
