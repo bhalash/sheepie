@@ -167,29 +167,3 @@
     }
 
 }
-
-.header-buttonrow button {
-    /* I found buttons don't position properly unless floated, so eh.
-     * There is an invisible non-padding, non-margin space applied above
-     * the button unless it was floated. 
-     */
-
-    -webkit-appearance: button;
-    cursor: pointer;
-    opacity: 0.5;
-    float: left;
-
-    @include social(25% 1, null, search close) {
-        background-color: transparent;
-    }
-
-    &:active {
-        opacity: 1;
-    }
-
-    @include media($b-1024) {
-        float: right;
-        opacity: 1;
-        @include square-flex(40px 1);
-    }
-}
