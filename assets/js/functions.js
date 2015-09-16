@@ -63,7 +63,7 @@
                 // $(opts.linkedClass).not(this).trigger('click', false);
             }
 
-            $(this).children(opts.child).toggleClass(opts.childClass, opts.toggled);
+            $(opts.child).toggleClass(opts.childClass, opts.toggled);
             $(opts.target).toggleClass(opts.targetClass, opts.toggled);
 
             if (opts.toggled && opts.isTargetInput) {
