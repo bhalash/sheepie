@@ -22,11 +22,9 @@ p code, kbd, tt, var {
 
 p code {
     font-weight: bold;
-    margin: 0 5px;
 }
 
 pre { 
-    // background-color: rgba(0,0,0,0.05);
     background: palette(rmwb);
     color: palette(white, x-light);
     overflow: auto;
@@ -65,7 +63,7 @@ pre {
     }
 
     .hljs-rules { 
-        color: palette(black, light); 
+        // color: palette(black, light); 
     }
 
     .hljs-title {
