@@ -22,17 +22,19 @@ fieldset {
 
 // Remove all default appearance and focus appearance styling. 
 
-fieldset, input, button, textarea {
+button, fieldset, input, textarea {
     -webkit-appearance: none;
     border: none;
     box-sizing: border-box;
-    outline: 0;
+    outline: none;
     @include prefix(border-radius, 0);
+}
 
-     &:focus {
-         border: 0;
-         outline: 0;
-     }
+button, fieldset, form, input, textarea {
+    &:focus {
+     border: none;
+     outline: none;
+    }
 }
 
 // Input and text area colours.
