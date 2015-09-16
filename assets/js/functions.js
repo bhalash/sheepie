@@ -42,20 +42,62 @@
      * -------------------------------------------------------------------------
      */
 
-    $.fn.linkedToggle = function(target, input) {
-        var $target = $(target);
-        var $input = $(input);
+    $.fn.link = function(args) {
+        var defaults = {
+            child: '',
+            childClass: '',
+            target: '',
+            targetClass: '',
+            linkedClass: '.linked-class-toggle',
+            isTargetInput: false,
+            toggled: false
+        };
 
-        var toggle = function(event) {
-            $(this).toggleClass('close');
-            $target.attr('tabindex', 2).toggleClass('show').find('input').focus();
+        var opts = {};
+
+        function toggle(event, override) {
+            opts.toggled = (typeof override === 'boolean') ? override : !opts.toggled;
+            // Hide all other linked elements.
+
+            if (opts.toggled) {
+                // $(opts.linkedClass).not(this).trigger('click', false);
+            }
+
+            $(this).children(opts.child).toggleClass(opts.childClass, opts.toggled);
+            $(opts.target).toggleClass(opts.targetClass, opts.toggled);
+
+            if (opts.toggled && opts.isTargetInput) {
+                $(opts.target).find('input').focus();
+            }
+        } 
+
+        function closeOnEscape(event) {
+            if (event.keyCode === 27) {
+                $(opts.button).trigger('click', false);
+            }
         }
 
-        this.on('click', toggle);
+        opts = $.extend({}, defaults, args);
+        opts.button = this;
+
+        if (!$(opts.linkedClass).length) {
+            $(window).on('keyup', closeOnEscape);
+        }
+
+        this.addClass(opts.linkedClass.substring(1)).on('click', toggle);
         return this;
     }
 
-    $('.bigsearch-toggle').linkedToggle('#bigsearch', '.bigsearch-input');
+    $('.bigsearch-toggle').link({
+        child: '.toggle-icon',
+        childClass: 'close',
+        target: '#bigsearch',
+        targetClass: 'show',
+        isTargetInput: true
+    });
+
+
+    $('.miley').link();
 })(jQuery, window, document, undefined);
 
 /**
