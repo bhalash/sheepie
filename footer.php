@@ -16,7 +16,7 @@
             <?php get_sidebar(); ?>
         </div> <?php // End .interior ?>
         <?php get_sidebar(); ?>
-    </div> <?php // End #content ?>
+    </main> <?php // End #content ?>
     <?php wp_footer(); ?>
 </body>
 </html>

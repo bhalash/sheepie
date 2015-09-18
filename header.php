@@ -29,5 +29,5 @@ global $post;
 </head>
 <body <?php body_class(); ?>>
     <?php sheepie_partial('head'); ?>
-    <div id="content">
+    <main id="content">
         <div class="content-interior">
