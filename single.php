@@ -24,7 +24,14 @@ if (have_posts()) {
             printf('<hr>');
             printf('<div class="%s">', 'column-of-three related-articles');
 
-            foreach (rp_get_related() as $post) {
+            $related = rp_get_related(array(
+                'range' => array(
+                    'after' => date('Y-m-j') . '-180 days',
+                    'before' => date('Y-m-j')
+                )
+            ));
+
+            foreach ($related as $post) {
                 setup_postdata($post);
                 sheepie_partial('article', 'related');
             }
