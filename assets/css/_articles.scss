@@ -16,9 +16,13 @@
  * Default text and other element styling for articles.
  */
 
-article { 
-    .main {
-        @include clearfix;
+.article-main {
+    @include clearfix;
+
+    dl, ol, ul {
+        box-sizing: border-box;
+        @include margin(2, left);
+        @include padding(1, left);
     }
 
     blockquote > *:not(:last-child), li > * {
@@ -28,12 +32,6 @@ article {
     input {
         // For password on password-protected posts.
         display: block;
-    }
-
-    dl, ol, ul {
-        box-sizing: border-box;
-        @include margin(2, left);
-        @include padding(1, left);
     }
 
     img {

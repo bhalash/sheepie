@@ -25,7 +25,7 @@ $author = get_the_author_meta('ID');
             <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
         <?php endif; ?>
     </header>
-    <div class="full-main">
+    <div class="article-main full-main">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
 

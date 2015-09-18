@@ -24,6 +24,8 @@
                 <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
             <?php endif; ?>
         </header>
-        <?php the_excerpt(); ?>
+        <div class="article-main excerpt-main">
+            <?php printf('<p>%s</p>', get_the_excerpt()); ?>
+        </div>
     </div>
 </article>
