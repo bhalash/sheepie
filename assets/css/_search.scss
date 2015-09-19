@@ -24,7 +24,7 @@
     transition: opacity .15s;
     visibility: hidden;
     z-index: 3;
-    @extend %contentsize;
+    @include content-size;
     @include fixed(0 0, right bottom);
 
     &.show {
@@ -37,9 +37,7 @@
         outline: none;
     }
 
-    @include media($b-1024) {
-        @include fixed(0 0 auto 0);
-        @include height($navbar-height-collapsed);
+    @include navbar-size-1024 {
         @include padding(1);
     }
 }

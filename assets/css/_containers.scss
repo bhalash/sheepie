@@ -16,11 +16,11 @@
  */
 
 #content {
-    @extend %contentsize;
     box-sizing: border-box;
     min-width: 0;
     position: relative;
     @include margin($navbar-width, left);
+    @include content-size;
 
     @include media($b-1024) {
         margin: 0 auto;
@@ -54,20 +54,11 @@ body:not(.page-template-page-search) #content {
  * Default header content appearance.
  */
 
-#header {
+#navbar {
     background: palette(rmwb);
-    box-sizing: border-box;
-    @include fixed(0 0 0, top bottom left);
-    @include width($navbar-width);
     z-index: 2;
-
-    // Required for Android Browser.
-    -webkit-transform:translateZ(0);
-
-    @include media($b-1024) {
-        width: 100%;
-        @include height($navbar-height-collapsed);
-    }
+    @include navbar-size;
+    @include navbar-size-1024;
 }
 
 /**
