@@ -45,44 +45,41 @@
 }
 
 /**
- * Content and Search Size
+ * Navbar and Collapsed Search Size
+ * -----------------------------------------------------------------------------
+ */
+
+@mixin navbar-size {
+    box-sizing: border-box;
+    @include fixed(0 auto 0 0);
+    @include width($navbar-width);
+
+    // Required for Android Browser.
+    -webkit-transform:translateZ(0);
+    @content;
+}
+
+@mixin navbar-size-1024 {
+    @include media($b-1024) {
+        width: 100%;
+        @include absolute(0 0 auto 0);
+        @include height($navbar-height-collapsed);
+        @content;
+    }
+}
+
+/**
+ * Content and Full Search Size
  * -----------------------------------------------------------------------------
  * Separated because content and search both use them, and I need them for
  * IE fallback.
  */
 
-%contentsize {
+@mixin content-size {
     width: calc(100% - #{rem($navbar-width)});
 
     @include media($b-1024) {
         @include rem(top, $navbar-height-collapsed);
         width: 100%;
-    }
-}
-
-/**
- * Generic Split Columns
- * -----------------------------------------------------------------------------
- */
-
-.two-column-odd {
-    @include columns(flex, div, 25% auto, 3%);
-}
-
-.four-column-odd {
-    @include columns(flex, div, 40% auto auto auto, 0);
-}
-
-.three-column-even {
-    @include columns(flex, div, 3, 0);
-}
-
-.four-column-even {
-    @include columns(flex, div, 4, 0);
-}
-
-.two-column-odd, .four-column-odd, .three-column-even, .four-column-even {
-    @include media(max 640px) {
-        display: block;
     }
 }
