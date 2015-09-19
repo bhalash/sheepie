@@ -42,6 +42,8 @@
      * -------------------------------------------------------------------------
      */
 
+    var linkElements = [];
+
     $.fn.link = function(args) {
         var defaults = {
             child: '',
@@ -55,13 +57,13 @@
 
         var opts = {};
 
-        function toggle(event, override) {
-            opts.toggled = (typeof override === 'boolean') ? override : !opts.toggled;
-            // Hide all other linked elements.
-
-            if (opts.toggled) {
-                // $(opts.linkedClass).not(this).trigger('click', false);
+        function clickToggle(event, override) {
+            if (typeof override !== 'boolean' && !opts.toggled) {
+                // Hide all other linked elements.
+                $(opts.linkedClass).not(this).trigger('click', false);
             }
+
+            opts.toggled = (typeof override === 'boolean') ? override : !opts.toggled;
 
             $(opts.child).toggleClass(opts.childClass, opts.toggled);
             $(opts.target).toggleClass(opts.targetClass, opts.toggled);
@@ -69,6 +71,8 @@
             if (opts.toggled && opts.isTargetInput) {
                 $(opts.target).find('input').focus();
             }
+
+            return;
         } 
 
         function closeOnEscape(event) {
@@ -84,7 +88,9 @@
             $(window).on('keyup', closeOnEscape);
         }
 
-        this.addClass(opts.linkedClass.substring(1)).on('click', toggle);
+        this.addClass(opts.linkedClass.substring(1))
+            .on('click', clickToggle);
+
         return this;
     }
 
@@ -95,9 +101,6 @@
         targetClass: 'show',
         isTargetInput: true
     });
-
-
-    $('.miley').link();
 })(jQuery, window, document, undefined);
 
 /**
