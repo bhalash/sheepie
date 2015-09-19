@@ -24,7 +24,7 @@ $placeholder = sprintf('%s',
 
 ?>
 
-<div id="header">
+<header id="navbar">
     <div class="header-interior">
         <div class="header-title header-child">
             <h2 class="site-name">
@@ -54,7 +54,7 @@ $placeholder = sprintf('%s',
             </button>
         </div>
     </div>
-</div>
+</header>
 <div id="bigsearch">
     <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
