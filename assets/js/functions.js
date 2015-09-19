@@ -38,11 +38,9 @@
     $('article a img').addLightbox();
 
     /**
-     * Bigsearch Toggle 
+     * Linked Element Class Toggle
      * -------------------------------------------------------------------------
      */
-
-    var linkElements = [];
 
     $.fn.link = function(args) {
         var defaults = {
