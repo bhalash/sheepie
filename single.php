@@ -28,7 +28,8 @@ if (have_posts()) {
                 'range' => array(
                     'after' => date('Y-m-j') . '-180 days',
                     'before' => date('Y-m-j')
-                )
+                ),
+                'cache' => true
             ));
 
             foreach ($related as $post) {
