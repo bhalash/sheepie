@@ -61,7 +61,7 @@ $placeholder = sprintf('%s',
             <input class="bigsearch-input" name="s" placeholder="<?php printf($placeholder); ?>" type="search" required="required">
         </fieldset>
     </form>
-    <button id="bigsearch-search-toggle" class="bigsearch-toggle toggle">
+    <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle">
         <span class="toggle-icon search"></span> 
     </button>
 </div>
