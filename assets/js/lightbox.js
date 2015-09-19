@@ -77,6 +77,7 @@
             var lightbox = $('<a>', {
                 href: '#!',
                 'class': settings.classes.lightbox,
+                // THIS. IS. SPARTA.
                 tabindex: 300
             }).append('<img src="" />');
             
@@ -85,9 +86,7 @@
         }
 
         var closeOnEscape = function(event) {
-            if (event.keyCode === 27) {
-                $(this).click();
-            }
+            $(this).find('img').trigger('click');
         }
 
         var setupImage = function() {
