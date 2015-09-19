@@ -99,15 +99,10 @@
  */
 
 .toggle {
-    /* I found buttons don't position properly unless floated, so eh.
-     * There is an invisible non-padding, non-margin space applied above
-     * the button unless it was floated. 
-     */
-
     -webkit-appearance: button;
     background: transparent;
     cursor: pointer;
-    margin:0;
+    margin: 0;
     opacity: 0.5;
     padding: 0;
     @include size(4 4);
