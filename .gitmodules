@@ -1,5 +1,5 @@
 [submodule "assets/css/scss-helpers"]
-	path = assets/css/scss-helpers
+	path = assets/css/includes/scss-helpers
 	url = git@github.com:bhalash/scss-helpers.git
     branch = master
 [submodule "includes/social-meta"]

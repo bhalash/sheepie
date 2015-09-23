@@ -11,6 +11,19 @@
  */
 
 /**
+ * Header Container
+ * -----------------------------------------------------------------------------
+ * Default header content appearance.
+ */
+
+#navbar {
+    background: palette(rmwb);
+    z-index: 2;
+    @include navbar-size;
+    @include navbar-size-1024;
+}
+
+/**
  * Sidebar Interior Element Defaults
  * -----------------------------------------------------------------------------
  * External rules for the header container are set in _containers.css. All rules

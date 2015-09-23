@@ -10,8 +10,8 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-@import 'scss-helpers/bhalash-helpers';
-@import 'variables';
+@import 'includes/normalize';
+@import 'includes/scss-helpers/helpers';
 
 /**
  * Assorted Flexbox Elements

@@ -1,5 +1,5 @@
 /**
- * Theme Sidebar and Widgets
+ * 404 Error Template
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -10,24 +10,12 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-#widgets {
-    @include columns(float, div, 3, 2%) {
-        @include media($b-540) {
-            @include nofloat;
-        }
-    }
-}
+#error {
+    text-align: center; 
+    @include fixed(0);
 
-.sidebar-widget {
-    @include media($b-540) {
-        @include margin($vspace, bottom);
+    .error-content {
+        transform: translate(-50%, -50%);
+        @include absolute(50% 50%, top left);
     }
-
-    p, li, label {
-        @extend %small;
-    }
-}
-
-.widget-title {
-    @include margin($vspace * 0.5, bottom);
 }

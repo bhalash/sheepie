@@ -1,5 +1,5 @@
 /**
- * Site Main Containers
+ * Site Content Container
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -45,35 +45,5 @@ body:not(.page-template-page-search) #content {
 
     .content-interior {
         @include rem(max-width, 84);
-    }
-}
-
-/**
- * Header Container
- * -----------------------------------------------------------------------------
- * Default header content appearance.
- */
-
-#navbar {
-    background: palette(rmwb);
-    z-index: 2;
-    @include navbar-size;
-    @include navbar-size-1024;
-}
-
-/**
- * 404 Error Template
- * -----------------------------------------------------------------------------
- * Hide header and set the error div full page.
- */
-
-#error {
-    text-align: center; 
-    @include fixed(0);
-    // @include flex-parent(column, center);
-
-    .error-content {
-        transform: translate(-50%, -50%);
-        @include absolute(50% 50%, top left);
     }
 }

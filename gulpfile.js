@@ -28,7 +28,7 @@ var paths = {
         folder: assets.css,
         batch: assets.css + '*.scss',
         main: assets.css + 'main.scss',
-        ie: assets.css + 'ie.scss',
+        ie: assets.css + 'ie9.scss',
         out: assets.css
     },
     js: {
@@ -46,7 +46,7 @@ var prefixes = [
     'ie 9'
 ];
 
-gulp.task('css', function() {
+gulp.task('sass', function() {
     // Build CSS.
     sass(paths.css.main, {
             style: 'compressed'
@@ -58,7 +58,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest(paths.css.out));
 });
 
-gulp.task('css-dev', function() {
+gulp.task('sass-debug', function() {
     // Development and debug CSS.
     sass(paths.css.main, {
             sourcemap: true,
@@ -72,7 +72,7 @@ gulp.task('css-dev', function() {
         .pipe(gulp.dest(paths.css.out));
 });
 
-gulp.task('ie-css', function() {
+gulp.task('ie-sass', function() {
     // Build Internet Explorer CSS.
     sass(paths.css.ie, {
             style: 'compressed'
@@ -84,7 +84,7 @@ gulp.task('ie-css', function() {
         .pipe(gulp.dest(paths.css.out));
 });
 
-gulp.task('ie-css-dev', function() {
+gulp.task('ie-sass-dev', function() {
     // Development and debug CSS.
     sass(paths.css.ie, {
             sourcemap: true,
@@ -110,11 +110,11 @@ gulp.task('js', function() {
 
 gulp.task('default', function() {
     gulp.watch(paths.js.batch, ['js']);
-    gulp.watch(paths.css.batch, ['css']);
-    gulp.watch(paths.css.ie, ['ie-css']);
+    gulp.watch(paths.sass.batch, ['sass']);
+    gulp.watch(paths.sass.ie, ['ie-sass']);
 });
 
-gulp.task('css-dev-watch', function() {
-    gulp.watch(paths.css.batch, ['css-dev']);
-    gulp.watch(paths.css.ie, ['ie-css-dev']);
+gulp.task('sass-dev-watch', function() {
+    gulp.watch(paths.sass.batch, ['sass-dev']);
+    gulp.watch(paths.sass.ie, ['ie-sass-dev']);
 });

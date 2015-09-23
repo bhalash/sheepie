@@ -10,48 +10,27 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-// Mixins and Partials
-@import 'scss-helpers/helpers';
+$asset-path: 'includes/';
 
-// Theme Variables and Partials
-@import 'variables';
-@import 'partials';
+@import 'includes/normalize';
+@import 'includes/scss-helpers/helpers';
 
-// CSS Normalize
-@import 'normalize';
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
 
-// Theme Defaults
-@import 'defaults';
+@import 'utils/mixins/';
 
-// Theme Header
-@import 'header';
+@import 'components/code';
+@import 'components/forms';
+@import 'components/navigation';
+@import 'components/wordpress';
+@import 'components/widgets';
 
-// Containers
-@import 'containers';
-
-// Articles
-@import 'articles';
-
-// Archives
-@import 'archives';
-
-// Navigational Elements
-@import 'nav';
-
-// Form Elements
-@import 'forms';
-
-// Comments and Commentform
-@import 'comments';
-
-// Search Form and Search Results Template
-@import 'search';
-
-// Code Blocks
-@import 'code';
-
-// Theme widgets.
-@import 'sidebar';
-
-// Required WordPress element styles.
-@import 'wordpress';
+@import 'layout/404';
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/comments';
+@import 'layout/archives';
+@import 'layout/articles';
+@import 'layout/search';
