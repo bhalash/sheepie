@@ -24,9 +24,9 @@ fieldset {
 
 button, fieldset, input, textarea {
     -webkit-appearance: none;
-    border: none;
+    border: 0;
     box-sizing: border-box;
-    outline: none;
+    outline: 0;
     @include prefix(border-radius, 0);
 }
 
