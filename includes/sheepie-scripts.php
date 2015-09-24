@@ -17,7 +17,7 @@ function sheepie_scripts() {
     $assets = get_template_directory_uri() . '/assets/';
     $js_path = $assets . 'js/';
     $css_path = $assets . 'css/';
-    $node_path = $assets . '/node_modules/';
+    $node_path = get_template_directory_uri() . '/node_modules/';
 
     $sheepie_js = array(
         'highlight-js' => $js_path . 'highlight.js',
