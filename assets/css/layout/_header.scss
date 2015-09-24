@@ -30,7 +30,7 @@
  * in this stylesheet are for elements /internal/ to #header.
  */
 
-.header-interior {
+.navbar-interior {
     box-sizing: border-box;
     height: 100%;
     overflow:hidden;
@@ -48,7 +48,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.header-child {
+.navbar-child {
     color: palette(white, x-light);
 
     &:not(:last-child) {
@@ -93,7 +93,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.header-title {
+.navbar-title {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -125,7 +125,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.header-description {
+.navbar-description {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -139,7 +139,7 @@
  * Horizontal row of external social media links.
  */
 
-.header-socialrow {
+.navbar-socialrow {
     @include flex-child(0 1 auto);
 
     @include media($b-1024) {
@@ -165,7 +165,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.header-buttonrow {
+.navbar-buttonrow {
     @include flex-child(0 1 auto);
     @include clearfix;
     overflow: hidden;

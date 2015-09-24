@@ -62,7 +62,7 @@
  * -----------------------------------------------------------------------------
  */
 
-.bigsearch-input {
+#bigsearch label, .bigsearch-input {
     background: transparent;
     color: palette(white, x-light);
     display: block;
@@ -80,6 +80,11 @@
         box-sizing: border-box;
         @include font-size(2);
     }
+}
+
+.bigsearch-input:focus + label {
+    display: none;
+    visibility: hidden;
 }
 
 /**

@@ -18,25 +18,21 @@ if (is_404()) {
 
 $action = esc_url(home_url('/'));
 
-$placeholder = sprintf('%s',
-    __('search', 'sheepie')
-);
-
 ?>
 
 <header id="navbar">
-    <div class="header-interior">
-        <div class="header-title header-child">
+    <div class="navbar-interior">
+        <div class="navbar-title navbar-child">
             <h2 class="site-name">
                 <?php printf('<a class="%s" href="%s">%s</a>',
-                    'header-site-name',
+                    'navbar-site-name',
                     home_url(),
                     get_bloginfo('name')
                 ); ?>
             </h2>
         </div>
 
-        <div class="header-description header-child">
+        <div class="navbar-description navbar-child">
             <span>
                 <?php bloginfo('description'); ?>
             </span>
@@ -45,10 +41,10 @@ $placeholder = sprintf('%s',
         <?php wp_nav_menu(array(
             'theme_location' => 'top-social',
             'container' => 'div',
-            'container_class' => 'header-socialrow header-child'
+            'container_class' => 'navbar-socialrow navbar-child'
         )); ?>
 
-        <div class="header-buttonrow header-child">
+        <div class="navbar-buttonrow navbar-child">
             <button id="navrow-search-toggle" class="bigsearch-toggle toggle">
                 <span class="toggle-icon search"></span> 
             </button>
@@ -58,7 +54,8 @@ $placeholder = sprintf('%s',
 <div id="bigsearch">
     <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch-input" name="s" placeholder="<?php printf($placeholder); ?>" type="search" required="required">
+            <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" required="required">
+            <label class="bigsearch-label" for="bigsearch-input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
     <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle">
