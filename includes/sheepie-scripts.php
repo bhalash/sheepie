@@ -83,6 +83,11 @@ add_action('wp_enqueue_scripts', 'sheepie_clean_header');
 /** 
  * Sheepie JavaScript Loader
  * -----------------------------------------------------------------------------
+ * Load all theme JavaScript.
+ * 
+ * @param   array       $sheepie_js                Main scripts..
+ * @apram   array       $sheepie_conditional_js    IE conditional scripts.
+ * @param   string      $js_path                   Path to JavaScript assets.
  */
 
 function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
@@ -115,6 +120,10 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
  * Sheepie CSS Loader
  * -----------------------------------------------------------------------------
  * Load all theme CSS.
+ * 
+ * @param   array       $sheepie_css                Ordinary, main stylehseets.
+ * @apram   array       $sheepie_conditional_css    IE conditional stylesheets.
+ * @param   array       $sheepie_fonts              Google fonts to be loaded.
  */
 
 function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
@@ -157,5 +166,17 @@ function sheepie_google_font_url($fonts) {
 
     return implode('', $google_url);
 }
+
+/**
+ * Tiny MCE Editor Stylehseet
+ * -----------------------------------------------------------------------------
+ * Load all theme CSS.
+ */
+
+function sheepie_theme_add_editor_styles() {
+    add_editor_style(get_template_directory_uri() . '/assets/css/editor.css'); 
+}
+
+add_action( 'admin_init', 'sheepie_theme_add_editor_styles' );
 
 ?>
