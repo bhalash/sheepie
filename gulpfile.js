@@ -18,24 +18,18 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 var assets = {
-    folder: './assets/',
-    js: './assets/js/',
-    css: './assets/css/'
+    sass: 'assets/css/',
+    js: 'assets/js/',
 };
 
 var paths = {
-    css: {
-        folder: assets.css,
-        batch: assets.css + '*.scss',
-        main: assets.css + 'main.scss',
-        ie: assets.css + 'ie9.scss',
-        out: assets.css
+    sass: {
+        batch: assets.sass + '/**/*.scss',
+        output: assets.sass
     },
     js: {
-        folder: assets.js,
         batch: assets.js + '*.js',
-        main: assets.js + 'main.js',
-        out: assets.js + '/min/'
+        output: assets.js + '/min/'
     }
 };
 
@@ -47,55 +41,28 @@ var prefixes = [
 ];
 
 gulp.task('sass', function() {
-    // Build CSS.
-    sass(paths.css.main, {
+    // Production minified sass, without sourcemap.
+    sass(assets.sass, {
             style: 'compressed'
         })
         .on('error', function(err) {
             console.log(err.message);
         })
         .pipe(prefix(prefixes))
-        .pipe(gulp.dest(paths.css.out));
+        .pipe(gulp.dest(paths.sass.output));
 });
 
-gulp.task('sass-debug', function() {
-    // Development and debug CSS.
-    sass(paths.css.main, {
+gulp.task('sass-dev', function() {
+    // Development unminified sass, with sourcemap.
+    sass(assets.sass, {
             sourcemap: true,
-            style: 'compressed'
         })
         .on('error', function(err) {
             console.log(err.message);
         })
         .pipe(prefix(prefixes))
         .pipe(sourcemap.write())
-        .pipe(gulp.dest(paths.css.out));
-});
-
-gulp.task('ie-sass', function() {
-    // Build Internet Explorer CSS.
-    sass(paths.css.ie, {
-            style: 'compressed'
-        })
-        .on('error', function(err) {
-            console.log(err.message);
-        })
-        .pipe(prefix(prefixes))
-        .pipe(gulp.dest(paths.css.out));
-});
-
-gulp.task('ie-sass-dev', function() {
-    // Development and debug CSS.
-    sass(paths.css.ie, {
-            sourcemap: true,
-            style: 'compressed'
-        })
-        .on('error', function(err) {
-            console.log(err.message);
-        })
-        .pipe(prefix(prefixes))
-        .pipe(sourcemap.write())
-        .pipe(gulp.dest(paths.css.out));
+        .pipe(gulp.dest(paths.sass.output));
 });
 
 gulp.task('js', function() {
@@ -105,16 +72,14 @@ gulp.task('js', function() {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(gulp.dest(paths.js.out));
+        .pipe(gulp.dest(paths.js.output));
 });
 
 gulp.task('default', function() {
     gulp.watch(paths.js.batch, ['js']);
     gulp.watch(paths.sass.batch, ['sass']);
-    gulp.watch(paths.sass.ie, ['ie-sass']);
 });
 
-gulp.task('sass-dev-watch', function() {
+gulp.task('dev', function() {
     gulp.watch(paths.sass.batch, ['sass-dev']);
-    gulp.watch(paths.sass.ie, ['ie-sass-dev']);
 });
