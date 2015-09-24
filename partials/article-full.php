@@ -22,7 +22,7 @@ $author = get_the_author_meta('ID');
             <?php sheepie_partial('posttitle'); ?>
         </h4>
         <?php if (!is_page()) : ?>
-            <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
+            <span class="article-meta"><small><?php sheepie_partial('postmeta'); ?></small></span>
         <?php endif; ?>
     </header>
     <div class="article-main full-main">
@@ -37,16 +37,19 @@ $author = get_the_author_meta('ID');
     <?php if (is_single()) : ?>
         <?php sheepie_partial('pagination'); ?>
         <hr>
-        <footer class="full avatar-box">
+        <footer class="full avatar-box article-meta">
             <div class="avatar">
                 <?php sheepie_avatar_background_html($author, 96, 'author-photo'); ?>
             </div>
             <div class="author-info">
-                <p>
+                <h4>by <?php the_author_meta('display_name'); ?></h4>
+                <p class="article-meta">
                     <small><?php sheepie_partial('postmeta'); ?></small>
                 </p>
-                <h4><?php the_author_meta('display_name'); ?></h4>
                 <p><?php the_author_meta('user_description'); ?></p>
+                <p class="article-tags">
+                    <small><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></small>
+                </p>
             </div>
         </footer>
     <?php endif; ?>
