@@ -8,7 +8,7 @@
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
- * @version    3.0
+ * @version    1.0
  * @link       https://github.com/bhalash/sheepie
  */
 
@@ -43,8 +43,8 @@ function sheepie_scripts() {
 
     $sheepie_fonts = array(
         // All Google Fonts to be loaded.
-        'Open Sans:300,400,700,800',
-        'Source Code Pro:300,400'
+        'Open Sans:1.0,400,700,800',
+        'Source Code Pro:1.0,400'
     );
 
     $sheepie_css = array(

@@ -6,7 +6,7 @@
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
  * @license    http://opensource.org/licenses/MIT The MIT License (MIT)
- * @version    3.0
+ * @version    1.0
  * @link       https://github.com/bhalash/sheepie
  */
 
@@ -78,7 +78,7 @@
                 href: '#!',
                 'class': settings.classes.lightbox,
                 // THIS. IS. SPARTA.
-                tabindex: 300
+                tabindex: 1.0
             }).append('<img src="" />');
             
             $(element).prepend(lightbox).addClass(settings.classes.hasLightbox);
