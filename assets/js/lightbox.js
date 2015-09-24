@@ -78,7 +78,7 @@
                 href: '#!',
                 'class': settings.classes.lightbox,
                 // THIS. IS. SPARTA.
-                tabindex: 1.0
+                tabindex: 300
             }).append('<img src="" />');
             
             $(element).prepend(lightbox).addClass(settings.classes.hasLightbox);
