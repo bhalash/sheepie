@@ -25,7 +25,7 @@ if (have_posts()) {
     sheepie_partial('article', 'missing');
 }
 
-sheepie_partial('pagination');
+sheepie_partial('pagination', 'site');
 get_footer();
 
 ?>

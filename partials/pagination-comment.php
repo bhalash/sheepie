@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Site Pagination Link
+ * Comment Pagination Links
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -18,30 +18,16 @@ $previous = $paged - 1;
 
 ?>
 
-<nav id="pagination">
-    <p class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
-        <small>
-            <?php if (is_single()) {
-                next_post_link('%link', '&larr; %title', false);
-            } else {
-                previous_posts_link('&larr; Page ' . $previous);
-            } ?>
-        </small>
+<nav class="pagination" id="comment-pagination">
+    <p class="previous previous-comment">
+        <small><?php previous_comments_link(__('&larr; Previous', 'sheepie')); ?></small>
     </p>
 
     <p class="count">
-        <?php if (!is_single() && function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
-            <small><span><?php arc_archive_page_count(true); ?></span></small>
-        <?php endif; ?>
+        <small><?php get_comment_pages_count(); ?></small>
     </p>
 
-    <p class="next<?php echo (is_single()) ? '-post' : ''; ?>">
-        <small>
-            <?php if (is_single()) {
-                previous_post_link('%link', '%title &rarr;', false);
-            } else {
-                next_posts_link('Page ' . $next . ' &rarr;'); 
-            } ?>
-        </small>
+    <p class="next next-comment">
+        <small><?php next_comments_link(__('Next &rarr;', 'sheepie')); ?></small>
     </p>
 </nav>

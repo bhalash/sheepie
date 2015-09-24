@@ -38,6 +38,10 @@ if (comments_open()) {
         printf('</ul>');
     }
 
+    if (get_comment_pages_count() > 1) {
+        sheepie_partial('pagination', 'comment');
+    }
+
     printf('<div id="comment-entry">');
 
     // Template input for name, email and URL.

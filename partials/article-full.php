@@ -35,7 +35,7 @@ $author = get_the_author_meta('ID');
     )); ?>
 
     <?php if (is_single()) : ?>
-        <?php sheepie_partial('pagination'); ?>
+        <?php sheepie_partial('pagination', 'post'); ?>
         <hr>
         <footer class="full avatar-box article-meta">
             <div class="avatar">

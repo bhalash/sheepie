@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Archive Template
+ * Next/Previous Post Pagination Link
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -12,19 +12,13 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-get_header();
-
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-        sheepie_partial('article', 'full');
-        printf('<hr>');
-    }
-} else {
-    sheepie_partial('article', 'missing');
-}
-
-sheepie_partial('pagination', 'site');
-get_footer();
-
 ?>
+
+<nav class="pagination" id="post-pagination">
+    <p class="previous previous-post">
+        <small><?php next_post_link('%link', '&larr; %title', false); ?></small>
+    </p>
+    <p class="next next-post">
+        <small><?php previous_post_link('%link', '%title &rarr;', false); ?></small>
+    </p>
+</nav>
