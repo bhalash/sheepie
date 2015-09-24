@@ -54,7 +54,7 @@ $action = esc_url(home_url('/'));
 <div id="bigsearch">
     <form role="search" class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" required="required">
+            <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
             <label class="bigsearch-label" for="bigsearch-input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
