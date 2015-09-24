@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'sheepie_clean_header');
  * Load all theme JavaScript.
  * 
  * @param   array       $sheepie_js                Main scripts..
- * @apram   array       $sheepie_conditional_js    IE conditional scripts.
+ * @param   array       $sheepie_conditional_js    IE conditional scripts.
  * @param   string      $js_path                   Path to JavaScript assets.
  */
 
@@ -122,7 +122,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
  * Load all theme CSS.
  * 
  * @param   array       $sheepie_css                Ordinary, main stylehseets.
- * @apram   array       $sheepie_conditional_css    IE conditional stylesheets.
+ * @param   array       $sheepie_conditional_css    IE conditional stylesheets.
  * @param   array       $sheepie_fonts              Google fonts to be loaded.
  */
 
