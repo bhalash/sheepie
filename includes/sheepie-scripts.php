@@ -12,7 +12,6 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-
 function sheepie_scripts() { 
     $assets = get_template_directory_uri() . '/assets/';
     $js_path = $assets . 'js/';
