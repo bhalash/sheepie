@@ -13,3 +13,4 @@
 [submodule "includes/archive-functions"]
 	path = includes/archive-functions
 	url = git@github.com:bhalash/archive-functions.git
+    ignore = dirty
