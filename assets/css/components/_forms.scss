@@ -30,7 +30,7 @@ button, fieldset, input, textarea {
     @include prefix(border-radius, 0);
 }
 
-button, fieldset, form, input, textarea {
+button, fieldset, form, input, label, textarea {
     &:focus {
      border: none;
      outline: none;
