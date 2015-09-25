@@ -43,26 +43,26 @@ nav#gohome {
         color: palette(black);
         white-space: nowrap;
     }
+}
 
-    p.count {
-        text-align: center;
+.pagination-count {
+    text-align: center;
 
-        @include media(smartphone) {
-            display: none;
-        }
-
-        &:empty {
-            display: none;
-        }
+    @include media(smartphone) {
+        display: none;
     }
 
-    p.next {
-        text-align: right;  
+    &:empty {
+        display: none;
     }
+}
 
-    p.previous-post, p.next-post {
-        @include media(smartphone) {
-            white-space: normal;
-        }
+.pagination-next {
+    text-align: right;  
+}
+
+.pagination-previous-post, .pagination-next-post {
+    @include media(smartphone) {
+        white-space: normal;
     }
 }

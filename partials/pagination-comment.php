@@ -19,15 +19,13 @@ $previous = $paged - 1;
 ?>
 
 <nav class="pagination" id="comment-pagination">
-    <p class="previous previous-comment">
+    <p class="pagination-previous previous-comment">
         <small><?php previous_comments_link(__('&larr; Previous', 'sheepie')); ?></small>
     </p>
-
-    <p class="count">
+    <p class="pagination-count">
         <small><?php get_comment_pages_count(); ?></small>
     </p>
-
-    <p class="next next-comment">
+    <p class="pagination-next next-comment">
         <small><?php next_comments_link(__('Next &rarr;', 'sheepie')); ?></small>
     </p>
 </nav>

@@ -19,15 +19,15 @@ $previous = $pages - 1;
 ?>
 
 <nav class="pagination" id="site-pagination">
-    <p class="previous<?php echo (is_single()) ? '-post' : ''; ?>">
+    <p class="pagination-previous previous-page">
         <small><?php previous_posts_link(__('&larr; Page ', 'sheepie') . $previous); ?></small>
     </p>
-    <p class="count">
-        <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
+    <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
+        <p class="pagination-count">
             <small><span><?php arc_archive_page_count(true); ?></span></small>
-        <?php endif; ?>
-    </p>
-    <p class="next next-page">
+        </p>
+    <?php endif; ?>
+    <p class="pagination-next next-page">
         <small><?php next_posts_link(__('Page ', 'sheepie') . $next . ' &rarr;');  ?></small>
     </p>
 </nav>
