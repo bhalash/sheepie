@@ -1,6 +1,7 @@
 #################
 ## Sass and CSS
 #################
+
 .sass-cache/
 sass/.sass-cache/
 *.css
@@ -9,6 +10,7 @@ sass/.sass-cache/
 #################
 ## Minified JS
 #################
+
 js/min/
 *.min.js
 
@@ -53,7 +55,6 @@ local.properties
 
 # PDT-specific
 .buildpath
-
 
 #################
 ## Visual Studio
