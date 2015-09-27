@@ -14,7 +14,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-printf('<time datetime="%s">%s</a>',
+printf('<time datetime="%s">%s</time>',
     get_the_time('Y-m-d H:i'),
     get_the_time(get_option('date_format'))
 );
