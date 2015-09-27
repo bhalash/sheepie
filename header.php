@@ -13,6 +13,8 @@
  */
 
 global $post;
+$charset = get_bloginfo('charset');
+$html = get_bloginfo('html_type');
 
 ?>
 
@@ -20,7 +22,7 @@ global $post;
 <html <?php language_attributes(); ?>>
 <head>
 <!-- The mystery of life isn't a problem to solve, but a reality to experience. -->
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>" />
+<meta http-equiv="Content-Type" content="<?php printf('%s; charset=%s', $html, $charset); ?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
