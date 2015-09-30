@@ -15,13 +15,11 @@
  * -----------------------------------------------------------------------------
  */
 
-$b-1280: max 1280px;
-$b-1140: max 1140px;
-$b-1024: max 1028px;
-$b-960:  max 960px;
-$b-768:  max 768px;
-$b-640:  max 640px;
-$b-540:  max 540px;
+$b-1280: width max 1280px;
+$b-1024: width max 1024px;
+$b-768: width max 768px;
+$b-640: width max 640px;
+$b-540: width max 540px;
 
 /**
  * Content Side-by-Side Sizes
