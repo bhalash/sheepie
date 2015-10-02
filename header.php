@@ -19,7 +19,7 @@ $html = get_bloginfo('html_type');
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> ng-app="sheepieApp">
 <head>
 <!-- The mystery of life isn't a problem to solve, but a reality to experience. -->
 <meta http-equiv="Content-Type" content="<?php printf('%s; charset=%s', $html, $charset); ?>" />
@@ -29,7 +29,7 @@ $html = get_bloginfo('html_type');
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> ng-controller="SearchController" ng-keyup="esc($event.keyCode)">
     <?php sheepie_partial('head'); ?>
     <main id="content">
         <div class="content-interior">

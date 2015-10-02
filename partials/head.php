@@ -45,20 +45,20 @@ $action = esc_url(home_url('/'));
         )); ?>
 
         <div class="navbar-buttonrow navbar-child">
-            <button id="navrow-search-toggle" class="bigsearch-toggle toggle">
-                <span class="toggle-icon search"></span> 
+            <button id="navrow-search-toggle" class="bigsearch-toggle toggle" ng-click="flick()" >
+                <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
             </button>
         </div>
     </div>
 </header>
-<div id="bigsearch">
+<div id="bigsearch" ng-show="showSearch" ng-cloak>
     <form class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
             <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
             <label class="bigsearch-label" for="bigsearch-input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
-    <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle">
-        <span class="toggle-icon search"></span> 
+    <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle" ng-click="flick()">
+        <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
     </button>
 </div>
