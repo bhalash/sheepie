@@ -12,7 +12,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$GLOBALS['sheepie_version'] = 2.1;
+$GLOBALS['sheepie_version'] = '1.1.3';
 
 /**
  * Sheepie Setup
