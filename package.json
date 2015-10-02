@@ -1,6 +1,6 @@
 {
   "name": "sheepie",
-  "version": "1.0.0",
+  "version": "1.1.3",
   "description": "Packages necessary to transpile, prefix and compress Sheepie's Sass.",
   "main": "gulpfile.js",
   "dependencies": {
@@ -8,8 +8,8 @@
     "gulp-autoprefixer": "~2.3.1",
     "gulp-ruby-sass": "~1.0.5",
     "gulp-sourcemaps": "~1.5.2",
-    "gulp-watch": "~4.2.4",
-    "html5shiv": "~3.7.2"
+    "gulp-watch": "~4.2.5",
+    "html5shiv": "~3.7.3"
   },
   "devDependencies": {
     "gulp-uglify": "~1.2.0",
@@ -29,7 +29,11 @@
     "sass",
     "scss"
   ],
-  "author": "Mark Grealish",
+  "author": {
+      "name": "Mark Grealish",
+      "email": "mark@bhalash.com",
+      "url": "https://www.bhalash.com"
+  },
   "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/bhalash/sheepie/issues"
