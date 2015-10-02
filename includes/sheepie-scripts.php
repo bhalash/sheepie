@@ -21,7 +21,9 @@ function sheepie_scripts() {
     $sheepie_js = array(
         'highlight-js' => $js_path . 'highlight.js',
         'lightbox' => $js_path . 'lightbox.js',
-        'functions' => $js_path . 'functions.js'
+        'functions' => $js_path . 'functions.js',
+        'angular' => $node_path . 'angular/angular.js',
+        'angular-test' => $js_path . 'angular-test.js'
     );
 
     $sheepie_conditional_js = array(
@@ -176,6 +178,6 @@ function sheepie_theme_add_editor_styles() {
     add_editor_style(get_template_directory_uri() . '/assets/css/editor.css'); 
 }
 
-add_action( 'admin_init', 'sheepie_theme_add_editor_styles' );
+add_action('admin_init', 'sheepie_theme_add_editor_styles');
 
 ?>
