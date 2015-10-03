@@ -29,7 +29,7 @@ $html = get_bloginfo('html_type');
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> ng-controller="SearchController" ng-keyup="esc($event.keyCode)">
+<body <?php body_class(); ?>>
     <?php sheepie_partial('head'); ?>
     <main id="content">
         <div class="content-interior">
