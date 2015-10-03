@@ -24,33 +24,35 @@ $action = esc_url(home_url('/'));
 ?>
 
 <header id="navbar" ng-controller="SearchController" ng-keyup="esc($event.keyCode)">
-    <div class="navbar-interior">
-        <div class="navbar-title navbar-child">
-            <h2 class="site-name">
-                <?php printf('<a class="%s" href="%s">%s</a>',
-                    'navbar-site-name',
-                    home_url(),
-                    get_bloginfo('name')
-                ); ?>
-            </h2>
-        </div>
+    <div class="navbar-head">
+        <div class="navbar-head-content">
+            <div class="navbar-title navbar-child">
+                <h2 class="site-name">
+                    <?php printf('<a class="%s" href="%s">%s</a>',
+                        'navbar-site-name',
+                        home_url(),
+                        get_bloginfo('name')
+                    ); ?>
+                </h2>
+            </div>
 
-        <div class="navbar-description navbar-child">
-            <span>
-                <?php bloginfo('description'); ?>
-            </span>
-        </div>
+            <div class="navbar-description navbar-child">
+                <span>
+                    <?php bloginfo('description'); ?>
+                </span>
+            </div>
 
-        <?php wp_nav_menu(array(
-            'theme_location' => 'top-social',
-            'container' => 'div',
-            'container_class' => 'navbar-socialrow navbar-child'
-        )); ?>
+            <?php wp_nav_menu(array(
+                'theme_location' => 'top-social',
+                'container' => 'div',
+                'container_class' => 'navbar-socialrow navbar-child'
+            )); ?>
 
-        <div class="navbar-buttonrow navbar-child">
-            <button id="navrow-search-toggle" class="bigsearch-toggle toggle" ng-click="flick()" >
-                <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
-            </button>
+            <div class="navbar-buttonrow navbar-child">
+                <button id="navrow-search-toggle" class="bigsearch-toggle toggle" ng-click="flick()" >
+                    <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
+                </button>
+            </div>
         </div>
     </div>
     <div id="bigsearch" ng-show="showSearch" ng-cloak>
