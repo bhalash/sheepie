@@ -1,6 +1,1 @@
-/**
- * IE9 Placeholder Polyfill
- * -------------------------------------------------------------------------
- */
-
-jQuery('input, textarea').placeholder();
+// Put any IE9-specific code here.
