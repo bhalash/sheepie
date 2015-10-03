@@ -38,7 +38,7 @@ hr {
  * -----------------------------------------------------------------------------
  */
 
-nav#pagination {
+.pagination {
     @include columns(float, p, 3, 0);
 }
 
@@ -86,9 +86,14 @@ nav#pagination {
  * -----------------------------------------------------------------------------
  */
 
-.navbar-interior {
+.navbar-head-content {
+    // No flexbox in IE9. :( Child element is intead absolutely positioned.
     height: auto;
-    @include absolute(auto 0 0 0);
+    @include absolute(auto $vspace $vspace $vspace);
+
+    @include media($b-1024) {
+        position: static;
+    }   
 }
 
 /**
@@ -96,7 +101,7 @@ nav#pagination {
  * -----------------------------------------------------------------------------
  */
 
-#bigsearch, .navbar-interior, .navbar-child {
+.navbar-head, .navbar-head-content, .navbar-child {
     @include media($b-1024) {
         @include clearfix(hidden);
     }
