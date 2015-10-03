@@ -1,3 +1,5 @@
+![](screenshot.png)
+
 # Sheepie
 Sheepie is the WordPress theme for my frequently-renamed [personal blog](http://www.bhalash.com), named in honour of my son's stuffed toy.
 
