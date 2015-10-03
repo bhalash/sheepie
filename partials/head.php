@@ -3,6 +3,9 @@
 /**
  * Theme Responsive Header
  * -----------------------------------------------------------------------------
+ * I separated this template because of the 404 switch. It was easier to wrap it
+ * all up here.
+ *
  * @category   PHP Script
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
@@ -20,7 +23,7 @@ $action = esc_url(home_url('/'));
 
 ?>
 
-<header id="navbar">
+<header id="navbar" ng-controller="SearchController" ng-keyup="esc($event.keyCode)">
     <div class="navbar-interior">
         <div class="navbar-title navbar-child">
             <h2 class="site-name">
@@ -50,15 +53,15 @@ $action = esc_url(home_url('/'));
             </button>
         </div>
     </div>
+    <div id="bigsearch" ng-show="showSearch" ng-cloak>
+        <form class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
+            <fieldset>
+                <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
+                <label class="bigsearch-label" for="bigsearch-input"><?php _e('search', 'sheepie'); ?></label>
+            </fieldset>
+        </form>
+        <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle" ng-click="flick()">
+            <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
+        </button>
+    </div>
 </header>
-<div id="bigsearch" ng-show="showSearch" ng-cloak>
-    <form class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
-        <fieldset>
-            <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
-            <label class="bigsearch-label" for="bigsearch-input"><?php _e('search', 'sheepie'); ?></label>
-        </fieldset>
-    </form>
-    <button class="bigsearch-toggle toggle" id="bigsearch-search-toggle" ng-click="flick()">
-        <span class="toggle-icon search" ng-class="{'close': showSearch}"></span> 
-    </button>
-</div>
