@@ -17,10 +17,7 @@
  */
 
 #navbar {
-    background: palette(rmwb);
-    z-index: 2;
-    @include navbar-size;
-    @include navbar-size-1024;
+    // Any rules you want can go here.
 }
 
 /**
@@ -31,13 +28,20 @@
  */
 
 .navbar-interior {
+    background: palette(rmwb);
     box-sizing: border-box;
     height: 100%;
-    overflow:hidden;
+    // Stops weird problems with IE.
+    overflow: hidden;
+    z-index: 2;
+
     @include flex-parent(column, flex-end);
     @include padding(2);
 
-    @include media($b-1024) {
+    // Debug
+    @include navbar-size;
+
+    @include navbar-size-1024 {
         @include flex-parent(row, justify-content);
         @include padding(1);
     }
