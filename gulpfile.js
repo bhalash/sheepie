@@ -19,10 +19,12 @@ var rename = require('gulp-rename');
 
 var assets = {
     sass: 'assets/css/',
+    sprites: 'assets/css/',
     js: 'assets/js/',
 };
 
 var paths = {
+    sprites: assets.sprites + 'includes/scss-helpers/**/*.svg',
     sass: {
         batch: assets.sass + '/**/*.scss',
         output: assets.sass
@@ -39,6 +41,11 @@ var prefixes = [
     'ie 10',
     'ie 9'
 ];
+
+gulp.task('sprites', function() {
+    gulp.src(paths.sprites)
+        .pipe(gulp.dest(assets.sprites));
+});
 
 gulp.task('sass', function() {
     // Production minified sass, without sourcemap.
@@ -78,8 +85,10 @@ gulp.task('js', function() {
 gulp.task('default', function() {
     gulp.watch(paths.js.batch, ['js']);
     gulp.watch(paths.sass.batch, ['sass']);
+    gulp.watch(paths.sprites, '[sprites]');
 });
 
 gulp.task('dev', function() {
     gulp.watch(paths.sass.batch, ['sass-dev']);
+    gulp.watch(paths.sprites, '[sprites]');
 });
