@@ -67,6 +67,7 @@ input:not(.bigsearch-input), textarea {
 textarea {
     resize: none;
     width: 100%;
+    @include padding(1);
 }
 
 // Submid button.
