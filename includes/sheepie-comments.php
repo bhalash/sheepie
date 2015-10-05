@@ -78,11 +78,11 @@ function sheepie_theme_comments($comment, $args, $depth) {
  */
 
 function sheepie_wrap_comment_fields_before() {
-    printf('<div class="commentform-inputs">');
+    printf('<fieldset class="commentform-inputs">');
 }
 
 function sheepie_wrap_comment_fields_after() {
-    printf('</div>');
+    printf('</fieldset>');
 }
 
 add_action('comment_form_before_fields', 'sheepie_wrap_comment_fields_before');
