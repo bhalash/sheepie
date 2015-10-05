@@ -39,6 +39,10 @@ hr {
  */
 
 .pagination {
+    @include columns(float, p, 2, 0);
+}
+
+#site-pagination {
     @include columns(float, p, 3, 0);
 }
 
@@ -51,7 +55,12 @@ hr {
 }
 
 .commentform-inputs {
-    @include columns(float, input, 3, 2);
+    input {
+        display: inline-block;
+        *zoom: 1;
+    }
+
+    @include columns(float, input, 3, 2, right, hidden);
 }
 
 .related-articles {
