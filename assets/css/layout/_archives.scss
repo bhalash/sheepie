@@ -13,7 +13,7 @@
 div.archive {
     @include columns(flex, div, 2, 2);
 
-    @include media($b-640) {
+    @include media(small) {
         display: block;
     }
 }

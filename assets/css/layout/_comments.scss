@@ -93,19 +93,19 @@ li.comment {
 
         max-width: 32.5%;
 
-        @include media($b-640) {
+        @include media(small) {
             max-width: 100%;
         }
     }
 
     @include columns(flex, input, 3, $three-col-margin) {
-        @include media($b-640) {
+        @include media(small) {
             width: 100%;
             @include margin(1, bottom);
         }
     }
 
-    @include media($b-640) {
+    @include media(small) {
         display: block;
         margin: 0;
     }
@@ -119,7 +119,7 @@ li.comment {
 .avatar-box {
     @include columns(flex, div, 10% auto, 2%);
 
-    @include media($b-640) {
+    @include media(small) {
         display: block;        
     }
 }
@@ -130,7 +130,7 @@ li.comment {
         @include square-flex(100% 1);
     }
 
-    @include media($b-640) {
+    @include media(small) {
         display: none;
     }
 }

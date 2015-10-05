@@ -15,11 +15,13 @@
  * -----------------------------------------------------------------------------
  */
 
-$b-1280: width max 1280px;
-$b-1024: width max 1024px;
-$b-768: width max 768px;
-$b-640: width max 640px;
-$b-540: width max 540px;
+$media-presets: map-merge($media-presets, (
+    xlarge: 'only screen and (max-width: 1280px)',
+    large: 'only screen and (max-width: 1024px)',
+    medium: 'only screen and (max-width: 768px)',
+    small: 'only screen and (max-width: 640px)',
+    mobile: 'only screen and (max-width: 540px)'
+));
 
 /**
  * Content Side-by-Side Sizes

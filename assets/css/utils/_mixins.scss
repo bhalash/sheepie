@@ -91,7 +91,7 @@
 }
 
 @mixin navbar-size-1024 {
-    @include media($b-1024) {
+    @include media(large) {
         width: 100%;
         @include absolute(0 0 auto 0);
         @include height($navbar-height-collapsed);
@@ -109,7 +109,7 @@
 @mixin content-size {
     width: calc(100% - #{rem($navbar-width)});
 
-    @include media($b-1024) {
+    @include media(large) {
         @include rem(top, $navbar-height-collapsed);
         width: 100%;
     }
@@ -124,7 +124,7 @@
     @include column-count(3);
 
 
-    @include media($b-640) {
+    @include media(small) {
         @include column-count(2, rem($vspace * 0.5));
     }
 

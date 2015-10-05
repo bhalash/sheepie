@@ -91,7 +91,7 @@ hr {
     height: auto;
     @include absolute(auto $vspace $vspace $vspace);
 
-    @include media($b-1024) {
+    @include media(large) {
         position: static;
     }   
 }
@@ -102,38 +102,38 @@ hr {
  */
 
 .navbar-head, .navbar-head-content, .navbar-child {
-    @include media($b-1024) {
+    @include media(large) {
         @include clearfix(hidden);
     }
 }
 
 .navbar-socialrow {
-    @include media($b-1024) {
+    @include media(large) {
         float: left;
         min-width: 0;
         width: 25%;
     }
 
-    @include media($b-768) {
+    @include media(medium) {
         display: none;
     }
 }
 
 .navbar-title {
-    @include media($b-1024) {
+    @include media(large) {
         display: inline-block;
         margin: 0 auto;
         width: 50%;
     }
 
-    @include media($b-768) {
+    @include media(medium) {
         float: left;
         width: calc(100% - 50px);
     }
 }
 
 .site-name {
-    @include media($b-1024) {
+    @include media(large) {
         display: inherit;
         margin: inherit;
         width: inherit;
@@ -141,13 +141,13 @@ hr {
 }
 
 .navbar-buttonrow {
-    @include media($b-1024) {
+    @include media(large) {
         float: right;    
         min-width: 0;
         width: 25%;
     }
 
-    @include media($b-768) {
+    @include media(medium) {
         width: 50px;
     }
 }

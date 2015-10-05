@@ -22,7 +22,7 @@
     @include margin($navbar-width, left);
     @include content-size;
 
-    @include media($b-1024) {
+    @include media(large) {
         margin: 0 auto;
     }
 }
@@ -39,7 +39,7 @@
 body:not(.page-template-page-search) #content {
     padding: 5% 10%;
 
-    @include media($b-1280) {
+    @include media(xlarge) {
         padding: 5%;
     }
 

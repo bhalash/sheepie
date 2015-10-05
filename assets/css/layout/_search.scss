@@ -70,7 +70,7 @@
         color: rgba(palette(white, x-light), 0.5);
     }
 
-    @include media($b-1024) {
+    @include media(large) {
         box-sizing: border-box;
         @include font-size(2);
     }
@@ -110,7 +110,7 @@
         opacity: 1;
     }
 
-    @include media($b-1024) {
+    @include media(large) {
         opacity: 1;
         @include absolute(0 0, top right);
         // Button size is increased to present a better touch target.
@@ -128,7 +128,7 @@
 #bigsearch-search-toggle {
     display: none;
 
-    @include media($b-1024) {
+    @include media(large) {
         display: block;
     }
 }
@@ -145,7 +145,7 @@
         background-color: transparent;
     }
 
-    @include media($b-1024) {
+    @include media(large) {
         @include square-flex(40px 1);
     }
 }

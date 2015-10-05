@@ -12,14 +12,14 @@
 
 #widgets {
     @include columns(float, div, 3, 2%) {
-        @include media($b-540) {
+        @include media(mobile) {
             @include nofloat;
         }
     }
 }
 
 .sidebar-widget {
-    @include media($b-540) {
+    @include media(mobile) {
         @include margin($vspace, bottom);
     }
 

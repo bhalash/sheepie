@@ -46,7 +46,7 @@
     height: 100%;
     @include flex-parent(column, flex-end);
 
-    @include media($b-1024) {
+    @include media(large) {
         @include flex-parent(row, justify-content);
     }
 }
@@ -62,7 +62,7 @@
     &:not(:last-child) {
         @include margin($vspace, bottom);
 
-        @include media($b-1024) {
+        @include media(large) {
             margin: 0;
         }
     }
@@ -104,12 +104,12 @@
 .navbar-title {
     @include flex-child(0 1 auto);
 
-    @include media($b-1024) {
+    @include media(large) {
         @include flex-child(0 1 60%, initial, 2);
         text-align: center;
     }
 
-    @include media($b-640) {
+    @include media(small) {
         @include flex-child(1);
         text-align: left;
     }
@@ -118,7 +118,7 @@
 .site-name {
     line-height: 120%;
 
-    @include media($b-1024) {
+    @include media(large) {
         @include font-size(2);
         line-height: 40px;
     }
@@ -136,7 +136,7 @@
 .navbar-description {
     @include flex-child(0 1 auto);
 
-    @include media($b-1024) {
+    @include media(large) {
         display: none;
     }
 }
@@ -150,19 +150,19 @@
 .navbar-socialrow {
     @include flex-child(0 1 auto);
 
-    @include media($b-1024) {
+    @include media(large) {
         @include flex-child(0 1 20%, initial, 1);
         @include rem(min-width, 22);
     }
 
-    @include media($b-640) {
+    @include media(small) {
         display: none;
     }
 
     li {
         @include social(25% 1);
 
-        @include media($b-1024) {
+        @include media(large) {
             @include square-flex(40px 1);
         }
     }
@@ -178,12 +178,12 @@
     @include clearfix;
     overflow: hidden;
 
-    @include media($b-1024) {
+    @include media(large) {
         @include flex-child(0 1 30%, initial, 3);
         @include rem(min-width, 22);
     }
 
-    @include media($b-640) {
+    @include media(small) {
         @include rem(min-width, 5);
     }
 }
