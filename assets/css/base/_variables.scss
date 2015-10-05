@@ -15,7 +15,7 @@
  * -----------------------------------------------------------------------------
  */
 
-$media-presets: map-merge($media-presets, (
+$sheepie-media-preset: bh-add-presets((
     xlarge: 'only screen and (max-width: 1280px)',
     large: 'only screen and (max-width: 1024px)',
     medium: 'only screen and (max-width: 768px)',
