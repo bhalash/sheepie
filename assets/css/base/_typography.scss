@@ -59,7 +59,7 @@ h6, %h6 {
  */
 
 a, %anchor {
-    color: palette(blue);
+    color: sh-palette(blue);
     text-decoration: none;
 
     &:hover {

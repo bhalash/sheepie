@@ -35,7 +35,7 @@
     }
 
     img {
-        border: 1px solid palette(rmwb);
+        border: 1px solid sh-palette(rmwb);
         box-sizing: border-box;
     }
 }
@@ -46,7 +46,7 @@
  */
 
 .title {
-    color: palette(black, mid-dark);
+    color: sh-palette(black, mid-dark);
 
     a {
         color: inherit;
@@ -77,7 +77,7 @@ div.full-main > *:not(:last-child) {
  */
 
 article.excerpt p {
-    color: palette(black, x-light);
+    color: sh-palette(black, x-light);
     @extend %small;
 }
 
@@ -108,7 +108,7 @@ article.related {
     .thumbnail {
         background-size: cover;
         box-sizing: border-box;
-        border: 1px solid palette(rmwb);
+        border: 1px solid sh-palette(rmwb);
 
         @include margin(0.5, bottom);
         @include square-flex(100% 0.75);

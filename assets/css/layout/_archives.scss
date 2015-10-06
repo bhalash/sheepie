@@ -29,7 +29,7 @@ div.archive {
 
     a {
         background: rgba(0,0,0,0.4);
-        color: palette(white, x-light);
+        color: sh-palette(white, x-light);
         display: block;
         @include padding(3 0);
 
@@ -40,7 +40,7 @@ div.archive {
 }
 
 .archive-card-year {
-    background: palette(black);
+    background: sh-palette(black);
     box-sizing: border-box;
     list-style-type: none;
     text-align: center;
@@ -54,7 +54,7 @@ div.archive {
  */
 
 .archive-card-month {
-    color: palette(white, x-light);
+    color: sh-palette(white, x-light);
     margin-bottom: 1%;
 }
 
@@ -83,7 +83,7 @@ div.archive {
 }
 
 .archive-card-month a {
-    background: palette(black, mid-dark);
+    background: sh-palette(black, mid-dark);
     color: inherit;
     display: block;
     position: relative;

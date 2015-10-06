@@ -16,7 +16,7 @@
  */
 
 #bigsearch {
-    background: palette(rmwb);
+    background: sh-palette(rmwb);
     box-sizing: border-box;
     height: $navbar-height-full;
     // Necessary to hide overflow or IE10 and IE11 wrap to hell.
@@ -58,7 +58,7 @@
 
 #bigsearch label, .bigsearch-input {
     background: transparent;
-    color: palette(white, x-light);
+    color: sh-palette(white, x-light);
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -67,7 +67,7 @@
     @include absolute-center;
 
     @include placeholder-style {
-        color: rgba(palette(white, x-light), 0.5);
+        color: rgba(sh-palette(white, x-light), 0.5);
     }
 
     @include media(large) {

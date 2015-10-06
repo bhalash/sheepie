@@ -190,7 +190,7 @@
  */
 
 a[class^=rmwb-lightbox-] {
-    background: palette(black, dark);
+    background: sh-palette(black, dark);
     @include pop-modal;
 
     img {

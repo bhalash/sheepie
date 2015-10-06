@@ -15,7 +15,7 @@
  * -----------------------------------------------------------------------------
  */
 
-$sheepie-media-preset: bh-add-presets((
+$sheepie-media-preset: sh-add-media-presets((
     xlarge: 'only screen and (max-width: 1280px)',
     large: 'only screen and (max-width: 1024px)',
     medium: 'only screen and (max-width: 768px)',
@@ -54,16 +54,14 @@ $three-col-margin: 1.5%;
  * -----------------------------------------------------------------------------
  */
 
-$theme-colors: (
+$sheepie-colours: sh-add-palettes((
     blue: (
         base: #00A3F5
     ),
     rmwb: (
         base: #343537
     )
-);
-
-$default-colors: map-merge($default-colors, $theme-colors);
+));
 
 /**
  *  Avatar Sizes
