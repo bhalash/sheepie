@@ -11,7 +11,7 @@
  */
 
 html {
-    color: sh-palette(black, mid-light);
+    color: palette(black, mid-light);
     font-family: $font-opensans;
 }
 
@@ -38,7 +38,7 @@ blockquote, figure, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul, %zero {
 
 hr, %hr {
     border: 0;
-    background: sh-palette(white, mid-light);
+    background: palette(white, mid-light);
     height: 1px;
     @include margin(2 0);
 }
@@ -74,7 +74,7 @@ article img {
  */
 
 blockquote {
-    border-left: 1px solid sh-palette(black, light);
+    border-left: 1px solid palette(black, light);
     @include padding(1, left);
 
     p, li {

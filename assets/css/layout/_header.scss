@@ -28,7 +28,7 @@
  */
 
 .navbar-head {
-    background: sh-palette(rmwb);
+    background: palette(rmwb);
     box-sizing: border-box;
     // Stops weird problems with IE.
     overflow: hidden;
@@ -57,7 +57,7 @@
  */
 
 .navbar-child {
-    color: sh-palette(white, x-light);
+    color: palette(white, x-light);
 
     &:not(:last-child) {
         @include margin($vspace, bottom);

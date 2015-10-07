@@ -40,7 +40,7 @@ button, fieldset, form, input, label, textarea {
 // Input and text area colours.
 
 input:not(.bigsearch-input), textarea {
-    background: sh-palette(white, light);
+    background: palette(white, light);
     transition: background-color .15s;
     @include font-size(1.6);
     @include rem(min-height, 5);
@@ -51,13 +51,13 @@ input:not(.bigsearch-input), textarea {
     }
 
     &:not(#submit):focus {
-        color: sh-palette(white, x-light);
-        background: sh-palette(rmwb);
+        color: palette(white, x-light);
+        background: palette(rmwb);
     }
 
     &:focus {
         @include placeholder-style {
-            color: sh-palette(white, x-light);
+            color: palette(white, x-light);
         }
     }
 }
@@ -78,7 +78,7 @@ input[type=submit] {
     @include padding(0.5, bottom);
 
     &:active {
-        color: sh-palette(white, x-light);
-        background: sh-palette(blue);
+        color: palette(white, x-light);
+        background: palette(blue);
     }
 }
