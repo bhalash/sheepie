@@ -15,7 +15,7 @@
  * -----------------------------------------------------------------------------
  */
 
-$sheepie-media-preset: add-media-presets((
+$sheepie-media-preset: sh-add-media-presets((
     xlarge: 'only screen and (max-width: 1280px)',
     large: 'only screen and (max-width: 1024px)',
     medium: 'only screen and (max-width: 768px)',
@@ -54,7 +54,7 @@ $three-col-margin: 1.5%;
  * -----------------------------------------------------------------------------
  */
 
-$sheepie-colours: add-palettes((
+$sheepie-colours: sh-add-palettes((
     blue: (
         base: #00A3F5
     ),
