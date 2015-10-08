@@ -85,6 +85,13 @@ li.comment {
     // Wrapper container for the inputs on the commentform.
     @include margin(1, bottom);
 
+    @include columns(flex, input, 3, $three-col-margin);
+
+    @include media(small) {
+        display: block;
+        margin: 0;
+    }
+
     input {
         /* Fix for Internet Explorer 10 and 11. 
          * @link https://github.com/philipwalton/flexbugs/issues/3
@@ -93,20 +100,9 @@ li.comment {
         max-width: 32.5%;
 
         @include media(small) {
+            width: 100%;
             max-width: 100%;
         }
-    }
-
-    @include columns(flex, input, 3, $three-col-margin) {
-        @include media(small) {
-            width: 100%;
-            @include margin(1, bottom);
-        }
-    }
-
-    @include media(small) {
-        display: block;
-        margin: 0;
     }
 }
 
