@@ -18,9 +18,9 @@ $author = get_the_author_meta('ID');
 
 <article <?php post_class('full'); ?> id="article-<?php the_ID(); ?>">
     <header class="full">
-        <h4 class="title full-title">
+        <h2 class="title full-title">
             <?php sheepie_partial('posttitle'); ?>
-        </h4>
+        </h2>
         <?php if (!is_page()) : ?>
             <span class="article-meta"><small><?php sheepie_partial('postmeta'); ?></small></span>
         <?php endif; ?>
