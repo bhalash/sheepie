@@ -91,7 +91,7 @@ gulp.task('js', function() {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(gulp.dest(paths.js.output));
+        .pipe(gulp.dest(assets.js.dest));
 });
 
 gulp.task('default', function() {
