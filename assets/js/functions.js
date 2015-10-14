@@ -45,7 +45,7 @@
      * -------------------------------------------------------------------------
      */
 
-    $('.navrow-search-toggle').link({
+    $('.bigsearch-toggle').link({
         child: '.toggle-icon',
         childClass: 'close',
         target: '#bigsearch',
