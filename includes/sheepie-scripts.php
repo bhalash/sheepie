@@ -20,10 +20,11 @@ function sheepie_scripts() {
 
     $sheepie_js = array(
         'highlight-js' => $js_path . 'highlight.js',
+        'linked' => $js_path . 'link.js',
         'lightbox' => $js_path . 'lightbox.js',
         'functions' => $js_path . 'functions.js',
-        'angular' => $node_path . 'angular/angular.js',
-        'angular-test' => $js_path . 'angular-test.js'
+        // 'angular' => $node_path . 'angular/angular.js',
+        // 'angular-test' => $js_path . 'angular-test.js'
     );
 
     $sheepie_conditional_js = array(
