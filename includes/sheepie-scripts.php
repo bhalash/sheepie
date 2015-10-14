@@ -51,7 +51,7 @@ function sheepie_scripts() {
 
     $sheepie_css = array(
         // Compressed, compiled theme CSS.
-        'main-style' => $css_path . 'main.css',
+        'main-style' => $css_path . 'style.css',
     );
 
     $sheepie_conditional_css = array(
