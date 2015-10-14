@@ -49,7 +49,7 @@
         child: '.toggle-icon',
         childClass: 'close',
         target: '#bigsearch',
-        targetClass: 'show',
+        targetClass: 'disp--shown',
         isTargetInput: true,
     });
 })(jQuery, window, document, undefined);

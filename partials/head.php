@@ -55,7 +55,7 @@ $action = esc_url(home_url('/'));
             </div>
         </div>
     </div>
-    <div id="bigsearch">
+    <div class="disp--hidden" id="bigsearch">
         <form class="bigsearch-form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
             <fieldset>
                 <input class="bigsearch-input" id="bigsearch-input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
