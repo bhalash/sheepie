@@ -39,6 +39,19 @@
      */
 
     $('article a img').addLightbox();
+
+    /*
+     * Linked Class Toggles
+     * -------------------------------------------------------------------------
+     */
+
+    $('.navrow-search-toggle').link({
+        child: '.toggle-icon',
+        childClass: 'close',
+        target: '#bigsearch',
+        targetClass: 'show',
+        isTargetInput: true,
+    });
 })(jQuery, window, document, undefined);
 
 /**
