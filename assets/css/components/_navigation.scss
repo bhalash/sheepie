@@ -15,13 +15,9 @@
  * -----------------------------------------------------------------------------
  */
 
-nav#gohome {
-    @include margin(2, bottom);
-
-    a {
-        &:before {
-            content: '← ';
-        }
+.navigation--home {
+    a:before {
+        content: '← ';
     }
 }
 
@@ -40,29 +36,28 @@ nav#gohome {
     }
 
     span {
-        color: palette(black);
         white-space: nowrap;
     }
-}
 
-.pagination-count {
-    text-align: center;
+    &__count {
+        text-align: center;
 
-    @include media(smartphone) {
-        display: none;
+        @include media(smartphone) {
+            display: none;
+        }
+
+        &:empty {
+            display: none;
+        }
     }
 
-    &:empty {
-        display: none;
+    &__next {
+        text-align: right;  
     }
-}
 
-.pagination-next {
-    text-align: right;  
-}
-
-.pagination-previous-post, .pagination-next-post {
-    @include media(smartphone) {
-        white-space: normal;
+    &__previous {
+        @include media(smartphone) {
+            white-space: normal;
+        }
     }
 }
