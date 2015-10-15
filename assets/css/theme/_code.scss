@@ -10,25 +10,10 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-code, kbd, pre, pre span, tt, var {
-    font-family: $font-sourcecodepro;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-}
-
-p code, kbd, tt, var {
-    color: palette(black, x-dark);
-}
-
-p code {
-    font-weight: bold;
-}
-
 pre { 
     background: palette(rmwb);
     color: palette(white, x-light);
     overflow: auto;
-    @include font-size(1.3);
     @include padding(1);
 
     code {
