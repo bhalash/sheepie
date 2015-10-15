@@ -187,4 +187,22 @@ function sheepie_menus() {
 // Theme menus.
 add_action('init', 'sheepie_menus');
 
+/**
+ * Post Meta Information
+ * -----------------------------------------------------------------------------
+ * Output post header information (category and date).
+ */
+
+function kaitain_postmeta() {
+
+    printf('<time datetime="%s">%s</time>',
+        get_the_time('Y-m-d H:i'),
+        get_the_time(get_option('date_format'))
+    );
+
+    _e(' in ', 'sheepie');
+    the_category(', ');
+    edit_post_link(__('edit post', 'sheepie'), ' / ', ''); 
+}
+
 ?>
