@@ -14,8 +14,6 @@
 
 ?>
 
-<nav id="gohome">
-    <p>
-        <small><a href="<?php printf(site_url()); ?>"><?php _e('Back to Home', 'sheepie'); ?></a></small>
-    </p>
+<nav class="navigation--home vspace--full">
+    <span class="font--small"><a href="<?php printf(site_url()); ?>"><?php _e('Back to Home', 'sheepie'); ?></a></span>
 </nav>
