@@ -12,89 +12,6 @@
  */
 
 /**
- * Display State with Opacity Transition
- * -----------------------------------------------------------------------------
- */
-
-.disp {
-    transition: .15s opacity ease-in;
-
-   &--hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    &--shown {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-/**
- * General Classes
- * -----------------------------------------------------------------------------
- */
-
-.meta {
-    @include font-size(1.3);
-}
-
-/**
- * Floats
- * -----------------------------------------------------------------------------
- */
-
-.float {
-    &--left {
-        float: left;
-    }
-
-    &--right {
-        float: right;
-    }
-
-    &--none {
-        @include nofloat;
-    }
-}
-
-/**
- * Left and Right Floated Images 
- * -----------------------------------------------------------------------------
- */
-
-.leftie {
-    float: left;
-    width: 20%;
-    @include margin(0 3 1 0);
-}
-
-.rightie {
-    float: right;
-    width: 20%;
-    @include margin(0 0 1 3);
-}
-
-/**
- * Vertical Spacing
- * -----------------------------------------------------------------------------
- */
-
-.vspace {
-    &--full {
-        @include margin($vspace, bottom);
-    }
-
-    &--double {
-        @include margin($vspace * 2, bottom);
-    }
-
-    &--half {
-        @include margin($vspace * 0.5, bottom);
-    }
-}
-
-/**
  * Photowall
  * -----------------------------------------------------------------------------
  */
@@ -143,17 +60,17 @@
 .article-photobox {
     &--two, &-two {
         @include photobox-elements;
-        @include columns(flex, a, 2, $three-col-margin);
+        @include columns(flex, a, 2, $split-column-margin);
     }
 
     &, &--three, &-three {
         @include photobox-elements;
-        @include columns(flex, a, 3, $three-col-margin);
+        @include columns(flex, a, 3, $split-column-margin);
     } 
 
     &--four, &-four {
         @include photobox-elements;
-        @include columns(flex, a, 4, $three-col-margin);
+        @include columns(flex, a, 4, $split-column-margin);
     }
 }
 
@@ -183,4 +100,3 @@ a[class^=rmwb-lightbox-] {
         @include fixed(50% 50%, left top);
     }
 }
-
