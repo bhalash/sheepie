@@ -19,19 +19,20 @@ $helper-path: 'includes/';
 @import 'base/reset';
 @import 'base/typography';
 
-@import 'utils/mixins/';
-@import 'utils/partials/';
+@import 'utils/mixins';
+@import 'utils/classes';
+@import 'utils/partials';
 
 @import 'components/code';
 @import 'components/forms';
 @import 'components/navigation';
 @import 'components/wordpress';
 @import 'components/widgets';
+@import 'components/posts';
 
 @import 'layout/404';
 @import 'layout/header';
 @import 'layout/content';
 @import 'layout/comments';
 @import 'layout/archives';
-@import 'layout/articles';
 @import 'layout/search';
