@@ -85,7 +85,7 @@ li.comment {
     // Wrapper container for the inputs on the commentform.
     @include margin(1, bottom);
 
-    @include columns(float, input, 3, $three-col-margin) {
+    @include columns(float, input, 3, $split-column-margin) {
         @include media(small) {
             @include nofloat;
             @include margin(1, bottom);

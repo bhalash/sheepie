@@ -18,7 +18,7 @@
 #bigsearch {
     background: palette(rmwb);
     box-sizing: border-box;
-    height: $navbar-height-full;
+    height: $navbar-height;
     // Necessary to hide overflow or IE10 and IE11 wrap to hell.
     overflow: hidden;
     transition: opacity .15s;
