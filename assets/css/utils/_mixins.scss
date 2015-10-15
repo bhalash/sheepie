@@ -94,7 +94,7 @@
     @include media(large) {
         width: 100%;
         @include absolute(0 0 auto 0);
-        @include height($navbar-height-collapsed);
+        @include height($navbar-height--collapsed);
         @content;
     }
 }
@@ -110,7 +110,7 @@
     width: calc(100% - #{rem($navbar-width)});
 
     @include media(large) {
-        @include rem(top, $navbar-height-collapsed);
+        @include rem(top, $navbar-height--collapsed);
         width: 100%;
     }
 }
@@ -163,17 +163,17 @@
 
 .article-photobox-two {
     @extend %photobox-elements;
-    @include columns(flex, a, 2, $three-col-margin);
+    @include columns(flex, a, 2, $split-column-margin);
 }
 
 .article-photobox-three, .article-photobox {
     @extend %photobox-elements;
-    @include columns(flex, a, 3, $three-col-margin);
+    @include columns(flex, a, 3, $split-column-margin);
 } 
 
 .article-pohotobox-four {
     @extend %photobox-elements;
-    @include columns(flex, a, 4, $three-col-margin);
+    @include columns(flex, a, 4, $split-column-margin);
 }
 
 /**
