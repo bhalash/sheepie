@@ -193,7 +193,7 @@ add_action('init', 'sheepie_menus');
  * Output post header information (category and date).
  */
 
-function kaitain_postmeta() {
+function sheepie_postmeta() {
 
     printf('<time datetime="%s">%s</time>',
         get_the_time('Y-m-d H:i'),
