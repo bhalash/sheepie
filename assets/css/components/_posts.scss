@@ -16,8 +16,12 @@
  * Default text and other element styling for articles.
  */
 
-.article-main {
+.article__content {
     @include clearfix;
+
+    & > *:not(:last-child) {
+        @extend %vspace-full;
+    }
 
     dl, ol, ul {
         box-sizing: border-box;
@@ -25,50 +29,19 @@
         @include padding(1, left);
     }
 
-    blockquote > *:not(:last-child), li > * {
-        @include margin(1, bottom);
-    }
-    
-    input {
-        // For password on password-protected posts.
-        display: block;
+    blockquote > p:not(:last-child) {
+        @extend %vspace-full;
     }
 
     img {
         border: 1px solid palette(rmwb);
         box-sizing: border-box;
     }
-}
-
-/**
- * Article Titles
- * -----------------------------------------------------------------------------
- */
-
-.title {
-    color: palette(black, mid-dark);
-
-    a {
-        color: inherit;
-        font-weight: inherit;
+    
+    input {
+        // For password on password-protected posts.
+        display: block;
     }
-}
-
-/*
- * Full Articles
- * -----------------------------------------------------------------------------
- */
-
-header.full {
-    @include margin(1.5, bottom);
-}
-
-footer.full {
-    @include margin(2, top);
-}
-
-div.full-main > *:not(:last-child) {
-    @extend %vspace-full;
 }
 
 /*
@@ -76,9 +49,11 @@ div.full-main > *:not(:last-child) {
  * -----------------------------------------------------------------------------
  */
 
-article.excerpt p {
-    color: palette(black, x-light);
-    @extend %small;
+.article--excerpt {
+    article.excerpt p {
+        color: palette(black, x-light);
+        @extend %small;
+    }
 }
 
 /*
@@ -88,29 +63,12 @@ article.excerpt p {
  * picked at random from the post archives.
  */
 
-.related-articles {
-    @include columns(flex, article, 3, $three-col-margin);
-
-    @include media(smartphone) {
-        @include columns(flex, article, 3, 5);
-    }
-}
-
-article.related {
-    @include media(smartphone) {
-        @include margin(1, bottom);
-    }
-
-    header, p {
-        margin: 0;
-    }
-
-    .thumbnail {
+.article--related {
+    &__thumbnail {
         background-size: cover;
-        box-sizing: border-box;
         border: 1px solid palette(rmwb);
+        box-sizing: border-box;
 
-        @include margin(0.5, bottom);
         @include square-flex(100% 0.75);
 
         a {
