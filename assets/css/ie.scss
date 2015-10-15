@@ -40,10 +40,10 @@ hr {
 
 .pagination {
     @include columns(float, p, 2, 0);
-}
 
-#site-pagination {
-    @include columns(float, p, 3, 0);
+    &__site {
+        @include columns(float, p, 3, 0);
+    }
 }
 
 .article-photobox, .article-photobox-three {
@@ -52,15 +52,6 @@ hr {
 
 .article-photobox-two {
     @include columns(float, a, 2, 2);
-}
-
-.commentform-inputs {
-    input {
-        display: inline-block;
-        *zoom: 1;
-    }
-
-    @include columns(float, input, 3, 2, right, hidden);
 }
 
 .related-articles {
@@ -78,7 +69,7 @@ hr {
 
 .avatar {
     float: left;
-    width: $avatar-big;
+    width: $avatar--big;
 }
 
 /**
