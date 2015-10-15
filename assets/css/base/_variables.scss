@@ -24,6 +24,17 @@ $sheepie-media-preset: sh-add-media-presets((
 ));
 
 /**
+ * Modular scale size modifiers.
+ * -----------------------------------------------------------------------------
+ */
+
+// Base font-size in demical units.
+$mod-scale--base-size: 1;
+// Ratio between increments of font size.
+$mod-scale--ratio: 1.3;
+$mod-scale--ratio--lines: 1.29;
+
+/**
  * Content Side-by-Side Sizes
  * -----------------------------------------------------------------------------
  * Both the percentage width of the content column and the right offset of the 
@@ -32,8 +43,8 @@ $sheepie-media-preset: sh-add-media-presets((
  */
 
 $navbar-width: 25;
-$navbar-height-full: 100vh;
-$navbar-height-collapsed: 6;
+$navbar-height: 100vh;
+$navbar-height--collapsed: 6;
 
 /**
  * Default Vertical Space
@@ -47,7 +58,7 @@ $vspace: 2;
  * -----------------------------------------------------------------------------
  */
 
-$three-col-margin: 1.5%;
+$split-column-margin: 1.5%;
 
 /*
  * Colors
@@ -68,8 +79,8 @@ $sheepie-colours: sh-add-palettes((
  * -----------------------------------------------------------------------------
  */
 
-$avatar-big: 96px;
-$avatar-small: 65px;
+$avatar--big: 9.6;
+$avatar--small: 6.5;
 
 /*
  * Typeface Declarations
