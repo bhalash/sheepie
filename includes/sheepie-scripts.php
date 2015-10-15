@@ -80,8 +80,6 @@ function sheepie_clean_header() {
     remove_action('wp_head', 'wp_enqueue_scripts', 1);
 }
 
-add_action('wp_enqueue_scripts', 'sheepie_clean_header');
-
 /** 
  * Sheepie JavaScript Loader
  * -----------------------------------------------------------------------------
@@ -93,6 +91,10 @@ add_action('wp_enqueue_scripts', 'sheepie_clean_header');
  */
 
 function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
+    if (!is_admin()) {
+        add_action('wp_enqueue_scripts', 'sheepie_clean_header');
+    }
+
     if (!is_404()) {
         foreach ($sheepie_js as $name => $script) {
             if (!WP_DEBUG) {
