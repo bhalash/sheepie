@@ -12,20 +12,20 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$post_classes = array('article', 'article--excerpt');
+
 ?>
 
-<article <?php post_class('excerpt'); ?> id="article-<?php the_ID(); ?>">
-    <div class="main">
-        <header>
-            <h5 class="title excerpt-title">
-                <?php sheepie_partial('posttitle'); ?>
-            </h5>
-            <?php if (!is_page()) : ?>
-                <span class="meta"><?php sheepie_partial('postmeta'); ?></span>
-            <?php endif; ?>
-        </header>
-        <div class="article-main excerpt-main">
-            <?php printf('<p>%s</p>', get_the_excerpt()); ?>
-        </div>
+<article <?php post_class($post_classes); ?> id="article--excerpt--<?php the_ID(); ?>">
+    <header class="article--excerpt__header">
+        <h4 class="article--excerpt__title title">
+            <?php sheepie_partial('posttitle'); ?>
+        </h4>
+        <?php if (!is_page()) : ?>
+            <span class="postmeta font--small"><?php sheepie_postmeta(); ?></span>
+        <?php endif; ?>
+    </header>
+    <div class="article__content article--excerpt__content">
+        <?php printf('<p>%s</p>', get_the_excerpt()); ?>
     </div>
 </article>

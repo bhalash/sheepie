@@ -12,16 +12,22 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$post_classes = array('article', 'article--related', 'vspace--half');
+
 ?>
 
-<article <?php post_class('related'); ?> id="article-<?php the_ID(); ?>">
-    <header class="title">
-        <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-            <div class="excerpt-thumbnail thumbnail" <?php post_image_css($post->ID, true); ?>></div>
-            <?php the_title('<h6 class="title">', '</h6>'); ?>
+<article <?php post_class($post_classes); ?> id="article--related--<?php the_ID(); ?>">
+    <header class="article--related__header vspace--half">
+        <a class="article--related__link" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+            <div class="thumbnail article--related__thumbnail" <?php post_image_css($post->ID, true); ?>></div>
         </a>
     </header>
-    <footer>
-        <small><?php sheepie_partial('postmeta'); ?></small>
+    <h5 class="title article--related__title vspace--quarter">
+        <a class="article--related__link" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+            <?php the_title(); ?>
+        </a>
+    </h5>
+    <footer class="article--related__footer">
+        <span class="font--small"><?php sheepie_postmeta(); ?></span>
     </footer>
 </article>
