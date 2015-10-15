@@ -23,7 +23,6 @@ $helper-path: 'includes/';
 @import 'utils/classes';
 @import 'utils/partials';
 
-@import 'components/code';
 @import 'components/forms';
 @import 'components/navigation';
 @import 'components/wordpress';
@@ -36,3 +35,5 @@ $helper-path: 'includes/';
 @import 'layout/comments';
 @import 'layout/archives';
 @import 'layout/search';
+
+@import 'theme/code';
