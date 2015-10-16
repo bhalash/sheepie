@@ -28,12 +28,14 @@ $helper-path: 'includes/';
 @import 'components/wordpress';
 @import 'components/widgets';
 @import 'components/posts';
+@import 'components/search';
+@import 'components/buttons';
 
+@import 'layout/base';
 @import 'layout/404';
 @import 'layout/header';
-@import 'layout/content';
 @import 'layout/comments';
 @import 'layout/archives';
-@import 'layout/search';
 
+@import 'theme/colors';
 @import 'theme/code';
