@@ -38,11 +38,11 @@ $post_classes = array('article', 'article--full', 'vspace--half');
     <?php if (is_single()) : ?>
         <?php sheepie_partial('pagination', 'post'); ?>
         <hr>
-        <footer class="article--full__footer avatar-box">
-            <div class="article--full__avatar avatar">
-                <?php sheepie_avatar_background_html($author, 96, 'author-photo'); ?>
+        <footer class="article--full__footer avatar">
+            <div class="article--full__avatar avatar__container">
+                <?php sheepie_avatar_background_html($author, 96, 'avatar__photo'); ?>
             </div>
-            <div class="article--full__author">
+            <div class="article--full__author avatar__text">
                 <h4>by <?php the_author_meta('display_name'); ?></h4>
                 <p class="article--full__meta">
                     <span class="font--small"><?php sheepie_postmeta(); ?></span>
