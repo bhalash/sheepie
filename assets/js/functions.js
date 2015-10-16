@@ -45,8 +45,8 @@
      * -------------------------------------------------------------------------
      */
 
-    $('.bigsearch-toggle').link({
-        child: '.toggle-icon',
+    $('.bigsearch__toggle').link({
+        child: '.button__icon',
         childClass: 'close',
         target: '#bigsearch',
         targetClass: 'disp--shown',
