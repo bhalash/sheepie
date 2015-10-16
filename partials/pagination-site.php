@@ -24,7 +24,7 @@ $previous = $pages - 1;
     </p>
     <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
         <p class="pagination__count">
-            <span class="font--small"><span><?php arc_archive_page_count(true); ?></span>
+            <span class="font--small"><?php arc_archive_page_count(true); ?></span>
         </p>
     <?php endif; ?>
     <p class="pagination__next next-page">
