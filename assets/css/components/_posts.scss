@@ -52,7 +52,6 @@
 .article--excerpt {
     article.excerpt p {
         color: palette(black, x-light);
-        @extend %small;
     }
 }
 
@@ -70,9 +69,9 @@
         box-sizing: border-box;
 
         @include square-flex(100% 0.75);
+    }
 
-        a {
-            display: block;
-        }
+    &__link {
+        color: palette(black, x-dark);
     }
 }
