@@ -11,6 +11,28 @@
  *
  */
 
+/*
+ * User Avatar
+ * -----------------------------------------------------------------------------
+ */
+
+.avatar {
+    @include columns(flex, div, 10% auto, 2%);
+
+    @include media(small) {
+        display: block;
+    }
+
+    &__photo {
+        background: center/cover no-repeat;
+        @include square-flex(100% 1);
+
+        @include media(small) {
+            display: none;
+        }
+    }
+}
+
 /**
  * Article Titles
  * -----------------------------------------------------------------------------
@@ -32,11 +54,11 @@
 
 .font {
     &--small {
-        @extend small;
+        font-size: 80%;
     }
 
     &--big {
-        @extend big;
+        font-size: 120%;
     }
 }
 
