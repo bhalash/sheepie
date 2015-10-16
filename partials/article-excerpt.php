@@ -26,6 +26,6 @@ $post_classes = array('article', 'article--excerpt');
         <?php endif; ?>
     </header>
     <div class="article__content article--excerpt__content">
-        <?php printf('<p>%s</p>', get_the_excerpt()); ?>
+        <?php printf('<p class="font-size--small">%s</p>', get_the_excerpt()); ?>
     </div>
 </article>
