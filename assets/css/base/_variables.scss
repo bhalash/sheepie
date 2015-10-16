@@ -24,15 +24,21 @@ $sheepie-media-preset: sh-add-media-presets((
 ));
 
 /**
- * Modular scale size modifiers.
+ * Modular Scale Font Sies with the Golden Ratio
  * -----------------------------------------------------------------------------
+ * @link https://en.wikipedia.org/wiki/Golden_ratio
+ * @link http://www.modularscale.com/
+ * @link http://www.pearsonified.com/typography/
  */
 
-// Base font-size in demical units.
-$mod-scale--base-size: 1;
-// Ratio between increments of font size.
-$mod-scale--ratio: 1.3;
-$mod-scale--ratio--lines: 1.29;
+// 1.6 / golden ratio. $mod-scale--size * $mod-scale--ratio = 1.6 exactly with 
+// Sass's ten-digits-of-precision rounding.
+$mod-scale--size: 0.988854382;
+// Golden ratio.
+$mod-scale--ratio: 1.61803398875;
+
+$font-size--paragraph: modular-scale(1, $mod-scale--size, $mod-scale--ratio);
+$line-height--paragraph: $font-size--paragraph * $mod-scale--ratio;
 
 /**
  * Content Side-by-Side Sizes
@@ -44,21 +50,24 @@ $mod-scale--ratio--lines: 1.29;
 
 $navbar-width: 25;
 $navbar-height: 100vh;
+// Decimal, compiles to REM.
 $navbar-height--collapsed: 6;
 
 /**
  * Default Vertical Space
  * -----------------------------------------------------------------------------
+ * Decimal size that compiles to REM. I go through the motions of compiling this
+ * through modular scale, but Tl;DR: 1rem/16px.
  */
 
-$vspace: 2;
+$vspace: modular-scale(1, $mod-scale--size, $mod-scale--ratio);
 
 /**
  * Split Column Margin
  * -----------------------------------------------------------------------------
  */
 
-$split-column-margin: 1.5%;
+$split-column-margin: 2%;
 
 /*
  * Colors
@@ -88,6 +97,4 @@ $avatar--small: 6.5;
  */
 
 $font-opensans: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$font-lato: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
 $font-sourcecodepro:'Source Code Pro', 'Courier New', Courier, monospace;
-$font-opensans-title: 'Open Sans Condensed', Verdana, Geneva, sans-serif, sans-serif;
