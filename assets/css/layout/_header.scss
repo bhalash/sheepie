@@ -11,179 +11,182 @@
  */
 
 /**
- * Header Container
- * -----------------------------------------------------------------------------
- * Default header content appearance.
- */
-
-#navbar {
-    // Any rules you want can go here.
-}
-
-/**
  * Sidebar Interior Element Defaults
  * -----------------------------------------------------------------------------
  * External rules for the header container are set in _containers.css. All rules
  * in this stylesheet are for elements /internal/ to #header.
  */
 
-.navbar-head {
-    background: palette(rmwb);
-    box-sizing: border-box;
-    // Stops weird problems with IE.
-    overflow: hidden;
-    z-index: 2;
+.navbar {
+    /**
+     * Content Wrapper
+     * -------------------------------------------------------------------------
+     * Push in child content and direct it to the bottom. Used to absolutely 
+     * position in IE9.
+     */
 
-    @include navbar-size;
-    @include padding(2);
+    &__contentwrap {
+        box-sizing: border-box;
+        // Stops weird problems with IE.
+        overflow: hidden;
+        z-index: 2;
 
-    @include navbar-size-1024 {
-        @include padding(1);
-    }
-}
+        @include navbar-size;
+        @include padding(2);
 
-.navbar-head-content {
-    height: 100%;
-    @include flex-parent(column, flex-end);
-
-    @include media(large) {
-        @include flex-parent(row, justify-content);
-    }
-}
-
-/**
- * Sidebar Child Elements
- * -----------------------------------------------------------------------------
- */
-
-.navbar-child {
-    color: palette(white, x-light);
-
-    &:not(:last-child) {
-        @include margin($vspace, bottom);
-
-        @include media(large) {
-            margin: 0;
+        @include navbar-size-1024 {
+            @include padding(1);
         }
     }
 
-    a {
-        color: inherit;
-        letter-spacing: 1.5px;
+    /**
+     * Navbar Content
+     * -------------------------------------------------------------------------
+     * Title, menu, social links, and more all go in here. This is a vertical
+     * flex layout, with the content pushed to the bottom. The same content is
+     * absolutely positioned in IE9.
+     */
+
+    &__content {
+        height: 100%;
+        @include flex-parent(column, flex-end);
+
+        @include media(large) {
+            @include flex-parent(row, justify-content);
+        }
     }
 
-    ul {
-        list-style-type: none;
-        @include clearfix;
-    }
+    /**
+     * Sidebar Child Elements
+     * -------------------------------------------------------------------------
+     * Most elements here are generated dynamically by WordPrss.
+     */
 
-    li {
-        /* WordPress requires menu links to have a text label.
-         * Also hides extra space from display: inline-block; */
-        font-size: 0 !important;
-        float: left;
-        overflow: hidden;
+    &__child {
+        color: palette(white, x-light);
+
+        &:not(:last-child) {
+            @include margin($vspace, bottom);
+
+            @include media(large) {
+                margin: 0;
+            }
+        }
 
         a {
-            display: block;
-            font-size: inherit;
-            @include square-flex(100% 1);
+            color: inherit;
+            letter-spacing: 1.5px;
+        }
+
+        ul {
+            list-style-type: none;
+            @include clearfix;
+        }
+
+        li {
+            /* WordPress requires menu links to have a text label.
+             * Also hides extra space from display: inline-block; */
+            font-size: 0 !important;
+            float: left;
+            overflow: hidden;
+
+            a {
+                display: block;
+                font-size: inherit;
+                @include square-flex(100% 1);
+            }
         }
     }
 
-    span {
-        @extend %small;
-    }   
-}
+    /**
+     * Site Title Wrapper and title
+     * -------------------------------------------------------------------------
+     */
 
-/**
- * Sidebar Title Text
- * -----------------------------------------------------------------------------
- */
-
-.navbar-title {
-    @include flex-child(0 1 auto);
-
-    @include media(large) {
-        @include flex-child(0 1 60%, initial, 2);
-        text-align: center;
-    }
-
-    @include media(small) {
-        @include flex-child(1);
-        text-align: left;
-    }
-}
-
-.site-name {
-    line-height: 120%;
-
-    @include media(large) {
-        @include font-size(2);
-        line-height: 40px;
-    }
-
-    a {
-        font-weight: 400;
-    }
-}
-
-/**
- * Sidebar Descriptive Paragraph
- * -----------------------------------------------------------------------------
- */
-
-.navbar-description {
-    @include flex-child(0 1 auto);
-
-    @include media(large) {
-        display: none;
-    }
-}
-
-/**
- * Sidebar Social Media Menu
- * -----------------------------------------------------------------------------
- * Horizontal row of external social media links.
- */
-
-.navbar-socialrow {
-    @include flex-child(0 1 auto);
-
-    @include media(large) {
-        @include flex-child(0 1 20%, initial, 1);
-        @include rem(min-width, 22);
-    }
-
-    @include media(small) {
-        display: none;
-    }
-
-    li {
-        @include social(25% 1);
+    &__titlewrapper {
+        @include flex-child(0 1 auto);
 
         @include media(large) {
-            @include square-flex(40px 1);
+            @include flex-child(0 1 60%, initial, 2);
+            text-align: center;
+        }
+
+        @include media(small) {
+            @include flex-child(1);
+            text-align: left;
         }
     }
-}
+    
+    &__title {
+        line-height: 120%;
 
-/**
- * Sidebar Bottom Buttons
- * -----------------------------------------------------------------------------
- */
-
-.navbar-buttonrow {
-    @include flex-child(0 1 auto);
-    @include clearfix;
-    overflow: hidden;
-
-    @include media(large) {
-        @include flex-child(0 1 30%, initial, 3);
-        @include rem(min-width, 22);
+        @include media(large) {
+            @include font-size(2);
+            line-height: 40px;
+        }
     }
 
-    @include media(small) {
-        @include rem(min-width, 5);
+    &__title-link {
+        font-weight: 400;
+    }
+
+    /**
+     * Site Description
+     * -------------------------------------------------------------------------
+     */
+
+    &__description {
+        @include flex-child(0 1 auto);
+
+        @include media(large) {
+            display: none;
+        }
+    }
+
+    /**
+     * Sidebar Social Media Menu
+     * -------------------------------------------------------------------------
+     * Horizontal row of external social media links.
+     */
+
+    &__social {
+        @include flex-child(0 1 auto);
+
+        @include media(large) {
+            @include flex-child(0 1 20%, initial, 1);
+            @include rem(min-width, 22);
+        }
+
+        @include media(small) {
+            display: none;
+        }
+
+        li {
+            @include social(25% 1);
+
+            @include media(large) {
+                @include square-flex(40px 1);
+            }
+        }
+    }
+
+    /**
+     * Sidebar Bottom Buttons
+     * -------------------------------------------------------------------------
+     */
+
+    &__buttonrow {
+        @include flex-child(0 1 auto);
+        @include clearfix;
+        overflow: hidden;
+
+        @include media(large) {
+            @include flex-child(0 1 30%, initial, 3);
+            @include rem(min-width, 22);
+        }
+
+        @include media(small) {
+            @include rem(min-width, 5);
+        }
     }
 }
