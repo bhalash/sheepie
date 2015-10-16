@@ -39,7 +39,7 @@ button, fieldset, form, input, label, textarea {
 
 // Input and text area colours.
 
-input:not(.bigsearch-input), textarea {
+input:not(.bigsearch__input), textarea {
     background: palette(white, light);
     transition: background-color .15s;
     @include font-size(1.6);
