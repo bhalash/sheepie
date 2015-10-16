@@ -13,6 +13,13 @@
 html {
     color: palette(black, mid-light);
     font-family: $font-opensans;
+
+    @include media(smartphone) {
+        // Decrease the size of text by one-fifth on mobile devices. The
+        // default text size looked too large on smartphones, as reported by
+        // several users.
+        font-size: 80%;
+    }
 }
 
 body {
