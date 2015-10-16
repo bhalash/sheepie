@@ -12,20 +12,16 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$next = $paged + 1; 
-$previous = $paged - 1; 
-
 ?>
 
-<nav class="pagination" id="comment-pagination">
-    <p class="pagination-previous previous-comment">
-        <small><?php previous_comments_link(__('&larr; Previous', 'sheepie')); ?></small>
+<nav class="pagination pagination--comment" id="pagination--comment">
+    <p class="pagination__previous previous-comment">
+        <span class="font--span"><?php previous_comments_link(__('&larr; Previous', 'sheepie')); ?></small>
     </p>
-    <p class="pagination-count">
-        <small><?php get_comment_pages_count(); ?></small>
+    <p class="pagination__count">
+        <span class="font--span"><?php get_comment_pages_count(); ?></small>
     </p>
-    <p class="pagination-next next-comment">
-        <small><?php next_comments_link(__('Next &rarr;', 'sheepie')); ?></small>
+    <p class="pagination__next next-comment">
+        <span class="font--span"><?php next_comments_link(__('Next &rarr;', 'sheepie')); ?></small>
     </p>
 </nav>

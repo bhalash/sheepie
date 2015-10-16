@@ -18,16 +18,16 @@ $previous = $pages - 1;
 
 ?>
 
-<nav class="pagination" id="site-pagination">
-    <p class="pagination-previous previous-page">
-        <small><?php previous_posts_link(__('&larr; Page ', 'sheepie') . $previous); ?></small>
+<nav class="pagination pagination--site" id="pagination--site">
+    <p class="pagination__previous previous-page">
+        <span class="font--small"><?php previous_posts_link(__('&larr; Page ', 'sheepie') . $previous); ?></span>
     </p>
     <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
-        <p class="pagination-count">
-            <small><span><?php arc_archive_page_count(true); ?></span></small>
+        <p class="pagination__count">
+            <span class="font--small"><span><?php arc_archive_page_count(true); ?></span>
         </p>
     <?php endif; ?>
-    <p class="pagination-next next-page">
-        <small><?php next_posts_link(__('Page ', 'sheepie') . $next . ' &rarr;');  ?></small>
+    <p class="pagination__next next-page">
+        <span class="font--small"><?php next_posts_link(__('Page ', 'sheepie') . $next . ' &rarr;');  ?></span>
     </p>
 </nav>

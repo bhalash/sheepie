@@ -14,11 +14,11 @@
 
 ?>
 
-<nav class="pagination" id="post-pagination">
-    <p class="pagination-previous previous-post">
-        <small><?php next_post_link('%link', '&larr; %title', false); ?></small>
+<nav class="pagination pagination--post" id="pagination--post">
+    <p class="pagination__previous previous-post">
+        <span class="font--small"><?php next_post_link('%link', '&larr; %title', false); ?></span>
     </p>
-    <p class="pagination-next next-post">
-        <small><?php previous_post_link('%link', '%title &rarr;', false); ?></small>
+    <p class="pagination__next next-post">
+        <span class="font--small"><?php previous_post_link('%link', '%title &rarr;', false); ?></span>
     </p>
 </nav>
