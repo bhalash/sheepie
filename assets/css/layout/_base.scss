@@ -11,11 +11,11 @@
  */
 
 /**
- * Content and Interior Content Rules
+ * Content Parent Container Rules
  * -----------------------------------------------------------------------------
  */
 
-#content {
+.main {
     box-sizing: border-box;
     min-width: 0;
     position: relative;
@@ -25,25 +25,25 @@
     @include media(large) {
         margin: 0 auto;
     }
-}
 
-.content-interior {
-    margin: 0 auto;
-}
-
-/**
- * Body Conditional Content Style
- * -----------------------------------------------------------------------------
- */
-
-body:not(.page-template-page-search) #content {
-    padding: 5% 10%;
-
-    @include media(xlarge) {
-        padding: 5%;
+    &__interior {
+        margin: 0 auto;
     }
 
-    .content-interior {
-        @include rem(max-width, 84);
+    /**
+     * Non-search page.
+     * -------------------------------------------------------------------------
+     */
+
+    body:not(.page-template-page-search) & {
+        padding: 5% 10%;
+
+        @include media(xlarge) {
+            padding: 5%;
+        }
+
+        &__interior {
+            @include rem(max-width, 84);
+        }
     }
 }
