@@ -64,13 +64,13 @@ hr {
  * -----------------------------------------------------------------------------
  */
 
-.avatar-box {
-    @include columns(float, div, 10% auto, 2%);
-}
-
 .avatar {
-    float: left;
-    width: $avatar--big;
+    @include columns(float, div, 10% auto, 2%);
+
+    &__container {
+        float: left;
+        width: $avatar--big;
+    }
 }
 
 /**
@@ -82,73 +82,71 @@ hr {
     color: palette(black, x-dark);
 }
 
-/**
- * Navbar Main Container
- * -----------------------------------------------------------------------------
- */
-
-.navbar-head-content {
-    // No flexbox in IE9. :( Child element is intead absolutely positioned.
-    height: auto;
-    @include absolute(auto $vspace $vspace $vspace);
-
-    @include media(large) {
-        position: static;
-    }   
-}
 
 /**
  * Navbar Child Element
  * -----------------------------------------------------------------------------
  */
 
-.navbar-head, .navbar-head-content, .navbar-child {
-    @include media(large) {
-        @include clearfix(hidden);
-    }
-}
+.navbar {
+    &__content {
+        // No flexbox in IE9. :( Child element is intead absolutely positioned.
+        height: auto;
+        @include absolute(auto $vspace $vspace $vspace);
 
-.navbar-socialrow {
-    @include media(large) {
-        float: left;
-        min-width: 0;
-        width: 25%;
+        @include media(large) {
+            position: static;
+        }   
     }
 
-    @include media(medium) {
-        display: none;
-    }
-}
-
-.navbar-title {
-    @include media(large) {
-        display: inline-block;
-        margin: 0 auto;
-        width: 50%;
+    &__child, &__contentwrap, &__content {
+        @include media(large) {
+            @include clearfix(hidden);
+        }
     }
 
-    @include media(medium) {
-        float: left;
-        width: calc(100% - 50px);
-    }
-}
+    &__social {
+        @include media(large) {
+            float: left;
+            min-width: 0;
+            width: 25%;
+        }
 
-.site-name {
-    @include media(large) {
-        display: inherit;
-        margin: inherit;
-        width: inherit;
-    }
-}
-
-.navbar-buttonrow {
-    @include media(large) {
-        float: right;    
-        min-width: 0;
-        width: 25%;
+        @include media(medium) {
+            display: none;
+        }
     }
 
-    @include media(medium) {
-        width: 50px;
+    &__titlewrapper {
+        @include media(large) {
+            display: inline-block;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        @include media(medium) {
+            float: left;
+            width: calc(100% - 50px);
+        }
+    }
+
+    &__title {
+        @include media(large) {
+            display: inherit;
+            margin: inherit;
+            width: inherit;
+        }
+    }
+
+    &__buttonrow {
+        @include media(large) {
+            float: right;    
+            min-width: 0;
+            width: 25%;
+        }
+
+        @include media(medium) {
+            @include width(5);
+        }
     }
 }
