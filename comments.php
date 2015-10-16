@@ -19,14 +19,15 @@ if (comments_open()) {
 
     printf('<hr>');
 
-    printf('<div class="article-comments" id="comments">');
-        printf('<h4 class="comments-title subtitle">%s \'%s\'</h4>',
+    printf('<div class="comments" id="comments">');
+        printf('<h4 class="%s">%s \'%s\'</h4>',
+            'vspace--full subtitle',
             __('Have your say on ', 'sheepie'),
             get_the_title()
         );
 
     if (have_comments()) {
-        printf('<ul class="%s">', 'commentlist');
+        printf('<ul class="%s">', 'comments__commentlist');
 
         wp_list_comments(array(
             'callback' => 'sheepie_theme_comments',
@@ -42,11 +43,11 @@ if (comments_open()) {
         sheepie_partial('pagination', 'comment');
     }
 
-    printf('<div id="comment-entry">');
+    printf('<div id="comments__entry">');
 
     // Template input for name, email and URL.
-    $input = '<input class="%s-name" id="%s" name="%s" placeholder="%s" type="text" required="required">';
-    $textarea = '<textarea class="comment-form-comment" id="comment" name="comment" required="required"></textarea>';
+    $input = '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';
+    $textarea = '<textarea class="comments__textarea" id="comment" name="comment" required="required"></textarea>';
 
     $fields = array(
         // Name, author and email fields.
@@ -62,11 +63,11 @@ if (comments_open()) {
     );
 
     comment_form(array(
-        'id_form' => 'commentform',
-        'id_submit' => 'submit',
+        'id_form' => 'comments__form',
+        'id_submit' => 'comments__submit',
         'title_reply' => '',
         'comment_field' => sprintf('<p id="textarea">%s</p>', $textarea),
-        'comment_form_before_fields' => '<div class="comment-form">',
+        'comment_form_before_fields' => '<div class="comments__form">',
         'comment_form_after_fields' =>'</div>',
         'fields' => $fields,
     ));

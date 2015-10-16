@@ -12,33 +12,29 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/**
- * Custom Comment and Comment Form Output
- * -----------------------------------------------------------------------------
- * @param   string  $comment    The comment.
- * @param   array   $args       Array argument
- * @param   int     $depth      Depth of the comments thread.
- */
-
 function sheepie_theme_comments($comment, $args, $depth) {
+    $comment_classes = array(
+        'comment', 'comments__comment', 'avatar'
+    );
+
     $GLOBALS['comment'] = $comment;
     ?>
 
-    <li <?php comment_class('avatar-box'); ?> id="comment-<?php comment_ID() ?>">
-        <div class="avatar">
-            <?php sheepie_avatar_background_html($comment, 'thumb', 'author-photo'); ?>
+    <li <?php comment_class($comment_classes); ?> id="comment--<?php comment_ID() ?>">
+        <div class="avatar__container comments__avatar">
+            <?php sheepie_avatar_background_html($comment, 'thumb', 'avatar__photo'); ?>
         </div>
-        <div class="comment-body">
-            <header>
+        <div class="comment-body comments__comment-content avatar__text">
+            <header class="comments__comment-header">
                 <?php 
                 
-                printf('<span class="%s">%s %s </span>',
-                    'comment-author-link',
+                printf('<span class="%s comments__meta">%s %s </span>',
+                    'comment-author-link font-size--small',
                     get_comment_author_link(),
                     __('on', 'sheepie')
                 );
 
-                printf('<span class="%s"><time datetime="%s">%s</time></span>',
+                printf('<span class="%s comments__meta"><time datetime="%s">%s</time></span>',
                     'post-date',
                     get_comment_date('Y-M-d H:i'),
                     get_comment_date(get_option('date_format'))
@@ -47,10 +43,10 @@ function sheepie_theme_comments($comment, $args, $depth) {
                 ?>
             </header>
 
-            <div class="main">
+            <div class="comments__comment-body font-size--small">
                 <?php if (!$comment->comment_approved) {
                     printf('<p class="%s">%s</p>',
-                        'comment-unapproved',
+                        'comments__comment-unapproved',
                         __('Your comment is awaiting approval.', 'sheepie')
                     );
                 } else {
@@ -59,8 +55,8 @@ function sheepie_theme_comments($comment, $args, $depth) {
             </div>
 
             <?php if (is_user_logged_in()) : ?>
-                <footer>
-                    <span><?php edit_comment_link(__('edit', 'sheepie'),'', ''); ?></span>
+                <footer class="comments__comment-footer">
+                    <span class="font-size--small"><?php edit_comment_link(__('edit', 'sheepie'),'', ''); ?></span>
                 </footer>
             <?php endif; ?>
         </div>
@@ -78,11 +74,11 @@ function sheepie_theme_comments($comment, $args, $depth) {
  */
 
 function sheepie_wrap_comment_fields_before() {
-    printf('<div class="commentform-inputs">');
+    printf('<fieldset class="comments__inputs vspace--full">');
 }
 
 function sheepie_wrap_comment_fields_after() {
-    printf('</div>');
+    printf('</fieldset>');
 }
 
 add_action('comment_form_before_fields', 'sheepie_wrap_comment_fields_before');
