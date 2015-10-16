@@ -30,6 +30,7 @@ figure {
 }
 
 hr {
+    // Overall height collapses unless an explicit height is given.
     height: 1px;
 }
 
@@ -38,10 +39,14 @@ hr {
  * -----------------------------------------------------------------------------
  */
 
+.flex--three-col--article {
+    @include columns(float, article, 3, $split-column-margin);
+}
+
 .pagination {
     @include columns(float, p, 2, 0);
 
-    &__site {
+    &--site {
         @include columns(float, p, 3, 0);
     }
 }
@@ -52,10 +57,6 @@ hr {
 
 .article-photobox-two {
     @include columns(float, a, 2, 2);
-}
-
-.related-articles {
-    @include columns(float, article, 3, 2);
 }
 
 /**
