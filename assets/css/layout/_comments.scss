@@ -16,7 +16,8 @@
  * List of comments and top-level comment style.
  */
 
-#comments {
+
+.comments {
     ul {
         margin: 0;
         padding: 0;
@@ -26,98 +27,59 @@
     p {
         @include margin(0.5, bottom);
     }
-}
 
-/**
- * Comment Area Miscellaneous Rules
- * -----------------------------------------------------------------------------
- */
+    /**
+     * Individual Comment
+     * -----------------------------------------------------------------------------
+     */
 
-.comments-title {
-     @include margin($vspace, bottom);
-}
+    &__comment {
+        box-sizing: border-box;
+        list-style-type: none;
 
-/**
- * Individual Comment
- * -----------------------------------------------------------------------------
- * Top-level rules for the comment container.
- */
+        @include media(small) {
+            display: block;        
+        }
 
-li.comment {
-    box-sizing: border-box;
-    list-style-type: none;
-
-    header, footer {
-        span {
-            @extend %small;
+        &__comments-meta {
             font-weight: bold;
         }
     }
 
-    .main {
+    &__comment-body p {
+        font-size: 80%;
+    }
+
+    /**
+     * Commentform Inputs
+     * -----------------------------------------------------------------------------
+     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not correctly 
+     * apply box-sizing, so instead of width - padding, it is width + padding. The
+     * correct alternative is to use floats.
+     */
+
+    &__inputs {
+        @include columns(float, input, 3, $split-column-margin) {
+            @include media(small) {
+                @include nofloat;
+                width: 100%;
+            }
+        }
+    }
+
+    /**
+     * Commentform
+     * -----------------------------------------------------------------------------
+     * All input styles for the commentform.
+     */
+
+    &__form {
         p {
-            @extend %small;
-        }
-    }
-}
-
-/**
- * Comment Input Form
- * -----------------------------------------------------------------------------
- * All input styles for the commentform.
- */
-
-#commentform {
-    p, input {
-        @extend small;
-    }
-
-    p {
-        @include margin(1, bottom);
-    }
-
-    textarea {
-        @include height(20);
-    }
-}
-
-.commentform-inputs {
-    // Wrapper container for the inputs on the commentform.
-    @include margin(1, bottom);
-
-    @include columns(float, input, 3, $split-column-margin) {
-        @include media(small) {
-            @include nofloat;
             @include margin(1, bottom);
-            width: 100%;
         }
     }
 
-    @include media(small) {
-        margin: 0;
-    }
-}
-
-/*
- * User Avatar
- * -----------------------------------------------------------------------------
- */
-
-.avatar-box {
-    @include columns(flex, div, 10% auto, 2%);
-
-    @include media(small) {
-        display: block;        
-    }
-}
-
-.avatar {
-    .author-photo {
-        background: center/cover no-repeat;
-        @include square-flex(100% 1);
-    }
-
-    @include media(small) {
-        display: none;
+    &__textarea {
+        @include height(20);
     }
 }
