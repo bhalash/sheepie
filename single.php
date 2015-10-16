@@ -22,7 +22,7 @@ if (have_posts()) {
         
         if (function_exists('rp_get_related')) {
             printf('<hr>');
-            printf('<div class="%s">', 'column-of-three related-articles');
+            printf('<div class="%s">', 'related flex--three-col--article');
 
             $related = rp_get_related(array(
                 'range' => array(
