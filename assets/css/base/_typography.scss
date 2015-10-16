@@ -16,7 +16,8 @@
  */
 
 blockquote, cite, li, ins, p, q {
-    @include font-size(modular-scale(2, $mod-scale--base-size, $mod-scale--ratio));
+    @include font-size($font-size--paragraph);
+    @include line-height($line-height--paragraph);
 }
 
 a, cite {
@@ -35,32 +36,22 @@ a {
 /**
  * Headline Items
  * -----------------------------------------------------------------------------
+ * Starting at 5 - $i makes h5 the same size as regular paragraph text, and h6
+ * one step smaller.
  */
 
 h1, h2, h3, h4, h5, h6 {
-    // font-family: $font-opensans-title;
     font-weight: bold;
 }
 
 @for $i from 1 through 6 {
     h#{$i} {
-        @include font-size(modular-scale(7 - $i, $mod-scale--base-size, $mod-scale--ratio));
+        $font-size--headline: modular-scale(5 - $i, $mod-scale--size, $mod-scale--ratio);
+        $line-height--headline: $font-size--headline * $mod-scale--ratio;
+
+        @include font-size($font-size--headline);
+        @include line-height($line-height--headline);
     }
-}
-
-/**
- * Gulliver's Text
- * -----------------------------------------------------------------------------
- * Normal text is ~1.6
- */
-
-big, dt, .big, %big {
-    @include font-size(modular-scale(3, $mod-scale--base-size, $mod-scale--ratio));
-}
-
-cite, small, .small, %small {
-    letter-spacing: 0;
-    @include font-size(modular-scale(1, $mod-scale--base-size, $mod-scale--ratio));
 }
 
 /**
@@ -72,14 +63,11 @@ code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
     font-family: $font-sourcecodepro;
     font-weight: 400;
-    @include font-size(modular-scale(1, $mod-scale--base-size, $mod-scale--ratio));
-}
-
-p code, kbd, tt, var {
-    color: palette(black, x-dark);
+    @include font-size($font-size--paragraph);
 }
 
 p, li {
+    // For code within paragraph elements.
     code {
         font-weight: bold;
     }
