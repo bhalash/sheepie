@@ -1,0 +1,70 @@
+/**
+ * Buttons
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+/**
+ * Big Search Toggle Buttons
+ * -----------------------------------------------------------------------------
+ */
+
+.button {
+    -webkit-appearance: button;
+    background: transparent;
+    cursor: pointer;
+    margin: 0;
+    opacity: 0.5;
+    padding: 0;
+    @include size(4 4);
+
+    &:active {
+        opacity: 1;
+    }
+
+    @include media(large) {
+        opacity: 1;
+        @include absolute(0 0, top right);
+        // Button size is increased to present a better touch target.
+        @include size(6 6);
+    }
+
+    /**
+     * Bigsearch Search Toggle
+     * -------------------------------------------------------------------------
+     */
+
+    &--search-bigsearch {
+        display: none;
+
+        @include media(large) {
+            display: block;
+        }
+    }
+
+    /**
+     * Button Icon
+     * -------------------------------------------------------------------------
+     * The icon is separate for reasons of size: The parent button grows in size
+     * on smaller screens to be a better touch target.
+     */
+
+    &__icon {
+        display: block;
+        margin: 0 auto;
+
+        @include social(100% 1, null, search close) {
+            background-color: transparent;
+        }
+
+        @include media(large) {
+            @include square-flex(40px 1);
+        }
+    }
+}

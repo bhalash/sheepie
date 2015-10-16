@@ -1,0 +1,33 @@
+/**
+ * Theme Colours
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+.color {
+    &--rmwb {
+        &--bg, &--bg-hover:hover {
+            background-color: palette(rmwb);
+        }
+
+        &--text, &--text-hover:hover {
+            color: palette(rmwb);
+        }
+    }
+
+    &--blue {
+        &--bg, &--bg-hover:hover {
+            background-color: palette(blue);
+        }
+
+        &--text, &--text-hover:hover {
+            color: palette(blue);
+        }
+    }
+}
