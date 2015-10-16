@@ -19,7 +19,7 @@ $html = get_bloginfo('html_type');
 ?>
 
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> ng-app="sheepieApp">
+<html <?php language_attributes(); ?>>
 <head>
 <!-- The mystery of life isn't a problem to solve, but a reality to experience. -->
 <meta http-equiv="Content-Type" content="<?php printf('%s; charset=%s', $html, $charset); ?>" />
@@ -31,5 +31,5 @@ $html = get_bloginfo('html_type');
 </head>
 <body <?php body_class(); ?>>
     <?php sheepie_partial('head'); ?>
-    <main id="content">
-        <div class="content-interior">
+    <main class="main" id="main">
+        <div class="main__interior" id="main__interior">
