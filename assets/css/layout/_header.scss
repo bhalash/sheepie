@@ -35,7 +35,7 @@
         @include padding(2);
 
         @include navbar-size-1024 {
-            @include padding(1);
+            @include padding(0 1);
         }
     }
 
@@ -122,12 +122,14 @@
 
         @include media(large) {
             @include font-size(2);
-            line-height: 40px;
+            @include line-height(6);
         }
     }
 
     &__title-link {
+        display: block;
         font-weight: 400;
+        height: 100%;
     }
 
     /**
