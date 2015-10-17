@@ -45,7 +45,9 @@ $action = esc_url(home_url('/'));
             <?php wp_nav_menu(array(
                 'theme_location' => 'top-social',
                 'container' => 'div',
-                'container_class' => 'navbar__social navbar__child'
+                'container_class' => 'navbar__social navbar__child',
+                    'link_before' => '<span class="navbar__socialicon">',
+                    'link_after' => '</span>'
             )); ?>
 
             <div class="navbar__buttonrow navbar__child">
