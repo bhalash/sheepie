@@ -35,10 +35,6 @@
         @include flex-child(1);
     }
 
-    span {
-        white-space: nowrap;
-    }
-
     &__count {
         text-align: center;
 
