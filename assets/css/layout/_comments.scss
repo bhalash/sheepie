@@ -62,8 +62,14 @@
         @include columns(float, input, 3, $split-column-margin) {
             @include media(small) {
                 @include nofloat;
+                @include margin(1, bottom);
                 width: 100%;
             }
+        }
+
+        @include media(small) {
+            // Override vspace as inputs will have their own bottom margin.
+            margin-bottom: 0;
         }
     }
 
