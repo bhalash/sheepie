@@ -132,7 +132,15 @@
      * Horizontal row of external social media links.
      */
 
+    &__social-wrapper {
+        @include media(large) {
+            // Inherit 3.75rem height in collapsed state.
+            height: 100%;
+        }
+    }
+
     &__social {
+        height: 100%;
         list-style-type: none;
         @include clearfix;
         @include flex-child(0 1 auto);
@@ -147,21 +155,36 @@
         }
 
         .menu-item {
-            /* WordPress requires menu links to have a text label.
-             * Also hides extra space from display: inline-block; */
+            // WordPress requires menu links to have a text label.
+            // This forcibly hides the label in favour of the icon.
             font-size: 0 !important;
             float: left;
+            // Override default line-height set for items.
+            // Otherwise IE9, 10 and 11 wig out.
+            line-height: normal;
             overflow: hidden;
             @include social(100% 1, '.navbar__socialicon');
+
             @include square-flex(25% 1);
 
             @include media(large) {
+                // Revert to a height-filling state with a fixed rem width.
+                // This presents a larger touch target.
+                height: 100%;
                 padding-bottom: 0;
-                @include size(4 6);
+                @include width(4);
             }
 
             a {
+                display: block;
                 font-size: inherit;
+                height: 100%;
+                line-height: inherit;
+
+                @include media(large) {
+                    box-sizing: border-box;
+                    @include padding(1 0);
+                }
             }
         }
     }
@@ -173,11 +196,8 @@
      */
 
     &__socialicon {
+        // Side is set above in .menu-item.
         display: block;
-
-        @include media(large) {
-            @include margin(1, top);
-        }
     }
 
     /**
