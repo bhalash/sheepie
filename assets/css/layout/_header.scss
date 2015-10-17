@@ -77,25 +77,6 @@
             color: inherit;
             letter-spacing: 1.5px;
         }
-
-        ul {
-            list-style-type: none;
-            @include clearfix;
-        }
-
-        li {
-            /* WordPress requires menu links to have a text label.
-             * Also hides extra space from display: inline-block; */
-            font-size: 0 !important;
-            float: left;
-            overflow: hidden;
-
-            a {
-                display: block;
-                font-size: inherit;
-                @include square-flex(100% 1);
-            }
-        }
     }
 
     /**
@@ -152,6 +133,8 @@
      */
 
     &__social {
+        list-style-type: none;
+        @include clearfix;
         @include flex-child(0 1 auto);
 
         @include media(large) {
@@ -163,12 +146,37 @@
             display: none;
         }
 
-        li {
-            @include social(25% 1);
+        .menu-item {
+            /* WordPress requires menu links to have a text label.
+             * Also hides extra space from display: inline-block; */
+            font-size: 0 !important;
+            float: left;
+            overflow: hidden;
+            @include social(100% 1, '.navbar__socialicon');
+            @include square-flex(25% 1);
 
             @include media(large) {
-                @include square-flex(40px 1);
+                padding-bottom: 0;
+                @include size(4 6);
             }
+
+            a {
+                font-size: inherit;
+            }
+        }
+    }
+
+    /**
+     * Social Menu Icon
+     * -------------------------------------------------------------------------
+     * Icon is deoupled from the parent container.
+     */
+
+    &__socialicon {
+        display: block;
+
+        @include media(large) {
+            @include margin(1, top);
         }
     }
 
