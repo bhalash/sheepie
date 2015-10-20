@@ -52,23 +52,29 @@ $action = esc_url(home_url('/'));
             )); ?>
 
             <div class="navbar__buttonrow navbar__child">
-                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle" id="searchtoggle__navbar">
-                    <span class="button__icon search"></span> 
+                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle" id="searchtoggle__navbar" data-bind="click: toggleSearch">
+                    <span class="button__icon search" data-bind="css: {close: display.search()}"></span> 
                 </button>
             </div>
         </div>
     </div>
 </header>
 
-<div class="disp--hidden bigsearch color--rmwb--bg" id="bigsearch">
+<div class="disp--hidden bigsearch color--rmwb--bg" id="bigsearch" data-bind="css: {'disp--hidden': !display.search()}">
     <form class="bigsearch__form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
+            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: display.search()"> 
             <label class="bigsearch__label" for="bigsearch__input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
 
-    <button class="button button--search-bigsearch bigsearch__toggle" id="searchtoggle__search">
-        <span class="button__icon search"></span> 
+    <button class="button button--search-bigsearch bigsearch__toggle" id="searchtoggle__search" data-bind="click: toggleSearch"> 
+        <span class="button__icon search" data-bind="css: {close: display.search()}"></span> 
     </button>
+</div>
+
+<div class="lightbox" id="lightbox" style="display: none;" data-bind="visible: display.lightbox()">
+    <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
+        <img class="lightbox__image" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
+    </a>
 </div>
