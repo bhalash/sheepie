@@ -19,12 +19,6 @@ var gulp = require('gulp'),
     replace = require('gulp-replace');
 
 var assets = {
-    sass: 'assets/css/',
-    sprites: 'assets/css/',
-    js: 'assets/js/',
-};
-
-var assets = {
     css: {
         source: 'assets/css/**/*.scss',
         dest: 'assets/css/'
@@ -88,9 +82,6 @@ gulp.task('js', function() {
     // Minify all scripts in the JS folder.
     return gulp.src(assets.js.source)
         .pipe(uglify())
-        .pipe(rename({
-            extname: '.min.js'
-        }))
         .pipe(gulp.dest(assets.js.dest));
 });
 
