@@ -205,4 +205,19 @@ function sheepie_postmeta() {
     edit_post_link(__('edit post', 'sheepie'), ' / ', ''); 
 }
 
+/**
+ * Add Knockout.js Lightbox Data Binding
+ * -----------------------------------------------------------------------------
+ * Output post header information (category and date).
+ *
+ * @param   string      $content        The post content.
+ * @return  string      $content        Post content with added directives.
+ */
+
+function sheepie_add_lightbox_binding($content) {
+    return str_replace('<img', '<img data-bind="click: showLightbox"', $content);
+}
+
+add_filter( 'the_content', 'sheepie_add_lightbox_binding');
+
 ?>
