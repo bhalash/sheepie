@@ -53,3 +53,15 @@
 .page-links {
     @include margin($vspace, top);
 }
+
+
+/**
+ * Password Protected Post Box
+ * -----------------------------------------------------------------------------
+ */
+
+.post-password-form {
+    input {
+        @include margin($vspace 0);
+    }
+}
