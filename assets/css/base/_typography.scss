@@ -50,7 +50,6 @@ h1, h2, h3, h4, h5, h6 {
         $line-height--headline: $font-size--headline * $mod-scale--ratio;
 
         @include font-size($font-size--headline);
-        @include line-height($line-height--headline);
     }
 }
 
