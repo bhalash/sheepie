@@ -189,11 +189,13 @@
  *     JS!).
  */
 
-a[class^=rmwb-lightbox-] {
+.lightbox {
     background: palette(black, dark);
-    @include pop-modal;
+    outline: 0;
+    z-index: 4;
+    @include fixed(0);
 
-    img {
+    &__image {
         height: initial;
         max-width: 90%;
         max-height: 90%;
