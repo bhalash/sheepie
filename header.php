@@ -29,7 +29,8 @@ $html = get_bloginfo('html_type');
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-bind="event: {keyup: closeOnEscape}">
+    <?php // I split off the nav and header code for my sanity (neatness). ?>
     <?php sheepie_partial('head'); ?>
     <main class="main" id="main">
         <div class="main__interior" id="main__interior">
