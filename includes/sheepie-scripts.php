@@ -14,17 +14,14 @@
 
 function sheepie_scripts() { 
     $assets = get_template_directory_uri() . '/assets/';
-    $js_path = $assets . 'js/';
+    $js_path = $assets . 'js/min/';
     $css_path = $assets . 'css/';
     $node_path = get_template_directory_uri() . '/node_modules/';
 
     $sheepie_js = array(
+        'knockout' => $node_path . '/knockout/build/output/knockout-latest.js',
         'highlight-js' => $js_path . 'highlight.js',
-        'linked' => $js_path . 'link.js',
-        'lightbox' => $js_path . 'lightbox.js',
-        'functions' => $js_path . 'functions.js',
-        // 'angular' => $node_path . 'angular/angular.js',
-        // 'angular-test' => $js_path . 'angular-test.js'
+        'functions' => $js_path . 'functions.js'
     );
 
     $sheepie_conditional_js = array(
@@ -97,12 +94,6 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
 
     if (!is_404()) {
         foreach ($sheepie_js as $name => $script) {
-            if (!WP_DEBUG) {
-                // Instead load minified version if you aren't debugging.
-                $script = str_replace($js_path, $js_path . 'min/', $script);
-                $script = str_replace('.js', '.min.js', $script);
-            }
-
             wp_enqueue_script($name, $script, array('jquery'), $GLOBALS['sheepie_version'], true);
         }
     }
