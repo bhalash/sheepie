@@ -195,10 +195,14 @@
     z-index: 4;
     @include fixed(0);
 
+    &__anchor {
+        @include absolute(0);
+    }
+
     &__image {
         height: initial;
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 95%;
+        max-height: 95%;
         transform: translate(-50%, -50%);
         width: initial;
         @include fixed(50% 50%, left top);
