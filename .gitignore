@@ -12,7 +12,7 @@ vectors/
 ## Minified JS
 #################
 
-js/min/
+assets.js/min/
 *.min.js
 
 #################
