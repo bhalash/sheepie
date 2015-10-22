@@ -68,8 +68,8 @@ if (comments_open()) {
         'title_reply' => '',
         'comment_field' => sprintf('<p id="textarea">%s</p>', $textarea),
         'comment_form_before_fields' => '<div class="comments__form">',
-        'comment_form_after_fields' =>'</div>',
-        'fields' => $fields,
+        'comment_form_after_fields' => '</div>',
+        'fields' => $fields
     ));
 
     printf('</div>');
