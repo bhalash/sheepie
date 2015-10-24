@@ -35,7 +35,7 @@
         @include padding(2);
 
         @include navbar-size-1024 {
-            @include padding(0 1);
+            @include padding(0 $navbar-height--collapsed * 0.25);
         }
     }
 
@@ -102,8 +102,8 @@
         line-height: 120%;
 
         @include media(large) {
-            @include font-size(2);
-            @include line-height(6);
+            @include font-size(3);
+            @include line-height($navbar-height--collapsed);
         }
     }
 
@@ -172,7 +172,7 @@
                 // This presents a larger touch target.
                 height: 100%;
                 padding-bottom: 0;
-                @include width(4);
+                @include width($navbar-height--collapsed * 0.5);
             }
 
             a {
@@ -183,7 +183,7 @@
 
                 @include media(large) {
                     box-sizing: border-box;
-                    @include padding(1 0);
+                    @include padding($navbar-height--collapsed * 0.25 0);
                 }
             }
         }

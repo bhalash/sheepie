@@ -32,7 +32,7 @@
         opacity: 1;
         @include absolute(0 0, top right);
         // Button size is increased to present a better touch target.
-        @include size(6 6);
+        @include size($navbar-height--collapsed $navbar-height--collapsed);
     }
 
     /**
