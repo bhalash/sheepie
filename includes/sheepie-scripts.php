@@ -19,9 +19,21 @@ function sheepie_scripts() {
     $node_path = get_template_directory_uri() . '/node_modules/';
 
     $sheepie_js = array(
-        'knockout' => $node_path . '/knockout/build/output/knockout-latest.js',
-        'highlight-js' => $js_path . 'highlight.js',
-        'functions' => $js_path . 'functions.js'
+        // Name
+        'knockout' => array(
+            // Path.
+            $node_path . '/knockout/build/output/knockout-latest.js',
+            // Dependencies.
+            array()
+        ),
+        'functions' => array(
+            $js_path . 'functions.js',
+            array()
+        ),
+        'highlight-js' => array(
+            $js_path . 'highlight.js',
+            array(),
+        )
     );
 
     $sheepie_conditional_js = array(
@@ -94,7 +106,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
 
     if (!is_404()) {
         foreach ($sheepie_js as $name => $script) {
-            wp_enqueue_script($name, $script, array('jquery'), $GLOBALS['sheepie_version'], true);
+            wp_enqueue_script($name, $script[0], $script[1], $GLOBALS['sheepie_version'], true);
         }
     }
 
