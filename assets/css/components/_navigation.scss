@@ -16,8 +16,13 @@
  */
 
 .navigation--home {
-    a:before {
-        content: '← ';
+    &__link {
+        @include padding($vspace * 0.75 0);
+        display: block; 
+
+        &:before {
+            content: '← ';
+        }
     }
 }
 
@@ -35,8 +40,14 @@
         @include flex-child(1);
     }
 
+    a {
+        display: block;
+        @include padding($vspace * 0.75 0);
+    }
+
     &__count {
         text-align: center;
+        @include padding($vspace * 0.75 0);
 
         @include media(smartphone) {
             display: none;
