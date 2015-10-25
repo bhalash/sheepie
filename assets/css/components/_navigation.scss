@@ -21,7 +21,8 @@
         display: block; 
 
         &:before {
-            content: '← ';
+            // '← '
+            content: '\2190\20';
         }
     }
 }
