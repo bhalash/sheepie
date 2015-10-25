@@ -23,6 +23,7 @@ var sourcemap = require('gulp-sourcemaps');
 var replace = require('gulp-replace');
 var penthouse = require('penthouse');
 var fs = require('fs');
+var concat = require('gulp-concat');
 
 //
 // Assets Paths
@@ -105,6 +106,18 @@ gulp.task('sprites', function() {
         .pipe(gulp.dest(assets.sprites.dest));
 });
 
+// 
+// Minify JS Files
+//
+
+gulp.task('js', function() {
+    // Minify all scripts in the JS folder.
+    return gulp.src(assets.js.source)
+        .pipe(uglify())
+        .pipe(concat('sheepie.js'))
+        .pipe(gulp.dest(assets.js.dest));
+});
+
 //
 // Production Minified CSS
 //
@@ -134,17 +147,6 @@ gulp.task('css-dev', ['sprites'], function() {
         .pipe(prefixer(prefixes))
         .pipe(sourcemap.write())
         .pipe(gulp.dest(assets.css.dest));
-});
-
-// 
-// Minify JS Files
-//
-
-gulp.task('js', function() {
-    // Minify all scripts in the JS folder.
-    return gulp.src(assets.js.source)
-        .pipe(uglify())
-        .pipe(gulp.dest(assets.js.dest));
 });
 
 // 
