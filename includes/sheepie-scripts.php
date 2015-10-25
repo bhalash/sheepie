@@ -22,7 +22,7 @@ add_action('wp_enqueue_scripts', function() {
         // Name
         'knockout' => array(
             // Path.
-            $node_path . '/knockout/build/output/knockout-latest.js',
+            $node_path . 'knockout/build/output/knockout-latest.js',
             // Dependencies.
             array()
         ),
@@ -82,7 +82,6 @@ add_action('wp_enqueue_scripts', function() {
  */
 
 add_filter('script_loader_tag', function($tag, $handle) {
-    // $defer_type = 'defer';
     $defer_type = 'async';
 
     if (is_admin()) {
