@@ -72,108 +72,104 @@ removeSelector('[class^=article-photobox] br');
  *  to add the click directive to article images.
  */
 
-setTimeout(function() {
-    // The timeout is to allow Knockout.js time to download and execute.
-    //
-    var sheepieController = function() {
-        return function() {
-            var self = this;
+var sheepieController = function() {
+    return function() {
+        var self = this;
 
-            /*
-             * View States
-             * -----------------------------------------------------------------
-             *  Add whatever extra states here.
-             */
+        /*
+         * View States
+         * -----------------------------------------------------------------
+         *  Add whatever extra states here.
+         */
 
-            self.display = {
-                search: ko.observable(false),
-                lightbox: ko.observable(false)
-            };
+        self.display = {
+            search: ko.observable(false),
+            lightbox: ko.observable(false)
+        };
 
-            /*
-             * Lightbox Attributes
-             * -----------------------------------------------------------------
-             * Pulled from the bound image. Link isn't used, although it is useful
-             * for future use.
-             */
+        /*
+         * Lightbox Attributes
+         * -----------------------------------------------------------------
+         * Pulled from the bound image. Link isn't used, although it is useful
+         * for future use.
+         */
 
-            self.lightbox = {
-                text: ko.observable(null),
-                image: ko.observable(null),
-                link: ko.observable(null)
-            };
+        self.lightbox = {
+            text: ko.observable(null),
+            image: ko.observable(null),
+            link: ko.observable(null)
+        };
 
-            /*
-             * Change State
-             * -----------------------------------------------------------------
-             * The modal (search, lightbox) element on this site have an
-             * exclusive appearance: only one at a time should display.
-             *
-             *  1. Hide all the eiements, except name.
-             *  2. If name exists, invert its state.
-             *
-             * @param   string      name        State to toggle true.
-             */
+        /*
+         * Change State
+         * -----------------------------------------------------------------
+         * The modal (search, lightbox) element on this site have an
+         * exclusive appearance: only one at a time should display.
+         *
+         *  1. Hide all the eiements, except name.
+         *  2. If name exists, invert its state.
+         *
+         * @param   string      name        State to toggle true.
+         */
 
-            self.show = function(name) {
-                for (var i in self.display) {
-                    if (name && name in self.display && self.display[i]() === self.display[name]()) {
-                        continue;
-                    }
-
-                    self.display[i](false);
+        self.show = function(name) {
+            for (var i in self.display) {
+                if (name && name in self.display && self.display[i]() === self.display[name]()) {
+                    continue;
                 }
 
-                if (name && name in self.display) {
-                    self.display[name](!self.display[name]());
-                }
-            };
+                self.display[i](false);
+            }
 
-            /*
-             * Set State to: Whatever
-             * -----------------------------------------------------------------
-             */
+            if (name && name in self.display) {
+                self.display[name](!self.display[name]());
+            }
+        };
 
-            self.toggleLightbox = function() {
-                self.show('lightbox');
-            };
+        /*
+         * Set State to: Whatever
+         * -----------------------------------------------------------------
+         */
 
-            self.toggleSearch = function() {
-                self.show('search');
-            };
+        self.toggleLightbox = function() {
+            self.show('lightbox');
+        };
 
-            /*
-             * Close Lightbox/Search/Whatever on Escape
-             * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
-             */
+        self.toggleSearch = function() {
+            self.show('search');
+        };
 
-            self.closeOnEscape = function(data, event) {
-                if (event.keyCode === 27) {
-                    self.show(null);
-                }
-            };
+        /*
+         * Close Lightbox/Search/Whatever on Escape
+         * -----------------------------------------------------------------
+         *  @param  object      data        Data passed.
+         *  @param  object      event       Event and element information.
+         */
 
-            /*
-             * Set Lightbox Data and Open Lightbox
-             * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
-             */
+        self.closeOnEscape = function(data, event) {
+            if (event.keyCode === 27) {
+                self.show(null);
+            }
+        };
 
-            self.showLightbox = function(data, event) {
-                self.lightbox.text(event.target.attributes.alt.value);
-                self.lightbox.image(event.target.attributes.src.value);
-                self.lightbox.link(event.target.parentNode.attributes.href.value);
+        /*
+         * Set Lightbox Data and Open Lightbox
+         * -----------------------------------------------------------------
+         *  @param  object      data        Data passed.
+         *  @param  object      event       Event and element information.
+         */
 
-                self.show('lightbox');
-            };
-        }
+        self.showLightbox = function(data, event) {
+            self.lightbox.text(event.target.attributes.alt.value);
+            self.lightbox.image(event.target.attributes.src.value);
+            self.lightbox.link(event.target.parentNode.attributes.href.value);
+
+            self.show('lightbox');
+        };
     }
+}
 
-    ko.applyBindings(new sheepieController());
-}, 500);
+ko.applyBindings(new sheepieController());
 
 /**
  * Google Analytics
