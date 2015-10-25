@@ -73,7 +73,7 @@ $action = esc_url(home_url('/'));
     </button>
 </div>
 
-<div class="lightbox" id="lightbox" style="display: none;" data-bind="visible: display.lightbox()">
+<div class="disp--hidden lightbox" id="lightbox" data-bind="css: { 'disp--hidden': !display.lightbox() }">
     <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
         <img class="lightbox__image" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
     </a>
