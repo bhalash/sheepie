@@ -19,36 +19,18 @@ add_action('wp_enqueue_scripts', function() {
     $node_path = get_template_directory_uri() . '/node_modules/';
 
     $sheepie_js = array(
-        // Name
-        'knockout' => array(
-            // Path.
-            $node_path . 'knockout/build/output/knockout-latest.js',
-            // Dependencies.
-            array()
-        ),
         'functions' => array(
-            $js_path . 'functions.js',
+            $js_path . 'sheepie.js',
             array()
         ),
-        'highlight-js' => array(
-            $js_path . 'highlight.js',
-            array()
-        )
     );
 
     $sheepie_conditional_js = array(
         // Internet Explorer conditional JS.
         'html5-shiv' => array(
             $node_path . 'html5shiv/dist/html5shiv.min.js',
-            'lte IE 9'
-        ),
-        'jquery-placeholder' => array(
-            $node_path . 'jquery-placeholder/jquery.placeholder.min.js',
-            'lte IE 9'
-        ),
-        'ie-functions' => array(
-            $js_path . 'ie-functions.js',
-            'lte IE 9'
+            'lte IE 9',
+            array()
         )
     );
 
@@ -133,8 +115,9 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
     foreach ($sheepie_conditional_js as $name => $script) {
         $path = $script[0];
         $condition = $script[1];
+        $deps = $script[2];
 
-        wp_enqueue_script($name, $path, array(), $GLOBALS['sheepie_version'], false);
+        wp_enqueue_script($name, $path, $deps, $GLOBALS['sheepie_version'], false);
         wp_script_add_data($name, 'conditional', $condition);
     }
 
