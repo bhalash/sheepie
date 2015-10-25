@@ -220,3 +220,37 @@
         }
     }
 }
+
+/**
+ * Lightbox Image
+ * -----------------------------------------------------------------------------
+ * There is a JavaScript component to determine state, but it is mostly handled
+ * through this CSS.
+ * 
+ * 1. If #lightbox is targeted by a clicked link, make it appear.
+ * 2. Otherwise it is hidden.
+ * 3. I am working on a way to successfuly freeze the background without 
+ *    resorting to JavaScript (I could freeze the body tag, but that requires
+ *     JS!).
+ */
+
+.lightbox {
+    background: palette(black, dark);
+    outline: 0;
+    z-index: 4;
+    transition: opacity .15s;
+    @include fixed(0);
+
+    &__anchor {
+        @include absolute(0);
+    }
+
+    &__image {
+        height: initial;
+        max-width: 95%;
+        max-height: 95%;
+        transform: translate(-50%, -50%);
+        width: initial;
+        @include fixed(50% 50%, left top);
+    }
+}
