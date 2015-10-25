@@ -16,12 +16,12 @@
 
 <nav class="pagination pagination--comment" id="pagination--comment">
     <p class="pagination__previous previous-comment">
-        <span class="font--span"><?php previous_comments_link(__('&larr; Previous', 'sheepie')); ?></small>
+        <span class="font--span"><?php previous_comments_link(__('Previous', 'sheepie')); ?></small>
     </p>
     <p class="pagination__count">
         <span class="font--span"><?php get_comment_pages_count(); ?></small>
     </p>
     <p class="pagination__next next-comment">
-        <span class="font--span"><?php next_comments_link(__('Next &rarr;', 'sheepie')); ?></small>
+        <span class="font--span"><?php next_comments_link(__('Next', 'sheepie')); ?></small>
     </p>
 </nav>

@@ -20,7 +20,7 @@ $page_previous = $page - 1;
 
 <nav class="pagination pagination--site" id="pagination--site">
     <p class="pagination__previous previous-page">
-        <span class="font--small"><?php previous_posts_link(__('&larr; Page ', 'sheepie') . $page_previous); ?></span>
+        <span class="font--small"><?php previous_posts_link(__('Page ', 'sheepie') . $page_previous); ?></span>
     </p>
     <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
         <p class="pagination__count">
@@ -28,6 +28,6 @@ $page_previous = $page - 1;
         </p>
     <?php endif; ?>
     <p class="pagination__next next-page">
-        <span class="font--small"><?php next_posts_link(__('Page ', 'sheepie') . $page_next. ' &rarr;');  ?></span>
+        <span class="font--small"><?php next_posts_link(__('Page ', 'sheepie') . $page_next);  ?></span>
     </p>
 </nav>
