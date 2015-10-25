@@ -122,7 +122,7 @@ gulp.task('js', function() {
 // Production Minified CSS
 //
 
-gulp.task('css', ['penthouse', 'js', 'sprites'], function() {
+gulp.task('css', ['penthouse'], function() {
     sass(assets.css.source, {
         emitCompileError: true,
         style: 'compressed'
