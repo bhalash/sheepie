@@ -19,7 +19,7 @@ $GLOBALS['sheepie_version'] = '1.1.3';
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_setup() {
+add_action('after_setup_theme', function() {
     // All theme PHP.
     sheepie_includes(); 
 
@@ -54,9 +54,7 @@ function sheepie_setup() {
         'facebook' => 'bhalash',
         'twitter' => '@bhalash'
     ));
-}
-
-add_action('after_setup_theme', 'sheepie_setup');
+});
 
 /**
  * Theme Includes
@@ -92,54 +90,12 @@ function sheepie_partial($name, $slug = '') {
 }
 
 /**
- * Set Title Based on Page Type
- * -----------------------------------------------------------------------------
- * @param   int     $post_id
- * @return  string  $page_title         Title of page.
- */
-
-function sheepie_page_title($post_id = null, $echo = false) {
-    if (is_null($post_id)) {
-        global $post;
-        $post_id = $post->ID;
-    }
-
-    $page_title = '';
-
-    if (!is_single() && !is_search()) {
-        $page_title = sprintf('<a title="%s" href="%s">%s</a>',
-            __('Go home', 'sheepie'), esc_url(home_url()),
-            get_bloginfo('name')
-        ); 
-    } else if (is_search()) {
-        $page_title = sprintf('%s \'%s\'',
-            __('Results for', 'sheepie'),
-            get_search_query()
-        ); 
-    } else {
-        // If single article or page.
-        $page_title = sprintf('<a href="%s" rel="bookmark" title="%s %s">%s</a>', 
-            get_the_permalink(),
-            __('Permanent link to', 'sheepie'), 
-            get_the_title($post_id), 
-            get_the_title($post_id)
-        );
-    }
-
-    if (!$echo) {
-        return $page_title;
-    }
-
-    printf($page_title);
-}
-
-/**
  * Media Prefetch
  * -----------------------------------------------------------------------------
  * Set prefetch for a given media domain. Useful if your site is image heavy.
  */
 
-function sheepie_dns_prefetch() {
+add_action('wp_head', function() {
     // Media prefetch domain: If null or empty, defaults to site domain.
     $prefetch = array(
         'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
@@ -148,16 +104,14 @@ function sheepie_dns_prefetch() {
     foreach ($prefetch as $domain) {
         printf('<link rel="dns-prefetch" href="//%s">', $domain);
     }
-}
-
-add_action('wp_head', 'sheepie_dns_prefetch');
+});
 
 /**
  * Register Theme Widget Areas
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_widgets() {
+add_action('widgets_init', function() {
     register_sidebar(array(
         'id' => 'theme-widgets',
         'name' => __('Sheepie Footer Widgets', 'sheepie'),
@@ -167,25 +121,19 @@ function sheepie_widgets() {
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ));
-}
-
-// Them widget areas.
-add_action('widgets_init', 'sheepie_widgets');
+});
 
 /**
  * Register Theme Navigation Menus
  * -----------------------------------------------------------------------------
  */
 
-function sheepie_menus() {
+add_action('init', function() {
     register_nav_menus(array(
         'top-menu' => __('Header Menu', 'sheepie'),
         'top-social' => __('Header Social Links', 'sheepie')
     ));
-}
-
-// Theme menus.
-add_action('init', 'sheepie_menus');
+});
 
 /**
  * Post Meta Information
@@ -194,7 +142,6 @@ add_action('init', 'sheepie_menus');
  */
 
 function sheepie_postmeta() {
-
     printf('<time datetime="%s">%s</time>',
         get_the_time('Y-m-d H:i'),
         get_the_time(get_option('date_format'))
@@ -214,10 +161,8 @@ function sheepie_postmeta() {
  * @return  string      $content        Post content with added directives.
  */
 
-function sheepie_add_lightbox_binding($content) {
+add_filter('the_content', function($content) {
     return str_replace('<img', '<img data-bind="click: showLightbox"', $content);
-}
-
-add_filter( 'the_content', 'sheepie_add_lightbox_binding');
+});
 
 ?>
