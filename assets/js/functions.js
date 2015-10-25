@@ -10,76 +10,78 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-;(function() {
-    /*
-     * Wrap Pre Elements
-     * -------------------------------------------------------------------------
-     * highlight.js operates on the <code> child or <pre> elements. This wraps the
-     * content of an element with <code> before initializing highlight.js.
-     *
-     * This does the same thing as jQuery's $(foo).wrapInner(), albeit with less
-     * regex selector magic.
-     *
-     *  if ($('pre').length) {
-     *      $('pre:not(:has(> code))').wrapInner('<code></code>');
-     *  } 
-     */
+/*
+ * Wrap Pre Elements
+ * -------------------------------------------------------------------------
+ * highlight.js operates on the <code> child or <pre> elements. This wraps the
+ * content of an element with <code> before initializing highlight.js.
+ *
+ * This does the same thing as jQuery's $(foo).wrapInner(), albeit with less
+ * regex selector magic.
+ *
+ *  if ($('pre').length) {
+ *      $('pre:not(:has(> code))').wrapInner('<code></code>');
+ *  } 
+ */
 
-    function wrapInsideElement(selector, wrapper) {
-        selector = document.querySelectorAll(selector);
-        wrapper = wrapper.replace(/(^<.*\/|>$)/g, '');
+function wrapInsideElement(selector, wrapper) {
+    selector = document.querySelectorAll(selector);
+    wrapper = wrapper.replace(/(^<.*\/|>$)/g, '');
 
-        [].forEach.call(selector, function(element) {
-            if (element.querySelectorAll(wrapper).length === 0) {
-                var newChild = document.createElement(wrapper);
-                
-                while (element.childNodes.length) {
-                    newChild.appendChild(element.childNodes[0]);
-                }
-
-                element.appendChild(newChild);
+    [].forEach.call(selector, function(element) {
+        if (element.querySelectorAll(wrapper).length === 0) {
+            var newChild = document.createElement(wrapper);
+            
+            while (element.childNodes.length) {
+                newChild.appendChild(element.childNodes[0]);
             }
+
+            element.appendChild(newChild);
+        }
+    });
+}
+
+wrapInsideElement('pre', '<code></code>');
+
+/**
+ * Remove Photobox Breaks
+ * -------------------------------------------------------------------------
+ * WordPress can insert <br> tags between elements if it detects either a
+ * space or a line break. This can break the formatting. Runs once.
+ *
+ * Does exactly the same thing as jQuery's $(foo).remove().
+ */
+
+function removeSelector(selector) {
+    selector = document.querySelectorAll(selector);
+
+    if (selector.length) {
+        [].forEach.call(selector, function(element) {
+            element.parentNode.removeChild(element);
         });
     }
+}
 
-    wrapInsideElement('pre', '<code></code>');
+removeSelector('[class^=article-photobox] br');
 
-    /**
-     * Remove Photobox Breaks
-     * -------------------------------------------------------------------------
-     * WordPress can insert <br> tags between elements if it detects either a
-     * space or a line break. This can break the formatting. Runs once.
-     *
-     * Does exactly the same thing as jQuery's $(foo).remove().
-     */
+/*
+ * Lightbox and Search Controller
+ * -----------------------------------------------------------------------------
+ *  Built around Knockout.js, this controller manages the search and
+ *  lightbox display on the site, in conjunction with a tiny PHP function
+ *  to add the click directive to article images.
+ */
 
-    function removeSelector(selector) {
-        selector = document.querySelectorAll(selector);
-
-        if (selector.length) {
-            [].forEach.call(selector, function(element) {
-                element.parentNode.removeChild(element);
-            });
-        }
-    }
-
-    removeSelector('[class^=article-photobox] br');
-
-    /*
-     * Lightbox and Search Controller
-     * -------------------------------------------------------------------------
-     *  Built around Knockout.js, this controller manages the search and
-     *  lightbox display on the site, in conjunction with a tiny PHP function
-     *  to add the click directive to article images.
-     */
-
+setTimeout(function() {
+    // The timeout is to allow Knockout.js time to download and execute.
+    //
     var sheepieController = function() {
         return function() {
             var self = this;
 
             /*
              * View States
-             * ---------------------------------------------------------------------
+             * -----------------------------------------------------------------
              *  Add whatever extra states here.
              */
 
@@ -90,7 +92,7 @@
 
             /*
              * Lightbox Attributes
-             * ---------------------------------------------------------------------
+             * -----------------------------------------------------------------
              * Pulled from the bound image. Link isn't used, although it is useful
              * for future use.
              */
@@ -103,9 +105,9 @@
 
             /*
              * Change State
-             * ---------------------------------------------------------------------
-             * The modal (search, lightbox) element on this site have an exclusive 
-             * appearance: only one at a time should display.
+             * -----------------------------------------------------------------
+             * The modal (search, lightbox) element on this site have an
+             * exclusive appearance: only one at a time should display.
              *
              *  1. Hide all the eiements, except name.
              *  2. If name exists, invert its state.
@@ -129,7 +131,7 @@
 
             /*
              * Set State to: Whatever
-             * ---------------------------------------------------------------------
+             * -----------------------------------------------------------------
              */
 
             self.toggleLightbox = function() {
@@ -142,7 +144,7 @@
 
             /*
              * Close Lightbox/Search/Whatever on Escape
-             * ---------------------------------------------------------------------
+             * -----------------------------------------------------------------
              *  @param  object      data        Data passed.
              *  @param  object      event       Event and element information.
              */
@@ -155,7 +157,7 @@
 
             /*
              * Set Lightbox Data and Open Lightbox
-             * ---------------------------------------------------------------------
+             * -----------------------------------------------------------------
              *  @param  object      data        Data passed.
              *  @param  object      event       Event and element information.
              */
@@ -171,7 +173,7 @@
     }
 
     ko.applyBindings(new sheepieController());
-})();
+}, 500);
 
 /**
  * Google Analytics
