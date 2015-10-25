@@ -61,11 +61,21 @@
 
     &__next {
         text-align: right;  
+
+        a:after {
+            // ' →'
+            content: '\20\2192';
+        }
     }
 
     &__previous {
         @include media(smartphone) {
             white-space: normal;
+        }
+
+        a:before {
+            // '← '
+            content: '\2190\20';
         }
     }
 }
