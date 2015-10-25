@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/bhalash/sheepie-theme#readme",
   "dependencies": {
+    "fs": "0.0.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-rename": "^1.2.2",
@@ -30,7 +31,8 @@
     "gulp-ruby-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.4.2",
-    "knockout": "^3.3.0"
+    "knockout": "^3.3.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "penthouse": "^0.3.6"
