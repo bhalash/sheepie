@@ -19,12 +19,12 @@ $post_classes = array('article', 'article--full', 'vspace--half');
 
 <article <?php post_class($post_classes); ?> id="article--full--<?php the_ID(); ?>">
     <header class="article--full__header vspace--full">
+        <?php if (!is_page()) : ?>
+            <h6 class="article--meta font--small vspace--half"><?php sheepie_postmeta(); ?></h4>
+        <?php endif; ?>
         <h2 class="title article--full__title">
             <?php sheepie_partial('posttitle'); ?>
         </h2>
-        <?php if (!is_page()) : ?>
-            <span class="article--meta font--small"><?php sheepie_postmeta(); ?></span>
-        <?php endif; ?>
     </header>
     <div class="article__content">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
@@ -43,10 +43,8 @@ $post_classes = array('article', 'article--full', 'vspace--half');
                 <?php sheepie_avatar_background_html($author, 96, 'avatar__photo'); ?>
             </div>
             <div class="article--full__author avatar__text">
-                <h4>by <?php the_author_meta('display_name'); ?></h4>
-                <p class="article--full__meta">
-                    <span class="font--small"><?php sheepie_postmeta(); ?></span>
-                </p>
+                <h4 class="vspace--half">by <?php the_author_meta('display_name'); ?></h4>
+                <h4 class="article--full__meta font--small vspace--quarter"><?php sheepie_postmeta(); ?></h4>
                 <p class="article--full__bio"><?php the_author_meta('user_description'); ?></p>
                 <p class="article--full__tags">
                     <span class="font--small"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></span>
