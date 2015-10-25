@@ -26,6 +26,6 @@ $post_classes = array('article', 'article--related', 'vspace--half');
         </h4>
     </a>
     <footer class="article--related__footer">
-        <span class="font--small"><?php sheepie_postmeta(); ?></span>
+        <h4 class="font--small"><?php sheepie_postmeta(); ?></h4>
     </footer>
 </article>
