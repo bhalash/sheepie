@@ -12,7 +12,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-function sheepie_scripts() { 
+add_action('wp_enqueue_scripts', function() { 
     $assets = get_template_directory_uri() . '/assets/';
     $js_path = $assets . 'js/min/';
     $css_path = $assets . 'css/';
@@ -32,7 +32,7 @@ function sheepie_scripts() {
         ),
         'highlight-js' => array(
             $js_path . 'highlight.js',
-            array(),
+            array()
         )
     );
 
@@ -73,9 +73,32 @@ function sheepie_scripts() {
 
     sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path);
     sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts);
-}
+});
 
-add_action('wp_enqueue_scripts', 'sheepie_scripts');
+/*
+ * Asynchronous Script Load
+ * -----------------------------------------------------------------------------
+ * @link http://www.davidtiong.com/using-defer-or-async-with-scripts-in-wordpress/
+ */
+
+add_filter('script_loader_tag', function($tag, $handle) {
+    // $defer_type = 'defer';
+    $defer_type = 'async';
+
+    if (is_admin()) {
+        return $tag;
+    }
+
+    if (strpos($tag, '/wp-includes/js/jquery/jquery')) {
+        return $tag;
+    }
+
+    if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 9.') !== false) {
+        return $tag;
+    }
+
+    return str_replace(' src', " $defer_type src ", $tag);
+}, 10, 2);
 
 /*
  * Load Site JS in Footer
@@ -83,10 +106,12 @@ add_action('wp_enqueue_scripts', 'sheepie_scripts');
  * @link http://www.kevinleary.net/move-javascript-bottom-wordpress/#comment-56740
  */
 
-function sheepie_clean_header() {
-    remove_action('wp_head', 'wp_print_scripts');
-    remove_action('wp_head', 'wp_print_head_scripts', 9);
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
+if (!is_admin()) {
+    add_action('wp_enqueue_scripts', function() {
+        remove_action('wp_head', 'wp_print_scripts');
+        remove_action('wp_head', 'wp_print_head_scripts', 9);
+        remove_action('wp_head', 'wp_enqueue_scripts', 1);
+    });
 }
 
 /** 
@@ -100,10 +125,6 @@ function sheepie_clean_header() {
  */
 
 function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
-    if (!is_admin()) {
-        add_action('wp_enqueue_scripts', 'sheepie_clean_header');
-    }
-
     if (!is_404()) {
         foreach ($sheepie_js as $name => $script) {
             wp_enqueue_script($name, $script[0], $script[1], $GLOBALS['sheepie_version'], true);
@@ -180,10 +201,8 @@ function sheepie_google_font_url($fonts) {
  * Load all theme CSS.
  */
 
-function sheepie_theme_add_editor_styles() {
+add_action('admin_init', function() {
     add_editor_style(get_template_directory_uri() . '/assets/css/editor.css'); 
-}
-
-add_action('admin_init', 'sheepie_theme_add_editor_styles');
+});
 
 ?>
