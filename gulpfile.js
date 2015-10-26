@@ -37,6 +37,7 @@ var assets = {
         dest: 'assets/css/'
     },
     js: {
+        concat: 'sheepie.js',
         source: 'assets/js/*.js',
         dest: 'assets/js/min/'
     },
@@ -114,7 +115,7 @@ gulp.task('js', function() {
     // Minify all scripts in the JS folder.
     return gulp.src(assets.js.source)
         .pipe(uglify())
-        .pipe(concat('sheepie.js'))
+        .pipe(concat(assets.js.concat))
         .pipe(gulp.dest(assets.js.dest));
 });
 
