@@ -60,6 +60,10 @@ add_action('wp_enqueue_scripts', function() {
 /*
  * Asynchronous Script Load
  * -----------------------------------------------------------------------------
+ * So, fair warning: this will break the shit out of WordPress jQuery plugins.
+ * Like, badly break shit if scripts are loaded which depend on others. My 
+ * theme's JS is optimized to sidestep this problem.
+ *
  * @link http://www.davidtiong.com/using-defer-or-async-with-scripts-in-wordpress/
  */
 
@@ -113,12 +117,8 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
     }
 
     foreach ($sheepie_conditional_js as $name => $script) {
-        $path = $script[0];
-        $condition = $script[1];
-        $deps = $script[2];
-
-        wp_enqueue_script($name, $path, $deps, $GLOBALS['sheepie_version'], false);
-        wp_script_add_data($name, 'conditional', $condition);
+        wp_enqueue_script($name, $script[0], $script[2], $GLOBALS['sheepie_version'], false);
+        wp_script_add_data($name, 'conditional', $script[1]);
     }
 
     if (is_singular()) {
