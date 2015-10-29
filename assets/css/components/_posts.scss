@@ -20,7 +20,7 @@
     @include clearfix;
 
     & > *:not(:last-child) {
-        @extend %vspace-full;
+        @include margin($vspace, bottom);
     }
 
     dl, ol, ul {
@@ -30,7 +30,7 @@
     }
 
     blockquote > p:not(:last-child) {
-        @extend %vspace-full;
+        @include margin($vspace, bottom);
     }
 
     img {
