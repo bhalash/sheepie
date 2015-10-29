@@ -46,14 +46,14 @@ $action = esc_url(home_url('/'));
                 'theme_location' => 'top-social',
                 'container' => 'div',
                 'container_class' => 'navbar__social-wrapper navbar__child',
-                'menu_class' => 'navbar__social',
-                'link_before' => '<span class="navbar__socialicon">',
+                'menu_class' => 'clearfix navbar__social',
+                'link_before' => '<span class="navbar__socialicon social__icon">',
                 'link_after' => '</span>'
             )); ?>
 
-            <div class="navbar__buttonrow navbar__child">
-                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle" id="searchtoggle__navbar" data-bind="click: toggleSearch">
-                    <span class="button__icon search" data-bind="css: {close: display.search()}"></span> 
+            <div class="clearfix navbar__buttonrow navbar__child">
+                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: display.search()}, click: toggleSearch">
+                    <span class="button__icon social__icon" data-bind=""></span> 
                 </button>
             </div>
         </div>
@@ -68,8 +68,8 @@ $action = esc_url(home_url('/'));
         </fieldset>
     </form>
 
-    <button class="button button--search-bigsearch bigsearch__toggle" id="searchtoggle__search" data-bind="click: toggleSearch"> 
-        <span class="button__icon search" data-bind="css: {close: display.search()}"></span> 
+    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: display.search()}, click: toggleSearch"> 
+        <span class="button__icon social__icon" data-bind=""></span> 
     </button>
 </div>
 
