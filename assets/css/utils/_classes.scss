@@ -11,6 +11,20 @@
  *
  */
 
+/*
+ * Social Sharing Vector Icons
+ * -----------------------------------------------------------------------------
+ */
+
+.social {
+    @include social(null, '.social__icon');
+}
+
+/*
+ * Clearfix
+ * -----------------------------------------------------------------------------
+ */
+
 .clearfix {
     @include clearfix;
 }
@@ -111,31 +125,65 @@
 
 .vspace {
     &--double {
-        @include margin($vspace * 2, bottom);
+        margin-bottom: rem($vspace * 2);
     }
 
     &--full {
-        @include margin($vspace, bottom);
+        margin-bottom: rem($vspace);
     }
 
     &--threequarter {
-        @include margin($vspace * 0.75, bottom);
+        margin-bottom: rem($vspace * 0.75);
     }
 
     &--twothird {
-        @include margin($vspace * 0.66, bottom);
+        margin-bottom: rem($vspace * 0.66);
     }
 
     &--half {
-        @include margin($vspace * 0.5, bottom);
+        margin-bottom: rem($vspace * 0.5);
     }
 
     &--onethird {
-        @include margin($vspace * 0.33, bottom);
+        margin-bottom: rem($vspace * 0.33);
     }
 
     &--quarter {
-        @include margin($vspace * 0.25, bottom);
+        margin-bottom: rem($vspace * 0.25);
+    }
+}
+
+.vcenter {
+    &--triple {
+        margin: rem($vspace * 3) 0;
+    }
+
+    &--double {
+        margin: rem($vspace * 2) 0;
+    }
+
+    &--full {
+        margin: rem($vspace) 0;
+    }
+
+    &--threequarter {
+        margin: rem($vspace * 0.75) 0;
+    }
+
+    &--twothird {
+        margin: rem($vspace * 0.66) 0;
+    }
+
+    &--half {
+        margin: rem($vspace * 0.5) 0;
+    }
+
+    &--onethird {
+        margin: rem($vspace * 0.33) 0;
+    }
+
+    &--quarter {
+        margin: rem($vspace * 0.25) 0;
     }
 }
 
