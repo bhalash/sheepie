@@ -165,4 +165,19 @@ add_filter('the_content', function($content) {
     return str_replace('<img', '<img data-bind="click: showLightbox"', $content);
 });
 
+/**
+ * Add Social CSS Class to Menu Items
+ * -----------------------------------------------------------------------------
+ * Used to set social icon style.
+ * 
+ * @param   array       $classes        Menu item classes.
+ * @param   object      $item           Menu object.
+ * @reutrn  array       $classes        Menu item classes.
+ */
+
+add_filter('nav_menu_css_class', function($classes, $item) {
+    $classes[] = 'social';
+    return $classes;
+});
+
 ?>

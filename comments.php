@@ -17,7 +17,7 @@ if (comments_open()) {
         return;
     }
 
-    printf('<hr>');
+    printf('<hr class="%s">', 'vcenter--double');
 
     printf('<div class="comments" id="comments">');
         printf('<h4 class="%s">%s \'%s\'</h4>',

@@ -20,7 +20,7 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         sheepie_partial('article', 'excerpt');
-        printf('<hr>');
+        printf('<hr class="%s">', 'vcenter--full');
     }
 } else {
     sheepie_partial('article', 'missing');

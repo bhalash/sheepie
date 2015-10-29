@@ -37,7 +37,7 @@ $post_classes = array('article', 'article--full', 'vspace--half');
 
     <?php if (is_single()) : ?>
         <?php sheepie_partial('pagination', 'post'); ?>
-        <hr>
+        <hr class="vcenter--double">
         <footer class="article--full__footer avatar">
             <div class="article--full__avatar avatar__container">
                 <?php sheepie_avatar_background_html($author, 96, 'avatar__photo'); ?>

@@ -18,7 +18,7 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         sheepie_partial('article', 'full');
-        printf('<hr>');
+        printf('<hr class="%s">', 'vcenter--double');
     }
 } else {
     sheepie_partial('article', 'missing');

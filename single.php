@@ -21,7 +21,7 @@ if (have_posts()) {
         sheepie_partial('article', 'full');
         
         if (function_exists('rp_get_related')) {
-            printf('<hr>');
+            printf('<hr class="%s">', 'vcenter--double');
             printf('<div class="%s">', 'related flex--three-col--article');
 
             $related = rp_get_related(array(

@@ -39,4 +39,4 @@ $result .= $total > 1 ? 's' : '';
         </span>
     <?php endif; ?>
 </div>
-<hr>
+<hr class="vcenter--full">
