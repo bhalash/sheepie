@@ -102,7 +102,7 @@
         line-height: 120%;
 
         @include media(large) {
-            @include font-size(3);
+            @include font-size(2);
             @include line-height($navbar-height--collapsed);
         }
     }
@@ -142,7 +142,6 @@
     &__social {
         height: 100%;
         list-style-type: none;
-        @include clearfix;
         @include flex-child(0 1 auto);
 
         @include media(large) {
@@ -163,8 +162,6 @@
             // Otherwise IE9, 10 and 11 wig out.
             line-height: normal;
             overflow: hidden;
-            @include social(100% 1, '.navbar__socialicon');
-
             @include square-flex(25% 1);
 
             @include media(large) {
@@ -175,12 +172,14 @@
                 @include width($navbar-height--collapsed * 0.5);
             }
 
-            a {
+            a, span {
                 display: block;
                 font-size: inherit;
-                height: 100%;
                 line-height: inherit;
+                @include square-flex(100% 1);
+            }
 
+            a {
                 @include media(large) {
                     box-sizing: border-box;
                     @include padding($navbar-height--collapsed * 0.25 0);
@@ -207,7 +206,6 @@
 
     &__buttonrow {
         @include flex-child(0 1 auto);
-        @include clearfix;
         overflow: hidden;
 
         @include media(large) {
