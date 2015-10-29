@@ -32,8 +32,8 @@ button, fieldset, input, textarea {
 
 button, fieldset, form, input, label, textarea {
     &:focus {
-     border: none;
-     outline: none;
+        border: none;
+        outline: none;
     }
 }
 
