@@ -75,3 +75,48 @@
         color: palette(black, x-dark);
     }
 }
+
+/**
+ * Photobox
+ * -----------------------------------------------------------------------------
+ * I post a great many photographs, and this has become a convenient way for me
+ * to arrange and display them.
+ */
+
+@mixin photobox-elements {
+    /* Every word has a space afterward, above and below, set by the browser. 
+     * An object with display "inline-block" or similar is treated as a word by
+     * your browser, and given a small trailing space beside and below, 
+     * determined by either the element or element parent's font-size value.
+     * 
+     * This can offset images several pixels from where they should be, in 
+     * circumstances where those few pixels can break layout. */
+    font-size: 0;
+
+    img {
+        /* Important: images will otherwise display weirdly in a manner that 
+         * varies by browser. */
+        width: 100%;
+    }
+
+    a {
+        @include padding(1, bottom);
+    }
+}
+
+.article-photobox {
+    &--two, &-two {
+        @include photobox-elements;
+        @include columns(flex, a, 2, $split-column-margin);
+    }
+
+    &, &--three, &-three {
+        @include photobox-elements;
+        @include columns(flex, a, 3, $split-column-margin);
+    } 
+
+    &--four, &-four {
+        @include photobox-elements;
+        @include columns(flex, a, 4, $split-column-margin);
+    }
+}
