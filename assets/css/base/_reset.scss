@@ -43,15 +43,10 @@ blockquote, figure, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul, %zero {
  * -----------------------------------------------------------------------------
  */
 
-hr, %hr {
-    border: 0;
+hr {
     background: palette(white, mid-light);
-    height: 1px;
-    @include margin(2 0);
-}
-
-body:not(.single):not(.search) hr {
-    @include margin(4 0);
+    border: 0;
+    height: 0.1rem;
 }
 
 /**
