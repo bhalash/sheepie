@@ -59,9 +59,7 @@
         display: block;
         margin: 0 auto;
 
-        @include social(100% 1, null, search close) {
-            background-color: transparent;
-        }
+        @include square-flex(100% 1);
 
         @include media(large) {
             @include square-flex(40px 1);
