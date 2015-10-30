@@ -178,6 +178,6 @@ add_filter('the_content', function($content) {
 add_filter('nav_menu_css_class', function($classes, $item) {
     $classes[] = 'social';
     return $classes;
-});
+}, 10, 2);
 
 ?>
