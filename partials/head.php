@@ -23,7 +23,7 @@ $action = esc_url(home_url('/'));
 
 ?>
 
-<header class="navbar" id="navbar">
+<header class="navbar noprint" id="navbar">
     <div class="navbar__contentwrap color--rmwb--bg">
         <div class="navbar__content">
             <div class="navbar__child navbar__titlewrapper">
@@ -60,7 +60,7 @@ $action = esc_url(home_url('/'));
     </div>
 </header>
 
-<div class="disp--hidden bigsearch color--rmwb--bg" id="bigsearch" data-bind="css: {'disp--hidden': !display.search()}">
+<div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !display.search()}">
     <form class="bigsearch__form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
             <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: display.search()"> 
@@ -73,7 +73,7 @@ $action = esc_url(home_url('/'));
     </button>
 </div>
 
-<div class="disp--hidden lightbox" id="lightbox" data-bind="css: { 'disp--hidden': !display.lightbox() }">
+<div class="disp--hidden lightbox noprint" id="lightbox" data-bind="css: { 'disp--hidden': !display.lightbox() }">
     <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
         <img class="lightbox__image" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
     </a>

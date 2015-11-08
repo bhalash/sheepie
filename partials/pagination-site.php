@@ -18,7 +18,7 @@ $page_previous = $page - 1;
 
 ?>
 
-<nav class="pagination pagination--site" id="pagination--site">
+<nav class="noprint pagination pagination--site" id="pagination--site">
     <p class="pagination__previous previous-page">
         <span class="font--small"><?php previous_posts_link(__('Page ', 'sheepie') . $page_previous); ?></span>
     </p>

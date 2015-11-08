@@ -23,12 +23,12 @@ $result .= $total > 1 ? 's' : '';
 
 ?>
 
-<form class="searchform vspace--half" id="searchform" method="get" action="<?php printf($action); ?>" autocomplete="off">
+<form class="noprint searchform vspace--half" id="searchform" method="get" action="<?php printf($action); ?>" autocomplete="off">
     <fieldset>
         <input class="searchform__input" id="searchform__input" name="s" placeholder="<?php _e('search', 'sheepie'); ?>" type="text" required="required" value="<?php printf($query); ?>">
     </fieldset>
 </form>
-<div class="clearfix searchform__meta">
+<div class="clearfix noprint searchform__meta">
     <span class="searchform__meta--left left-float"><?php printf('%d %s', $total, $result); ?></span>
     <?php if (function_exists('arc_search_url')) : ?>
         <span class="searchform__meta--right right-float">
@@ -39,4 +39,4 @@ $result .= $total > 1 ? 's' : '';
         </span>
     <?php endif; ?>
 </div>
-<hr class="vcenter--full">
+<hr class="vcenter--full noprint">

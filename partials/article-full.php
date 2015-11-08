@@ -20,7 +20,7 @@ $post_classes = array('article', 'article--full', 'vspace--half');
 <article <?php post_class($post_classes); ?> id="article--full--<?php the_ID(); ?>">
     <header class="article--full__header vspace--full">
         <?php if (!is_page()) : ?>
-            <h6 class="article--meta font--small vspace--half"><?php sheepie_postmeta(); ?></h4>
+            <h6 class="article--meta font--small vspace--half noprint"><?php sheepie_postmeta(); ?></h4>
         <?php endif; ?>
         <h2 class="title article--full__title">
             <?php sheepie_partial('posttitle'); ?>
@@ -39,7 +39,7 @@ $post_classes = array('article', 'article--full', 'vspace--half');
         <?php sheepie_partial('pagination', 'post'); ?>
         <hr class="vcenter--double">
         <footer class="article--full__footer avatar">
-            <div class="article--full__avatar avatar__container">
+            <div class="article--full__avatar avatar__container noprint">
                 <?php sheepie_avatar_background_html($author, 96, 'avatar__photo'); ?>
             </div>
             <div class="article--full__author avatar__text">

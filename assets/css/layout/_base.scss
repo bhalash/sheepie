@@ -19,12 +19,8 @@
     box-sizing: border-box;
     min-width: 0;
     position: relative;
-    @include margin($navbar-width, left);
     @include content-size;
-
-    @include media(large) {
-        margin: 0 auto;
-    }
+    @include margin($navbar-width, left);
 
     &__interior {
         margin: 0 auto;
@@ -42,8 +38,20 @@
             padding: 5%;
         }
 
+        @include media(print) {
+            padding: 0;
+        }
+
         &__interior {
             @include rem(max-width, 84);
+
+            @include media(print) {
+                max-width: 100%;
+            }
         }
+    }
+
+    @include media(large) {
+        margin: 0 auto;
     }
 }

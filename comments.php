@@ -21,7 +21,7 @@ if (comments_open()) {
 
     printf('<div class="comments" id="comments">');
         printf('<h4 class="%s">%s \'%s\'</h4>',
-            'vspace--full subtitle',
+            'vspace--full subtitle noprint',
             __('Have your say on ', 'sheepie'),
             get_the_title()
         );
@@ -43,7 +43,7 @@ if (comments_open()) {
         sheepie_partial('pagination', 'comment');
     }
 
-    printf('<div id="comments__entry">');
+    printf('<div class="noprint" id="comments__entry">');
 
     // Template input for name, email and URL.
     $input = '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';

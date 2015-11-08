@@ -14,7 +14,7 @@
 
 ?>
 
-<nav class="pagination pagination--comment" id="pagination--comment">
+<nav class="pagination pagination--comment noprint" id="pagination--comment">
     <p class="pagination__previous previous-comment">
         <span class="font--span"><?php previous_comments_link(__('Previous', 'sheepie')); ?></small>
     </p>

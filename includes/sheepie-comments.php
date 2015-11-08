@@ -21,7 +21,7 @@ function sheepie_theme_comments($comment, $args, $depth) {
     ?>
 
     <li <?php comment_class($comment_classes); ?> id="comment--<?php comment_ID() ?>">
-        <div class="avatar__container comments__avatar">
+        <div class="avatar__container comments__avatar noprint">
             <?php sheepie_avatar_background_html($comment, 'thumb', 'avatar__photo'); ?>
         </div>
         <div class="comment-body comments__comment-content avatar__text">

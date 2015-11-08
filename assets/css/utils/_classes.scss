@@ -20,6 +20,18 @@
     @include social(null, '.social__icon');
 }
 
+
+/*
+ * Hide During Printing
+ * -----------------------------------------------------------------------------
+ */
+
+.noprint {
+    @include media(print) {
+        display: none !important;
+    }
+}
+
 /*
  * Clearfix
  * -----------------------------------------------------------------------------

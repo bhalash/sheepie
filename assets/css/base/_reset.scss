@@ -20,6 +20,10 @@ html {
         // several users.
         font-size: 90%;
     }
+
+    @include media(print) {
+        font-size: 85%;
+    }
 }
 
 body {

@@ -49,6 +49,11 @@
         @include rem(top, $navbar-height--collapsed);
         width: 100%;
     }
+
+    @include media(print) {
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 /**

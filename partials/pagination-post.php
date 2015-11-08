@@ -14,7 +14,7 @@
 
 ?>
 
-<nav class="pagination pagination--post" id="pagination--post">
+<nav class="pagination pagination--post noprint" id="pagination--post">
     <p class="pagination__previous previous-post">
         <span class="font--small"><?php next_post_link('%link', '%title', false); ?></span>
     </p>
