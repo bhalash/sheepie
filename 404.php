@@ -14,11 +14,11 @@
 
 get_header(); ?>
 
-<div id="error">
-    <div class="error-content">
-        <h1><?php _e('Error 404', 'sheepie'); ?></h1>
-        <p><?php _e('Page not found. :&#40;', 'sheepie'); ?></p>
-        <p><small><a href="<?php printf(site_url()); ?>"><?php _e('back to home', 'sheepie'); ?></a></small></p>
+<div class="error" id="error--404">
+    <div class="error__content">
+        <h1 class="error__message"><?php _e('Error 404', 'sheepie'); ?></h1>
+        <p class="error__description"><?php _e('Page not found. :&#40;', 'sheepie'); ?></p>
+        <p class="error__Home"><a href="<?php printf(site_url()); ?>"><?php _e('back to home', 'sheepie'); ?></a></p>
     </div>
 </div>
 

@@ -10,11 +10,11 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-#error {
+.error {
     text-align: center; 
     @include fixed(0);
 
-    .error-content {
+    &__content {
         transform: translate(-50%, -50%);
         @include absolute(50% 50%, top left);
     }
