@@ -18,7 +18,7 @@ get_header(); ?>
     <div class="error__content">
         <h1 class="error__message"><?php _e('Error 404', 'sheepie'); ?></h1>
         <p class="error__description"><?php _e('Page not found. :&#40;', 'sheepie'); ?></p>
-        <p class="error__Home"><a href="<?php printf(site_url()); ?>"><?php _e('back to home', 'sheepie'); ?></a></p>
+        <p class="error__home"><a href="<?php printf(site_url()); ?>"><?php _e('back to home', 'sheepie'); ?></a></p>
     </div>
 </div>
 
