@@ -10,7 +10,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-@import 'includes/scss-helpers/helpers';
+@import 'includes/charon/helpers';
 @import 'base/variables';
 
 /**
@@ -95,7 +95,7 @@ hr {
 
         @include media(large) {
             position: static;
-        }   
+        }
     }
 
     &__child, &__contentwrap, &__content {
@@ -139,7 +139,7 @@ hr {
 
     &__buttonrow {
         @include media(large) {
-            float: right;    
+            float: right;
             min-width: 0;
             width: 25%;
         }

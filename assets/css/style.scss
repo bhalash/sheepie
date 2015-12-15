@@ -13,7 +13,7 @@
 $helper-path: 'includes/';
 
 @import 'includes/normalize';
-@import 'includes/scss-helpers/helpers';
+@import 'includes/charon/helpers';
 
 @import 'base/variables';
 @import 'base/reset';
