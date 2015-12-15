@@ -18,6 +18,6 @@ printf('<a href="%s" rel="%s" title="%s%s">%s</a>',
     __('Permanent link to ', 'sheepie'),
     the_title_attribute(array('echo' => false)),
     get_the_title()
-); 
+);
 
 ?>

@@ -53,7 +53,7 @@ $action = esc_url(home_url('/'));
 
             <div class="clearfix navbar__buttonrow navbar__child">
                 <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: display.search()}, click: toggleSearch">
-                    <span class="button__icon social__icon" data-bind=""></span> 
+                    <span class="button__icon social__icon" data-bind=""></span>
                 </button>
             </div>
         </div>
@@ -63,13 +63,13 @@ $action = esc_url(home_url('/'));
 <div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !display.search()}">
     <form class="bigsearch__form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: display.search()"> 
+            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: display.search()">
             <label class="bigsearch__label" for="bigsearch__input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
 
-    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: display.search()}, click: toggleSearch"> 
-        <span class="button__icon social__icon" data-bind=""></span> 
+    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: display.search()}, click: toggleSearch">
+        <span class="button__icon social__icon" data-bind=""></span>
     </button>
 </div>
 

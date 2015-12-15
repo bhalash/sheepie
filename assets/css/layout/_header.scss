@@ -21,7 +21,7 @@
     /**
      * Content Wrapper
      * -------------------------------------------------------------------------
-     * Push in child content and direct it to the bottom. Used to absolutely 
+     * Push in child content and direct it to the bottom. Used to absolutely
      * position in IE9.
      */
 
@@ -97,7 +97,7 @@
             text-align: left;
         }
     }
-    
+
     &__title {
         line-height: 120%;
 
@@ -224,10 +224,10 @@
  * -----------------------------------------------------------------------------
  * There is a JavaScript component to determine state, but it is mostly handled
  * through this CSS.
- * 
+ *
  * 1. If #lightbox is targeted by a clicked link, make it appear.
  * 2. Otherwise it is hidden.
- * 3. I am working on a way to successfuly freeze the background without 
+ * 3. I am working on a way to successfuly freeze the background without
  *    resorting to JavaScript (I could freeze the body tag, but that requires
  *     JS!).
  */

@@ -10,7 +10,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-pre { 
+pre {
     background: palette(rmwb);
     color: palette(white, x-light);
     overflow: auto;
@@ -25,7 +25,7 @@ pre {
         font-weight: bold;
         font-style: italic;
     }
-    
+
     .hljs-regexp {
         color: #e65644;
     }
@@ -47,12 +47,12 @@ pre {
         color: #8abeb7;
     }
 
-    .hljs-keyword, .hljs-tag, .hljs-id, .hljs-class { 
+    .hljs-keyword, .hljs-tag, .hljs-id, .hljs-class {
         color: #a7d7ff;
     }
 
-    .hljs-rules { 
-        // color: palette(black, light); 
+    .hljs-rules {
+        // color: palette(black, light);
     }
 
     .hljs-title {

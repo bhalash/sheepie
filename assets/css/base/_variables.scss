@@ -31,7 +31,7 @@ $sheepie-media-preset: sh-add-media-presets((
  * @link http://www.pearsonified.com/typography/
  */
 
-// 1.6 / golden ratio. $mod-scale--size * $mod-scale--ratio = 1.6 exactly with 
+// 1.6 / golden ratio. $mod-scale--size * $mod-scale--ratio = 1.6 exactly with
 // Sass's ten-digits-of-precision rounding.
 $mod-scale--size: 0.988854382;
 // Golden ratio.
@@ -43,7 +43,7 @@ $line-height--paragraph: $font-size--paragraph * $mod-scale--ratio;
 /**
  * Content Side-by-Side Sizes
  * -----------------------------------------------------------------------------
- * Both the percentage width of the content column and the right offset of the 
+ * Both the percentage width of the content column and the right offset of the
  * header in side-by-side mode, i.e. #content has a width of 60% and #header is
  * offset from the right by 60%.
  */

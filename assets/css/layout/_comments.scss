@@ -38,7 +38,7 @@
         list-style-type: none;
 
         @include media(small) {
-            display: block;        
+            display: block;
         }
 
         &__comments-meta {
@@ -53,7 +53,7 @@
     /**
      * Commentform Inputs
      * -----------------------------------------------------------------------------
-     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not correctly 
+     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not correctly
      * apply box-sizing, so instead of width - padding, it is width + padding. The
      * correct alternative is to use floats.
      */

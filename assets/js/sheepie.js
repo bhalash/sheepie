@@ -21,7 +21,7 @@
  *
  *  if ($('pre').length) {
  *      $('pre:not(:has(> code))').wrapInner('<code></code>');
- *  } 
+ *  }
  */
 
 (function() {
@@ -33,7 +33,7 @@
             [].forEach.call(selector, function(element) {
                 if (element.querySelectorAll(wrapper).length === 0) {
                     var newChild = document.createElement(wrapper);
-                    
+
                     while (element.childNodes.length) {
                         newChild.appendChild(element.childNodes[0]);
                     }

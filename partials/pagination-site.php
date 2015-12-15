@@ -13,8 +13,8 @@
  */
 
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$page_next = $page + 1; 
-$page_previous = $page - 1; 
+$page_next = $page + 1;
+$page_previous = $page - 1;
 
 ?>
 

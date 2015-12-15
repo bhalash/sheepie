@@ -18,7 +18,7 @@
 .navigation--home {
     &__link {
         @include padding($vspace * 0.75 0);
-        display: block; 
+        display: block;
 
         &:before {
             // '← '
@@ -60,7 +60,7 @@
     }
 
     &__next {
-        text-align: right;  
+        text-align: right;
 
         a:after {
             // ' →'
