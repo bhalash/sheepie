@@ -21,7 +21,7 @@ $GLOBALS['sheepie_version'] = '1.1.3';
 
 add_action('after_setup_theme', function() {
     // All theme PHP.
-    sheepie_includes(); 
+    sheepie_includes();
 
     // Remove WordPress version from site header.
     remove_action('wp_head', 'wp_generator');
@@ -34,7 +34,7 @@ add_action('after_setup_theme', function() {
 
     // Tell WordPress to manage the site title itself.
     add_theme_support('title-tag');
-    
+
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
 
@@ -80,7 +80,7 @@ function sheepie_includes() {
  * Partial Wrapper
  * -----------------------------------------------------------------------------
  * Shorthand wrapper for get_template_part to reduce the verbosity of calls.
- * 
+ *
  * @param   string      $name           Partial name.
  * @param   strgin      $slug           Partial slug.
  */
@@ -149,7 +149,7 @@ function sheepie_postmeta() {
 
     _e(' in ', 'sheepie');
     the_category(', ');
-    edit_post_link(__('edit post', 'sheepie'), ' / ', ''); 
+    edit_post_link(__('edit post', 'sheepie'), ' / ', '');
 }
 
 /**
@@ -169,7 +169,7 @@ add_filter('the_content', function($content) {
  * Add Social CSS Class to Menu Items
  * -----------------------------------------------------------------------------
  * Used to set social icon style.
- * 
+ *
  * @param   array       $classes        Menu item classes.
  * @param   object      $item           Menu object.
  * @reutrn  array       $classes        Menu item classes.
