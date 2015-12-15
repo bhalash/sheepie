@@ -5,7 +5,7 @@
  * -----------------------------------------------------------------------------
  * This is a simple dumb list of the site's archives by date, by category and by
  * tag. You are welcome to insert any custom taxonomies and post types wherever.
- * 
+ *
  * @category   PHP Script
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>

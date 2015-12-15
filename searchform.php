@@ -32,7 +32,7 @@ $result .= $total > 1 ? 's' : '';
     <span class="searchform__meta--left left-float"><?php printf('%d %s', $total, $result); ?></span>
     <?php if (function_exists('arc_search_url')) : ?>
         <span class="searchform__meta--right right-float">
-            Sort by: 
+            Sort by:
 
             <a class="searchform__sort--by-oldest" href="<?php arc_search_url('asc'); ?>"><?php _e('oldest', 'sheepie'); ?></a> |
             <a class="searchform__sort--by-newest" href="<?php arc_search_url('desc'); ?>"><?php _e('newest', 'sheepie'); ?></a>

@@ -5,7 +5,7 @@
  * -----------------------------------------------------------------------------
  * This is a simple dumb list of the site's archives by date, by category and by
  * tag. You are welcome to insert any custom taxonomies and post types wherever.
- * 
+ *
  * @category   PHP Script
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
@@ -46,7 +46,7 @@ foreach (arc_timed_archives_count() as $year => $calendar) {
     foreach ($calendar as $month => $count) {
         // Per-month items.
         printf('<li class="%s" id="%s">',
-            'archive-card-month', 
+            'archive-card-month',
             $year . '-' . $month
         );
 
@@ -55,7 +55,7 @@ foreach (arc_timed_archives_count() as $year => $calendar) {
             'archive-card-data',
             get_month_link($year, $month)
         );
-        
+
         printf('<span class="%s">%s</span>',
             'month-name',
             arc_get_month_from_number($month)

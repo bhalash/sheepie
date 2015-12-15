@@ -53,10 +53,10 @@ if (comments_open()) {
         // Name, author and email fields.
         'author' => sprintf($input,
             'author', 'author', 'author', __('Name*', 'sheepie')
-        ), 
+        ),
         'email' => sprintf($input,
             'email', 'email', 'email', __('Email*', 'sheepie')
-        ), 
+        ),
         'url' => sprintf($input,
             'url', 'url', 'url', __('Website', 'sheepie')
         )

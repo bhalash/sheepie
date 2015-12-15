@@ -49,7 +49,7 @@ add_filter('get_avatar', 'sheepie_get_avatar_url', 10, 5);
  * -----------------------------------------------------------------------------
  * Not a filter for get_avatar. Return avatar as a background image wrapped with
  * some useful HTML.
- * 
+ *
  * @param   string  $id_or_email    Either user ID or email address.
  * @param   int     $size           Avatar size.
  * @param   arr     $classes        Classes to add to element.
@@ -62,7 +62,7 @@ function sheepie_avatar_background_html($id_or_email, $size = 'large', $classes 
 
     if ($classes) {
         if (is_array($classes)) {
-            $classes = implode(' ', $classes); 
+            $classes = implode(' ', $classes);
         }
 
         $classes = sprintf(' class="%s"', $classes);

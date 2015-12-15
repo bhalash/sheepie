@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Sheepie Theme Scripts
@@ -12,7 +12,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-add_action('wp_enqueue_scripts', function() { 
+add_action('wp_enqueue_scripts', function() {
     $assets = get_template_directory_uri() . '/assets/';
     $js_path = $assets . 'js/min/';
     $css_path = $assets . 'css/';
@@ -61,7 +61,7 @@ add_action('wp_enqueue_scripts', function() {
  * Asynchronous Script Load
  * -----------------------------------------------------------------------------
  * So, fair warning: this will break the shit out of WordPress jQuery plugins.
- * Like, badly break shit if scripts are loaded which depend on others. My 
+ * Like, badly break shit if scripts are loaded which depend on others. My
  * theme's JS is optimized to sidestep this problem.
  *
  * @link http://www.davidtiong.com/using-defer-or-async-with-scripts-in-wordpress/
@@ -99,11 +99,11 @@ if (!is_admin()) {
     });
 }
 
-/** 
+/**
  * Sheepie JavaScript Loader
  * -----------------------------------------------------------------------------
  * Load all theme JavaScript.
- * 
+ *
  * @param   array       $sheepie_js                Main scripts..
  * @param   array       $sheepie_conditional_js    IE conditional scripts.
  * @param   string      $js_path                   Path to JavaScript assets.
@@ -130,7 +130,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
  * Sheepie CSS Loader
  * -----------------------------------------------------------------------------
  * Load all theme CSS.
- * 
+ *
  * @param   array       $sheepie_css                Ordinary, main stylehseets.
  * @param   array       $sheepie_conditional_css    IE conditional stylesheets.
  * @param   array       $sheepie_fonts              Google fonts to be loaded.
@@ -184,7 +184,7 @@ function sheepie_google_font_url($fonts) {
  */
 
 add_action('admin_init', function() {
-    add_editor_style(get_template_directory_uri() . '/assets/css/editor.css'); 
+    add_editor_style(get_template_directory_uri() . '/assets/css/editor.css');
 });
 
 ?>

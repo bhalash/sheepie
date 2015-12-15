@@ -27,6 +27,6 @@ if (have_posts()) {
 }
 
 sheepie_partial('pagination', 'site');
-get_footer(); 
+get_footer();
 
 ?>

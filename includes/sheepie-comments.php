@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Theme Comment Functions
@@ -26,8 +26,8 @@ function sheepie_theme_comments($comment, $args, $depth) {
         </div>
         <div class="comment-body comments__comment-content avatar__text">
             <header class="comments__comment-header">
-                <?php 
-                
+                <?php
+
                 printf('<span class="%s comments__meta">%s %s </span>',
                     'comment-author-link font-size--small',
                     get_comment_author_link(),
@@ -39,7 +39,7 @@ function sheepie_theme_comments($comment, $args, $depth) {
                     get_comment_date('Y-M-d H:i'),
                     get_comment_date(get_option('date_format'))
                 );
-                
+
                 ?>
             </header>
 

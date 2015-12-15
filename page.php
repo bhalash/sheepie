@@ -24,6 +24,6 @@ if (have_posts()) {
     sheepie_partial('article', 'missing');
 }
 
-get_footer(); 
+get_footer();
 
 ?>
