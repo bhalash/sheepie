@@ -21,8 +21,6 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var sourcemap = require('gulp-sourcemaps');
 var replace = require('gulp-replace');
-var penthouse = require('penthouse');
-var fs = require('fs');
 var concat = require('gulp-concat');
 
 //
@@ -48,24 +46,12 @@ var assets = {
 };
 
 //
-// Penthouse
-//
-
-var phouse = {
-    url: 'https://www.bhalash.com',
-    css: assets.css.main,
-    // Sizes are optimized for mobile delivery, targeting the iPhone 5S.
-    width: 320,
-    height: 568
-};
-
-//
 // Autoprefixer
 //
 
 var prefixes = [
     // Autoprefixer.
-    'last 1 version', 
+    'last 1 version',
     '> 1%',
     'ie 10',
     'ie 9'
@@ -83,31 +69,17 @@ var regex = {
     }
 };
 
-// 
-// Optimize Production CSS Layout
-//
-
-gulp.task('penthouse', function() {
-    penthouse(phouse, function(error, css) {
-        if (error) {
-            console.log(error);
-            console.log(css);
-        }
-
-        fs.writeFile(assets.css.main, css);
-    });
-});
-
 //
 // Move Up Sprite Assets
 //
 
 gulp.task('sprites', function() {
     gulp.src(assets.sprites.source)
+        .pipe(rename({ dirname: '' }))
         .pipe(gulp.dest(assets.sprites.dest));
 });
 
-// 
+//
 // Minify JS Files
 //
 
@@ -133,7 +105,7 @@ gulp.task('css', function() {
     .pipe(gulp.dest(assets.css.dest));
 });
 
-// 
+//
 // Uniminified Test CSS with Sourcemap
 //
 
@@ -150,7 +122,7 @@ gulp.task('css-dev', ['sprites'], function() {
         .pipe(gulp.dest(assets.css.dest));
 });
 
-// 
+//
 // Watch Tasks
 //
 
