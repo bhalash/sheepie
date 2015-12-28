@@ -101,6 +101,10 @@
 
     a {
         @include padding(1, bottom);
+
+        @include media(small) {
+            @include padding(0.5, bottom);
+        }
     }
 }
 
