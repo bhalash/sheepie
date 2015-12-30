@@ -24,10 +24,11 @@ fieldset {
 
 button, fieldset, input, textarea {
     -webkit-appearance: none;
+    -webkit-border-radius: 0;
     border: 0;
+    border-radius: 0;
     box-sizing: border-box;
     outline: 0;
-    @include prefix(border-radius, 0);
 }
 
 button, fieldset, form, input, label, textarea {
@@ -41,10 +42,10 @@ button, fieldset, form, input, label, textarea {
 
 input:not(.bigsearch__input), textarea {
     background: palette(white, light);
+    font-size: 1rem;
+    min-height: 3rem;
+    padding: 0.625rem 1rem;
     transition: background-color .15s;
-    @include font-size(1.6);
-    @include rem(min-height, 5);
-    @include padding(1 1.5);
 
     @include placeholder-style {
         font-size: inherit;
@@ -65,17 +66,17 @@ input:not(.bigsearch__input), textarea {
 // Textareas.
 
 textarea {
+    padding: 0.625rem;
     resize: none;
     width: 100%;
-    @include padding(1);
 }
 
 // Submid button.
 
 input[type=submit] {
-    @include height(3);
-    @include rem(max-width, 15);
-    @include padding(0.5, bottom);
+    height: 2rem;
+    max-width: 9.4rem;
+    padding-bottom: 0.3rem;
 
     &:active {
         color: palette(white, x-light);

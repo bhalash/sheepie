@@ -25,7 +25,7 @@
     }
 
     p {
-        @include margin(0.5, bottom);
+        margin-bottom: 0.25rem;
     }
 
     /**
@@ -61,9 +61,9 @@
     &__inputs {
         @include columns(float, input, 3, $split-column-margin) {
             @include media(small) {
-                @include nofloat;
-                @include margin(1, bottom);
+                margin-bottom: 0.5rem;
                 width: 100%;
+                @include nofloat;
             }
         }
 
@@ -81,11 +81,11 @@
 
     &__form {
         p {
-            @include margin(1, bottom);
+            margin-bottom: 0.5rem;
         }
     }
 
     &__textarea {
-        @include height(20);
+        height: 12.5rem;
     }
 }

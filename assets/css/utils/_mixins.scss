@@ -17,20 +17,19 @@
  */
 
 @mixin navbar-size {
-    box-sizing: border-box;
-    @include fixed(0 auto 0 0);
-    @include width($navbar-width);
-
     // Required for Android Browser.
     -webkit-transform:translateZ(0);
+    box-sizing: border-box;
+    width: rem($navbar-width);
+    @include fixed(0 auto 0 0);
     @content;
 }
 
 @mixin navbar-size-1024 {
     @include media(large) {
+        height: rem($navbar-height--collapsed);
         width: 100%;
         @include absolute(0 0 auto 0);
-        @include height($navbar-height--collapsed);
         @content;
     }
 }
@@ -46,7 +45,7 @@
     width: calc(100% - #{rem($navbar-width)});
 
     @include media(large) {
-        @include rem(top, $navbar-height--collapsed);
+        top: rem($navbar-height--collapsed);
         width: 100%;
     }
 
@@ -70,6 +69,6 @@
     }
 
     img {
-        @include margin($vspace * 0.5, bottom);
+        margin-bottom: rem($vspace * 0.5);
     }
 }

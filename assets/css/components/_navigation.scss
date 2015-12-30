@@ -17,8 +17,8 @@
 
 .navigation--home {
     &__link {
-        @include padding($vspace * 0.75 0);
         display: block;
+        padding: rem($vspace * 0.75) 0;
 
         &:before {
             // '← '
@@ -34,21 +34,23 @@
  */
 
 .pagination {
-    @include margin(3 0);
-    @include flex-parent(row, space-between, wrap);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
 
     p {
-        @include flex-child(1);
+        flex: 1;
     }
 
     a {
         display: block;
-        @include padding($vspace * 0.75 0);
+        padding: rem($vspace * 0.75) 0;
     }
 
     &__count {
         text-align: center;
-        @include padding($vspace * 0.75 0);
+        padding: rem($vspace * 0.75) 0;
 
         @include media(smartphone) {
             display: none;

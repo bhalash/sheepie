@@ -14,13 +14,6 @@ html {
     color: palette(black, mid-light);
     font-family: $font-opensans;
 
-    @include media(smartphone) {
-        // Decrease the size of text by one-fifth on mobile devices. The
-        // default text size looked too large on smartphones, as reported by
-        // several users.
-        // font-size: 90%;
-    }
-
     @include media(print) {
         font-size: 85%;
     }
@@ -81,7 +74,7 @@ article img {
 
 blockquote {
     border-left: 1px solid palette(black, light);
-    @include padding(1, left);
+    padding-left: 0.625rem;
 
     p, li {
         font-style: italic;

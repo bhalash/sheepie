@@ -204,23 +204,6 @@
  * -----------------------------------------------------------------------------
  */
 
-.leftie {
-    float: left;
-    width: 20%;
-    @include margin(0 3 1 0);
-}
-
-.rightie {
-    float: right;
-    width: 20%;
-    @include margin(0 0 1 3);
-}
-
-/**
- * Left and Right Floated Images
- * -----------------------------------------------------------------------------
- */
-
 .flex {
     &--three-col--article {
         @include columns(flex, article, 3, $split-column-margin);

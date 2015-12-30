@@ -16,8 +16,8 @@
  */
 
 blockquote, cite, li, ins, p, q {
-    @include font-size($font-size--paragraph);
-    @include line-height($line-height--paragraph);
+    font-size: rem($font-size--paragraph);
+    line-height: rem($line-height--paragraph);
 }
 
 a, cite {
@@ -49,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
         $font-size--headline: modular-scale(5 - $i, $mod-scale--size, $mod-scale--ratio);
         $line-height--headline: $font-size--headline * $mod-scale--ratio;
 
-        @include font-size($font-size--headline);
+        font-size: rem($font-size--headline);
     }
 }
 
@@ -60,9 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 
 code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
-    font-family: $font-sourcecodepro;
-    font-weight: 400;
-    @include font-size($font-size--paragraph);
+    font: 400 rem($font-size--paragraph) $font-sourcecodepro;
 }
 
 p, li {

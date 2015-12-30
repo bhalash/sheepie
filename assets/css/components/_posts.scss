@@ -20,17 +20,17 @@
     @include clearfix;
 
     & > *:not(:last-child) {
-        @include margin($vspace, bottom);
+        margin-bottom: rem($vspace);
     }
 
     dl, ol, ul {
         box-sizing: border-box;
-        @include margin(2, left);
-        @include padding(1, left);
+        margin-left: 1.25rem;
+        padding-left: 0.6rem;
     }
 
     blockquote > p:not(:last-child) {
-        @include margin($vspace, bottom);
+        margin-bottom: rem($vspace);
     }
 
     img {
@@ -67,7 +67,6 @@
         background-size: cover;
         border: 1px solid palette(rmwb);
         box-sizing: border-box;
-
         @include square-flex(100% 0.75);
     }
 
@@ -100,10 +99,10 @@
     }
 
     a {
-        @include padding(1, bottom);
+        padding-bottom: 0.6rem;
 
         @include media(small) {
-            @include padding(0.5, bottom);
+            padding-bottom: 0.3rem;
         }
     }
 }

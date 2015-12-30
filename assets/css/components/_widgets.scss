@@ -20,10 +20,10 @@
 
 .sidebar-widget {
     @include media(mobile) {
-        @include margin($vspace, bottom);
+        margin-bottom: rem($vspace);
     }
 }
 
 .widget-title {
-    @include margin($vspace * 0.5, bottom);
+    margin-bottom: rem($vspace * 0.5);
 }

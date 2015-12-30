@@ -30,7 +30,7 @@
     }
 
     @include navbar-size-1024 {
-        @include padding(1);
+        padding: 0.5rem;
     }
 
     /**
@@ -58,10 +58,10 @@
         background: transparent;
         color: palette(white, x-light);
         display: block;
+        font-size: 4.5rem;
         margin: 0 auto;
         text-align: center;
         width: 90%;
-        @include font-size(7);
         @include absolute-center;
 
         @include placeholder-style {
@@ -70,7 +70,7 @@
 
         @include media(large) {
             box-sizing: border-box;
-            @include font-size(3);
+            padding: 2rem;
         }
 
         &:focus + label {
@@ -79,6 +79,7 @@
     }
 
     label[for=bigsearch__input] {
+        // FIXME: Why did I extend this?
         @extend .bigsearch__input;
     }
 }
@@ -95,8 +96,8 @@
 
 .searchform {
     &__input {
-        @include padding(1);
-        @include font-size(2.7);
+        font-size: 1.75rem;
+        padding: 0.5rem;
         width: 100%;
     }
 }
