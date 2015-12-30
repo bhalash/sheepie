@@ -29,13 +29,13 @@
         box-sizing: border-box;
         // Stops weird problems with IE.
         overflow: hidden;
+        padding: 1.25rem;
         z-index: 2;
 
         @include navbar-size;
-        @include padding(2);
 
         @include navbar-size-1024 {
-            @include padding(0 $navbar-height--collapsed * 0.25);
+            padding: 0 rem($navbar-height--collapsed * 0.25);
         }
     }
 
@@ -48,11 +48,14 @@
      */
 
     &__content {
+        display: flex;
+        flex-direction: column;
         height: 100%;
-        @include flex-parent(column, flex-end);
+        justify-content: flex-end;
 
         @include media(large) {
-            @include flex-parent(row, justify-content);
+            flex-direction: row;
+            justify-content: justify-content;
         }
     }
 
@@ -85,15 +88,16 @@
      */
 
     &__titlewrapper {
-        @include flex-child(0 1 auto);
+        flex: 0 1 auto;
 
         @include media(large) {
-            @include flex-child(0 1 60%, initial, 2);
+            flex: 0 1 60%;
+            order: 2;
             text-align: center;
         }
 
         @include media(small) {
-            @include flex-child(1);
+            flex: 1;
             text-align: left;
         }
     }
@@ -102,8 +106,8 @@
         line-height: 120%;
 
         @include media(large) {
-            @include font-size(2);
-            @include line-height($navbar-height--collapsed);
+            font-size: 1.25rem;
+            line-height: rem($navbar-height--collapsed);
         }
     }
 
@@ -119,7 +123,7 @@
      */
 
     &__description {
-        @include flex-child(0 1 auto);
+        flex: 0 1 auto;
 
         @include media(large) {
             display: none;
@@ -135,29 +139,26 @@
     &__social-wrapper {
         @include media(large) {
             // Inherit 3.75rem height in collapsed state.
+            flex: 0 1 20%;
             height: 100%;
+            min-width: 2.5rem;
+            order: 1;
+        }
+
+        @include media(small) {
+            display: none;
         }
     }
 
     &__social {
         height: 100%;
         list-style-type: none;
-        @include flex-child(0 1 auto);
-
-        @include media(large) {
-            @include flex-child(0 1 20%, initial, 1);
-            @include rem(min-width, 22);
-        }
-
-        @include media(small) {
-            display: none;
-        }
 
         .menu-item {
+            float: left;
             // WordPress requires menu links to have a text label.
             // This forcibly hides the label in favour of the icon.
             font-size: 0 !important;
-            float: left;
             // Override default line-height set for items.
             // Otherwise IE9, 10 and 11 wig out.
             line-height: normal;
@@ -169,7 +170,7 @@
                 // This presents a larger touch target.
                 height: 100%;
                 padding-bottom: 0;
-                @include width($navbar-height--collapsed * 0.5);
+                width: rem($navbar-height--collapsed * 0.5);
             }
 
             a, span {
@@ -182,7 +183,7 @@
             a {
                 @include media(large) {
                     box-sizing: border-box;
-                    @include padding($navbar-height--collapsed * 0.25 0);
+                    padding: rem($navbar-height--collapsed * 0.25) 0;
                 }
             }
         }
@@ -205,16 +206,17 @@
      */
 
     &__buttonrow {
-        @include flex-child(0 1 auto);
+        flex: 0 1 auto;
         overflow: hidden;
 
         @include media(large) {
-            @include flex-child(0 1 30%, initial, 3);
-            @include rem(min-width, 22);
+            flex: 0 1 30%;
+            min-width: 1.25rem;
+            order: 3;
         }
 
         @include media(small) {
-            @include rem(min-width, 5);
+            min-width: 3.2rem;
         }
     }
 }
