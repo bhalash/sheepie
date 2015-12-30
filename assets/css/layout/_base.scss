@@ -17,10 +17,10 @@
 
 .main {
     box-sizing: border-box;
+    margin-left: rem($navbar-width);
     min-width: 0;
     position: relative;
     @include content-size;
-    @include margin($navbar-width, left);
 
     &__interior {
         margin: 0 auto;
@@ -43,7 +43,7 @@
         }
 
         &__interior {
-            @include rem(max-width, 84);
+            max-width: 525rem;
 
             @include media(print) {
                 max-width: 100%;
