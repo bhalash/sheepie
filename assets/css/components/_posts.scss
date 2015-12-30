@@ -26,7 +26,7 @@
     dl, ol, ul {
         box-sizing: border-box;
         margin-left: 1.25rem;
-        padding-left: 0.6rem;
+        padding-left: 0.5rem;
     }
 
     blockquote > p:not(:last-child) {
@@ -99,7 +99,7 @@
     }
 
     a {
-        padding-bottom: 0.6rem;
+        padding-bottom: 0.5rem;
 
         @include media(small) {
             padding-bottom: 0.3rem;
