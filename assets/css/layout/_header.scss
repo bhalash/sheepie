@@ -85,6 +85,7 @@
     /**
      * Site Title Wrapper and title
      * -------------------------------------------------------------------------
+     * order: 2 centers the title at smaller screen sizes.
      */
 
     &__titlewrapper {
@@ -133,7 +134,8 @@
     /**
      * Sidebar Social Media Menu
      * -------------------------------------------------------------------------
-     * Horizontal row of external social media links.
+     * Horizontal row of external social media links. order: 1 puts it on the
+     * left at smaller screen sizes.
      */
 
     &__social-wrapper {
@@ -203,6 +205,7 @@
     /**
      * Sidebar Bottom Buttons
      * -------------------------------------------------------------------------
+     * order: 3 puts it on the right at smaller screen sizes.
      */
 
     &__buttonrow {
