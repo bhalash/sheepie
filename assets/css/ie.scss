@@ -91,7 +91,7 @@ hr {
     &__content {
         // No flexbox in IE9. :( Child element is intead absolutely positioned.
         height: auto;
-        @include absolute(auto $vspace $vspace $vspace);
+        @include absolute(auto $vspace $vspace);
 
         @include media(large) {
             position: static;
@@ -145,7 +145,7 @@ hr {
         }
 
         @include media(medium) {
-            @include width(5);
+            width: 31rem;
         }
     }
 }
