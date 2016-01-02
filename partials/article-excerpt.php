@@ -12,7 +12,7 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$post_classes = array('article', 'article--excerpt');
+$post_classes = array('article', 'article--excerpt vspace--full');
 
 ?>
 
