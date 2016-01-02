@@ -19,7 +19,7 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         sheepie_partial('article', 'full');
-        
+
         if (function_exists('rp_get_related')) {
             printf('<hr class="%s">', 'vcenter--double noprint');
             printf('<div class="%s">', 'related flex--three-col--article noprint');
@@ -46,6 +46,6 @@ if (have_posts()) {
     sheepie_partial('article', 'missing');
 }
 
-get_footer(); 
+get_footer();
 
 ?>
