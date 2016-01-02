@@ -142,7 +142,8 @@ add_action('init', function() {
  */
 
 function sheepie_postmeta() {
-    printf('<time datetime="%s">%s</time>',
+    printf('<a href="%s"><time datetime="%s">%s</time></a>',
+        get_month_link(get_the_time('Y'), get_the_time('n')),
         get_the_time('Y-m-d H:i'),
         get_the_time(get_option('date_format'))
     );
