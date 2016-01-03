@@ -27,11 +27,11 @@ add_action('wp_enqueue_scripts', function() {
 
     $sheepie_conditional_js = array(
         // Internet Explorer conditional JS.
-        'html5-shiv' => array(
-            $node_path . 'html5shiv/dist/html5shiv.min.js',
-            'lte IE 9',
-            array()
-        )
+        // 'html5-shiv' => array(
+        //     $node_path . 'html5shiv/dist/html5shiv.min.js',
+        //     'lte IE 9',
+        //     array()
+        // )
     );
 
     $sheepie_fonts = array(
