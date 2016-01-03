@@ -78,7 +78,9 @@ add_filter('script_loader_tag', function($tag, $handle) {
         return $tag;
     }
 
-    if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 9.') !== false) {
+    if (array_key_exists('HTTP_USER_AGENT', $_SERVER)
+        && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 9.') !== false) {
+
         return $tag;
     }
 
