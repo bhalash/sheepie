@@ -56,6 +56,7 @@
 
     &__input {
         background: transparent;
+        box-sizing: border-box;
         color: palette(white, x-light);
         display: block;
         font-size: 4.5rem;
@@ -69,8 +70,7 @@
         }
 
         @include media(large) {
-            box-sizing: border-box;
-            padding: 2rem;
+            font-size: 2rem;
         }
 
         &:focus + label {
@@ -79,7 +79,6 @@
     }
 
     label[for=bigsearch__input] {
-        // FIXME: Why did I extend this?
         @extend .bigsearch__input;
     }
 }
