@@ -19,6 +19,7 @@ $day = get_query_var('day');
 $current_month = -1;
 
 get_header();
+sheepie_partial('gohome');
 
 printf('<h2 class="%s"><a href="%s">%s</a></h2>',
     'title vspace--double',
