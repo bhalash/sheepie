@@ -15,16 +15,24 @@
  * -----------------------------------------------------------------------------
  */
 
+%floatie-size {
+    width: 20%;
+
+    @include media(mobile) {
+        width: 50%;
+    }
+}
+
 .leftie, .alignleft {
+    @extend %floatie-size;
     float: left;
     margin: 0 2rem 0.5rem 0;
-    width: 20%;
 }
 
 .rightie, .alignright {
+    @extend %floatie-size;
     float: right;
     margin: 0 0 0.5rem 2rem;
-    width: 20%;
 }
 
 .aligncenter {
