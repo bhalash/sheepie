@@ -17,6 +17,10 @@ html {
     @include media(print) {
         font-size: 85%;
     }
+
+    @include media(mobile) {
+        font-size: 90%;
+    }
 }
 
 body {
