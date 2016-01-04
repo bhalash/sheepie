@@ -61,9 +61,11 @@
     &__inputs {
         @include columns(float, input, 3, $split-column-margin) {
             @include media(small) {
+                // Make sure this include comes first!
+                @include nofloat;
+                display: block;
                 margin-bottom: 0.5rem;
                 width: 100%;
-                @include nofloat;
             }
         }
 
@@ -72,6 +74,7 @@
             margin-bottom: 0;
         }
     }
+
 
     /**
      * Commentform
