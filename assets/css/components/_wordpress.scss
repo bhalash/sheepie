@@ -16,9 +16,9 @@
  */
 
 %floatie-size {
-    width: 20%;
+    width: 30%;
 
-    @include media(mobile) {
+    @include media(medium) {
         width: 50%;
     }
 }
