@@ -207,5 +207,9 @@
 .flex {
     &--three-col--article {
         @include columns(flex, article, 3, $split-column-margin);
+
+        @include media(small) {
+            @include columns(flex, article, 3, $split-column-margin * 2);
+        }
     }
 }
