@@ -12,9 +12,10 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$year = get_query_var('year');
-$month = get_query_var('monthnum');
-$day = get_query_var('day');
+// Null to avoid warnings.
+$year = get_query_var('year') ?: null;
+$month = get_query_var('monthnum') ?: null;
+$day = get_query_var('day') ?: null;
 
 $current_month = -1;
 
@@ -32,10 +33,9 @@ $archive_posts = new WP_Query(array(
     'order' => 'asc',
     'orderby' => 'date',
     'date_query' => array(
-        // Null to avoid warnings.
-        'year' => $year ?: null,
-        'month' => $month ?: null,
-        'day' => $day ?: null
+        'year' => $year,
+        'month' => $month,
+        'day' => $day
     )
 ));
 
