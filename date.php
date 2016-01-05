@@ -42,7 +42,7 @@ $archive_posts = new WP_Query(array(
 while($archive_posts->have_posts()) {
     $archive_posts->the_post();
 
-    if ($current_month != get_the_date('n')) {
+    if ($current_month !== get_the_date('n')) {
         $current_month = get_the_date('n');
 
         printf('<h3 class="%s"><a href="%s">%s</a></h3>',
