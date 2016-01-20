@@ -12,7 +12,9 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 <div class="error" id="error--404">
     <div class="error__content">
