@@ -70,6 +70,7 @@
 
 .title {
     color: palette(black, mid-dark);
+    word-break: break-all;
 
     a {
         color: inherit;
