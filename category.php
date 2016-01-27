@@ -23,11 +23,11 @@ printf('<h2 class="%s"><a href="%s">%s</a></h2>',
     $category->name
 );
 
-$category_posts = get_posts(array(
+$category_posts = get_posts([
     'category' => $category->cat_ID,
     'posts_per_page' => 30,
     'orderby' => 'date',
-));
+]);
 
 foreach ($category_posts as $post) {
     setup_postdata($post);

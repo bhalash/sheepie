@@ -29,12 +29,12 @@ if (comments_open()) {
     if (have_comments()) {
         printf('<ul class="%s">', 'comments__commentlist');
 
-        wp_list_comments(array(
+        wp_list_comments([
             'callback' => 'sheepie_theme_comments',
             'avatar_size' => 0,
             'format' => 'html5',
             'style' => 'ul'
-        ));
+        ]);
 
         printf('</ul>');
     }
@@ -49,7 +49,7 @@ if (comments_open()) {
     $input = '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';
     $textarea = '<textarea class="comments__textarea" id="comment" name="comment" required="required"></textarea>';
 
-    $fields = array(
+    $fields = [
         // Name, author and email fields.
         'author' => sprintf($input,
             'author', 'author', 'author', __('Name*', 'sheepie')
@@ -60,9 +60,9 @@ if (comments_open()) {
         'url' => sprintf($input,
             'url', 'url', 'url', __('Website', 'sheepie')
         )
-    );
+    ];
 
-    comment_form(array(
+    comment_form([
         'id_form' => 'comments__form',
         'id_submit' => 'comments__submit',
         'title_reply' => '',
@@ -70,7 +70,7 @@ if (comments_open()) {
         'comment_form_before_fields' => '<div class="comments__form">',
         'comment_form_after_fields' => '</div>',
         'fields' => $fields
-    ));
+    ]);
 
     printf('</div>');
     printf('</div>');

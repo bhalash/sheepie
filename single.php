@@ -24,12 +24,12 @@ if (have_posts()) {
             printf('<hr class="%s">', 'vcenter--double noprint');
             printf('<div class="%s">', 'related flex--three-col--article noprint');
 
-            $related = rp_get_related(array(
-                'range' => array(
+            $related = rp_get_related([
+                'range' => [
                     'after' => date('Y-m-j') . '-180 days',
                     'before' => date('Y-m-j')
-                )
-            ));
+                ]
+            ]);
 
             foreach ($related as $post) {
                 setup_postdata($post);

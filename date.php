@@ -28,16 +28,16 @@ printf('<h2 class="%s"><a href="%s">%s</a></h2>',
     $year
 );
 
-$archive_posts = new WP_Query(array(
+$archive_posts = new WP_Query([
     'posts_per_page' => -1,
     'order' => 'asc',
     'orderby' => 'date',
-    'date_query' => array(
+    'date_query' => [
         'year' => $year,
         'month' => $month,
         'day' => $day
-    )
-));
+    ]
+]);
 
 while($archive_posts->have_posts()) {
     $archive_posts->the_post();

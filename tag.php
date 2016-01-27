@@ -23,15 +23,15 @@ printf('<h2 class="%s"><a href="%s">%s</a></h2>',
     $tag->name
 );
 
-$tag_posts = get_posts(array(
+$tag_posts = get_posts([
     'posts_per_page' => 30,
     'orderby' => 'date',
-    'tax_query' => array(
+    'tax_query' => [
         'taxonomy' => $tag->taxonomy,
         'field' => 'slug',
         'terms' => $tag->slug
-    )
-));
+    ]
+]);
 
 foreach ($tag_posts as $post) {
     setup_postdata($post);
