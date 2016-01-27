@@ -38,22 +38,22 @@ add_action('after_setup_theme', function() {
     add_theme_support('automatic-feed-links');
     add_theme_support('post-thumbnails');
 
-    add_theme_support('html5', array(
+    add_theme_support('html5', [
         'comment-list',
         'comment-form',
         'search-form',
         'gallery',
         'caption'
-    ));
+    ]);
 
     // Content width.
     $GLOBALS['content_width'] = 880;
 
-    $sheepie_social = new Social_Meta(array(
+    $sheepie_social = new Social_Meta([
         // Facebook and Twitter social media information.
         'facebook' => 'bhalash',
         'twitter' => '@bhalash'
-    ));
+    ]);
 });
 
 /**
@@ -62,14 +62,14 @@ add_action('after_setup_theme', function() {
  */
 
 function sheepie_includes() {
-    $theme_includes = array(
+    $theme_includes = [
         'sheepie-scripts.php',
         'sheepie-avatars.php',
         'sheepie-comments.php',
         'related-posts/related-posts.php',
         'archive-functions/archive-functions.php',
         'social-meta/social-meta.php'
-    );
+    ];
 
     foreach ($theme_includes as $include) {
         include_once(get_template_directory() . '/includes/' . $include);
@@ -97,9 +97,9 @@ function sheepie_partial($name, $slug = '') {
 
 add_action('wp_head', function() {
     // Media prefetch domain: If null or empty, defaults to site domain.
-    $prefetch = array(
+    $prefetch = [
         'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
-    );
+    ];
 
     foreach ($prefetch as $domain) {
         printf('<link rel="dns-prefetch" href="//%s">', $domain);
@@ -112,7 +112,7 @@ add_action('wp_head', function() {
  */
 
 add_action('widgets_init', function() {
-    register_sidebar(array(
+    register_sidebar([
         'id' => 'theme-widgets',
         'name' => __('Sheepie Footer Widgets', 'sheepie'),
         'description' => __('Sheepie\'s widgets will display in the mail column, below all other content.', 'sheepie'),
@@ -120,7 +120,7 @@ add_action('widgets_init', function() {
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
-    ));
+    ]);
 });
 
 /**
@@ -129,10 +129,10 @@ add_action('widgets_init', function() {
  */
 
 add_action('init', function() {
-    register_nav_menus(array(
+    register_nav_menus([
         'top-menu' => __('Header Menu', 'sheepie'),
         'top-social' => __('Header Social Links', 'sheepie')
-    ));
+    ]);
 });
 
 /**
@@ -173,7 +173,7 @@ add_filter('the_content', function($content) {
  *
  * @param   array       $classes        Menu item classes.
  * @param   object      $item           Menu object.
- * @reutrn  array       $classes        Menu item classes.
+ * @return  array       $classes        Menu item classes.
  */
 
 add_filter('nav_menu_css_class', function($classes, $item) {
