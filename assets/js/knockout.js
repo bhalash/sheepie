@@ -1,1 +1,1 @@
-/home/mark/Projects/sheepie/node_modules/knockout/build/output/knockout-latest.js
+../../node_modules/knockout/build/output/knockout-latest.js
