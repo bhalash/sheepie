@@ -70,7 +70,8 @@
 
 .title {
     color: palette(black, mid-dark);
-    word-break: break-all;
+    // FIXME: Find a better solution for this.
+    // word-break: break-all;
 
     a {
         color: inherit;
