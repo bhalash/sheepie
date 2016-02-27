@@ -18,40 +18,40 @@ add_action('wp_enqueue_scripts', function() {
     $css_path = $assets . 'css/';
     $node_path = get_template_directory_uri() . '/node_modules/';
 
-    $sheepie_js = array(
-        'functions' => array(
+    $sheepie_js = [
+        'functions' => [
             $js_path . 'sheepie.js',
-            array()
-        ),
-    );
+            []
+        ],
+    ];
 
-    $sheepie_conditional_js = array(
+    $sheepie_conditional_js = [
         // Internet Explorer conditional JS.
-        // 'html5-shiv' => array(
+        // 'html5-shiv' => [
         //     $node_path . 'html5shiv/dist/html5shiv.min.js',
         //     'lte IE 9',
-        //     array()
-        // )
-    );
+        //     []
+        // ]
+    ];
 
-    $sheepie_fonts = array(
+    $sheepie_fonts = [
         // All Google Fonts to be loaded.
-        'Open Sans:1.0,400,700,800',
-        'Source Code Pro:1.0,400'
-    );
+        'Open Sans:400,700,800',
+        'Source Code Pro:400'
+    ];
 
-    $sheepie_css = array(
+    $sheepie_css = [
         // Compressed, compiled theme CSS.
         'main-style' => $css_path . 'style.css',
-    );
+    ];
 
-    $sheepie_conditional_css = array(
+    $sheepie_conditional_css = [
         // Internet Explorer conditiional CSS.
-        'ie-fallback' => array(
+        'ie-fallback' => [
             $css_path . 'ie.css',
             'lte IE 9'
-        )
-    );
+        ]
+    ];
 
     sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path);
     sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts);
@@ -140,7 +140,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
 
 function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
     foreach ($sheepie_css as $name => $style) {
-        wp_enqueue_style($name, $style, array(), $GLOBALS['sheepie_version']);
+        wp_enqueue_style($name, $style, [], $GLOBALS['sheepie_version']);
     }
 
     if (!empty($sheepie_fonts)) {
@@ -152,7 +152,7 @@ function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
         $path = $style[0];
         $condition = $style[1];
 
-        wp_enqueue_style($name, $path, array(), $GLOBALS['sheepie_version']);
+        wp_enqueue_style($name, $path, [], $GLOBALS['sheepie_version']);
         wp_style_add_data($name, 'conditional', $condition);
     }
 }
@@ -166,7 +166,7 @@ function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
 
 function sheepie_google_font_url($fonts) {
     global $google_fonts;
-    $google_url = array('//fonts.googleapis.com/css?family=');
+    $google_url = ['//fonts.googleapis.com/css?family='];
 
     foreach ($fonts as $key => $value) {
         $google_url[] = str_replace(' ', '+', $value);
