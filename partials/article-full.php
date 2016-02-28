@@ -20,7 +20,7 @@ $post_classes = array('article', 'article--full', 'vspace--half');
 <article <?php post_class($post_classes); ?> id="article--full--<?php the_ID(); ?>">
     <header class="article--full__header vspace--full">
         <?php if (!is_page()) : ?>
-            <h6 class="article--meta font--small vspace--half noprint"><?php sheepie_postmeta(); ?></h4>
+            <h6 class="article--meta font--small vspace--half noprint"><?php sheepie_postmeta(); ?></h6>
         <?php endif; ?>
         <h2 class="title article--full__title">
             <?php sheepie_partial('posttitle'); ?>
