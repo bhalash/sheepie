@@ -182,11 +182,19 @@ function sheepie_google_font_url($fonts) {
 /**
  * Tiny MCE Editor Stylehseet
  * -----------------------------------------------------------------------------
- * Load all theme CSS.
  */
 
 add_action('admin_init', function() {
     add_editor_style(get_template_directory_uri() . '/assets/css/editor.css');
+});
+
+/**
+ * Prevent WordPress Embed Helper Loading
+ * -----------------------------------------------------------------------------
+ */
+
+add_action('wp_footer', function() {
+    wp_deregister_script('wp-embed');
 });
 
 ?>
