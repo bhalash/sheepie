@@ -51,5 +51,7 @@ $post_classes = array('article', 'article--full', 'vspace--half');
                 </p>
             </div>
         </footer>
+    <?php else: ?>
+        <hr class="vcenter--triple">
     <?php endif; ?>
 </article>

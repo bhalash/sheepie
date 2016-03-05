@@ -19,7 +19,6 @@ if (have_posts()) {
     while (have_posts()) {
         the_post();
         sheepie_partial('article', 'full');
-        printf('<hr class="%s">', 'vcenter--triple');
     }
 } else {
     sheepie_partial('article', 'missing');
