@@ -1,12 +1,16 @@
 [submodule "assets/css/charon"]
-    path = assets/css/includes/charon
-    url = https://github.com/bhalash/charon.git
+  path = assets/css/includes/charon
+  url = https://github.com/bhalash/charon.git
+  ignore = dirty
 [submodule "includes/social-meta"]
-    path = includes/social-meta
-    url = https://github.com/bhalash/social-meta.git
+  path = includes/social-meta
+  url = https://github.com/bhalash/social-meta.git
+  ignore = dirty
 [submodule "includes/related-posts"]
-    path = includes/related-posts
-    url = https://github.com/bhalash/related-posts.git
+  path = includes/related-posts
+  url = https://github.com/bhalash/related-posts.git
+  ignore = dirty
 [submodule "includes/archive-functions"]
-    path = includes/archive-functions
-    url = https://github.com/bhalash/archive-functions.git
+  path = includes/archive-functions
+  url = https://github.com/bhalash/archive-functions.git
+  ignore = dirty
