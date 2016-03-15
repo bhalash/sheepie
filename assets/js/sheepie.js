@@ -65,6 +65,7 @@
         }
 
         removeSelector('[class^=article-photobox] br');
+        removeSelector('p:empty');
 
         /*
          * Lightbox and Search Controller
