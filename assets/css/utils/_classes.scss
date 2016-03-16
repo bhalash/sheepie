@@ -126,10 +126,10 @@
 
 .vspace {
     &--double       { margin-bottom: rem($vspace * 2); }
-    &--full         { margin-bottom: rem($vspace); }
+    &--full         { margin-bottom: rem($vspace * 1); }
     &--threequarter { margin-bottom: rem($vspace * 0.75); }
     &--twothird     { margin-bottom: rem($vspace * 0.66); }
-    &--half         { margin-bottom: rem($vspace * 0.5); }
+    &--half         { margin-bottom: rem($vspace * 0.50); }
     &--onethird     { margin-bottom: rem($vspace * 0.33); }
     &--quarter      { margin-bottom: rem($vspace * 0.25); }
 }
@@ -137,7 +137,7 @@
 .vcenter {
     &--triple       { margin: rem($vspace * 3) 0; }
     &--double       { margin: rem($vspace * 2) 0; }
-    &--full         { margin: rem($vspace) 0; }
+    &--full         { margin: rem($vspace * 1) 0; }
     &--threequarter { margin: rem($vspace * 0.75) 0; }
     &--twothird     { margin: rem($vspace * 0.66) 0; }
     &--half         { margin: rem($vspace * 0.50) 0; }
