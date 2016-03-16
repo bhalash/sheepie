@@ -11,11 +11,9 @@
  */
 
 .error {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     text-align: center;
     @include fixed(0);
-
-    &__content {
-        transform: translate(-50%, -50%);
-        @include absolute(50% 50%, top left);
-    }
 }
