@@ -10,6 +10,8 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+@charset 'utf-8';
+
 @import 'includes/normalize';
 @import 'includes/charon/charon';
 
@@ -34,5 +36,3 @@
 @import 'layout/comments';
 @import 'layout/archives';
 @import 'layout/code';
-
-@import 'theme/colors';
