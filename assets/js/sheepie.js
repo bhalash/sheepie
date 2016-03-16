@@ -71,7 +71,7 @@
          * Lightbox and Search Controller
          * -----------------------------------------------------------------------------
          *  Built around Knockout.js, this controller manages the search and
-         *  lightbox display on the site, in conjunction with a tiny PHP function
+         *  lightbox.elements on the site, in conjunction with a tiny PHP function
          *  to add the click directive to article images.
          */
 
@@ -85,7 +85,7 @@
                  *  Add whatever extra states here.
                  */
 
-                self.display = {
+                self.elements = {
                     search: ko.observable(false),
                     lightbox: ko.observable(false)
                 };
@@ -107,7 +107,7 @@
                  * Change State
                  * -----------------------------------------------------------------
                  * The modal (search, lightbox) element on this site have an
-                 * exclusive appearance: only one at a time should display.
+                 * exclusive appearance: only one at a time should.elements.
                  *
                  *  1. Hide all the eiements, except name.
                  *  2. If name exists, invert its state.
@@ -116,16 +116,16 @@
                  */
 
                 self.show = function(name) {
-                    for (var i in self.display) {
-                        if (name && name in self.display && self.display[i]() === self.display[name]()) {
+                    for (var i in self.elements) {
+                        if (name && name in self.elements && self.elements[i]() === self.elements[name]()) {
                             continue;
                         }
 
-                        self.display[i](false);
+                        self.elements[i](false);
                     }
 
-                    if (name && name in self.display) {
-                        self.display[name](!self.display[name]());
+                    if (name && name in self.elements) {
+                        self.elements[name](!self.elements[name]());
                     }
                 };
 
@@ -163,12 +163,37 @@
                  */
 
                 self.showLightbox = function(data, event) {
+                    // TODO: On left-or-right arrow keypress, traverse the DOM
+                    // for the previous/next image in the same article and set
+                    // the lightbox to that.
+                    //
+                    // See below!
                     self.lightbox.text(event.target.attributes.alt.value);
                     self.lightbox.image(event.target.attributes.src.value);
                     self.lightbox.link(event.target.parentNode.attributes.href.value);
 
                     self.show('lightbox');
                 };
+
+                /*
+                 * Set Lightbox Data and Open Lightbox
+                 * -----------------------------------------------------------------
+                 *  @param  object      data        Data passed.
+                 *  @param  object      event       Event and element information.
+                 */
+
+                self.nextElement = function(data, event) {
+                    // return str_replace('<img', '<img data-bind="click: showLightbox"', $content);
+                    //
+                    // 1. Traverse the same logical container (<article>).
+                    // 2. Find the previous or next lightbox image.
+                    // 3. Set lightbox to that, if it exists.
+                    // 4. Otherwise do nothing.
+                    //
+                    // Shitty pseudocode:
+                    //
+                    // self.parent('<article>').sameBindAsThis.triggerClick
+                }
             }
         }
 
