@@ -85,13 +85,8 @@
  */
 
 .font {
-    &--small {
-        font-size: 80%;
-    }
-
-    &--big {
-        font-size: 120%;
-    }
+    &--small { font-size: 80%; }
+    &--big   { font-size: 120%; }
 }
 
 /**
@@ -119,17 +114,9 @@
  */
 
 .float {
-    &--left {
-        float: left;
-    }
-
-    &--right {
-        float: right;
-    }
-
-    &--none {
-        @include nofloat;
-    }
+    &--left  { float: left; }
+    &--right { float: right; }
+    &--none  { @include nofloat; }
 }
 
 /**
@@ -138,67 +125,24 @@
  */
 
 .vspace {
-    &--double {
-        margin-bottom: rem($vspace * 2);
-    }
-
-    &--full {
-        margin-bottom: rem($vspace);
-    }
-
-    &--threequarter {
-        margin-bottom: rem($vspace * 0.75);
-    }
-
-    &--twothird {
-        margin-bottom: rem($vspace * 0.66);
-    }
-
-    &--half {
-        margin-bottom: rem($vspace * 0.5);
-    }
-
-    &--onethird {
-        margin-bottom: rem($vspace * 0.33);
-    }
-
-    &--quarter {
-        margin-bottom: rem($vspace * 0.25);
-    }
+    &--double       { margin-bottom: rem($vspace * 2); }
+    &--full         { margin-bottom: rem($vspace); }
+    &--threequarter { margin-bottom: rem($vspace * 0.75); }
+    &--twothird     { margin-bottom: rem($vspace * 0.66); }
+    &--half         { margin-bottom: rem($vspace * 0.5); }
+    &--onethird     { margin-bottom: rem($vspace * 0.33); }
+    &--quarter      { margin-bottom: rem($vspace * 0.25); }
 }
 
 .vcenter {
-    &--triple {
-        margin: rem($vspace * 3) 0;
-    }
-
-    &--double {
-        margin: rem($vspace * 2) 0;
-    }
-
-    &--full {
-        margin: rem($vspace) 0;
-    }
-
-    &--threequarter {
-        margin: rem($vspace * 0.75) 0;
-    }
-
-    &--twothird {
-        margin: rem($vspace * 0.66) 0;
-    }
-
-    &--half {
-        margin: rem($vspace * 0.5) 0;
-    }
-
-    &--onethird {
-        margin: rem($vspace * 0.33) 0;
-    }
-
-    &--quarter {
-        margin: rem($vspace * 0.25) 0;
-    }
+    &--triple       { margin: rem($vspace * 3) 0; }
+    &--double       { margin: rem($vspace * 2) 0; }
+    &--full         { margin: rem($vspace) 0; }
+    &--threequarter { margin: rem($vspace * 0.75) 0; }
+    &--twothird     { margin: rem($vspace * 0.66) 0; }
+    &--half         { margin: rem($vspace * 0.50) 0; }
+    &--onethird     { margin: rem($vspace * 0.33) 0; }
+    &--quarter      { margin: rem($vspace * 0.25) 0; }
 }
 
 /**
@@ -213,5 +157,23 @@
         @include media(small) {
             display: initial;
         }
+    }
+}
+
+/**
+ * Theme Colours
+ * -----------------------------------------------------------------------------
+ * FIXME: This section can be replaced by iteration!!
+ */
+
+.color {
+    &--rmwb {
+        &--bg,   &--bg-hover:hover   { background-color: palette(rmwb); }
+        &--text, &--text-hover:hover { color: palette(rmwb); }
+    }
+
+    &--blue {
+        &--bg,   &--bg-hover:hover   { background-color: palette(blue); }
+        &--text, &--text-hover:hover { color: palette(blue); }
     }
 }
