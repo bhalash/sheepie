@@ -15,8 +15,6 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$action = esc_url(home_url('/'));
-
 ?>
 
 <header class="navbar noprint" id="navbar">

@@ -15,10 +15,11 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$search_action = esc_url(home_url('/'));
 ?>
 
 <div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !elements.search()}">
-    <form class="bigsearch__form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
+    <form class="bigsearch__form" method="get" action="<?php printf($search_action); ?>" autocomplete="off" novalidate>
         <fieldset>
             <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: elements.search()">
             <label class="bigsearch__label" for="bigsearch__input"><?php _e('search', 'sheepie'); ?></label>
