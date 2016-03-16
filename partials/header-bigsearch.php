@@ -16,6 +16,7 @@
  */
 
 $search_action = esc_url(home_url('/'));
+
 ?>
 
 <div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !elements.search()}">
