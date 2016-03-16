@@ -17,9 +17,7 @@ global $wp_query;
 $query = get_search_query();
 $action = esc_url(home_url('/'));
 $total = $wp_query->found_posts;
-
-$result = 'result';
-$result .= $total > 1 ? 's' : '';
+$result = __('result', 'sheepie') . ($total != 1 ? 's' : '');
 
 ?>
 
