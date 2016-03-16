@@ -52,7 +52,7 @@ $action = esc_url(home_url('/'));
             )); ?>
 
             <div class="clearfix navbar__buttonrow navbar__child">
-                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: display.search()}, click: toggleSearch">
+                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: elements.search()}, click: toggleSearch">
                     <span class="button__icon social__icon" data-bind=""></span>
                 </button>
             </div>
@@ -60,20 +60,20 @@ $action = esc_url(home_url('/'));
     </div>
 </header>
 
-<div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !display.search()}">
+<div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch" data-bind="css: {'disp--hidden': !elements.search()}">
     <form class="bigsearch__form" method="get" action="<?php printf($action); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: display.search()">
+            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required" data-bind="hasfocus: elements.search()">
             <label class="bigsearch__label" for="bigsearch__input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
 
-    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: display.search()}, click: toggleSearch">
+    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: elements.search()}, click: toggleSearch">
         <span class="button__icon social__icon" data-bind=""></span>
     </button>
 </div>
 
-<div class="disp--hidden lightbox noprint" id="lightbox" data-bind="css: { 'disp--hidden': !display.lightbox() }">
+<div class="disp--hidden lightbox noprint" id="lightbox" data-bind="css: { 'disp--hidden': !elements.lightbox() }">
     <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
         <img class="lightbox__image" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
     </a>

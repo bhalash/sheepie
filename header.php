@@ -21,16 +21,20 @@ $html = get_bloginfo('html_type');
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<!-- The mystery of life isn't a problem to solve, but a reality to experience. -->
-<meta http-equiv="Content-Type" content="<?php printf('%s; charset=%s', $html, $charset); ?>" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta charset="<?php bloginfo('charset'); ?>" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php wp_head(); ?>
+    <!-- The mystery of life isn't a problem to solve, but a reality to experience. -->
+    <meta http-equiv="Content-Type" content="<?php printf('%s; charset=%s', $html, $charset); ?>" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+    <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> data-bind="event: {keyup: closeOnEscape}">
-    <?php // I split off the nav and header code for my sanity (neatness). ?>
-    <?php sheepie_partial('head'); ?>
+    <?php if (!is_404()) {
+        // I split off the nav and header code for my sanity (neatness).
+        sheepie_partial('header', 'navbar');
+        sheepie_partial('header', 'bigsearch');
+        sheepie_partial('header', 'lightbox');
+    } ?>
     <main class="main" id="main">
         <div class="main__interior" id="main__interior">
