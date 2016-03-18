@@ -69,7 +69,7 @@
  */
 
 .title {
-    color: palette(black, mid-dark);
+    color: color(black, mid-dark);
     // FIXME: Find a better solution for this.
     // word-break: break-all;
 
@@ -168,12 +168,12 @@
 
 .color {
     &--rmwb {
-        &--bg,   &--bg-hover:hover   { background-color: palette(rmwb); }
-        &--text, &--text-hover:hover { color: palette(rmwb); }
+        &--bg,   &--bg-hover:hover   { background-color: color(rmwb); }
+        &--text, &--text-hover:hover { color: color(rmwb); }
     }
 
     &--blue {
-        &--bg,   &--bg-hover:hover   { background-color: palette(blue); }
-        &--text, &--text-hover:hover { color: palette(blue); }
+        &--bg,   &--bg-hover:hover   { background-color: color(blue); }
+        &--text, &--text-hover:hover { color: color(blue); }
     }
 }

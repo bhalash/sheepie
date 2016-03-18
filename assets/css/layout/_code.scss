@@ -11,8 +11,8 @@
  */
 
 pre {
-    background: palette(rmwb);
-    color: palette(white, x-light);
+    background: color(rmwb);
+    color: color(white, x-light);
     overflow: auto;
     padding: 0.5rem;
 
@@ -52,7 +52,7 @@ pre {
     }
 
     .hljs-rules {
-        // color: palette(black, light);
+        // color: color(black, light);
     }
 
     .hljs-title {

@@ -34,7 +34,7 @@
     }
 
     img {
-        border: 1px solid palette(rmwb);
+        border: 1px solid color(rmwb);
         box-sizing: border-box;
     }
 
@@ -51,7 +51,7 @@
 
 .article--excerpt {
     article.excerpt p {
-        color: palette(black, x-light);
+        color: color(black, x-light);
     }
 }
 
@@ -69,7 +69,7 @@
 
     &__thumbnail {
         background-size: cover;
-        border: 1px solid palette(rmwb);
+        border: 1px solid color(rmwb);
         box-sizing: border-box;
         @include square-flex(100% 0.75);
 
@@ -80,7 +80,7 @@
     }
 
     &__link {
-        color: palette(black, x-dark);
+        color: color(black, x-dark);
     }
 }
 
