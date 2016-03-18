@@ -112,14 +112,15 @@ gulp.task('css', function() {
 gulp.task('css-dev', ['sprites'], function() {
     // Development unminified sass, with sourcemap.
     return sass(assets.css.source, {
-            emitCompileError: true,
-            sourcemap: true
-        })
-        .on('error', sass.logError)
-        .pipe(replace(regex.comments.match, regex.comments.replace))
-        .pipe(prefixer(prefixes))
-        .pipe(sourcemap.write())
-        .pipe(gulp.dest(assets.css.dest));
+        emitCompileError: true,
+        verbose: true,
+        sourcemap: true
+    })
+    .on('error', sass.logError)
+    .pipe(replace(regex.comments.match, regex.comments.replace))
+    .pipe(prefixer(prefixes))
+    .pipe(sourcemap.write())
+    .pipe(gulp.dest(assets.css.dest));
 });
 
 //
