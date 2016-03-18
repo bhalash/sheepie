@@ -16,19 +16,7 @@ if (!comments_open() || post_password_required()) {
     return;
 }
 
-// Template input for name, email and URL.
-$input_html = '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';
 $textarea_html = '<textarea class="comments__textarea" id="comment" name="comment" required="required"></textarea>';
-
-$input_fields = [
-    'author' => __('Name*', 'sheepie'),
-    'email' => __('Email*', 'sheepie'),
-    'url' => __('Website', 'sheepie')
-];
-
-foreach ($input_fields as $field => $label) {
-    $input_fields[$field] = sprintf($input_html, $field, $field, $field, $label);
-}
 
 ?>
 
@@ -61,7 +49,7 @@ foreach ($input_fields as $field => $label) {
             'comment_field' => sprintf('<p id="textarea">%s</p>', $textarea_html),
             'comment_form_before_fields' => '<div class="comments__form">',
             'comment_form_after_fields' => '</div>',
-            'fields' => $input_fields
+            'fields' => sheepie_commentform_fields()
         ]); ?>
     </div>
 </div>

@@ -67,6 +67,31 @@ function sheepie_theme_comments($comment, $args, $depth) {
 }
 
 /**
+ * Generate Custom Commentform Input HTML
+ * -------------------------------------------------------------------------
+ * @param   array       $input_fields   Labels for input fields.
+ * @param   string      $input_html     Raw HTML for input fields.
+ * @param   array       $input_fields   Raw HTML joined with labels.
+ */
+
+function sheepie_commentform_fields($input_fields == null, $input_html = null) {
+    // Template input for name, email and URL.
+    $input_html = $input_html ?: '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';
+
+    $input_fields = $input_fields ?: [
+        'author' => __('Name*', 'sheepie'),
+        'email' => __('Email*', 'sheepie'),
+        'url' => __('Website', 'sheepie')
+    ];
+
+    foreach ($input_fields as $field => $label) {
+        $input_fields[$field] = sprintf($input_html, $field, $field, $field, $label);
+    }
+
+    return $input_fields;
+}
+
+/**
  * Wrap Comment Fields in Elements
  * -------------------------------------------------------------------------
  * Wrap comment form fields in <div></div> tags.
