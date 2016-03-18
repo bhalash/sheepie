@@ -74,7 +74,7 @@ function sheepie_theme_comments($comment, $args, $depth) {
  * @param   array       $input_fields   Raw HTML joined with labels.
  */
 
-function sheepie_commentform_fields($input_fields == null, $input_html = null) {
+function sheepie_commentform_fields($input_fields = null, $input_html = null) {
     // Template input for name, email and URL.
     $input_html = $input_html ?: '<input class="comments__input %s-name font-size--small" id="%s" name="%s" placeholder="%s" type="text" required="required">';
 
