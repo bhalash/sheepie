@@ -82,7 +82,7 @@ function sheepie_includes() {
  * Shorthand wrapper for get_template_part to reduce the verbosity of calls.
  *
  * @param   string      $name           Partial name.
- * @param   strgin      $slug           Partial slug.
+ * @param   string      $slug           Partial slug.
  */
 
 function sheepie_partial($name, $slug = '') {
