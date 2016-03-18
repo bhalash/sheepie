@@ -6,6 +6,7 @@
 sass/.sass-cache/
 *.css
 *.css.map
+vectors/
 
 #################
 ## Minified JS
