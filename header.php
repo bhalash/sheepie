@@ -29,9 +29,9 @@ $html = get_bloginfo('html_type');
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> data-bind="event: {keyup: closeOnEscape}">
+<body <?php body_class(); ?> data-bind="event: { keyup: keyboardActions }">
     <?php if (!is_404()) {
-        // I split off the nav and header code for my sanity (neatness).
+        // I split off the nav and header code for KISS.
         sheepie_partial('header', 'navbar');
         sheepie_partial('header', 'bigsearch');
         sheepie_partial('header', 'lightbox');
