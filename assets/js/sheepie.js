@@ -91,19 +91,12 @@
             // Current state.
             self.shown = null;
 
-            /*
-             * Toggle a Given State
-             * -----------------------------------------------------------------
-             *  TODO: Dymaically generate these.
-             */
+            // Dynamic state toggle.
+            self.toggle = {};
 
-            self.toggleLightbox = function() {
-                self.show('lightbox');
-            };
-
-            self.toggleSearch = function() {
-                self.show('search');
-            };
+            for (var key in self.elements) {
+                self.toggle[key] = new Function('self.show("' + key + '")');
+            }
 
             /*
              * KnockoutJS Keybind Actions
@@ -119,7 +112,7 @@
                         self.show(null); break;
                     case 37:
                     case 39:
-                        // Log <left> and <right> arrow key presses.
+                        // Set next/previous image.
                         self.lightbox.change(event); break;
                 }
             };
@@ -176,6 +169,9 @@
                 self.lightbox.image(image.attributes.src.value);
                 self.lightbox.link(image.parentNode.attributes.href.value);
 
+                // TODO
+                console.log(image.attributes);
+
                 self.show('lightbox');
             };
 
@@ -185,8 +181,18 @@
              */
 
             self.lightbox.change = function(crap) {
+                if (self.shown !== 'lightbox') {
+                    return;
+                }
+
                 // TODO: On left-or-right arrow keypress, traverse the DOM
                 // for the previous/change image in the same article.
+
+                switch(crap.keyCode) {
+                    case 37: console.log('left'); break;
+                    case 39: console.log('right'); break;
+                }
+
                 console.log(crap.keyCode);
             }
         }
