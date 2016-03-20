@@ -192,8 +192,6 @@
                     case 37: console.log('left'); break;
                     case 39: console.log('right'); break;
                 }
-
-                console.log(crap.keyCode);
             }
         }
     }
