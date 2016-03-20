@@ -162,7 +162,7 @@ function sheepie_postmeta() {
 
 add_filter('the_content', function($content) {
     $bindings = [
-        '<img' => ['click: showLightbox']
+        '<img' => ['click: lightbox.show']
     ];
 
     foreach ($bindings as $tag => $directives) {
