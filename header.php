@@ -29,7 +29,7 @@ $html = get_bloginfo('html_type');
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> data-bind="event: { keyup: keyboardActions }">
+<body <?php body_class(); ?> data-bind="event: { keyup: switchboard }">
     <?php if (!is_404()) {
         // I split off the nav and header code for KISS.
         sheepie_partial('header', 'navbar');
