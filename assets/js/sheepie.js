@@ -159,13 +159,6 @@
              */
 
             self.lightbox = {
-                /*
-                 * Lightbox Attributes
-                 * -------------------------------------------------------------
-                 * Pulled from the bound image. href isn't used, although it may
-                 * be useful in future
-                 */
-
                 text: ko.observable(null),
                 image: ko.observable(null),
                 link: ko.observable(null)
