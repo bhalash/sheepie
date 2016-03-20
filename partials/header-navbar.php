@@ -46,7 +46,7 @@
             )); ?>
 
             <div class="clearfix navbar__buttonrow navbar__child">
-                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: elements.search()}, click: toggleSearch">
+                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: elements.search()}, click: toggle.search">
                     <span class="button__icon social__icon" data-bind=""></span>
                 </button>
             </div>

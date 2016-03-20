@@ -27,7 +27,7 @@ $search_action = esc_url(home_url('/'));
         </fieldset>
     </form>
 
-    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: elements.search()}, click: toggleSearch">
+    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search" data-bind="css: {close: elements.search()}, click: toggle.search">
         <span class="button__icon social__icon" data-bind=""></span>
     </button>
 </div>
