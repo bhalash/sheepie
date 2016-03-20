@@ -69,9 +69,7 @@
  */
 
 .title {
-    color: color(black, mid-dark);
-    // FIXME: Find a better solution for this.
-    // word-break: break-all;
+    color: color(blacks, mid-dark);
 
     a {
         color: inherit;
@@ -172,8 +170,8 @@
         &--text, &--text-hover:hover { color: color(rmwb); }
     }
 
-    &--blue {
-        &--bg,   &--bg-hover:hover   { background-color: color(blue); }
-        &--text, &--text-hover:hover { color: color(blue); }
+    &--blues {
+        &--bg,   &--bg-hover:hover   { background-color: color(blues); }
+        &--text, &--text-hover:hover { color: color(blues); }
     }
 }

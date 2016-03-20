@@ -57,7 +57,7 @@
     &__input {
         background: transparent;
         box-sizing: border-box;
-        color: color(white, x-light);
+        color: color(whites, x-light);
         display: block;
         font-size: 4.5rem;
         margin: 0 auto;
@@ -66,7 +66,7 @@
         @include absolute-center;
 
         @include placeholder-style {
-            color: rgba(color(white, x-light), 0.5);
+            color: rgba(color(whites, x-light), 0.5);
         }
 
         @include media(large) {

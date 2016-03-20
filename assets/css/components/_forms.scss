@@ -41,7 +41,7 @@ button, fieldset, form, input, label, textarea {
 // Input and text area colours.
 
 input:not(.bigsearch__input), textarea {
-    background: color(white, light);
+    background: color(whites, light);
     font-size: 1rem;
     min-height: 3rem;
     padding: 0.625rem 1rem;
@@ -52,13 +52,13 @@ input:not(.bigsearch__input), textarea {
     }
 
     &:not(#submit):focus {
-        color: color(white, x-light);
+        color: color(whites, x-light);
         background: color(rmwb);
     }
 
     &:focus {
         @include placeholder-style {
-            color: color(white, x-light);
+            color: color(whites, x-light);
         }
     }
 }
@@ -79,7 +79,7 @@ input[type=submit] {
     padding-bottom: 0.3rem;
 
     &:active {
-        color: color(white, x-light);
-        background: color(blue);
+        color: color(whites, x-light);
+        background: color(blues);
     }
 }

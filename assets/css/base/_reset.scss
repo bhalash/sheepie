@@ -11,7 +11,7 @@
  */
 
 html {
-    color: color(black, mid-light);
+    color: color(blacks, mid-light);
     font-family: $font-opensans;
 
     @include media(print) {
@@ -45,7 +45,7 @@ blockquote, figure, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul {
  */
 
 hr {
-    background: color(white, mid-light);
+    background: color(whites, mid-light);
     border: 0;
     height: 0.1rem;
 }
@@ -77,7 +77,7 @@ article img {
  */
 
 blockquote {
-    border-left: 1px solid color(black, light);
+    border-left: 1px solid color(blacks, light);
     padding-left: 0.625rem;
 
     p, li {
