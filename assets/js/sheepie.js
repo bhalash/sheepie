@@ -1,5 +1,5 @@
 /**
- * Miscellaneous JavaScript Functions
+ * Sheepie JavaScript Functions
  * -----------------------------------------------------------------------------
  * @category   JavaScript File
  * @package    Sheepie
@@ -10,21 +10,21 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/*
- * Wrap Pre Elements
- * -------------------------------------------------------------------------
- * highlight.js operates on the <code> child or <pre> elements. This wraps the
- * content of an element with <code> before initializing highlight.js.
- *
- * This does the same thing as jQuery's $(foo).wrapInner(), albeit with less
- * regex selector magic.
- *
- *  if ($('pre').length) {
- *      $('pre:not(:has(> code))').wrapInner('<code></code>');
- *  }
- */
-
 (function() {
+    /*
+     * Wrap Pre Elements
+     * -------------------------------------------------------------------------
+     * highlight.js operates on the <code> child or <pre> elements. This wraps
+     * the content of an element with <code> before initializing highlight.js.
+     *
+     * This does the same thing as jQuery's $(foo).wrapInner(), albeit with less
+     * regex selector magic.
+     *
+     *  if ($('pre').length) {
+     *      $('pre:not(:has(> code))').wrapInner('<code></code>');
+     *  }
+     */
+
     function wrapInsideElement(selector, wrapper) {
         selector = document.querySelectorAll(selector);
         wrapper = wrapper.replace(/(^<.*\/|>$)/g, '');
@@ -63,15 +63,14 @@
         }
     }
 
+    // WordPress sometimes inserts <br> between <a> elements inside a <figure>.
     removeSelector('[class^=article-photobox] br');
+    // WordPress always inserts an empty <p> element before <figure> elements.
     removeSelector('p:empty');
 
     /*
-     * Lightbox and Search Controller
-     * -----------------------------------------------------------------------------
-     *  Built around Knockout.js, this controller manages the search and
-     *  lightbox.elements on the site, in conjunction with a tiny PHP function
-     *  to add the click directive to article images.
+     * Sheepie Actions Controller
+     * -------------------------------------------------------------------------
      */
 
     var sheepieController = function() {
@@ -89,17 +88,40 @@
                 lightbox: ko.observable(false)
             };
 
+            // Current state.
+            self.shown = null;
+
             /*
-             * Lightbox Attributes
+             * Toggle a Given State
              * -----------------------------------------------------------------
-             * Pulled from the bound image. Link isn't used, although it is useful
-             * for future use.
+             *  TODO: Dymaically generate these.
              */
 
-            self.lightbox = {
-                text: ko.observable(null),
-                image: ko.observable(null),
-                link: ko.observable(null)
+            self.toggleLightbox = function() {
+                self.show('lightbox');
+            };
+
+            self.toggleSearch = function() {
+                self.show('search');
+            };
+
+            /*
+             * KnockoutJS Keybind Actions
+             * -----------------------------------------------------------------
+             *  @param  object      data        Data passed.
+             *  @param  object      event       Event and element information.
+             */
+
+            self.switchboard = function(data, event) {
+                switch(event.keyCode) {
+                    case 27:
+                        // Close whatever is open on <escape>.
+                        self.show(null); break;
+                    case 37:
+                    case 39:
+                        // Log <left> and <right> arrow key presses.
+                        self.lightbox.change(event); break;
+                }
             };
 
             /*
@@ -116,7 +138,7 @@
 
             self.show = function(name) {
                 for (var i in self.elements) {
-                    if (name && name in self.elements && self.elements[i]() === self.elements[name]()) {
+                    if (self.shown === name) {
                         continue;
                     }
 
@@ -124,74 +146,55 @@
                 }
 
                 if (name && name in self.elements) {
+                    // Invert state.
                     self.elements[name](!self.elements[name]());
                 }
+
+                self.shown = name || null;
             };
 
             /*
-             * Set State to: Whatever
+             * Lightbox
              * -----------------------------------------------------------------
              */
 
-            self.toggleLightbox = function() {
-                self.show('lightbox');
-            };
+            self.lightbox = {
+                /*
+                 * Lightbox Attributes
+                 * -------------------------------------------------------------
+                 * Pulled from the bound image. href isn't used, although it may
+                 * be useful in future
+                 */
 
-            self.toggleSearch = function() {
-                self.show('search');
-            };
-
-            /*
-             * Close Lightbox/Search/Whatever on Escape
-             * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
-             */
-
-            self.closeOnEscape = function(data, event) {
-                if (event.keyCode === 27) {
-                    self.show(null);
-                }
+                text: ko.observable(null),
+                image: ko.observable(null),
+                link: ko.observable(null)
             };
 
             /*
              * Set Lightbox Data and Open Lightbox
              * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
              */
 
-            self.showLightbox = function(data, event) {
+            self.lightbox.show = function(data, event) {
+                var image = event.target;
+
+                self.lightbox.text(image.attributes.alt.value);
+                self.lightbox.image(image.attributes.src.value);
+                self.lightbox.link(image.parentNode.attributes.href.value);
+
+                self.show('lightbox');
+            };
+
+            /*
+             * Set Lightbox Data and Open Lightbox
+             * -----------------------------------------------------------------
+             */
+
+            self.lightbox.change = function(crap) {
                 // TODO: On left-or-right arrow keypress, traverse the DOM
-                // for the previous/next image in the same article and set
-                // the lightbox to that.
-                //
-                // See below!
-                self.lightbox.text(event.target.attributes.alt.value);
-                self.lightbox.image(event.target.attributes.src.value);
-                self.lightbox.link(event.target.parentNode.attributes.href.value);
-
-                self.show('lightbox');
-            };
-
-            /*
-             * Set Lightbox Data and Open Lightbox
-             * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
-             */
-
-            self.nextElement = function(data, event) {
-                // return str_replace('<img', '<img data-bind="click: showLightbox"', $content);
-                //
-                // 1. Traverse the same logical container (<article>).
-                // 2. Find the previous or next lightbox image.
-                // 3. Set lightbox to that, if it exists.
-                // 4. Otherwise do nothing.
-                //
-                // Shitty pseudocode:
-                //
-                // self.parent('<article>').sameBindAsThis.triggerClick
+                // for the previous/change image in the same article.
+                console.log(crap.keyCode);
             }
         }
     }
