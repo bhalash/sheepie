@@ -19,8 +19,10 @@
 }
 
 .sidebar-widget {
+    margin-bottom: rem($vspace);
+
     @include media(mobile) {
-        margin-bottom: rem($vspace);
+        margin-bottom: 0;
     }
 }
 
