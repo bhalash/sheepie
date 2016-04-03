@@ -19,21 +19,22 @@
     -webkit-appearance: button;
     background: transparent;
     cursor: pointer;
-    height: 2.5rem;
+    height: rem($navbar-height--collapsed);
     margin: 0;
-    opacity: 0.5;
+    opacity: 1;
     padding: 0;
-    width: 2.5rem;
+    width: rem($navbar-height--collapsed);
+    @include absolute(0 0, top right);
 
     &:active {
         opacity: 1;
     }
 
-    @include media(large) {
-        height: rem($navbar-height--collapsed);
-        opacity: 1;
-        width: rem($navbar-height--collapsed);
-        @include absolute(0 0, top right);
+    @include media(1024) {
+        height: 2.5rem;
+        opacity: 0.5;
+        position: initial;
+        width: 2.5rem;
         // Button size is increased to present a better touch target.
     }
 

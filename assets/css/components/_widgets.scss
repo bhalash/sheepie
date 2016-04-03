@@ -11,18 +11,14 @@
  */
 
 #widgets {
-    @include columns(float, div, 3, 2%) {
-        @include media(mobile) {
-            @include nofloat;
-        }
+    @include media(540) {
+        @include columns(float, div, 3, 2%)
     }
 }
 
 .sidebar-widget {
-    margin-bottom: rem($vspace);
-
-    @include media(mobile) {
-        margin-bottom: 0;
+    @include media(540) {
+        margin-bottom: rem($vspace);
     }
 }
 

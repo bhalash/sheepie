@@ -222,9 +222,11 @@
             }
 
             a {
-                @include media(large) {
-                    box-sizing: border-box;
-                    padding: rem($navbar-height--collapsed * 0.25) 0;
+                box-sizing: border-box;
+                padding: rem($navbar-height--collapsed * 0.25) 0;
+
+                @include media(1024) {
+                    padding: 0;
                 }
             }
         }

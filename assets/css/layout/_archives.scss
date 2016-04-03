@@ -11,10 +11,8 @@
  */
 
 div.archive {
-    @include columns(flex, div, 2, 2);
-
-    @include media(small) {
-        display: block;
+    @include media(640) {
+        @include columns(flex, div, 2, 2);
     }
 }
 

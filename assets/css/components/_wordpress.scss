@@ -16,10 +16,10 @@
  */
 
 %floatie-size {
-    width: 30%;
+    width: 50%;
 
-    @include media(medium) {
-        width: 50%;
+    @include media(768) {
+        width: 30%;
     }
 }
 

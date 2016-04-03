@@ -61,11 +61,11 @@
  */
 
 .photowall {
-    @include column-count(3);
+    @include column-count(2, rem($vspace * 0.5));
 
 
-    @include media(small) {
-        @include column-count(2, rem($vspace * 0.5));
+    @include media(640) {
+        @include column-count(3);
     }
 
     img {

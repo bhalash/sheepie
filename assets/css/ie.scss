@@ -66,7 +66,7 @@ hr {
  */
 
 .avatar {
-    @include media(650) {
+    @include media(640) {
         @include columns(float, div, 10% auto, 2%);
     }
 

@@ -59,7 +59,7 @@
         box-sizing: border-box;
         color: color(whites, x-light);
         display: block;
-        font-size: 4.5rem;
+        font-size: 2rem;
         margin: 0 auto;
         text-align: center;
         width: 90%;
@@ -69,8 +69,8 @@
             color: rgba(color(whites, x-light), 0.5);
         }
 
-        @include media(large) {
-            font-size: 2rem;
+        @include media(1024) {
+            font-size: 4.5rem;
         }
 
         &:focus + label {
