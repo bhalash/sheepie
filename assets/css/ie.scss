@@ -90,8 +90,8 @@ hr {
 
 .lightbox {
     &__image {
-        @include absolute(50%, 50%);
         transform: translate(-50%, -50%);
+        @include absolute(50% auto auto 50%);
     }
 
     &__title {
@@ -106,7 +106,6 @@ hr {
 
 .navbar {
     &__content {
-        // No flexbox in IE9. :( Child element is intead absolutely positioned.
         height: auto;
         @include absolute(auto $vspace $vspace);
 
