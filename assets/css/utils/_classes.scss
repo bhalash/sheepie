@@ -47,18 +47,17 @@
  */
 
 .avatar {
-    @include columns(flex, div, 10% auto, 2%);
-
-    @include media(small) {
-        display: block;
+    @include media(640) {
+        @include columns(flex, div, 10% auto, 2%);
     }
 
     &__photo {
-        background: center/cover no-repeat;
-        @include square-flex(100% 1);
+        display: none;
 
-        @include media(small) {
-            display: none;
+        @include media(640) {
+            background: center/cover no-repeat;
+            display: block;
+            @include square-flex(100% 1);
         }
     }
 }
@@ -150,10 +149,8 @@
 
 .flex {
     &--three-col--article {
-        @include columns(flex, article, 3, $split-column-margin);
-
-        @include media(small) {
-            display: initial;
+        @include media(640) {
+            @include columns(flex, article, 3, $split-column-margin);
         }
     }
 }
