@@ -95,7 +95,7 @@
 .disp {
     transition: .15s opacity ease-in;
 
-   &--hidden {
+    &--hidden {
         opacity: 0;
         visibility: hidden;
     }
@@ -165,13 +165,18 @@
  */
 
 .color {
+    &--blues {
+        &--bg,   &--bg-hover:hover   { background-color: color(blues); }
+        &--text, &--text-hover:hover { color: color(blues); }
+    }
+
     &--rmwb {
         &--bg,   &--bg-hover:hover   { background-color: color(rmwb); }
         &--text, &--text-hover:hover { color: color(rmwb); }
     }
 
-    &--blues {
-        &--bg,   &--bg-hover:hover   { background-color: color(blues); }
-        &--text, &--text-hover:hover { color: color(blues); }
+    &--white {
+        &--bg,   &--bg-hover:hover   { background-color: color(whites, x-light); }
+        &--text, &--text-hover:hover { color: color(whites, x-light); }
     }
 }
