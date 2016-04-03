@@ -32,20 +32,21 @@
     }
 
     &__image {
+        margin: 0 !important;
         max-height: 95%;
         max-width: 95%;
 
-        @include media(mobile) {
-            margin: 0 !important;
+        @include media(540) {
+            margin: initial;
         }
     }
 
     &__title {
-        display: block;
-        padding: 1rem 0;
+        display: none;
 
-        @include media(mobile) {
-            display: none;
+        @include media(540) {
+            display: block;
+            padding: 1rem 0;
         }
     }
 }
