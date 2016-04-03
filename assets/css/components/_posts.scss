@@ -63,6 +63,7 @@
  */
 
 .article--related {
+    // TODO: Overlay text on image.
     margin-bottom: rem($vspace);
 
     @include media(640) {
