@@ -83,6 +83,22 @@ hr {
     color: color(blacks, x-dark);
 }
 
+/**
+ * Lightbox
+ * -----------------------------------------------------------------------------
+ */
+
+.lightbox {
+    &__image {
+        @include absolute(50%, 50%);
+        transform: translate(-50%, -50%);
+    }
+
+    &__title {
+        // TODO
+    }
+}
+
 
 /**
  * Navbar Child Element
