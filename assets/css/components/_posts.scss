@@ -63,19 +63,22 @@
  */
 
 .article--related {
-    @include media(small) {
-        margin-bottom: rem($vspace);
+    margin-bottom: rem($vspace);
+
+    @include media(640) {
+        margin: 0;
     }
 
     &__thumbnail {
         background-size: cover;
         border: 1px solid color(rmwb);
         box-sizing: border-box;
-        @include square-flex(100% 0.75);
+        margin-bottom: rem($vspace * 0.5);
+        @include square-flex(100% 0.25);
 
-        @include media(small) {
-            margin-bottom: rem($vspace * 0.5);
-            @include square-flex(100% 0.25);
+        @include media(640) {
+            @include square-flex(100% 0.75);
+            margin-bottom: 0;
         }
     }
 
