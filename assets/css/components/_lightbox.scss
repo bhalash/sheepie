@@ -32,6 +32,7 @@
     }
 
     &__image {
+        // FIXME: Why is this !important?
         margin: 0 !important;
         max-height: 95%;
         max-width: 95%;
