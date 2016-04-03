@@ -227,8 +227,6 @@
 /**
  * Lightbox Image
  * -----------------------------------------------------------------------------
- * There is a JavaScript component to determine state, but it is mostly handled
- * through this CSS.
  */
 
 .lightbox {
@@ -241,12 +239,32 @@
     &__anchor {
         align-items: center;
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        text-align: center;
+        text-decoration: none;
         @include absolute(0);
+
+        &:hover, &:active {
+            text-decoration: none;
+        }
     }
 
     &__image {
         max-height: 95%;
         max-width: 95%;
+
+        @include media(mobile) {
+            margin: 0 !important;
+        }
+    }
+
+    &__title {
+        display: block;
+        padding: 1rem 0;
+
+        @include media(mobile) {
+            display: none;
+        }
     }
 }
