@@ -13,13 +13,14 @@
 html {
     color: color(blacks, mid-light);
     font-family: $font-opensans;
+    font-size: 90%;
 
     @include media(print) {
         font-size: 85%;
     }
 
-    @include media(mobile) {
-        font-size: 90%;
+    @include media(540) {
+        font-size: 100%;
     }
 }
 
