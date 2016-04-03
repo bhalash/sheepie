@@ -17,10 +17,14 @@
 
 .main {
     box-sizing: border-box;
-    margin-left: rem($navbar-width);
+    margin: 0 auto;
     min-width: 0;
     position: relative;
     @include content-size;
+
+    @include media(1024) {
+        margin-left: rem($navbar-width);
+    }
 
     &__interior {
         margin: 0 auto;
@@ -32,10 +36,10 @@
      */
 
     body:not(.page-template-page-search) & {
-        padding: 5% 10%;
+        padding: 7.5% 5%;
 
-        @include media(xlarge) {
-            padding: 7.5% 5%;
+        @include media(1280) {
+            padding: 5% 10%;
         }
 
         @include media(print) {
@@ -49,9 +53,5 @@
                 max-width: 100%;
             }
         }
-    }
-
-    @include media(large) {
-        margin: 0 auto;
     }
 }
