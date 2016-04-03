@@ -112,10 +112,10 @@
     }
 
     a {
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.3rem;
 
-        @include media(small) {
-            padding-bottom: 0.3rem;
+        @include media(640) {
+            padding-bottom: 0.5rem;
         }
     }
 }
