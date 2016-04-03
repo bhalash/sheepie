@@ -66,7 +66,9 @@ hr {
  */
 
 .avatar {
-    @include columns(float, div, 10% auto, 2%);
+    @include media(650) {
+        @include columns(float, div, 10% auto, 2%);
+    }
 
     &__container {
         float: left;
@@ -107,10 +109,37 @@ hr {
 .navbar {
     &__content {
         height: auto;
-        @include absolute(auto $vspace $vspace);
 
-        @include media(large) {
-            position: static;
+        @include media(1024) {
+            @include absolute(auto $vspace $vspace);
+        }
+
+        &__buttons {
+            width: 3.125rem;
+
+            @include media(768) {
+                float: right;
+                min-width: 0;
+                width: 25%;
+            }
+
+            @include media(1024) {
+                float: none;
+                width: 100%;
+            }
+        }
+
+        &__title {
+            @include media(large) {
+                display: inline-block;
+                margin: 0 auto;
+                width: 50%;
+            }
+
+            @include media(medium) {
+                float: left;
+                width: calc(100% - 50px);
+            }
         }
     }
 
@@ -121,27 +150,16 @@ hr {
     }
 
     &__social {
-        @include media(large) {
+        display: none;
+
+        @include media(768) {
+            display: block;
+        }
+
+        @include media(1024) {
             float: left;
             min-width: 0;
             width: 25%;
-        }
-
-        @include media(medium) {
-            display: none;
-        }
-    }
-
-    &__titlewrapper {
-        @include media(large) {
-            display: inline-block;
-            margin: 0 auto;
-            width: 50%;
-        }
-
-        @include media(medium) {
-            float: left;
-            width: calc(100% - 50px);
         }
     }
 
@@ -150,18 +168,6 @@ hr {
             display: inherit;
             margin: inherit;
             width: inherit;
-        }
-    }
-
-    &__buttonrow {
-        @include media(large) {
-            float: right;
-            min-width: 0;
-            width: 25%;
-        }
-
-        @include media(medium) {
-            width: 3.125rem;
         }
     }
 }
