@@ -40,6 +40,18 @@ hr {
  * -----------------------------------------------------------------------------
  */
 
+.error {
+    &__content {
+        transform: translate(-50%, -50%);
+        @include absolute(50% auto auto 50%);
+    }
+}
+
+/**
+ * Assorted Flexbox Elements
+ * -----------------------------------------------------------------------------
+ */
+
 .flex--three-col--article {
     @include columns(float, article, 3, $split-column-margin);
 }
