@@ -20,7 +20,7 @@
 <header class="navbar noprint" id="navbar">
     <div class="navbar__contentwrap color--rmwb--bg">
         <div class="navbar__content">
-            <div class="navbar__child navbar__titlewrapper">
+            <div class="navbar__child navbar__content__title">
                 <h2 class="navbar__title">
                     <?php printf('<a class="%s" href="%s">%s</a>',
                         'navbar__title-link',
@@ -39,13 +39,13 @@
             <?php wp_nav_menu(array(
                 'theme_location' => 'top-social',
                 'container' => 'div',
-                'container_class' => 'navbar__social-wrapper navbar__child',
+                'container_class' => 'navbar__content__social navbar__child',
                 'menu_class' => 'clearfix navbar__social',
                 'link_before' => '<span class="navbar__socialicon social__icon">',
                 'link_after' => '</span>'
             )); ?>
 
-            <div class="clearfix navbar__buttonrow navbar__child">
+            <div class="clearfix navbar__content__buttons navbar__child">
                 <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: elements.search()}, click: toggle.search">
                     <span class="button__icon social__icon" data-bind=""></span>
                 </button>
