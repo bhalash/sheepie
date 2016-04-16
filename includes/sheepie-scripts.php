@@ -19,10 +19,7 @@ add_action('wp_enqueue_scripts', function() {
     $node_path = get_template_directory_uri() . '/node_modules/';
 
     $sheepie_js = [
-        'functions' => [
-            $js_path . 'sheepie.js',
-            []
-        ],
+        'functions' => [$js_path . 'sheepie.js', []],
     ];
 
     $sheepie_conditional_js = [
@@ -34,16 +31,11 @@ add_action('wp_enqueue_scripts', function() {
         // ]
     ];
 
-    $sheepie_fonts = [
-        // All Google Fonts to be loaded.
-        'Open Sans:400,700,800',
-        'Source Code Pro:400'
-    ];
+    // All Google Fonts to be loaded.
+    $sheepie_fonts = ['Open Sans', 'Lato:900', 'Source Code Pro'];
 
-    $sheepie_css = [
-        // Compressed, compiled theme CSS.
-        'main-style' => $css_path . 'style.css',
-    ];
+    // Compressed, compiled theme CSS.
+    $sheepie_css = ['main-style' => $css_path . 'style.css',];
 
     $sheepie_conditional_css = [
         // Internet Explorer conditiional CSS.
@@ -133,22 +125,22 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
  * -----------------------------------------------------------------------------
  * Load all theme CSS.
  *
- * @param   array       $sheepie_css                Ordinary, main stylehseets.
- * @param   array       $sheepie_conditional_css    IE conditional stylesheets.
- * @param   array       $sheepie_fonts              Google fonts to be loaded.
+ * @param   array       $css                Ordinary, main stylehseets.
+ * @param   array       $conditional_css    IE conditional stylesheets.
+ * @param   array       $fonts              Google fonts to be loaded.
  */
 
-function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
-    foreach ($sheepie_css as $name => $style) {
+function sheepie_css($css, $conditional_css, $fonts) {
+    foreach ($css as $name => $style) {
         wp_enqueue_style($name, $style, [], $GLOBALS['sheepie_version']);
     }
 
-    if (!empty($sheepie_fonts)) {
-        wp_register_style('google-fonts', sheepie_google_font_url($sheepie_fonts));
+    if (!empty($fonts)) {
+        wp_register_style('google-fonts', sheepie_google_font_url($fonts));
         wp_enqueue_style('google-fonts');
     }
 
-    foreach ($sheepie_conditional_css as $name => $style) {
+    foreach ($conditional_css as $name => $style) {
         $path = $style[0];
         $condition = $style[1];
 
@@ -165,13 +157,12 @@ function sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts) {
  */
 
 function sheepie_google_font_url($fonts) {
-    global $google_fonts;
     $google_url = ['//fonts.googleapis.com/css?family='];
 
-    foreach ($fonts as $key => $value) {
-        $google_url[] = str_replace(' ', '+', $value);
+    foreach ($fonts as $index => $font) {
+        $google_url[] = str_replace(' ', '+', $font);
 
-        if ($key < sizeof($google_fonts) - 1) {
+        if ($index < count($fonts) - 1) {
             $google_url[] = '|';
         }
     }
