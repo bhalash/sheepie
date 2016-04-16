@@ -19,9 +19,11 @@
 
     &__anchor {
         align-items: center;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 1rem;
         text-align: center;
         text-decoration: none;
         @include absolute(0);
@@ -32,14 +34,9 @@
     }
 
     &__image {
-        // FIXME: Why is this !important?
-        margin: 0 !important;
+        margin: 0;
         max-height: 95%;
         max-width: 95%;
-
-        @include media(540) {
-            margin: initial;
-        }
     }
 
     &__title {
@@ -47,7 +44,7 @@
 
         @include media(540) {
             display: block;
-            padding: 1rem 0;
+            padding-top: 1rem;
         }
     }
 }
