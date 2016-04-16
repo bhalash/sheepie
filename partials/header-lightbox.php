@@ -20,6 +20,6 @@
 <div class="disp--hidden lightbox noprint" id="lightbox" data-bind="css: { 'disp--hidden': !elements.lightbox() }">
     <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
         <img class="lightbox__image vcenter--double" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
-        <span class="lightbox__title color--white--text vspace--double" data-bind="text: lightbox.text"><?php _e('Lightbox Title', 'sheepie'); ?></span>
+        <span class="lightbox__title color--white--text" data-bind="text: lightbox.text"><?php _e('Lightbox Title', 'sheepie'); ?></span>
     </a>
 </div>
