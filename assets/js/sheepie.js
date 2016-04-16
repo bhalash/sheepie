@@ -109,11 +109,13 @@
                 switch(event.keyCode) {
                     case 27:
                         // Close whatever is open on <escape>.
-                        self.show(null); break;
+                        self.show(null);
+                        break;
                     case 37:
                     case 39:
                         // Set next/previous image.
-                        self.lightbox.change(event); break;
+                        self.lightbox.change(event);
+                        break;
                 }
             };
 
@@ -168,9 +170,6 @@
                 self.lightbox.text(image.attributes.alt.value);
                 self.lightbox.image(image.attributes.src.value);
                 self.lightbox.link(image.parentNode.attributes.href.value);
-
-                // TODO
-                console.log(image.attributes);
 
                 self.show('lightbox');
             };
