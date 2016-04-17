@@ -16,13 +16,7 @@
  */
 
 $sheepie-media-preset: add-media-presets((
-    xlarge: 'only screen and (max-width: 1280px)',
-    large: 'only screen and (max-width: 1024px)',
-    medium: 'only screen and (max-width: 768px)',
-    small: 'only screen and (max-width: 640px)',
-    mobile: 'only screen and (max-width: 540px)',
-
-    // Moving to mobile-first breakpoints.
+    1600: 'only screen and (min-width: 1600px)',
     1280: 'only screen and (min-width: 1280px)',
     1024: 'only screen and (min-width: 1024px)',
     768:  'only screen and (min-width: 768px)',
@@ -103,6 +97,7 @@ $avatar--small: 6.5;
  * -----------------------------------------------------------------------------
  */
 
-$font-opensans: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
-$font-sourcecodepro:'Source Code Pro', 'Courier New', Courier, monospace;
-$font-lato: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
+$font--opensans: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
+$font--sourcecodepro:'Source Code Pro', 'Courier New', Courier, monospace;
+$font--lato: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
+$font--meriweather: 'Merriweather', Georgia, 'Times New Roman', serif;
