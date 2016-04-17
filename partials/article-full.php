@@ -12,15 +12,17 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$margin = (!is_single()) ? 'vspace--triple' : '';
+
 ?>
 
-<article <?php post_class(['article', 'article--full', 'vspace--double']); ?> id="article--full--<?php the_ID(); ?>">
-    <header class="article--full__header vspace--double">
-        <h1 class="title article--full__title vspace--full">
+<article <?php post_class(['article', 'article--full', $margin]); ?> id="article--full--<?php the_ID(); ?>">
+    <header class="article--full__header vspace--full">
+        <h3 class="title article--full__title vspace--quarter">
             <?php sheepie_partial('posttitle'); ?>
-        </h1>
+        </h3>
         <?php if (!is_page()) : ?>
-            <?php echo sheepie_postmeta('h3', 'text--small noprint vspace--half'); ?>
+            <?php echo sheepie_postmeta('h4', 'noprint vspace--half'); ?>
         <?php endif; ?>
     </header>
     <div class="article__content">
@@ -33,17 +35,19 @@
     )); ?>
 
     <?php if (is_single()) : ?>
-        <?php sheepie_partial('pagination', 'post'); ?>
         <footer class="article--full__footer">
+            <?php sheepie_partial('pagination', 'post'); ?>
             <hr class="vcenter--double">
             <div class="article--full__author">
                 <?php sheepie_avatar_background_html(get_the_author_meta('ID'), 150, 'article--full__avatar'); ?>
                 <div class="article--full__bio">
-                    <h3 class="article--full__bio-blurb vspace--quarter">by <?php the_author_meta('display_name'); ?></h3>
-                    <h4 class="text--small vspace--quarter"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></h4>
-                    <p class="article--full__bio-blurb text--italic"><?php the_author_meta('user_description'); ?></p>
+                    <h3 class="article--full__bio-blurb vspace--quarter title">by <?php the_author_meta('display_name'); ?></h3>
+                    <h4 class="vspace--quarter meta"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></h4>
+                    <p class="article--full__bio-blurb"><?php the_author_meta('user_description'); ?></p>
                 </div>
             </div>
         </footer>
+    <?php else : ?>
+        <hr class="vcenter--triple">
     <?php endif; ?>
 </article>
