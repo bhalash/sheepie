@@ -23,7 +23,7 @@ $textarea_html = '<textarea class="comments__textarea" id="comment" name="commen
 <hr class="vcenter--double">
 <div class="comments" id="comments">
     <h4 class="vspace--full subtitle noprint">
-        <?php _e('Have your say on ', 'sheepie'); the_title(); ?>
+        <?php printf('%s "%s"', __('Have your say on ', 'sheepie'), get_the_title()); ?>
     </h4>
 
     <?php if (have_comments()) : ?>
