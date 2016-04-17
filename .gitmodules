@@ -1,5 +1,5 @@
 [submodule "assets/css/charon"]
-  path = assets/css/includes/charon
+  path = assets/css/lib/charon
   url = https://github.com/bhalash/charon.git
   ignore = dirty
 [submodule "includes/social-meta"]
