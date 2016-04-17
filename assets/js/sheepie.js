@@ -64,7 +64,7 @@
     }
 
     // WordPress sometimes inserts <br> between <a> elements inside a <figure>.
-    removeSelector('[class^=article-photobox] br');
+    removeSelector('figure br');
     // WordPress always inserts an empty <p> element before <figure> elements.
     removeSelector('p:empty');
 
