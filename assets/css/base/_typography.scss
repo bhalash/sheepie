@@ -70,3 +70,17 @@ p, li {
         font-weight: bold;
     }
 }
+
+/**
+ * Article Titles
+ * -----------------------------------------------------------------------------
+ */
+
+.title {
+    color: color(blacks, mid-dark);
+
+    a {
+        color: inherit;
+        font-weight: inherit;
+    }
+}
