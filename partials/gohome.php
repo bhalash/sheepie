@@ -14,6 +14,6 @@
 
 ?>
 
-<nav class="noprint navigation--home vspace--full">
-    <span class="font--small"><a class="navigation--home__link" href="<?php printf(site_url()); ?>"><?php _e('Back to Home', 'sheepie'); ?></a></span>
+<nav class="noprint navigation--home vspace--half">
+    <span class="text--small meta"><a class="navigation--home__link" href="<?php printf(site_url()); ?>"><?php _e('Back to Home', 'sheepie'); ?></a></span>
 </nav>
