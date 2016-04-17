@@ -15,13 +15,13 @@
 ?>
 
 <nav class="pagination pagination--comment noprint" id="pagination--comment">
-    <p class="pagination__previous previous-comment">
-        <span class="font--span"><?php previous_comments_link(__('Previous', 'sheepie')); ?></small>
+    <p class="pagination__previous previous-comment meta">
+        <?php previous_comments_link(__('Previous', 'sheepie')); ?>
     </p>
-    <p class="pagination__count">
-        <span class="font--span"><?php get_comment_pages_count(); ?></small>
+    <p class="pagination__count meta">
+        <?php get_comment_pages_count(); ?>
     </p>
-    <p class="pagination__next next-comment">
-        <span class="font--span"><?php next_comments_link(__('Next', 'sheepie')); ?></small>
+    <p class="pagination__next next-comment meta">
+        <?php next_comments_link(__('Next', 'sheepie')); ?>
     </p>
 </nav>
