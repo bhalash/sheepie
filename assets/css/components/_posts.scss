@@ -29,13 +29,12 @@
         padding-left: 0.5rem;
     }
 
-    blockquote > p:not(:last-child) {
-        margin-bottom: rem($vspace);
-    }
+    blockquote p {
+        font-family: $font--lato;
 
-    img {
-        border: 1px solid color(rmwb);
-        box-sizing: border-box;
+        &:not(:last-child) {
+            margin-bottom: rem($vspace);
+        }
     }
 
     input {
@@ -63,28 +62,77 @@
  */
 
 .article--related {
-    // TODO: Overlay text on image.
     margin-bottom: rem($vspace);
+
+    $title-space: 0.25rem;
 
     @include media(640) {
         margin: 0;
     }
 
-    &__thumbnail {
-        background-size: cover;
-        border: 1px solid color(rmwb);
+    &__header {
         box-sizing: border-box;
-        margin-bottom: rem($vspace * 0.5);
-        @include square-flex(100% 0.25);
-
-        @include media(640) {
-            @include square-flex(100% 0.75);
-            margin-bottom: 0;
-        }
     }
 
     &__link {
-        color: color(blacks, x-dark);
+        background-size: cover;
+        display: block;
+        position: relative;
+        @include square-flex(100% 0.4);
+
+        @include media(640) {
+            @include square-flex(100% 0.75);
+        }
+
+        &:hover .title {
+            color: color(blues);
+        }
+    }
+
+    &__title {
+        background: #fff;
+        display: inline-block;
+        margin-right: $title-space;
+        padding: $title-space 0.5rem;
+        @include absolute(auto auto 0 0);
+    }
+}
+
+/*
+ * Full Articles
+ * -----------------------------------------------------------------------------
+ */
+
+.article--full {
+    /*
+     * This has a nested flex layout:
+     *
+     * 1. Side-by-side avatar and text.
+     * 2. Within right-side text, veritcally-centerd column.
+     */
+
+    $avatar-width: 7rem;
+
+    &__author {
+        display: flex;
+    }
+
+    &__avatar {
+        @include avatar($avatar-width) {
+            flex: 0 1 $avatar-width;
+        }
+    }
+
+    &__bio {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        margin-left: rem($vspace);
+
+        &-blurb {
+            flex: 0 1 auto;
+        }
     }
 }
 
@@ -95,7 +143,7 @@
  * to arrange and display them.
  */
 
-@mixin photobox-elements {
+figure {
     /* Every word has a space afterward, above and below, set by the browser.
      * An object with display "inline-block" or similar is treated as a word by
      * your browser, and given a small trailing space beside and below,
@@ -112,27 +160,32 @@
     }
 
     a {
-        padding-bottom: 0.3rem;
+        display: block;
+        margin-bottom: 0.5rem;
 
-        @include media(640) {
-            padding-bottom: 0.5rem;
+        &:only-child {
+            /* Constrain size of non-photobox (single) images Doesn't work in
+             * IE, but phooey to them. */
+            @include media(768) {
+                max-height: 20rem;
+                object-fit: cover;
+                overflow: hidden;
+            }
         }
+
     }
 }
 
 .photobox {
     &--two {
-        @include photobox-elements;
         @include columns(flex, a, 2, $split-column-margin);
     }
 
     &, &--three {
-        @include photobox-elements;
         @include columns(flex, a, 3, $split-column-margin);
     }
 
     &--four {
-        @include photobox-elements;
         @include columns(flex, a, 4, $split-column-margin);
     }
 }
