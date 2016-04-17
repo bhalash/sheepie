@@ -18,40 +18,25 @@
 .main {
     box-sizing: border-box;
     margin: 0 auto;
+    max-width: 100rem;
     min-width: 0;
+    padding: 2.5%;
     position: relative;
-    @include content-size;
 
-    @include media(1024) {
-        margin-left: rem($navbar-width);
+    @include media(768) {
+        padding: 7.5%;
     }
 
-    &__interior {
-        margin: 0 auto;
+    @include media(1280) {
+        padding: 7.5% 15%;
     }
 
-    /**
-     * Non-search page.
-     * -------------------------------------------------------------------------
-     */
+    @include media(1600) {
+        padding: 7.5% 20%;
+    }
 
-    body:not(.page-template-page-search) & {
-        padding: 7.5% 5%;
-
-        @include media(1280) {
-            padding: 5% 10%;
-        }
-
-        @include media(print) {
-            padding: 0;
-        }
-
-        &__interior {
-            max-width: 52.5rem;
-
-            @include media(print) {
-                max-width: 100%;
-            }
-        }
+    @include media(print) {
+        max-width: 100%;
+        padding: 0;
     }
 }
