@@ -141,7 +141,10 @@ add_action('init', function() {
  * Output post header information (category and date).
  */
 
-function sheepie_postmeta() {
+function sheepie_postmeta($tag = 'span', $classes = null) {
+    $classes = sprintf(' class="%s postmeta"', $classes);
+
+    printf('<%s%s>', $tag, $classes);
     printf('<a href="%s"><time datetime="%s">%s</time></a>',
         get_month_link(get_the_time('Y'), get_the_time('n')),
         get_the_time('Y-m-d H:i'),
@@ -151,6 +154,7 @@ function sheepie_postmeta() {
     _e(' in ', 'sheepie');
     the_category(', ');
     edit_post_link(__('edit post', 'sheepie'), ' / ', '');
+    printf('</%s>', $tag);
 }
 
 /**
