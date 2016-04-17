@@ -63,7 +63,7 @@ add_action('after_setup_theme', function() {
 
 function sheepie_includes() {
     $theme_includes = [
-        'sheepie-scripts.php',
+        'sheepie-assets.php',
         'sheepie-avatars.php',
         'sheepie-comments.php',
         'related-posts/related-posts.php',
