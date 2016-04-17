@@ -13,14 +13,12 @@
  */
 
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$page_next = $page + 1;
-$page_previous = $page - 1;
 
 ?>
 
 <nav class="noprint pagination pagination--site" id="pagination--site">
     <p class="pagination__previous previous-page meta">
-        <?php previous_posts_link(__('Page ', 'sheepie') . $page_previous); ?>
+        <?php previous_posts_link(__('Page ', 'sheepie') . ($page - 1)); ?>
     </p>
     <?php if (function_exists('arc_query_has_pages') && arc_query_has_pages()) : ?>
         <p class="pagination__count meta">
@@ -28,6 +26,6 @@ $page_previous = $page - 1;
         </p>
     <?php endif; ?>
     <p class="pagination__next next-page meta">
-        <?php next_posts_link(__('Page ', 'sheepie') . $page_next);  ?>
+        <?php next_posts_link(__('Page ', 'sheepie') . ($page + 1)); ?>
     </p>
 </nav>
