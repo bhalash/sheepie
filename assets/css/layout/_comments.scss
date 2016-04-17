@@ -10,81 +10,69 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/*
- * Reader Comments
- * -----------------------------------------------------------------------------
- * List of comments and top-level comment style.
- */
-
-
 .comments {
     ul {
+        list-style-type: none;
         margin: 0;
         padding: 0;
         position: relative;
     }
 
     p {
-        margin-bottom: 0.25rem;
-    }
-
-    /**
-     * Individual Comment
-     * -----------------------------------------------------------------------------
-     */
-
-    &__comment {
-        box-sizing: border-box;
-        list-style-type: none;
-
-        &__comments-meta {
-            font-weight: bold;
-        }
-    }
-
-    &__comment-body p {
-        font-size: 80%;
+        margin-bottom: 0.5rem;
     }
 
     /**
      * Commentform Inputs
-     * -----------------------------------------------------------------------------
-     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not correctly
-     * apply box-sizing, so instead of width - padding, it is width + padding. The
-     * correct alternative is to use floats.
+     * -------------------------------------------------------------------------
+     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
+     * correctly apply box-sizing, so instead of width - padding, it is width +
+     * padding. The correct alternative is to use floats.
      */
 
     &__inputs {
-        @include columns(float, input, 3, $split-column-margin) {
-            @include media(small) {
-                // Make sure this include comes first!
-                @include nofloat;
-                display: block;
-                margin-bottom: 0.5rem;
-                width: 100%;
-            }
-        }
-
-        @include media(small) {
-            // Override vspace as inputs will have their own bottom margin.
-            margin-bottom: 0;
+        @include media(640) {
+            @include columns(float, input, 3, $split-column-margin);
         }
     }
 
+    &__input {
+        display: block;
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
 
     /**
      * Commentform
-     * -----------------------------------------------------------------------------
+     * -------------------------------------------------------------------------
      * All input styles for the commentform.
      */
 
-    &__form {
-        p {
-            margin-bottom: 0.5rem;
+    &__textarea {
+        height: 12.5rem;
+    }
+}
+
+/**
+ * Individual Comment
+ * -----------------------------------------------------------------------------
+ */
+
+.comment {
+    display: flex;
+
+    &__avatar {
+        @include avatar(4rem) {
+            flex: 0 1 4rem;
         }
     }
 
-    &__textarea {
-        height: 12.5rem;
+    &__body {
+        flex: 1;
+        margin-left: rem($vspace);
+    }
+
+    &__meta {
+        font-weight: bold;
     }
 }
