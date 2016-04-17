@@ -65,9 +65,12 @@
  * -----------------------------------------------------------------------------
  */
 
-.font {
+.text {
     &--small { font-size: 80%; }
-    &--big   { font-size: 120%; }
+    &--big { font-size: 120%; }
+    &--bold { font-weight: bold }
+    &--italic { font-style: italic; }
+    &--center { text-align: center; }
 }
 
 /**
