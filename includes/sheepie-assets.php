@@ -22,7 +22,7 @@ add_action('wp_enqueue_scripts', function() {
 
     $assets['fonts'] = [
         // 'font:variant,variant'
-        'Open Sans:400,700', 'Lato:900', 'Source Code Pro'
+        'Merriweather:300,700', 'Open Sans:400,700', 'Lato:900', 'Source Code Pro'
     ];
 
     $assets['css'] = [
