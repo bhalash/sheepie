@@ -17,15 +17,9 @@ $post_classes = array('article', 'article--related', 'vspace--half');
 ?>
 
 <article <?php post_class($post_classes); ?> id="article--related--<?php the_ID(); ?>">
-    <a class="article--related__link" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-        <header class="article--related__header vspace--half">
-            <div class="thumbnail article--related__thumbnail" <?php post_image_url_style($post, true); ?>></div>
-        </header>
-        <h4 class="title article--related__title vspace--quarter">
-            <?php the_title(); ?>
-        </h4>
-    </a>
-    <footer class="article--related__footer">
-        <h4 class="font--small"><?php sheepie_postmeta(); ?></h4>
-    </footer>
+    <header class="article--related__header vspace--half">
+        <a class="article--related__link" href="<?php the_permalink(); ?>" rel="bookmark" <?php post_image_url_style($post, true); ?>>
+            <span class="title article--related__title"><?php the_title(); ?></span><br />
+        </a>
+    </header>
 </article>
