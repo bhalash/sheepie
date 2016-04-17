@@ -142,7 +142,7 @@ add_action('init', function() {
  */
 
 function sheepie_postmeta($tag = 'span', $classes = null) {
-    $classes = sprintf(' class="%s postmeta"', $classes);
+    $classes = sprintf(' class="%s postmeta meta"', $classes);
 
     printf('<%s%s>', $tag, $classes);
     printf('<a href="%s"><time datetime="%s">%s</time></a>',
@@ -176,6 +176,29 @@ add_filter('the_content', function($content) {
 
     return $content;
 });
+
+/**
+ * Custom Search Link Icon
+ * -----------------------------------------------------------------------------
+ * A bit hack-y, but I need the data bindinng on the button.
+ */
+
+function sheepie_nav_menu_search() {
+    $search = sprintf(
+        '<li id="search" class="%s"><a data-bind="%s" href="%s"><span class="%s">%s</span></a></li>',
+        'search menu-item menu-item-type-custom menu-item-object-custom social',
+        'css: {close: elements.search()}, click: toggle.search',
+        '/search',
+        'navbar__social-icon social__icon',
+        __('Search', 'sheepie')
+    );
+
+    $wrap  = '<ul id="%1$s" class="%2$s">';
+    $wrap .= '%3$s';
+    $wrap .= $search;
+    $wrap .= '</ul>';
+    return $wrap;
+}
 
 /**
  * Add Social CSS Class to Menu Items
