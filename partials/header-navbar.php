@@ -17,39 +17,27 @@
 
 ?>
 
-<header class="navbar noprint" id="navbar">
-    <div class="navbar__contentwrap color--rmwb--bg">
-        <div class="navbar__content">
-            <div class="navbar__child navbar__content__title">
-                <h2 class="navbar__title">
-                    <?php printf('<a class="%s" href="%s">%s</a>',
-                        'navbar__title-link',
-                        home_url(),
-                        get_bloginfo('name')
-                    ); ?>
-                </h2>
-            </div>
+<header class="navbar noprint vspace--triple" id="navbar">
+    <h3 class="navbar__title title vspace--half">
+        <?php printf('<a class="%s" href="%s">%s</a>',
+            'navbar__title-link',
+            home_url(),
+            get_bloginfo('name')
+        ); ?>
+    </h3>
 
-            <div class="navbar__description navbar__child">
-                <span class="font--small">
-                    <?php bloginfo('description'); ?>
-                </span>
-            </div>
+    <p class="navbar__description vspace--half">
+        <?php bloginfo('description'); ?>
+    </p>
 
-            <?php wp_nav_menu(array(
-                'theme_location' => 'top-social',
-                'container' => 'div',
-                'container_class' => 'navbar__content__social navbar__child',
-                'menu_class' => 'clearfix navbar__social',
-                'link_before' => '<span class="navbar__socialicon social__icon">',
-                'link_after' => '</span>'
-            )); ?>
-
-            <div class="clearfix navbar__content__buttons navbar__child">
-                <button class="navbar__button button button--search-navbar toggle bigsearch__toggle social search" id="searchtoggle__navbar" data-bind="css: {close: elements.search()}, click: toggle.search">
-                    <span class="button__icon social__icon" data-bind=""></span>
-                </button>
-            </div>
-        </div>
-    </div>
+    <nav class="navbar__social">
+        <?php wp_nav_menu(array(
+            'theme_location' => 'top-social',
+            'container' => '',
+            'menu_class' => 'navbar__social-list',
+            'link_before' => '<span class="navbar__social-icon social__icon">',
+            'link_after' => '</span>',
+            'items_wrap' =>  sheepie_nav_menu_search()
+        )); ?>
+    </nav>
 </header>
