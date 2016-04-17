@@ -18,11 +18,11 @@ $post_classes = array('article', 'article--excerpt vspace--full');
 
 <article <?php post_class($post_classes); ?> id="article--excerpt--<?php the_ID(); ?>">
     <header class="article--excerpt__header">
-        <h4 class="article--excerpt__title title">
+        <h3 class="article--excerpt__title title">
             <?php sheepie_partial('posttitle'); ?>
-        </h4>
+        </h3>
         <?php if (!is_page()) : ?>
-            <span class="postmeta font--small"><?php sheepie_postmeta(); ?></span>
+            <span class="postmeta text--small"><?php sheepie_postmeta(); ?></span>
         <?php endif; ?>
     </header>
     <div class="article__content article--excerpt__content">
