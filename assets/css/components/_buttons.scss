@@ -15,30 +15,30 @@
  * -----------------------------------------------------------------------------
  */
 
-// .button {
-//     -webkit-appearance: button;
-//     background: transparent;
-//     cursor: pointer;
-//     height: rem($navbar-height--collapsed);
-//     margin: 0;
-//     opacity: 1;
-//     padding: 0;
-//     width: rem($navbar-height--collapsed);
-//     @include absolute(0 0, top right);
-//
-//     &:active {
-//         opacity: 1;
-//     }
-//
-//     /**
-//      * Button Icon
-//      * -------------------------------------------------------------------------
-//      * The icon is separate for reasons of size: The parent button grows in size
-//      * on smaller screens to be a better touch target.
-//      */
-//
-//     &__icon {
-//         display: block;
-//         @include square-flex(4rem 1);
-//     }
-// }
+.button {
+    -webkit-appearance: button;
+    background: transparent;
+    cursor: pointer;
+    height: rem($navbar-height--collapsed);
+    margin: 0;
+    opacity: 1;
+    padding: 0;
+    width: rem($navbar-height--collapsed);
+    @include absolute(0 0, top right);
+
+    &:active {
+        opacity: 1;
+    }
+
+    /**
+     * Button Icon
+     * -------------------------------------------------------------------------
+     * The icon is separate for reasons of size: The parent button grows in size
+     * on smaller screens to be a better touch target.
+     */
+
+    &__icon {
+        display: block;
+        @include square-flex(4rem 1);
+    }
+}
