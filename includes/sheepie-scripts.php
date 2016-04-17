@@ -157,17 +157,17 @@ function sheepie_css($css, $conditional_css, $fonts) {
  */
 
 function sheepie_google_font_url($fonts) {
-    $google_url = ['//fonts.googleapis.com/css?family='];
+    $google_url = '//fonts.googleapis.com/css?family=';
 
     foreach ($fonts as $index => $font) {
-        $google_url[] = str_replace(' ', '+', $font);
+        $google_url .= str_replace(' ', '+', $font);
 
         if ($index < count($fonts) - 1) {
-            $google_url[] = '|';
+            $google_url .= '|';
         }
     }
 
-    return implode('', $google_url);
+    return $google_url;
 }
 
 /**
