@@ -13,7 +13,6 @@
  */
 
 get_header();
-sheepie_partial('gohome');
 
 if (have_posts()) {
     while (have_posts()) {
