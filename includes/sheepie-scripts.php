@@ -123,7 +123,7 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
 /**
  * Sheepie CSS Loader
  * -----------------------------------------------------------------------------
- * Load all theme CSS.
+ * Load all theme CSS and related Google typefaces.
  *
  * @param   array       $css                Ordinary, main stylehseets.
  * @param   array       $conditional_css    IE conditional stylesheets.
