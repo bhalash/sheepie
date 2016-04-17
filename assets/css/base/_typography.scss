@@ -55,32 +55,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /**
- * Code Blocks
- * -----------------------------------------------------------------------------
- */
-
-code, kbd, pre, pre span, tt, var {
-    -webkit-font-smoothing: antialiased;
-    font: 400 rem($font-size--paragraph) $font-sourcecodepro;
-}
-
-p, li {
-    // For code within paragraph elements.
-    code {
-        font-weight: bold;
-    }
-}
-
-/**
  * Article Titles
  * -----------------------------------------------------------------------------
  */
 
 .title {
     color: color(blacks, mid-dark);
+    font-family: $font--lato;
+    font-weight: bold;
 
     a {
         color: inherit;
         font-weight: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
+}
+
+/**
+ * Article Meta
+ * -----------------------------------------------------------------------------
+ */
+
+.meta {
+    font-size:  85%;
+    font-weight: 100;
 }
