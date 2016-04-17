@@ -120,18 +120,18 @@
     }
 }
 
-.article-photobox {
-    &--two, &-two {
+.photobox {
+    &--two {
         @include photobox-elements;
         @include columns(flex, a, 2, $split-column-margin);
     }
 
-    &, &--three, &-three {
+    &, &--three {
         @include photobox-elements;
         @include columns(flex, a, 3, $split-column-margin);
     }
 
-    &--four, &-four {
+    &--four {
         @include photobox-elements;
         @include columns(flex, a, 4, $split-column-margin);
     }
