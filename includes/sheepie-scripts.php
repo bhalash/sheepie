@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Sheepie Theme Scripts
+ * Sheepie Assets
  * -----------------------------------------------------------------------------
  * @category   PHP Script
  * @package    Sheepie
@@ -13,40 +13,40 @@
  */
 
 add_action('wp_enqueue_scripts', function() {
-    $assets = get_template_directory_uri() . '/assets/';
-    $js_path = $assets . 'js/min/';
-    $css_path = $assets . 'css/';
-    $node_path = get_template_directory_uri() . '/node_modules/';
+    $paths = [];
+    $paths['css'] = get_template_directory_uri() . '/assets/css/';
+    $paths['js'] = get_template_directory_uri() . '/assets/js/min/';
 
-    $sheepie_js = [
-        'functions' => [$js_path . 'sheepie.js', []],
+    $assets = [];
+    $assets['ie'] = [];
+
+    $assets['fonts'] = [
+        // 'font:variant,variant'
+        'Open Sans', 'Lato:900', 'Source Code Pro'
     ];
 
-    $sheepie_conditional_js = [
-        // Internet Explorer conditional JS.
-        // 'html5-shiv' => [
-        //     $node_path . 'html5shiv/dist/html5shiv.min.js',
-        //     'lte IE 9',
-        //     []
-        // ]
+    $assets['css'] = [
+        // 'style-name' => 'style_path'
+        'main' => 'style.css',
     ];
 
-    // All Google Fonts to be loaded.
-    $sheepie_fonts = ['Open Sans', 'Lato:900', 'Source Code Pro'];
-
-    // Compressed, compiled theme CSS.
-    $sheepie_css = ['main-style' => $css_path . 'style.css',];
-
-    $sheepie_conditional_css = [
-        // Internet Explorer conditiional CSS.
-        'ie-fallback' => [
-            $css_path . 'ie.css',
-            'lte IE 9'
-        ]
+    $assets['js'] = [
+        // 'script-name' => ['script_path', ['dependency']
+        'functions' => ['sheepie.js', []]
     ];
 
-    sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path);
-    sheepie_css($sheepie_css, $sheepie_conditional_css, $sheepie_fonts);
+    $assets['ie']['css'] = [
+        // 'style-name' => ['style_path', 'condition']
+        'ie-fallback' => ['ie.css', 'lte IE 9']
+    ];
+
+    $assets['ie']['js'] = [
+        // 'script-name' => ['script_path', ['dependency'], 'condition']
+        // 'html5-shiv' => ['html5shiv/dist/html5shiv.min.js', [], 'lte IE 9']
+    ];
+
+    sheepie_css($assets, $paths);
+    sheepie_js($assets, $paths);
 });
 
 /*
@@ -94,25 +94,30 @@ if (!is_admin()) {
 }
 
 /**
- * Sheepie JavaScript Loader
+ * JavaScript Asset Loader
  * -----------------------------------------------------------------------------
  * Load all theme JavaScript.
  *
- * @param   array       $sheepie_js                Main scripts..
- * @param   array       $sheepie_conditional_js    IE conditional scripts.
- * @param   string      $js_path                   Path to JavaScript assets.
+ * @param   array       $assets         Theme JavaScript assets.
+ * @param   array       $paths          Theme asset paths.
  */
 
-function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
-    if (!is_404()) {
-        foreach ($sheepie_js as $name => $script) {
-            wp_enqueue_script($name, $script[0], $script[1], $GLOBALS['sheepie_version'], true);
+function sheepie_js($assets, $paths) {
+    $js = $assets['js'];
+    $conditional_js = $assets['ie']['js'];
+    $version = $GLOBALS['sheepie_version'];
+
+    if (!empty($js)) {
+        foreach ($js as $name => $script) {
+            wp_enqueue_script($name, $paths['js'] . $script[0], $script[1], $version, true);
         }
     }
 
-    foreach ($sheepie_conditional_js as $name => $script) {
-        wp_enqueue_script($name, $script[0], $script[2], $GLOBALS['sheepie_version'], false);
-        wp_script_add_data($name, 'conditional', $script[1]);
+    if (!empty($conditonal_js)) {
+        foreach ($conditional_js as $name => $script) {
+            wp_enqueue_script($name, $paths['js'] . $script[0], $script[1], $version, false);
+            wp_script_add_data($name, 'conditional', $script[2]);
+        }
     }
 
     if (is_singular()) {
@@ -121,31 +126,36 @@ function sheepie_js($sheepie_js, $sheepie_conditional_js, $js_path) {
 }
 
 /**
- * Sheepie CSS Loader
+ * CSS Asset Loader
  * -----------------------------------------------------------------------------
  * Load all theme CSS and related Google typefaces.
  *
- * @param   array       $css                Ordinary, main stylehseets.
- * @param   array       $conditional_css    IE conditional stylesheets.
- * @param   array       $fonts              Google fonts to be loaded.
+ * @param   array       $assets         Theme CSS assets.
+ * @param   array       $paths          Theme asset paths.
  */
 
-function sheepie_css($css, $conditional_css, $fonts) {
-    foreach ($css as $name => $style) {
-        wp_enqueue_style($name, $style, [], $GLOBALS['sheepie_version']);
-    }
+function sheepie_css($assets, $paths) {
+    $css = $assets['css'];
+    $fonts = $assets['fonts'];
+    $conditional_css = $assets['ie']['css'];
+    $version = $GLOBALS['sheepie_version'];
 
     if (!empty($fonts)) {
         wp_register_style('google-fonts', sheepie_google_font_url($fonts));
         wp_enqueue_style('google-fonts');
     }
 
-    foreach ($conditional_css as $name => $style) {
-        $path = $style[0];
-        $condition = $style[1];
+    if (!empty($css)) {
+        foreach ($css as $name => $path) {
+            wp_enqueue_style($name, $paths['css'] . $path, [], $version);
+        }
+    }
 
-        wp_enqueue_style($name, $path, [], $GLOBALS['sheepie_version']);
-        wp_style_add_data($name, 'conditional', $condition);
+    if (!empty($conditional_css)) {
+        foreach ($conditional_css as $name => $style) {
+            wp_enqueue_style($name, $paths['css'] . $style[0], [], $version);
+            wp_style_add_data($name, 'conditional', $style[1]);
+        }
     }
 }
 
