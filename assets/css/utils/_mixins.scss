@@ -12,47 +12,16 @@
  */
 
 /**
- * Navbar and Collapsed Search Size
+ * Avatars
  * -----------------------------------------------------------------------------
  */
 
-@mixin navbar-size {
-    // Required for Android Browser.
-    -webkit-transform:translateZ(0);
-    box-sizing: border-box;
-    width: rem($navbar-width);
-    @include fixed(0 auto 0 0);
+@mixin avatar($width: 7rem) {
+    background: center/cover no-repeat;
+    border: 0.1rem solid rgba(color(rmwb), 0.25);
+    border-radius: 50%;
+    @include square-flex($width 1);
     @content;
-}
-
-@mixin navbar-size-1024 {
-    @include media(large) {
-        height: rem($navbar-height--collapsed);
-        width: 100%;
-        @include absolute(0 0 auto 0);
-        @content;
-    }
-}
-
-/**
- * Content and Full Search Size
- * -----------------------------------------------------------------------------
- * Separated because content and search both use them, and I need them for
- * IE fallback.
- */
-
-@mixin content-size {
-    width: calc(100% - #{rem($navbar-width)});
-
-    @include media(large) {
-        top: rem($navbar-height--collapsed);
-        width: 100%;
-    }
-
-    @include media(print) {
-        margin-left: 0;
-        width: 100%;
-    }
 }
 
 /**
