@@ -12,7 +12,7 @@
 
 html {
     color: color(blacks, mid-light);
-    font-family: $font-opensans;
+    font-family: $font--meriweather;
     font-size: 90%;
 
     @include media(print) {
