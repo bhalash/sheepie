@@ -18,21 +18,13 @@
 .main {
     box-sizing: border-box;
     margin: 0 auto;
-    max-width: 100rem;
+    max-width: 120rem;
     min-width: 0;
     padding: 2.5%;
     position: relative;
 
     @include media(768) {
         padding: 7.5%;
-    }
-
-    @include media(1280) {
-        padding: 7.5% 15%;
-    }
-
-    @include media(1600) {
-        padding: 7.5% 20%;
     }
 
     @include media(print) {
