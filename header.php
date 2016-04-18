@@ -37,4 +37,3 @@ $html = get_bloginfo('html_type');
             // sheepie_partial('header', 'bigsearch');
             sheepie_partial('header', 'lightbox');
         } ?>
-        <hr class="vspace--double">
