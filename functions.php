@@ -194,8 +194,8 @@ function sheepie_nav_menu_search() {
     );
 
     $wrap  = '<ul id="%1$s" class="%2$s">';
-    $wrap .= '%3$s';
     $wrap .= $search;
+    $wrap .= '%3$s';
     $wrap .= '</ul>';
     return $wrap;
 }
