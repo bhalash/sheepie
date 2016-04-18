@@ -23,6 +23,7 @@
     &__social {
         &-list {
             display: flex;
+            flex-direction: row-reverse;
             list-style-type: none;
             max-width: 100%;
         }
@@ -34,7 +35,7 @@
             // Override default line-height set for items.
             // Otherwise IE9, 10 and 11 wig out.
             line-height: normal;
-            margin-right: rem($vspace * 0.5);
+            margin-left: rem($vspace * 0.5);
             overflow: hidden;
             padding: 0;
             @include square-flex(4rem 1);
