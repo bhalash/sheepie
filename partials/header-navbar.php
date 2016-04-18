@@ -17,7 +17,7 @@
 
 ?>
 
-<header class="navbar noprint vspace--triple" id="navbar">
+<header class="navbar noprint vspace--triple text--right" id="navbar">
     <h3 class="navbar__title title vspace--half">
         <?php printf('<a class="%s" href="%s">%s</a>',
             'navbar__title-link',
