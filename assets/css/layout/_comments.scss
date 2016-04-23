@@ -11,7 +11,7 @@
  */
 
 $avatar-width: 5rem;
-$comment-border: 0.16rem solid rgba(color(whites, mid-light), 0.4);
+$comment-border: 1px solid rgba(color(whites, mid-light), 0.4);
 $comment-margin: rem($vspace);
 
 .comments {
@@ -31,11 +31,6 @@ $comment-margin: rem($vspace);
      * Comments Form
      * -------------------------------------------------------------------------
      */
-
-    &__form {
-        border-top: $comment-border;
-        padding-top: rem($vspace * 0.5);
-    }
 
     .comment-notes, .logged-in-as {
         margin-bottom: rem($vspace * 0.5);
