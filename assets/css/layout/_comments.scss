@@ -65,9 +65,7 @@
     display: flex;
 
     &__avatar {
-        @include avatar(4rem) {
-            flex: 0 1 4rem;
-        }
+        @include avatar(4rem);
     }
 
     &__body {
