@@ -12,20 +12,18 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$margin = (!is_single()) ? 'vspace--triple' : '';
-
 ?>
 
-<article <?php post_class(['article', 'article--full', $margin]); ?> id="article--full--<?php the_ID(); ?>">
-    <header class="article--full__header vspace--full">
-        <h3 class="title article--full__title vspace--quarter">
+<article <?php post_class(['full', 'article']); ?> id="article--<?php the_ID(); ?>">
+    <header class="full__header vspace--full">
+        <h3 class="title full__title vspace--quarter">
             <?php sheepie_partial('posttitle'); ?>
         </h3>
         <?php if (!is_page()) : ?>
             <?php echo sheepie_postmeta('h4', 'noprint vspace--half'); ?>
         <?php endif; ?>
     </header>
-    <div class="article__content">
+    <div class="full__content vspace--double">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
 
@@ -35,15 +33,14 @@ $margin = (!is_single()) ? 'vspace--triple' : '';
     )); ?>
 
     <?php if (is_single()) : ?>
-        <footer class="article--full__footer">
-            <?php sheepie_partial('pagination', 'post'); ?>
-            <hr class="vcenter--double">
-            <div class="article--full__author">
-                <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'article--full__avatar', ['size' => 150]); ?>
-                <div class="article--full__bio">
-                    <h3 class="article--full__bio-blurb vspace--quarter title">by <?php the_author_meta('display_name'); ?></h3>
+        <hr class="vcenter--double crimp">
+        <footer class="footer vspace--double">
+            <div class="footer__author">
+                <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'footer__avatar', ['size' => 150]); ?>
+                <div class="footer__bio">
+                    <h3 class="vspace--quarter title">by <?php the_author_meta('display_name'); ?></h3>
                     <h4 class="vspace--quarter meta"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></h4>
-                    <p class="article--full__bio-blurb"><?php the_author_meta('user_description'); ?></p>
+                    <p><?php the_author_meta('user_description'); ?></p>
                 </div>
             </div>
         </footer>

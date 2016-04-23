@@ -12,14 +12,19 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$post_classes = array('article', 'article--related', 'vspace--half');
-
 ?>
 
-<article <?php post_class($post_classes); ?> id="article--related--<?php the_ID(); ?>">
-    <header class="article--related__header vspace--half">
-        <a class="article--related__link" href="<?php the_permalink(); ?>" rel="bookmark" <?php post_image_url_style($post, true); ?>>
-            <span class="title article--related__title"><?php the_title(); ?></span><br />
-        </a>
+<article <?php post_class(['vspace--half', 'article', 'related']); ?> id="article--<?php the_ID(); ?>">
+    <header class="vspace--half">
+        <h3 class="title">
+            <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+        </h3>
     </header>
+    <p class="related__excerpt">
+        <?php if (strlen(get_the_excerpt()) < 40) : ?>
+            <a class="related__thumbnail" href="<?php the_permalink(); ?>" rel="bookmark" <?php post_image_url_style($post, true); ?>></a>
+        <?php else: ?>
+            <?php echo substr(get_the_excerpt(), 0, 200); ?>...
+        <?php endif; ?>
+    </p>
 </article>
