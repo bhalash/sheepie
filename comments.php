@@ -23,10 +23,10 @@ $textarea_html = sprintf('
 
 ?>
 
-<hr class="vcenter--double">
-<div class="comments" id="comments">
+<hr class="vcenter--double crimp">
+<div class="comments crimp" id="comments">
     <?php if (have_comments()) : ?>
-        <ul class="comments__commentlist vspace--double">
+        <ul class="comments__commentlist vspace--triple">
             <?php wp_list_comments([
                 'callback' => 'sheepie_theme_comments',
                 'avatar_size' => 0,
