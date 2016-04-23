@@ -65,15 +65,16 @@
     display: flex;
 
     &__avatar {
-        @include avatar(4rem);
+        @include avatar(4rem) {
+            margin: 0 rem($vspace) 0 0;
+        }
     }
 
-    &__body {
+    &__content {
         flex: 1;
-        margin-left: rem($vspace);
     }
 
-    &__meta {
+    header {
         font-weight: bold;
     }
 }
