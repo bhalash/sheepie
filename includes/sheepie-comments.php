@@ -18,31 +18,15 @@ function sheepie_theme_comments($comment, $args, $depth) {
 
     <li <?php comment_class(['comment', 'vspace--double', 'comments__comment']); ?> id="comment--<?php comment_ID() ?>">
         <?php echo sheepie_avatar($comment, get_comment_author($comment), 'comment__avatar', ['size' => 130]); ?>
-        <div class="comment__body">
-            <header class="comment__header">
-                <?php
-
-                printf('<span class="%s comment__meta">%s %s </span>',
-                    'comment-author-link font-size--small',
-                    get_comment_author_link(),
-                    __('on', 'sheepie')
-                );
-
-                printf('<span class="%s comment__meta"><time datetime="%s">%s</time></span>',
-                    'post-date',
-                    get_comment_date('Y-M-d H:i'),
-                    get_comment_date(get_option('date_format'))
-                );
-
-                ?>
+        <div class="comment__content">
+            <header class="comment__header vspace--half">
+                <span class="comment__author"><?php comment_author_link(); ?></span> <?php _e('on', 'sheepie'); ?>
+                <span class="comment__date"><time datetime="<?php comment_date('Y-M-d H:i'); ?>"><?php comment_date(get_option('date_format')); ?></time></span>
                 <?php if (is_user_logged_in()) : ?>
-                    <span class="meta">
-                        <?php edit_comment_link(__('edit', 'sheepie'), ' / ', ''); ?>
-                    </span>
+                    <span class="meta"><?php edit_comment_link(__('edit', 'sheepie'), ' / ', ''); ?></span>
                 <?php endif; ?>
             </header>
-
-            <div class="comment__content meta">
+            <div class="comment__body">
                 <?php if (!$comment->comment_approved) : ?>
                     <p class="comment__unapproved">
                         <?php _e('Your comment is awaiting approval.', 'sheepie'); ?>
