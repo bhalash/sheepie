@@ -64,7 +64,6 @@ add_action('after_setup_theme', function() {
 function sheepie_includes() {
     $theme_includes = [
         'sheepie-assets.php',
-        'sheepie-avatars.php',
         'sheepie-comments.php',
         'related-posts/related-posts.php',
         'archive-functions/archive-functions.php',
@@ -214,5 +213,19 @@ add_filter('nav_menu_css_class', function($classes, $item) {
     $classes[] = 'social';
     return $classes;
 }, 10, 2);
+
+/**
+ * Get Avatar URL
+ * -----------------------------------------------------------------------------
+ * @param   string  $id_or_email    Either user ID or email address.
+ * @param   string  $classes        CSS classes to apply.
+ * @param   string  $alt            Alt text to attach to the avatar.
+ * @return  string                  The avatar's URL.
+ */
+
+function sheepie_avatar($id_or_email, $alt = '', $classes = '', $args = null) {
+    $avatar = get_avatar_url($id_or_email, $args);
+    return sprintf('<img class="%s" src="%s" alt="%s" />', $classes, $avatar, $alt);
+}
 
 ?>

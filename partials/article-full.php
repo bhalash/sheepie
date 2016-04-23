@@ -39,7 +39,7 @@ $margin = (!is_single()) ? 'vspace--triple' : '';
             <?php sheepie_partial('pagination', 'post'); ?>
             <hr class="vcenter--double">
             <div class="article--full__author">
-                <img class="article--full__avatar" src="<?php echo get_avatar(get_the_author_meta('ID'), 150) ?>" />
+                <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'article--full__avatar', ['size' => 150]); ?>
                 <div class="article--full__bio">
                     <h3 class="article--full__bio-blurb vspace--quarter title">by <?php the_author_meta('display_name'); ?></h3>
                     <h4 class="vspace--quarter meta"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></h4>

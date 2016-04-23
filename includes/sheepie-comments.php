@@ -17,7 +17,7 @@ function sheepie_theme_comments($comment, $args, $depth) {
     ?>
 
     <li <?php comment_class(['comment', 'vspace--double', 'comments__comment']); ?> id="comment--<?php comment_ID() ?>">
-        <img class="comment__avatar" src="<?php echo get_avatar($comment, 130) ?>" />
+        <?php echo sheepie_avatar($comment, get_comment_author($comment), 'comment__avatar', ['size' => 130]); ?>
         <div class="comment__body">
             <header class="comment__header">
                 <?php
