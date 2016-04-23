@@ -22,10 +22,6 @@ $textarea_html = '<textarea class="comments__textarea" id="comment" name="commen
 
 <hr class="vcenter--double">
 <div class="comments" id="comments">
-    <h4 class="vspace--full subtitle noprint">
-        <?php printf('%s "%s"', __('Have your say on ', 'sheepie'), get_the_title()); ?>
-    </h4>
-
     <?php if (have_comments()) : ?>
         <ul class="comments__commentlist">
             <?php wp_list_comments([
