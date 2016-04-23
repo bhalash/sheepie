@@ -10,6 +10,10 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$avatar-width: 5rem;
+$comment-border: 0.16rem solid rgba(color(whites, mid-light), 0.4);
+$comment-margin: rem($vspace);
+
 .comments {
     margin: 0 auto;
     max-width: 50rem;
@@ -24,16 +28,22 @@
     }
 
     /**
-     * Commentform Inputs
+     * Comments Form
      * -------------------------------------------------------------------------
-     * IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
-     * correctly apply box-sizing, so instead of width - padding, it is width +
-     * padding. The correct alternative is to use floats.
      */
 
-    .logged-in-as {
+    &__form {
+        border-top: $comment-border;
+        padding-top: rem($vspace * 0.5);
+    }
+
+    .comment-notes, .logged-in-as {
         margin-bottom: rem($vspace * 0.5);
     }
+
+    /* IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
+     * correctly apply box-sizing, so instead of width - padding, it is width +
+     * padding. The correct alternative is to use floats. */
 
     &__inputs {
         @include media(640) {
@@ -47,12 +57,6 @@
         width: 100%;
     }
 
-    /**
-     * Commentform
-     * -------------------------------------------------------------------------
-     * All input styles for the commentform.
-     */
-
     &__textarea {
         height: 12.5rem;
     }
@@ -64,10 +68,6 @@
  */
 
 .comment {
-    $avatar-width: 5rem;
-    $comment-border: 0.16rem solid rgba(color(whites, mid-light), 0.4);
-    $comment-margin: rem($vspace);
-
     &:not(:last-child) {
         margin-bottom: $comment-margin;
     }
