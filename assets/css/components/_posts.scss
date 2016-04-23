@@ -120,15 +120,9 @@
     }
 
     &__bio {
-        display: flex;
-        flex-direction: column;
         flex: 1;
-        justify-content: center;
         margin-left: rem($vspace);
-
-        &-blurb {
-            flex: 0 1 auto;
-        }
+        @include flex-center-children('-blurb');
     }
 }
 
