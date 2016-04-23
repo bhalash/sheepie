@@ -17,12 +17,30 @@
  */
 
 @mixin avatar($width: 7rem) {
-    background: center/cover no-repeat;
     border: 0.1rem solid rgba(color(rmwb), 0.25);
     border-radius: 50%;
-    flex: 0 1 $width;
+    flex: 0 1 auto;
+    width: $width;
     height: $width;
     @content;
+}
+
+/**
+ * Flex Center Children
+ * -----------------------------------------------------------------------------
+ * This doesn't work at all in IE <11, but who cares? I use this beside elemnts
+ * with a fixed height (images). If there is only a line or two of text it will
+ * be prettily centered vertically.
+ */
+
+@mixin flex-center-children($child) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &#{$child} {
+        flex: 0 1 auto;
+    }
 }
 
 /**
