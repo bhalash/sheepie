@@ -20,7 +20,8 @@
     background: center/cover no-repeat;
     border: 0.1rem solid rgba(color(rmwb), 0.25);
     border-radius: 50%;
-    @include square-flex($width 1);
+    flex: 0 1 $width;
+    height: $width;
     @content;
 }
 

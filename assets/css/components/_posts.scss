@@ -111,16 +111,12 @@
      * 2. Within right-side text, veritcally-centerd column.
      */
 
-    $avatar-width: 7rem;
-
     &__author {
         display: flex;
     }
 
     &__avatar {
-        @include avatar($avatar-width) {
-            flex: 0 1 $avatar-width;
-        }
+        @include avatar(7rem);
     }
 
     &__bio {
