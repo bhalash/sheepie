@@ -42,7 +42,7 @@ $textarea_html = sprintf('
 
     <div class="noprint" id="comments__entry">
         <?php comment_form([
-            'id_form' => 'comments__form',
+            'class_form' => 'comments__form',
             'id_submit' => 'comments__submit',
             'title_reply' => '',
             'comment_field' => $textarea_html,
