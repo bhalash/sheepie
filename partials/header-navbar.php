@@ -17,27 +17,24 @@
 
 ?>
 
-<header class="navbar noprint vspace--triple text--right" id="navbar">
-    <h3 class="navbar__title title vspace--half">
-        <?php printf('<a class="%s" href="%s">%s</a>',
-            'navbar__title-link',
-            home_url(),
-            get_bloginfo('name')
-        ); ?>
-    </h3>
+<header class="navbar noprint vspace--triple" id="navbar">
+    <?php if (is_single() || is_page()) : ?>
+        <?php sheepie_partial('gohome'); ?>
+    <?php endif; ?>
+    <h2 class="navbar__title title vspace--half text--center">
+        <?php if (is_single() || is_page()) : ?>
+            <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
+        <?php else: ?>
+            <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', home_url(), get_bloginfo('name')); ?>
+        <?php endif; ?>
+    </h2>
 
-    <p class="navbar__description vspace--half">
-        <?php bloginfo('description'); ?>
+    <p class="navbar__description text--italic vspace--half text--center">
+        <?php if (is_single() || is_page()) : ?>
+            <?php echo sheepie_postmeta('span', ''); ?>
+        <?php else : ?>
+            <?php bloginfo('description'); ?>
+         <?php endif; ?>
     </p>
-
-    <nav class="navbar__social">
-        <?php wp_nav_menu(array(
-            'theme_location' => 'top-social',
-            'container' => '',
-            'menu_class' => 'navbar__social-list',
-            'link_before' => '<span class="navbar__social-icon social__icon">',
-            'link_after' => '</span>',
-            'items_wrap' =>  sheepie_nav_menu_search()
-        )); ?>
-    </nav>
+    <hr class="vcenter--double">
 </header>
