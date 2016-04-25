@@ -23,7 +23,7 @@
             <span class="postmeta text--small"><?php sheepie_postmeta(); ?></span>
         <?php endif; ?>
     </header>
-    <div class="article__content excerpt__content">
-        <?php printf('<p class="font-size--small">%s</p>', get_the_excerpt()); ?>
-    </div>
+    <p class="article__content excerpt__content text--small">
+        <?php echo get_the_excerpt(); ?>
+    </p>
 </article>
