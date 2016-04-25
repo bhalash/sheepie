@@ -11,6 +11,12 @@
  */
 
 .navbar {
+    margin-top: rem($vspace);
+
+    @include media(640) {
+        margin-top: 0;
+    }
+
     /**
      * Sidebar Social Media Menu
      * -------------------------------------------------------------------------
