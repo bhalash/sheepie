@@ -33,6 +33,11 @@
         }
     }
 
+    img {
+        border: 1px solid color(whites, mid-light);
+        box-sizing: border-box;
+    }
+
     input {
         // For password on password-protected posts.
         display: block;
