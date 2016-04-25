@@ -57,15 +57,32 @@
 
 .related-articles {
     @include media(640) {
-        @include columns(flex, article, 2, $split-column-margin * 2);
+        @include columns(flex, article, 3, $split-column-margin * 2);
     }
 }
 
 .related {
     margin-bottom: rem($vspace);
 
+    &:not(:last-child) {
+        border: 1px solid color(whites, mid-light);
+        border-width: 0 0 1px 0;
+        padding: 0 0 $split-column-margin 0;
+    }
+
     @include media(640) {
         margin: 0;
+
+        &:not(:last-child) {
+            border-width: 0 1px 0 0;
+            padding: 0 $split-column-margin 0 0;
+        }
+    }
+
+    .title {
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     &__thumbnail {
