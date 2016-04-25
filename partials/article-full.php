@@ -15,14 +15,14 @@
 ?>
 
 <article <?php post_class(['full', 'article']); ?> id="article--<?php the_ID(); ?>">
-    <header class="full__header vspace--full">
-        <h3 class="title full__title vspace--quarter">
-            <?php sheepie_partial('posttitle'); ?>
-        </h3>
-        <?php if (!is_page()) : ?>
+    <?php if (!is_single() && !is_page()) : ?>
+        <header class="full__header vspace--full">
+            <h3 class="title full__title vspace--quarter">
+                <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
+            </h3>
             <?php echo sheepie_postmeta('h4', 'noprint vspace--half'); ?>
-        <?php endif; ?>
-    </header>
+        </header>
+    <?php endif; ?>
     <div class="full__content vspace--double">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
@@ -33,7 +33,8 @@
     )); ?>
 
     <?php if (is_single()) : ?>
-        <hr class="vcenter--double crimp">
+        <?php sheepie_partial('pagination', 'post'); ?>
+        <hr class="vcenter--double">
         <footer class="footer vspace--double">
             <div class="footer__author">
                 <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'footer__avatar', ['size' => 150]); ?>
