@@ -20,7 +20,7 @@
             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h3>
     </header>
-    <p class="related__excerpt">
+    <p class="related__excerpt text--small">
         <?php if (strlen(get_the_excerpt()) < 40) : ?>
             <a class="related__thumbnail" href="<?php the_permalink(); ?>" rel="bookmark" <?php post_image_url_style($post, true); ?>></a>
         <?php else: ?>
