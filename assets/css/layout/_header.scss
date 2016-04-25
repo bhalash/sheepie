@@ -11,12 +11,6 @@
  */
 
 .navbar {
-    margin: 2rem 2rem 7rem 0;
-
-    @include media(768) {
-        margin: 0 7rem 7rem 0;
-    }
-
     /**
      * Sidebar Social Media Menu
      * -------------------------------------------------------------------------
