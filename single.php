@@ -20,11 +20,11 @@ if (have_posts()) {
         sheepie_partial('article', 'full');
 
         if (function_exists('rp_get_related')) {
-            printf('<hr class="%s">', 'vspace--double noprint crimp');
+            printf('<hr class="%s">', 'vspace--double noprint');
             printf('<div class="%s">', 'related-articles flex--three-col--article noprint');
 
             $related = rp_get_related([
-                'count' => 2,
+                'count' => 3,
                 'range' => [
                     'after' => date('Y-m-j') . '-180 days',
                     'before' => date('Y-m-j')
