@@ -23,8 +23,8 @@ $textarea_html = sprintf('
 
 ?>
 
-<hr class="vcenter--double crimp">
-<div class="comments crimp" id="comments">
+<hr class="vcenter--double">
+<div class="comments" id="comments">
     <?php if (have_comments()) : ?>
         <ul class="comments__commentlist vspace--triple">
             <?php wp_list_comments([
