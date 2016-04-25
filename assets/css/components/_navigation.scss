@@ -49,6 +49,14 @@ $right-arrow: '\20\2192'; // ' →'
         padding: rem($vspace * 0.75) 0;
     }
 
+    &--site {
+        margin-bottom: rem($vspace);
+
+        @include media(640) {
+            margin-bottom: 0;
+        }
+    }
+
     &__count {
         text-align: center;
         padding: rem($vspace * 0.75) 0;
