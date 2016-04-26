@@ -71,8 +71,8 @@
  */
 
 .text {
-    &--small { font-size: 90%; }
-    &--big { font-size: 120%; }
+    &--small { font-size: rem($font-size--paragraph * 0.8); }
+    &--big { font-size: rem($font-size--paragraph * 1.2); }
     &--bold { font-weight: bold }
     &--italic { font-style: italic; }
     &--left { text-align: left; }
