@@ -20,7 +20,8 @@ if (have_posts()) {
         sheepie_partial('article', 'full');
 
         if (function_exists('rp_get_related')) {
-            printf('<hr class="%s">', 'vspace--double noprint');
+            printf('<h4 class="%s">%s</h4>', 'vspace--full', __('Related posts:', 'sheepie'));
+            printf('<hr class="%s">', 'vspace--full noprint');
             printf('<div class="%s">', 'related-articles flex--three-col--article noprint');
 
             $related = rp_get_related([
