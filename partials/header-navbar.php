@@ -17,10 +17,7 @@
 
 ?>
 
-<header class="navbar noprint vspace--triple" id="navbar">
-    <?php if (is_single() || is_page()) : ?>
-        <?php sheepie_partial('gohome'); ?>
-    <?php endif; ?>
+<header class="navbar noprint vspace--double" id="navbar">
     <h2 class="navbar__title title vspace--half text--center">
         <?php if (is_single() || is_page()) : ?>
             <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
@@ -29,12 +26,12 @@
         <?php endif; ?>
     </h2>
 
-    <p class="navbar__description text--italic vspace--half text--center">
+    <p class="navbar__description text--italic text--center">
         <?php if (is_single() || is_page()) : ?>
             <?php echo sheepie_postmeta('span', ''); ?>
         <?php else : ?>
             <?php bloginfo('description'); ?>
          <?php endif; ?>
     </p>
-    <hr class="vcenter--double">
+    <hr class="vcenter--full">
 </header>
