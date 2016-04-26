@@ -16,14 +16,11 @@ if (!comments_open() || post_password_required()) {
     return;
 }
 
-$textarea_html = sprintf('
-    <p id="textarea">%s</p>',
-    '<textarea class="comments__textarea" id="comment" name="comment" required="required"></textarea>'
-);
+$textarea_html = '<textarea class="vspace--half comments__textarea" id="textarea" name="comment" required="required"></textarea>';
 
 ?>
 
-<hr class="vcenter--double">
+<hr class="vcenter--full">
 <div class="comments" id="comments">
     <?php if (have_comments()) : ?>
         <ul class="comments__commentlist vspace--triple">
