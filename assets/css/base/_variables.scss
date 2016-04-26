@@ -101,3 +101,10 @@ $font--opensans: 'Open Sans', Verdana, Geneva, sans-serif, sans-serif;
 $font--sourcecodepro:'Source Code Pro', 'Courier New', Courier, monospace;
 $font--lato: 'Lato', Verdana, Geneva, sans-serif, sans-serif;
 $font--meriweather: 'Merriweather', Georgia, 'Times New Roman', serif;
+
+/**
+ * Borders
+ * -----------------------------------------------------------------------------
+ */
+
+$light-border: 1px solid rgba(color(whites, mid-light), 0.4);
