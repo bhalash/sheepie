@@ -17,13 +17,13 @@
 <article <?php post_class(['full', 'article']); ?> id="article--<?php the_ID(); ?>">
     <?php if (!is_single() && !is_page()) : ?>
         <header>
-            <h3 class="title full__title vspace--quarter">
+            <h3 class="title">
                 <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
             </h3>
-            <?php echo sheepie_postmeta('h4', 'noprint vspace--full'); ?>
+            <p class="noprint meta vspace--half"><?php echo sheepie_postmeta(); ?></p>
         </header>
     <?php else: ?>
-        <?php sheepie_partial('gohome'); ?>
+        <?php sheepie_partial('header', 'navbar'); ?>
     <?php endif; ?>
     <div class="full__content vspace--double">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
@@ -36,14 +36,14 @@
 
     <?php if (is_single()) : ?>
         <?php sheepie_partial('pagination', 'post'); ?>
-        <hr class="vcenter--double">
-        <footer class="footer vspace--double">
+        <hr class="vcenter--full">
+        <footer class="footer vspace--triple">
             <div class="footer__author">
                 <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'footer__avatar', ['size' => 150]); ?>
                 <div class="footer__bio">
                     <h3 class="vspace--quarter title">by <?php the_author_meta('display_name'); ?></h3>
                     <h4 class="vspace--quarter meta"><?php the_tags(__('Tagged: ', 'sheepie'), ', '); ?></h4>
-                    <p><?php the_author_meta('user_description'); ?></p>
+                    <p class="meta"><?php the_author_meta('user_description'); ?></p>
                 </div>
             </div>
         </footer>

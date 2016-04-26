@@ -19,6 +19,7 @@
         <h4 class="title">
             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h4>
+        <p class="meta"><?php echo sheepie_postmeta(); ?></p>
     </header>
     <p class="related__excerpt text--small">
         <?php if (strlen(get_the_excerpt()) < 40) : ?>
