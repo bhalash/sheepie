@@ -16,12 +16,14 @@
 
 <article <?php post_class(['full', 'article']); ?> id="article--<?php the_ID(); ?>">
     <?php if (!is_single() && !is_page()) : ?>
-        <header class="full__header vspace--full">
+        <header>
             <h3 class="title full__title vspace--quarter">
                 <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
             </h3>
-            <?php echo sheepie_postmeta('h4', 'noprint vspace--half'); ?>
+            <?php echo sheepie_postmeta('h4', 'noprint vspace--full'); ?>
         </header>
+    <?php else: ?>
+        <?php sheepie_partial('gohome'); ?>
     <?php endif; ?>
     <div class="full__content vspace--double">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>

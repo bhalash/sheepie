@@ -135,28 +135,6 @@ add_action('init', function() {
 });
 
 /**
- * Post Meta Information
- * -----------------------------------------------------------------------------
- * Output post header information (category and date).
- */
-
-function sheepie_postmeta($tag = 'span', $classes = null) {
-    $classes = sprintf(' class="%s postmeta meta"', $classes);
-
-    printf('<%s%s>', $tag, $classes);
-    printf('<a href="%s"><time datetime="%s">%s</time></a>',
-        get_month_link(get_the_time('Y'), get_the_time('n')),
-        get_the_time('Y-m-d H:i'),
-        get_the_time(get_option('date_format'))
-    );
-
-    _e(' in ', 'sheepie');
-    the_category(', ');
-    edit_post_link(__('edit post', 'sheepie'), ' / ', '');
-    printf('</%s>', $tag);
-}
-
-/**
  * Add Knockout.js Lightbox Data Bindings
  * -----------------------------------------------------------------------------
  * @param   string      $content        The post content.
@@ -226,6 +204,28 @@ add_filter('nav_menu_css_class', function($classes, $item) {
 function sheepie_avatar($id_or_email, $alt = '', $classes = '', $args = null) {
     $avatar = get_avatar_url($id_or_email, $args);
     return sprintf('<img class="%s" src="%s" alt="%s" />', $classes, $avatar, $alt);
+}
+
+/**
+ * Post Meta Information
+ * -----------------------------------------------------------------------------
+ * Output post header information (category and date).
+ */
+
+function sheepie_postmeta($tag = 'span', $classes = null) {
+    $classes = sprintf(' class="%s postmeta meta"', $classes);
+
+    printf('<%s%s>', $tag, $classes);
+    printf('<a href="%s"><time rel="date" datetime="%s">%s</time></a>',
+        get_month_link(get_the_time('Y'), get_the_time('n')),
+        get_the_time('Y-m-d H:i'),
+        get_the_time(get_option('date_format'))
+    );
+
+    _e(' in ', 'sheepie');
+    the_category(', ');
+    edit_post_link(__('edit post', 'sheepie'), ' / ', '');
+    printf('</%s>', $tag);
 }
 
 ?>
