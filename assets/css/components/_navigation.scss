@@ -19,6 +19,12 @@ $right-arrow: '\20\2192'; // ' →'
  */
 
 .navigation--home {
+    padding: 0.5rem 1rem;
+
+    @include media(1024) {
+        @include absolute(0 auto auto 0);
+    }
+
     &__link {
         display: block;
         padding: rem($vspace * 0.75) 0;
@@ -46,7 +52,6 @@ $right-arrow: '\20\2192'; // ' →'
 
     a {
         display: block;
-        padding: rem($vspace * 0.75) 0;
     }
 
     &--site {

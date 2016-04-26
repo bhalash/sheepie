@@ -25,12 +25,8 @@
         padding-left: 0.5rem;
     }
 
-    blockquote p {
-        font-family: $font--lato;
-
-        &:not(:last-child) {
-            margin-bottom: rem($vspace);
-        }
+    blockquote p:not(:last-child) {
+        margin-bottom: rem($vspace);
     }
 
     img {
@@ -124,7 +120,7 @@
     }
 
     &__avatar {
-        @include avatar(7rem);
+        @include avatar(5rem);
     }
 
     &__bio {
@@ -151,26 +147,15 @@ figure {
      * circumstances where those few pixels can break layout. */
     font-size: 0;
 
+    a {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
     img {
         /* Important: images will otherwise display weirdly in a manner that
          * varies by browser. */
         width: 100%;
-    }
-
-    a {
-        display: block;
-        margin-bottom: 0.5rem;
-
-        &:only-child {
-            /* Constrain size of non-photobox (single) images Doesn't work in
-             * IE, but phooey to them. */
-            @include media(768) {
-                max-height: 20rem;
-                object-fit: cover;
-                overflow: hidden;
-            }
-        }
-
     }
 }
 
