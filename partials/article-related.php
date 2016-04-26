@@ -16,9 +16,9 @@
 
 <article <?php post_class(['vspace--half', 'article', 'related']); ?> id="article--<?php the_ID(); ?>">
     <header class="vspace--half">
-        <h3 class="title">
+        <h4 class="title">
             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-        </h3>
+        </h4>
     </header>
     <p class="related__excerpt text--small">
         <?php if (strlen(get_the_excerpt()) < 40) : ?>
