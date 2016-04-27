@@ -17,8 +17,8 @@
 
 ?>
 
-<div class="disp--hidden lightbox noprint" id="lightbox" data-bind="css: { 'disp--hidden': !elements.lightbox() }">
-    <a class="lightbox__anchor" href="#!" data-bind="click: show, attr: {title: lightbox.text, href: lightbox.link}">
-        <img class="lightbox__image vcenter--double" data-bind="attr: {src: lightbox.image, alt: lightbox.text}" />
+<div class="hidden lightbox noprint modal" id="lightbox">
+    <a class="lightbox__anchor" href="">
+        <img class="lightbox__image vcenter--double" src="" alt="" />
     </a>
 </div>
