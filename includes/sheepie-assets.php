@@ -32,7 +32,7 @@ add_action('wp_enqueue_scripts', function() {
 
     $assets['js'] = [
         // 'script-name' => ['script_path', ['dependency']
-        'functions' => ['sheepie.js', []]
+        'functions' => ['sheepie.js', ['jquery']]
     ];
 
     $assets['ie']['css'] = [
