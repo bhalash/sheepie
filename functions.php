@@ -135,26 +135,6 @@ add_action('init', function() {
 });
 
 /**
- * Add Knockout.js Lightbox Data Bindings
- * -----------------------------------------------------------------------------
- * @param   string      $content        The post content.
- * @return  string      $content        Post content with added directives.
- */
-
-add_filter('the_content', function($content) {
-    $bindings = [
-        '<img' => ['click: lightbox.show']
-    ];
-
-    foreach ($bindings as $tag => $directives) {
-        $directive = sprintf('%s data-bind="%s" ', $tag, implode(', ', $directives));
-        $content = str_replace($tag, $directive, $content);
-    }
-
-    return $content;
-});
-
-/**
  * Custom Search Link Icon
  * -----------------------------------------------------------------------------
  * A bit hack-y, but I need the data bindinng on the button.
