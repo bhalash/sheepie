@@ -85,18 +85,8 @@
  * -----------------------------------------------------------------------------
  */
 
-.disp {
-    transition: .15s opacity ease-in;
-
-    &--hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    &--shown {
-        opacity: 1;
-        visibility: visible;
-    }
+.hidden {
+    display: none;
 }
 
 /**
