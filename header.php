@@ -29,7 +29,7 @@ $html = get_bloginfo('html_type');
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> data-bind="event: { keyup: switchboard }">
+<body <?php body_class(); ?>>
     <?php if (is_single() || is_page()) : ?>
         <?php sheepie_partial('gohome'); ?>
     <?php endif; ?>
