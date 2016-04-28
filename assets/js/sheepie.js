@@ -81,7 +81,6 @@
     });
 
     $.subscribe('/modal/hide', function(event, selector) {
-        selector = selector || '.modal';
-        $('.modal').hide();
+        $(selector || '.modal').hide();
     });
 })(jQuery, document, window);
