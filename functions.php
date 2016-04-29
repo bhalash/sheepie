@@ -20,19 +20,15 @@ $GLOBALS['sheepie_version'] = '1.1.3';
  */
 
 add_action('after_setup_theme', function() {
-    // All theme PHP.
     sheepie_includes();
 
-    // Remove WordPress version from site header.
     remove_action('wp_head', 'wp_generator');
 
-    // Remove the fuck out of emoji and emoticons.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
 
-    // Tell WordPress to manage the site title itself.
     add_theme_support('title-tag');
 
     add_theme_support('automatic-feed-links');
@@ -46,11 +42,9 @@ add_action('after_setup_theme', function() {
         'caption'
     ]);
 
-    // Content width.
     $GLOBALS['content_width'] = 880;
 
     $sheepie_social = new Social_Meta([
-        // Facebook and Twitter social media information.
         'facebook' => 'bhalash',
         'twitter' => '@bhalash'
     ]);
@@ -92,10 +86,10 @@ function sheepie_partial($name, $slug = '') {
  * Media Prefetch
  * -----------------------------------------------------------------------------
  * Set prefetch for a given media domain. Useful if your site is image heavy.
+ * Media prefetch domain: If null or empty, defaults to site domain.
  */
 
 add_action('wp_head', function() {
-    // Media prefetch domain: If null or empty, defaults to site domain.
     $prefetch = [
         'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
     ];
@@ -137,14 +131,12 @@ add_action('init', function() {
 /**
  * Custom Search Link Icon
  * -----------------------------------------------------------------------------
- * A bit hack-y, but I need the data bindinng on the button.
  */
 
 function sheepie_nav_menu_search() {
     $search = sprintf(
-        '<li id="search" class="%s"><a data-bind="%s" href="%s"><span class="%s">%s</span></a></li>',
+        '<li id="search" class="%s"><a href="%s"><span class="%s">%s</span></a></li>',
         'search menu-item menu-item-type-custom menu-item-object-custom social',
-        'css: {close: elements.search()}, click: toggle.search',
         '/search',
         'navbar__social-icon social__icon',
         __('Search', 'sheepie')
