@@ -43,20 +43,24 @@
     }
 }
 
-/**
- * Photowall
+/*
+ * Desired Float Styles
  * -----------------------------------------------------------------------------
  */
 
-.photowall {
-    @include column-count(2, rem($vspace * 0.5));
+@mixin float($side: left) {
+    $margin: 0 2rem 0.5rem 0;
 
-
-    @include media(640) {
-        @include column-count(3);
+    @if $side != left {
+        $side: right;
+        $margin: 0 0 0.5rem 2rem;
     }
 
-    img {
-        margin-bottom: rem($vspace * 0.5);
+    float: $side;
+    margin: $margin;
+    width: 50%;
+
+    @include media(768) {
+        width: 30%;
     }
 }

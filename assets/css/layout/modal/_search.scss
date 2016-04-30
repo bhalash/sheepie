@@ -1,5 +1,5 @@
 /**
- * Site Search Boxes
+ * Modal Search
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -8,11 +8,6 @@
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
  * @version    3.0
  * @link       https://github.com/bhalash/sheepie
- */
-
-/**
- * Big Search Form Container
- * -----------------------------------------------------------------------------
  */
 
 .bigsearch {
@@ -29,7 +24,7 @@
     }
 
     /**
-     * Bigsearch Form
+     * Form Area
      * -------------------------------------------------------------------------
      */
 
@@ -45,7 +40,7 @@
     }
 
     /**
-     * Big Search Text Input
+     * Input Area
      * -------------------------------------------------------------------------
      */
 
@@ -81,17 +76,4 @@
 .bigsearch-input:focus + label {
     display: none;
     visibility: hidden;
-}
-
-/**
- * Regular Search Form
- * -----------------------------------------------------------------------------
- */
-
-.searchform {
-    &__input {
-        font-size: 1.75rem;
-        padding: 0.5rem;
-        width: 100%;
-    }
 }

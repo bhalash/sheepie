@@ -1,0 +1,61 @@
+
+/**
+ * Sidebar Social Media Menu
+ * -----------------------------------------------------------------------------
+ * Horizontal row of external social media links. order: 1 puts it on the
+ * left at smaller screen sizes.
+ */
+
+.menu {
+    &__list {
+        display: flex;
+        flex-direction: row-reverse;
+        list-style-type: none;
+        max-width: 100%;
+    }
+
+    .social {
+        @include social(null, '.social__icon');
+    }
+
+    .menu-item {
+        // WordPress requires menu links to have a text label.
+        // This forcibly hides the label in favour of the icon.
+        font-size: 0 !important;
+        // Override default line-height set for items.
+        // Otherwise IE9, 10 and 11 wig out.
+        line-height: normal;
+        margin-left: rem($vspace * 0.5);
+        overflow: hidden;
+        padding: 0;
+
+        @include square-flex(3rem 1);
+
+        @include media(768) {
+            @include square-flex(2.5rem 1);
+        }
+
+        a, span {
+            display: block;
+            font-size: inherit;
+            line-height: inherit;
+            @include square-flex(100% 1);
+        }
+
+        a {
+            box-sizing: border-box;
+            padding: 0;
+        }
+    }
+
+    /**
+     * Social Menu Icon
+     * -------------------------------------------------------------------------
+     * Icon is deoupled from the parent container.
+     */
+
+    &__icon {
+        // Side is set above in .menu-item.
+        display: block;
+    }
+}
