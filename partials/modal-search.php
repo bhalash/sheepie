@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main Search Form
+ * Modal Search Input
  * -----------------------------------------------------------------------------
  * I separated this template because of the 404 switch. It was easier to wrap it
  * all up here.
@@ -15,19 +15,14 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$search_action = esc_url(home_url('/'));
-
 ?>
 
-<div class="disp--hidden bigsearch color--rmwb--bg noprint" id="bigsearch">
-    <form class="bigsearch__form" method="get" action="<?php printf($search_action); ?>" autocomplete="off" novalidate>
+<div class="hidden modal-search modal noprint" id="modal-search">
+    <form class="modal-search__form" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off" novalidate>
         <fieldset>
-            <input class="bigsearch__input" id="bigsearch__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
-            <label class="bigsearch__label" for="bigsearch__input"><?php _e('search', 'sheepie'); ?></label>
+            <input class="modal-search__input" id="modal-search__input" name="s" type="search" placeholder="<?php _e('search', 'sheepie'); ?>" required="required">
+            <label class="modal-search__label" for="modal-search__input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
-
-    <button class="button button--search-bigsearch bigsearch__toggle social search" id="searchtoggle__search">
-        <span class="button__icon social__icon"></span>
-    </button>
+    <a class="toggle" data-toggle="modal-search" href=""><span class="navbar__social-icon social__icon">Search</span></a>
 </div>
