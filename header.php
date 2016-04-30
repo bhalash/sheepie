@@ -34,11 +34,6 @@ $html = get_bloginfo('html_type');
         <?php sheepie_partial('gohome'); ?>
     <?php endif; ?>
     <main class="main" id="main">
-        <?php if (!is_404()) {
-            if (!is_single() && !is_page()) {
-                sheepie_partial('header', 'search');
-            }
-
-            sheepie_partial('modal', 'lightbox');
-            sheepie_partial('modal', 'search');
+        <?php if (!is_404() && !is_single() && !is_page()) {
+            sheepie_partial('header', 'title');
         } ?>
