@@ -136,7 +136,7 @@ add_action('init', function() {
 
 function sheepie_nav_menu_search() {
     $search = sprintf(
-        '<li class="%s"><a href=""><span class="%s">%s</span></a></li>',
+        '<li class="%s"><a class="toggle" data-toggle="modal-search" href=""><span class="%s">%s</span></a></li>',
         'search menu-item menu-item-type-custom menu-item-object-custom social',
         'social__icon',
         __('Search', 'sheepie')
