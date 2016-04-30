@@ -134,19 +134,23 @@ add_action('init', function() {
  */
 
 function sheepie_nav_menu_search() {
-    $search = sprintf(
-        '<li id="search" class="%s"><a href="%s"><span class="%s">%s</span></a></li>',
-        'search menu-item menu-item-type-custom menu-item-object-custom social',
-        '/search',
-        'navbar__social-icon social__icon',
-        __('Search', 'sheepie')
-    );
+    $wrap = [];
 
-    $wrap  = '<ul id="%1$s" class="%2$s">';
-    $wrap .= $search;
-    $wrap .= '%3$s';
-    $wrap .= '</ul>';
-    return $wrap;
+    $wrap[]  = '<ul id="%1$s" class="%2$s">';
+
+    $wrap[] = '<li class="search menu-item social">';
+    $wrap[] = '<a class="toggle" data-toggle="modal-search" href="">';
+    $wrap[] = '<span class="social__icon">';
+    $wrap[] = __('Search', 'sheepie');
+    $wrap[] = '</span>';
+    $wrap[] = '</a>';
+    $wrap[] = '</li>';
+
+    $wrap[] = $search;
+    $wrap[] = '%3$s';
+    $wrap[] = '</ul>';
+
+    return implode($wrap, '');
 }
 
 /**
