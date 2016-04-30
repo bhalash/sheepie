@@ -23,7 +23,7 @@
             <p class="noprint meta vspace--half"><?php echo sheepie_postmeta(); ?></p>
         </header>
     <?php else: ?>
-        <?php sheepie_partial('header', 'navbar'); ?>
+        <?php sheepie_partial('header', 'title'); ?>
     <?php endif; ?>
     <div class="full__content vspace--double">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
