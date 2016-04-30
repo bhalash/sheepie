@@ -11,7 +11,7 @@
  */
 
 .modal-search {
-    background: color(rmwb);
+    background: color(whites, x-light);
     box-sizing: border-box;
     height: $navbar-height;
     // Necessary to hide overflow or IE10 and IE11 wrap to hell.
@@ -46,9 +46,8 @@
      */
 
     &__input, label[for=modal-search__input] {
-        background: transparent;
         box-sizing: border-box;
-        color: color(whites, x-light);
+        color: color(rmwb);
         display: block;
         font-size: 2rem;
         margin: 0 auto;
@@ -57,7 +56,7 @@
         @include absolute-center;
 
         @include placeholder-style {
-            color: rgba(color(whites, x-light), 0.5);
+            color: rgba(color(rmwb), 0.5);
         }
 
         @include media(1024) {
@@ -70,7 +69,7 @@
     }
 
     .toggle {
-        background: #fff;
+        background: color(rmwb);
         display: block;
         font-size: 0;
         @include square-flex(30px 1);
