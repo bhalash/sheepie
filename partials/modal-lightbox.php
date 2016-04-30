@@ -17,7 +17,7 @@
 
 ?>
 
-<div class="hidden lightbox noprint modal" id="lightbox">
+<div class="hidden lightbox modal" id="lightbox">
     <a class="lightbox__anchor" href="">
         <img class="lightbox__image vcenter--double" src="" alt="" />
     </a>
