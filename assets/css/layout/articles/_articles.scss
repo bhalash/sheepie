@@ -160,11 +160,11 @@ figure {
 }
 
 .photobox {
-    &--two {
+    &, &--two {
         @include columns(flex, a, 2, $split-column-margin);
     }
 
-    &, &--three {
+    &--three {
         @include columns(flex, a, 3, $split-column-margin);
     }
 

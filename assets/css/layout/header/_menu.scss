@@ -1,17 +1,24 @@
-
 /**
- * Sidebar Social Media Menu
+ * Icon Nav Manu
  * -----------------------------------------------------------------------------
- * Horizontal row of external social media links. order: 1 puts it on the
- * left at smaller screen sizes.
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
  */
 
 .menu {
     &__list {
         display: flex;
         flex-direction: row-reverse;
+        justify-content: center;
         list-style-type: none;
         max-width: 100%;
+        // Debug. FIXME
+        margin-top: rem($vspace * 2);
     }
 
     .social {
@@ -19,16 +26,11 @@
     }
 
     .menu-item {
-        // WordPress requires menu links to have a text label.
-        // This forcibly hides the label in favour of the icon.
         font-size: 0 !important;
-        // Override default line-height set for items.
-        // Otherwise IE9, 10 and 11 wig out.
         line-height: normal;
         margin-left: rem($vspace * 0.5);
         overflow: hidden;
         padding: 0;
-
         @include square-flex(3rem 1);
 
         @include media(768) {
@@ -46,16 +48,5 @@
             box-sizing: border-box;
             padding: 0;
         }
-    }
-
-    /**
-     * Social Menu Icon
-     * -------------------------------------------------------------------------
-     * Icon is deoupled from the parent container.
-     */
-
-    &__icon {
-        // Side is set above in .menu-item.
-        display: block;
     }
 }

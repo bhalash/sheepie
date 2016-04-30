@@ -10,14 +10,15 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-.bigsearch {
+.modal-search {
+    background: color(rmwb);
     box-sizing: border-box;
     height: $navbar-height;
     // Necessary to hide overflow or IE10 and IE11 wrap to hell.
     overflow: hidden;
     transition: opacity .15s;
     z-index: 3;
-    @include fixed(auto 0 0 auto);
+    @include fixed(0);
 
     &:focus {
         outline: none;
@@ -44,7 +45,7 @@
      * -------------------------------------------------------------------------
      */
 
-    &__input {
+    &__input, label[for=modal-search__input] {
         background: transparent;
         box-sizing: border-box;
         color: color(whites, x-light);
@@ -68,12 +69,16 @@
         }
     }
 
-    label[for=bigsearch__input] {
-        @extend .bigsearch__input;
+    .toggle {
+        background: #fff;
+        display: block;
+        font-size: 0;
+        @include square-flex(30px 1);
+        @include absolute(0 0 auto auto);
     }
 }
 
-.bigsearch-input:focus + label {
+.modal-search-input:focus + label {
     display: none;
     visibility: hidden;
 }
