@@ -131,14 +131,14 @@ add_action('init', function() {
 /**
  * Custom Search Link Icon
  * -----------------------------------------------------------------------------
+ @return string         $wrap       Nav menu wrapped in string.
  */
 
 function sheepie_nav_menu_search() {
     $search = sprintf(
-        '<li id="search" class="%s"><a href="%s"><span class="%s">%s</span></a></li>',
+        '<li class="%s"><a href=""><span class="%s">%s</span></a></li>',
         'search menu-item menu-item-type-custom menu-item-object-custom social',
-        '/search',
-        'navbar__social-icon social__icon',
+        'social__icon',
         __('Search', 'sheepie')
     );
 
@@ -146,6 +146,7 @@ function sheepie_nav_menu_search() {
     $wrap .= $search;
     $wrap .= '%3$s';
     $wrap .= '</ul>';
+
     return $wrap;
 }
 
