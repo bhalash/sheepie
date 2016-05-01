@@ -24,5 +24,9 @@
             <label class="modal-search__label" for="modal-search__input"><?php _e('search', 'sheepie'); ?></label>
         </fieldset>
     </form>
-    <a class="toggle" data-toggle="modal-search" href=""><span class="navbar__social-icon social__icon">Search</span></a>
+    <div class="social close">
+        <a class="toggle" data-toggle="modal-search" href="">
+            <span class="round social__icon">Search</span>
+        </a>
+    </div>
 </div>
