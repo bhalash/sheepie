@@ -1,7 +1,3 @@
-[submodule "assets/css/lib/charon"]
-  path = assets/css/lib/charon
-  url = https://github.com/bhalash/charon.git
-  ignore = dirty
 [submodule "includes/social-meta"]
   path = includes/social-meta
   url = https://github.com/bhalash/social-meta.git
