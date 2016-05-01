@@ -10,3 +10,6 @@
   path = includes/archive-functions
   url = https://github.com/bhalash/archive-functions.git
   ignore = dirty
+[submodule "assets/css/includes/charon"]
+	path = assets/css/includes/charon
+	url = https://github.com/bhalash/charon.git
