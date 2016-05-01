@@ -11,10 +11,37 @@
  *
  */
 
+/**
+ * Rounded Corners
+ * -----------------------------------------------------------------------------
+ */
+
+.round {
+    border-radius: 50%;
+}
+
 /*
  * Social Sharing Vector Icons
  * -----------------------------------------------------------------------------
  */
+
+.social {
+    @include social(null, '.social__icon');
+
+    a, &__icon {
+        box-sizing: border-box;
+        display: block;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+        @include square-flex(100% 1);
+    }
+
+    a {
+        font-size: 0 !important;
+        line-height: normal;
+    }
+}
 
 /*
  * Hide During Printing
@@ -61,7 +88,11 @@
  */
 
 .text {
-    &--small { font-size: rem($font-size--paragraph * 0.8); }
+    &--small {
+        font-size: rem($font-size--paragraph * 0.8);
+        line-height: rem($vspace);
+    }
+
     &--big { font-size: rem($font-size--paragraph * 1.2); }
     &--bold { font-weight: bold }
     &--italic { font-style: italic; }
