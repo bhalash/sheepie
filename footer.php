@@ -19,7 +19,7 @@
                 'theme_location' => 'top-social',
                 'container' => '',
                 'menu_class' => 'menu__list',
-                'link_before' => '<span class="social__icon">',
+                'link_before' => '<span class="round social__icon">',
                 'link_after' => '</span>',
                 'items_wrap' =>  sheepie_nav_menu_search()
             ]); ?>
