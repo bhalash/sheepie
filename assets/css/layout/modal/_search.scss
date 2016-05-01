@@ -47,7 +47,7 @@
 
     &__input, label[for=modal-search__input] {
         box-sizing: border-box;
-        color: color(rmwb);
+        // color: color(rmwb);
         display: block;
         font-size: 2rem;
         margin: 0 auto;
@@ -55,9 +55,9 @@
         width: 90%;
         @include absolute-center;
 
-        @include placeholder-style {
-            color: rgba(color(rmwb), 0.5);
-        }
+        // @include placeholder-style {
+        //     color: rgba(color(rmwb), 0.5);
+        // }
 
         @include media(1024) {
             font-size: 4.5rem;
@@ -69,11 +69,8 @@
     }
 
     .toggle {
-        background: color(rmwb);
-        display: block;
-        font-size: 0;
-        @include square-flex(30px 1);
-        @include absolute(0 0 auto auto);
+        @include square-flex(2rem 1);
+        @include absolute(1rem 1rem auto auto);
     }
 }
 
