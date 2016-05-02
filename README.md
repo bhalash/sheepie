@@ -1,7 +1,7 @@
 ![](screenshot.png)
 
 # Sheepie
-Sheepie is a light, bottom-up responsive WordPress theme, designed for performance and extension: minimal JavaScript, optimized CSS and an easily-extensible assets pipeline.
+Sheepie is a light, bottom-up responsive WordPress theme, designed for performance and extension: minimal JavaScript, optimized CSS and an extensible assets pipeline.
 
 ## Demo
 I use Sheepie for my [own site](http://www.bhalash.com). 
