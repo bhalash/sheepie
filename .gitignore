@@ -13,6 +13,7 @@ vectors/
 #################
 
 assets/js/min/
+assets/js/analytics.js
 *.min.js
 
 #################
