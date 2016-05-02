@@ -31,7 +31,7 @@ All first-party code in Sheepie is licensed under the GPL v3 or later.
 > 
 > A copy of the license is included in the root of the plugin’s directory. The file is named LICENSE.
 
-#### Normalize.css
+### Normalize.css
 [Normalize.css](https://github.com/necolas/normalize.css/) is included under the MIT License v2:
 
 > Copyright © Nicolas Gallagher and Jonathan Neal
