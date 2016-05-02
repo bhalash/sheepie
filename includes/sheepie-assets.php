@@ -37,7 +37,7 @@ add_action('wp_enqueue_scripts', function() {
 
     $assets['ie']['css'] = [
         // 'style-name' => ['style_path', 'condition']
-        'ie-fallback' => ['ie.css', 'lte IE 9']
+        // 'ie-fallback' => ['ie.css', 'lte IE 9']
     ];
 
     $assets['ie']['js'] = [
