@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Theme Responsive Header
+ * Theme Headline
  * -----------------------------------------------------------------------------
  * I separated this template because of the 404 switch. It was easier to wrap it
  * all up here.
@@ -15,18 +15,20 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$margin_class = (is_single() || is_page()) ? 'vspace--full' : 'vspace--double';
+
 ?>
 
-<header class="navbar noprint vspace--double" id="navbar">
-    <h2 class="navbar__title title vspace--half text--center">
+<header class="headline noprint <?php echo $margin_class; ?>" id="headline">
+    <h2 class="title vspace--half text--center">
         <?php if (is_single() || is_page()) : ?>
-            <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
+            <?php printf('<a href="%s">%s</a>', get_the_permalink(), get_the_title()); ?>
         <?php else: ?>
-            <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', home_url(), get_bloginfo('name')); ?>
+            <?php printf('<a href="%s">%s</a>', home_url(), get_bloginfo('name')); ?>
         <?php endif; ?>
     </h2>
 
-    <p class="navbar__description text--italic text--center">
+    <p class="text--italic text--center">
         <?php if (is_single() || is_page()) : ?>
             <?php echo sheepie_postmeta('span', ''); ?>
         <?php else : ?>

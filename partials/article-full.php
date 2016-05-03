@@ -17,7 +17,7 @@
 <article <?php post_class(['full', 'article']); ?> id="article--<?php the_ID(); ?>">
     <?php if (!is_single() && !is_page()) : ?>
         <header>
-            <h3 class="title">
+            <h3 class="title vspace--quarter">
                 <?php printf('<a class="%s" href="%s">%s</a>', 'navbar__title-link', get_the_permalink(), get_the_title()); ?>
             </h3>
             <p class="noprint meta vspace--half"><?php echo sheepie_postmeta(); ?></p>
@@ -25,7 +25,7 @@
     <?php else: ?>
         <?php sheepie_partial('header', 'title'); ?>
     <?php endif; ?>
-    <div class="full__content vspace--double">
+    <div class="full__content vspace--full">
         <?php the_content(__('Read the rest of this post &raquo;', 'sheepie')); ?>
     </div>
 
@@ -37,7 +37,7 @@
     <?php if (is_single()) : ?>
         <?php sheepie_partial('pagination', 'post'); ?>
         <hr class="vcenter--full">
-        <footer class="footer vspace--triple">
+        <footer class="footer vcenter--double">
             <div class="footer__author">
                 <?php echo sheepie_avatar(get_the_author_meta('ID'), get_the_author(), 'footer__avatar', ['size' => 150]); ?>
                 <div class="footer__bio">

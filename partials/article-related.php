@@ -16,7 +16,7 @@
 
 <article <?php post_class(['vspace--half', 'article', 'related']); ?> id="article--<?php the_ID(); ?>">
     <header class="vspace--half">
-        <h4 class="title">
+        <h4 class="title vspace--quarter">
             <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
         </h4>
         <p class="meta"><?php echo sheepie_postmeta(); ?></p>

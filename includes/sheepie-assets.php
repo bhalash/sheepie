@@ -18,6 +18,7 @@ add_action('wp_enqueue_scripts', function() {
     $paths['js'] = get_template_directory_uri() . '/assets/js/min/';
 
     $assets = [];
+    $assets['ie'] = [];
 
     $assets['fonts'] = [
         // 'font:variant,variant'
@@ -32,6 +33,16 @@ add_action('wp_enqueue_scripts', function() {
     $assets['js'] = [
         // 'script-name' => ['script_path', ['dependency']
         'functions' => ['sheepie.js', ['jquery']]
+    ];
+
+    $assets['ie']['css'] = [
+        // 'style-name' => ['style_path', 'condition']
+        // 'ie-fallback' => ['ie.css', 'lte IE 9']
+    ];
+
+    $assets['ie']['js'] = [
+        // 'script-name' => ['script_path', ['dependency'], 'condition']
+        // 'html5-shiv' => ['html5shiv/dist/html5shiv.min.js', [], 'lte IE 9']
     ];
 
     sheepie_css($assets, $paths);
@@ -102,6 +113,13 @@ function sheepie_js($assets, $paths) {
         }
     }
 
+    if (!empty($conditonal_js)) {
+        foreach ($conditional_js as $name => $script) {
+            wp_enqueue_script($name, $paths['js'] . $script[0], $script[1], $version, false);
+            wp_script_add_data($name, 'conditional', $script[2]);
+        }
+    }
+
     if (is_singular()) {
         wp_enqueue_script('comment-reply');
     }
@@ -130,6 +148,13 @@ function sheepie_css($assets, $paths) {
     if (!empty($css)) {
         foreach ($css as $name => $path) {
             wp_enqueue_style($name, $paths['css'] . $path, [], $version);
+        }
+    }
+
+    if (!empty($conditional_css)) {
+        foreach ($conditional_css as $name => $style) {
+            wp_enqueue_style($name, $paths['css'] . $style[0], [], $version);
+            wp_style_add_data($name, 'conditional', $style[1]);
         }
     }
 }

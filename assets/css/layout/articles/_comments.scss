@@ -30,10 +30,6 @@ $comment-margin: rem($vspace);
      * -------------------------------------------------------------------------
      */
 
-    .comment-notes, .logged-in-as {
-        margin-bottom: rem($vspace * 0.5);
-    }
-
     /* IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
      * correctly apply box-sizing, so instead of width - padding, it is width +
      * padding. The correct alternative is to use floats. */
@@ -46,11 +42,16 @@ $comment-margin: rem($vspace);
 
     &__input {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: rem($vspace * 0.5);
         width: 100%;
+
+        @include media(640) {
+            margin: 0;
+        }
     }
 
     &__textarea {
+        display: block;
         height: 12.5rem;
     }
 }

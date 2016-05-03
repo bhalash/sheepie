@@ -37,10 +37,9 @@
 }
 
 
-/**
- * Password Protected Post Box
- * -----------------------------------------------------------------------------
- */
+.comment-notes, .logged-in-as {
+    margin-bottom: rem($vspace);
+}
 
 .post-password-form input {
     margin: rem($vspace 0);
