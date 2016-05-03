@@ -11,14 +11,18 @@
  */
 
 .menu {
+    margin: 2rem 0;
+
+    @include media(640) {
+        margin: 3rem 0 0;
+    }
+
     &__list {
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
         list-style-type: none;
         max-width: 100%;
-        // Debug. FIXME
-        margin-top: rem($vspace * 2);
     }
 
     .menu-item {

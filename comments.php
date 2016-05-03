@@ -16,7 +16,7 @@ if (!comments_open() || post_password_required()) {
     return;
 }
 
-$textarea_html = '<textarea class="vspace--half comments__textarea" id="textarea" name="comment" required="required"></textarea>';
+$textarea_html = '<textarea class="vspace--full comments__textarea" id="textarea" name="comment" required="required"></textarea>';
 
 ?>
 

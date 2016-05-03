@@ -10,8 +10,8 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-.navbar {
-    margin-top: rem($vspace);
+.headline {
+    margin-top: rem($vspace * 2);
 
     @include media(640) {
         margin-top: 0;
