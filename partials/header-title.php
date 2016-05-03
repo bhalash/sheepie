@@ -28,11 +28,11 @@ $margin_class = (is_single() || is_page()) ? 'vspace--full' : 'vspace--double';
         <?php endif; ?>
     </h2>
 
-    <p class="text--italic text--center">
+    <p class="text--center">
         <?php if (is_single() || is_page()) : ?>
-            <?php echo sheepie_postmeta('span', ''); ?>
+            <?php echo sheepie_postmeta(); ?>
         <?php else : ?>
-            <?php bloginfo('description'); ?>
+            <span class="text--italic"><?php bloginfo('description'); ?></span>
          <?php endif; ?>
     </p>
     <hr class="vcenter--full">
