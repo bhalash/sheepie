@@ -11,5 +11,5 @@
   url = https://github.com/bhalash/archive-functions.git
   ignore = dirty
 [submodule "assets/css/lib/charon"]
-	path = assets/css/lib/charon
-	url = https://github.com/bhalash/charon.git
+  path = assets/css/lib/charon
+  url = https://github.com/bhalash/charon.git
