@@ -10,6 +10,18 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+code, kbd, pre, pre span, tt, var {
+    -webkit-font-smoothing: antialiased;
+    font: 400 rem($font-size--paragraph * 0.9) $font--sourcecodepro;
+}
+
+p, li {
+    code {
+        // For code within paragraph elements.
+        font-weight: bold;
+    }
+}
+
 pre {
     background: color(rmwb);
     color: color(whites, x-light);

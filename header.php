@@ -29,12 +29,11 @@ $html = get_bloginfo('html_type');
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> data-bind="event: { keyup: switchboard }">
-    <?php if (!is_404()) {
-        // I split off the nav and header code for KISS.
-        sheepie_partial('header', 'navbar');
-        sheepie_partial('header', 'bigsearch');
-        sheepie_partial('header', 'lightbox');
-    } ?>
+<body <?php body_class(); ?>>
+    <?php if (is_single() || is_page()) : ?>
+        <?php sheepie_partial('gohome'); ?>
+    <?php endif; ?>
     <main class="main" id="main">
-        <div class="main__interior" id="main__interior">
+        <?php if (!is_404() && !is_single() && !is_page()) {
+            sheepie_partial('header', 'title');
+        } ?>

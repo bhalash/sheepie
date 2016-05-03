@@ -13,7 +13,6 @@
  */
 
 get_header();
-sheepie_partial('gohome');
 get_search_form();
 
 if (have_posts()) {

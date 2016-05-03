@@ -10,19 +10,27 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
+$left-arrow:  '\2190\20'; // '← '
+$right-arrow: '\20\2192'; // ' →'
+
 /**
  * Home Link
  * -----------------------------------------------------------------------------
  */
 
 .navigation--home {
+    padding: 0.5rem 1rem;
+
+    @include media(1024) {
+        @include absolute(0 auto auto 0);
+    }
+
     &__link {
         display: block;
         padding: rem($vspace * 0.75) 0;
 
         &:before {
-            // '← '
-            content: '\2190\20';
+            content: $left-arrow;
         }
     }
 }
@@ -37,7 +45,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 2rem 0;
 
     p {
         flex: 1;
@@ -45,7 +52,14 @@
 
     a {
         display: block;
-        padding: rem($vspace * 0.75) 0;
+    }
+
+    &--site {
+        margin-bottom: rem($vspace);
+
+        @include media(640) {
+            margin-bottom: 0;
+        }
     }
 
     &__count {
@@ -65,8 +79,7 @@
         text-align: right;
 
         a:after {
-            // ' →'
-            content: '\20\2192';
+            content: $right-arrow;
         }
     }
 
@@ -76,8 +89,7 @@
         }
 
         a:before {
-            // '← '
-            content: '\2190\20';
+            content: $left-arrow;
         }
     }
 }

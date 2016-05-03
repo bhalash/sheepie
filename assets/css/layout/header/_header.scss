@@ -1,19 +1,19 @@
-<?php
-
 /**
- * Home Link
+ * Theme Header
  * -----------------------------------------------------------------------------
- * @category   PHP Script
+ * @category   Stylesheet
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
  * @copyright  Copyright (c) 2015 Mark Grealish
  * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
- * @version    1.0
+ * @version    3.0
  * @link       https://github.com/bhalash/sheepie
  */
 
-?>
+.headline {
+    margin-top: rem($vspace * 2);
 
-<nav class="noprint navigation--home">
-    <span class="meta"><a class="navigation--home__link" rel="home" href="<?php printf(site_url()); ?>"><?php _e('Back to Home', 'sheepie'); ?></a></span>
-</nav>
+    @include media(640) {
+        margin-top: 0;
+    }
+}

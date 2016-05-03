@@ -13,55 +13,32 @@
  */
 
 function sheepie_theme_comments($comment, $args, $depth) {
-    $comment_classes = array(
-        'comment', 'comments__comment', 'avatar'
-    );
-
     $GLOBALS['comment'] = $comment;
     ?>
 
-    <li <?php comment_class($comment_classes); ?> id="comment--<?php comment_ID() ?>">
-        <div class="avatar__container comments__avatar noprint">
-            <?php sheepie_avatar_background_html($comment, 'thumb', 'avatar__photo'); ?>
-        </div>
-        <div class="comment-body comments__comment-content avatar__text">
-            <header class="comments__comment-header">
-                <?php
+    <li <?php comment_class(['comment']); ?> id="comment--<?php comment_ID() ?>">
+        <header>
+            <?php echo sheepie_avatar($comment, get_comment_author($comment), 'comment__avatar', ['size' => 130]); ?>
+            <p class="comment__header">
+                <span class="comment__header-item"><?php comment_author_link(); ?></span>
+                <span class="comment__header-item">
+                    <time datetime="<?php comment_date('Y-M-d H:i'); ?>"><?php comment_date(get_option('date_format')); ?></time>
+                    <a href="<?php comment_link($comment); ?>">#</a>
 
-                printf('<span class="%s comments__meta">%s %s </span>',
-                    'comment-author-link font-size--small',
-                    get_comment_author_link(),
-                    __('on', 'sheepie')
-                );
-
-                printf('<span class="%s comments__meta"><time datetime="%s">%s</time></span>',
-                    'post-date',
-                    get_comment_date('Y-M-d H:i'),
-                    get_comment_date(get_option('date_format'))
-                );
-
-                ?>
-            </header>
-
-            <div class="comments__comment-body font-size--small">
-                <?php if (!$comment->comment_approved) {
-                    printf('<p class="%s">%s</p>',
-                        'comments__comment-unapproved',
-                        __('Your comment is awaiting approval.', 'sheepie')
-                    );
-                } else {
-                    comment_text();
-                } ?>
-            </div>
-
-            <?php if (is_user_logged_in()) : ?>
-                <footer class="comments__comment-footer">
-                    <span class="font-size--small"><?php edit_comment_link(__('edit', 'sheepie'),'', ''); ?></span>
-                </footer>
+                    <?php if (is_user_logged_in()) : ?>
+                        <?php edit_comment_link(__('edit', 'sheepie'), ' / ', ''); ?>
+                    <?php endif; ?>
+                </span>
+            </p>
+        </header>
+        <div class="comment__body">
+            <?php if (!$comment->comment_approved) : ?>
+                <p><?php _e('Your comment is awaiting approval.', 'sheepie'); ?></p>
+            <?php else : ?>
+                <?php comment_text(); ?>
             <?php endif; ?>
         </div>
     </li>
-    <hr>
 
     <?php
 }

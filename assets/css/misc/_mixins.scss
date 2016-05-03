@@ -1,0 +1,66 @@
+/**
+ * Theme Partials and Reusable CSS Classes
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ *
+ */
+
+/**
+ * Avatars
+ * -----------------------------------------------------------------------------
+ */
+
+@mixin avatar($width: 7rem) {
+    border: 0.1rem solid rgba(color(rmwb), 0.25);
+    border-radius: 50%;
+    flex: 0 1 auto;
+    width: $width;
+    height: $width;
+    @content;
+}
+
+/**
+ * Flex Center Children
+ * -----------------------------------------------------------------------------
+ * This doesn't work at all in IE <11, but who cares? I use this beside elemnts
+ * with a fixed height (images). If there is only a line or two of text it will
+ * be prettily centered vertically.
+ */
+
+@mixin flex-center-children($child) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &#{$child} {
+        flex: 0 1 auto;
+    }
+}
+
+/*
+ * Desired Float Styles
+ * -----------------------------------------------------------------------------
+ */
+
+@mixin float($side: left) {
+    $margin: 0 2rem 0.5rem 0;
+
+    @if $side != left {
+        $side: right;
+        $margin: 0 0 0.5rem 2rem;
+    }
+
+    float: $side;
+    margin: $margin;
+    width: 50%;
+
+    @include media(768) {
+        width: 30%;
+    }
+}

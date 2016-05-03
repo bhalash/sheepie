@@ -11,6 +11,15 @@
  *
  */
 
+/**
+ * Rounded Corners
+ * -----------------------------------------------------------------------------
+ */
+
+.round {
+    border-radius: 50%;
+}
+
 /*
  * Social Sharing Vector Icons
  * -----------------------------------------------------------------------------
@@ -18,8 +27,21 @@
 
 .social {
     @include social(null, '.social__icon');
-}
 
+    a, &__icon {
+        box-sizing: border-box;
+        display: block;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+        @include square-flex(100% 1);
+    }
+
+    a {
+        font-size: 0 !important;
+        line-height: normal;
+    }
+}
 
 /*
  * Hide During Printing
@@ -61,27 +83,22 @@
 }
 
 /**
- * Article Titles
- * -----------------------------------------------------------------------------
- */
-
-.title {
-    color: color(blacks, mid-dark);
-
-    a {
-        color: inherit;
-        font-weight: inherit;
-    }
-}
-
-/**
  * Font Sizes
  * -----------------------------------------------------------------------------
  */
 
-.font {
-    &--small { font-size: 80%; }
-    &--big   { font-size: 120%; }
+.text {
+    &--small {
+        font-size: rem($font-size--paragraph * 0.8);
+        line-height: rem($vspace);
+    }
+
+    &--big { font-size: rem($font-size--paragraph * 1.2); }
+    &--bold { font-weight: bold }
+    &--italic { font-style: italic; }
+    &--left { text-align: left; }
+    &--center { text-align: center; }
+    &--right { text-align: right; }
 }
 
 /**
@@ -89,18 +106,8 @@
  * -----------------------------------------------------------------------------
  */
 
-.disp {
-    transition: .15s opacity ease-in;
-
-    &--hidden {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    &--shown {
-        opacity: 1;
-        visibility: visible;
-    }
+.hidden {
+    display: none;
 }
 
 /**
@@ -120,6 +127,7 @@
  */
 
 .vspace {
+    &--triple       { margin-bottom: rem($vspace * 3); }
     &--double       { margin-bottom: rem($vspace * 2); }
     &--full         { margin-bottom: rem($vspace * 1); }
     &--threequarter { margin-bottom: rem($vspace * 0.75); }
@@ -130,27 +138,14 @@
 }
 
 .vcenter {
-    &--triple       { margin: rem($vspace * 3) 0; }
-    &--double       { margin: rem($vspace * 2) 0; }
-    &--full         { margin: rem($vspace * 1) 0; }
-    &--threequarter { margin: rem($vspace * 0.75) 0; }
-    &--twothird     { margin: rem($vspace * 0.66) 0; }
-    &--half         { margin: rem($vspace * 0.50) 0; }
-    &--onethird     { margin: rem($vspace * 0.33) 0; }
-    &--quarter      { margin: rem($vspace * 0.25) 0; }
-}
-
-/**
- * Left and Right Floated Images
- * -----------------------------------------------------------------------------
- */
-
-.flex {
-    &--three-col--article {
-        @include media(640) {
-            @include columns(flex, article, 3, $split-column-margin);
-        }
-    }
+    &--triple       { margin-bottom: rem($vspace * 3); margin-top: rem($vspace * 3); }
+    &--double       { margin-bottom: rem($vspace * 2); margin-top: rem($vspace * 2); }
+    &--full         { margin-bottom: rem($vspace * 1); margin-top: rem($vspace * 1); }
+    &--threequarter { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.75); }
+    &--twothird     { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.66); }
+    &--half         { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.50); }
+    &--onethird     { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.33); }
+    &--quarter      { margin-bottom: rem($vspace * 0.25); margin-top: rem($vspace * 0.25); }
 }
 
 /**

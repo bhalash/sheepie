@@ -1,0 +1,72 @@
+/**
+ * Lightbox Image
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+.lightbox {
+    background: color(blacks, dark);
+    outline: 0;
+    transition: opacity .15s;
+    z-index: 4;
+    @include fixed(0);
+
+    &__anchor {
+        @include absolute(0);
+    }
+
+    &__image {
+        margin: 0;
+        max-height: 95%;
+        max-width: 95%;
+        @include absolute-center;
+    }
+}
+
+/**
+ * Photobox
+ * -----------------------------------------------------------------------------
+ * I post a great many photographs, and this has become a convenient way for me
+ * to arrange and display them.
+ */
+
+figure {
+    a {
+        display: block;
+        /* Every word has a space afterward, above and below, set by the browser.
+         * An object with display "inline-block" or similar is treated as a word
+         * by your browser, and given a small trailing space beside and below,
+         * determined by either the element or element parent's font-size value.
+         *
+         * This can offset images several pixels from where they should be, in
+         * circumstances where those few pixels can break layout. */
+        font-size: 0;
+        margin-bottom: $split-column-margin;
+    }
+
+    img {
+        /* Important: images will otherwise display weirdly in a manner that
+         * varies by browser. */
+        width: 100%;
+    }
+}
+
+.photobox {
+    &, &--two {
+        @include columns(flex, a, 2, $split-column-margin);
+    }
+
+    &--three {
+        @include columns(flex, a, 3, $split-column-margin);
+    }
+
+    &--four {
+        @include columns(flex, a, 4, $split-column-margin);
+    }
+}

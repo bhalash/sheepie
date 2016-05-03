@@ -13,6 +13,7 @@ vectors/
 #################
 
 assets/js/min/
+assets/js/analytics.js
 *.min.js
 
 #################
@@ -43,3 +44,6 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+# CTAGS
+./tags

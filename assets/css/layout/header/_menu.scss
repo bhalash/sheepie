@@ -1,0 +1,38 @@
+/**
+ * Icon Nav Manu
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+.menu {
+    margin: 2rem 0;
+
+    @include media(640) {
+        margin: 3rem 0 0;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        list-style-type: none;
+        max-width: 100%;
+    }
+
+    .menu-item {
+        margin-left: rem($vspace * 0.5);
+        overflow: hidden;
+        padding: 0;
+        @include square-flex(3rem 1);
+
+        @include media(768) {
+            @include square-flex(2.5rem 1);
+        }
+    }
+}

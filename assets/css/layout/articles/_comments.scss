@@ -1,0 +1,114 @@
+/**
+ * Comments Template and Commentform
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+$avatar-width: 5rem;
+$comment-margin: rem($vspace);
+
+.comments {
+    margin: 0 auto;
+
+    /**
+     * Comments List
+     * -------------------------------------------------------------------------
+     */
+
+    &__commentlist {
+        list-style-type: none;
+    }
+
+    /**
+     * Comments Form
+     * -------------------------------------------------------------------------
+     */
+
+    /* IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
+     * correctly apply box-sizing, so instead of width - padding, it is width +
+     * padding. The correct alternative is to use floats. */
+
+    &__inputs {
+        @include media(640) {
+            @include columns(float, input, 3, $split-column-margin);
+        }
+    }
+
+    &__input {
+        display: block;
+        margin-bottom: rem($vspace * 0.5);
+        width: 100%;
+
+        @include media(640) {
+            margin: 0;
+        }
+    }
+
+    &__textarea {
+        display: block;
+        height: 12.5rem;
+    }
+}
+
+/**
+ * Individual Comment
+ * -----------------------------------------------------------------------------
+ */
+
+.comment {
+    &:not(:last-child) {
+        margin-bottom: $comment-margin;
+    }
+
+    header {
+        border-bottom: $light-border;
+        display: flex;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        white-space: nowrap;
+
+        @include media(640) {
+            border: 0;
+            margin: 0;
+        }
+    }
+
+    &__header {
+        flex: 1;
+        @include flex-center-children('-item');
+
+        &-item:last-child {
+            padding-bottom: 0.16rem;
+
+            @include media(640) {
+                border-bottom: $light-border;
+            }
+        }
+
+    }
+
+    &__avatar {
+        margin: 0 $comment-margin $comment-margin 0;
+        @include avatar(4rem);
+
+        @include media(640) {
+            margin: 0 $comment-margin 0 0;
+        }
+    }
+
+    &__body {
+        @include media(640) {
+            margin-left: $avatar-width;
+        }
+
+        p:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

@@ -16,18 +16,14 @@ if (!comments_open() || post_password_required()) {
     return;
 }
 
-$textarea_html = '<textarea class="comments__textarea" id="comment" name="comment" required="required"></textarea>';
+$textarea_html = '<textarea class="vspace--full comments__textarea" id="textarea" name="comment" required="required"></textarea>';
 
 ?>
 
-<hr class="vcenter--double">
+<hr class="vcenter--full">
 <div class="comments" id="comments">
-    <h4 class="vspace--full subtitle noprint">
-        <?php _e('Have your say on ', 'sheepie'); the_title(); ?>
-    </h4>
-
     <?php if (have_comments()) : ?>
-        <ul class="comments__commentlist">
+        <ul class="comments__commentlist vspace--triple">
             <?php wp_list_comments([
                 'callback' => 'sheepie_theme_comments',
                 'avatar_size' => 0,
@@ -43,10 +39,10 @@ $textarea_html = '<textarea class="comments__textarea" id="comment" name="commen
 
     <div class="noprint" id="comments__entry">
         <?php comment_form([
-            'id_form' => 'comments__form',
+            'class_form' => 'comments__form',
             'id_submit' => 'comments__submit',
             'title_reply' => '',
-            'comment_field' => sprintf('<p id="textarea">%s</p>', $textarea_html),
+            'comment_field' => $textarea_html,
             'comment_form_before_fields' => '<div class="comments__form">',
             'comment_form_after_fields' => '</div>',
             'fields' => sheepie_commentform_fields()

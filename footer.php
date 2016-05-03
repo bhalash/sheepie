@@ -13,9 +13,23 @@
  */
 
 ?>
-            <?php get_sidebar(); ?>
-        </div> <?php // End #main__interior ?>
+        <?php get_sidebar(); ?>
+        <nav class="menu">
+            <?php wp_nav_menu([
+                'theme_location' => 'top-social',
+                'container' => '',
+                'menu_class' => 'menu__list',
+                'link_before' => '<span class="round social__icon">',
+                'link_after' => '</span>',
+                'items_wrap' =>  sheepie_nav_menu_search()
+            ]); ?>
+        </nav>
     </main> <?php // End #main ?>
-    <?php wp_footer(); ?>
+    <?php if (!is_404()) {
+        sheepie_partial('modal', 'lightbox');
+        sheepie_partial('modal', 'search');
+    }
+
+    wp_footer(); ?>
 </body>
 </html>

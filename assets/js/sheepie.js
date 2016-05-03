@@ -10,190 +10,180 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-(function() {
-    /*
-     * Wrap Pre Elements
-     * -------------------------------------------------------------------------
-     * highlight.js operates on the <code> child or <pre> elements. This wraps
-     * the content of an element with <code> before initializing highlight.js.
-     *
-     * This does the same thing as jQuery's $(foo).wrapInner(), albeit with less
-     * regex selector magic.
-     *
-     *  if ($('pre').length) {
-     *      $('pre:not(:has(> code))').wrapInner('<code></code>');
-     *  }
+(function($, document, window) {
+    /**
+     * DOM Cleanup
      */
 
-    function wrapInsideElement(selector, wrapper) {
-        selector = document.querySelectorAll(selector);
-        wrapper = wrapper.replace(/(^<.*\/|>$)/g, '');
-
-        [].forEach.call(selector, function(element) {
-            if (element.querySelectorAll(wrapper).length === 0) {
-                var newChild = document.createElement(wrapper);
-
-                while (element.childNodes.length) {
-                    newChild.appendChild(element.childNodes[0]);
-                }
-
-                element.appendChild(newChild);
-            }
-        });
-    }
-
-    wrapInsideElement('pre', '<code></code>');
+    $('pre').wrapInner('<code></code>');
+    $('figure br, p:empty').remove();
 
     /**
-     * Remove Photobox Breaks
-     * -------------------------------------------------------------------------
-     * WordPress can insert <br> tags between elements if it detects either a
-     * space or a line break. This can break the formatting. Runs once.
-     *
-     * Does exactly the same thing as jQuery's $(foo).remove().
+     * Sheepie jQuery object.
      */
 
-    function removeSelector(selector) {
-        selector = document.querySelectorAll(selector);
+    $.sheepie = {};
 
-        if (selector.length) {
-            [].forEach.call(selector, function(element) {
-                element.parentNode.removeChild(element);
+    $.sheepie.parse = function(selector) {
+        return (selector.match(/^[#\.]/)) ? selector : '.' + selector;
+    }
+
+    /**
+     * Event Subscribe/Unsubscribe
+     */
+
+    $.sheepie.observer = $({});
+
+    var actions = {
+        trigger: 'broadcast',
+        on: 'subscribe',
+        off: 'unsubscribe'
+    };
+
+    $.each(actions, function(name, action) {
+        $[action] = function() {
+            $.sheepie.observer[name].apply($.sheepie.observer, arguments);
+        }
+    });
+
+    /**
+     * Set up modal toggles to operate.
+     *
+     * @param {object} event DOM event.
+     */
+
+    $(document).on('keydown', function(event) {
+        switch (event.keyCode) {
+            case 27: $.broadcast('/modal/hide'); break;
+        }
+    });
+
+    /**
+     * Set up modal toggles to operate.
+     *
+     * @param {object} event DOM event.
+     * @returns {bool} false Prevent DOM event propagation.
+     */
+
+    $(document).on('click', '.toggle', function(event) {
+        if ($(this).data('toggle')) {
+            $.broadcast('/modal/toggle', $(this).data('toggle'));
+            return false;
+        }
+    });
+
+    /**
+     * Set lightbox image when article iamge clicked.
+     *
+     * @param {object} event DOM event.
+     * @returns {bool} false Prevent DOM event propagation.
+     */
+
+    $('article').on('click tap', 'a img', function(event) {
+        var data = {
+            src: $(this).data('src') || $(this).attr('src'),
+            alt: $(this).data('alt') || $(this).attr('alt')
+        };
+
+        $.broadcast('/article/image/click', data);
+        return false;
+    });
+
+    /**
+     * Hide lightbox when clicked.
+     *
+     * @param {object} event DOM event.
+     */
+
+    $('.lightbox').on('click tap', function(event) {
+        $.broadcast('/modal/hide', 'lightbox');
+        return false;
+    });
+
+    /**
+     * Show article image in lightbox.
+     *
+     * @param {object} event DOM event.
+     * @param {object} data Image data with which to populate image.
+     */
+
+    $.subscribe('/article/image/click', function(event, data) {
+        if (data) {
+            $('.lightbox__image').attr(data).ready(function() {
+                $.broadcast('/modal/show', 'lightbox');
             });
         }
-    }
+    });
 
-    // WordPress sometimes inserts <br> between <a> elements inside a <figure>.
-    removeSelector('[class^=article-photobox] br');
-    // WordPress always inserts an empty <p> element before <figure> elements.
-    removeSelector('p:empty');
-
-    /*
-     * Sheepie Actions Controller
-     * -------------------------------------------------------------------------
+    /**
+     * Hide all modals/named modal.
+     *
+     * @param {object} event DOM event.
+     * @param {string} modal Modal to hide.
      */
 
-    var sheepieController = function() {
-        return function() {
-            var self = this;
-
-            /*
-             * View States
-             * -----------------------------------------------------------------
-             *  Add whatever extra states here.
-             */
-
-            self.elements = {
-                search: ko.observable(false),
-                lightbox: ko.observable(false)
-            };
-
-            // Current state.
-            self.shown = null;
-
-            // Dynamic state toggle.
-            self.toggle = {};
-
-            for (var key in self.elements) {
-                self.toggle[key] = new Function('self.show("' + key + '")');
-            }
-
-            /*
-             * KnockoutJS Keybind Actions
-             * -----------------------------------------------------------------
-             *  @param  object      data        Data passed.
-             *  @param  object      event       Event and element information.
-             */
-
-            self.switchboard = function(data, event) {
-                switch(event.keyCode) {
-                    case 27:
-                        // Close whatever is open on <escape>.
-                        self.show(null);
-                        break;
-                    case 37:
-                    case 39:
-                        // Set next/previous image.
-                        self.lightbox.change(event);
-                        break;
-                }
-            };
-
-            /*
-             * Change State
-             * -----------------------------------------------------------------
-             * The modal (search, lightbox) element on this site have an
-             * exclusive appearance: only one at a time should.elements.
-             *
-             *  1. Hide all the eiements, except name.
-             *  2. If name exists, invert its state.
-             *
-             * @param   string      name        State to toggle true.
-             */
-
-            self.show = function(name) {
-                for (var i in self.elements) {
-                    if (self.shown === name) {
-                        continue;
-                    }
-
-                    self.elements[i](false);
-                }
-
-                if (name && name in self.elements) {
-                    // Invert state.
-                    self.elements[name](!self.elements[name]());
-                }
-
-                self.shown = name || null;
-            };
-
-            /*
-             * Lightbox
-             * -----------------------------------------------------------------
-             */
-
-            self.lightbox = {
-                text: ko.observable(null),
-                image: ko.observable(null),
-                link: ko.observable(null)
-            };
-
-            /*
-             * Set Lightbox Data and Open Lightbox
-             * -----------------------------------------------------------------
-             */
-
-            self.lightbox.show = function(data, event) {
-                var image = event.target;
-
-                self.lightbox.text(image.attributes.alt.value);
-                self.lightbox.image(image.attributes.src.value);
-                self.lightbox.link(image.parentNode.attributes.href.value);
-
-                self.show('lightbox');
-            };
-
-            /*
-             * Set Lightbox Data and Open Lightbox
-             * -----------------------------------------------------------------
-             */
-
-            self.lightbox.change = function(crap) {
-                if (self.shown !== 'lightbox') {
-                    return;
-                }
-
-                // TODO: On left-or-right arrow keypress, traverse the DOM
-                // for the previous/change image in the same article.
-
-                switch(crap.keyCode) {
-                    case 37: console.log('left'); break;
-                    case 39: console.log('right'); break;
-                }
-            }
+    $.subscribe('/modal/hide', function(event, modal) {
+        if (modal) {
+            modal = $.sheepie.parse(modal);
         }
-    }
 
-    ko.applyBindings(new sheepieController());
-})();
+        return $(modal || '.modal').hide();
+    });
+
+    /**
+     * Display named modal.
+     *
+     * @param {object} event DOM event.
+     * @param {string} modal Modal to show.
+     */
+
+    $.subscribe('/modal/show', function(event, modal) {
+        if (!modal) {
+            return false;
+        }
+
+        var type = '';
+
+        type = $.sheepie.parse(modal);
+        $('.modal').not(type).hide();
+        $(type).removeClass('hidden').show();
+        $.broadcast('/modal/shown', modal);
+    });
+
+    /**
+     * Toggle modal state.
+     *
+     * @param {object} event DOM event.
+     * @param {string} modal Modal to toggle.
+     */
+
+    $.subscribe('/modal/toggle', function(event, modal) {
+        if (!modal) {
+            return false;
+        }
+
+        var state = 'hide',
+            type = '';
+
+        type = $.sheepie.parse(modal);
+
+        if ($(type).css('display') === 'none') {
+            state = 'show';
+        }
+
+        $.broadcast('/modal/' + state, modal);
+    });
+
+    /**
+     * Modal search show callback.
+     *
+     * @param {object} event DOM event.
+     * @param {string} modal Modal to toggle.
+     */
+
+    $.subscribe('/modal/shown', function(event, modal) {
+        if (modal === 'modal-search') {
+            $('.modal-search__input').focus();
+        }
+    });
+})(jQuery, document, window);

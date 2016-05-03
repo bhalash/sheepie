@@ -40,7 +40,7 @@ button, fieldset, form, input, label, textarea {
 
 // Input and text area colours.
 
-input:not(.bigsearch__input), textarea {
+input:not(.modal-search__input), textarea {
     background: color(whites, light);
     font-size: 1rem;
     min-height: 3rem;

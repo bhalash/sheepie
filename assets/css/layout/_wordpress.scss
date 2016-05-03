@@ -15,51 +15,20 @@
  * -----------------------------------------------------------------------------
  */
 
-%floatie-size {
-    width: 50%;
-
-    @include media(768) {
-        width: 30%;
-    }
-}
-
 .leftie, .alignleft {
-    @extend %floatie-size;
-    float: left;
-    margin: 0 2rem 0.5rem 0;
+    @include float(left);
 }
 
 .rightie, .alignright {
-    @extend %floatie-size;
-    float: right;
-    margin: 0 0 0.5rem 2rem;
+    @include float(right);
 }
 
 .aligncenter {
     margin: 0 auto;
 }
 
-.wp-caption {
-    color: inherit;
-}
-
-.wp-caption-text {
-    color: inherit;
-}
-
-.sticky {
-    color: inherit;
-}
-
-.screen-reader-text {
-    color: inherit;
-}
-
+.wp-caption-text, .wp-caption, .screen-reader-text, .sticky, .bypostauthor,
 .gallery-caption {
-    color: inherit;
-}
-
-.bypostauthor {
     color: inherit;
 }
 
@@ -68,13 +37,10 @@
 }
 
 
-/**
- * Password Protected Post Box
- * -----------------------------------------------------------------------------
- */
+.comment-notes, .logged-in-as {
+    margin-bottom: rem($vspace);
+}
 
-.post-password-form {
-    input {
-        margin: rem($vspace 0);
-    }
+.post-password-form input {
+    margin: rem($vspace 0);
 }

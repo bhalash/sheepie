@@ -20,19 +20,15 @@ $GLOBALS['sheepie_version'] = '1.1.3';
  */
 
 add_action('after_setup_theme', function() {
-    // All theme PHP.
     sheepie_includes();
 
-    // Remove WordPress version from site header.
     remove_action('wp_head', 'wp_generator');
 
-    // Remove the fuck out of emoji and emoticons.
     remove_filter('the_content', 'convert_smilies');
     remove_filter('the_excerpt', 'convert_smilies');
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
 
-    // Tell WordPress to manage the site title itself.
     add_theme_support('title-tag');
 
     add_theme_support('automatic-feed-links');
@@ -46,11 +42,9 @@ add_action('after_setup_theme', function() {
         'caption'
     ]);
 
-    // Content width.
     $GLOBALS['content_width'] = 880;
 
     $sheepie_social = new Social_Meta([
-        // Facebook and Twitter social media information.
         'facebook' => 'bhalash',
         'twitter' => '@bhalash'
     ]);
@@ -63,8 +57,7 @@ add_action('after_setup_theme', function() {
 
 function sheepie_includes() {
     $theme_includes = [
-        'sheepie-scripts.php',
-        'sheepie-avatars.php',
+        'sheepie-assets.php',
         'sheepie-comments.php',
         'related-posts/related-posts.php',
         'archive-functions/archive-functions.php',
@@ -93,10 +86,10 @@ function sheepie_partial($name, $slug = '') {
  * Media Prefetch
  * -----------------------------------------------------------------------------
  * Set prefetch for a given media domain. Useful if your site is image heavy.
+ * Media prefetch domain: If null or empty, defaults to site domain.
  */
 
 add_action('wp_head', function() {
-    // Media prefetch domain: If null or empty, defaults to site domain.
     $prefetch = [
         'ix.bhalash.com', preg_replace('/^www\./','', $_SERVER['SERVER_NAME'])
     ];
@@ -136,42 +129,26 @@ add_action('init', function() {
 });
 
 /**
- * Post Meta Information
+ * Custom Search Link Icon
  * -----------------------------------------------------------------------------
- * Output post header information (category and date).
+ @return string         $wrap       Nav menu wrapped in string.
  */
 
-function sheepie_postmeta() {
-    printf('<a href="%s"><time datetime="%s">%s</time></a>',
-        get_month_link(get_the_time('Y'), get_the_time('n')),
-        get_the_time('Y-m-d H:i'),
-        get_the_time(get_option('date_format'))
+function sheepie_nav_menu_search() {
+    $search = sprintf(
+        '<li class="%s"><a class="toggle" data-toggle="modal-search" href=""><span class="%s">%s</span></a></li>',
+        'search menu-item menu-item-type-custom menu-item-object-custom social',
+        'round social__icon',
+        __('Search', 'sheepie')
     );
 
-    _e(' in ', 'sheepie');
-    the_category(', ');
-    edit_post_link(__('edit post', 'sheepie'), ' / ', '');
+    $wrap  = '<ul id="%1$s" class="%2$s">';
+    $wrap .= $search;
+    $wrap .= '%3$s';
+    $wrap .= '</ul>';
+
+    return $wrap;
 }
-
-/**
- * Add Knockout.js Lightbox Data Bindings
- * -----------------------------------------------------------------------------
- * @param   string      $content        The post content.
- * @return  string      $content        Post content with added directives.
- */
-
-add_filter('the_content', function($content) {
-    $bindings = [
-        '<img' => ['click: lightbox.show']
-    ];
-
-    foreach ($bindings as $tag => $directives) {
-        $directive = sprintf('%s data-bind="%s" ', $tag, implode(', ', $directives));
-        $content = str_replace($tag, $directive, $content);
-    }
-
-    return $content;
-});
 
 /**
  * Add Social CSS Class to Menu Items
@@ -187,5 +164,37 @@ add_filter('nav_menu_css_class', function($classes, $item) {
     $classes[] = 'social';
     return $classes;
 }, 10, 2);
+
+/**
+ * Get Avatar URL
+ * -----------------------------------------------------------------------------
+ * @param   string  $id_or_email    Either user ID or email address.
+ * @param   string  $classes        CSS classes to apply.
+ * @param   string  $alt            Alt text to attach to the avatar.
+ * @return  string                  The avatar's URL.
+ */
+
+function sheepie_avatar($id_or_email, $alt = '', $classes = '', $args = null) {
+    $avatar = get_avatar_url($id_or_email, $args);
+    return sprintf('<img class="%s" src="%s" alt="%s" />', $classes, $avatar, $alt);
+}
+
+/**
+ * Post Meta Information
+ * -----------------------------------------------------------------------------
+ * Output post header information (category and date).
+ */
+
+function sheepie_postmeta() {
+    printf('<a href="%s"><time rel="date" datetime="%s">%s</time></a>',
+        get_month_link(get_the_time('Y'), get_the_time('n')),
+        get_the_time('Y-m-d H:i'),
+        get_the_time(get_option('date_format'))
+    );
+
+    _e(' in ', 'sheepie');
+    the_category(', ');
+    edit_post_link(__('edit post', 'sheepie'), ' / ', '');
+}
 
 ?>

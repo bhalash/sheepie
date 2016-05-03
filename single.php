@@ -13,7 +13,6 @@
  */
 
 get_header();
-sheepie_partial('gohome');
 
 if (have_posts()) {
     while (have_posts()) {
@@ -21,10 +20,11 @@ if (have_posts()) {
         sheepie_partial('article', 'full');
 
         if (function_exists('rp_get_related')) {
-            printf('<hr class="%s">', 'vcenter--double noprint');
-            printf('<div class="%s">', 'related flex--three-col--article noprint');
+            printf('<hr class="%s">', 'vspace--full noprint');
+            printf('<div class="%s">', 'related-articles flex--three-col--article noprint');
 
             $related = rp_get_related([
+                'count' => 3,
                 'range' => [
                     'after' => date('Y-m-j') . '-180 days',
                     'before' => date('Y-m-j')

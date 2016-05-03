@@ -1,5 +1,5 @@
 /**
- * Site Search Boxes
+ * Modal Search
  * -----------------------------------------------------------------------------
  * @category   Stylesheet
  * @package    Sheepie
@@ -10,31 +10,22 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-/**
- * Big Search Form Container
- * -----------------------------------------------------------------------------
- */
-
-.bigsearch {
+.modal-search {
+    background: color(whites, x-light);
     box-sizing: border-box;
     height: $navbar-height;
     // Necessary to hide overflow or IE10 and IE11 wrap to hell.
     overflow: hidden;
     transition: opacity .15s;
     z-index: 3;
-    @include content-size;
-    @include fixed(auto 0 0 auto);
+    @include fixed(0);
 
     &:focus {
         outline: none;
     }
 
-    @include navbar-size-1024 {
-        padding: 0.5rem;
-    }
-
     /**
-     * Bigsearch Form
+     * Form Area
      * -------------------------------------------------------------------------
      */
 
@@ -50,14 +41,13 @@
     }
 
     /**
-     * Big Search Text Input
+     * Input Area
      * -------------------------------------------------------------------------
      */
 
-    &__input {
-        background: transparent;
+    &__input, label[for=modal-search__input] {
         box-sizing: border-box;
-        color: color(whites, x-light);
+        // color: color(rmwb);
         display: block;
         font-size: 2rem;
         margin: 0 auto;
@@ -65,9 +55,9 @@
         width: 90%;
         @include absolute-center;
 
-        @include placeholder-style {
-            color: rgba(color(whites, x-light), 0.5);
-        }
+        // @include placeholder-style {
+        //     color: rgba(color(rmwb), 0.5);
+        // }
 
         @include media(1024) {
             font-size: 4.5rem;
@@ -78,25 +68,13 @@
         }
     }
 
-    label[for=bigsearch__input] {
-        @extend .bigsearch__input;
+    .toggle {
+        @include square-flex(2rem 1);
+        @include absolute(1rem 1rem auto auto);
     }
 }
 
-.bigsearch-input:focus + label {
+.modal-search-input:focus + label {
     display: none;
     visibility: hidden;
-}
-
-/**
- * Regular Search Form
- * -----------------------------------------------------------------------------
- */
-
-.searchform {
-    &__input {
-        font-size: 1.75rem;
-        padding: 0.5rem;
-        width: 100%;
-    }
 }

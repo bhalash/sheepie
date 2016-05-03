@@ -12,28 +12,32 @@
 
 @charset 'utf-8';
 
-@import 'includes/normalize';
-@import 'includes/charon/charon';
+@import 'lib/normalize';
+@import 'lib/charon/charon';
 
 @import 'base/variables';
 @import 'base/reset';
 @import 'base/typography';
 
-@import 'utils/mixins';
-@import 'utils/classes';
+@import 'misc/mixins';
+@import 'misc/generics';
 
-@import 'components/forms';
-@import 'components/navigation';
-@import 'components/wordpress';
-@import 'components/widgets';
-@import 'components/lightbox';
-@import 'components/posts';
-@import 'components/search';
-@import 'components/buttons';
-
-@import 'layout/base';
 @import 'layout/404';
-@import 'layout/header';
-@import 'layout/comments';
+@import 'layout/main';
+
+@import 'layout/header/header';
+@import 'layout/header/menu';
+
+@import 'layout/modal/lightbox';
+@import 'layout/modal/search';
+
+@import 'layout/articles/articles';
+@import 'layout/articles/code';
+@import 'layout/articles/comments';
+
+@import 'layout/forms';
+@import 'layout/search';
+@import 'layout/navigation';
+@import 'layout/wordpress';
+@import 'layout/widgets';
 @import 'layout/archives';
-@import 'layout/code';
