@@ -26,7 +26,7 @@
     </form>
     <div class="social close">
         <a class="toggle" data-toggle="modal-search" href="">
-            <span class="round social__icon">Search</span>
+            <span class="social__icon">Search</span>
         </a>
     </div>
 </div>
