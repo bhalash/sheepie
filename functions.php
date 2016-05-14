@@ -2,7 +2,7 @@
 
 /**
  * Main PHP Functions
- * -----------------------------------------------------------------------------
+ *
  * @category   PHP Script
  * @package    Sheepie
  * @author     Mark Grealish <mark@bhalash.com>
@@ -16,7 +16,6 @@ $GLOBALS['sheepie_version'] = '1.1.3';
 
 /**
  * Sheepie Setup
- * -----------------------------------------------------------------------------
  */
 
 add_action('after_setup_theme', function() {
@@ -52,7 +51,6 @@ add_action('after_setup_theme', function() {
 
 /**
  * Theme Includes
- * -----------------------------------------------------------------------------
  */
 
 function sheepie_includes() {
@@ -71,7 +69,7 @@ function sheepie_includes() {
 
 /**
  * Partial Wrapper
- * -----------------------------------------------------------------------------
+ *
  * Shorthand wrapper for get_template_part to reduce the verbosity of calls.
  *
  * @param   string      $name           Partial name.
@@ -84,7 +82,7 @@ function sheepie_partial($name, $slug = '') {
 
 /**
  * Media Prefetch
- * -----------------------------------------------------------------------------
+ *
  * Set prefetch for a given media domain. Useful if your site is image heavy.
  * Media prefetch domain: If null or empty, defaults to site domain.
  */
@@ -101,7 +99,6 @@ add_action('wp_head', function() {
 
 /**
  * Register Theme Widget Areas
- * -----------------------------------------------------------------------------
  */
 
 add_action('widgets_init', function() {
@@ -118,7 +115,6 @@ add_action('widgets_init', function() {
 
 /**
  * Register Theme Navigation Menus
- * -----------------------------------------------------------------------------
  */
 
 add_action('init', function() {
@@ -130,13 +126,13 @@ add_action('init', function() {
 
 /**
  * Custom Search Link Icon
- * -----------------------------------------------------------------------------
+ *
  @return string         $wrap       Nav menu wrapped in string.
  */
 
 function sheepie_nav_menu_search() {
     $search = sprintf(
-        '<li class="%s"><a class="toggle" data-toggle="modal-search" href=""><span class="%s">%s</span></a></li>',
+        '<li class="%s"><a class="toggle" data-click="modal:show:search" href=""><span class="%s">%s</span></a></li>',
         'search menu-item menu-item-type-custom menu-item-object-custom social',
         'social__icon',
         __('Search', 'sheepie')
@@ -152,7 +148,7 @@ function sheepie_nav_menu_search() {
 
 /**
  * Add Social CSS Class to Menu Items
- * -----------------------------------------------------------------------------
+ *
  * Used to set social icon style.
  *
  * @param   array       $classes        Menu item classes.
@@ -167,7 +163,7 @@ add_filter('nav_menu_css_class', function($classes, $item) {
 
 /**
  * Get Avatar URL
- * -----------------------------------------------------------------------------
+ *
  * @param   string  $id_or_email    Either user ID or email address.
  * @param   string  $classes        CSS classes to apply.
  * @param   string  $alt            Alt text to attach to the avatar.
@@ -181,7 +177,7 @@ function sheepie_avatar($id_or_email, $alt = '', $classes = '', $args = null) {
 
 /**
  * Post Meta Information
- * -----------------------------------------------------------------------------
+ *
  * Output post header information (category and date).
  */
 
@@ -196,5 +192,32 @@ function sheepie_postmeta() {
     the_category(', ');
     edit_post_link(__('edit post', 'sheepie'), ' / ', '');
 }
+
+/**
+ * Add specified data-click binding to elements in $content.
+ *
+ * @param   string      $content
+ * @return  string      $content
+ */
+
+add_filter('the_content', function($content) {
+    $bindings = [
+        '<img' => [
+            'click' => 'modal:show:lightbox',
+        ]
+    ];
+
+    foreach ($bindings as $tag => $directives) {
+        $binding = [];
+
+        foreach ($directives as $directive => $action) {
+            $binding[] = sprintf(' data-%s="%s" ', $directive, $action);
+        }
+
+        $content = str_replace($tag, $tag . implode('', $binding), $content);
+    }
+
+    return $content;
+});
 
 ?>
