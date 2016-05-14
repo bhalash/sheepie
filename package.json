@@ -1,34 +1,43 @@
 {
-    "name": "sheepie",
-    "version": "1.1.5",
-    "description": "Responsive WordPress theme",
-    "main": "gulpfile.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "gulp css js sprites",
-        "dev": "gulp css-dev js sprites"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/bhalash/sheepie.git"
-    },
-    "keywords": ["wordpress", "theme", "responsive", "modern"],
-    "author": "Mark Grealish <mark@bhalash.com> (https://www.bhalash.com)",
-    "license": "GPL-3.0",
-    "bugs": {
-        "url": "https://github.com/bhalash/sheepie/issues"
-    },
-    "homepage": "https://github.com/bhalash/sheepie#readme",
-    "dependencies": {
-        "gulp": "^3.9.0",
-        "gulp-autoprefixer": "^3.0.2",
-        "gulp-concat": "^2.6.0",
-        "gulp-rename": "^1.2.2",
-        "gulp-replace": "^0.5.4",
-        "gulp-ruby-sass": "^2.0.4",
-        "gulp-sourcemaps": "^1.6.0",
-        "gulp-uglify": "^1.4.2",
-        "normalize.css": "^3.0.3",
-        "path": "^0.12.7"
-    }
+  "name": "sheepie",
+  "version": "1.1.5",
+  "description": "Responsive WordPress theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp css js sprites",
+    "dev": "gulp css-dev js sprites"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhalash/sheepie.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "responsive",
+    "modern"
+  ],
+  "author": "Mark Grealish <mark@bhalash.com> (https://www.bhalash.com)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/bhalash/sheepie/issues"
+  },
+  "homepage": "https://github.com/bhalash/sheepie#readme",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-ruby-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "normalize.css": "^4.1.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "sass-module-importer": "^1.2.1"
+  }
 }
