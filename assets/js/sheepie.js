@@ -1,5 +1,5 @@
 /**
- * Sheepie JavaScript Functions
+ * Sheepie functions.
  *
  * @author Mark Grealish <mark@bhalash.com>
  * @copyright 2015 Mark Grealish
@@ -18,28 +18,4 @@
 
     $('pre').wrapInner('<code/>');
     $('figure br').add('p:empty').remove();
-    /**
-     * Show lightbox when action click detected.
-     *
-     * @param {object} event - DOM event.
-     * @param {object} data - Binding event data.
-     * @param {object} element - Event triggering element.
-     */
-
-    $.subscribe('modal:show:lightbox', function(event, data, element) {
-        data = {
-            src: $(element).data('src') || $(element).attr('src'),
-            alt: $(element).data('alt') || $(element).attr('alt')
-        };
-
-        $('.lightbox__image').attr(data);
-    });
-
-    /**
-     * Focus modal search input on click.
-     */
-
-    $.subscribe('modal:show:search', function() {
-        $('.modal-search__input').focus();
-    });
 })(jQuery, document, window);
