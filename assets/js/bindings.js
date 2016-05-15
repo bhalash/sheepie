@@ -67,9 +67,9 @@
      *      'modal'
      *      'modal:show'
      *      'modal:show:lightbox'
-     * 
+     *
      * The last line is dense: jQuery's trigger takes an optional array of
-     * parameters to apply. The first array element is the trigger action 
+     * parameters to apply. The first array element is the trigger action
      * detailed above. The second array element contains the data object
      * followed by all of the other arguments passed to the trigger.
      *
