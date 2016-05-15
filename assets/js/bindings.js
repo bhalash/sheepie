@@ -86,15 +86,18 @@
      */
 
     $.observer.triggers.arr = function(triggers, args, data) {
-        var triggerStr = '';
+        var trigger = '';
 
-        return triggers.map(function(trigger, index) {
+        // See explanation above.
+        data = [data].concat(args.slice(1));
+
+        return triggers.map(function(fragment, index) {
             if (index) {
-                triggerStr = triggerStr.concat(':');
+                trigger = trigger.concat(':');
             }
 
-            triggerStr = triggerStr.concat(trigger);
-            return [triggerStr, [data].concat(args.slice(1))];
+            trigger = trigger.concat(fragment);
+            return [trigger, data];
         });
     }
 
