@@ -64,7 +64,17 @@
      *      'modal'
      *      'modal:show'
      *      'modal:show:lightbox'
+     * 
+     * The last line is dense: jQuery's trigger takes an optional array of
+     * parameters to apply. The first array element is the trigger action 
+     * detailed above. The second array element contains the data object
+     * followed by all of the other arguments passed to the trigger.
      *
+     *  return [event, [data, arg1, arg2, arg3]]
+     *
+     *  $.observer.trigger(event, [data, arg1, arg2, arg3])
+     *
+     * @link https://api.jquery.com/trigger/
      * @param {array} triggers - Split array of action fragments.
      * @param {array} args - Superset args object.
      * @param {object} data - Constructed action data object.
@@ -101,6 +111,14 @@
 
     /**
      * Broadcast action.
+     *
+     * More complex than the subscribe and unsubscribe, because it splits up the
+     * triggering event into individual fragments to trigger individually:
+     *
+     *  'modal:show:lightbox' =
+     *      'modal'
+     *      'modal:show'
+     *      'modal:show:lightbox'
      */
 
     $.broadcast = function() {
@@ -111,6 +129,8 @@
 
     /**
      * Click directive.
+     *
+     * Just an example, because that's all I need right now.
      *
      * @param {object} event - DOM event.
      * @param {bool} false - Prevent normal click action from occurring.
