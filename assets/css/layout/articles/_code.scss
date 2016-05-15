@@ -12,14 +12,7 @@
 
 code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
-    font: 400 rem($font-size--paragraph * 0.9) $font--sourcecodepro;
-}
-
-p, li {
-    code {
-        // For code within paragraph elements.
-        font-weight: bold;
-    }
+    font: 800 rem($font-size--paragraph * 0.9) $font--sourcecodepro;
 }
 
 pre {
