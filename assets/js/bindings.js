@@ -36,15 +36,18 @@
      * This hold information about the complete action (action, method and
      * target).
      *
+     * fullAction is so because a full action has three parameters.
+     *
      * @param {array} triggers - Split array of action fragments.
      * @param {array} args - Superset args object.
      * @returns {object} triggers
      */
 
     $.observer.triggers.data = function(triggers, args) {
-        var target = null;
+        var target = null,
+            fullAction = 3;
 
-        if (triggers.length === 3) {
+        if (triggers.length === fullAction) {
             target = triggers[2];
         } else if (typeof(args[1]) === 'string') {
             target = args[1];
