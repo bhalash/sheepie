@@ -16,6 +16,6 @@
      * 2. Remove WordPress-inserted elements which break layout in <figure>.
      */
 
-    $('pre').wrapInner('<code/>');
+    $('pre:not(:has(>code))').wrapInner('<code/>');
     $('figure br').add('p:empty').remove();
 })(jQuery, document, window);
