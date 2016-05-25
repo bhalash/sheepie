@@ -105,7 +105,7 @@ gulp.task('css', function() {
         style: 'compressed'
     })
     .on('error', sass.logError)
-    .pipe(prefixer(prefixes))
+    // .pipe(prefixer(prefixes))
     .pipe(gulp.dest(assets.css.dest));
 });
 
