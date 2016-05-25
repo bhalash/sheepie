@@ -54,7 +54,7 @@
         }
 
         return {
-            triggers: triggers[0],
+            action: triggers[0],
             method: triggers[1],
             target: target
         };
