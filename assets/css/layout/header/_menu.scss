@@ -35,4 +35,8 @@
             @include square-flex(2.5rem 1);
         }
     }
+
+    body.error404 & {
+        display: none;
+    }
 }
