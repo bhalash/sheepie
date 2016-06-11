@@ -30,12 +30,9 @@ $comment-margin: rem($vspace);
      * -------------------------------------------------------------------------
      */
 
-    /* IE9, 10 and 11 wig the fuck out with flexbox inputs. They do not
-     * correctly apply box-sizing, so instead of width - padding, it is width +
-     * padding. The correct alternative is to use floats. */
-
     &__inputs {
         @include media(640) {
+            // <fieldset> elements do not interact well with flexbox. :(
             @include columns(float, input, 3, $split-column-margin);
         }
     }
