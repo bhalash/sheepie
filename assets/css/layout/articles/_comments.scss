@@ -32,8 +32,7 @@ $comment-margin: rem($vspace);
 
     &__inputs {
         @include media(640) {
-            // <fieldset> elements do not interact well with flexbox. :(
-            @include columns(float, input, 3, $split-column-margin);
+            @include columns(flex, input, 3, $split-column-margin);
         }
     }
 

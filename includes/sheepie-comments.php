@@ -76,11 +76,11 @@ function sheepie_commentform_fields($input_fields = null, $input_html = null) {
  */
 
 function sheepie_wrap_comment_fields_before() {
-    printf('<fieldset class="comments__inputs vspace--full">');
+    printf('<div class="comments__inputs vspace--full">');
 }
 
 function sheepie_wrap_comment_fields_after() {
-    printf('</fieldset>');
+    printf('</div>');
 }
 
 add_action('comment_form_before_fields', 'sheepie_wrap_comment_fields_before');
