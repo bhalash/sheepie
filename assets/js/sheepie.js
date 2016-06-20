@@ -8,14 +8,24 @@
  * @link https://github.com/bhalash/sheepie
  */
 
-(function($, document, window) {
+(function(document, window) {
     /**
-     * DOM Cleanup
-     *
-     * 1. Add <code> tag necessary for Highlight.js.
-     * 2. Remove WordPress-inserted elements which break layout in <figure>.
+     * Remove a specified selector from the DOM.
+     * @param {string} selector
+     * @return {array} selector
      */
 
-    $('pre:not(:has(>code))').wrapInner('<code/>');
-    $('figure br').add('p:empty').remove();
-})(jQuery, document, window);
+    var remove = function(selector) {
+        selector = document.querySelectorAll(selector);
+
+        [].forEach.call(selector, function(element) {
+            element.parentNode.removeChild(element);
+        });
+
+        return selector;
+    }
+
+    var toRemove = ['figure br', 'p:empty'];
+    
+    toRemove.forEach(remove);
+})(document, window);
