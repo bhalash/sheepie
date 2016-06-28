@@ -22,7 +22,6 @@
     }
 
     &__image {
-        border: 1px solid color(whites, mid-light);
         box-sizing: border-box;
         margin: 0;
         max-height: 95%;
@@ -46,8 +45,8 @@ figure {
          * by your browser, and given a small trailing space beside and below,
          * determined by either the element or element parent's font-size value.
          *
-         * This can offset images several pixels from where they should be, in
-         * circumstances where those few pixels can break layout. */
+         * This will offset images several pixels from where they should be, in
+         * circumstances where those extra pixels will break layout. */
         font-size: 0;
         margin-bottom: $split-column-margin;
     }
