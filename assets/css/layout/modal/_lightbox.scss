@@ -46,7 +46,11 @@ figure {
          * This will offset images several pixels from where they should be, in
          * circumstances where those extra pixels will break layout. */
         font-size: 0;
-        margin-bottom: rem($vspace);
+        margin-bottom: $split-column-margin;
+
+        @include media(640) {
+            margin-bottom: rem($vspace);
+        }
     }
 
     img {
