@@ -35,9 +35,19 @@ body {
  * -----------------------------------------------------------------------------
  */
 
-blockquote, figure, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul {
+blockquote, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul {
     margin: 0;
     padding: 0;
+}
+
+/**
+ * Figures
+ * -----------------------------------------------------------------------------
+ */
+
+figure {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /**

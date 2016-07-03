@@ -31,10 +31,8 @@
 }
 
 /**
- * Photobox
+ * Figure and Figure Photobox Elements
  * -----------------------------------------------------------------------------
- * I post a great many photographs, and this has become a convenient way for me
- * to arrange and display them.
  */
 
 figure {
@@ -48,26 +46,32 @@ figure {
          * This will offset images several pixels from where they should be, in
          * circumstances where those extra pixels will break layout. */
         font-size: 0;
-        margin-bottom: $split-column-margin;
+        margin-bottom: rem($vspace);
     }
 
     img {
-        /* Important: images will otherwise display weirdly in a manner that
-         * varies by browser. */
         width: 100%;
     }
 }
 
+/**
+ * Figure Photobox Elements
+ * -----------------------------------------------------------------------------
+ * These photobox elements hold images in a pretty side-by-side flexbox way.
+ * Photoboxes for two, three and four images beside each other exist.
+ */
+
 .photobox {
-    &, &--two {
-        @include columns(flex, a, 2, $split-column-margin);
-    }
+    $photoboxes: (two, three, four);
 
-    &--three {
-        @include columns(flex, a, 3, $split-column-margin);
-    }
+    @for $n from 1 through length($photoboxes) {
+        &--#{nth($photoboxes, $n)} {
+            @include columns(flex, a, $n + 1, $split-column-margin);
 
-    &--four {
-        @include columns(flex, a, 4, $split-column-margin);
+            a:nth-last-child(-n+#{$n + 1}) {
+                // 0 bottom margin in last row.
+                margin-bottom: 0;
+            }
+        }
     }
 }
