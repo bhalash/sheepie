@@ -25,7 +25,7 @@
         return selector;
     }
 
-    var toRemove = ['figure br', 'p:empty'];
+    var toRemove = ['figure br'];
     
     toRemove.forEach(remove);
 })(document, window);

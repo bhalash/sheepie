@@ -220,4 +220,20 @@ add_filter('the_content', function($content) {
     return $content;
 });
 
+/**
+ * Remove empty paragraphs created by wpautop()
+ *
+ * @author Ryan Hamilton
+ * @link https://gist.github.com/Fantikerz/5557617
+ * @param   string      $content
+ * @return  string      $content
+ */
+
+add_filter('the_content', function($content) {
+    $content = force_balance_tags($content);
+    $content = preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#i', '', $content);
+    $content = preg_replace('~\s?<p>(\s|&nbsp;)+</p>\s?~', '', $content);
+    return $content;
+}, 20, 1);
+
 ?>
