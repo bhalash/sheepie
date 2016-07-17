@@ -12,55 +12,17 @@
 
 code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
+    background: color(rmwb);
+    color: #fbfbfb;
     font: 800 rem($font-size--paragraph * 0.9) $font--sourcecodepro;
+    overflow: auto;
 }
 
-pre {
-    background: #fbfbfb;
-    color: color(rmwb);
-    overflow: auto;
+code, kbd, tt, var {
+    padding: 0.125rem 0.25rem;
+}
+
+pre code {
+    display: block;
     padding: 0.5rem;
-
-    code {
-        display: block;
-    }
-
-    .hljs-comment {
-        color: #757d83;
-        font-weight: bold;
-        font-style: italic;
-    }
-
-    .hljs-regexp {
-        color: #e65644;
-    }
-
-    .hljs-phpdoc {
-        color: #b5bd68;
-        font-weight: bold;
-    }
-
-    .hljs-string, .hljs-number {
-        color: #efff58;
-    }
-
-    .hljs-literal {
-        color: #55acee;
-    }
-
-    .hljs-variable, .hljs-attribute {
-        color: #8abeb7;
-    }
-
-    .hljs-keyword, .hljs-tag, .hljs-id, .hljs-class {
-        color: #a7d7ff;
-    }
-
-    .hljs-rules {
-        // color: color(blacks, light);
-    }
-
-    .hljs-title {
-        color: #fdffb1;
-    }
 }
