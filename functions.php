@@ -59,6 +59,7 @@ function sheepie_includes() {
         'includes/sheepie-comments.php',
         'lib/related-posts.php',
         'lib/archive-functions.php',
+        'lib/article-images.php'
         'lib/social-meta.php'
     ];
 

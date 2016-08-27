@@ -29,24 +29,6 @@
  * Social Meta. If not, see <http://www.gnu.org/licenses/>.
  */
 
-if (!defined('ABSPATH')) {
-    die('-1');
-}
-
-/**
- * Load Article Images (if it hasn't been loaded)
- * -----------------------------------------------------------------------------
- * This small standalone librairy is required to correctly get /any/ relevant
- * image from the post, and get its dimensions, for Facebook's Open Graph
- * reader.
- *
- * @link https://github.com/bhalash/article-images
- */
-
-if (!function_exists('set_fallback_image')) {
-    require_once('article-images.php');
-}
-
 class Social_Meta {
     static $instantiated = false;
 
