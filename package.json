@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp css js sprites",
     "build-dev": "gulp css-dev js sprites",
-    "build-zip": "zip -r sheepie.zip includes lib assets *.php style.css README.md LICENSE screenshot.png --exclude .git\\* assets/css/\\.sass-cache/\\* assets/js/analytics.js"
+    "build-zip": "rm sheepie.zip > /dev/null 2>&1; zip -r sheepie.zip assets includes lib partials *.php style.css README.md LICENSE screenshot.png --exclude .git\\* \\*.DS_Store assets/css/\\.sass-cache/\\* assets/js/analytics.js"
   },
   "repository": {
     "type": "git",
