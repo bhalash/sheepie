@@ -6,7 +6,9 @@
 !README.md
 !LICENSE
 
-!/**/*.php
+!*.php
+!/includes
+!/lib/
 
 !/assets/*.css
 !/assets/*.js

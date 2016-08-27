@@ -55,15 +55,15 @@ add_action('after_setup_theme', function() {
 
 function sheepie_includes() {
     $theme_includes = [
-        'sheepie-assets.php',
-        'sheepie-comments.php',
-        'related-posts/related-posts.php',
-        'archive-functions/archive-functions.php',
-        'social-meta/social-meta.php'
+        'includes/sheepie-assets.php',
+        'includes/sheepie-comments.php',
+        'lib/related-posts.php',
+        'lib/archive-functions.php',
+        'lib/social-meta.php'
     ];
 
     foreach ($theme_includes as $include) {
-        include_once(get_template_directory() . '/includes/' . $include);
+        require(get_template_directory() . '/' . $include);
     }
 }
 
