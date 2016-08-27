@@ -9,7 +9,7 @@ I use Sheepie for my [own site](http://www.bhalash.com).
 ## Installation
 I use [Gulp](http://gulpjs.com/) to build assets, which requires [Node.js](https://nodejs.org/en/) in turn.
 
-    git clone --recursive https://github.com/bhalash/sheepie /path/to/wp-content/themes/sheepie
+    git clone https://github.com/bhalash/sheepie /path/to/wp-content/themes/sheepie
     cd /path/to/wp-content/themes/sheepie
     npm install
     npm run build
