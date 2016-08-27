@@ -1,28 +1,11 @@
-/**
- * Gulp Build Script
- * -----------------------------------------------------------------------------
- * @category   Node.js Build File
- * @package    Sheepie
- * @author     Mark Grealish <mark@bhalash.com>
- * @copyright  Copyright (c) 2015 Mark Grealish
- * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
- * @version    1.0
- * @link       https://github.com/bhalash/sheepie
- */
-
-/**
- * Modules
- * -----------------------------------------------------------------------------
- */
-
-var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
-var prefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var sourcemap = require('gulp-sourcemaps');
-var replace = require('gulp-replace');
-var concat = require('gulp-concat');
+var concat      = require('gulp-concat'),
+    gulp        = require('gulp'),
+    prefixer    = require('gulp-autoprefixer'),
+    rename      = require('gulp-rename'),
+    replace     = require('gulp-replace'),
+    sass        = require('gulp-ruby-sass'),
+    sourcemap   = require('gulp-sourcemaps'),
+    uglify      = require('gulp-uglify');
 
 /**
  * Asset Paths
@@ -31,19 +14,18 @@ var concat = require('gulp-concat');
 
 var assets = {
     css: {
-        main: 'assets/css/style.css',
-        critical: 'assets/css/critical.css',
+        main:   'assets/css/style.css',
         source: 'assets/css/**/*.scss',
-        dest: 'assets/css/'
+        dest:   'assets/css/'
     },
     js: {
         concat: 'sheepie.js',
         source: 'assets/js/*.js',
-        dest: 'assets/js/min/'
+        dest:   'assets/js/min/'
     },
     sprites: {
         source: 'assets/css/includes/**/*.svg',
-        dest: 'assets/css/vectors'
+        dest:   'assets/css/vectors'
     }
 };
 
@@ -87,7 +69,7 @@ gulp.task('sprites', function() {
  * Minify all scripts in the JS folder.
  */
 
-gulp.task('js', function() {
+gulp.task('js', () => {
     return gulp.src(assets.js.source)
         .pipe(uglify())
         .pipe(concat(assets.js.concat))
@@ -99,7 +81,7 @@ gulp.task('js', function() {
  * -----------------------------------------------------------------------------
  */
 
-gulp.task('css', function() {
+gulp.task('css', () => {
     sass(assets.css.source, {
         emitCompileError: true,
         style: 'compressed'
@@ -114,7 +96,7 @@ gulp.task('css', function() {
  * -----------------------------------------------------------------------------
  */
 
-gulp.task('css-dev', ['sprites'], function() {
+gulp.task('css-dev', ['sprites'], () => {
     return sass(assets.css.source, {
         emitCompileError: true,
         verbose: true,
@@ -132,10 +114,10 @@ gulp.task('css-dev', ['sprites'], function() {
  * -----------------------------------------------------------------------------
  */
 
-gulp.task('default', function() {
+gulp.task('default', () => {
     gulp.watch(assets.css.source, ['css']);
 });
 
-gulp.task('dev', function() {
+gulp.task('dev', () => {
     gulp.watch(assets.css.source, ['css-dev']);
 });

@@ -24,20 +24,17 @@
     "url": "https://github.com/bhalash/sheepie/issues"
   },
   "homepage": "https://github.com/bhalash/sheepie#readme",
-  "dependencies": {
-    "gulp": "^3.9.0",
+  "dependencies": {},
+  "devDependencies": {
+    "charon-sass": "^1.0.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-ruby-sass": "^2.0.4",
+    "gulp-ruby-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.4.2",
-    "normalize.css": "^4.1.1",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "sass-module-importer": "^1.2.1"
+    "gulp-uglify": "^2.0.0",
+    "normalize.css": "^4.2.0"
   }
 }
