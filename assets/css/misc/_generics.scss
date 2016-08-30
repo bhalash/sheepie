@@ -34,7 +34,7 @@
         font-size: inherit;
         line-height: inherit;
         padding: 0;
-        @include square-flex(100% 1);
+        @include fluid-square(100% 1);
     }
 
     a {
@@ -78,7 +78,7 @@
     &__photo {
         background: center/cover no-repeat;
         display: block;
-        @include square-flex(100% 1);
+        @include fluid-square(100% 1);
     }
 }
 

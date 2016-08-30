@@ -69,7 +69,7 @@
     }
 
     .toggle {
-        @include square-flex(2rem 1);
+        @include fluid-square(2rem 1);
         @include absolute(1rem 1rem auto auto);
     }
 }

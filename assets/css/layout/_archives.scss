@@ -85,7 +85,7 @@ div.archive {
     color: inherit;
     display: block;
     position: relative;
-    @include square-flex(100% 1);
+    @include fluid-square(100% 1);
 
     &:hover {
         background: blue;
