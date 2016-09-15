@@ -10,6 +10,17 @@
 
 (function(document, window) {
     /**
+     * Loop DOM elements.
+     *
+     * @param {string} selector
+     * @param {function} callback
+     */
+     
+    function loopDom(selector, callback) {
+        [].forEach.call(document.querySelectorAll(selector), callback);
+    }
+
+    /**
      * Remove a specified selector from the DOM.
      * @example
      *      
@@ -19,7 +30,7 @@
      */
 
     function removeSelector(selector) {
-        [].forEach.call(document.querySelectorAll(selector), function(element) {
+        loopDom(selector, function(element) {
             element.parentNode.removeChild(element);
         });
     }
@@ -35,7 +46,7 @@
      */
 
     function addDataToSelector(selector, data) {
-        [].forEach.call(document.querySelectorAll(selector), function(element) {
+        loopDom(selector, function(element) {
             Object.keys(data).forEach(function(key) {
                 element.dataset[key] = data[key];
             });
