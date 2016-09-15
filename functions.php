@@ -195,33 +195,6 @@ function sheepie_postmeta() {
 }
 
 /**
- * Add specified data-click binding to elements in $content.
- *
- * @param   string      $content
- * @return  string      $content
- */
-
-add_filter('the_content', function($content) {
-    $bindings = [
-        '<img' => [
-            'click' => 'modal:show:lightbox',
-        ]
-    ];
-
-    foreach ($bindings as $tag => $directives) {
-        $binding = [];
-
-        foreach ($directives as $directive => $action) {
-            $binding[] = sprintf(' data-%s="%s" ', $directive, $action);
-        }
-
-        $content = str_replace($tag, $tag . implode('', $binding), $content);
-    }
-
-    return $content;
-});
-
-/**
  * Remove empty paragraphs created by wpautop()
  *
  * @author Ryan Hamilton

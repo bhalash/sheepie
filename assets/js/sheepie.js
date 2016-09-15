@@ -11,21 +11,37 @@
 (function(document, window) {
     /**
      * Remove a specified selector from the DOM.
+     * @example
+     *      
+     *  ['div', 'h3'].forEach(removeSelector);
+     *
      * @param {string} selector
-     * @return {array} selector
      */
 
-    var remove = function(selector) {
-        selector = document.querySelectorAll(selector);
-
-        [].forEach.call(selector, function(element) {
+    function removeSelector(selector) {
+        [].forEach.call(document.querySelectorAll(selector), function(element) {
             element.parentNode.removeChild(element);
         });
-
-        return selector;
     }
 
-    var toRemove = ['figure br'];
-    
-    toRemove.forEach(remove);
+    /**
+     * Add the supplied data-attribute to each instance of a selector.
+     *
+     * @example
+     *
+     *  addDataToSelector('div', { ponies: 'Awesome!' }); // data-ponies="Awesome!"
+     *
+     * @param {string} selector
+     */
+
+    function addDataToSelector(selector, data) {
+        [].forEach.call(document.querySelectorAll(selector), function(element) {
+            Object.keys(data).forEach(function(key) {
+                element.dataset[key] = data[key];
+            });
+        });
+    }
+
+    ['figure br'].forEach(removeSelector);
+    addDataToSelector('main img', { click: 'modal:show:lightbox' });
 })(document, window);
