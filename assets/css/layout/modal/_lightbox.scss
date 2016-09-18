@@ -49,7 +49,7 @@ figure {
         margin-bottom: $split-column-margin;
 
         @include media(640) {
-            margin-bottom: rem($vspace);
+            margin-bottom: $vspace;
         }
     }
 

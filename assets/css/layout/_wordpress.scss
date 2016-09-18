@@ -33,14 +33,14 @@
 }
 
 .page-links {
-    margin-top: rem($vspace);
+    margin-top: $vspace;
 }
 
 
 .comment-notes, .logged-in-as {
-    margin-bottom: rem($vspace);
+    margin-bottom: $vspace;
 }
 
 .post-password-form input {
-    margin: rem($vspace 0);
+    margin: $vspace 0;
 }

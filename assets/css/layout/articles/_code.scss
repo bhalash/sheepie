@@ -14,15 +14,18 @@ code, kbd, pre, pre span, tt, var {
     -webkit-font-smoothing: antialiased;
     background: color(rmwb);
     color: #fbfbfb;
-    font: 800 rem($font-size--paragraph * 0.9) $font--sourcecodepro;
+    font: 800 $font-size--paragraph * 0.9 $font--sourcecodepro;
     overflow: auto;
 }
 
-code, kbd, tt, var {
-    padding: 0.125rem 0.25rem;
+kbd, p code, tt, var {
+    padding: 0.25rem 0.5rem;
 }
 
-pre code {
-    display: block;
-    padding: 0.5rem;
+pre {
+    padding: 1rem;
+
+    code {
+      display: block;
+    }
 }

@@ -26,7 +26,7 @@
     }
 
     .menu-item {
-        margin-left: rem($vspace * 0.5);
+        margin-left: $vspace * 0.5;
         overflow: hidden;
         padding: 0;
         @include fluid-square(3rem 1);

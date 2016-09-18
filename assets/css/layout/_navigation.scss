@@ -27,7 +27,7 @@ $right-arrow: '\20\2192'; // ' →'
 
     &__link {
         display: block;
-        padding: rem($vspace * 0.75) 0;
+        padding: $vspace * 0.75 0;
 
         &:before {
             content: $left-arrow;
@@ -55,7 +55,7 @@ $right-arrow: '\20\2192'; // ' →'
     }
 
     &--site {
-        margin-bottom: rem($vspace);
+        margin-bottom: $vspace;
 
         @include media(640) {
             margin-bottom: 0;
@@ -64,7 +64,7 @@ $right-arrow: '\20\2192'; // ' →'
 
     &__count {
         text-align: center;
-        padding: rem($vspace * 0.75) 0;
+        padding: $vspace * 0.75 0;
 
         @include media(smartphone) {
             display: none;

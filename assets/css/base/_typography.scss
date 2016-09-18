@@ -16,8 +16,8 @@
  */
 
 blockquote, cite, li, ins, p, q {
-    font-size: rem($font-size--paragraph);
-    line-height: rem($line-height--paragraph);
+    font-size: $font-size--paragraph;
+    line-height: $line-height--paragraph;
 }
 
 a, cite {
@@ -45,12 +45,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @for $i from 1 through 6 {
-    $font-size--headline: modular-scale(5 - $i, $mod-scale--size, $mod-scale--ratio);
-    $line-height--headline: $font-size--headline * $mod-scale--ratio;
+    $font-size--headline: modular-scale-golden(5 - $i, $base-font-size);
+    $line-height--headline: $font-size--headline * $golden-ratio;
 
     h#{$i} {
-        font-size: rem($font-size--headline);
-        // line-height: rem($line-height--headline);
+        font-size: $font-size--headline;
+        // line-height: $line-height--headline;
     }
 }
 
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .comment-notes, .logged-in-as, .meta {
-    font-size: rem($font-size--paragraph * 0.8);
+    font-size: $font-size--paragraph * 0.8;
     font-weight: 100;
     line-height: 1rem;
 }

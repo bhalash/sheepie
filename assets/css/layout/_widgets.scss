@@ -18,10 +18,10 @@
 
 .sidebar-widget {
     @include media(540) {
-        margin-bottom: rem($vspace);
+        margin-bottom: $vspace;
     }
 }
 
 .widget-title {
-    margin-bottom: rem($vspace * 0.5);
+    margin-bottom: $vspace * 0.5;
 }

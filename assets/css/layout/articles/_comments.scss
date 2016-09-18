@@ -11,7 +11,7 @@
  */
 
 $avatar-width: 5rem;
-$comment-margin: rem($vspace);
+$comment-margin: $vspace;
 
 .comments {
     margin: 0 auto;
@@ -38,7 +38,7 @@ $comment-margin: rem($vspace);
 
     &__input {
         display: block;
-        margin-bottom: rem($vspace * 0.5);
+        margin-bottom: $vspace * 0.5;
         width: 100%;
 
         @include media(640) {

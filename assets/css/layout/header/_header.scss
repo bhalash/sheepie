@@ -11,7 +11,7 @@
  */
 
 .headline {
-    margin-top: rem($vspace * 2);
+    margin-top: $vspace * 2;
 
     @include media(640) {
         margin-top: 0;

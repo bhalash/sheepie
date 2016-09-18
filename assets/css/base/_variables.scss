@@ -19,27 +19,29 @@ $sheepie-media-preset: add-media-presets((
     1600: 'only screen and (min-width: 1600px)',
     1280: 'only screen and (min-width: 1280px)',
     1024: 'only screen and (min-width: 1024px)',
-    768:  'only screen and (min-width: 768px)',
-    640:  'only screen and (min-width: 640px)',
-    540:  'only screen and (min-width: 540px)'
+    768: 'only screen and (min-width: 768px)',
+    640: 'only screen and (min-width: 640px)',
+    540: 'only screen and (min-width: 540px)'
 ));
 
 /**
- * Modular Scale Font Sies with the Golden Ratio
+ * Modular Scale Font Size with the Golden Ratio
  * -----------------------------------------------------------------------------
+ * 1.6 / golden ratio. $base-font-size * $golden-ratio = 1.6 exactly with
+ * Sass's ten-digits-of-precision rounding.
+ *
  * @link https://en.wikipedia.org/wiki/Golden_ratio
  * @link http://www.modularscale.com/
  * @link http://www.pearsonified.com/typography/
  */
 
-// 1.6 / golden ratio. $mod-scale--size * $mod-scale--ratio = 1.6 exactly with
-// Sass's ten-digits-of-precision rounding.
-$mod-scale--size: 0.988854382;
-// Golden ratio.
-$mod-scale--ratio: 1.61803398875;
+// Core font size and line-height.
+// $base-font-size: 0.988854382rem;
+$base-font-size: 0.63rem;
+$golden-ratio: 1.61803398875;
 
-$font-size--paragraph: modular-scale(1, $mod-scale--size, $mod-scale--ratio);
-$line-height--paragraph: $font-size--paragraph * $mod-scale--ratio;
+$font-size--paragraph: modular-scale-golden(1, $base-font-size);
+$line-height--paragraph: $font-size--paragraph * $golden-ratio;
 
 /**
  * Content Side-by-Side Sizes
@@ -51,8 +53,6 @@ $line-height--paragraph: $font-size--paragraph * $mod-scale--ratio;
 
 $navbar-width: 25;
 $navbar-height: 100vh;
-// Decimal, compiles to REM.
-$navbar-height--collapsed: 6;
 
 /**
  * Default Vertical Space
@@ -61,7 +61,7 @@ $navbar-height--collapsed: 6;
  * through modular scale, but Tl;DR: 1rem/16px.
  */
 
-$vspace: modular-scale(1, $mod-scale--size, $mod-scale--ratio);
+$vspace: modular-scale-golden(1, $base-font-size);
 
 /**
  * Split Column Margin

@@ -26,7 +26,7 @@
     }
 
     blockquote p:not(:last-child) {
-        margin-bottom: rem($vspace);
+        margin-bottom: $vspace;
     }
 
     img {
@@ -63,12 +63,12 @@
 }
 
 .related {
-    margin-bottom: rem($vspace);
+    margin-bottom: $vspace;
 
     &:not(:last-child) {
         border: 1px solid color(whites, mid-light);
         border-width: 0 0 1px 0;
-        padding-bottom: rem($vspace);
+        padding-bottom: $vspace;
     }
 
     @include media(640) {
@@ -89,7 +89,7 @@
     &__thumbnail {
         background: center top/cover no-repeat;
         display: block;
-        height: rem($vspace * 9);
+        height: $vspace * 9;
     }
 }
 
@@ -101,7 +101,7 @@
 
 .full {
     &__content > *:not(:last-child) {
-        margin-bottom: rem($vspace);
+        margin-bottom: $vspace;
     }
 }
 
@@ -130,7 +130,7 @@
 
     &__bio {
         flex: 1;
-        margin-left: rem($vspace);
+        margin-left: $vspace;
         @include flex-center-children('-blurb');
     }
 }

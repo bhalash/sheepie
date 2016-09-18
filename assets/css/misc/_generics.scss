@@ -89,11 +89,11 @@
 
 .text {
     &--small {
-        font-size: rem($font-size--paragraph * 0.8);
-        line-height: rem($vspace);
+        font-size: $font-size--paragraph * 0.8;
+        line-height: $vspace;
     }
 
-    &--big { font-size: rem($font-size--paragraph * 1.2); }
+    &--big { font-size: $font-size--paragraph * 1.2; }
     &--bold { font-weight: bold }
     &--italic { font-style: italic; }
     &--left { text-align: left; }
@@ -127,25 +127,25 @@
  */
 
 .vspace {
-    &--triple       { margin-bottom: rem($vspace * 3); }
-    &--double       { margin-bottom: rem($vspace * 2); }
-    &--full         { margin-bottom: rem($vspace * 1); }
-    &--threequarter { margin-bottom: rem($vspace * 0.75); }
-    &--twothird     { margin-bottom: rem($vspace * 0.66); }
-    &--half         { margin-bottom: rem($vspace * 0.50); }
-    &--onethird     { margin-bottom: rem($vspace * 0.33); }
-    &--quarter      { margin-bottom: rem($vspace * 0.25); }
+    &--triple       { margin-bottom: $vspace * 3; }
+    &--double       { margin-bottom: $vspace * 2; }
+    &--full         { margin-bottom: $vspace * 1; }
+    &--threequarter { margin-bottom: $vspace * 0.75; }
+    &--twothird     { margin-bottom: $vspace * 0.66; }
+    &--half         { margin-bottom: $vspace * 0.50; }
+    &--onethird     { margin-bottom: $vspace * 0.33; }
+    &--quarter      { margin-bottom: $vspace * 0.25; }
 }
 
 .vcenter {
-    &--triple       { margin-bottom: rem($vspace * 3); margin-top: rem($vspace * 3); }
-    &--double       { margin-bottom: rem($vspace * 2); margin-top: rem($vspace * 2); }
-    &--full         { margin-bottom: rem($vspace * 1); margin-top: rem($vspace * 1); }
-    &--threequarter { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.75); }
-    &--twothird     { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.66); }
-    &--half         { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.50); }
-    &--onethird     { margin-bottom: rem($vspace * 0.33); margin-top: rem($vspace * 0.33); }
-    &--quarter      { margin-bottom: rem($vspace * 0.25); margin-top: rem($vspace * 0.25); }
+    &--triple       { @include vertical-center($vspace * 3); }
+    &--double       { @include vertical-center($vspace * 2); }
+    &--full         { @include vertical-center($vspace * 1); }
+    &--threequarter { @include vertical-center($vspace * 0.33); }
+    &--twothird     { @include vertical-center($vspace * 0.33); }
+    &--half         { @include vertical-center($vspace * 0.33); }
+    &--onethird     { @include vertical-center($vspace * 0.33); }
+    &--quarter      { @include vertical-center($vspace * 0.25); }
 }
 
 /**
