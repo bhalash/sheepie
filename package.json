@@ -27,7 +27,7 @@
   "homepage": "https://github.com/bhalash/sheepie#readme",
   "dependencies": {},
   "devDependencies": {
-    "charon-sass": "^4.0.0",
+    "charon-sass": "^5.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.2",
     "gulp-concat": "^2.6.0",
