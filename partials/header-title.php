@@ -20,7 +20,7 @@ $margin_class = (is_single() || is_page()) ? 'vspace--full' : 'vspace--double';
 ?>
 
 <header class="headline noprint <?php echo $margin_class; ?>" id="headline">
-    <h2 class="title vspace--half text--center">
+    <h2 class="title vspace--half">
         <?php if (is_single() || is_page()) : ?>
             <?php printf('<a href="%s">%s</a>', get_the_permalink(), get_the_title()); ?>
         <?php else: ?>
@@ -28,7 +28,7 @@ $margin_class = (is_single() || is_page()) ? 'vspace--full' : 'vspace--double';
         <?php endif; ?>
     </h2>
 
-    <p class="text--center">
+    <p>
         <?php if (is_single() || is_page()) : ?>
             <?php echo sheepie_postmeta(); ?>
         <?php else : ?>
