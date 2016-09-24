@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @for $i from 1 through 6 {
-    $font-size--headline: modular-scale-golden(5 - $i, $base-font-size);
+    $font-size--headline: golden-scale(5 - $i, $base-font-size);
     $line-height--headline: $font-size--headline * $golden-ratio;
 
     h#{$i} {

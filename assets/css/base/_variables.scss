@@ -40,7 +40,7 @@ $sheepie-media-preset: add-media-presets((
 $base-font-size: 0.63rem;
 $golden-ratio: 1.61803398875;
 
-$font-size--paragraph: modular-scale-golden(1, $base-font-size);
+$font-size--paragraph: golden-scale(1, $base-font-size);
 $line-height--paragraph: $font-size--paragraph * $golden-ratio;
 
 /**
@@ -61,7 +61,7 @@ $navbar-height: 100vh;
  * through modular scale, but Tl;DR: 1rem/16px.
  */
 
-$vspace: modular-scale-golden(1, $base-font-size);
+$vspace: golden-scale(1, $base-font-size);
 
 /**
  * Split Column Margin
