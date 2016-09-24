@@ -4,6 +4,7 @@
 
 !.gitignore
 !.gitmodules
+!.eslintrc.json
 
 !README.md
 !LICENSE
