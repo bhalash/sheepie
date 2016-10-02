@@ -43,7 +43,7 @@ div.archive {
     list-style-type: none;
     padding: 0.5rem;
     text-align: center;
-    @include columns(flex, li, 4, 1%);
+    @include columns(float, li, 4, 1%);
 }
 
 /**
@@ -88,6 +88,6 @@ div.archive {
     @include fluid-square(100% 1);
 
     &:hover {
-        background: blue;
+        background: color(blues);
     }
 }
