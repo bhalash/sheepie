@@ -23,18 +23,13 @@ if (!function_exists('arc_year_first_post')) {
 
 ?>
 
-<h3 class="title vspace--half"><?php _e('Statistics', 'sheepie'); ?></h3>
-<p><?php arc_blog_statistics(true); ?></p>
-<hr class="vcenter--double">
 <div class="archive">
 
     <?php foreach (arc_timed_archives_count() as $year => $calendar) {
-        // Archives by date.
-        $first_post = arc_year_first_post($year, true);
-
         printf('<div class="archive-card vspace--full" id="archive-card-%s">', $year);
 
         // Print year name with background image from post of that year.
+        $first_post = arc_year_first_post($year, true);
         printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
             'archive-year-name',
             post_image_url_style($first_post, false),
@@ -61,5 +56,8 @@ if (!function_exists('arc_year_first_post')) {
     } ?>
 
 </div>
+<hr class="vcenter--double">
+<h3 class="title vspace--half"><?php _e('Statistics', 'sheepie'); ?></h3>
+<p><?php arc_blog_statistics(true); ?></p>
 <hr class="vcenter--double">
 <?php get_footer(); ?>
