@@ -21,76 +21,45 @@ if (!function_exists('arc_year_first_post')) {
     return;
 }
 
-// Archives by date.
-
-printf('<h5 class="title">%s</h5>', __('Archives by Year', 'sheepie'));
-printf('<div class="archive">');
-
-foreach (arc_timed_archives_count() as $year => $calendar) {
-    $first_post = arc_year_first_post($year, true);
-
-    printf('<div class="archive-card vspace-full" id="archive-card-%s">', $year);
-
-    // Print year name with background image from post of that year.
-    printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
-        'archive-year-name',
-        post_image_css($first_post, false),
-        __('Archives for the year ', 'sheepie') . $year,
-        get_year_link($year),
-        $year
-    );
-
-    // One "card" per year.
-    printf('<ul class="%s" id="%s">', 'archive-card-year', $year);
-
-    foreach ($calendar as $month => $count) {
-        // Per-month items.
-        printf('<li class="%s" id="%s">',
-            'archive-card-month',
-            $year . '-' . $month
-        );
-
-        // Actual count or whatever else you want at the bottom.
-        printf('<a class="%s" href="%s">',
-            'archive-card-data',
-            get_month_link($year, $month)
-        );
-
-        printf('<span class="%s">%s</span>',
-            'month-name',
-            arc_get_month_from_number($month)
-        );
-
-        printf('<span class="%s">%s</span>',
-            'month-count',
-            $count
-        );
-
-        printf('</a>');
-        printf('</li>');
-    }
-
-    printf('</ul></div>');
-}
-
-printf('</div>');
-printf('<hr>');
-
-// Arhives by category.
-// TODO
-
-printf('<h5 class="title">%s</h5>', __('Archives by Category', 'sheepie'));
-printf('<hr>');
-
-// Archives by tag.
-// TODO
-
-// Statistics.
-
-printf('<h5 class="title">%s</h5>', __('Blog Statistics', 'sheepie'));
-printf('<p>%s</p>', arc_blog_statistics());
-
-// Keep any custom taxonomies below here. Or not. I'm a comment, not a cop. ;)
-get_footer();
-
 ?>
+
+<h3 class="title vspace--half"><?php _e('Statistics', 'sheepie'); ?></h3>
+<p><?php arc_blog_statistics(true); ?></p>
+<hr class="vcenter--double">
+<div class="archive">
+
+    <?php foreach (arc_timed_archives_count() as $year => $calendar) {
+        // Archives by date.
+        $first_post = arc_year_first_post($year, true);
+
+        printf('<div class="archive-card vspace--full" id="archive-card-%s">', $year);
+
+        // Print year name with background image from post of that year.
+        printf('<h2 class="%s" %s><a title="%s" href="%s">%s</a></h2>',
+            'archive-year-name',
+            post_image_url_style($first_post, false),
+            __('Archives for the year ', 'sheepie') . $year,
+            get_year_link($year),
+            $year
+        );
+
+        // One "card" per year.
+        printf('<ul class="%s" id="%s">', 'archive-card-year', $year);
+
+        foreach ($calendar as $month => $count) {
+            // Per-month items.
+            printf('<li class="%s" id="%s">', 'archive-card-month', $year . '-' . $month);
+            // Actual count or whatever else you want at the bottom.
+            printf('<a class="%s" href="%s">', 'archive-card-data', get_month_link($year, $month));
+            printf('<span class="%s">%s</span>', 'month-name', arc_get_month_from_number($month));
+            printf('<span class="%s">%s</span>', 'month-count', $count);
+            printf('</a>');
+            printf('</li>');
+        }
+
+        printf('</ul></div>');
+    } ?>
+
+</div>
+<hr class="vcenter--double">
+<?php get_footer(); ?>

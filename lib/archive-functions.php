@@ -127,7 +127,7 @@ function arc_category_archives_count() {
  */
 
 function arc_post_interval($precision = 2) {
-    $blog_age_days = blog_age('%a');
+    $blog_age_days = arc_blog_age('%a');
     $post_count = wp_count_posts()->publish;
     return round($blog_age_days / $post_count, $precision);
 }
@@ -209,8 +209,8 @@ function arc_blog_statistics($echo = false) {
     $average = __('On average, a new post has been published every %s days over the last %s days.', 'sheepie');
 
     $stats[] = sprintf($categories, $anchor, wp_count_posts()->publish, count(get_categories()), count(get_tags()));
-    $stats[] = sprintf($visitors, get_comment_authors_count(), wp_count_comments()->total_comments);
-    $stats[] = sprintf($average, post_interval(), blog_age());
+    $stats[] = sprintf($visitors, arc_get_comment_authors_count(), wp_count_comments()->total_comments);
+    $stats[] = sprintf($average, arc_post_interval(), arc_blog_age());
 
     $stats = implode(' ', $stats);
 
