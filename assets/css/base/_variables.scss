@@ -36,12 +36,10 @@ $sheepie-media-preset: add-media-presets((
  */
 
 // Core font size and line-height.
-// $base-font-size: 0.988854382rem;
 $base-font-size: 0.63rem;
-$golden-ratio: 1.61803398875;
 
 $font-size--paragraph: golden-scale(1, $base-font-size);
-$line-height--paragraph: $font-size--paragraph * $golden-ratio;
+$line-height--paragraph: golden-scale(1, $font-size--paragraph);
 
 /**
  * Content Side-by-Side Sizes

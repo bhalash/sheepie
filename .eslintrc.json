@@ -1,0 +1,33 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true,
+        "jquery": true
+    },
+    "globals": {
+        "VARIABLES": false,
+        "filepicker": false,
+        "CKEDITOR": false,
+        "moment": false,
+        "_": false
+    },
+    "rules": {
+        "no-tabs": 2,
+        "indent": [ "error", 4 ],
+        "eqeqeq": [ 2, "always" ],
+        "linebreak-style": [ "error", "unix" ],
+        "quotes": [ "error", "single" ],
+        "comma-dangle": [ "error", "only-multiline" ],
+        "semi": [ "error", "always" ],
+        "max-len": [
+            "error",
+            120,
+            { "ignoreComments": true },
+            { "ignoreUrls": true }
+        ],
+        "no-unused-vars": [
+            "error",
+            { "varsIgnorePattern": "(document|event|window)" }
+        ]
+    }
+}
