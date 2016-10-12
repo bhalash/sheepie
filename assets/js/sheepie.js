@@ -15,7 +15,7 @@
      * @param {string} selector
      * @param {function} callback
      */
-     
+
     function loopDom(selector, callback) {
         [].forEach.call(document.querySelectorAll(selector), callback);
     }
@@ -23,7 +23,7 @@
     /**
      * Remove a specified selector from the DOM.
      * @example
-     *      
+     *
      *  ['div', 'h3'].forEach(removeSelector);
      *
      * @param {string} selector
