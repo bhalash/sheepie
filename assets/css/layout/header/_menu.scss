@@ -20,9 +20,13 @@
     &__list {
         display: flex;
         flex-direction: row-reverse;
-        justify-content: center;
+        justify-content: flex-end;
         list-style-type: none;
         max-width: 100%;
+
+      @include media(640) {
+          justify-content: center;
+      }
     }
 
     .menu-item {
