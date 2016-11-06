@@ -100,8 +100,12 @@
  */
 
 .full {
-    &__content > *:not(:last-child) {
-        margin-bottom: $vspace;
+    &__content{
+        @include clearfix;
+
+        & > *:not(:last-child) {
+            margin-bottom: $vspace;
+        }
     }
 }
 
