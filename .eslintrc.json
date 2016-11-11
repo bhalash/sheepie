@@ -1,41 +1,88 @@
 {
-	"parserOptions": {
-		"ecmaVersion": 6,
-		"sourceType": "module"
-	},
-	"extends": "eslint:recommended",
-	"env": {
-		"node": true,
-		"browser": true
-	},
-	"globals": {
-		"VARIABLES": false,
-		"filepicker": false,
-		"CKEDITOR": false,
-		"moment": false,
-		"_": false
-	},
-	"rules": {
-		"no-tabs": 2,
-		"indent": [ "error", 4 ],
-		"eqeqeq": [ 2, "always" ],
-		"linebreak-style": [ "error", "unix" ],
-		"quotes": [ "error", "single" ],
-		"comma-dangle": [ "error", "only-multiline" ],
-		"no-console": 0,
-		"semi": [ "error", "always" ],
-		"max-len": [
-			"error",
-			120,
-			{ "ignoreComments": true },
-			{ "ignoreUrls": true }
-		],
-		"no-unused-vars": [
-			"error",
-			{
-				"argsIgnorePattern": "(document|event|window)",
-				"varsIgnorePattern": "(document|event|window)"
-			}
-		]
-	}
+    "extends": "eslint:recommended",
+    "env": {
+        "node": true,
+        "browser": true,
+        "es6": true,
+        "amd": true
+    },
+    "rules": {
+        "no-tabs": "error",
+        "indent": [
+            "error", 4
+        ],
+        "no-multi-spaces": [
+            "error", {
+                "exceptions": {
+                    "VariableDeclarator": true,
+                    "Property": true
+                }
+            }
+        ],
+        "no-magic-numbers": [
+            "error", {
+                "ignoreArrayIndexes": true,
+                "ignore": [-1, 0, 1]
+            }
+        ],
+        "spaced-comment": [
+            "error", "always", {
+                "block": {
+                    "markers": ["*"],
+                    "exceptions": ["*"]
+                }
+            }
+        ],
+        "eqeqeq": [
+            "error", "always"
+        ],
+        "linebreak-style": [
+            "error", "unix"
+        ],
+        "quotes": [
+            "error", "single"
+        ],
+        "comma-dangle": [
+            "error", "never"
+        ],
+        "no-trailing-spaces": [
+            "error"
+        ],
+        "space-before-blocks": [
+            "error", "always"
+        ],
+        "semi": [
+            "error", "always"
+        ],
+        "id-length": [
+            "error", {
+                "min": 2,
+                "max": 20,
+                "exceptions": ["i", "j", "k", "_", "$"]
+            }
+        ],
+        "brace-style": [
+            "error",
+            "1tbs",
+            { "allowSingleLine": true }
+        ],
+        "keyword-spacing": [
+            "error", {
+                "before": true,
+                "after": true
+            }
+        ],
+        "space-infix-ops": [
+            "error"
+        ],
+        "max-len": [
+            "error",
+            120,
+            { "ignoreComments": true },
+            { "ignoreUrls": true }
+        ],
+        "no-unused-vars": [
+            "error"
+        ]
+    }
 }
