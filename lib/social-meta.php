@@ -128,7 +128,7 @@ class Social_Meta {
             $desc = get_bloginfo('description');
         }
 
-        return $desc;
+        return trim($desc);
     }
 
     /**
