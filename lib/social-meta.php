@@ -108,7 +108,7 @@ class Social_Meta {
         $desc = '';
 
         if ($post && (is_single() || is_page())) {
-            $desc = apply_filters('the_excerpt', $post->post_excerpt);
+            $desc = strip_tags(apply_filters('the_excerpt', $post->post_excerpt));
 
             if (!$desc) {
                 $desc = preg_replace('/<\/p>.*$/s', '', apply_filters('the_content', $post->post_content));
