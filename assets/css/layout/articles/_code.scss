@@ -11,18 +11,14 @@
  */
 
 code, kbd, pre, pre span, tt, var {
-    -webkit-font-smoothing: antialiased;
-    background: color(rmwb);
-    color: #fbfbfb;
     font: 800 $font-size--paragraph * 0.9 $font--sourcecodepro;
     overflow: auto;
 }
 
-kbd, p code, tt, var {
-    padding: 0.25rem 0.5rem;
-}
-
 pre {
+    -webkit-font-smoothing: antialiased;
+    background: color(rmwb);
+    color: #fbfbfb;
     padding: 1rem;
 
     code {
