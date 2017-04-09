@@ -1,16 +1,16 @@
 /*
 .sass-cache/
+/**/*DS_Store
 /assets/js/analytics.js
-
-!.gitignore
-!.gitmodules
-!.eslintrc.json
-
-!README.md
-!LICENSE
-!*.php
 
 !/assets/
 !/includes
 !/lib/
 !/partials/
+
+!*.php
+!.eslintrc.json
+!.gitignore
+!.gitmodules
+!LICENSE
+!README.md
