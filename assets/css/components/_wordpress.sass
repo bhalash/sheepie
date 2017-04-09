@@ -15,32 +15,24 @@
  * -----------------------------------------------------------------------------
  */
 
-.leftie, .alignleft {
-    @include float(left);
-}
+.leftie, .alignleft
+  +float(left)
 
-.rightie, .alignright {
-    @include float(right);
-}
+.rightie, .alignright
+  +float(right)
 
-.aligncenter {
-    margin: 0 auto;
-}
+.aligncenter
+  margin: 0 auto
 
-.wp-caption-text, .wp-caption, .screen-reader-text, .sticky, .bypostauthor,
-.gallery-caption {
-    color: inherit;
-}
+.wp-caption-text, .wp-caption, .screen-reader-text, .sticky, .bypostauthor, .gallery-caption
+  color: inherit
 
-.page-links {
-    margin-top: $vspace;
-}
+.page-links
+  margin-top: $vspace
 
 
-.comment-notes, .logged-in-as {
-    margin-bottom: $vspace;
-}
+.comment-notes, .logged-in-as
+  margin-bottom: $vspace
 
-.post-password-form input {
-    margin: $vspace 0;
-}
+.post-password-form input
+  margin: $vspace 0

@@ -10,30 +10,26 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-$left-arrow:  '\2190\20'; // '← '
-$right-arrow: '\20\2192'; // ' →'
+$left-arrow:  '\2190\20' // '← '
+$right-arrow: '\20\2192' // ' →'
 
 /**
  * Home Link
  * -----------------------------------------------------------------------------
  */
 
-.navigation--home {
-    padding: 0.5rem 1rem;
+.navigation--home
+  padding: 0.5rem 1rem
 
-    @include media(1024) {
-        @include absolute(0 auto auto 0);
-    }
+  +media(1024)
+    +absolute(0 auto auto 0)
 
-    &__link {
-        display: block;
-        padding: $vspace * 0.75 0;
+  &__link
+    display: block
+    padding: $vspace * 0.75 0
 
-        &:before {
-            content: $left-arrow;
-        }
-    }
-}
+    &:before
+      content: $left-arrow
 
 /*
  * Pagination
@@ -41,55 +37,42 @@ $right-arrow: '\20\2192'; // ' →'
  * There is pagination for both individual posts and for the site itself.
  */
 
-.pagination {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.pagination
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
 
-    p {
-        flex: 1;
-    }
+    p
+      flex: 1
 
-    a {
-        display: block;
-    }
+    a
+      display: block
 
-    &--site {
-        margin-bottom: $vspace;
+    &--site
+      margin-bottom: $vspace
 
-        @include media(640) {
-            margin-bottom: 0;
-        }
-    }
+      +media(640)
+        margin-bottom: 0
 
-    &__count {
-        text-align: center;
-        padding: $vspace * 0.75 0;
+    &__count
+      text-align: center
+      padding: $vspace * 0.75 0
 
-        @include media(smartphone) {
-            display: none;
-        }
+      +media(smartphone)
+        display: none
 
-        &:empty {
-            display: none;
-        }
-    }
+      &:empty
+        display: none
 
-    &__next {
-        text-align: right;
+    &__next
+      text-align: right
 
-        a:after {
-            content: $right-arrow;
-        }
-    }
+      a:after
+        content: $right-arrow
 
-    &__previous {
-        @include media(smartphone) {
-            white-space: normal;
-        }
+    &__previous
+      +media(smartphone)
+        white-space: normal
 
-        a:before {
-            content: $left-arrow;
-        }
-    }
-}
+      a:before
+        content: $left-arrow

@@ -1,0 +1,91 @@
+/**
+ * Comments Template and Commentform
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+$avatar-width: 5rem
+$comment-margin: $vspace
+
+.comments
+  margin: 0 auto
+
+  /**
+   * Comments List
+   * -------------------------------------------------------------------------
+   */
+
+  &__commentlist
+    list-style-type: none
+
+  /**
+   * Comments Form
+   * -------------------------------------------------------------------------
+   */
+
+  &__inputs
+    +media(640)
+      +columns(flex, input, 3, $split-column-margin)
+
+  &__input
+    display: block
+    margin-bottom: $vspace * 0.5
+    width: 100%
+
+    +media(640)
+      margin: 0
+
+  &__textarea
+    display: block
+    height: 12.5rem
+
+/**
+ * Individual Comment
+ * -----------------------------------------------------------------------------
+ */
+
+.comment
+  &:not(:last-child)
+    margin-bottom: $comment-margin
+
+  header
+    border-bottom: $light-border
+    display: flex
+    font-weight: bold
+    margin-bottom: 0.5rem
+    white-space: nowrap
+
+    +media(640)
+      border: 0
+      margin: 0
+
+  &__header
+    flex: 1
+    +flex-center-children('-item')
+
+    &-item:last-child
+      padding-bottom: 0.16rem
+
+      +media(640)
+        border-bottom: $light-border
+
+
+  &__avatar
+    margin: 0 $comment-margin $comment-margin 0
+    +avatar(4rem)
+
+    +media(640)
+      margin: 0 $comment-margin 0 0
+
+  &__body
+    +media(640)
+      margin-left: $avatar-width
+
+    p:not(:last-child)
+      margin-bottom: 0.5rem

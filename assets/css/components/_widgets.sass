@@ -10,18 +10,13 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-#widgets {
-    @include media(540) {
-        @include columns(float, div, 3, 2%)
-    }
-}
+#widgets
+  +media(540)
+    +columns(float, div, 3, 2%)
 
-.sidebar-widget {
-    @include media(540) {
-        margin-bottom: $vspace;
-    }
-}
+.sidebar-widget
+  +media(540)
+    margin-bottom: $vspace
 
-.widget-title {
-    margin-bottom: $vspace * 0.5;
-}
+.widget-title
+  margin-bottom: $vspace * 0.5

@@ -10,76 +10,63 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-form {
-    position: relative;
-    width: 100%;
-}
+form
+  position: relative
+  width: 100%
 
-fieldset {
-    margin: 0;
-    padding: 0;
-}
+fieldset
+  margin: 0
+  padding: 0
 
 // Remove all default appearance and focus appearance styling.
 
-button, fieldset, input, textarea {
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
-    border: 0;
-    border-radius: 0;
-    box-sizing: border-box;
-    outline: 0;
-}
+button, fieldset, input, textarea
+  -webkit-appearance: none
+  -webkit-border-radius: 0
+  border: 0
+  border-radius: 0
+  box-sizing: border-box
+  outline: 0
 
-button, fieldset, form, input, label, textarea {
-    &:focus {
-        border: none;
-        outline: none;
-    }
-}
+button, fieldset, form, input, label, textarea
+  &:focus
+    border: none
+    outline: none
 
 // Input and text area colours.
 
-input:not(.modal-search__input), textarea {
-    background: color(whites, light);
-    font-size: 1rem;
-    min-height: 3rem;
-    padding: 0.625rem 1rem;
-    transition: background-color .15s;
+input:not(.modal-search__input), textarea
+  background: color(whites, light)
+  font-size: 1rem
+  min-height: 3rem
+  padding: 0.625rem 1rem
+  transition: background-color .15s
 
-    @include placeholder-style {
-        font-size: inherit;
-    }
+  +placeholder-style
+    font-size: inherit
 
-    &:not(#submit):focus {
-        color: color(whites, x-light);
-        background: color(rmwb);
-    }
+  &:not(#submit):focus
+    color: color(whites, x-light)
+    background: color(rmwb)
 
-    &:focus {
-        @include placeholder-style {
-            color: color(whites, x-light);
-        }
-    }
-}
+  &:focus
+    +placeholder-style
+      color: color(whites, x-light)
 
 // Textareas.
 
-textarea {
-    padding: 0.625rem;
-    resize: none;
-    width: 100%;
-}
+textarea
+  padding: 0.625rem
+  resize: none
+  width: 100%
 
 // Submid button.
 
-input[type=submit] {
-    height: 2rem;
-    max-width: 9.4rem;
-    padding-bottom: 0.3rem;
+input[type=submit]
+  height: 2rem
+  max-width: 9.4rem
+  padding-bottom: 0.3rem
 
-    &:active {
-        color: color(whites, x-light);
-        background: color(blues);
-    }
-}
+  &:active
+    color: color(whites, x-light)
+    background: color(blues)
