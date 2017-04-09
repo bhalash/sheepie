@@ -16,12 +16,12 @@
  */
 
 $sheepie-media-preset: add-media-presets((
-    1600: 'only screen and (min-width: 1600px)',
-    1280: 'only screen and (min-width: 1280px)',
-    1024: 'only screen and (min-width: 1024px)',
-    768: 'only screen and (min-width: 768px)',
-    640: 'only screen and (min-width: 640px)',
-    540: 'only screen and (min-width: 540px)'
+  1600: 'only screen and (min-width: 1600px)',
+  1280: 'only screen and (min-width: 1280px)',
+  1024: 'only screen and (min-width: 1024px)',
+  768: 'only screen and (min-width: 768px)',
+  640: 'only screen and (min-width: 640px)',
+  540: 'only screen and (min-width: 540px)'
 ));
 
 /**
@@ -74,12 +74,12 @@ $split-column-margin: 1.5%;
  */
 
 $sheepie-colours: add-color((
-    blues: (
-        base: #00a3f5
-    ),
-    rmwb: (
-        base: #343537
-    )
+  blues: (
+      base: #00a3f5
+  ),
+  rmwb: (
+    base: #343537
+  )
 ));
 
 /**

@@ -1,0 +1,75 @@
+/**
+ * Typography
+ * -----------------------------------------------------------------------------
+ * @category   Stylesheet
+ * @package    Sheepie
+ * @author     Mark Grealish <mark@bhalash.com>
+ * @copyright  Copyright (c) 2015 Mark Grealish
+ * @license    https://www.gnu.org/copyleft/gpl.html The GNU GPL v3.0
+ * @version    3.0
+ * @link       https://github.com/bhalash/sheepie
+ */
+
+/**
+ * Default Text Size and Weight
+ * -----------------------------------------------------------------------------
+ */
+
+blockquote, cite, li, ins, p, q
+  font-size: $font-size--paragraph
+  line-height: $line-height--paragraph
+
+a, cite
+  font-size: inherit
+
+a
+  color: color(blues)
+  text-decoration: none
+
+  &:hover
+    text-decoration: underline
+
+/**
+ * Headline Items
+ * -----------------------------------------------------------------------------
+ * Starting at 5 - $i makes h5 the same size as regular paragraph text, and h6
+ * one step smaller.
+ */
+
+@for $i from 1 through 6
+  $font-size--headline: golden-scale(5 - $i, $base-font-size)
+  $line-height--headline: golden-scale(1, $font-size--headline)
+
+  h#{$i}
+    font: 
+      weight: bold
+      size: $font-size--headline
+    // line-height: $line-height--headline
+
+/**
+ * Article Titles
+ * -----------------------------------------------------------------------------
+ */
+
+.title
+  color: color(blacks, mid-dark)
+  font:
+    family: $font--lato
+    weight: bold
+
+  a
+    color: inherit
+    font-weight: inherit
+
+    &:hover
+      text-decoration: none
+
+/**
+ * Article Meta
+ * -----------------------------------------------------------------------------
+ */
+
+.comment-notes, .logged-in-as, .meta
+  font-size: $font-size--paragraph * 0.8
+  font-weight: 100
+  line-height: 1rem

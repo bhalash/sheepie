@@ -10,97 +10,82 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-html {
-    color: color(blacks, mid-light);
-    font-family: $font--meriweather;
-    font-size: 90%;
+html
+  color: color(blacks, mid-light)
+  font-family: $font--meriweather
+  font-size: 90%
 
-    @include media(print) {
-        font-size: 85%;
-    }
+  +media(print)
+    font-size: 85%
 
-    @include media(540) {
-        font-size: 100%;
-    }
-}
+  +media(540)
+    font-size: 100%
 
-body {
-    @include media(print) {
-        margin: 0;
-    }
-}
+body
+  +media(print)
+    margin: 0
 
 /**
  * Remove Margins and Padding
  * -----------------------------------------------------------------------------
  */
 
-blockquote, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul {
-    margin: 0;
-    padding: 0;
-}
+blockquote, h1, h2, h3, h4, h5, h6, li, ol, p, pre, ul
+  margin: 0
+  padding: 0
 
 /**
  * Figures
  * -----------------------------------------------------------------------------
  */
 
-figure {
-    margin-left: 0;
-    margin-right: 0;
-}
+figure
+  margin-left: 0
+  margin-right: 0
 
 /**
  * Horizontal Rule
  * -----------------------------------------------------------------------------
  */
 
-hr {
-    background: color(whites, mid-light);
-    border: 0;
-    height: 1px;
-}
+hr
+  background: color(whites, mid-light)
+  border: 0
+  height: 1px
 
 /**
  * Iframe and Image Sizes
  * -----------------------------------------------------------------------------
  */
 
-iframe, img {
-    max-width: 100%;
-    overflow: hidden;
-}
+iframe, img
+  max-width: 100%
+  overflow: hidden
 
-embed, iframe {
-    // Embedded and iframe content looks weird when printed.
-    @include media(print) {
-        display: none;
-    }
-}
+embed, iframe
+  // Embedded and iframe content looks weird when printed.
+  +media(print)
+    display: none
 
-article img {
-    height: auto;
-}
+article img
+  height: auto
 
 /**
  * Blockquotes
  * -----------------------------------------------------------------------------
  */
 
-blockquote {
-    border-left: 1px solid color(blacks, light);
-    padding-left: 0.625rem;
+blockquote
+  border-left: 1px solid color(blacks, light)
+  padding-left: 0.625rem
 
-    p, li {
-        font-style: italic;
-    }
-}
+  p, li
+    font-style: italic
 
 /**
  * Abbreviation
  * -----------------------------------------------------------------------------
  */
 
-abbr {
-    text-decoration: underline;
-}
+abbr
+  text-decoration: underline
