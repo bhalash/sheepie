@@ -15,7 +15,7 @@ var concat      = require('gulp-concat'),
 var assets = {
     css: {
         main:   'assets/css/style.css',
-        source: 'assets/css/**/*.scss',
+        source: 'assets/css/**/*.sass',
         dest:   'assets/css/'
     },
     js: {

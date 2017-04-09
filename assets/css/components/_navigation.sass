@@ -38,41 +38,41 @@ $right-arrow: '\20\2192' // ' →'
  */
 
 .pagination
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
 
-    p
-      flex: 1
+  p
+    flex: 1
 
-    a
-      display: block
+  a
+    display: block
 
-    &--site
-      margin-bottom: $vspace
+  &--site
+    margin-bottom: $vspace
 
-      +media(640)
-        margin-bottom: 0
+    +media(640)
+      margin-bottom: 0
 
-    &__count
-      text-align: center
-      padding: $vspace * 0.75 0
+  &__count
+    text-align: center
+    padding: $vspace * 0.75 0
 
-      +media(smartphone)
-        display: none
+    +media(smartphone)
+      display: none
 
-      &:empty
-        display: none
+    &:empty
+      display: none
 
-    &__next
-      text-align: right
+  &__next
+    text-align: right
 
-      a:after
-        content: $right-arrow
+    a:after
+      content: $right-arrow
 
-    &__previous
-      +media(smartphone)
-        white-space: normal
+  &__previous
+    +media(smartphone)
+      white-space: normal
 
-      a:before
-        content: $left-arrow
+    a:before
+      content: $left-arrow
