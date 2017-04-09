@@ -18,20 +18,16 @@
 
   &__list
     display: flex
-    flex-direction: row-reverse
-    justify-content: flex-end
+    justify-content: center
     list-style-type: none
     max-width: 100%
-
-    +media(640)
-      justify-content: center
 
   .menu-item
     overflow: hidden
     padding: 0
     +fluid-square(3rem 1)
 
-    &:not(:last-child)
+    &:not(:first-child)
       margin-left: $vspace * 0.5
 
     +media(768)

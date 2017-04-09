@@ -35,10 +35,7 @@ var assets = {
  */
 
 var prefixes = [
-    'last 1 version',
-    '> 1%',
-    'ie 10',
-    'ie 9'
+    'last 2 versions'
 ];
 
 /**
