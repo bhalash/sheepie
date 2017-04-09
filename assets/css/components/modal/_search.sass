@@ -10,71 +10,61 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-.modal-search {
-    background: color(whites, x-light);
-    box-sizing: border-box;
-    height: $navbar-height;
-    // Necessary to hide overflow or IE10 and IE11 wrap to hell.
-    overflow: hidden;
-    transition: opacity .15s;
-    z-index: 3;
-    @include fixed(0);
+.modal-search
+  background: color(whites, x-light)
+  box-sizing: border-box
+  height: $navbar-height
+  // Necessary to hide overflow or IE10 and IE11 wrap to hell.
+  overflow: hidden
+  transition: opacity .15s
+  z-index: 3
+  +fixed(0)
 
-    &:focus {
-        outline: none;
-    }
+  &:focus
+    outline: none
 
-    /**
-     * Form Area
-     * -------------------------------------------------------------------------
-     */
+  /**
+   * Form Area
+   * -------------------------------------------------------------------------
+   */
 
-    &__form {
-        // Important for absoute centering.
-        height: 100%;
+  &__form
+    // Important for absoute centering.
+    height: 100%
 
-        fieldset {
-            height: 100%;
-            position: relative;
-            width: 100%;
-        }
-    }
+    fieldset
+      height: 100%
+      position: relative
+      width: 100%
 
-    /**
-     * Input Area
-     * -------------------------------------------------------------------------
-     */
+  /**
+   * Input Area
+   * -------------------------------------------------------------------------
+   */
 
-    &__input, label[for=modal-search__input] {
-        box-sizing: border-box;
-        // color: color(rmwb);
-        display: block;
-        font-size: 2rem;
-        margin: 0 auto;
-        text-align: center;
-        width: 90%;
-        @include absolute-center;
+  &__input, label[for=modal-search__input]
+    box-sizing: border-box
+    // color: color(rmwb)
+    display: block
+    font-size: 2rem
+    margin: 0 auto
+    text-align: center
+    width: 90%
+    +absolute-center
 
-        // @include placeholder-style {
-        //     color: rgba(color(rmwb), 0.5);
-        // }
+    // +placeholder-style
+    //     color: rgba(color(rmwb), 0.5)
 
-        @include media(1024) {
-            font-size: 4.5rem;
-        }
+    +media(1024)
+      font-size: 4.5rem
 
-        &:focus + label {
-            display: none;
-        }
-    }
+    &:focus + label
+      display: none
 
-    .toggle {
-        @include fluid-square(2rem 1);
-        @include absolute(1rem 1rem auto auto);
-    }
-}
+  .toggle
+    +fluid-square(2rem 1)
+    +absolute(1rem 1rem auto auto)
 
-.modal-search-input:focus + label {
-    display: none;
-    visibility: hidden;
-}
+.modal-search-input:focus + label
+  display: none
+  visibility: hidden

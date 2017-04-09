@@ -10,53 +10,46 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-.lightbox {
-    background: color(whites, x-light);
-    outline: 0;
-    transition: opacity .15s;
-    z-index: 4;
-    @include fixed(0);
+.lightbox
+  background: color(whites, x-light)
+  outline: 0
+  transition: opacity .15s
+  z-index: 4
+  +fixed(0)
 
-    &__anchor {
-        @include absolute(0);
-    }
+  &__anchor
+    +absolute(0)
 
-    &__image {
-        box-sizing: border-box;
-        margin: 0;
-        max-height: 95%;
-        max-width: 95%;
-        @include absolute-center;
-    }
-}
+  &__image
+    box-sizing: border-box
+    margin: 0
+    max-height: 95%
+    max-width: 95%
+    +absolute-center
 
 /**
  * Figure and Figure Photobox Elements
  * -----------------------------------------------------------------------------
  */
 
-figure {
-    a {
-        display: block;
-        /* Every word has a space afterward, above and below, set by the browser.
-         * An object with display "inline-block" or similar is treated as a word
-         * by your browser, and given a small trailing space beside and below,
-         * determined by either the element or element parent's font-size value.
-         *
-         * This will offset images several pixels from where they should be, in
-         * circumstances where those extra pixels will break layout. */
-        font-size: 0;
-        margin-bottom: $split-column-margin;
+figure
+  a
+    display: block
+    /* Every word has a space afterward, above and below, set by the browser.
+     * An object with display "inline-block" or similar is treated as a word
+     * by your browser, and given a small trailing space beside and below,
+     * determined by either the element or element parent's font-size value.
+     *
+     * This will offset images several pixels from where they should be, in
+     * circumstances where those extra pixels will break layout. */
+    font-size: 0
+    margin-bottom: $split-column-margin
 
-        @include media(640) {
-            margin-bottom: $vspace;
-        }
-    }
+    +media(640)
+      margin-bottom: $vspace
 
-    img {
-        width: 100%;
-    }
-}
+  img
+    width: 100%
 
 /**
  * Figure Photobox Elements
@@ -65,17 +58,13 @@ figure {
  * Photoboxes for two, three and four images beside each other exist.
  */
 
-.photobox {
-    $photoboxes: (two, three, four);
+.photobox
+  $photoboxes: (two, three, four)
 
-    @for $n from 1 through length($photoboxes) {
-        &--#{nth($photoboxes, $n)} {
-            @include columns(flex, a, $n + 1, $split-column-margin);
+  @for $n from 1 through length($photoboxes)
+    &--#{nth($photoboxes, $n)}
+      +columns(flex, a, $n + 1, $split-column-margin)
 
-            a:nth-last-child(-n+#{$n + 1}) {
-                // 0 bottom margin in last row.
-                margin-bottom: 0;
-            }
-        }
-    }
-}
+      a:nth-last-child(-n+#{$n + 1})
+        // 0 bottom margin in last row.
+        margin-bottom: 0
