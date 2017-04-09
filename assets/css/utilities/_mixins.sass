@@ -16,14 +16,13 @@
  * -----------------------------------------------------------------------------
  */
 
-@mixin avatar($width: 7rem) {
-    border: 0.1rem solid rgba(color(rmwb), 0.25);
-    border-radius: 50%;
-    flex: 0 1 auto;
-    width: $width;
-    height: $width;
-    @content;
-}
+=avatar($width: 7rem)
+  border: 0.1rem solid rgba(color(rmwb), 0.25)
+  border-radius: 50%
+  flex: 0 1 auto
+  width: $width
+  height: $width
+  @content
 
 /**
  * Flex Center Children
@@ -33,34 +32,29 @@
  * be prettily centered vertically.
  */
 
-@mixin flex-center-children($child) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+=flex-center-children($child)
+  display: flex
+  flex-direction: column
+  justify-content: center
 
-    &#{$child} {
-        flex: 0 1 auto;
-    }
-}
+  &#{$child}
+    flex: 0 1 auto
 
 /*
  * Desired Float Styles
  * -----------------------------------------------------------------------------
  */
 
-@mixin float($side: left) {
-    $margin: 0 2rem 0.5rem 0;
+=float($side: left)
+  $margin: 0 2rem 0.5rem 0
 
-    @if $side != left {
-        $side: right;
-        $margin: 0 0 0.5rem 2rem;
-    }
+  @if $side != left
+    $side: right
+    $margin: 0 0 0.5rem 2rem
 
-    float: $side;
-    margin: $margin;
-    width: 50%;
+  float: $side
+  margin: $margin
+  width: 50%
 
-    @include media(768) {
-        width: 30%;
-    }
-}
+  +media(768)
+    width: 30%

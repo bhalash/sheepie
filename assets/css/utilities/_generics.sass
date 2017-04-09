@@ -16,137 +16,168 @@
  * -----------------------------------------------------------------------------
  */
 
-.round {
-    border-radius: 50%;
-}
+.round
+  border-radius: 50%
 
 /*
  * Social Sharing Vector Icons
  * -----------------------------------------------------------------------------
  */
 
-.social {
-    @include social(null, '.social__icon');
+.social
+  +social(null, '.social__icon')
 
-    a, &__icon {
-        box-sizing: border-box;
-        display: block;
-        font-size: inherit;
-        line-height: inherit;
-        padding: 0;
-        @include fluid-square(100% 1);
-    }
+  a, &__icon
+    box-sizing: border-box
+    display: block
+    font-size: inherit
+    line-height: inherit
+    padding: 0
+    +fluid-square(100% 1)
 
-    a {
-        font-size: 0 !important;
-        line-height: normal;
-    }
-}
+  a
+    font-size: 0 !important
+    line-height: normal
 
 /*
  * Hide During Printing
  * -----------------------------------------------------------------------------
  */
 
-.noprint {
-    @include media(print) {
-        display: none !important;
-    }
-}
+.noprint
+  +media(print)
+    display: none !important
 
 /*
  * Clearfix
  * -----------------------------------------------------------------------------
  */
 
-.clearfix {
-    @include clearfix;
-}
+.clearfix
+  +clearfix
 
 /*
  * User Avatar
  * -----------------------------------------------------------------------------
  */
 
-.avatar {
-    @include columns(flex, div, 17.5% auto, 5%);
+.avatar
+  +columns(flex, div, 17.5% auto, 5%)
 
-    @include media(540) {
-        @include columns(flex, div, 10% auto, 2%);
-    }
+  +media(540)
+    +columns(flex, div, 10% auto, 2%)
 
-    &__photo {
-        background: center/cover no-repeat;
-        display: block;
-        @include fluid-square(100% 1);
-    }
-}
+  &__photo
+    background: center/cover no-repeat
+    display: block
+    +fluid-square(100% 1)
 
 /**
  * Font Sizes
  * -----------------------------------------------------------------------------
  */
 
-.text {
-    &--small {
-        font-size: $font-size--paragraph * 0.8;
-        line-height: $vspace;
-    }
+.text
+  &--small
+    font-size: $font-size--paragraph * 0.8
+    line-height: $vspace
 
-    &--big { font-size: $font-size--paragraph * 1.2; }
-    &--bold { font-weight: bold }
-    &--italic { font-style: italic; }
-    &--left { text-align: left; }
-    &--center { text-align: center; }
-    &--right { text-align: right; }
-}
+  &--big
+    font-size: $font-size--paragraph * 1.2
+
+  &--bold
+    font-weight: bold
+
+  &--italic
+    font-style: italic
+
+  &--left
+    text-align: left
+
+  &--center
+    text-align: center
+
+  &--right
+    text-align: right
 
 /**
  * Display State with Opacity Transition
  * -----------------------------------------------------------------------------
  */
 
-.hidden {
-    display: none;
-}
+.hidden
+  display: none
 
 /**
  * Floats
  * -----------------------------------------------------------------------------
  */
 
-.float {
-    &--left  { float: left; }
-    &--right { float: right; }
-    &--none  { @include nofloat; }
-}
+.float
+  &--left
+    float: left
+
+  &--right
+    float: right
+
+  &--none
+    +nofloat
 
 /**
  * Vertical Spacing
  * -----------------------------------------------------------------------------
  */
 
-.vspace {
-    &--triple       { margin-bottom: $vspace * 3; }
-    &--double       { margin-bottom: $vspace * 2; }
-    &--full         { margin-bottom: $vspace * 1; }
-    &--threequarter { margin-bottom: $vspace * 0.75; }
-    &--twothird     { margin-bottom: $vspace * 0.66; }
-    &--half         { margin-bottom: $vspace * 0.50; }
-    &--onethird     { margin-bottom: $vspace * 0.33; }
-    &--quarter      { margin-bottom: $vspace * 0.25; }
-}
+.vspace
+  &--triple
+    margin-bottom: $vspace * 3
 
-.vcenter {
-    &--triple       { @include vertical-center($vspace * 3); }
-    &--double       { @include vertical-center($vspace * 2); }
-    &--full         { @include vertical-center($vspace * 1); }
-    &--threequarter { @include vertical-center($vspace * 0.33); }
-    &--twothird     { @include vertical-center($vspace * 0.33); }
-    &--half         { @include vertical-center($vspace * 0.33); }
-    &--onethird     { @include vertical-center($vspace * 0.33); }
-    &--quarter      { @include vertical-center($vspace * 0.25); }
-}
+  &--double
+    margin-bottom: $vspace * 2
+
+  &--full
+    margin-bottom: $vspace * 1
+
+  &--threequarter
+    margin-bottom: $vspace * 0.75
+
+  &--twothird
+    margin-bottom: $vspace * 0.66
+
+  &--half
+    margin-bottom: $vspace * 0.50
+
+  &--onethird
+    margin-bottom: $vspace * 0.33
+
+  &--quarter
+    margin-bottom: $vspace * 0.25
+
+
+.vcenter
+  &--triple
+    +vertical-center($vspace * 3)
+
+  &--double
+    +vertical-center($vspace * 2)
+
+  &--full
+    +vertical-center($vspace * 1)
+
+  &--threequarter
+    +vertical-center($vspace * 0.33)
+
+  &--twothird
+    +vertical-center($vspace * 0.33)
+
+  &--half
+    +vertical-center($vspace * 0.33)
+
+  &--onethird
+    +vertical-center($vspace * 0.33)
+
+  &--quarter
+    +vertical-center($vspace * 0.25)
 
 /**
  * Theme Colours
@@ -154,19 +185,24 @@
  * FIXME: This section can be replaced by iteration!!
  */
 
-.color {
-    &--blues {
-        &--bg,   &--bg-hover:hover   { background-color: color(blues); }
-        &--text, &--text-hover:hover { color: color(blues); }
-    }
+.color
+  &--blues
+    &--bg, &--bg-hover:hover
+      background-color: color(blues)
 
-    &--rmwb {
-        &--bg,   &--bg-hover:hover   { background-color: color(rmwb); }
-        &--text, &--text-hover:hover { color: color(rmwb); }
-    }
+    &--text, &--text-hover:hover
+      color: color(blues)
 
-    &--white {
-        &--bg,   &--bg-hover:hover   { background-color: color(whites, x-light); }
-        &--text, &--text-hover:hover { color: color(whites, x-light); }
-    }
-}
+  &--rmwb
+    &--bg, &--bg-hover:hover
+      background-color: color(rmwb)
+
+    &--text, &--text-hover:hover
+    color: color(rmwb)
+
+  &--white
+    &--bg, &--bg-hover:hover
+      background-color: color(whites, x-light)
+
+    &--text, &--text-hover:hover
+      color: color(whites, x-light)
