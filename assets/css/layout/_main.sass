@@ -15,19 +15,16 @@
  * -----------------------------------------------------------------------------
  */
 
-.main {
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: 72rem;
-    min-width: 0;
-    padding: 3%;
+.main
+  box-sizing: border-box
+  margin: 0 auto
+  max-width: 72rem
+  min-width: 0
+  padding: 3%
 
-    @include media(768) {
-        padding: 7.5%;
-    }
+  +media(768)
+    padding: 7.5%
 
-    @include media(print) {
-        max-width: 100%;
-        padding: 0;
-    }
-}
+  +media(print)
+    max-width: 100%
+    padding: 0

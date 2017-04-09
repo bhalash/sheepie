@@ -10,84 +10,70 @@
  * @link       https://github.com/bhalash/sheepie
  */
 
-div.archive {
-    @include media(640) {
-        @include columns(flex, div, 2, 2);
-    }
-}
+div.archive
+  +media(640)
+    +columns(flex, div, 2, 2)
 
 /**
  * Timed Archive Card Year
  * -----------------------------------------------------------------------------
  */
 
-.archive-year-name {
-    background: center/cover;
-    text-align: center;
+.archive-year-name
+  background: center/cover
+  text-align: center
 
-    a {
-        background: rgba(0,0,0,0.4);
-        color: color(whites, x-light);
-        display: block;
-        padding: 2rem;
+  a
+    background: rgba(0,0,0,0.4)
+    color: color(whites, x-light)
+    display: block
+    padding: 2rem
 
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
+    &:hover
+      text-decoration: none
 
-.archive-card-year {
-    background: color(blacks);
-    box-sizing: border-box;
-    list-style-type: none;
-    padding: 0.5rem;
-    text-align: center;
-    @include columns(float, li, 4, 1%);
-}
+.archive-card-year
+  background: color(blacks)
+  box-sizing: border-box
+  list-style-type: none
+  padding: 0.5rem
+  text-align: center
+  +columns(float, li, 4, 1%)
 
 /**
  * Timed Archive Card Month
  * -----------------------------------------------------------------------------
  */
 
-.archive-card-month {
-    color: color(whites, x-light);
-    margin-bottom: 1%;
-}
+.archive-card-month
+  color: color(whites, x-light)
+  margin-bottom: 1%
 
 /**
  * Timed Archive Card Data
  * -----------------------------------------------------------------------------
  */
 
-.archive-card-data {
-    span {
-        @include absolute(50% 50%, top left);
-        transform: translate(-50%, -50%);
-    }
+.archive-card-data
+  span
+    +absolute(50% 50%, top left)
+    transform: translate(-50%, -50%)
 
-    span.month-count {
-        display: none;
-    }
+  span.month-count
+    display: none
 
-    &:hover span.month-count {
-        display: initial;
-    }
+  &:hover span.month-count
+    display: initial
 
-    &:hover span.month-name {
-        display: none;
-    }
-}
+  &:hover span.month-name
+    display: none
 
-.archive-card-month a {
-    background: color(blacks, mid-dark);
-    color: inherit;
-    display: block;
-    position: relative;
-    @include fluid-square(100% 1);
+.archive-card-month a
+  background: color(blacks, mid-dark)
+  color: inherit
+  display: block
+  position: relative
+  +fluid-square(100% 1)
 
-    &:hover {
-        background: color(blues);
-    }
-}
+  &:hover
+    background: color(blues)
