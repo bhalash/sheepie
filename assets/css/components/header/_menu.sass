@@ -27,10 +27,12 @@
       justify-content: center
 
   .menu-item
-    margin-left: $vspace * 0.5
     overflow: hidden
     padding: 0
     +fluid-square(3rem 1)
+
+    &:not(:last-child)
+      margin-left: $vspace * 0.5
 
     +media(768)
       +fluid-square(2.5rem 1)
