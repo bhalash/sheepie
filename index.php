@@ -15,6 +15,8 @@
 get_header();
 global $paged;
 
+printf('<div class="articles">');
+
 if (have_posts()) {
     while (have_posts()) {
         the_post();
@@ -23,6 +25,8 @@ if (have_posts()) {
 } else {
     sheepie_partial('article', 'missing');
 }
+
+printf('</div>');
 
 sheepie_partial('pagination', 'site');
 get_footer();
