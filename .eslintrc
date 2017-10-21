@@ -1,7 +1,24 @@
+// vim: set ft=javascript:
 {
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "globals": {
+        "ActionCable": true,
+        "App": true,
+        "Clipboard": true,
+        "Turbolinks": true,
+        "FB" : true,
+        "ga" : true,
+        "_": true,
+        "gc": true,
+        "OneSignal": true
+    },
     "extends": "eslint:recommended",
     "env": {
         "node": true,
+        "jquery": true,
         "browser": true,
         "es6": true,
         "amd": true
@@ -40,7 +57,11 @@
             "error", "unix"
         ],
         "quotes": [
-            "error", "single"
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
         ],
         "comma-dangle": [
             "error", "never"
@@ -82,7 +103,12 @@
             { "ignoreUrls": true }
         ],
         "no-unused-vars": [
-            "error"
+            "error", {
+                "argsIgnorePattern": "^(event|error)$"
+            }
+        ],
+        "space-in-parens": [
+            "error", "never"
         ]
     }
 }
