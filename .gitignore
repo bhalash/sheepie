@@ -1,16 +1,14 @@
-/*
+# Editor and OS Junk
+
 .sass-cache/
-/**/*DS_Store
+**/.DS_Store
+**/tags
+
+# Folders
+
+/node_modules
+
+# Other Files
+
 /assets/js/analytics.js
-
-!/assets/
-!/includes
-!/lib/
-!/partials/
-
-!*.php
-!.eslintrc.json
-!.gitignore
-!.gitmodules
-!LICENSE
-!README.md
+sheepie.zip
