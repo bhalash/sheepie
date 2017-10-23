@@ -220,7 +220,7 @@ add_filter('the_content', function($content) {
  */
 
 add_filter('the_content', function($content) {
-    $content = preg_replace('ix\.bhalash\.com', 'd14688ez193dsv.cloudfront.net', $content);
+    $content = preg_replace('/ix\.bhalash\.com/', 'd14688ez193dsv.cloudfront.net', $content);
     return $content;
 }, 20, 1);
 
