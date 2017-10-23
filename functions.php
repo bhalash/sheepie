@@ -210,4 +210,17 @@ add_filter('the_content', function($content) {
     return $content;
 }, 20, 1);
 
+/**
+ * Map ix.bhalash.com => d14688ez193dsv.cloudfront.net
+ *
+ * Test rewrite for purpose of identifying CDN failiures.'
+ *
+ * @param string $content
+ * @return string $content
+ */
+
+add_filter('the_content', function($content) {
+    return preg_replace('ix\.bhalash.\.com', 'd14688ez193dsv.cloudfront.net', $content);
+}, 20, 1);
+
 ?>
