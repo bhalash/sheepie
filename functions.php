@@ -213,7 +213,7 @@ add_filter('the_content', function($content) {
 /**
  * Map ix.bhalash.com => d14688ez193dsv.cloudfront.net
  *
- * Test rewrite for purpose of identifying CDN failiures.'
+ * Test rewrite for purpose of identifying CDN failiures.
  *
  * @param string $content
  * @return string $content
